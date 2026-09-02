@@ -6,74 +6,54 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The decoding format used to interpret incoming logs.</p>
- */
+/** The decoding format used to interpret incoming logs. */
 @JsonSerialize(using = ObservabilityPipelineDecoding.ObservabilityPipelineDecodingSerializer.class)
 public class ObservabilityPipelineDecoding extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("bytes", "gelf", "json", "syslog"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("bytes", "gelf", "json", "syslog"));
 
-  public static final ObservabilityPipelineDecoding DECODE_BYTES = new ObservabilityPipelineDecoding("bytes");
-  public static final ObservabilityPipelineDecoding DECODE_GELF = new ObservabilityPipelineDecoding("gelf");
-  public static final ObservabilityPipelineDecoding DECODE_JSON = new ObservabilityPipelineDecoding("json");
-  public static final ObservabilityPipelineDecoding DECODE_SYSLOG = new ObservabilityPipelineDecoding("syslog");
-
+  public static final ObservabilityPipelineDecoding DECODE_BYTES =
+      new ObservabilityPipelineDecoding("bytes");
+  public static final ObservabilityPipelineDecoding DECODE_GELF =
+      new ObservabilityPipelineDecoding("gelf");
+  public static final ObservabilityPipelineDecoding DECODE_JSON =
+      new ObservabilityPipelineDecoding("json");
+  public static final ObservabilityPipelineDecoding DECODE_SYSLOG =
+      new ObservabilityPipelineDecoding("syslog");
 
   ObservabilityPipelineDecoding(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineDecodingSerializer extends StdSerializer<ObservabilityPipelineDecoding> {
-      public ObservabilityPipelineDecodingSerializer(Class<ObservabilityPipelineDecoding> t) {
-          super(t);
-      }
+  public static class ObservabilityPipelineDecodingSerializer
+      extends StdSerializer<ObservabilityPipelineDecoding> {
+    public ObservabilityPipelineDecodingSerializer(Class<ObservabilityPipelineDecoding> t) {
+      super(t);
+    }
 
-      public ObservabilityPipelineDecodingSerializer() {
-          this(null);
-      }
+    public ObservabilityPipelineDecodingSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ObservabilityPipelineDecoding value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ObservabilityPipelineDecoding value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

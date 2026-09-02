@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A display_block interaction with its associated annotations.</p>
- */
+/** A display_block interaction with its associated annotations. */
 @JsonPropertyOrder({
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_ANNOTATIONS,
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_CAN_ANNOTATE,
@@ -42,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_ID,
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsDisplayBlockAnnotatedInteractionItem {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
   private List<LLMObsAnnotationItem> annotations = new ArrayList<>();
 
@@ -68,49 +54,57 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
 
   @JsonCreator
   public LLMObsDisplayBlockAnnotatedInteractionItem(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ANNOTATIONS)List<LLMObsAnnotationItem> annotations,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CAN_ANNOTATE)Boolean canAnnotate,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONTENT_ID)String contentId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DISPLAY_BLOCK)List<LLMObsContentBlock> displayBlock,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)LLMObsDisplayBlockInteractionType type) {
-        this.annotations = annotations;
-        for (LLMObsAnnotationItem item : annotations) {
-          this.unparsed |= item.unparsed;
-        }
-        this.canAnnotate = canAnnotate;
-        this.contentId = contentId;
-        this.displayBlock = displayBlock;
-        for (LLMObsContentBlock item : displayBlock) {
-          this.unparsed |= item.unparsed;
-        }
-        this.id = id;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
+          List<LLMObsAnnotationItem> annotations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CAN_ANNOTATE) Boolean canAnnotate,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAY_BLOCK)
+          List<LLMObsContentBlock> displayBlock,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          LLMObsDisplayBlockInteractionType type) {
+    this.annotations = annotations;
+    for (LLMObsAnnotationItem item : annotations) {
+      this.unparsed |= item.unparsed;
+    }
+    this.canAnnotate = canAnnotate;
+    this.contentId = contentId;
+    this.displayBlock = displayBlock;
+    for (LLMObsContentBlock item : displayBlock) {
+      this.unparsed |= item.unparsed;
+    }
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
-  public LLMObsDisplayBlockAnnotatedInteractionItem annotations(List<LLMObsAnnotationItem> annotations) {
+
+  public LLMObsDisplayBlockAnnotatedInteractionItem annotations(
+      List<LLMObsAnnotationItem> annotations) {
     this.annotations = annotations;
     for (LLMObsAnnotationItem item : annotations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public LLMObsDisplayBlockAnnotatedInteractionItem addAnnotationsItem(LLMObsAnnotationItem annotationsItem) {
+
+  public LLMObsDisplayBlockAnnotatedInteractionItem addAnnotationsItem(
+      LLMObsAnnotationItem annotationsItem) {
     this.annotations.add(annotationsItem);
     this.unparsed |= annotationsItem.unparsed;
     return this;
   }
 
   /**
-   * <p>List of annotations for this interaction.</p>
+   * List of annotations for this interaction.
+   *
    * @return annotations
-  **/
-      @JsonProperty(JSON_PROPERTY_ANNOTATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<LLMObsAnnotationItem> getAnnotations() {
-        return annotations;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ANNOTATIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsAnnotationItem> getAnnotations() {
+    return annotations;
+  }
+
   public void setAnnotations(List<LLMObsAnnotationItem> annotations) {
     this.annotations = annotations;
     if (annotations != null) {
@@ -119,66 +113,75 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
       }
     }
   }
+
   public LLMObsDisplayBlockAnnotatedInteractionItem canAnnotate(Boolean canAnnotate) {
     this.canAnnotate = canAnnotate;
     return this;
   }
 
   /**
-   * <p>Whether the current caller can annotate this interaction.</p>
+   * Whether the current caller can annotate this interaction.
+   *
    * @return canAnnotate
-  **/
-      @JsonProperty(JSON_PROPERTY_CAN_ANNOTATE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getCanAnnotate() {
-        return canAnnotate;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CAN_ANNOTATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getCanAnnotate() {
+    return canAnnotate;
+  }
+
   public void setCanAnnotate(Boolean canAnnotate) {
     this.canAnnotate = canAnnotate;
   }
+
   public LLMObsDisplayBlockAnnotatedInteractionItem contentId(String contentId) {
     this.contentId = contentId;
     return this;
   }
 
   /**
-   * <p>Server-generated deterministic identifier derived from the block list.</p>
+   * Server-generated deterministic identifier derived from the block list.
+   *
    * @return contentId
-  **/
-      @JsonProperty(JSON_PROPERTY_CONTENT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getContentId() {
-        return contentId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CONTENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getContentId() {
+    return contentId;
+  }
+
   public void setContentId(String contentId) {
     this.contentId = contentId;
   }
-  public LLMObsDisplayBlockAnnotatedInteractionItem displayBlock(List<LLMObsContentBlock> displayBlock) {
+
+  public LLMObsDisplayBlockAnnotatedInteractionItem displayBlock(
+      List<LLMObsContentBlock> displayBlock) {
     this.displayBlock = displayBlock;
     for (LLMObsContentBlock item : displayBlock) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public LLMObsDisplayBlockAnnotatedInteractionItem addDisplayBlockItem(LLMObsContentBlock displayBlockItem) {
+
+  public LLMObsDisplayBlockAnnotatedInteractionItem addDisplayBlockItem(
+      LLMObsContentBlock displayBlockItem) {
     this.displayBlock.add(displayBlockItem);
     this.unparsed |= displayBlockItem.unparsed;
     return this;
   }
 
   /**
-   * <p>List of content blocks that make up a <code>display_block</code> interaction.
-   * Must contain at least one block.</p>
+   * List of content blocks that make up a <code>display_block</code> interaction. Must contain at
+   * least one block.
+   *
    * @return displayBlock
-  **/
-      @JsonProperty(JSON_PROPERTY_DISPLAY_BLOCK)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<LLMObsContentBlock> getDisplayBlock() {
-        return displayBlock;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DISPLAY_BLOCK)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsContentBlock> getDisplayBlock() {
+    return displayBlock;
+  }
+
   public void setDisplayBlock(List<LLMObsContentBlock> displayBlock) {
     this.displayBlock = displayBlock;
     if (displayBlock != null) {
@@ -187,24 +190,27 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
       }
     }
   }
+
   public LLMObsDisplayBlockAnnotatedInteractionItem id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Unique identifier of the interaction.</p>
+   * Unique identifier of the interaction.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public LLMObsDisplayBlockAnnotatedInteractionItem type(LLMObsDisplayBlockInteractionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -212,41 +218,42 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
   }
 
   /**
-   * <p>Type discriminator for a <code>display_block</code> interaction.</p>
+   * Type discriminator for a <code>display_block</code> interaction.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LLMObsDisplayBlockInteractionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LLMObsDisplayBlockInteractionType getType() {
+    return type;
+  }
+
   public void setType(LLMObsDisplayBlockInteractionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsDisplayBlockAnnotatedInteractionItem
    */
   @JsonAnySetter
-  public LLMObsDisplayBlockAnnotatedInteractionItem putAdditionalProperty(String key, Object value) {
+  public LLMObsDisplayBlockAnnotatedInteractionItem putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -270,14 +277,12 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsDisplayBlockAnnotatedInteractionItem object is equal to o.
-   */
+  /** Return true if this LLMObsDisplayBlockAnnotatedInteractionItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -286,14 +291,24 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsDisplayBlockAnnotatedInteractionItem llmObsDisplayBlockAnnotatedInteractionItem = (LLMObsDisplayBlockAnnotatedInteractionItem) o;
-    return Objects.equals(this.annotations, llmObsDisplayBlockAnnotatedInteractionItem.annotations) && Objects.equals(this.canAnnotate, llmObsDisplayBlockAnnotatedInteractionItem.canAnnotate) && Objects.equals(this.contentId, llmObsDisplayBlockAnnotatedInteractionItem.contentId) && Objects.equals(this.displayBlock, llmObsDisplayBlockAnnotatedInteractionItem.displayBlock) && Objects.equals(this.id, llmObsDisplayBlockAnnotatedInteractionItem.id) && Objects.equals(this.type, llmObsDisplayBlockAnnotatedInteractionItem.type) && Objects.equals(this.additionalProperties, llmObsDisplayBlockAnnotatedInteractionItem.additionalProperties);
+    LLMObsDisplayBlockAnnotatedInteractionItem llmObsDisplayBlockAnnotatedInteractionItem =
+        (LLMObsDisplayBlockAnnotatedInteractionItem) o;
+    return Objects.equals(this.annotations, llmObsDisplayBlockAnnotatedInteractionItem.annotations)
+        && Objects.equals(this.canAnnotate, llmObsDisplayBlockAnnotatedInteractionItem.canAnnotate)
+        && Objects.equals(this.contentId, llmObsDisplayBlockAnnotatedInteractionItem.contentId)
+        && Objects.equals(
+            this.displayBlock, llmObsDisplayBlockAnnotatedInteractionItem.displayBlock)
+        && Objects.equals(this.id, llmObsDisplayBlockAnnotatedInteractionItem.id)
+        && Objects.equals(this.type, llmObsDisplayBlockAnnotatedInteractionItem.type)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsDisplayBlockAnnotatedInteractionItem.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations,canAnnotate,contentId,displayBlock,id,type, additionalProperties);
+    return Objects.hash(
+        annotations, canAnnotate, contentId, displayBlock, id, type, additionalProperties);
   }
 
   @Override
@@ -314,8 +329,7 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

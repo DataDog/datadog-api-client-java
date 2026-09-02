@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A formula and functions Retention query for defining timeseries and scalar visualizations.</p>
- */
+/** A formula and functions Retention query for defining timeseries and scalar visualizations. */
 @JsonPropertyOrder({
   FormulaAndFunctionRetentionQueryDefinition.JSON_PROPERTY_COMPUTE,
   FormulaAndFunctionRetentionQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -41,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   FormulaAndFunctionRetentionQueryDefinition.JSON_PROPERTY_NAME,
   FormulaAndFunctionRetentionQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionRetentionQueryDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private RetentionCompute compute;
 
@@ -64,18 +50,20 @@ public class FormulaAndFunctionRetentionQueryDefinition {
 
   @JsonCreator
   public FormulaAndFunctionRetentionQueryDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTE)RetentionCompute compute,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)RetentionDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH)RetentionSearch search) {
-        this.compute = compute;
-        this.unparsed |= compute.unparsed;
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.name = name;
-        this.search = search;
-        this.unparsed |= search.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE) RetentionCompute compute,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          RetentionDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) RetentionSearch search) {
+    this.compute = compute;
+    this.unparsed |= compute.unparsed;
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.name = name;
+    this.search = search;
+    this.unparsed |= search.unparsed;
   }
+
   public FormulaAndFunctionRetentionQueryDefinition compute(RetentionCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
@@ -83,21 +71,23 @@ public class FormulaAndFunctionRetentionQueryDefinition {
   }
 
   /**
-   * <p>Compute configuration for retention queries.</p>
+   * Compute configuration for retention queries.
+   *
    * @return compute
-  **/
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionCompute getCompute() {
-        return compute;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionCompute getCompute() {
+    return compute;
+  }
+
   public void setCompute(RetentionCompute compute) {
     this.compute = compute;
     if (compute != null) {
       this.unparsed |= compute.unparsed;
     }
   }
+
   public FormulaAndFunctionRetentionQueryDefinition dataSource(RetentionDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -105,30 +95,33 @@ public class FormulaAndFunctionRetentionQueryDefinition {
   }
 
   /**
-   * <p>Data source for retention queries.</p>
+   * Data source for retention queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(RetentionDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public FormulaAndFunctionRetentionQueryDefinition groupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
-    for (RetentionGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
-    }
+      for (RetentionGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public FormulaAndFunctionRetentionQueryDefinition addGroupByItem(RetentionGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -139,16 +132,17 @@ public class FormulaAndFunctionRetentionQueryDefinition {
   }
 
   /**
-   * <p>Group by configuration.</p>
+   * Group by configuration.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<RetentionGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<RetentionGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
@@ -157,24 +151,27 @@ public class FormulaAndFunctionRetentionQueryDefinition {
       }
     }
   }
+
   public FormulaAndFunctionRetentionQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the query for use in formulas.</p>
+   * Name of the query for use in formulas.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public FormulaAndFunctionRetentionQueryDefinition search(RetentionSearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -182,15 +179,16 @@ public class FormulaAndFunctionRetentionQueryDefinition {
   }
 
   /**
-   * <p>Search configuration for retention queries.</p>
+   * Search configuration for retention queries.
+   *
    * @return search
-  **/
-      @JsonProperty(JSON_PROPERTY_SEARCH)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionSearch getSearch() {
-        return search;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SEARCH)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionSearch getSearch() {
+    return search;
+  }
+
   public void setSearch(RetentionSearch search) {
     this.search = search;
     if (search != null) {
@@ -199,24 +197,24 @@ public class FormulaAndFunctionRetentionQueryDefinition {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return FormulaAndFunctionRetentionQueryDefinition
    */
   @JsonAnySetter
-  public FormulaAndFunctionRetentionQueryDefinition putAdditionalProperty(String key, Object value) {
+  public FormulaAndFunctionRetentionQueryDefinition putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -240,14 +238,12 @@ public class FormulaAndFunctionRetentionQueryDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FormulaAndFunctionRetentionQueryDefinition object is equal to o.
-   */
+  /** Return true if this FormulaAndFunctionRetentionQueryDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -256,14 +252,21 @@ public class FormulaAndFunctionRetentionQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionRetentionQueryDefinition formulaAndFunctionRetentionQueryDefinition = (FormulaAndFunctionRetentionQueryDefinition) o;
-    return Objects.equals(this.compute, formulaAndFunctionRetentionQueryDefinition.compute) && Objects.equals(this.dataSource, formulaAndFunctionRetentionQueryDefinition.dataSource) && Objects.equals(this.groupBy, formulaAndFunctionRetentionQueryDefinition.groupBy) && Objects.equals(this.name, formulaAndFunctionRetentionQueryDefinition.name) && Objects.equals(this.search, formulaAndFunctionRetentionQueryDefinition.search) && Objects.equals(this.additionalProperties, formulaAndFunctionRetentionQueryDefinition.additionalProperties);
+    FormulaAndFunctionRetentionQueryDefinition formulaAndFunctionRetentionQueryDefinition =
+        (FormulaAndFunctionRetentionQueryDefinition) o;
+    return Objects.equals(this.compute, formulaAndFunctionRetentionQueryDefinition.compute)
+        && Objects.equals(this.dataSource, formulaAndFunctionRetentionQueryDefinition.dataSource)
+        && Objects.equals(this.groupBy, formulaAndFunctionRetentionQueryDefinition.groupBy)
+        && Objects.equals(this.name, formulaAndFunctionRetentionQueryDefinition.name)
+        && Objects.equals(this.search, formulaAndFunctionRetentionQueryDefinition.search)
+        && Objects.equals(
+            this.additionalProperties,
+            formulaAndFunctionRetentionQueryDefinition.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute,dataSource,groupBy,name,search, additionalProperties);
+    return Objects.hash(compute, dataSource, groupBy, name, search, additionalProperties);
   }
 
   @Override
@@ -283,8 +286,7 @@ public class FormulaAndFunctionRetentionQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

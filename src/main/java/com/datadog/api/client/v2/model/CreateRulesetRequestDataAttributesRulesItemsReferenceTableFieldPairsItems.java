@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The definition of <code>CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems</code> object.</p>
+ * The definition of <code>CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
+ * </code> object.
  */
 @JsonPropertyOrder({
-  CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems.JSON_PROPERTY_INPUT_COLUMN,
+  CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
+      .JSON_PROPERTY_INPUT_COLUMN,
   CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems.JSON_PROPERTY_OUTPUT_KEY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INPUT_COLUMN = "input_column";
   private String inputColumn;
 
@@ -52,67 +40,73 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPair
 
   @JsonCreator
   public CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems(
-            @JsonProperty(required=true, value=JSON_PROPERTY_INPUT_COLUMN)String inputColumn,
-            @JsonProperty(required=true, value=JSON_PROPERTY_OUTPUT_KEY)String outputKey) {
-        this.inputColumn = inputColumn;
-        this.outputKey = outputKey;
+      @JsonProperty(required = true, value = JSON_PROPERTY_INPUT_COLUMN) String inputColumn,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OUTPUT_KEY) String outputKey) {
+    this.inputColumn = inputColumn;
+    this.outputKey = outputKey;
   }
-  public CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems inputColumn(String inputColumn) {
+
+  public CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems inputColumn(
+      String inputColumn) {
     this.inputColumn = inputColumn;
     return this;
   }
 
   /**
-   * <p>The <code>items</code> <code>input_column</code>.</p>
+   * The <code>items</code> <code>input_column</code>.
+   *
    * @return inputColumn
-  **/
-      @JsonProperty(JSON_PROPERTY_INPUT_COLUMN)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getInputColumn() {
-        return inputColumn;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_INPUT_COLUMN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getInputColumn() {
+    return inputColumn;
+  }
+
   public void setInputColumn(String inputColumn) {
     this.inputColumn = inputColumn;
   }
-  public CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems outputKey(String outputKey) {
+
+  public CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems outputKey(
+      String outputKey) {
     this.outputKey = outputKey;
     return this;
   }
 
   /**
-   * <p>The <code>items</code> <code>output_key</code>.</p>
+   * The <code>items</code> <code>output_key</code>.
+   *
    * @return outputKey
-  **/
-      @JsonProperty(JSON_PROPERTY_OUTPUT_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getOutputKey() {
-        return outputKey;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OUTPUT_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getOutputKey() {
+    return outputKey;
+  }
+
   public void setOutputKey(String outputKey) {
     this.outputKey = outputKey;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
    */
   @JsonAnySetter
-  public CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems putAdditionalProperty(String key, Object value) {
+  public CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
+      putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -136,13 +130,14 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPair
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems object is equal to o.
+   * Return true if this CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
+   * object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -152,20 +147,31 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPair
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems = (CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems) o;
-    return Objects.equals(this.inputColumn, createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems.inputColumn) && Objects.equals(this.outputKey, createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems.outputKey) && Objects.equals(this.additionalProperties, createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems.additionalProperties);
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
+        createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems =
+            (CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems) o;
+    return Objects.equals(
+            this.inputColumn,
+            createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems.inputColumn)
+        && Objects.equals(
+            this.outputKey,
+            createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems.outputKey)
+        && Objects.equals(
+            this.additionalProperties,
+            createRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems
+                .additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputColumn,outputKey, additionalProperties);
+    return Objects.hash(inputColumn, outputKey, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems {\n");
+    sb.append(
+        "class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems {\n");
     sb.append("    inputColumn: ").append(toIndentedString(inputColumn)).append("\n");
     sb.append("    outputKey: ").append(toIndentedString(outputKey)).append("\n");
     sb.append("    additionalProperties: ")
@@ -176,8 +182,7 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPair
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

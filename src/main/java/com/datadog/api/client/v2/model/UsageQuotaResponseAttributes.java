@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a usage quota.</p>
- */
+/** Attributes of a usage quota. */
 @JsonPropertyOrder({
   UsageQuotaResponseAttributes.JSON_PROPERTY_ENFORCED,
   UsageQuotaResponseAttributes.JSON_PROPERTY_ORG_PUBLIC_ID,
   UsageQuotaResponseAttributes.JSON_PROPERTY_SCOPE,
   UsageQuotaResponseAttributes.JSON_PROPERTY_USAGE_LIMIT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageQuotaResponseAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENFORCED = "enforced";
   private Boolean enforced;
 
@@ -60,53 +44,59 @@ public class UsageQuotaResponseAttributes {
 
   @JsonCreator
   public UsageQuotaResponseAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ENFORCED)Boolean enforced,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ORG_PUBLIC_ID)String orgPublicId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_USAGE_LIMIT)Double usageLimit) {
-        this.enforced = enforced;
-        this.orgPublicId = orgPublicId;
-        this.usageLimit = usageLimit;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENFORCED) Boolean enforced,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ORG_PUBLIC_ID) String orgPublicId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_USAGE_LIMIT) Double usageLimit) {
+    this.enforced = enforced;
+    this.orgPublicId = orgPublicId;
+    this.usageLimit = usageLimit;
   }
+
   public UsageQuotaResponseAttributes enforced(Boolean enforced) {
     this.enforced = enforced;
     return this;
   }
 
   /**
-   * <p>Whether usage above the limit is actively blocked instead of only tracked or alerted on.</p>
+   * Whether usage above the limit is actively blocked instead of only tracked or alerted on.
+   *
    * @return enforced
-  **/
-      @JsonProperty(JSON_PROPERTY_ENFORCED)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getEnforced() {
-        return enforced;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ENFORCED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnforced() {
+    return enforced;
+  }
+
   public void setEnforced(Boolean enforced) {
     this.enforced = enforced;
   }
+
   public UsageQuotaResponseAttributes orgPublicId(String orgPublicId) {
     this.orgPublicId = orgPublicId;
     return this;
   }
 
   /**
-   * <p>The public ID of the organization that owns the quota.</p>
+   * The public ID of the organization that owns the quota.
+   *
    * @return orgPublicId
-  **/
-      @JsonProperty(JSON_PROPERTY_ORG_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getOrgPublicId() {
-        return orgPublicId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ORG_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getOrgPublicId() {
+    return orgPublicId;
+  }
+
   public void setOrgPublicId(String orgPublicId) {
     this.orgPublicId = orgPublicId;
   }
+
   public UsageQuotaResponseAttributes scope(Map<String, String> scope) {
     this.scope = scope;
     return this;
   }
+
   public UsageQuotaResponseAttributes putScopeItem(String key, String scopeItem) {
     if (this.scope == null) {
       this.scope = new HashMap<>();
@@ -116,48 +106,54 @@ public class UsageQuotaResponseAttributes {
   }
 
   /**
-   * <p>A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A value of <code>"*"</code> identifies the default quota applied to entities without a specific quota. This field is omitted for an organization-wide quota.</p>
+   * A namespace-specific key and value identifying what the quota applies to within an
+   * organization. The object contains exactly one entry. A value of <code>"*"</code> identifies the
+   * default quota applied to entities without a specific quota. This field is omitted for an
+   * organization-wide quota.
+   *
    * @return scope
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCOPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getScope() {
-        return scope;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getScope() {
+    return scope;
+  }
+
   public void setScope(Map<String, String> scope) {
     this.scope = scope;
   }
+
   public UsageQuotaResponseAttributes usageLimit(Double usageLimit) {
     this.usageLimit = usageLimit;
     return this;
   }
 
   /**
-   * <p>The quota limit in the usage units defined by the quota namespace. May be fractional for quotas configured before public writes required whole units.</p>
+   * The quota limit in the usage units defined by the quota namespace. May be fractional for quotas
+   * configured before public writes required whole units.
+   *
    * @return usageLimit
-  **/
-      @JsonProperty(JSON_PROPERTY_USAGE_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Double getUsageLimit() {
-        return usageLimit;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_USAGE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getUsageLimit() {
+    return usageLimit;
+  }
+
   public void setUsageLimit(Double usageLimit) {
     this.usageLimit = usageLimit;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -166,7 +162,7 @@ public class UsageQuotaResponseAttributes {
   @JsonAnySetter
   public UsageQuotaResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -190,14 +186,12 @@ public class UsageQuotaResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UsageQuotaResponseAttributes object is equal to o.
-   */
+  /** Return true if this UsageQuotaResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -207,13 +201,17 @@ public class UsageQuotaResponseAttributes {
       return false;
     }
     UsageQuotaResponseAttributes usageQuotaResponseAttributes = (UsageQuotaResponseAttributes) o;
-    return Objects.equals(this.enforced, usageQuotaResponseAttributes.enforced) && Objects.equals(this.orgPublicId, usageQuotaResponseAttributes.orgPublicId) && Objects.equals(this.scope, usageQuotaResponseAttributes.scope) && Objects.equals(this.usageLimit, usageQuotaResponseAttributes.usageLimit) && Objects.equals(this.additionalProperties, usageQuotaResponseAttributes.additionalProperties);
+    return Objects.equals(this.enforced, usageQuotaResponseAttributes.enforced)
+        && Objects.equals(this.orgPublicId, usageQuotaResponseAttributes.orgPublicId)
+        && Objects.equals(this.scope, usageQuotaResponseAttributes.scope)
+        && Objects.equals(this.usageLimit, usageQuotaResponseAttributes.usageLimit)
+        && Objects.equals(
+            this.additionalProperties, usageQuotaResponseAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(enforced,orgPublicId,scope,usageLimit, additionalProperties);
+    return Objects.hash(enforced, orgPublicId, scope, usageLimit, additionalProperties);
   }
 
   @Override
@@ -232,8 +230,7 @@ public class UsageQuotaResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

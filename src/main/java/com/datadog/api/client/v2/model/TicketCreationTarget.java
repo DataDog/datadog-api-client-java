@@ -6,72 +6,48 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The ticketing system to create tickets in.</p>
- */
+/** The ticketing system to create tickets in. */
 @JsonSerialize(using = TicketCreationTarget.TicketCreationTargetSerializer.class)
 public class TicketCreationTarget extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("jira", "case_management"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("jira", "case_management"));
 
   public static final TicketCreationTarget JIRA = new TicketCreationTarget("jira");
-  public static final TicketCreationTarget CASE_MANAGEMENT = new TicketCreationTarget("case_management");
-
+  public static final TicketCreationTarget CASE_MANAGEMENT =
+      new TicketCreationTarget("case_management");
 
   TicketCreationTarget(String value) {
     super(value, allowedValues);
   }
 
   public static class TicketCreationTargetSerializer extends StdSerializer<TicketCreationTarget> {
-      public TicketCreationTargetSerializer(Class<TicketCreationTarget> t) {
-          super(t);
-      }
+    public TicketCreationTargetSerializer(Class<TicketCreationTarget> t) {
+      super(t);
+    }
 
-      public TicketCreationTargetSerializer() {
-          this(null);
-      }
+    public TicketCreationTargetSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(TicketCreationTarget value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        TicketCreationTarget value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

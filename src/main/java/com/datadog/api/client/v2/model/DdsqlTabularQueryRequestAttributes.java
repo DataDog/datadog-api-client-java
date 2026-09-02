@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes describing the DDSQL query to execute.</p>
- */
+/** Attributes describing the DDSQL query to execute. */
 @JsonPropertyOrder({
   DdsqlTabularQueryRequestAttributes.JSON_PROPERTY_QUERY,
   DdsqlTabularQueryRequestAttributes.JSON_PROPERTY_ROW_LIMIT,
   DdsqlTabularQueryRequestAttributes.JSON_PROPERTY_TIME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DdsqlTabularQueryRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -56,53 +40,56 @@ public class DdsqlTabularQueryRequestAttributes {
 
   @JsonCreator
   public DdsqlTabularQueryRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TIME)DdsqlTabularQueryTimeWindow time) {
-        this.query = query;
-        this.time = time;
-        this.unparsed |= time.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) DdsqlTabularQueryTimeWindow time) {
+    this.query = query;
+    this.time = time;
+    this.unparsed |= time.unparsed;
   }
+
   public DdsqlTabularQueryRequestAttributes query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>The DDSQL statement to execute. DDSQL is Datadog's SQL dialect, which is a subset
-   * of PostgreSQL, scoped to Datadog data sources.</p>
+   * The DDSQL statement to execute. DDSQL is Datadog's SQL dialect, which is a subset of
+   * PostgreSQL, scoped to Datadog data sources.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public DdsqlTabularQueryRequestAttributes rowLimit(Long rowLimit) {
     this.rowLimit = rowLimit;
     return this;
   }
 
   /**
-   * <p>Cap on the number of rows returned. Defaults to 5,000 when omitted. Must be
-   * between 1 and 10,000 inclusive; values outside this range are rejected with 400.</p>
-   * minimum: 1
-   * maximum: 10000
+   * Cap on the number of rows returned. Defaults to 5,000 when omitted. Must be between 1 and
+   * 10,000 inclusive; values outside this range are rejected with 400. minimum: 1 maximum: 10000
+   *
    * @return rowLimit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ROW_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getRowLimit() {
-        return rowLimit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROW_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRowLimit() {
+    return rowLimit;
+  }
+
   public void setRowLimit(Long rowLimit) {
     this.rowLimit = rowLimit;
   }
+
   public DdsqlTabularQueryRequestAttributes time(DdsqlTabularQueryTimeWindow time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -110,18 +97,19 @@ public class DdsqlTabularQueryRequestAttributes {
   }
 
   /**
-   * <p>Time window scoping the underlying data sources, expressed in Unix milliseconds
-   * since the epoch. Inclusive on <code>from_timestamp</code>, exclusive on <code>to_timestamp</code>.
-   * Results from static tables (for example, <code>dd.hosts</code>) are not affected by the
-   * time window, but the field must still be provided.</p>
+   * Time window scoping the underlying data sources, expressed in Unix milliseconds since the
+   * epoch. Inclusive on <code>from_timestamp</code>, exclusive on <code>to_timestamp</code>.
+   * Results from static tables (for example, <code>dd.hosts</code>) are not affected by the time
+   * window, but the field must still be provided.
+   *
    * @return time
-  **/
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public DdsqlTabularQueryTimeWindow getTime() {
-        return time;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public DdsqlTabularQueryTimeWindow getTime() {
+    return time;
+  }
+
   public void setTime(DdsqlTabularQueryTimeWindow time) {
     this.time = time;
     if (time != null) {
@@ -130,15 +118,14 @@ public class DdsqlTabularQueryRequestAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -147,7 +134,7 @@ public class DdsqlTabularQueryRequestAttributes {
   @JsonAnySetter
   public DdsqlTabularQueryRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -171,14 +158,12 @@ public class DdsqlTabularQueryRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DdsqlTabularQueryRequestAttributes object is equal to o.
-   */
+  /** Return true if this DdsqlTabularQueryRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -187,14 +172,18 @@ public class DdsqlTabularQueryRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DdsqlTabularQueryRequestAttributes ddsqlTabularQueryRequestAttributes = (DdsqlTabularQueryRequestAttributes) o;
-    return Objects.equals(this.query, ddsqlTabularQueryRequestAttributes.query) && Objects.equals(this.rowLimit, ddsqlTabularQueryRequestAttributes.rowLimit) && Objects.equals(this.time, ddsqlTabularQueryRequestAttributes.time) && Objects.equals(this.additionalProperties, ddsqlTabularQueryRequestAttributes.additionalProperties);
+    DdsqlTabularQueryRequestAttributes ddsqlTabularQueryRequestAttributes =
+        (DdsqlTabularQueryRequestAttributes) o;
+    return Objects.equals(this.query, ddsqlTabularQueryRequestAttributes.query)
+        && Objects.equals(this.rowLimit, ddsqlTabularQueryRequestAttributes.rowLimit)
+        && Objects.equals(this.time, ddsqlTabularQueryRequestAttributes.time)
+        && Objects.equals(
+            this.additionalProperties, ddsqlTabularQueryRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(query,rowLimit,time, additionalProperties);
+    return Objects.hash(query, rowLimit, time, additionalProperties);
   }
 
   @Override
@@ -212,8 +201,7 @@ public class DdsqlTabularQueryRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

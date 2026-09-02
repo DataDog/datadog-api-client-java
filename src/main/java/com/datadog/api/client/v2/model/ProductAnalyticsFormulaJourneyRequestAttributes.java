@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a journey timeseries request.</p>
- */
+/** Attributes of a journey timeseries request. */
 @JsonPropertyOrder({
   ProductAnalyticsFormulaJourneyRequestAttributes.JSON_PROPERTY_FROM,
   ProductAnalyticsFormulaJourneyRequestAttributes.JSON_PROPERTY_INTERVAL,
   ProductAnalyticsFormulaJourneyRequestAttributes.JSON_PROPERTY_QUERY,
   ProductAnalyticsFormulaJourneyRequestAttributes.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsFormulaJourneyRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
 
@@ -60,111 +44,121 @@ public class ProductAnalyticsFormulaJourneyRequestAttributes {
 
   @JsonCreator
   public ProductAnalyticsFormulaJourneyRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FROM)Long from,
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)ProductAnalyticsFormulaJourneyQuery query,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TO)Long to) {
-        this.from = from;
-        this.query = query;
-        this.unparsed |= query.unparsed;
-        this.to = to;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY)
+          ProductAnalyticsFormulaJourneyQuery query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
+    this.from = from;
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    this.to = to;
   }
+
   public ProductAnalyticsFormulaJourneyRequestAttributes from(Long from) {
     this.from = from;
     return this;
   }
 
   /**
-   * <p>Start of the query window, in epoch milliseconds.</p>
+   * Start of the query window, in epoch milliseconds.
+   *
    * @return from
-  **/
-      @JsonProperty(JSON_PROPERTY_FROM)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getFrom() {
-        return from;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getFrom() {
+    return from;
+  }
+
   public void setFrom(Long from) {
     this.from = from;
   }
+
   public ProductAnalyticsFormulaJourneyRequestAttributes interval(Long interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * <p>Time bucket interval in milliseconds.</p>
+   * Time bucket interval in milliseconds.
+   *
    * @return interval
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTERVAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getInterval() {
-        return interval;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInterval() {
+    return interval;
+  }
+
   public void setInterval(Long interval) {
     this.interval = interval;
   }
-  public ProductAnalyticsFormulaJourneyRequestAttributes query(ProductAnalyticsFormulaJourneyQuery query) {
+
+  public ProductAnalyticsFormulaJourneyRequestAttributes query(
+      ProductAnalyticsFormulaJourneyQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
     return this;
   }
 
   /**
-   * <p>Query definition for a journey timeseries request.</p>
+   * Query definition for a journey timeseries request.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsFormulaJourneyQuery getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsFormulaJourneyQuery getQuery() {
+    return query;
+  }
+
   public void setQuery(ProductAnalyticsFormulaJourneyQuery query) {
     this.query = query;
     if (query != null) {
       this.unparsed |= query.unparsed;
     }
   }
+
   public ProductAnalyticsFormulaJourneyRequestAttributes to(Long to) {
     this.to = to;
     return this;
   }
 
   /**
-   * <p>End of the query window, in epoch milliseconds.</p>
+   * End of the query window, in epoch milliseconds.
+   *
    * @return to
-  **/
-      @JsonProperty(JSON_PROPERTY_TO)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getTo() {
-        return to;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getTo() {
+    return to;
+  }
+
   public void setTo(Long to) {
     this.to = to;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ProductAnalyticsFormulaJourneyRequestAttributes
    */
   @JsonAnySetter
-  public ProductAnalyticsFormulaJourneyRequestAttributes putAdditionalProperty(String key, Object value) {
+  public ProductAnalyticsFormulaJourneyRequestAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -188,14 +182,12 @@ public class ProductAnalyticsFormulaJourneyRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ProductAnalyticsFormulaJourneyRequestAttributes object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsFormulaJourneyRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,14 +196,21 @@ public class ProductAnalyticsFormulaJourneyRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsFormulaJourneyRequestAttributes productAnalyticsFormulaJourneyRequestAttributes = (ProductAnalyticsFormulaJourneyRequestAttributes) o;
-    return Objects.equals(this.from, productAnalyticsFormulaJourneyRequestAttributes.from) && Objects.equals(this.interval, productAnalyticsFormulaJourneyRequestAttributes.interval) && Objects.equals(this.query, productAnalyticsFormulaJourneyRequestAttributes.query) && Objects.equals(this.to, productAnalyticsFormulaJourneyRequestAttributes.to) && Objects.equals(this.additionalProperties, productAnalyticsFormulaJourneyRequestAttributes.additionalProperties);
+    ProductAnalyticsFormulaJourneyRequestAttributes
+        productAnalyticsFormulaJourneyRequestAttributes =
+            (ProductAnalyticsFormulaJourneyRequestAttributes) o;
+    return Objects.equals(this.from, productAnalyticsFormulaJourneyRequestAttributes.from)
+        && Objects.equals(this.interval, productAnalyticsFormulaJourneyRequestAttributes.interval)
+        && Objects.equals(this.query, productAnalyticsFormulaJourneyRequestAttributes.query)
+        && Objects.equals(this.to, productAnalyticsFormulaJourneyRequestAttributes.to)
+        && Objects.equals(
+            this.additionalProperties,
+            productAnalyticsFormulaJourneyRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(from,interval,query,to, additionalProperties);
+    return Objects.hash(from, interval, query, to, additionalProperties);
   }
 
   @Override
@@ -230,8 +229,7 @@ public class ProductAnalyticsFormulaJourneyRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

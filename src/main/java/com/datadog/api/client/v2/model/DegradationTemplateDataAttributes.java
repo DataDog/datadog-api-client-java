@@ -6,34 +6,20 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes of a degradation template.</p>
- */
+/** The attributes of a degradation template. */
 @JsonPropertyOrder({
   DegradationTemplateDataAttributes.JSON_PROPERTY_COMPONENTS_AFFECTED,
   DegradationTemplateDataAttributes.JSON_PROPERTY_CREATED_AT,
@@ -42,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   DegradationTemplateDataAttributes.JSON_PROPERTY_NAME,
   DegradationTemplateDataAttributes.JSON_PROPERTY_UPDATES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DegradationTemplateDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPONENTS_AFFECTED = "components_affected";
   private List<DegradationTemplateDataAttributesComponentsAffectedItems> componentsAffected = null;
 
@@ -64,16 +50,19 @@ public class DegradationTemplateDataAttributes {
   public static final String JSON_PROPERTY_UPDATES = "updates";
   private List<DegradationTemplateDataAttributesUpdatesItems> updates = null;
 
-  public DegradationTemplateDataAttributes componentsAffected(List<DegradationTemplateDataAttributesComponentsAffectedItems> componentsAffected) {
+  public DegradationTemplateDataAttributes componentsAffected(
+      List<DegradationTemplateDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
     if (componentsAffected != null) {
-    for (DegradationTemplateDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
-    }
+      for (DegradationTemplateDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public DegradationTemplateDataAttributes addComponentsAffectedItem(DegradationTemplateDataAttributesComponentsAffectedItems componentsAffectedItem) {
+
+  public DegradationTemplateDataAttributes addComponentsAffectedItem(
+      DegradationTemplateDataAttributesComponentsAffectedItems componentsAffectedItem) {
     if (this.componentsAffected == null) {
       this.componentsAffected = new ArrayList<>();
     }
@@ -83,17 +72,19 @@ public class DegradationTemplateDataAttributes {
   }
 
   /**
-   * <p>The components affected by a degradation created from this template.</p>
+   * The components affected by a degradation created from this template.
+   *
    * @return componentsAffected
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<DegradationTemplateDataAttributesComponentsAffectedItems> getComponentsAffected() {
-        return componentsAffected;
-      }
-  public void setComponentsAffected(List<DegradationTemplateDataAttributesComponentsAffectedItems> componentsAffected) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DegradationTemplateDataAttributesComponentsAffectedItems> getComponentsAffected() {
+    return componentsAffected;
+  }
+
+  public void setComponentsAffected(
+      List<DegradationTemplateDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
     if (componentsAffected != null) {
       for (DegradationTemplateDataAttributesComponentsAffectedItems item : componentsAffected) {
@@ -101,92 +92,104 @@ public class DegradationTemplateDataAttributes {
       }
     }
   }
+
   public DegradationTemplateDataAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>Timestamp of when the degradation template was created.</p>
+   * Timestamp of when the degradation template was created.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
   public DegradationTemplateDataAttributes degradationTitle(String degradationTitle) {
     this.degradationTitle = degradationTitle;
     return this;
   }
 
   /**
-   * <p>The title used for a degradation created from this template.</p>
+   * The title used for a degradation created from this template.
+   *
    * @return degradationTitle
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEGRADATION_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDegradationTitle() {
-        return degradationTitle;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEGRADATION_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDegradationTitle() {
+    return degradationTitle;
+  }
+
   public void setDegradationTitle(String degradationTitle) {
     this.degradationTitle = degradationTitle;
   }
+
   public DegradationTemplateDataAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * <p>Timestamp of when the degradation template was last modified.</p>
+   * Timestamp of when the degradation template was last modified.
+   *
    * @return modifiedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
+
   public DegradationTemplateDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the degradation template.</p>
+   * The name of the degradation template.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
-  public DegradationTemplateDataAttributes updates(List<DegradationTemplateDataAttributesUpdatesItems> updates) {
+
+  public DegradationTemplateDataAttributes updates(
+      List<DegradationTemplateDataAttributesUpdatesItems> updates) {
     this.updates = updates;
     if (updates != null) {
-    for (DegradationTemplateDataAttributesUpdatesItems item : updates) {
-      this.unparsed |= item.unparsed;
-    }
+      for (DegradationTemplateDataAttributesUpdatesItems item : updates) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public DegradationTemplateDataAttributes addUpdatesItem(DegradationTemplateDataAttributesUpdatesItems updatesItem) {
+
+  public DegradationTemplateDataAttributes addUpdatesItem(
+      DegradationTemplateDataAttributesUpdatesItems updatesItem) {
     if (this.updates == null) {
       this.updates = new ArrayList<>();
     }
@@ -196,16 +199,17 @@ public class DegradationTemplateDataAttributes {
   }
 
   /**
-   * <p>The pre-filled updates for a degradation created from this template.</p>
+   * The pre-filled updates for a degradation created from this template.
+   *
    * @return updates
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<DegradationTemplateDataAttributesUpdatesItems> getUpdates() {
-        return updates;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DegradationTemplateDataAttributesUpdatesItems> getUpdates() {
+    return updates;
+  }
+
   public void setUpdates(List<DegradationTemplateDataAttributesUpdatesItems> updates) {
     this.updates = updates;
     if (updates != null) {
@@ -216,15 +220,14 @@ public class DegradationTemplateDataAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -233,7 +236,7 @@ public class DegradationTemplateDataAttributes {
   @JsonAnySetter
   public DegradationTemplateDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -257,14 +260,12 @@ public class DegradationTemplateDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DegradationTemplateDataAttributes object is equal to o.
-   */
+  /** Return true if this DegradationTemplateDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -273,14 +274,29 @@ public class DegradationTemplateDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DegradationTemplateDataAttributes degradationTemplateDataAttributes = (DegradationTemplateDataAttributes) o;
-    return Objects.equals(this.componentsAffected, degradationTemplateDataAttributes.componentsAffected) && Objects.equals(this.createdAt, degradationTemplateDataAttributes.createdAt) && Objects.equals(this.degradationTitle, degradationTemplateDataAttributes.degradationTitle) && Objects.equals(this.modifiedAt, degradationTemplateDataAttributes.modifiedAt) && Objects.equals(this.name, degradationTemplateDataAttributes.name) && Objects.equals(this.updates, degradationTemplateDataAttributes.updates) && Objects.equals(this.additionalProperties, degradationTemplateDataAttributes.additionalProperties);
+    DegradationTemplateDataAttributes degradationTemplateDataAttributes =
+        (DegradationTemplateDataAttributes) o;
+    return Objects.equals(
+            this.componentsAffected, degradationTemplateDataAttributes.componentsAffected)
+        && Objects.equals(this.createdAt, degradationTemplateDataAttributes.createdAt)
+        && Objects.equals(this.degradationTitle, degradationTemplateDataAttributes.degradationTitle)
+        && Objects.equals(this.modifiedAt, degradationTemplateDataAttributes.modifiedAt)
+        && Objects.equals(this.name, degradationTemplateDataAttributes.name)
+        && Objects.equals(this.updates, degradationTemplateDataAttributes.updates)
+        && Objects.equals(
+            this.additionalProperties, degradationTemplateDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentsAffected,createdAt,degradationTitle,modifiedAt,name,updates, additionalProperties);
+    return Objects.hash(
+        componentsAffected,
+        createdAt,
+        degradationTitle,
+        modifiedAt,
+        name,
+        updates,
+        additionalProperties);
   }
 
   @Override
@@ -301,8 +317,7 @@ public class DegradationTemplateDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

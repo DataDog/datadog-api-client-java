@@ -6,34 +6,17 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A browser error captured during a browser test step.</p>
- */
+/** A browser error captured during a browser test step. */
 @JsonPropertyOrder({
   SyntheticsTestResultBrowserError.JSON_PROPERTY_DESCRIPTION,
   SyntheticsTestResultBrowserError.JSON_PROPERTY_METHOD,
@@ -42,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsTestResultBrowserError.JSON_PROPERTY_TYPE,
   SyntheticsTestResultBrowserError.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestResultBrowserError {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -70,99 +53,110 @@ public class SyntheticsTestResultBrowserError {
   }
 
   /**
-   * <p>Error description.</p>
+   * Error description.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDescription() {
-        return description;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public SyntheticsTestResultBrowserError method(String method) {
     this.method = method;
     return this;
   }
 
   /**
-   * <p>HTTP method associated with the error (for network errors).</p>
+   * HTTP method associated with the error (for network errors).
+   *
    * @return method
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METHOD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMethod() {
-        return method;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMethod() {
+    return method;
+  }
+
   public void setMethod(String method) {
     this.method = method;
   }
+
   public SyntheticsTestResultBrowserError name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Error name.</p>
+   * Error name.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SyntheticsTestResultBrowserError status(Long status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>HTTP status code associated with the error (for network errors).</p>
+   * HTTP status code associated with the error (for network errors).
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStatus() {
+    return status;
+  }
+
   public void setStatus(Long status) {
     this.status = status;
   }
+
   public SyntheticsTestResultBrowserError type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * <p>Type of the browser error.</p>
+   * Type of the browser error.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
+  }
+
   public void setType(String type) {
     this.type = type;
   }
+
   public SyntheticsTestResultBrowserError url(Map<String, Object> url) {
     this.url = url;
     return this;
   }
+
   public SyntheticsTestResultBrowserError putUrlItem(String key, Object urlItem) {
     if (this.url == null) {
       this.url = new HashMap<>();
@@ -172,30 +166,30 @@ public class SyntheticsTestResultBrowserError {
   }
 
   /**
-   * <p>URL associated with the error.</p>
+   * URL associated with the error.
+   *
    * @return url
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getUrl() {
-        return url;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getUrl() {
+    return url;
+  }
+
   public void setUrl(Map<String, Object> url) {
     this.url = url;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -204,7 +198,7 @@ public class SyntheticsTestResultBrowserError {
   @JsonAnySetter
   public SyntheticsTestResultBrowserError putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -228,14 +222,12 @@ public class SyntheticsTestResultBrowserError {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsTestResultBrowserError object is equal to o.
-   */
+  /** Return true if this SyntheticsTestResultBrowserError object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,14 +236,21 @@ public class SyntheticsTestResultBrowserError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestResultBrowserError syntheticsTestResultBrowserError = (SyntheticsTestResultBrowserError) o;
-    return Objects.equals(this.description, syntheticsTestResultBrowserError.description) && Objects.equals(this.method, syntheticsTestResultBrowserError.method) && Objects.equals(this.name, syntheticsTestResultBrowserError.name) && Objects.equals(this.status, syntheticsTestResultBrowserError.status) && Objects.equals(this.type, syntheticsTestResultBrowserError.type) && Objects.equals(this.url, syntheticsTestResultBrowserError.url) && Objects.equals(this.additionalProperties, syntheticsTestResultBrowserError.additionalProperties);
+    SyntheticsTestResultBrowserError syntheticsTestResultBrowserError =
+        (SyntheticsTestResultBrowserError) o;
+    return Objects.equals(this.description, syntheticsTestResultBrowserError.description)
+        && Objects.equals(this.method, syntheticsTestResultBrowserError.method)
+        && Objects.equals(this.name, syntheticsTestResultBrowserError.name)
+        && Objects.equals(this.status, syntheticsTestResultBrowserError.status)
+        && Objects.equals(this.type, syntheticsTestResultBrowserError.type)
+        && Objects.equals(this.url, syntheticsTestResultBrowserError.url)
+        && Objects.equals(
+            this.additionalProperties, syntheticsTestResultBrowserError.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(description,method,name,status,type,url, additionalProperties);
+    return Objects.hash(description, method, name, status, type, url, additionalProperties);
   }
 
   @Override
@@ -272,8 +271,7 @@ public class SyntheticsTestResultBrowserError {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

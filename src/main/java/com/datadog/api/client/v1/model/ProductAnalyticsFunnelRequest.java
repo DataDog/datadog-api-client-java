@@ -6,44 +6,26 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>User journey funnel widget request.</p>
- */
+/** User journey funnel widget request. */
 @JsonPropertyOrder({
   ProductAnalyticsFunnelRequest.JSON_PROPERTY_COMPARISON_SEGMENTS,
   ProductAnalyticsFunnelRequest.JSON_PROPERTY_COMPARISON_TIME,
   ProductAnalyticsFunnelRequest.JSON_PROPERTY_QUERY,
   ProductAnalyticsFunnelRequest.JSON_PROPERTY_REQUEST_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsFunnelRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPARISON_SEGMENTS = "comparison_segments";
   private List<String> comparisonSegments = null;
 
@@ -60,17 +42,20 @@ public class ProductAnalyticsFunnelRequest {
 
   @JsonCreator
   public ProductAnalyticsFunnelRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)ProductAnalyticsFunnelQuery query,
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUEST_TYPE)ProductAnalyticsFunnelRequestType requestType) {
-        this.query = query;
-        this.unparsed |= query.unparsed;
-        this.requestType = requestType;
-        this.unparsed |= !requestType.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) ProductAnalyticsFunnelQuery query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST_TYPE)
+          ProductAnalyticsFunnelRequestType requestType) {
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
   }
+
   public ProductAnalyticsFunnelRequest comparisonSegments(List<String> comparisonSegments) {
     this.comparisonSegments = comparisonSegments;
     return this;
   }
+
   public ProductAnalyticsFunnelRequest addComparisonSegmentsItem(String comparisonSegmentsItem) {
     if (this.comparisonSegments == null) {
       this.comparisonSegments = new ArrayList<>();
@@ -80,19 +65,21 @@ public class ProductAnalyticsFunnelRequest {
   }
 
   /**
-   * <p>Comparison segments.</p>
+   * Comparison segments.
+   *
    * @return comparisonSegments
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPARISON_SEGMENTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getComparisonSegments() {
-        return comparisonSegments;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPARISON_SEGMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getComparisonSegments() {
+    return comparisonSegments;
+  }
+
   public void setComparisonSegments(List<String> comparisonSegments) {
     this.comparisonSegments = comparisonSegments;
   }
+
   public ProductAnalyticsFunnelRequest comparisonTime(FunnelComparisonDuration comparisonTime) {
     this.comparisonTime = comparisonTime;
     this.unparsed |= comparisonTime.unparsed;
@@ -100,22 +87,24 @@ public class ProductAnalyticsFunnelRequest {
   }
 
   /**
-   * <p>Comparison time configuration for funnel widgets.</p>
+   * Comparison time configuration for funnel widgets.
+   *
    * @return comparisonTime
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPARISON_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FunnelComparisonDuration getComparisonTime() {
-        return comparisonTime;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPARISON_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FunnelComparisonDuration getComparisonTime() {
+    return comparisonTime;
+  }
+
   public void setComparisonTime(FunnelComparisonDuration comparisonTime) {
     this.comparisonTime = comparisonTime;
     if (comparisonTime != null) {
       this.unparsed |= comparisonTime.unparsed;
     }
   }
+
   public ProductAnalyticsFunnelRequest query(ProductAnalyticsFunnelQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -123,21 +112,23 @@ public class ProductAnalyticsFunnelRequest {
   }
 
   /**
-   * <p>User journey funnel query definition.</p>
+   * User journey funnel query definition.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsFunnelQuery getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsFunnelQuery getQuery() {
+    return query;
+  }
+
   public void setQuery(ProductAnalyticsFunnelQuery query) {
     this.query = query;
     if (query != null) {
       this.unparsed |= query.unparsed;
     }
   }
+
   public ProductAnalyticsFunnelRequest requestType(ProductAnalyticsFunnelRequestType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
@@ -145,25 +136,24 @@ public class ProductAnalyticsFunnelRequest {
   }
 
   /**
-   * <p>Request type for user journey funnel widget.</p>
+   * Request type for user journey funnel widget.
+   *
    * @return requestType
-  **/
-      @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsFunnelRequestType getRequestType() {
-        return requestType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsFunnelRequestType getRequestType() {
+    return requestType;
+  }
+
   public void setRequestType(ProductAnalyticsFunnelRequestType requestType) {
     if (!requestType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.requestType = requestType;
   }
 
-  /**
-   * Return true if this ProductAnalyticsFunnelRequest object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsFunnelRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -173,13 +163,15 @@ public class ProductAnalyticsFunnelRequest {
       return false;
     }
     ProductAnalyticsFunnelRequest productAnalyticsFunnelRequest = (ProductAnalyticsFunnelRequest) o;
-    return Objects.equals(this.comparisonSegments, productAnalyticsFunnelRequest.comparisonSegments) && Objects.equals(this.comparisonTime, productAnalyticsFunnelRequest.comparisonTime) && Objects.equals(this.query, productAnalyticsFunnelRequest.query) && Objects.equals(this.requestType, productAnalyticsFunnelRequest.requestType);
+    return Objects.equals(this.comparisonSegments, productAnalyticsFunnelRequest.comparisonSegments)
+        && Objects.equals(this.comparisonTime, productAnalyticsFunnelRequest.comparisonTime)
+        && Objects.equals(this.query, productAnalyticsFunnelRequest.query)
+        && Objects.equals(this.requestType, productAnalyticsFunnelRequest.requestType);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonSegments,comparisonTime,query,requestType);
+    return Objects.hash(comparisonSegments, comparisonTime, query, requestType);
   }
 
   @Override
@@ -195,8 +187,7 @@ public class ProductAnalyticsFunnelRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

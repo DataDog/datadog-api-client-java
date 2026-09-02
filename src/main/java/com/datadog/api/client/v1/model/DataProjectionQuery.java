@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Query configuration for a data projection request.</p>
- */
+/** Query configuration for a data projection request. */
 @JsonPropertyOrder({
   DataProjectionQuery.JSON_PROPERTY_DATA_SOURCE,
   DataProjectionQuery.JSON_PROPERTY_INDEXES,
   DataProjectionQuery.JSON_PROPERTY_QUERY_STRING,
   DataProjectionQuery.JSON_PROPERTY_STORAGE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DataProjectionQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private String dataSource;
 
@@ -60,33 +46,37 @@ public class DataProjectionQuery {
 
   @JsonCreator
   public DataProjectionQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)String dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY_STRING)String queryString) {
-        this.dataSource = dataSource;
-        this.queryString = queryString;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) String dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString) {
+    this.dataSource = dataSource;
+    this.queryString = queryString;
   }
+
   public DataProjectionQuery dataSource(String dataSource) {
     this.dataSource = dataSource;
     return this;
   }
 
   /**
-   * <p>Data source for the query.</p>
+   * Data source for the query.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(String dataSource) {
     this.dataSource = dataSource;
   }
+
   public DataProjectionQuery indexes(List<String> indexes) {
     this.indexes = indexes;
     return this;
   }
+
   public DataProjectionQuery addIndexesItem(String indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
@@ -96,67 +86,71 @@ public class DataProjectionQuery {
   }
 
   /**
-   * <p>List of indexes to query.</p>
+   * List of indexes to query.
+   *
    * @return indexes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INDEXES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getIndexes() {
-        return indexes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
+
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
+
   public DataProjectionQuery queryString(String queryString) {
     this.queryString = queryString;
     return this;
   }
 
   /**
-   * <p>The query string to filter events.</p>
+   * The query string to filter events.
+   *
    * @return queryString
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQueryString() {
-        return queryString;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQueryString() {
+    return queryString;
+  }
+
   public void setQueryString(String queryString) {
     this.queryString = queryString;
   }
+
   public DataProjectionQuery storage(String storage) {
     this.storage = storage;
     return this;
   }
 
   /**
-   * <p>Storage location for the query.</p>
+   * Storage location for the query.
+   *
    * @return storage
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STORAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStorage() {
-        return storage;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStorage() {
+    return storage;
+  }
+
   public void setStorage(String storage) {
     this.storage = storage;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -165,7 +159,7 @@ public class DataProjectionQuery {
   @JsonAnySetter
   public DataProjectionQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -189,14 +183,12 @@ public class DataProjectionQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DataProjectionQuery object is equal to o.
-   */
+  /** Return true if this DataProjectionQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -206,13 +198,16 @@ public class DataProjectionQuery {
       return false;
     }
     DataProjectionQuery dataProjectionQuery = (DataProjectionQuery) o;
-    return Objects.equals(this.dataSource, dataProjectionQuery.dataSource) && Objects.equals(this.indexes, dataProjectionQuery.indexes) && Objects.equals(this.queryString, dataProjectionQuery.queryString) && Objects.equals(this.storage, dataProjectionQuery.storage) && Objects.equals(this.additionalProperties, dataProjectionQuery.additionalProperties);
+    return Objects.equals(this.dataSource, dataProjectionQuery.dataSource)
+        && Objects.equals(this.indexes, dataProjectionQuery.indexes)
+        && Objects.equals(this.queryString, dataProjectionQuery.queryString)
+        && Objects.equals(this.storage, dataProjectionQuery.storage)
+        && Objects.equals(this.additionalProperties, dataProjectionQuery.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource,indexes,queryString,storage, additionalProperties);
+    return Objects.hash(dataSource, indexes, queryString, storage, additionalProperties);
   }
 
   @Override
@@ -231,8 +226,7 @@ public class DataProjectionQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

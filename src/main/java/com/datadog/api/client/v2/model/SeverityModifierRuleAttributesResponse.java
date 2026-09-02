@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a severity modifier rule as returned by the API.</p>
- */
+/** Attributes of a severity modifier rule as returned by the API. */
 @JsonPropertyOrder({
   SeverityModifierRuleAttributesResponse.JSON_PROPERTY_ACTION,
   SeverityModifierRuleAttributesResponse.JSON_PROPERTY_CREATED_AT,
@@ -44,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SeverityModifierRuleAttributesResponse.JSON_PROPERTY_NAME,
   SeverityModifierRuleAttributesResponse.JSON_PROPERTY_RULE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SeverityModifierRuleAttributesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private SeverityModifierRuleAction action;
 
@@ -76,27 +60,31 @@ public class SeverityModifierRuleAttributesResponse {
 
   @JsonCreator
   public SeverityModifierRuleAttributesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ACTION)SeverityModifierRuleAction action,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)Long createdAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_BY)AutomationRuleCreatedBy createdBy,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ENABLED)Boolean enabled,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MODIFIED_AT)Long modifiedAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MODIFIED_BY)AutomationRuleModifiedBy modifiedBy,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULE)AutomationRuleScope rule) {
-        this.action = action;
-        this.unparsed |= action.unparsed;
-        this.createdAt = createdAt;
-        this.createdBy = createdBy;
-        this.unparsed |= createdBy.unparsed;
-        this.enabled = enabled;
-        this.modifiedAt = modifiedAt;
-        this.modifiedBy = modifiedBy;
-        this.unparsed |= modifiedBy.unparsed;
-        this.name = name;
-        this.rule = rule;
-        this.unparsed |= rule.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACTION)
+          SeverityModifierRuleAction action,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) Long createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY)
+          AutomationRuleCreatedBy createdBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) Long modifiedAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_BY)
+          AutomationRuleModifiedBy modifiedBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE) AutomationRuleScope rule) {
+    this.action = action;
+    this.unparsed |= action.unparsed;
+    this.createdAt = createdAt;
+    this.createdBy = createdBy;
+    this.unparsed |= createdBy.unparsed;
+    this.enabled = enabled;
+    this.modifiedAt = modifiedAt;
+    this.modifiedBy = modifiedBy;
+    this.unparsed |= modifiedBy.unparsed;
+    this.name = name;
+    this.rule = rule;
+    this.unparsed |= rule.unparsed;
   }
+
   public SeverityModifierRuleAttributesResponse action(SeverityModifierRuleAction action) {
     this.action = action;
     this.unparsed |= action.unparsed;
@@ -104,41 +92,51 @@ public class SeverityModifierRuleAttributesResponse {
   }
 
   /**
-   * <p>The action to take when a severity modifier rule matches a finding. This is a discriminated union on <code>type</code>: <code>set</code> assigns a fixed severity, while <code>shift</code> moves the severity up or down by one rank.</p>
-   * <p>A severity modifier rule's <code>rule.query</code> must not filter on <code>@severity</code> or on the <code>@severity_details.user_adjusted.*</code> namespace.</p>
-   * <p>Use <code>@severity_details.adjusted.value</code> instead, which reflects the severity before user-defined adjustments.</p>
+   * The action to take when a severity modifier rule matches a finding. This is a discriminated
+   * union on <code>type</code>: <code>set</code> assigns a fixed severity, while <code>shift</code>
+   * moves the severity up or down by one rank.
+   *
+   * <p>A severity modifier rule's <code>rule.query</code> must not filter on <code>@severity</code>
+   * or on the <code>@severity_details.user_adjusted.*</code> namespace.
+   *
+   * <p>Use <code>@severity_details.adjusted.value</code> instead, which reflects the severity
+   * before user-defined adjustments.
+   *
    * @return action
-  **/
-      @JsonProperty(JSON_PROPERTY_ACTION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SeverityModifierRuleAction getAction() {
-        return action;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SeverityModifierRuleAction getAction() {
+    return action;
+  }
+
   public void setAction(SeverityModifierRuleAction action) {
     this.action = action;
     if (action != null) {
       this.unparsed |= action.unparsed;
     }
   }
+
   public SeverityModifierRuleAttributesResponse createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>The Unix timestamp in milliseconds when the rule was created.</p>
+   * The Unix timestamp in milliseconds when the rule was created.
+   *
    * @return createdAt
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(Long createdAt) {
     this.createdAt = createdAt;
   }
+
   public SeverityModifierRuleAttributesResponse createdBy(AutomationRuleCreatedBy createdBy) {
     this.createdBy = createdBy;
     this.unparsed |= createdBy.unparsed;
@@ -146,57 +144,63 @@ public class SeverityModifierRuleAttributesResponse {
   }
 
   /**
-   * <p>The user or Datadog system who created the rule.</p>
+   * The user or Datadog system who created the rule.
+   *
    * @return createdBy
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AutomationRuleCreatedBy getCreatedBy() {
-        return createdBy;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AutomationRuleCreatedBy getCreatedBy() {
+    return createdBy;
+  }
+
   public void setCreatedBy(AutomationRuleCreatedBy createdBy) {
     this.createdBy = createdBy;
     if (createdBy != null) {
       this.unparsed |= createdBy.unparsed;
     }
   }
+
   public SeverityModifierRuleAttributesResponse enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * <p>Whether the severity modifier rule is enabled.</p>
+   * Whether the severity modifier rule is enabled.
+   *
    * @return enabled
-  **/
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
+
   public SeverityModifierRuleAttributesResponse modifiedAt(Long modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * <p>The Unix timestamp in milliseconds when the rule was last modified.</p>
+   * The Unix timestamp in milliseconds when the rule was last modified.
+   *
    * @return modifiedAt
-  **/
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getModifiedAt() {
+    return modifiedAt;
+  }
+
   public void setModifiedAt(Long modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
+
   public SeverityModifierRuleAttributesResponse modifiedBy(AutomationRuleModifiedBy modifiedBy) {
     this.modifiedBy = modifiedBy;
     this.unparsed |= modifiedBy.unparsed;
@@ -204,39 +208,43 @@ public class SeverityModifierRuleAttributesResponse {
   }
 
   /**
-   * <p>The user or Datadog system who last modified the rule.</p>
+   * The user or Datadog system who last modified the rule.
+   *
    * @return modifiedBy
-  **/
-      @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AutomationRuleModifiedBy getModifiedBy() {
-        return modifiedBy;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AutomationRuleModifiedBy getModifiedBy() {
+    return modifiedBy;
+  }
+
   public void setModifiedBy(AutomationRuleModifiedBy modifiedBy) {
     this.modifiedBy = modifiedBy;
     if (modifiedBy != null) {
       this.unparsed |= modifiedBy.unparsed;
     }
   }
+
   public SeverityModifierRuleAttributesResponse name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the severity modifier rule.</p>
+   * The name of the severity modifier rule.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SeverityModifierRuleAttributesResponse rule(AutomationRuleScope rule) {
     this.rule = rule;
     this.unparsed |= rule.unparsed;
@@ -244,15 +252,16 @@ public class SeverityModifierRuleAttributesResponse {
   }
 
   /**
-   * <p>Defines the scope of findings to which the automation rule applies.</p>
+   * Defines the scope of findings to which the automation rule applies.
+   *
    * @return rule
-  **/
-      @JsonProperty(JSON_PROPERTY_RULE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AutomationRuleScope getRule() {
-        return rule;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AutomationRuleScope getRule() {
+    return rule;
+  }
+
   public void setRule(AutomationRuleScope rule) {
     this.rule = rule;
     if (rule != null) {
@@ -261,15 +270,14 @@ public class SeverityModifierRuleAttributesResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -278,7 +286,7 @@ public class SeverityModifierRuleAttributesResponse {
   @JsonAnySetter
   public SeverityModifierRuleAttributesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -302,14 +310,12 @@ public class SeverityModifierRuleAttributesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SeverityModifierRuleAttributesResponse object is equal to o.
-   */
+  /** Return true if this SeverityModifierRuleAttributesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -318,14 +324,32 @@ public class SeverityModifierRuleAttributesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SeverityModifierRuleAttributesResponse severityModifierRuleAttributesResponse = (SeverityModifierRuleAttributesResponse) o;
-    return Objects.equals(this.action, severityModifierRuleAttributesResponse.action) && Objects.equals(this.createdAt, severityModifierRuleAttributesResponse.createdAt) && Objects.equals(this.createdBy, severityModifierRuleAttributesResponse.createdBy) && Objects.equals(this.enabled, severityModifierRuleAttributesResponse.enabled) && Objects.equals(this.modifiedAt, severityModifierRuleAttributesResponse.modifiedAt) && Objects.equals(this.modifiedBy, severityModifierRuleAttributesResponse.modifiedBy) && Objects.equals(this.name, severityModifierRuleAttributesResponse.name) && Objects.equals(this.rule, severityModifierRuleAttributesResponse.rule) && Objects.equals(this.additionalProperties, severityModifierRuleAttributesResponse.additionalProperties);
+    SeverityModifierRuleAttributesResponse severityModifierRuleAttributesResponse =
+        (SeverityModifierRuleAttributesResponse) o;
+    return Objects.equals(this.action, severityModifierRuleAttributesResponse.action)
+        && Objects.equals(this.createdAt, severityModifierRuleAttributesResponse.createdAt)
+        && Objects.equals(this.createdBy, severityModifierRuleAttributesResponse.createdBy)
+        && Objects.equals(this.enabled, severityModifierRuleAttributesResponse.enabled)
+        && Objects.equals(this.modifiedAt, severityModifierRuleAttributesResponse.modifiedAt)
+        && Objects.equals(this.modifiedBy, severityModifierRuleAttributesResponse.modifiedBy)
+        && Objects.equals(this.name, severityModifierRuleAttributesResponse.name)
+        && Objects.equals(this.rule, severityModifierRuleAttributesResponse.rule)
+        && Objects.equals(
+            this.additionalProperties, severityModifierRuleAttributesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(action,createdAt,createdBy,enabled,modifiedAt,modifiedBy,name,rule, additionalProperties);
+    return Objects.hash(
+        action,
+        createdAt,
+        createdBy,
+        enabled,
+        modifiedAt,
+        modifiedBy,
+        name,
+        rule,
+        additionalProperties);
   }
 
   @Override
@@ -348,8 +372,7 @@ public class SeverityModifierRuleAttributesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

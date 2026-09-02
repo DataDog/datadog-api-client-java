@@ -6,44 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for patching a Google Chat configuration. All fields are optional.</p>
- */
+/** Attributes for patching a Google Chat configuration. All fields are optional. */
 @JsonPropertyOrder({
   IncidentGoogleChatConfigurationPatchDataAttributesRequest.JSON_PROPERTY_DOMAIN_ID,
   IncidentGoogleChatConfigurationPatchDataAttributesRequest.JSON_PROPERTY_SPACE_NAME_TEMPLATE,
   IncidentGoogleChatConfigurationPatchDataAttributesRequest.JSON_PROPERTY_SPACE_TARGET_AUDIENCE_ID,
   IncidentGoogleChatConfigurationPatchDataAttributesRequest.JSON_PROPERTY_SPACE_TIME_ZONE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentGoogleChatConfigurationPatchDataAttributesRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAIN_ID = "domain_id";
   private String domainId;
 
@@ -62,96 +45,106 @@ public class IncidentGoogleChatConfigurationPatchDataAttributesRequest {
   }
 
   /**
-   * <p>The Google Chat domain ID.</p>
+   * The Google Chat domain ID.
+   *
    * @return domainId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DOMAIN_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDomainId() {
-        return domainId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DOMAIN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDomainId() {
+    return domainId;
+  }
+
   public void setDomainId(String domainId) {
     this.domainId = domainId;
   }
-  public IncidentGoogleChatConfigurationPatchDataAttributesRequest spaceNameTemplate(String spaceNameTemplate) {
+
+  public IncidentGoogleChatConfigurationPatchDataAttributesRequest spaceNameTemplate(
+      String spaceNameTemplate) {
     this.spaceNameTemplate = spaceNameTemplate;
     return this;
   }
 
   /**
-   * <p>The template for the Google Chat space name.</p>
+   * The template for the Google Chat space name.
+   *
    * @return spaceNameTemplate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SPACE_NAME_TEMPLATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSpaceNameTemplate() {
-        return spaceNameTemplate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SPACE_NAME_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSpaceNameTemplate() {
+    return spaceNameTemplate;
+  }
+
   public void setSpaceNameTemplate(String spaceNameTemplate) {
     this.spaceNameTemplate = spaceNameTemplate;
   }
-  public IncidentGoogleChatConfigurationPatchDataAttributesRequest spaceTargetAudienceId(String spaceTargetAudienceId) {
+
+  public IncidentGoogleChatConfigurationPatchDataAttributesRequest spaceTargetAudienceId(
+      String spaceTargetAudienceId) {
     this.spaceTargetAudienceId = spaceTargetAudienceId;
     return this;
   }
 
   /**
-   * <p>The target audience ID for the Google Chat space.</p>
+   * The target audience ID for the Google Chat space.
+   *
    * @return spaceTargetAudienceId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SPACE_TARGET_AUDIENCE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSpaceTargetAudienceId() {
-        return spaceTargetAudienceId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SPACE_TARGET_AUDIENCE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSpaceTargetAudienceId() {
+    return spaceTargetAudienceId;
+  }
+
   public void setSpaceTargetAudienceId(String spaceTargetAudienceId) {
     this.spaceTargetAudienceId = spaceTargetAudienceId;
   }
-  public IncidentGoogleChatConfigurationPatchDataAttributesRequest spaceTimeZone(String spaceTimeZone) {
+
+  public IncidentGoogleChatConfigurationPatchDataAttributesRequest spaceTimeZone(
+      String spaceTimeZone) {
     this.spaceTimeZone = spaceTimeZone;
     return this;
   }
 
   /**
-   * <p>The time zone for the Google Chat space.</p>
+   * The time zone for the Google Chat space.
+   *
    * @return spaceTimeZone
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SPACE_TIME_ZONE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSpaceTimeZone() {
-        return spaceTimeZone;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SPACE_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSpaceTimeZone() {
+    return spaceTimeZone;
+  }
+
   public void setSpaceTimeZone(String spaceTimeZone) {
     this.spaceTimeZone = spaceTimeZone;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return IncidentGoogleChatConfigurationPatchDataAttributesRequest
    */
   @JsonAnySetter
-  public IncidentGoogleChatConfigurationPatchDataAttributesRequest putAdditionalProperty(String key, Object value) {
+  public IncidentGoogleChatConfigurationPatchDataAttributesRequest putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -175,13 +168,14 @@ public class IncidentGoogleChatConfigurationPatchDataAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this IncidentGoogleChatConfigurationPatchDataAttributesRequest object is equal to o.
+   * Return true if this IncidentGoogleChatConfigurationPatchDataAttributesRequest object is equal
+   * to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -191,14 +185,29 @@ public class IncidentGoogleChatConfigurationPatchDataAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentGoogleChatConfigurationPatchDataAttributesRequest incidentGoogleChatConfigurationPatchDataAttributesRequest = (IncidentGoogleChatConfigurationPatchDataAttributesRequest) o;
-    return Objects.equals(this.domainId, incidentGoogleChatConfigurationPatchDataAttributesRequest.domainId) && Objects.equals(this.spaceNameTemplate, incidentGoogleChatConfigurationPatchDataAttributesRequest.spaceNameTemplate) && Objects.equals(this.spaceTargetAudienceId, incidentGoogleChatConfigurationPatchDataAttributesRequest.spaceTargetAudienceId) && Objects.equals(this.spaceTimeZone, incidentGoogleChatConfigurationPatchDataAttributesRequest.spaceTimeZone) && Objects.equals(this.additionalProperties, incidentGoogleChatConfigurationPatchDataAttributesRequest.additionalProperties);
+    IncidentGoogleChatConfigurationPatchDataAttributesRequest
+        incidentGoogleChatConfigurationPatchDataAttributesRequest =
+            (IncidentGoogleChatConfigurationPatchDataAttributesRequest) o;
+    return Objects.equals(
+            this.domainId, incidentGoogleChatConfigurationPatchDataAttributesRequest.domainId)
+        && Objects.equals(
+            this.spaceNameTemplate,
+            incidentGoogleChatConfigurationPatchDataAttributesRequest.spaceNameTemplate)
+        && Objects.equals(
+            this.spaceTargetAudienceId,
+            incidentGoogleChatConfigurationPatchDataAttributesRequest.spaceTargetAudienceId)
+        && Objects.equals(
+            this.spaceTimeZone,
+            incidentGoogleChatConfigurationPatchDataAttributesRequest.spaceTimeZone)
+        && Objects.equals(
+            this.additionalProperties,
+            incidentGoogleChatConfigurationPatchDataAttributesRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainId,spaceNameTemplate,spaceTargetAudienceId,spaceTimeZone, additionalProperties);
+    return Objects.hash(
+        domainId, spaceNameTemplate, spaceTargetAudienceId, spaceTimeZone, additionalProperties);
   }
 
   @Override
@@ -207,7 +216,9 @@ public class IncidentGoogleChatConfigurationPatchDataAttributesRequest {
     sb.append("class IncidentGoogleChatConfigurationPatchDataAttributesRequest {\n");
     sb.append("    domainId: ").append(toIndentedString(domainId)).append("\n");
     sb.append("    spaceNameTemplate: ").append(toIndentedString(spaceNameTemplate)).append("\n");
-    sb.append("    spaceTargetAudienceId: ").append(toIndentedString(spaceTargetAudienceId)).append("\n");
+    sb.append("    spaceTargetAudienceId: ")
+        .append(toIndentedString(spaceTargetAudienceId))
+        .append("\n");
     sb.append("    spaceTimeZone: ").append(toIndentedString(spaceTimeZone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -217,8 +228,7 @@ public class IncidentGoogleChatConfigurationPatchDataAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

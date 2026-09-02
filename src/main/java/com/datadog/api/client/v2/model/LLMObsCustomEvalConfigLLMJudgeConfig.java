@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>LLM judge configuration for a custom evaluator.</p>
- */
+/** LLM judge configuration for a custom evaluator. */
 @JsonPropertyOrder({
   LLMObsCustomEvalConfigLLMJudgeConfig.JSON_PROPERTY_ASSESSMENT_CRITERIA,
   LLMObsCustomEvalConfigLLMJudgeConfig.JSON_PROPERTY_CONTEXT_QUERY,
@@ -46,10 +33,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsCustomEvalConfigLLMJudgeConfig.JSON_PROPERTY_TARGET_QUERY,
   LLMObsCustomEvalConfigLLMJudgeConfig.JSON_PROPERTY_USER_SPECIFIED_JSON_POST_PROCESSING_FUNCTION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsCustomEvalConfigLLMJudgeConfig {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSESSMENT_CRITERIA = "assessment_criteria";
   private LLMObsCustomEvalConfigAssessmentCriteria assessmentCriteria;
 
@@ -59,14 +46,17 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   public static final String JSON_PROPERTY_INFERENCE_PARAMS = "inference_params";
   private LLMObsCustomEvalConfigInferenceParams inferenceParams;
 
-  public static final String JSON_PROPERTY_LAST_USED_LIBRARY_PROMPT_TEMPLATE_NAME = "last_used_library_prompt_template_name";
+  public static final String JSON_PROPERTY_LAST_USED_LIBRARY_PROMPT_TEMPLATE_NAME =
+      "last_used_library_prompt_template_name";
   private JsonNullable<String> lastUsedLibraryPromptTemplateName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MODIFIED_LIBRARY_PROMPT_TEMPLATE = "modified_library_prompt_template";
+  public static final String JSON_PROPERTY_MODIFIED_LIBRARY_PROMPT_TEMPLATE =
+      "modified_library_prompt_template";
   private JsonNullable<Boolean> modifiedLibraryPromptTemplate = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_OUTPUT_SCHEMA = "output_schema";
-  private JsonNullable<Map<String, Object>> outputSchema = JsonNullable.<Map<String, Object>>undefined();
+  private JsonNullable<Map<String, Object>> outputSchema =
+      JsonNullable.<Map<String, Object>>undefined();
 
   public static final String JSON_PROPERTY_PARSING_TYPE = "parsing_type";
   private LLMObsCustomEvalConfigParsingType parsingType;
@@ -77,145 +67,178 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   public static final String JSON_PROPERTY_TARGET_QUERY = "target_query";
   private JsonNullable<String> targetQuery = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_USER_SPECIFIED_JSON_POST_PROCESSING_FUNCTION = "user_specified_json_post_processing_function";
-  private JsonNullable<String> userSpecifiedJsonPostProcessingFunction = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_USER_SPECIFIED_JSON_POST_PROCESSING_FUNCTION =
+      "user_specified_json_post_processing_function";
+  private JsonNullable<String> userSpecifiedJsonPostProcessingFunction =
+      JsonNullable.<String>undefined();
 
   public LLMObsCustomEvalConfigLLMJudgeConfig() {}
 
   @JsonCreator
   public LLMObsCustomEvalConfigLLMJudgeConfig(
-            @JsonProperty(required=true, value=JSON_PROPERTY_INFERENCE_PARAMS)LLMObsCustomEvalConfigInferenceParams inferenceParams) {
-        this.inferenceParams = inferenceParams;
-        this.unparsed |= inferenceParams.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_INFERENCE_PARAMS)
+          LLMObsCustomEvalConfigInferenceParams inferenceParams) {
+    this.inferenceParams = inferenceParams;
+    this.unparsed |= inferenceParams.unparsed;
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig assessmentCriteria(LLMObsCustomEvalConfigAssessmentCriteria assessmentCriteria) {
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig assessmentCriteria(
+      LLMObsCustomEvalConfigAssessmentCriteria assessmentCriteria) {
     this.assessmentCriteria = assessmentCriteria;
     this.unparsed |= assessmentCriteria.unparsed;
     return this;
   }
 
   /**
-   * <p>Criteria used to assess the pass/fail result of a custom evaluator.</p>
+   * Criteria used to assess the pass/fail result of a custom evaluator.
+   *
    * @return assessmentCriteria
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSESSMENT_CRITERIA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsCustomEvalConfigAssessmentCriteria getAssessmentCriteria() {
-        return assessmentCriteria;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSESSMENT_CRITERIA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsCustomEvalConfigAssessmentCriteria getAssessmentCriteria() {
+    return assessmentCriteria;
+  }
+
   public void setAssessmentCriteria(LLMObsCustomEvalConfigAssessmentCriteria assessmentCriteria) {
     this.assessmentCriteria = assessmentCriteria;
     if (assessmentCriteria != null) {
       this.unparsed |= assessmentCriteria.unparsed;
     }
   }
+
   public LLMObsCustomEvalConfigLLMJudgeConfig contextQuery(String contextQuery) {
     this.contextQuery = JsonNullable.<String>of(contextQuery);
     return this;
   }
 
   /**
-   * <p>Query used to extract additional context for the evaluation.</p>
+   * Query used to extract additional context for the evaluation.
+   *
    * @return contextQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getContextQuery() {
-        return contextQuery.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getContextQuery() {
+    return contextQuery.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CONTEXT_QUERY)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getContextQuery_JsonNullable() {
     return contextQuery;
   }
-  @JsonProperty(JSON_PROPERTY_CONTEXT_QUERY)public void setContextQuery_JsonNullable(JsonNullable<String> contextQuery) {
+
+  @JsonProperty(JSON_PROPERTY_CONTEXT_QUERY)
+  public void setContextQuery_JsonNullable(JsonNullable<String> contextQuery) {
     this.contextQuery = contextQuery;
   }
+
   public void setContextQuery(String contextQuery) {
     this.contextQuery = JsonNullable.<String>of(contextQuery);
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig inferenceParams(LLMObsCustomEvalConfigInferenceParams inferenceParams) {
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig inferenceParams(
+      LLMObsCustomEvalConfigInferenceParams inferenceParams) {
     this.inferenceParams = inferenceParams;
     this.unparsed |= inferenceParams.unparsed;
     return this;
   }
 
   /**
-   * <p>LLM inference parameters for a custom evaluator.</p>
+   * LLM inference parameters for a custom evaluator.
+   *
    * @return inferenceParams
-  **/
-      @JsonProperty(JSON_PROPERTY_INFERENCE_PARAMS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LLMObsCustomEvalConfigInferenceParams getInferenceParams() {
-        return inferenceParams;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_INFERENCE_PARAMS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LLMObsCustomEvalConfigInferenceParams getInferenceParams() {
+    return inferenceParams;
+  }
+
   public void setInferenceParams(LLMObsCustomEvalConfigInferenceParams inferenceParams) {
     this.inferenceParams = inferenceParams;
     if (inferenceParams != null) {
       this.unparsed |= inferenceParams.unparsed;
     }
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig lastUsedLibraryPromptTemplateName(String lastUsedLibraryPromptTemplateName) {
-    this.lastUsedLibraryPromptTemplateName = JsonNullable.<String>of(lastUsedLibraryPromptTemplateName);
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig lastUsedLibraryPromptTemplateName(
+      String lastUsedLibraryPromptTemplateName) {
+    this.lastUsedLibraryPromptTemplateName =
+        JsonNullable.<String>of(lastUsedLibraryPromptTemplateName);
     return this;
   }
 
   /**
-   * <p>Name of the last library prompt template used.</p>
+   * Name of the last library prompt template used.
+   *
    * @return lastUsedLibraryPromptTemplateName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getLastUsedLibraryPromptTemplateName() {
-        return lastUsedLibraryPromptTemplateName.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getLastUsedLibraryPromptTemplateName() {
+    return lastUsedLibraryPromptTemplateName.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LAST_USED_LIBRARY_PROMPT_TEMPLATE_NAME)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getLastUsedLibraryPromptTemplateName_JsonNullable() {
     return lastUsedLibraryPromptTemplateName;
   }
-  @JsonProperty(JSON_PROPERTY_LAST_USED_LIBRARY_PROMPT_TEMPLATE_NAME)public void setLastUsedLibraryPromptTemplateName_JsonNullable(JsonNullable<String> lastUsedLibraryPromptTemplateName) {
+
+  @JsonProperty(JSON_PROPERTY_LAST_USED_LIBRARY_PROMPT_TEMPLATE_NAME)
+  public void setLastUsedLibraryPromptTemplateName_JsonNullable(
+      JsonNullable<String> lastUsedLibraryPromptTemplateName) {
     this.lastUsedLibraryPromptTemplateName = lastUsedLibraryPromptTemplateName;
   }
+
   public void setLastUsedLibraryPromptTemplateName(String lastUsedLibraryPromptTemplateName) {
-    this.lastUsedLibraryPromptTemplateName = JsonNullable.<String>of(lastUsedLibraryPromptTemplateName);
+    this.lastUsedLibraryPromptTemplateName =
+        JsonNullable.<String>of(lastUsedLibraryPromptTemplateName);
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig modifiedLibraryPromptTemplate(Boolean modifiedLibraryPromptTemplate) {
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig modifiedLibraryPromptTemplate(
+      Boolean modifiedLibraryPromptTemplate) {
     this.modifiedLibraryPromptTemplate = JsonNullable.<Boolean>of(modifiedLibraryPromptTemplate);
     return this;
   }
 
   /**
-   * <p>Whether the library prompt template was modified.</p>
+   * Whether the library prompt template was modified.
+   *
    * @return modifiedLibraryPromptTemplate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Boolean getModifiedLibraryPromptTemplate() {
-        return modifiedLibraryPromptTemplate.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Boolean getModifiedLibraryPromptTemplate() {
+    return modifiedLibraryPromptTemplate.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MODIFIED_LIBRARY_PROMPT_TEMPLATE)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Boolean> getModifiedLibraryPromptTemplate_JsonNullable() {
     return modifiedLibraryPromptTemplate;
   }
-  @JsonProperty(JSON_PROPERTY_MODIFIED_LIBRARY_PROMPT_TEMPLATE)public void setModifiedLibraryPromptTemplate_JsonNullable(JsonNullable<Boolean> modifiedLibraryPromptTemplate) {
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_LIBRARY_PROMPT_TEMPLATE)
+  public void setModifiedLibraryPromptTemplate_JsonNullable(
+      JsonNullable<Boolean> modifiedLibraryPromptTemplate) {
     this.modifiedLibraryPromptTemplate = modifiedLibraryPromptTemplate;
   }
+
   public void setModifiedLibraryPromptTemplate(Boolean modifiedLibraryPromptTemplate) {
     this.modifiedLibraryPromptTemplate = JsonNullable.<Boolean>of(modifiedLibraryPromptTemplate);
   }
+
   public LLMObsCustomEvalConfigLLMJudgeConfig outputSchema(Map<String, Object> outputSchema) {
     this.outputSchema = JsonNullable.<Map<String, Object>>of(outputSchema);
     return this;
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig putOutputSchemaItem(String key, Object outputSchemaItem) {
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig putOutputSchemaItem(
+      String key, Object outputSchemaItem) {
     if (this.outputSchema == null || !this.outputSchema.isPresent()) {
       this.outputSchema = JsonNullable.<Map<String, Object>>of(new HashMap<>());
     }
@@ -228,59 +251,70 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   }
 
   /**
-   * <p>JSON schema describing the expected output format of the LLM judge.</p>
+   * JSON schema describing the expected output format of the LLM judge.
+   *
    * @return outputSchema
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Map<String, Object> getOutputSchema() {
-        return outputSchema.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Map<String, Object> getOutputSchema() {
+    return outputSchema.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_OUTPUT_SCHEMA)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Map<String, Object>> getOutputSchema_JsonNullable() {
     return outputSchema;
   }
-  @JsonProperty(JSON_PROPERTY_OUTPUT_SCHEMA)public void setOutputSchema_JsonNullable(JsonNullable<Map<String, Object>> outputSchema) {
+
+  @JsonProperty(JSON_PROPERTY_OUTPUT_SCHEMA)
+  public void setOutputSchema_JsonNullable(JsonNullable<Map<String, Object>> outputSchema) {
     this.outputSchema = outputSchema;
   }
+
   public void setOutputSchema(Map<String, Object> outputSchema) {
     this.outputSchema = JsonNullable.<Map<String, Object>>of(outputSchema);
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig parsingType(LLMObsCustomEvalConfigParsingType parsingType) {
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig parsingType(
+      LLMObsCustomEvalConfigParsingType parsingType) {
     this.parsingType = parsingType;
     this.unparsed |= !parsingType.isValid();
     return this;
   }
 
   /**
-   * <p>Output parsing type for a custom LLM judge evaluator.</p>
+   * Output parsing type for a custom LLM judge evaluator.
+   *
    * @return parsingType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PARSING_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsCustomEvalConfigParsingType getParsingType() {
-        return parsingType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARSING_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsCustomEvalConfigParsingType getParsingType() {
+    return parsingType;
+  }
+
   public void setParsingType(LLMObsCustomEvalConfigParsingType parsingType) {
     if (!parsingType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.parsingType = parsingType;
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig promptTemplate(List<LLMObsCustomEvalConfigPromptMessage> promptTemplate) {
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig promptTemplate(
+      List<LLMObsCustomEvalConfigPromptMessage> promptTemplate) {
     this.promptTemplate = promptTemplate;
     if (promptTemplate != null) {
-    for (LLMObsCustomEvalConfigPromptMessage item : promptTemplate) {
-      this.unparsed |= item.unparsed;
-    }
+      for (LLMObsCustomEvalConfigPromptMessage item : promptTemplate) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig addPromptTemplateItem(LLMObsCustomEvalConfigPromptMessage promptTemplateItem) {
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig addPromptTemplateItem(
+      LLMObsCustomEvalConfigPromptMessage promptTemplateItem) {
     if (this.promptTemplate == null) {
       this.promptTemplate = new ArrayList<>();
     }
@@ -290,16 +324,17 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   }
 
   /**
-   * <p>List of messages forming the LLM judge prompt template.</p>
+   * List of messages forming the LLM judge prompt template.
+   *
    * @return promptTemplate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROMPT_TEMPLATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LLMObsCustomEvalConfigPromptMessage> getPromptTemplate() {
-        return promptTemplate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROMPT_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LLMObsCustomEvalConfigPromptMessage> getPromptTemplate() {
+    return promptTemplate;
+  }
+
   public void setPromptTemplate(List<LLMObsCustomEvalConfigPromptMessage> promptTemplate) {
     this.promptTemplate = promptTemplate;
     if (promptTemplate != null) {
@@ -308,69 +343,83 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
       }
     }
   }
+
   public LLMObsCustomEvalConfigLLMJudgeConfig targetQuery(String targetQuery) {
     this.targetQuery = JsonNullable.<String>of(targetQuery);
     return this;
   }
 
   /**
-   * <p>Query used to extract the target value to evaluate.</p>
+   * Query used to extract the target value to evaluate.
+   *
    * @return targetQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getTargetQuery() {
-        return targetQuery.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getTargetQuery() {
+    return targetQuery.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TARGET_QUERY)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getTargetQuery_JsonNullable() {
     return targetQuery;
   }
-  @JsonProperty(JSON_PROPERTY_TARGET_QUERY)public void setTargetQuery_JsonNullable(JsonNullable<String> targetQuery) {
+
+  @JsonProperty(JSON_PROPERTY_TARGET_QUERY)
+  public void setTargetQuery_JsonNullable(JsonNullable<String> targetQuery) {
     this.targetQuery = targetQuery;
   }
+
   public void setTargetQuery(String targetQuery) {
     this.targetQuery = JsonNullable.<String>of(targetQuery);
   }
-  public LLMObsCustomEvalConfigLLMJudgeConfig userSpecifiedJsonPostProcessingFunction(String userSpecifiedJsonPostProcessingFunction) {
-    this.userSpecifiedJsonPostProcessingFunction = JsonNullable.<String>of(userSpecifiedJsonPostProcessingFunction);
+
+  public LLMObsCustomEvalConfigLLMJudgeConfig userSpecifiedJsonPostProcessingFunction(
+      String userSpecifiedJsonPostProcessingFunction) {
+    this.userSpecifiedJsonPostProcessingFunction =
+        JsonNullable.<String>of(userSpecifiedJsonPostProcessingFunction);
     return this;
   }
 
   /**
-   * <p>User-provided function applied to post-process the JSON output of the LLM judge.</p>
+   * User-provided function applied to post-process the JSON output of the LLM judge.
+   *
    * @return userSpecifiedJsonPostProcessingFunction
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getUserSpecifiedJsonPostProcessingFunction() {
-        return userSpecifiedJsonPostProcessingFunction.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getUserSpecifiedJsonPostProcessingFunction() {
+    return userSpecifiedJsonPostProcessingFunction.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_USER_SPECIFIED_JSON_POST_PROCESSING_FUNCTION)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getUserSpecifiedJsonPostProcessingFunction_JsonNullable() {
     return userSpecifiedJsonPostProcessingFunction;
   }
-  @JsonProperty(JSON_PROPERTY_USER_SPECIFIED_JSON_POST_PROCESSING_FUNCTION)public void setUserSpecifiedJsonPostProcessingFunction_JsonNullable(JsonNullable<String> userSpecifiedJsonPostProcessingFunction) {
+
+  @JsonProperty(JSON_PROPERTY_USER_SPECIFIED_JSON_POST_PROCESSING_FUNCTION)
+  public void setUserSpecifiedJsonPostProcessingFunction_JsonNullable(
+      JsonNullable<String> userSpecifiedJsonPostProcessingFunction) {
     this.userSpecifiedJsonPostProcessingFunction = userSpecifiedJsonPostProcessingFunction;
   }
-  public void setUserSpecifiedJsonPostProcessingFunction(String userSpecifiedJsonPostProcessingFunction) {
-    this.userSpecifiedJsonPostProcessingFunction = JsonNullable.<String>of(userSpecifiedJsonPostProcessingFunction);
+
+  public void setUserSpecifiedJsonPostProcessingFunction(
+      String userSpecifiedJsonPostProcessingFunction) {
+    this.userSpecifiedJsonPostProcessingFunction =
+        JsonNullable.<String>of(userSpecifiedJsonPostProcessingFunction);
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -379,7 +428,7 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   @JsonAnySetter
   public LLMObsCustomEvalConfigLLMJudgeConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -403,14 +452,12 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsCustomEvalConfigLLMJudgeConfig object is equal to o.
-   */
+  /** Return true if this LLMObsCustomEvalConfigLLMJudgeConfig object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -419,14 +466,44 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsCustomEvalConfigLLMJudgeConfig llmObsCustomEvalConfigLlmJudgeConfig = (LLMObsCustomEvalConfigLLMJudgeConfig) o;
-    return Objects.equals(this.assessmentCriteria, llmObsCustomEvalConfigLlmJudgeConfig.assessmentCriteria) && Objects.equals(this.contextQuery, llmObsCustomEvalConfigLlmJudgeConfig.contextQuery) && Objects.equals(this.inferenceParams, llmObsCustomEvalConfigLlmJudgeConfig.inferenceParams) && Objects.equals(this.lastUsedLibraryPromptTemplateName, llmObsCustomEvalConfigLlmJudgeConfig.lastUsedLibraryPromptTemplateName) && Objects.equals(this.modifiedLibraryPromptTemplate, llmObsCustomEvalConfigLlmJudgeConfig.modifiedLibraryPromptTemplate) && Objects.equals(this.outputSchema, llmObsCustomEvalConfigLlmJudgeConfig.outputSchema) && Objects.equals(this.parsingType, llmObsCustomEvalConfigLlmJudgeConfig.parsingType) && Objects.equals(this.promptTemplate, llmObsCustomEvalConfigLlmJudgeConfig.promptTemplate) && Objects.equals(this.targetQuery, llmObsCustomEvalConfigLlmJudgeConfig.targetQuery) && Objects.equals(this.userSpecifiedJsonPostProcessingFunction, llmObsCustomEvalConfigLlmJudgeConfig.userSpecifiedJsonPostProcessingFunction) && Objects.equals(this.additionalProperties, llmObsCustomEvalConfigLlmJudgeConfig.additionalProperties);
+    LLMObsCustomEvalConfigLLMJudgeConfig llmObsCustomEvalConfigLlmJudgeConfig =
+        (LLMObsCustomEvalConfigLLMJudgeConfig) o;
+    return Objects.equals(
+            this.assessmentCriteria, llmObsCustomEvalConfigLlmJudgeConfig.assessmentCriteria)
+        && Objects.equals(this.contextQuery, llmObsCustomEvalConfigLlmJudgeConfig.contextQuery)
+        && Objects.equals(
+            this.inferenceParams, llmObsCustomEvalConfigLlmJudgeConfig.inferenceParams)
+        && Objects.equals(
+            this.lastUsedLibraryPromptTemplateName,
+            llmObsCustomEvalConfigLlmJudgeConfig.lastUsedLibraryPromptTemplateName)
+        && Objects.equals(
+            this.modifiedLibraryPromptTemplate,
+            llmObsCustomEvalConfigLlmJudgeConfig.modifiedLibraryPromptTemplate)
+        && Objects.equals(this.outputSchema, llmObsCustomEvalConfigLlmJudgeConfig.outputSchema)
+        && Objects.equals(this.parsingType, llmObsCustomEvalConfigLlmJudgeConfig.parsingType)
+        && Objects.equals(this.promptTemplate, llmObsCustomEvalConfigLlmJudgeConfig.promptTemplate)
+        && Objects.equals(this.targetQuery, llmObsCustomEvalConfigLlmJudgeConfig.targetQuery)
+        && Objects.equals(
+            this.userSpecifiedJsonPostProcessingFunction,
+            llmObsCustomEvalConfigLlmJudgeConfig.userSpecifiedJsonPostProcessingFunction)
+        && Objects.equals(
+            this.additionalProperties, llmObsCustomEvalConfigLlmJudgeConfig.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(assessmentCriteria,contextQuery,inferenceParams,lastUsedLibraryPromptTemplateName,modifiedLibraryPromptTemplate,outputSchema,parsingType,promptTemplate,targetQuery,userSpecifiedJsonPostProcessingFunction, additionalProperties);
+    return Objects.hash(
+        assessmentCriteria,
+        contextQuery,
+        inferenceParams,
+        lastUsedLibraryPromptTemplateName,
+        modifiedLibraryPromptTemplate,
+        outputSchema,
+        parsingType,
+        promptTemplate,
+        targetQuery,
+        userSpecifiedJsonPostProcessingFunction,
+        additionalProperties);
   }
 
   @Override
@@ -436,13 +513,19 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
     sb.append("    assessmentCriteria: ").append(toIndentedString(assessmentCriteria)).append("\n");
     sb.append("    contextQuery: ").append(toIndentedString(contextQuery)).append("\n");
     sb.append("    inferenceParams: ").append(toIndentedString(inferenceParams)).append("\n");
-    sb.append("    lastUsedLibraryPromptTemplateName: ").append(toIndentedString(lastUsedLibraryPromptTemplateName)).append("\n");
-    sb.append("    modifiedLibraryPromptTemplate: ").append(toIndentedString(modifiedLibraryPromptTemplate)).append("\n");
+    sb.append("    lastUsedLibraryPromptTemplateName: ")
+        .append(toIndentedString(lastUsedLibraryPromptTemplateName))
+        .append("\n");
+    sb.append("    modifiedLibraryPromptTemplate: ")
+        .append(toIndentedString(modifiedLibraryPromptTemplate))
+        .append("\n");
     sb.append("    outputSchema: ").append(toIndentedString(outputSchema)).append("\n");
     sb.append("    parsingType: ").append(toIndentedString(parsingType)).append("\n");
     sb.append("    promptTemplate: ").append(toIndentedString(promptTemplate)).append("\n");
     sb.append("    targetQuery: ").append(toIndentedString(targetQuery)).append("\n");
-    sb.append("    userSpecifiedJsonPostProcessingFunction: ").append(toIndentedString(userSpecifiedJsonPostProcessingFunction)).append("\n");
+    sb.append("    userSpecifiedJsonPostProcessingFunction: ")
+        .append(toIndentedString(userSpecifiedJsonPostProcessingFunction))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -451,8 +534,7 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

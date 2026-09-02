@@ -6,73 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Status of a Synthetic test result.</p>
- */
+/** Status of a Synthetic test result. */
 @JsonSerialize(using = SyntheticsTestResultStatus.SyntheticsTestResultStatusSerializer.class)
 public class SyntheticsTestResultStatus extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("passed", "failed", "no_data"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("passed", "failed", "no_data"));
 
   public static final SyntheticsTestResultStatus PASSED = new SyntheticsTestResultStatus("passed");
   public static final SyntheticsTestResultStatus FAILED = new SyntheticsTestResultStatus("failed");
-  public static final SyntheticsTestResultStatus NO_DATA = new SyntheticsTestResultStatus("no_data");
-
+  public static final SyntheticsTestResultStatus NO_DATA =
+      new SyntheticsTestResultStatus("no_data");
 
   SyntheticsTestResultStatus(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsTestResultStatusSerializer extends StdSerializer<SyntheticsTestResultStatus> {
-      public SyntheticsTestResultStatusSerializer(Class<SyntheticsTestResultStatus> t) {
-          super(t);
-      }
+  public static class SyntheticsTestResultStatusSerializer
+      extends StdSerializer<SyntheticsTestResultStatus> {
+    public SyntheticsTestResultStatusSerializer(Class<SyntheticsTestResultStatus> t) {
+      super(t);
+    }
 
-      public SyntheticsTestResultStatusSerializer() {
-          this(null);
-      }
+    public SyntheticsTestResultStatusSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SyntheticsTestResultStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SyntheticsTestResultStatus value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

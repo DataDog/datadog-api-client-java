@@ -6,72 +6,56 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The level of remote shell access granted for the target paths.</p>
- */
-@JsonSerialize(using = ExecutionPolicyRemoteActionRshellAccess.ExecutionPolicyRemoteActionRshellAccessSerializer.class)
+/** The level of remote shell access granted for the target paths. */
+@JsonSerialize(
+    using =
+        ExecutionPolicyRemoteActionRshellAccess.ExecutionPolicyRemoteActionRshellAccessSerializer
+            .class)
 public class ExecutionPolicyRemoteActionRshellAccess extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("read_only", "read_write"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("read_only", "read_write"));
 
-  public static final ExecutionPolicyRemoteActionRshellAccess READ_ONLY = new ExecutionPolicyRemoteActionRshellAccess("read_only");
-  public static final ExecutionPolicyRemoteActionRshellAccess READ_WRITE = new ExecutionPolicyRemoteActionRshellAccess("read_write");
-
+  public static final ExecutionPolicyRemoteActionRshellAccess READ_ONLY =
+      new ExecutionPolicyRemoteActionRshellAccess("read_only");
+  public static final ExecutionPolicyRemoteActionRshellAccess READ_WRITE =
+      new ExecutionPolicyRemoteActionRshellAccess("read_write");
 
   ExecutionPolicyRemoteActionRshellAccess(String value) {
     super(value, allowedValues);
   }
 
-  public static class ExecutionPolicyRemoteActionRshellAccessSerializer extends StdSerializer<ExecutionPolicyRemoteActionRshellAccess> {
-      public ExecutionPolicyRemoteActionRshellAccessSerializer(Class<ExecutionPolicyRemoteActionRshellAccess> t) {
-          super(t);
-      }
+  public static class ExecutionPolicyRemoteActionRshellAccessSerializer
+      extends StdSerializer<ExecutionPolicyRemoteActionRshellAccess> {
+    public ExecutionPolicyRemoteActionRshellAccessSerializer(
+        Class<ExecutionPolicyRemoteActionRshellAccess> t) {
+      super(t);
+    }
 
-      public ExecutionPolicyRemoteActionRshellAccessSerializer() {
-          this(null);
-      }
+    public ExecutionPolicyRemoteActionRshellAccessSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ExecutionPolicyRemoteActionRshellAccess value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ExecutionPolicyRemoteActionRshellAccess value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

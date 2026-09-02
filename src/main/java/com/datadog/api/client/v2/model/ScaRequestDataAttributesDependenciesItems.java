@@ -6,33 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
 /**
-   * <p>A dependency found in the repository, including its identity, location, and reachability metadata.</p>
+ * A dependency found in the repository, including its identity, location, and reachability
+ * metadata.
  */
 @JsonPropertyOrder({
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_EXCLUSIONS,
@@ -52,10 +41,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_VERSION_CONSTRAINT,
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_VERSION_RANGE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScaRequestDataAttributesDependenciesItems {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUSIONS = "exclusions";
   private List<String> exclusions = null;
 
@@ -72,7 +61,8 @@ public class ScaRequestDataAttributesDependenciesItems {
   private String language;
 
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
-  private JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>> locations = JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>undefined();
+  private JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>> locations =
+      JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -86,10 +76,13 @@ public class ScaRequestDataAttributesDependenciesItems {
   public static final String JSON_PROPERTY_PURL = "purl";
   private String purl;
 
-  public static final String JSON_PROPERTY_REACHABLE_SYMBOL_PROPERTIES = "reachable_symbol_properties";
-  private List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems> reachableSymbolProperties = null;
+  public static final String JSON_PROPERTY_REACHABLE_SYMBOL_PROPERTIES =
+      "reachable_symbol_properties";
+  private List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>
+      reachableSymbolProperties = null;
 
-  public static final String JSON_PROPERTY_REQUIRES_TRANSITIVE_ENRICHMENT = "requires_transitive_enrichment";
+  public static final String JSON_PROPERTY_REQUIRES_TRANSITIVE_ENRICHMENT =
+      "requires_transitive_enrichment";
   private Boolean requiresTransitiveEnrichment;
 
   public static final String JSON_PROPERTY_TARGET_FRAMEWORKS = "target_frameworks";
@@ -108,6 +101,7 @@ public class ScaRequestDataAttributesDependenciesItems {
     this.exclusions = exclusions;
     return this;
   }
+
   public ScaRequestDataAttributesDependenciesItems addExclusionsItem(String exclusionsItem) {
     if (this.exclusions == null) {
       this.exclusions = new ArrayList<>();
@@ -117,116 +111,138 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * <p>A list of patterns or identifiers that should be excluded from analysis for this dependency.</p>
+   * A list of patterns or identifiers that should be excluded from analysis for this dependency.
+   *
    * @return exclusions
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXCLUSIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getExclusions() {
-        return exclusions;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCLUSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getExclusions() {
+    return exclusions;
+  }
+
   public void setExclusions(List<String> exclusions) {
     this.exclusions = exclusions;
   }
+
   public ScaRequestDataAttributesDependenciesItems group(String group) {
     this.group = JsonNullable.<String>of(group);
     return this;
   }
 
   /**
-   * <p>The group or organization namespace of the dependency (e.g., Maven group ID).</p>
+   * The group or organization namespace of the dependency (e.g., Maven group ID).
+   *
    * @return group
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getGroup() {
-        return group.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getGroup() {
+    return group.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_GROUP)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getGroup_JsonNullable() {
     return group;
   }
-  @JsonProperty(JSON_PROPERTY_GROUP)public void setGroup_JsonNullable(JsonNullable<String> group) {
+
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  public void setGroup_JsonNullable(JsonNullable<String> group) {
     this.group = group;
   }
+
   public void setGroup(String group) {
     this.group = JsonNullable.<String>of(group);
   }
+
   public ScaRequestDataAttributesDependenciesItems isDev(Boolean isDev) {
     this.isDev = isDev;
     return this;
   }
 
   /**
-   * <p>Indicates whether this is a development-only dependency not used in production.</p>
+   * Indicates whether this is a development-only dependency not used in production.
+   *
    * @return isDev
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_DEV)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsDev() {
-        return isDev;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_DEV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsDev() {
+    return isDev;
+  }
+
   public void setIsDev(Boolean isDev) {
     this.isDev = isDev;
   }
+
   public ScaRequestDataAttributesDependenciesItems isDirect(Boolean isDirect) {
     this.isDirect = JsonNullable.<Boolean>of(isDirect);
     return this;
   }
 
   /**
-   * <p>Indicates whether this is a direct dependency (as opposed to a transitive one).</p>
+   * Indicates whether this is a direct dependency (as opposed to a transitive one).
+   *
    * @return isDirect
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Boolean getIsDirect() {
-        return isDirect.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Boolean getIsDirect() {
+    return isDirect.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_IS_DIRECT)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Boolean> getIsDirect_JsonNullable() {
     return isDirect;
   }
-  @JsonProperty(JSON_PROPERTY_IS_DIRECT)public void setIsDirect_JsonNullable(JsonNullable<Boolean> isDirect) {
+
+  @JsonProperty(JSON_PROPERTY_IS_DIRECT)
+  public void setIsDirect_JsonNullable(JsonNullable<Boolean> isDirect) {
     this.isDirect = isDirect;
   }
+
   public void setIsDirect(Boolean isDirect) {
     this.isDirect = JsonNullable.<Boolean>of(isDirect);
   }
+
   public ScaRequestDataAttributesDependenciesItems language(String language) {
     this.language = language;
     return this;
   }
 
   /**
-   * <p>The programming language ecosystem of this dependency (e.g., java, python, javascript).</p>
+   * The programming language ecosystem of this dependency (e.g., java, python, javascript).
+   *
    * @return language
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LANGUAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getLanguage() {
-        return language;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLanguage() {
+    return language;
+  }
+
   public void setLanguage(String language) {
     this.language = language;
   }
-  public ScaRequestDataAttributesDependenciesItems locations(List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations) {
-    this.locations = JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(locations);
+
+  public ScaRequestDataAttributesDependenciesItems locations(
+      List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations) {
+    this.locations =
+        JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(locations);
     return this;
   }
-  public ScaRequestDataAttributesDependenciesItems addLocationsItem(ScaRequestDataAttributesDependenciesItemsLocationsItems locationsItem) {
+
+  public ScaRequestDataAttributesDependenciesItems addLocationsItem(
+      ScaRequestDataAttributesDependenciesItemsLocationsItems locationsItem) {
     if (this.locations == null || !this.locations.isPresent()) {
-      this.locations = JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(new ArrayList<>());
+      this.locations =
+          JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(
+              new ArrayList<>());
     }
     try {
       this.locations.get().add(locationsItem);
@@ -237,112 +253,135 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * <p>The list of source file locations where this dependency is declared.</p>
+   * The list of source file locations where this dependency is declared.
+   *
    * @return locations
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<ScaRequestDataAttributesDependenciesItemsLocationsItems> getLocations() {
-        return locations.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<ScaRequestDataAttributesDependenciesItemsLocationsItems> getLocations() {
+    return locations.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>> getLocations_JsonNullable() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>
+      getLocations_JsonNullable() {
     return locations;
   }
-  @JsonProperty(JSON_PROPERTY_LOCATIONS)public void setLocations_JsonNullable(JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>> locations) {
+
+  @JsonProperty(JSON_PROPERTY_LOCATIONS)
+  public void setLocations_JsonNullable(
+      JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>> locations) {
     this.locations = locations;
   }
-  public void setLocations(List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations) {
-    this.locations = JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(locations);
+
+  public void setLocations(
+      List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations) {
+    this.locations =
+        JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(locations);
   }
+
   public ScaRequestDataAttributesDependenciesItems name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the dependency package.</p>
+   * The name of the dependency package.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public ScaRequestDataAttributesDependenciesItems opaque(Boolean opaque) {
     this.opaque = opaque;
     return this;
   }
 
   /**
-   * <p>Indicates whether dependency details are intentionally opaque.</p>
+   * Indicates whether dependency details are intentionally opaque.
+   *
    * @return opaque
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPAQUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getOpaque() {
-        return opaque;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPAQUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getOpaque() {
+    return opaque;
+  }
+
   public void setOpaque(Boolean opaque) {
     this.opaque = opaque;
   }
+
   public ScaRequestDataAttributesDependenciesItems packageManager(String packageManager) {
     this.packageManager = packageManager;
     return this;
   }
 
   /**
-   * <p>The package manager responsible for this dependency (e.g., maven, pip, npm).</p>
+   * The package manager responsible for this dependency (e.g., maven, pip, npm).
+   *
    * @return packageManager
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PACKAGE_MANAGER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPackageManager() {
-        return packageManager;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PACKAGE_MANAGER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPackageManager() {
+    return packageManager;
+  }
+
   public void setPackageManager(String packageManager) {
     this.packageManager = packageManager;
   }
+
   public ScaRequestDataAttributesDependenciesItems purl(String purl) {
     this.purl = purl;
     return this;
   }
 
   /**
-   * <p>The Package URL (PURL) uniquely identifying this dependency.</p>
+   * The Package URL (PURL) uniquely identifying this dependency.
+   *
    * @return purl
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PURL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPurl() {
-        return purl;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PURL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPurl() {
+    return purl;
+  }
+
   public void setPurl(String purl) {
     this.purl = purl;
   }
-  public ScaRequestDataAttributesDependenciesItems reachableSymbolProperties(List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems> reachableSymbolProperties) {
+
+  public ScaRequestDataAttributesDependenciesItems reachableSymbolProperties(
+      List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>
+          reachableSymbolProperties) {
     this.reachableSymbolProperties = reachableSymbolProperties;
     if (reachableSymbolProperties != null) {
-    for (ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems item : reachableSymbolProperties) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems item :
+          reachableSymbolProperties) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ScaRequestDataAttributesDependenciesItems addReachableSymbolPropertiesItem(ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems reachableSymbolPropertiesItem) {
+
+  public ScaRequestDataAttributesDependenciesItems addReachableSymbolPropertiesItem(
+      ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems
+          reachableSymbolPropertiesItem) {
     if (this.reachableSymbolProperties == null) {
       this.reachableSymbolProperties = new ArrayList<>();
     }
@@ -352,48 +391,59 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * <p>Properties describing symbols from this dependency that are reachable in the application code.</p>
+   * Properties describing symbols from this dependency that are reachable in the application code.
+   *
    * @return reachableSymbolProperties
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REACHABLE_SYMBOL_PROPERTIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems> getReachableSymbolProperties() {
-        return reachableSymbolProperties;
-      }
-  public void setReachableSymbolProperties(List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems> reachableSymbolProperties) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REACHABLE_SYMBOL_PROPERTIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>
+      getReachableSymbolProperties() {
+    return reachableSymbolProperties;
+  }
+
+  public void setReachableSymbolProperties(
+      List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>
+          reachableSymbolProperties) {
     this.reachableSymbolProperties = reachableSymbolProperties;
     if (reachableSymbolProperties != null) {
-      for (ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems item : reachableSymbolProperties) {
+      for (ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems item :
+          reachableSymbolProperties) {
         this.unparsed |= item.unparsed;
       }
     }
   }
-  public ScaRequestDataAttributesDependenciesItems requiresTransitiveEnrichment(Boolean requiresTransitiveEnrichment) {
+
+  public ScaRequestDataAttributesDependenciesItems requiresTransitiveEnrichment(
+      Boolean requiresTransitiveEnrichment) {
     this.requiresTransitiveEnrichment = requiresTransitiveEnrichment;
     return this;
   }
 
   /**
-   * <p>Indicates whether this dependency requires transitive dependency enrichment.</p>
+   * Indicates whether this dependency requires transitive dependency enrichment.
+   *
    * @return requiresTransitiveEnrichment
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REQUIRES_TRANSITIVE_ENRICHMENT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getRequiresTransitiveEnrichment() {
-        return requiresTransitiveEnrichment;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUIRES_TRANSITIVE_ENRICHMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRequiresTransitiveEnrichment() {
+    return requiresTransitiveEnrichment;
+  }
+
   public void setRequiresTransitiveEnrichment(Boolean requiresTransitiveEnrichment) {
     this.requiresTransitiveEnrichment = requiresTransitiveEnrichment;
   }
+
   public ScaRequestDataAttributesDependenciesItems targetFrameworks(List<String> targetFrameworks) {
     this.targetFrameworks = targetFrameworks;
     return this;
   }
-  public ScaRequestDataAttributesDependenciesItems addTargetFrameworksItem(String targetFrameworksItem) {
+
+  public ScaRequestDataAttributesDependenciesItems addTargetFrameworksItem(
+      String targetFrameworksItem) {
     if (this.targetFrameworks == null) {
       this.targetFrameworks = new ArrayList<>();
     }
@@ -402,94 +452,103 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * <p>The target framework identifiers associated with this dependency.</p>
+   * The target framework identifiers associated with this dependency.
+   *
    * @return targetFrameworks
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TARGET_FRAMEWORKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTargetFrameworks() {
-        return targetFrameworks;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET_FRAMEWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTargetFrameworks() {
+    return targetFrameworks;
+  }
+
   public void setTargetFrameworks(List<String> targetFrameworks) {
     this.targetFrameworks = targetFrameworks;
   }
+
   public ScaRequestDataAttributesDependenciesItems version(String version) {
     this.version = JsonNullable.<String>of(version);
     return this;
   }
 
   /**
-   * <p>The version of the dependency.</p>
+   * The version of the dependency.
+   *
    * @return version
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getVersion() {
-        return version.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getVersion() {
+    return version.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getVersion_JsonNullable() {
     return version;
   }
-  @JsonProperty(JSON_PROPERTY_VERSION)public void setVersion_JsonNullable(JsonNullable<String> version) {
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  public void setVersion_JsonNullable(JsonNullable<String> version) {
     this.version = version;
   }
+
   public void setVersion(String version) {
     this.version = JsonNullable.<String>of(version);
   }
+
   public ScaRequestDataAttributesDependenciesItems versionConstraint(Boolean versionConstraint) {
     this.versionConstraint = versionConstraint;
     return this;
   }
 
   /**
-   * <p>Indicates whether the version value represents a version constraint.</p>
+   * Indicates whether the version value represents a version constraint.
+   *
    * @return versionConstraint
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION_CONSTRAINT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getVersionConstraint() {
-        return versionConstraint;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_CONSTRAINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getVersionConstraint() {
+    return versionConstraint;
+  }
+
   public void setVersionConstraint(Boolean versionConstraint) {
     this.versionConstraint = versionConstraint;
   }
+
   public ScaRequestDataAttributesDependenciesItems versionRange(String versionRange) {
     this.versionRange = versionRange;
     return this;
   }
 
   /**
-   * <p>The version range associated with this dependency when a manifest declares a range.</p>
+   * The version range associated with this dependency when a manifest declares a range.
+   *
    * @return versionRange
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION_RANGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVersionRange() {
-        return versionRange;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersionRange() {
+    return versionRange;
+  }
+
   public void setVersionRange(String versionRange) {
     this.versionRange = versionRange;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -498,7 +557,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   @JsonAnySetter
   public ScaRequestDataAttributesDependenciesItems putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -522,14 +581,12 @@ public class ScaRequestDataAttributesDependenciesItems {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ScaRequestDataAttributesDependenciesItems object is equal to o.
-   */
+  /** Return true if this ScaRequestDataAttributesDependenciesItems object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -538,14 +595,56 @@ public class ScaRequestDataAttributesDependenciesItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScaRequestDataAttributesDependenciesItems scaRequestDataAttributesDependenciesItems = (ScaRequestDataAttributesDependenciesItems) o;
-    return Objects.equals(this.exclusions, scaRequestDataAttributesDependenciesItems.exclusions) && Objects.equals(this.group, scaRequestDataAttributesDependenciesItems.group) && Objects.equals(this.isDev, scaRequestDataAttributesDependenciesItems.isDev) && Objects.equals(this.isDirect, scaRequestDataAttributesDependenciesItems.isDirect) && Objects.equals(this.language, scaRequestDataAttributesDependenciesItems.language) && Objects.equals(this.locations, scaRequestDataAttributesDependenciesItems.locations) && Objects.equals(this.name, scaRequestDataAttributesDependenciesItems.name) && Objects.equals(this.opaque, scaRequestDataAttributesDependenciesItems.opaque) && Objects.equals(this.packageManager, scaRequestDataAttributesDependenciesItems.packageManager) && Objects.equals(this.purl, scaRequestDataAttributesDependenciesItems.purl) && Objects.equals(this.reachableSymbolProperties, scaRequestDataAttributesDependenciesItems.reachableSymbolProperties) && Objects.equals(this.requiresTransitiveEnrichment, scaRequestDataAttributesDependenciesItems.requiresTransitiveEnrichment) && Objects.equals(this.targetFrameworks, scaRequestDataAttributesDependenciesItems.targetFrameworks) && Objects.equals(this.version, scaRequestDataAttributesDependenciesItems.version) && Objects.equals(this.versionConstraint, scaRequestDataAttributesDependenciesItems.versionConstraint) && Objects.equals(this.versionRange, scaRequestDataAttributesDependenciesItems.versionRange) && Objects.equals(this.additionalProperties, scaRequestDataAttributesDependenciesItems.additionalProperties);
+    ScaRequestDataAttributesDependenciesItems scaRequestDataAttributesDependenciesItems =
+        (ScaRequestDataAttributesDependenciesItems) o;
+    return Objects.equals(this.exclusions, scaRequestDataAttributesDependenciesItems.exclusions)
+        && Objects.equals(this.group, scaRequestDataAttributesDependenciesItems.group)
+        && Objects.equals(this.isDev, scaRequestDataAttributesDependenciesItems.isDev)
+        && Objects.equals(this.isDirect, scaRequestDataAttributesDependenciesItems.isDirect)
+        && Objects.equals(this.language, scaRequestDataAttributesDependenciesItems.language)
+        && Objects.equals(this.locations, scaRequestDataAttributesDependenciesItems.locations)
+        && Objects.equals(this.name, scaRequestDataAttributesDependenciesItems.name)
+        && Objects.equals(this.opaque, scaRequestDataAttributesDependenciesItems.opaque)
+        && Objects.equals(
+            this.packageManager, scaRequestDataAttributesDependenciesItems.packageManager)
+        && Objects.equals(this.purl, scaRequestDataAttributesDependenciesItems.purl)
+        && Objects.equals(
+            this.reachableSymbolProperties,
+            scaRequestDataAttributesDependenciesItems.reachableSymbolProperties)
+        && Objects.equals(
+            this.requiresTransitiveEnrichment,
+            scaRequestDataAttributesDependenciesItems.requiresTransitiveEnrichment)
+        && Objects.equals(
+            this.targetFrameworks, scaRequestDataAttributesDependenciesItems.targetFrameworks)
+        && Objects.equals(this.version, scaRequestDataAttributesDependenciesItems.version)
+        && Objects.equals(
+            this.versionConstraint, scaRequestDataAttributesDependenciesItems.versionConstraint)
+        && Objects.equals(this.versionRange, scaRequestDataAttributesDependenciesItems.versionRange)
+        && Objects.equals(
+            this.additionalProperties,
+            scaRequestDataAttributesDependenciesItems.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(exclusions,group,isDev,isDirect,language,locations,name,opaque,packageManager,purl,reachableSymbolProperties,requiresTransitiveEnrichment,targetFrameworks,version,versionConstraint,versionRange, additionalProperties);
+    return Objects.hash(
+        exclusions,
+        group,
+        isDev,
+        isDirect,
+        language,
+        locations,
+        name,
+        opaque,
+        packageManager,
+        purl,
+        reachableSymbolProperties,
+        requiresTransitiveEnrichment,
+        targetFrameworks,
+        version,
+        versionConstraint,
+        versionRange,
+        additionalProperties);
   }
 
   @Override
@@ -562,8 +661,12 @@ public class ScaRequestDataAttributesDependenciesItems {
     sb.append("    opaque: ").append(toIndentedString(opaque)).append("\n");
     sb.append("    packageManager: ").append(toIndentedString(packageManager)).append("\n");
     sb.append("    purl: ").append(toIndentedString(purl)).append("\n");
-    sb.append("    reachableSymbolProperties: ").append(toIndentedString(reachableSymbolProperties)).append("\n");
-    sb.append("    requiresTransitiveEnrichment: ").append(toIndentedString(requiresTransitiveEnrichment)).append("\n");
+    sb.append("    reachableSymbolProperties: ")
+        .append(toIndentedString(reachableSymbolProperties))
+        .append("\n");
+    sb.append("    requiresTransitiveEnrichment: ")
+        .append(toIndentedString(requiresTransitiveEnrichment))
+        .append("\n");
     sb.append("    targetFrameworks: ").append(toIndentedString(targetFrameworks)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionConstraint: ").append(toIndentedString(versionConstraint)).append("\n");
@@ -576,8 +679,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,75 +6,61 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
-   * <p>The position of a weekday within a month for a monthly Synthetics downtime recurrence. <code>1</code> through <code>4</code> select the first through fourth occurrence of the weekday in the month, and <code>-1</code> selects the last occurrence.</p>
+ * The position of a weekday within a month for a monthly Synthetics downtime recurrence. <code>1
+ * </code> through <code>4</code> select the first through fourth occurrence of the weekday in the
+ * month, and <code>-1</code> selects the last occurrence.
  */
-@JsonSerialize(using = SyntheticsDowntimeWeekdayPosition.SyntheticsDowntimeWeekdayPositionSerializer.class)
+@JsonSerialize(
+    using = SyntheticsDowntimeWeekdayPosition.SyntheticsDowntimeWeekdayPositionSerializer.class)
 public class SyntheticsDowntimeWeekdayPosition extends ModelEnum<Long> {
 
-  private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(1l, 2l, 3l, 4l, -1l));
+  private static final Set<Long> allowedValues =
+      new HashSet<Long>(Arrays.asList(1l, 2l, 3l, 4l, -1l));
 
-  public static final SyntheticsDowntimeWeekdayPosition FIRST = new SyntheticsDowntimeWeekdayPosition(1l);
-  public static final SyntheticsDowntimeWeekdayPosition SECOND = new SyntheticsDowntimeWeekdayPosition(2l);
-  public static final SyntheticsDowntimeWeekdayPosition THIRD = new SyntheticsDowntimeWeekdayPosition(3l);
-  public static final SyntheticsDowntimeWeekdayPosition FOURTH = new SyntheticsDowntimeWeekdayPosition(4l);
-  public static final SyntheticsDowntimeWeekdayPosition LAST = new SyntheticsDowntimeWeekdayPosition(-1l);
-
+  public static final SyntheticsDowntimeWeekdayPosition FIRST =
+      new SyntheticsDowntimeWeekdayPosition(1l);
+  public static final SyntheticsDowntimeWeekdayPosition SECOND =
+      new SyntheticsDowntimeWeekdayPosition(2l);
+  public static final SyntheticsDowntimeWeekdayPosition THIRD =
+      new SyntheticsDowntimeWeekdayPosition(3l);
+  public static final SyntheticsDowntimeWeekdayPosition FOURTH =
+      new SyntheticsDowntimeWeekdayPosition(4l);
+  public static final SyntheticsDowntimeWeekdayPosition LAST =
+      new SyntheticsDowntimeWeekdayPosition(-1l);
 
   SyntheticsDowntimeWeekdayPosition(Long value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsDowntimeWeekdayPositionSerializer extends StdSerializer<SyntheticsDowntimeWeekdayPosition> {
-      public SyntheticsDowntimeWeekdayPositionSerializer(Class<SyntheticsDowntimeWeekdayPosition> t) {
-          super(t);
-      }
+  public static class SyntheticsDowntimeWeekdayPositionSerializer
+      extends StdSerializer<SyntheticsDowntimeWeekdayPosition> {
+    public SyntheticsDowntimeWeekdayPositionSerializer(Class<SyntheticsDowntimeWeekdayPosition> t) {
+      super(t);
+    }
 
-      public SyntheticsDowntimeWeekdayPositionSerializer() {
-          this(null);
-      }
+    public SyntheticsDowntimeWeekdayPositionSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SyntheticsDowntimeWeekdayPosition value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SyntheticsDowntimeWeekdayPosition value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

@@ -6,50 +6,24 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Aggregator used for the request.</p>
- */
+/** Aggregator used for the request. */
 @JsonSerialize(using = ScatterplotWidgetAggregator.ScatterplotWidgetAggregatorSerializer.class)
 public class ScatterplotWidgetAggregator extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum"));
 
   public static final ScatterplotWidgetAggregator AVERAGE = new ScatterplotWidgetAggregator("avg");
   public static final ScatterplotWidgetAggregator LAST = new ScatterplotWidgetAggregator("last");
@@ -57,24 +31,26 @@ public class ScatterplotWidgetAggregator extends ModelEnum<String> {
   public static final ScatterplotWidgetAggregator MINIMUM = new ScatterplotWidgetAggregator("min");
   public static final ScatterplotWidgetAggregator SUM = new ScatterplotWidgetAggregator("sum");
 
-
   ScatterplotWidgetAggregator(String value) {
     super(value, allowedValues);
   }
 
-  public static class ScatterplotWidgetAggregatorSerializer extends StdSerializer<ScatterplotWidgetAggregator> {
-      public ScatterplotWidgetAggregatorSerializer(Class<ScatterplotWidgetAggregator> t) {
-          super(t);
-      }
+  public static class ScatterplotWidgetAggregatorSerializer
+      extends StdSerializer<ScatterplotWidgetAggregator> {
+    public ScatterplotWidgetAggregatorSerializer(Class<ScatterplotWidgetAggregator> t) {
+      super(t);
+    }
 
-      public ScatterplotWidgetAggregatorSerializer() {
-          this(null);
-      }
+    public ScatterplotWidgetAggregatorSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ScatterplotWidgetAggregator value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ScatterplotWidgetAggregator value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

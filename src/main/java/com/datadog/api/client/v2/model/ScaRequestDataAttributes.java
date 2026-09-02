@@ -6,33 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
 /**
-   * <p>The attributes of an SCA request, containing dependency graph data, vulnerability information, and repository context.</p>
+ * The attributes of an SCA request, containing dependency graph data, vulnerability information,
+ * and repository context.
  */
 @JsonPropertyOrder({
   ScaRequestDataAttributes.JSON_PROPERTY_COMMIT,
@@ -46,10 +35,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ScaRequestDataAttributes.JSON_PROPERTY_TAGS,
   ScaRequestDataAttributes.JSON_PROPERTY_VULNERABILITIES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScaRequestDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMIT = "commit";
   private ScaRequestDataAttributesCommit commit;
 
@@ -69,7 +58,8 @@ public class ScaRequestDataAttributes {
   private ScaRequestDataAttributesRepository repository;
 
   public static final String JSON_PROPERTY_SCAN_START_TIMESTAMP = "scan_start_timestamp";
-  private JsonNullable<ScaRequestDataAttributesScanStartTimestamp> scanStartTimestamp = JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>undefined();
+  private JsonNullable<ScaRequestDataAttributesScanStartTimestamp> scanStartTimestamp =
+      JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>undefined();
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
@@ -87,32 +77,38 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * <p>Metadata about the commit associated with the SCA scan, including author, committer, and branch information.</p>
+   * Metadata about the commit associated with the SCA scan, including author, committer, and branch
+   * information.
+   *
    * @return commit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ScaRequestDataAttributesCommit getCommit() {
-        return commit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScaRequestDataAttributesCommit getCommit() {
+    return commit;
+  }
+
   public void setCommit(ScaRequestDataAttributesCommit commit) {
     this.commit = commit;
     if (commit != null) {
       this.unparsed |= commit.unparsed;
     }
   }
-  public ScaRequestDataAttributes dependencies(List<ScaRequestDataAttributesDependenciesItems> dependencies) {
+
+  public ScaRequestDataAttributes dependencies(
+      List<ScaRequestDataAttributesDependenciesItems> dependencies) {
     this.dependencies = dependencies;
     if (dependencies != null) {
-    for (ScaRequestDataAttributesDependenciesItems item : dependencies) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ScaRequestDataAttributesDependenciesItems item : dependencies) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ScaRequestDataAttributes addDependenciesItem(ScaRequestDataAttributesDependenciesItems dependenciesItem) {
+
+  public ScaRequestDataAttributes addDependenciesItem(
+      ScaRequestDataAttributesDependenciesItems dependenciesItem) {
     if (this.dependencies == null) {
       this.dependencies = new ArrayList<>();
     }
@@ -122,16 +118,17 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * <p>The list of dependencies discovered in the repository.</p>
+   * The list of dependencies discovered in the repository.
+   *
    * @return dependencies
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEPENDENCIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ScaRequestDataAttributesDependenciesItems> getDependencies() {
-        return dependencies;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEPENDENCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ScaRequestDataAttributesDependenciesItems> getDependencies() {
+    return dependencies;
+  }
+
   public void setDependencies(List<ScaRequestDataAttributesDependenciesItems> dependencies) {
     this.dependencies = dependencies;
     if (dependencies != null) {
@@ -140,34 +137,38 @@ public class ScaRequestDataAttributes {
       }
     }
   }
+
   public ScaRequestDataAttributes env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * <p>The environment context in which the SCA scan was performed (e.g., production, staging).</p>
+   * The environment context in which the SCA scan was performed (e.g., production, staging).
+   *
    * @return env
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENV)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEnv() {
-        return env;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
   public void setEnv(String env) {
     this.env = env;
   }
+
   public ScaRequestDataAttributes files(List<ScaRequestDataAttributesFilesItems> files) {
     this.files = files;
     if (files != null) {
-    for (ScaRequestDataAttributesFilesItems item : files) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ScaRequestDataAttributesFilesItems item : files) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public ScaRequestDataAttributes addFilesItem(ScaRequestDataAttributesFilesItems filesItem) {
     if (this.files == null) {
       this.files = new ArrayList<>();
@@ -178,16 +179,17 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * <p>The list of dependency manifest files found in the repository.</p>
+   * The list of dependency manifest files found in the repository.
+   *
    * @return files
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ScaRequestDataAttributesFilesItems> getFiles() {
-        return files;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ScaRequestDataAttributesFilesItems> getFiles() {
+    return files;
+  }
+
   public void setFiles(List<ScaRequestDataAttributesFilesItems> files) {
     this.files = files;
     if (files != null) {
@@ -196,16 +198,20 @@ public class ScaRequestDataAttributes {
       }
     }
   }
-  public ScaRequestDataAttributes relations(List<ScaRequestDataAttributesRelationsItems> relations) {
+
+  public ScaRequestDataAttributes relations(
+      List<ScaRequestDataAttributesRelationsItems> relations) {
     this.relations = relations;
     if (relations != null) {
-    for (ScaRequestDataAttributesRelationsItems item : relations) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ScaRequestDataAttributesRelationsItems item : relations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ScaRequestDataAttributes addRelationsItem(ScaRequestDataAttributesRelationsItems relationsItem) {
+
+  public ScaRequestDataAttributes addRelationsItem(
+      ScaRequestDataAttributesRelationsItems relationsItem) {
     if (this.relations == null) {
       this.relations = new ArrayList<>();
     }
@@ -215,16 +221,17 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * <p>The dependency relations describing the inter-component dependency graph.</p>
+   * The dependency relations describing the inter-component dependency graph.
+   *
    * @return relations
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RELATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ScaRequestDataAttributesRelationsItems> getRelations() {
-        return relations;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ScaRequestDataAttributesRelationsItems> getRelations() {
+    return relations;
+  }
+
   public void setRelations(List<ScaRequestDataAttributesRelationsItems> relations) {
     this.relations = relations;
     if (relations != null) {
@@ -233,6 +240,7 @@ public class ScaRequestDataAttributes {
       }
     }
   }
+
   public ScaRequestDataAttributes repository(ScaRequestDataAttributesRepository repository) {
     this.repository = repository;
     this.unparsed |= repository.unparsed;
@@ -240,67 +248,81 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * <p>Information about the source code repository being analyzed.</p>
+   * Information about the source code repository being analyzed.
+   *
    * @return repository
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REPOSITORY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ScaRequestDataAttributesRepository getRepository() {
-        return repository;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPOSITORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScaRequestDataAttributesRepository getRepository() {
+    return repository;
+  }
+
   public void setRepository(ScaRequestDataAttributesRepository repository) {
     this.repository = repository;
     if (repository != null) {
       this.unparsed |= repository.unparsed;
     }
   }
-  public ScaRequestDataAttributes scanStartTimestamp(ScaRequestDataAttributesScanStartTimestamp scanStartTimestamp) {
-    this.scanStartTimestamp = JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>of(scanStartTimestamp);
+
+  public ScaRequestDataAttributes scanStartTimestamp(
+      ScaRequestDataAttributesScanStartTimestamp scanStartTimestamp) {
+    this.scanStartTimestamp =
+        JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>of(scanStartTimestamp);
     return this;
   }
 
   /**
-   * <p>The time when the SCA scan started.</p>
+   * The time when the SCA scan started.
+   *
    * @return scanStartTimestamp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public ScaRequestDataAttributesScanStartTimestamp getScanStartTimestamp() {
-        return scanStartTimestamp.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public ScaRequestDataAttributesScanStartTimestamp getScanStartTimestamp() {
+    return scanStartTimestamp.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SCAN_START_TIMESTAMP)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<ScaRequestDataAttributesScanStartTimestamp> getScanStartTimestamp_JsonNullable() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<ScaRequestDataAttributesScanStartTimestamp>
+      getScanStartTimestamp_JsonNullable() {
     return scanStartTimestamp;
   }
-  @JsonProperty(JSON_PROPERTY_SCAN_START_TIMESTAMP)public void setScanStartTimestamp_JsonNullable(JsonNullable<ScaRequestDataAttributesScanStartTimestamp> scanStartTimestamp) {
+
+  @JsonProperty(JSON_PROPERTY_SCAN_START_TIMESTAMP)
+  public void setScanStartTimestamp_JsonNullable(
+      JsonNullable<ScaRequestDataAttributesScanStartTimestamp> scanStartTimestamp) {
     this.scanStartTimestamp = scanStartTimestamp;
   }
+
   public void setScanStartTimestamp(ScaRequestDataAttributesScanStartTimestamp scanStartTimestamp) {
-    this.scanStartTimestamp = JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>of(scanStartTimestamp);
+    this.scanStartTimestamp =
+        JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>of(scanStartTimestamp);
   }
+
   public ScaRequestDataAttributes service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>The name of the service or application being analyzed.</p>
+   * The name of the service or application being analyzed.
+   *
    * @return service
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getService() {
-        return service;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public ScaRequestDataAttributes tags(ScaRequestDataAttributesTags tags) {
     this.tags = tags;
     this.unparsed |= tags.unparsed;
@@ -308,32 +330,37 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * <p>A map of tags providing additional metadata for the SCA scan.</p>
+   * A map of tags providing additional metadata for the SCA scan.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ScaRequestDataAttributesTags getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScaRequestDataAttributesTags getTags() {
+    return tags;
+  }
+
   public void setTags(ScaRequestDataAttributesTags tags) {
     this.tags = tags;
     if (tags != null) {
       this.unparsed |= tags.unparsed;
     }
   }
-  public ScaRequestDataAttributes vulnerabilities(List<ScaRequestDataAttributesVulnerabilitiesItems> vulnerabilities) {
+
+  public ScaRequestDataAttributes vulnerabilities(
+      List<ScaRequestDataAttributesVulnerabilitiesItems> vulnerabilities) {
     this.vulnerabilities = vulnerabilities;
     if (vulnerabilities != null) {
-    for (ScaRequestDataAttributesVulnerabilitiesItems item : vulnerabilities) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ScaRequestDataAttributesVulnerabilitiesItems item : vulnerabilities) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ScaRequestDataAttributes addVulnerabilitiesItem(ScaRequestDataAttributesVulnerabilitiesItems vulnerabilitiesItem) {
+
+  public ScaRequestDataAttributes addVulnerabilitiesItem(
+      ScaRequestDataAttributesVulnerabilitiesItems vulnerabilitiesItem) {
     if (this.vulnerabilities == null) {
       this.vulnerabilities = new ArrayList<>();
     }
@@ -343,17 +370,19 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * <p>The list of vulnerabilities identified in the dependency graph.</p>
+   * The list of vulnerabilities identified in the dependency graph.
+   *
    * @return vulnerabilities
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VULNERABILITIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ScaRequestDataAttributesVulnerabilitiesItems> getVulnerabilities() {
-        return vulnerabilities;
-      }
-  public void setVulnerabilities(List<ScaRequestDataAttributesVulnerabilitiesItems> vulnerabilities) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VULNERABILITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ScaRequestDataAttributesVulnerabilitiesItems> getVulnerabilities() {
+    return vulnerabilities;
+  }
+
+  public void setVulnerabilities(
+      List<ScaRequestDataAttributesVulnerabilitiesItems> vulnerabilities) {
     this.vulnerabilities = vulnerabilities;
     if (vulnerabilities != null) {
       for (ScaRequestDataAttributesVulnerabilitiesItems item : vulnerabilities) {
@@ -363,15 +392,14 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -380,7 +408,7 @@ public class ScaRequestDataAttributes {
   @JsonAnySetter
   public ScaRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -404,14 +432,12 @@ public class ScaRequestDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ScaRequestDataAttributes object is equal to o.
-   */
+  /** Return true if this ScaRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -421,13 +447,33 @@ public class ScaRequestDataAttributes {
       return false;
     }
     ScaRequestDataAttributes scaRequestDataAttributes = (ScaRequestDataAttributes) o;
-    return Objects.equals(this.commit, scaRequestDataAttributes.commit) && Objects.equals(this.dependencies, scaRequestDataAttributes.dependencies) && Objects.equals(this.env, scaRequestDataAttributes.env) && Objects.equals(this.files, scaRequestDataAttributes.files) && Objects.equals(this.relations, scaRequestDataAttributes.relations) && Objects.equals(this.repository, scaRequestDataAttributes.repository) && Objects.equals(this.scanStartTimestamp, scaRequestDataAttributes.scanStartTimestamp) && Objects.equals(this.service, scaRequestDataAttributes.service) && Objects.equals(this.tags, scaRequestDataAttributes.tags) && Objects.equals(this.vulnerabilities, scaRequestDataAttributes.vulnerabilities) && Objects.equals(this.additionalProperties, scaRequestDataAttributes.additionalProperties);
+    return Objects.equals(this.commit, scaRequestDataAttributes.commit)
+        && Objects.equals(this.dependencies, scaRequestDataAttributes.dependencies)
+        && Objects.equals(this.env, scaRequestDataAttributes.env)
+        && Objects.equals(this.files, scaRequestDataAttributes.files)
+        && Objects.equals(this.relations, scaRequestDataAttributes.relations)
+        && Objects.equals(this.repository, scaRequestDataAttributes.repository)
+        && Objects.equals(this.scanStartTimestamp, scaRequestDataAttributes.scanStartTimestamp)
+        && Objects.equals(this.service, scaRequestDataAttributes.service)
+        && Objects.equals(this.tags, scaRequestDataAttributes.tags)
+        && Objects.equals(this.vulnerabilities, scaRequestDataAttributes.vulnerabilities)
+        && Objects.equals(this.additionalProperties, scaRequestDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(commit,dependencies,env,files,relations,repository,scanStartTimestamp,service,tags,vulnerabilities, additionalProperties);
+    return Objects.hash(
+        commit,
+        dependencies,
+        env,
+        files,
+        relations,
+        repository,
+        scanStartTimestamp,
+        service,
+        tags,
+        vulnerabilities,
+        additionalProperties);
   }
 
   @Override
@@ -452,8 +498,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

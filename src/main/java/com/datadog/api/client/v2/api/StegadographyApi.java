@@ -1,32 +1,23 @@
-
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.PaginationIterable;
-
-import jakarta.ws.rs.core.GenericType;
+import com.datadog.api.client.v2.model.StegadographyGetWidgetsResponse;
 import jakarta.ws.rs.client.Invocation;
-
+import jakarta.ws.rs.core.GenericType;
 import java.io.File;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
-import java.time.OffsetDateTime;
-import java.util.UUID;
-import com.datadog.api.client.v2.model.StegadographyGetWidgetsResponse;
-import com.datadog.api.client.v2.model.StegadographyGetWidgetsRequest;
 
-
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class StegadographyApi {
   private ApiClient apiClient;
+
   public StegadographyApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -54,44 +45,46 @@ public class StegadographyApi {
   }
 
   /**
- * Get widgets from an image.
- *
- * See {@link #getStegadographyWidgetsWithHttpInfo}.
- *
- * @param image PNG image file to scan for embedded watermarks. (required)
- * @return StegadographyGetWidgetsResponse
- * @throws ApiException if fails to make API call
- */
-  public StegadographyGetWidgetsResponse  getStegadographyWidgets(File image) throws ApiException {
+   * Get widgets from an image.
+   *
+   * <p>See {@link #getStegadographyWidgetsWithHttpInfo}.
+   *
+   * @param image PNG image file to scan for embedded watermarks. (required)
+   * @return StegadographyGetWidgetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public StegadographyGetWidgetsResponse getStegadographyWidgets(File image) throws ApiException {
     return getStegadographyWidgetsWithHttpInfo(image).getData();
   }
 
   /**
- * Get widgets from an image.
- *
- * See {@link #getStegadographyWidgetsWithHttpInfoAsync}.
- *
- * @param image PNG image file to scan for embedded watermarks. (required)
- * @return CompletableFuture&lt;StegadographyGetWidgetsResponse&gt;
- */
-  public CompletableFuture<StegadographyGetWidgetsResponse>getStegadographyWidgetsAsync(File image) {
-    return getStegadographyWidgetsWithHttpInfoAsync(image).thenApply(response -> {
-        return response.getData();
-    });
+   * Get widgets from an image.
+   *
+   * <p>See {@link #getStegadographyWidgetsWithHttpInfoAsync}.
+   *
+   * @param image PNG image file to scan for embedded watermarks. (required)
+   * @return CompletableFuture&lt;StegadographyGetWidgetsResponse&gt;
+   */
+  public CompletableFuture<StegadographyGetWidgetsResponse> getStegadographyWidgetsAsync(
+      File image) {
+    return getStegadographyWidgetsWithHttpInfoAsync(image)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Extracts watermarks from a PNG image and returns the cached widget data
-   * associated with each watermark found. The image must be uploaded as a
-   * <code>multipart/form-data</code> request with the file in the <code>image</code> field.
-   * Only widgets belonging to the authenticated organization are returned.</p>
+   * Extracts watermarks from a PNG image and returns the cached widget data associated with each
+   * watermark found. The image must be uploaded as a <code>multipart/form-data</code> request with
+   * the file in the <code>image</code> field. Only widgets belonging to the authenticated
+   * organization are returned.
    *
    * @param image PNG image file to scan for embedded watermarks. (required)
    * @return ApiResponse&lt;StegadographyGetWidgetsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -102,61 +95,101 @@ public class StegadographyApi {
    *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StegadographyGetWidgetsResponse> getStegadographyWidgetsWithHttpInfo(File image) throws ApiException {
+  public ApiResponse<StegadographyGetWidgetsResponse> getStegadographyWidgetsWithHttpInfo(
+      File image) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'image' is set
     if (image == null) {
-      throw new ApiException(400, "Missing the required parameter 'image' when calling getStegadographyWidgets");
+      throw new ApiException(
+          400, "Missing the required parameter 'image' when calling getStegadographyWidgets");
     }
     // create path and map variables
     String localVarPath = "/api/v2/stegadography/get-widgets";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-      if (image != null) { localVarFormParams.put("image", image); }
+    if (image != null) {
+      localVarFormParams.put("image", image);
+    }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.StegadographyApi.getStegadographyWidgets", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"multipart/form-data" }, localVarPostBody,localVarFormParams , false, new GenericType<StegadographyGetWidgetsResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StegadographyApi.getStegadographyWidgets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"multipart/form-data"},
+        localVarPostBody,
+        localVarFormParams,
+        false,
+        new GenericType<StegadographyGetWidgetsResponse>() {});
   }
 
   /**
    * Get widgets from an image.
    *
-   * See {@link #getStegadographyWidgetsWithHttpInfo}.
+   * <p>See {@link #getStegadographyWidgetsWithHttpInfo}.
    *
    * @param image PNG image file to scan for embedded watermarks. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;StegadographyGetWidgetsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StegadographyGetWidgetsResponse>> getStegadographyWidgetsWithHttpInfoAsync(File image) {
+  public CompletableFuture<ApiResponse<StegadographyGetWidgetsResponse>>
+      getStegadographyWidgetsWithHttpInfoAsync(File image) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'image' is set
     if (image == null) {
-        CompletableFuture<ApiResponse<StegadographyGetWidgetsResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'image' when calling getStegadographyWidgets"));
-        return result;
+      CompletableFuture<ApiResponse<StegadographyGetWidgetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'image' when calling getStegadographyWidgets"));
+      return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/stegadography/get-widgets";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-      if (image != null) { localVarFormParams.put("image", image); }
-    
+    if (image != null) {
+      localVarFormParams.put("image", image);
+    }
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.StegadographyApi.getStegadographyWidgets", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.StegadographyApi.getStegadographyWidgets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<StegadographyGetWidgetsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<StegadographyGetWidgetsResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"multipart/form-data" }, localVarPostBody,localVarFormParams , false, new GenericType<StegadographyGetWidgetsResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"multipart/form-data"},
+        localVarPostBody,
+        localVarFormParams,
+        false,
+        new GenericType<StegadographyGetWidgetsResponse>() {});
   }
 }

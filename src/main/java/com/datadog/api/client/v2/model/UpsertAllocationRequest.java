@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Request to create or update a targeting rule (allocation) for a feature flag environment.</p>
- */
+/** Request to create or update a targeting rule (allocation) for a feature flag environment. */
 @JsonPropertyOrder({
   UpsertAllocationRequest.JSON_PROPERTY_EXPERIMENT_ID,
   UpsertAllocationRequest.JSON_PROPERTY_EXPOSURE_SCHEDULE,
@@ -45,10 +33,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UpsertAllocationRequest.JSON_PROPERTY_TYPE,
   UpsertAllocationRequest.JSON_PROPERTY_VARIANT_WEIGHTS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UpsertAllocationRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXPERIMENT_ID = "experiment_id";
   private JsonNullable<String> experimentId = JsonNullable.<String>undefined();
 
@@ -80,40 +68,46 @@ public class UpsertAllocationRequest {
 
   @JsonCreator
   public UpsertAllocationRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_KEY)String key,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)AllocationType type) {
-        this.key = key;
-        this.name = name;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_KEY) String key,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AllocationType type) {
+    this.key = key;
+    this.name = name;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public UpsertAllocationRequest experimentId(String experimentId) {
     this.experimentId = JsonNullable.<String>of(experimentId);
     return this;
   }
 
   /**
-   * <p>The experiment ID for experiment-linked allocations.</p>
+   * The experiment ID for experiment-linked allocations.
+   *
    * @return experimentId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getExperimentId() {
-        return experimentId.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getExperimentId() {
+    return experimentId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_EXPERIMENT_ID)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getExperimentId_JsonNullable() {
     return experimentId;
   }
-  @JsonProperty(JSON_PROPERTY_EXPERIMENT_ID)public void setExperimentId_JsonNullable(JsonNullable<String> experimentId) {
+
+  @JsonProperty(JSON_PROPERTY_EXPERIMENT_ID)
+  public void setExperimentId_JsonNullable(JsonNullable<String> experimentId) {
     this.experimentId = experimentId;
   }
+
   public void setExperimentId(String experimentId) {
     this.experimentId = JsonNullable.<String>of(experimentId);
   }
+
   public UpsertAllocationRequest exposureSchedule(ExposureScheduleRequest exposureSchedule) {
     this.exposureSchedule = exposureSchedule;
     this.unparsed |= exposureSchedule.unparsed;
@@ -121,32 +115,36 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * <p>Progressive release request payload.</p>
+   * Progressive release request payload.
+   *
    * @return exposureSchedule
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXPOSURE_SCHEDULE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ExposureScheduleRequest getExposureSchedule() {
-        return exposureSchedule;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPOSURE_SCHEDULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExposureScheduleRequest getExposureSchedule() {
+    return exposureSchedule;
+  }
+
   public void setExposureSchedule(ExposureScheduleRequest exposureSchedule) {
     this.exposureSchedule = exposureSchedule;
     if (exposureSchedule != null) {
       this.unparsed |= exposureSchedule.unparsed;
     }
   }
+
   public UpsertAllocationRequest guardrailMetrics(List<GuardrailMetricRequest> guardrailMetrics) {
     this.guardrailMetrics = guardrailMetrics;
     if (guardrailMetrics != null) {
-    for (GuardrailMetricRequest item : guardrailMetrics) {
-      this.unparsed |= item.unparsed;
-    }
+      for (GuardrailMetricRequest item : guardrailMetrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public UpsertAllocationRequest addGuardrailMetricsItem(GuardrailMetricRequest guardrailMetricsItem) {
+
+  public UpsertAllocationRequest addGuardrailMetricsItem(
+      GuardrailMetricRequest guardrailMetricsItem) {
     if (this.guardrailMetrics == null) {
       this.guardrailMetrics = new ArrayList<>();
     }
@@ -156,16 +154,17 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * <p>Guardrail metrics used to monitor and auto-pause or abort.</p>
+   * Guardrail metrics used to monitor and auto-pause or abort.
+   *
    * @return guardrailMetrics
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GUARDRAIL_METRICS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<GuardrailMetricRequest> getGuardrailMetrics() {
-        return guardrailMetrics;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GUARDRAIL_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<GuardrailMetricRequest> getGuardrailMetrics() {
+    return guardrailMetrics;
+  }
+
   public void setGuardrailMetrics(List<GuardrailMetricRequest> guardrailMetrics) {
     this.guardrailMetrics = guardrailMetrics;
     if (guardrailMetrics != null) {
@@ -174,70 +173,78 @@ public class UpsertAllocationRequest {
       }
     }
   }
+
   public UpsertAllocationRequest id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unique identifier of the targeting rule allocation.</p>
+   * The unique identifier of the targeting rule allocation.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UUID getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getId() {
+    return id;
+  }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public UpsertAllocationRequest key(String key) {
     this.key = key;
     return this;
   }
 
   /**
-   * <p>The unique key of the targeting rule allocation.</p>
+   * The unique key of the targeting rule allocation.
+   *
    * @return key
-  **/
-      @JsonProperty(JSON_PROPERTY_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getKey() {
-        return key;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getKey() {
+    return key;
+  }
+
   public void setKey(String key) {
     this.key = key;
   }
+
   public UpsertAllocationRequest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The display name of the targeting rule.</p>
+   * The display name of the targeting rule.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public UpsertAllocationRequest targetingRules(List<TargetingRuleRequest> targetingRules) {
     this.targetingRules = targetingRules;
     if (targetingRules != null) {
-    for (TargetingRuleRequest item : targetingRules) {
-      this.unparsed |= item.unparsed;
-    }
+      for (TargetingRuleRequest item : targetingRules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public UpsertAllocationRequest addTargetingRulesItem(TargetingRuleRequest targetingRulesItem) {
     if (this.targetingRules == null) {
       this.targetingRules = new ArrayList<>();
@@ -248,16 +255,17 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * <p>Targeting rules that determine audience eligibility.</p>
+   * Targeting rules that determine audience eligibility.
+   *
    * @return targetingRules
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TARGETING_RULES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<TargetingRuleRequest> getTargetingRules() {
-        return targetingRules;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGETING_RULES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TargetingRuleRequest> getTargetingRules() {
+    return targetingRules;
+  }
+
   public void setTargetingRules(List<TargetingRuleRequest> targetingRules) {
     this.targetingRules = targetingRules;
     if (targetingRules != null) {
@@ -266,6 +274,7 @@ public class UpsertAllocationRequest {
       }
     }
   }
+
   public UpsertAllocationRequest type(AllocationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -273,30 +282,33 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * <p>The type of targeting rule (called allocation in the API model).</p>
+   * The type of targeting rule (called allocation in the API model).
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AllocationType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AllocationType getType() {
+    return type;
+  }
+
   public void setType(AllocationType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public UpsertAllocationRequest variantWeights(List<VariantWeightRequest> variantWeights) {
     this.variantWeights = variantWeights;
     if (variantWeights != null) {
-    for (VariantWeightRequest item : variantWeights) {
-      this.unparsed |= item.unparsed;
-    }
+      for (VariantWeightRequest item : variantWeights) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public UpsertAllocationRequest addVariantWeightsItem(VariantWeightRequest variantWeightsItem) {
     if (this.variantWeights == null) {
       this.variantWeights = new ArrayList<>();
@@ -307,16 +319,17 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * <p>Variant distribution weights.</p>
+   * Variant distribution weights.
+   *
    * @return variantWeights
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VARIANT_WEIGHTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<VariantWeightRequest> getVariantWeights() {
-        return variantWeights;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VARIANT_WEIGHTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<VariantWeightRequest> getVariantWeights() {
+    return variantWeights;
+  }
+
   public void setVariantWeights(List<VariantWeightRequest> variantWeights) {
     this.variantWeights = variantWeights;
     if (variantWeights != null) {
@@ -327,15 +340,14 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -344,7 +356,7 @@ public class UpsertAllocationRequest {
   @JsonAnySetter
   public UpsertAllocationRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -368,14 +380,12 @@ public class UpsertAllocationRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UpsertAllocationRequest object is equal to o.
-   */
+  /** Return true if this UpsertAllocationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -385,13 +395,31 @@ public class UpsertAllocationRequest {
       return false;
     }
     UpsertAllocationRequest upsertAllocationRequest = (UpsertAllocationRequest) o;
-    return Objects.equals(this.experimentId, upsertAllocationRequest.experimentId) && Objects.equals(this.exposureSchedule, upsertAllocationRequest.exposureSchedule) && Objects.equals(this.guardrailMetrics, upsertAllocationRequest.guardrailMetrics) && Objects.equals(this.id, upsertAllocationRequest.id) && Objects.equals(this.key, upsertAllocationRequest.key) && Objects.equals(this.name, upsertAllocationRequest.name) && Objects.equals(this.targetingRules, upsertAllocationRequest.targetingRules) && Objects.equals(this.type, upsertAllocationRequest.type) && Objects.equals(this.variantWeights, upsertAllocationRequest.variantWeights) && Objects.equals(this.additionalProperties, upsertAllocationRequest.additionalProperties);
+    return Objects.equals(this.experimentId, upsertAllocationRequest.experimentId)
+        && Objects.equals(this.exposureSchedule, upsertAllocationRequest.exposureSchedule)
+        && Objects.equals(this.guardrailMetrics, upsertAllocationRequest.guardrailMetrics)
+        && Objects.equals(this.id, upsertAllocationRequest.id)
+        && Objects.equals(this.key, upsertAllocationRequest.key)
+        && Objects.equals(this.name, upsertAllocationRequest.name)
+        && Objects.equals(this.targetingRules, upsertAllocationRequest.targetingRules)
+        && Objects.equals(this.type, upsertAllocationRequest.type)
+        && Objects.equals(this.variantWeights, upsertAllocationRequest.variantWeights)
+        && Objects.equals(this.additionalProperties, upsertAllocationRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId,exposureSchedule,guardrailMetrics,id,key,name,targetingRules,type,variantWeights, additionalProperties);
+    return Objects.hash(
+        experimentId,
+        exposureSchedule,
+        guardrailMetrics,
+        id,
+        key,
+        name,
+        targetingRules,
+        type,
+        variantWeights,
+        additionalProperties);
   }
 
   @Override
@@ -415,8 +443,7 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

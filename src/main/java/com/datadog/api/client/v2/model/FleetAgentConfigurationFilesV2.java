@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Configuration details for an agent, organized by configuration layer.</p>
- */
+/** Configuration details for an agent, organized by configuration layer. */
 @JsonPropertyOrder({
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_AGENT_CONFIGURATION,
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_APPLICATION_MONITORING_CONFIGURATION,
@@ -41,81 +26,95 @@ import com.datadog.api.client.JsonTimeSerializer;
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_SECURITY_AGENT_CONFIGURATION,
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FleetAgentConfigurationFilesV2 {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_CONFIGURATION = "agent_configuration";
   private FleetConfigurationLayer agentConfiguration;
 
-  public static final String JSON_PROPERTY_APPLICATION_MONITORING_CONFIGURATION = "application_monitoring_configuration";
+  public static final String JSON_PROPERTY_APPLICATION_MONITORING_CONFIGURATION =
+      "application_monitoring_configuration";
   private FleetConfigurationLayer applicationMonitoringConfiguration;
 
-  public static final String JSON_PROPERTY_OTEL_COLLECTORS_CONFIGURATION = "otel_collectors_configuration";
+  public static final String JSON_PROPERTY_OTEL_COLLECTORS_CONFIGURATION =
+      "otel_collectors_configuration";
   private List<FleetOtelCollectorConfigurationV2> otelCollectorsConfiguration = null;
 
-  public static final String JSON_PROPERTY_SECURITY_AGENT_CONFIGURATION = "security_agent_configuration";
+  public static final String JSON_PROPERTY_SECURITY_AGENT_CONFIGURATION =
+      "security_agent_configuration";
   private FleetConfigurationLayer securityAgentConfiguration;
 
-  public static final String JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION = "system_probe_configuration";
+  public static final String JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION =
+      "system_probe_configuration";
   private FleetConfigurationLayer systemProbeConfiguration;
 
-  public FleetAgentConfigurationFilesV2 agentConfiguration(FleetConfigurationLayer agentConfiguration) {
+  public FleetAgentConfigurationFilesV2 agentConfiguration(
+      FleetConfigurationLayer agentConfiguration) {
     this.agentConfiguration = agentConfiguration;
     this.unparsed |= agentConfiguration.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration information organized by layers.</p>
+   * Configuration information organized by layers.
+   *
    * @return agentConfiguration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AGENT_CONFIGURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FleetConfigurationLayer getAgentConfiguration() {
-        return agentConfiguration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGENT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FleetConfigurationLayer getAgentConfiguration() {
+    return agentConfiguration;
+  }
+
   public void setAgentConfiguration(FleetConfigurationLayer agentConfiguration) {
     this.agentConfiguration = agentConfiguration;
     if (agentConfiguration != null) {
       this.unparsed |= agentConfiguration.unparsed;
     }
   }
-  public FleetAgentConfigurationFilesV2 applicationMonitoringConfiguration(FleetConfigurationLayer applicationMonitoringConfiguration) {
+
+  public FleetAgentConfigurationFilesV2 applicationMonitoringConfiguration(
+      FleetConfigurationLayer applicationMonitoringConfiguration) {
     this.applicationMonitoringConfiguration = applicationMonitoringConfiguration;
     this.unparsed |= applicationMonitoringConfiguration.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration information organized by layers.</p>
+   * Configuration information organized by layers.
+   *
    * @return applicationMonitoringConfiguration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_APPLICATION_MONITORING_CONFIGURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FleetConfigurationLayer getApplicationMonitoringConfiguration() {
-        return applicationMonitoringConfiguration;
-      }
-  public void setApplicationMonitoringConfiguration(FleetConfigurationLayer applicationMonitoringConfiguration) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_MONITORING_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FleetConfigurationLayer getApplicationMonitoringConfiguration() {
+    return applicationMonitoringConfiguration;
+  }
+
+  public void setApplicationMonitoringConfiguration(
+      FleetConfigurationLayer applicationMonitoringConfiguration) {
     this.applicationMonitoringConfiguration = applicationMonitoringConfiguration;
     if (applicationMonitoringConfiguration != null) {
       this.unparsed |= applicationMonitoringConfiguration.unparsed;
     }
   }
-  public FleetAgentConfigurationFilesV2 otelCollectorsConfiguration(List<FleetOtelCollectorConfigurationV2> otelCollectorsConfiguration) {
+
+  public FleetAgentConfigurationFilesV2 otelCollectorsConfiguration(
+      List<FleetOtelCollectorConfigurationV2> otelCollectorsConfiguration) {
     this.otelCollectorsConfiguration = otelCollectorsConfiguration;
     if (otelCollectorsConfiguration != null) {
-    for (FleetOtelCollectorConfigurationV2 item : otelCollectorsConfiguration) {
-      this.unparsed |= item.unparsed;
-    }
+      for (FleetOtelCollectorConfigurationV2 item : otelCollectorsConfiguration) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public FleetAgentConfigurationFilesV2 addOtelCollectorsConfigurationItem(FleetOtelCollectorConfigurationV2 otelCollectorsConfigurationItem) {
+
+  public FleetAgentConfigurationFilesV2 addOtelCollectorsConfigurationItem(
+      FleetOtelCollectorConfigurationV2 otelCollectorsConfigurationItem) {
     if (this.otelCollectorsConfiguration == null) {
       this.otelCollectorsConfiguration = new ArrayList<>();
     }
@@ -125,17 +124,20 @@ public class FleetAgentConfigurationFilesV2 {
   }
 
   /**
-   * <p>Configuration for OpenTelemetry collectors associated with the agent. Present only when the agent has associated OpenTelemetry collectors.</p>
+   * Configuration for OpenTelemetry collectors associated with the agent. Present only when the
+   * agent has associated OpenTelemetry collectors.
+   *
    * @return otelCollectorsConfiguration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OTEL_COLLECTORS_CONFIGURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<FleetOtelCollectorConfigurationV2> getOtelCollectorsConfiguration() {
-        return otelCollectorsConfiguration;
-      }
-  public void setOtelCollectorsConfiguration(List<FleetOtelCollectorConfigurationV2> otelCollectorsConfiguration) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OTEL_COLLECTORS_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FleetOtelCollectorConfigurationV2> getOtelCollectorsConfiguration() {
+    return otelCollectorsConfiguration;
+  }
+
+  public void setOtelCollectorsConfiguration(
+      List<FleetOtelCollectorConfigurationV2> otelCollectorsConfiguration) {
     this.otelCollectorsConfiguration = otelCollectorsConfiguration;
     if (otelCollectorsConfiguration != null) {
       for (FleetOtelCollectorConfigurationV2 item : otelCollectorsConfiguration) {
@@ -143,46 +145,52 @@ public class FleetAgentConfigurationFilesV2 {
       }
     }
   }
-  public FleetAgentConfigurationFilesV2 securityAgentConfiguration(FleetConfigurationLayer securityAgentConfiguration) {
+
+  public FleetAgentConfigurationFilesV2 securityAgentConfiguration(
+      FleetConfigurationLayer securityAgentConfiguration) {
     this.securityAgentConfiguration = securityAgentConfiguration;
     this.unparsed |= securityAgentConfiguration.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration information organized by layers.</p>
+   * Configuration information organized by layers.
+   *
    * @return securityAgentConfiguration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SECURITY_AGENT_CONFIGURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FleetConfigurationLayer getSecurityAgentConfiguration() {
-        return securityAgentConfiguration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURITY_AGENT_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FleetConfigurationLayer getSecurityAgentConfiguration() {
+    return securityAgentConfiguration;
+  }
+
   public void setSecurityAgentConfiguration(FleetConfigurationLayer securityAgentConfiguration) {
     this.securityAgentConfiguration = securityAgentConfiguration;
     if (securityAgentConfiguration != null) {
       this.unparsed |= securityAgentConfiguration.unparsed;
     }
   }
-  public FleetAgentConfigurationFilesV2 systemProbeConfiguration(FleetConfigurationLayer systemProbeConfiguration) {
+
+  public FleetAgentConfigurationFilesV2 systemProbeConfiguration(
+      FleetConfigurationLayer systemProbeConfiguration) {
     this.systemProbeConfiguration = systemProbeConfiguration;
     this.unparsed |= systemProbeConfiguration.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration information organized by layers.</p>
+   * Configuration information organized by layers.
+   *
    * @return systemProbeConfiguration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FleetConfigurationLayer getSystemProbeConfiguration() {
-        return systemProbeConfiguration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FleetConfigurationLayer getSystemProbeConfiguration() {
+    return systemProbeConfiguration;
+  }
+
   public void setSystemProbeConfiguration(FleetConfigurationLayer systemProbeConfiguration) {
     this.systemProbeConfiguration = systemProbeConfiguration;
     if (systemProbeConfiguration != null) {
@@ -191,15 +199,14 @@ public class FleetAgentConfigurationFilesV2 {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -208,7 +215,7 @@ public class FleetAgentConfigurationFilesV2 {
   @JsonAnySetter
   public FleetAgentConfigurationFilesV2 putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -232,14 +239,12 @@ public class FleetAgentConfigurationFilesV2 {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FleetAgentConfigurationFilesV2 object is equal to o.
-   */
+  /** Return true if this FleetAgentConfigurationFilesV2 object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -248,14 +253,34 @@ public class FleetAgentConfigurationFilesV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetAgentConfigurationFilesV2 fleetAgentConfigurationFilesV2 = (FleetAgentConfigurationFilesV2) o;
-    return Objects.equals(this.agentConfiguration, fleetAgentConfigurationFilesV2.agentConfiguration) && Objects.equals(this.applicationMonitoringConfiguration, fleetAgentConfigurationFilesV2.applicationMonitoringConfiguration) && Objects.equals(this.otelCollectorsConfiguration, fleetAgentConfigurationFilesV2.otelCollectorsConfiguration) && Objects.equals(this.securityAgentConfiguration, fleetAgentConfigurationFilesV2.securityAgentConfiguration) && Objects.equals(this.systemProbeConfiguration, fleetAgentConfigurationFilesV2.systemProbeConfiguration) && Objects.equals(this.additionalProperties, fleetAgentConfigurationFilesV2.additionalProperties);
+    FleetAgentConfigurationFilesV2 fleetAgentConfigurationFilesV2 =
+        (FleetAgentConfigurationFilesV2) o;
+    return Objects.equals(
+            this.agentConfiguration, fleetAgentConfigurationFilesV2.agentConfiguration)
+        && Objects.equals(
+            this.applicationMonitoringConfiguration,
+            fleetAgentConfigurationFilesV2.applicationMonitoringConfiguration)
+        && Objects.equals(
+            this.otelCollectorsConfiguration,
+            fleetAgentConfigurationFilesV2.otelCollectorsConfiguration)
+        && Objects.equals(
+            this.securityAgentConfiguration,
+            fleetAgentConfigurationFilesV2.securityAgentConfiguration)
+        && Objects.equals(
+            this.systemProbeConfiguration, fleetAgentConfigurationFilesV2.systemProbeConfiguration)
+        && Objects.equals(
+            this.additionalProperties, fleetAgentConfigurationFilesV2.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentConfiguration,applicationMonitoringConfiguration,otelCollectorsConfiguration,securityAgentConfiguration,systemProbeConfiguration, additionalProperties);
+    return Objects.hash(
+        agentConfiguration,
+        applicationMonitoringConfiguration,
+        otelCollectorsConfiguration,
+        securityAgentConfiguration,
+        systemProbeConfiguration,
+        additionalProperties);
   }
 
   @Override
@@ -263,10 +288,18 @@ public class FleetAgentConfigurationFilesV2 {
     StringBuilder sb = new StringBuilder();
     sb.append("class FleetAgentConfigurationFilesV2 {\n");
     sb.append("    agentConfiguration: ").append(toIndentedString(agentConfiguration)).append("\n");
-    sb.append("    applicationMonitoringConfiguration: ").append(toIndentedString(applicationMonitoringConfiguration)).append("\n");
-    sb.append("    otelCollectorsConfiguration: ").append(toIndentedString(otelCollectorsConfiguration)).append("\n");
-    sb.append("    securityAgentConfiguration: ").append(toIndentedString(securityAgentConfiguration)).append("\n");
-    sb.append("    systemProbeConfiguration: ").append(toIndentedString(systemProbeConfiguration)).append("\n");
+    sb.append("    applicationMonitoringConfiguration: ")
+        .append(toIndentedString(applicationMonitoringConfiguration))
+        .append("\n");
+    sb.append("    otelCollectorsConfiguration: ")
+        .append(toIndentedString(otelCollectorsConfiguration))
+        .append("\n");
+    sb.append("    securityAgentConfiguration: ")
+        .append(toIndentedString(securityAgentConfiguration))
+        .append("\n");
+    sb.append("    systemProbeConfiguration: ")
+        .append(toIndentedString(systemProbeConfiguration))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -275,8 +308,7 @@ public class FleetAgentConfigurationFilesV2 {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

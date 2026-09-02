@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,22 +13,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Schema defining the labels for an annotation queue.</p>
- */
-@JsonPropertyOrder({
-  LLMObsAnnotationSchema.JSON_PROPERTY_LABEL_SCHEMAS
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Schema defining the labels for an annotation queue. */
+@JsonPropertyOrder({LLMObsAnnotationSchema.JSON_PROPERTY_LABEL_SCHEMAS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotationSchema {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LABEL_SCHEMAS = "label_schemas";
   private List<LLMObsLabelSchema> labelSchemas = new ArrayList<>();
 
@@ -48,12 +32,14 @@ public class LLMObsAnnotationSchema {
 
   @JsonCreator
   public LLMObsAnnotationSchema(
-            @JsonProperty(required=true, value=JSON_PROPERTY_LABEL_SCHEMAS)List<LLMObsLabelSchema> labelSchemas) {
-        this.labelSchemas = labelSchemas;
-        for (LLMObsLabelSchema item : labelSchemas) {
-          this.unparsed |= item.unparsed;
-        }
+      @JsonProperty(required = true, value = JSON_PROPERTY_LABEL_SCHEMAS)
+          List<LLMObsLabelSchema> labelSchemas) {
+    this.labelSchemas = labelSchemas;
+    for (LLMObsLabelSchema item : labelSchemas) {
+      this.unparsed |= item.unparsed;
+    }
   }
+
   public LLMObsAnnotationSchema labelSchemas(List<LLMObsLabelSchema> labelSchemas) {
     this.labelSchemas = labelSchemas;
     for (LLMObsLabelSchema item : labelSchemas) {
@@ -61,6 +47,7 @@ public class LLMObsAnnotationSchema {
     }
     return this;
   }
+
   public LLMObsAnnotationSchema addLabelSchemasItem(LLMObsLabelSchema labelSchemasItem) {
     this.labelSchemas.add(labelSchemasItem);
     this.unparsed |= labelSchemasItem.unparsed;
@@ -68,15 +55,16 @@ public class LLMObsAnnotationSchema {
   }
 
   /**
-   * <p>List of label schema definitions.</p>
+   * List of label schema definitions.
+   *
    * @return labelSchemas
-  **/
-      @JsonProperty(JSON_PROPERTY_LABEL_SCHEMAS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<LLMObsLabelSchema> getLabelSchemas() {
-        return labelSchemas;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LABEL_SCHEMAS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsLabelSchema> getLabelSchemas() {
+    return labelSchemas;
+  }
+
   public void setLabelSchemas(List<LLMObsLabelSchema> labelSchemas) {
     this.labelSchemas = labelSchemas;
     if (labelSchemas != null) {
@@ -87,15 +75,14 @@ public class LLMObsAnnotationSchema {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -104,7 +91,7 @@ public class LLMObsAnnotationSchema {
   @JsonAnySetter
   public LLMObsAnnotationSchema putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -128,14 +115,12 @@ public class LLMObsAnnotationSchema {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsAnnotationSchema object is equal to o.
-   */
+  /** Return true if this LLMObsAnnotationSchema object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,9 +130,9 @@ public class LLMObsAnnotationSchema {
       return false;
     }
     LLMObsAnnotationSchema llmObsAnnotationSchema = (LLMObsAnnotationSchema) o;
-    return Objects.equals(this.labelSchemas, llmObsAnnotationSchema.labelSchemas) && Objects.equals(this.additionalProperties, llmObsAnnotationSchema.additionalProperties);
+    return Objects.equals(this.labelSchemas, llmObsAnnotationSchema.labelSchemas)
+        && Objects.equals(this.additionalProperties, llmObsAnnotationSchema.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -167,8 +152,7 @@ public class LLMObsAnnotationSchema {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

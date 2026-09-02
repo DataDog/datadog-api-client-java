@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of an Elastic Cloud integration account returned in responses.</p>
- */
+/** Attributes of an Elastic Cloud integration account returned in responses. */
 @JsonPropertyOrder({
   ElasticCloudIntegrationAccountResponseAttributes.JSON_PROPERTY_AUTHENTICATION,
   ElasticCloudIntegrationAccountResponseAttributes.JSON_PROPERTY_DATAFLOWS,
   ElasticCloudIntegrationAccountResponseAttributes.JSON_PROPERTY_NAME,
   ElasticCloudIntegrationAccountResponseAttributes.JSON_PROPERTY_SETTINGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ElasticCloudIntegrationAccountResponseAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
   private ElasticCloudIntegrationAccountAuthenticationResponse authentication;
 
@@ -60,92 +44,105 @@ public class ElasticCloudIntegrationAccountResponseAttributes {
 
   @JsonCreator
   public ElasticCloudIntegrationAccountResponseAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SETTINGS)ElasticCloudIntegrationAccountSettingsResponse settings) {
-        this.name = name;
-        this.settings = settings;
-        this.unparsed |= settings.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SETTINGS)
+          ElasticCloudIntegrationAccountSettingsResponse settings) {
+    this.name = name;
+    this.settings = settings;
+    this.unparsed |= settings.unparsed;
   }
-  public ElasticCloudIntegrationAccountResponseAttributes authentication(ElasticCloudIntegrationAccountAuthenticationResponse authentication) {
+
+  public ElasticCloudIntegrationAccountResponseAttributes authentication(
+      ElasticCloudIntegrationAccountAuthenticationResponse authentication) {
     this.authentication = authentication;
     this.unparsed |= authentication.unparsed;
     return this;
   }
 
   /**
-   * <p>Authentication configured on the Elastic Cloud integration account.</p>
+   * Authentication configured on the Elastic Cloud integration account.
+   *
    * @return authentication
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ElasticCloudIntegrationAccountAuthenticationResponse getAuthentication() {
-        return authentication;
-      }
-  public void setAuthentication(ElasticCloudIntegrationAccountAuthenticationResponse authentication) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ElasticCloudIntegrationAccountAuthenticationResponse getAuthentication() {
+    return authentication;
+  }
+
+  public void setAuthentication(
+      ElasticCloudIntegrationAccountAuthenticationResponse authentication) {
     this.authentication = authentication;
     if (authentication != null) {
       this.unparsed |= authentication.unparsed;
     }
   }
-  public ElasticCloudIntegrationAccountResponseAttributes dataflows(ElasticCloudIntegrationDataflowsResponse dataflows) {
+
+  public ElasticCloudIntegrationAccountResponseAttributes dataflows(
+      ElasticCloudIntegrationDataflowsResponse dataflows) {
     this.dataflows = dataflows;
     this.unparsed |= dataflows.unparsed;
     return this;
   }
 
   /**
-   * <p>Dataflows configured on the Elastic Cloud integration account, keyed by dataflow id.</p>
+   * Dataflows configured on the Elastic Cloud integration account, keyed by dataflow id.
+   *
    * @return dataflows
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATAFLOWS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ElasticCloudIntegrationDataflowsResponse getDataflows() {
-        return dataflows;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATAFLOWS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ElasticCloudIntegrationDataflowsResponse getDataflows() {
+    return dataflows;
+  }
+
   public void setDataflows(ElasticCloudIntegrationDataflowsResponse dataflows) {
     this.dataflows = dataflows;
     if (dataflows != null) {
       this.unparsed |= dataflows.unparsed;
     }
   }
+
   public ElasticCloudIntegrationAccountResponseAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Human-readable name of the Elastic Cloud integration account.</p>
+   * Human-readable name of the Elastic Cloud integration account.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
-  public ElasticCloudIntegrationAccountResponseAttributes settings(ElasticCloudIntegrationAccountSettingsResponse settings) {
+
+  public ElasticCloudIntegrationAccountResponseAttributes settings(
+      ElasticCloudIntegrationAccountSettingsResponse settings) {
     this.settings = settings;
     this.unparsed |= settings.unparsed;
     return this;
   }
 
   /**
-   * <p>Settings configured on the Elastic Cloud integration account.</p>
+   * Settings configured on the Elastic Cloud integration account.
+   *
    * @return settings
-  **/
-      @JsonProperty(JSON_PROPERTY_SETTINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ElasticCloudIntegrationAccountSettingsResponse getSettings() {
-        return settings;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ElasticCloudIntegrationAccountSettingsResponse getSettings() {
+    return settings;
+  }
+
   public void setSettings(ElasticCloudIntegrationAccountSettingsResponse settings) {
     this.settings = settings;
     if (settings != null) {
@@ -154,24 +151,24 @@ public class ElasticCloudIntegrationAccountResponseAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ElasticCloudIntegrationAccountResponseAttributes
    */
   @JsonAnySetter
-  public ElasticCloudIntegrationAccountResponseAttributes putAdditionalProperty(String key, Object value) {
+  public ElasticCloudIntegrationAccountResponseAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -195,14 +192,12 @@ public class ElasticCloudIntegrationAccountResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ElasticCloudIntegrationAccountResponseAttributes object is equal to o.
-   */
+  /** Return true if this ElasticCloudIntegrationAccountResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -211,14 +206,23 @@ public class ElasticCloudIntegrationAccountResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ElasticCloudIntegrationAccountResponseAttributes elasticCloudIntegrationAccountResponseAttributes = (ElasticCloudIntegrationAccountResponseAttributes) o;
-    return Objects.equals(this.authentication, elasticCloudIntegrationAccountResponseAttributes.authentication) && Objects.equals(this.dataflows, elasticCloudIntegrationAccountResponseAttributes.dataflows) && Objects.equals(this.name, elasticCloudIntegrationAccountResponseAttributes.name) && Objects.equals(this.settings, elasticCloudIntegrationAccountResponseAttributes.settings) && Objects.equals(this.additionalProperties, elasticCloudIntegrationAccountResponseAttributes.additionalProperties);
+    ElasticCloudIntegrationAccountResponseAttributes
+        elasticCloudIntegrationAccountResponseAttributes =
+            (ElasticCloudIntegrationAccountResponseAttributes) o;
+    return Objects.equals(
+            this.authentication, elasticCloudIntegrationAccountResponseAttributes.authentication)
+        && Objects.equals(
+            this.dataflows, elasticCloudIntegrationAccountResponseAttributes.dataflows)
+        && Objects.equals(this.name, elasticCloudIntegrationAccountResponseAttributes.name)
+        && Objects.equals(this.settings, elasticCloudIntegrationAccountResponseAttributes.settings)
+        && Objects.equals(
+            this.additionalProperties,
+            elasticCloudIntegrationAccountResponseAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication,dataflows,name,settings, additionalProperties);
+    return Objects.hash(authentication, dataflows, name, settings, additionalProperties);
   }
 
   @Override
@@ -237,8 +241,7 @@ public class ElasticCloudIntegrationAccountResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

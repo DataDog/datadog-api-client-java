@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of an analytics response.</p>
- */
+/** Attributes of an analytics response. */
 @JsonPropertyOrder({
   LLMObsExperimentationAnalyticsDataAttributesResponse.JSON_PROPERTY_HIT_COUNT,
   LLMObsExperimentationAnalyticsDataAttributesResponse.JSON_PROPERTY_RESULT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentationAnalyticsDataAttributesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HIT_COUNT = "hit_count";
   private Long hitCount;
 
@@ -52,46 +36,52 @@ public class LLMObsExperimentationAnalyticsDataAttributesResponse {
 
   @JsonCreator
   public LLMObsExperimentationAnalyticsDataAttributesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_HIT_COUNT)Long hitCount,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESULT)LLMObsExperimentationAnalyticsResult result) {
-        this.hitCount = hitCount;
-        this.result = result;
-        this.unparsed |= result.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_HIT_COUNT) Long hitCount,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESULT)
+          LLMObsExperimentationAnalyticsResult result) {
+    this.hitCount = hitCount;
+    this.result = result;
+    this.unparsed |= result.unparsed;
   }
+
   public LLMObsExperimentationAnalyticsDataAttributesResponse hitCount(Long hitCount) {
     this.hitCount = hitCount;
     return this;
   }
 
   /**
-   * <p>Total number of events matched by the query before grouping.</p>
+   * Total number of events matched by the query before grouping.
+   *
    * @return hitCount
-  **/
-      @JsonProperty(JSON_PROPERTY_HIT_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getHitCount() {
-        return hitCount;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_HIT_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getHitCount() {
+    return hitCount;
+  }
+
   public void setHitCount(Long hitCount) {
     this.hitCount = hitCount;
   }
-  public LLMObsExperimentationAnalyticsDataAttributesResponse result(LLMObsExperimentationAnalyticsResult result) {
+
+  public LLMObsExperimentationAnalyticsDataAttributesResponse result(
+      LLMObsExperimentationAnalyticsResult result) {
     this.result = result;
     this.unparsed |= result.unparsed;
     return this;
   }
 
   /**
-   * <p>Analytics query result containing all buckets.</p>
+   * Analytics query result containing all buckets.
+   *
    * @return result
-  **/
-      @JsonProperty(JSON_PROPERTY_RESULT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LLMObsExperimentationAnalyticsResult getResult() {
-        return result;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LLMObsExperimentationAnalyticsResult getResult() {
+    return result;
+  }
+
   public void setResult(LLMObsExperimentationAnalyticsResult result) {
     this.result = result;
     if (result != null) {
@@ -100,24 +90,24 @@ public class LLMObsExperimentationAnalyticsDataAttributesResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsExperimentationAnalyticsDataAttributesResponse
    */
   @JsonAnySetter
-  public LLMObsExperimentationAnalyticsDataAttributesResponse putAdditionalProperty(String key, Object value) {
+  public LLMObsExperimentationAnalyticsDataAttributesResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -141,7 +131,7 @@ public class LLMObsExperimentationAnalyticsDataAttributesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -157,14 +147,20 @@ public class LLMObsExperimentationAnalyticsDataAttributesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsExperimentationAnalyticsDataAttributesResponse llmObsExperimentationAnalyticsDataAttributesResponse = (LLMObsExperimentationAnalyticsDataAttributesResponse) o;
-    return Objects.equals(this.hitCount, llmObsExperimentationAnalyticsDataAttributesResponse.hitCount) && Objects.equals(this.result, llmObsExperimentationAnalyticsDataAttributesResponse.result) && Objects.equals(this.additionalProperties, llmObsExperimentationAnalyticsDataAttributesResponse.additionalProperties);
+    LLMObsExperimentationAnalyticsDataAttributesResponse
+        llmObsExperimentationAnalyticsDataAttributesResponse =
+            (LLMObsExperimentationAnalyticsDataAttributesResponse) o;
+    return Objects.equals(
+            this.hitCount, llmObsExperimentationAnalyticsDataAttributesResponse.hitCount)
+        && Objects.equals(this.result, llmObsExperimentationAnalyticsDataAttributesResponse.result)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsExperimentationAnalyticsDataAttributesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(hitCount,result, additionalProperties);
+    return Objects.hash(hitCount, result, additionalProperties);
   }
 
   @Override
@@ -181,8 +177,7 @@ public class LLMObsExperimentationAnalyticsDataAttributesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

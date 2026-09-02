@@ -6,76 +6,65 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The bucket key prefix indicating the type of file upload.</p>
- */
-@JsonSerialize(using = SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix.SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer.class)
-public class SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix extends ModelEnum<String> {
+/** The bucket key prefix indicating the type of file upload. */
+@JsonSerialize(
+    using =
+        SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix
+            .SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer.class)
+public class SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix
+    extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("api-upload-file", "browser-upload-file-step"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("api-upload-file", "browser-upload-file-step"));
 
-  public static final SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix API_UPLOAD_FILE = new SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix("api-upload-file");
-  public static final SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix BROWSER_UPLOAD_FILE_STEP = new SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix("browser-upload-file-step");
-
+  public static final SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix
+      API_UPLOAD_FILE =
+          new SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix("api-upload-file");
+  public static final SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix
+      BROWSER_UPLOAD_FILE_STEP =
+          new SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix(
+              "browser-upload-file-step");
 
   SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer extends StdSerializer<SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix> {
-      public SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer(Class<SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix> t) {
-          super(t);
-      }
+  public static class SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer
+      extends StdSerializer<SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix> {
+    public SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer(
+        Class<SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix> t) {
+      super(t);
+    }
 
-      public SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer() {
-          this(null);
-      }
+    public SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefixSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator
-  public static SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix fromValue(String value) {
+  public static SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix fromValue(
+      String value) {
     return new SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix(value);
   }
 }

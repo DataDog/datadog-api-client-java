@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Item in the Microsoft Teams integration metadata teams array.</p>
- */
+/** Item in the Microsoft Teams integration metadata teams array. */
 @JsonPropertyOrder({
   MSTeamsIntegrationMetadataTeamsItem.JSON_PROPERTY_MS_CHANNEL_ID,
   MSTeamsIntegrationMetadataTeamsItem.JSON_PROPERTY_MS_CHANNEL_NAME,
   MSTeamsIntegrationMetadataTeamsItem.JSON_PROPERTY_MS_TENANT_ID,
   MSTeamsIntegrationMetadataTeamsItem.JSON_PROPERTY_REDIRECT_URL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MSTeamsIntegrationMetadataTeamsItem {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MS_CHANNEL_ID = "ms_channel_id";
   private String msChannelId;
 
@@ -60,98 +44,105 @@ public class MSTeamsIntegrationMetadataTeamsItem {
 
   @JsonCreator
   public MSTeamsIntegrationMetadataTeamsItem(
-            @JsonProperty(required=true, value=JSON_PROPERTY_MS_CHANNEL_ID)String msChannelId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MS_CHANNEL_NAME)String msChannelName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MS_TENANT_ID)String msTenantId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_REDIRECT_URL)String redirectUrl) {
-        this.msChannelId = msChannelId;
-        this.msChannelName = msChannelName;
-        this.msTenantId = msTenantId;
-        this.redirectUrl = redirectUrl;
+      @JsonProperty(required = true, value = JSON_PROPERTY_MS_CHANNEL_ID) String msChannelId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MS_CHANNEL_NAME) String msChannelName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MS_TENANT_ID) String msTenantId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REDIRECT_URL) String redirectUrl) {
+    this.msChannelId = msChannelId;
+    this.msChannelName = msChannelName;
+    this.msTenantId = msTenantId;
+    this.redirectUrl = redirectUrl;
   }
+
   public MSTeamsIntegrationMetadataTeamsItem msChannelId(String msChannelId) {
     this.msChannelId = msChannelId;
     return this;
   }
 
   /**
-   * <p>Microsoft Teams channel ID.</p>
+   * Microsoft Teams channel ID.
+   *
    * @return msChannelId
-  **/
-      @JsonProperty(JSON_PROPERTY_MS_CHANNEL_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMsChannelId() {
-        return msChannelId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MS_CHANNEL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMsChannelId() {
+    return msChannelId;
+  }
+
   public void setMsChannelId(String msChannelId) {
     this.msChannelId = msChannelId;
   }
+
   public MSTeamsIntegrationMetadataTeamsItem msChannelName(String msChannelName) {
     this.msChannelName = msChannelName;
     return this;
   }
 
   /**
-   * <p>Microsoft Teams channel name.</p>
+   * Microsoft Teams channel name.
+   *
    * @return msChannelName
-  **/
-      @JsonProperty(JSON_PROPERTY_MS_CHANNEL_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMsChannelName() {
-        return msChannelName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MS_CHANNEL_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMsChannelName() {
+    return msChannelName;
+  }
+
   public void setMsChannelName(String msChannelName) {
     this.msChannelName = msChannelName;
   }
+
   public MSTeamsIntegrationMetadataTeamsItem msTenantId(String msTenantId) {
     this.msTenantId = msTenantId;
     return this;
   }
 
   /**
-   * <p>Microsoft Teams tenant ID.</p>
+   * Microsoft Teams tenant ID.
+   *
    * @return msTenantId
-  **/
-      @JsonProperty(JSON_PROPERTY_MS_TENANT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMsTenantId() {
-        return msTenantId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MS_TENANT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMsTenantId() {
+    return msTenantId;
+  }
+
   public void setMsTenantId(String msTenantId) {
     this.msTenantId = msTenantId;
   }
+
   public MSTeamsIntegrationMetadataTeamsItem redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
   }
 
   /**
-   * <p>URL redirecting to the Microsoft Teams channel.</p>
+   * URL redirecting to the Microsoft Teams channel.
+   *
    * @return redirectUrl
-  **/
-      @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getRedirectUrl() {
-        return redirectUrl;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getRedirectUrl() {
+    return redirectUrl;
+  }
+
   public void setRedirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -160,7 +151,7 @@ public class MSTeamsIntegrationMetadataTeamsItem {
   @JsonAnySetter
   public MSTeamsIntegrationMetadataTeamsItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -184,14 +175,12 @@ public class MSTeamsIntegrationMetadataTeamsItem {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this MSTeamsIntegrationMetadataTeamsItem object is equal to o.
-   */
+  /** Return true if this MSTeamsIntegrationMetadataTeamsItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -200,14 +189,19 @@ public class MSTeamsIntegrationMetadataTeamsItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MSTeamsIntegrationMetadataTeamsItem msTeamsIntegrationMetadataTeamsItem = (MSTeamsIntegrationMetadataTeamsItem) o;
-    return Objects.equals(this.msChannelId, msTeamsIntegrationMetadataTeamsItem.msChannelId) && Objects.equals(this.msChannelName, msTeamsIntegrationMetadataTeamsItem.msChannelName) && Objects.equals(this.msTenantId, msTeamsIntegrationMetadataTeamsItem.msTenantId) && Objects.equals(this.redirectUrl, msTeamsIntegrationMetadataTeamsItem.redirectUrl) && Objects.equals(this.additionalProperties, msTeamsIntegrationMetadataTeamsItem.additionalProperties);
+    MSTeamsIntegrationMetadataTeamsItem msTeamsIntegrationMetadataTeamsItem =
+        (MSTeamsIntegrationMetadataTeamsItem) o;
+    return Objects.equals(this.msChannelId, msTeamsIntegrationMetadataTeamsItem.msChannelId)
+        && Objects.equals(this.msChannelName, msTeamsIntegrationMetadataTeamsItem.msChannelName)
+        && Objects.equals(this.msTenantId, msTeamsIntegrationMetadataTeamsItem.msTenantId)
+        && Objects.equals(this.redirectUrl, msTeamsIntegrationMetadataTeamsItem.redirectUrl)
+        && Objects.equals(
+            this.additionalProperties, msTeamsIntegrationMetadataTeamsItem.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(msChannelId,msChannelName,msTenantId,redirectUrl, additionalProperties);
+    return Objects.hash(msChannelId, msChannelName, msTenantId, redirectUrl, additionalProperties);
   }
 
   @Override
@@ -226,8 +220,7 @@ public class MSTeamsIntegrationMetadataTeamsItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

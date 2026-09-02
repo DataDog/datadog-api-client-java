@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Trigger a workflow from a Schedule. The workflow must be published.</p>
- */
+/** Trigger a workflow from a Schedule. The workflow must be published. */
 @JsonPropertyOrder({
   ScheduleTrigger.JSON_PROPERTY_OVERLAP_BEHAVIOR,
   ScheduleTrigger.JSON_PROPERTY_RRULE_EXPRESSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScheduleTrigger {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OVERLAP_BEHAVIOR = "overlapBehavior";
-  private ScheduleTriggerOverlapBehavior overlapBehavior = ScheduleTriggerOverlapBehavior.EXCLUSIVE_RUN;
+  private ScheduleTriggerOverlapBehavior overlapBehavior =
+      ScheduleTriggerOverlapBehavior.EXCLUSIVE_RUN;
 
   public static final String JSON_PROPERTY_RRULE_EXPRESSION = "rruleExpression";
   private String rruleExpression;
@@ -52,9 +37,11 @@ public class ScheduleTrigger {
 
   @JsonCreator
   public ScheduleTrigger(
-            @JsonProperty(required=true, value=JSON_PROPERTY_RRULE_EXPRESSION)String rruleExpression) {
-        this.rruleExpression = rruleExpression;
+      @JsonProperty(required = true, value = JSON_PROPERTY_RRULE_EXPRESSION)
+          String rruleExpression) {
+    this.rruleExpression = rruleExpression;
   }
+
   public ScheduleTrigger overlapBehavior(ScheduleTriggerOverlapBehavior overlapBehavior) {
     this.overlapBehavior = overlapBehavior;
     this.unparsed |= !overlapBehavior.isValid();
@@ -62,51 +49,53 @@ public class ScheduleTrigger {
   }
 
   /**
-   * <p>Controls whether a scheduled workflow run may start while another instance is still running.</p>
+   * Controls whether a scheduled workflow run may start while another instance is still running.
+   *
    * @return overlapBehavior
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OVERLAP_BEHAVIOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ScheduleTriggerOverlapBehavior getOverlapBehavior() {
-        return overlapBehavior;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OVERLAP_BEHAVIOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScheduleTriggerOverlapBehavior getOverlapBehavior() {
+    return overlapBehavior;
+  }
+
   public void setOverlapBehavior(ScheduleTriggerOverlapBehavior overlapBehavior) {
     if (!overlapBehavior.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.overlapBehavior = overlapBehavior;
   }
+
   public ScheduleTrigger rruleExpression(String rruleExpression) {
     this.rruleExpression = rruleExpression;
     return this;
   }
 
   /**
-   * <p>Recurrence rule expression for scheduling.</p>
+   * Recurrence rule expression for scheduling.
+   *
    * @return rruleExpression
-  **/
-      @JsonProperty(JSON_PROPERTY_RRULE_EXPRESSION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getRruleExpression() {
-        return rruleExpression;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RRULE_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getRruleExpression() {
+    return rruleExpression;
+  }
+
   public void setRruleExpression(String rruleExpression) {
     this.rruleExpression = rruleExpression;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -115,7 +104,7 @@ public class ScheduleTrigger {
   @JsonAnySetter
   public ScheduleTrigger putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -139,14 +128,12 @@ public class ScheduleTrigger {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ScheduleTrigger object is equal to o.
-   */
+  /** Return true if this ScheduleTrigger object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,13 +143,14 @@ public class ScheduleTrigger {
       return false;
     }
     ScheduleTrigger scheduleTrigger = (ScheduleTrigger) o;
-    return Objects.equals(this.overlapBehavior, scheduleTrigger.overlapBehavior) && Objects.equals(this.rruleExpression, scheduleTrigger.rruleExpression) && Objects.equals(this.additionalProperties, scheduleTrigger.additionalProperties);
+    return Objects.equals(this.overlapBehavior, scheduleTrigger.overlapBehavior)
+        && Objects.equals(this.rruleExpression, scheduleTrigger.rruleExpression)
+        && Objects.equals(this.additionalProperties, scheduleTrigger.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(overlapBehavior,rruleExpression, additionalProperties);
+    return Objects.hash(overlapBehavior, rruleExpression, additionalProperties);
   }
 
   @Override
@@ -179,8 +167,7 @@ public class ScheduleTrigger {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

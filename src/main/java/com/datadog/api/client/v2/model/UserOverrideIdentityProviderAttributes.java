@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,22 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of an identity provider override for a user.</p>
- */
-@JsonPropertyOrder({
-  UserOverrideIdentityProviderAttributes.JSON_PROPERTY_AUTHENTICATION_METHOD
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Attributes of an identity provider override for a user. */
+@JsonPropertyOrder({UserOverrideIdentityProviderAttributes.JSON_PROPERTY_AUTHENTICATION_METHOD})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserOverrideIdentityProviderAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHENTICATION_METHOD = "authentication_method";
   private String authenticationMethod;
 
@@ -48,38 +30,40 @@ public class UserOverrideIdentityProviderAttributes {
 
   @JsonCreator
   public UserOverrideIdentityProviderAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AUTHENTICATION_METHOD)String authenticationMethod) {
-        this.authenticationMethod = authenticationMethod;
+      @JsonProperty(required = true, value = JSON_PROPERTY_AUTHENTICATION_METHOD)
+          String authenticationMethod) {
+    this.authenticationMethod = authenticationMethod;
   }
+
   public UserOverrideIdentityProviderAttributes authenticationMethod(String authenticationMethod) {
     this.authenticationMethod = authenticationMethod;
     return this;
   }
 
   /**
-   * <p>The authentication method used by this identity provider.</p>
+   * The authentication method used by this identity provider.
+   *
    * @return authenticationMethod
-  **/
-      @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAuthenticationMethod() {
-        return authenticationMethod;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAuthenticationMethod() {
+    return authenticationMethod;
+  }
+
   public void setAuthenticationMethod(String authenticationMethod) {
     this.authenticationMethod = authenticationMethod;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -88,7 +72,7 @@ public class UserOverrideIdentityProviderAttributes {
   @JsonAnySetter
   public UserOverrideIdentityProviderAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -112,14 +96,12 @@ public class UserOverrideIdentityProviderAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UserOverrideIdentityProviderAttributes object is equal to o.
-   */
+  /** Return true if this UserOverrideIdentityProviderAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,10 +110,13 @@ public class UserOverrideIdentityProviderAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserOverrideIdentityProviderAttributes userOverrideIdentityProviderAttributes = (UserOverrideIdentityProviderAttributes) o;
-    return Objects.equals(this.authenticationMethod, userOverrideIdentityProviderAttributes.authenticationMethod) && Objects.equals(this.additionalProperties, userOverrideIdentityProviderAttributes.additionalProperties);
+    UserOverrideIdentityProviderAttributes userOverrideIdentityProviderAttributes =
+        (UserOverrideIdentityProviderAttributes) o;
+    return Objects.equals(
+            this.authenticationMethod, userOverrideIdentityProviderAttributes.authenticationMethod)
+        && Objects.equals(
+            this.additionalProperties, userOverrideIdentityProviderAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -142,7 +127,9 @@ public class UserOverrideIdentityProviderAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserOverrideIdentityProviderAttributes {\n");
-    sb.append("    authenticationMethod: ").append(toIndentedString(authenticationMethod)).append("\n");
+    sb.append("    authenticationMethod: ")
+        .append(toIndentedString(authenticationMethod))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -151,8 +138,7 @@ public class UserOverrideIdentityProviderAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

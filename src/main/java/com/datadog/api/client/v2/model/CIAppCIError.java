@@ -6,44 +6,28 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Contains information of the CI error.</p>
- */
+/** Contains information of the CI error. */
 @JsonPropertyOrder({
   CIAppCIError.JSON_PROPERTY_DOMAIN,
   CIAppCIError.JSON_PROPERTY_MESSAGE,
   CIAppCIError.JSON_PROPERTY_STACK,
   CIAppCIError.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppCIError {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAIN = "domain";
   private CIAppCIErrorDomain domain;
 
@@ -63,111 +47,127 @@ public class CIAppCIError {
   }
 
   /**
-   * <p>Error category used to differentiate between issues related to the developer or provider environments.</p>
+   * Error category used to differentiate between issues related to the developer or provider
+   * environments.
+   *
    * @return domain
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DOMAIN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppCIErrorDomain getDomain() {
-        return domain;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DOMAIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppCIErrorDomain getDomain() {
+    return domain;
+  }
+
   public void setDomain(CIAppCIErrorDomain domain) {
     if (!domain.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.domain = domain;
   }
+
   public CIAppCIError message(String message) {
     this.message = JsonNullable.<String>of(message);
     return this;
   }
 
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @return message
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getMessage() {
-        return message.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getMessage() {
+    return message.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getMessage_JsonNullable() {
     return message;
   }
-  @JsonProperty(JSON_PROPERTY_MESSAGE)public void setMessage_JsonNullable(JsonNullable<String> message) {
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  public void setMessage_JsonNullable(JsonNullable<String> message) {
     this.message = message;
   }
+
   public void setMessage(String message) {
     this.message = JsonNullable.<String>of(message);
   }
+
   public CIAppCIError stack(String stack) {
     this.stack = JsonNullable.<String>of(stack);
     return this;
   }
 
   /**
-   * <p>The stack trace of the reported errors.</p>
+   * The stack trace of the reported errors.
+   *
    * @return stack
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getStack() {
-        return stack.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getStack() {
+    return stack.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_STACK)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getStack_JsonNullable() {
     return stack;
   }
-  @JsonProperty(JSON_PROPERTY_STACK)public void setStack_JsonNullable(JsonNullable<String> stack) {
+
+  @JsonProperty(JSON_PROPERTY_STACK)
+  public void setStack_JsonNullable(JsonNullable<String> stack) {
     this.stack = stack;
   }
+
   public void setStack(String stack) {
     this.stack = JsonNullable.<String>of(stack);
   }
+
   public CIAppCIError type(String type) {
     this.type = JsonNullable.<String>of(type);
     return this;
   }
 
   /**
-   * <p>Short description of the error type.</p>
+   * Short description of the error type.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getType() {
-        return type.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getType() {
+    return type.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
-  @JsonProperty(JSON_PROPERTY_TYPE)public void setType_JsonNullable(JsonNullable<String> type) {
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
     this.type = type;
   }
+
   public void setType(String type) {
     this.type = JsonNullable.<String>of(type);
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -176,7 +176,7 @@ public class CIAppCIError {
   @JsonAnySetter
   public CIAppCIError putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -200,14 +200,12 @@ public class CIAppCIError {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CIAppCIError object is equal to o.
-   */
+  /** Return true if this CIAppCIError object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -217,13 +215,16 @@ public class CIAppCIError {
       return false;
     }
     CIAppCIError ciAppCiError = (CIAppCIError) o;
-    return Objects.equals(this.domain, ciAppCiError.domain) && Objects.equals(this.message, ciAppCiError.message) && Objects.equals(this.stack, ciAppCiError.stack) && Objects.equals(this.type, ciAppCiError.type) && Objects.equals(this.additionalProperties, ciAppCiError.additionalProperties);
+    return Objects.equals(this.domain, ciAppCiError.domain)
+        && Objects.equals(this.message, ciAppCiError.message)
+        && Objects.equals(this.stack, ciAppCiError.stack)
+        && Objects.equals(this.type, ciAppCiError.type)
+        && Objects.equals(this.additionalProperties, ciAppCiError.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain,message,stack,type, additionalProperties);
+    return Objects.hash(domain, message, stack, type, additionalProperties);
   }
 
   @Override
@@ -242,8 +243,7 @@ public class CIAppCIError {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

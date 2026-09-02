@@ -6,34 +6,14 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Search configuration for retention queries.</p>
- */
+/** Search configuration for retention queries. */
 @JsonPropertyOrder({
   RetentionSearch.JSON_PROPERTY_COHORT_CRITERIA,
   RetentionSearch.JSON_PROPERTY_FILTERS,
@@ -41,10 +21,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   RetentionSearch.JSON_PROPERTY_RETURN_CONDITION,
   RetentionSearch.JSON_PROPERTY_RETURN_CRITERIA
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionSearch {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COHORT_CRITERIA = "cohort_criteria";
   private RetentionCohortCriteria cohortCriteria;
 
@@ -64,16 +44,20 @@ public class RetentionSearch {
 
   @JsonCreator
   public RetentionSearch(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COHORT_CRITERIA)RetentionCohortCriteria cohortCriteria,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RETENTION_ENTITY)RetentionEntity retentionEntity,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RETURN_CONDITION)RetentionReturnCondition returnCondition) {
-        this.cohortCriteria = cohortCriteria;
-        this.unparsed |= cohortCriteria.unparsed;
-        this.retentionEntity = retentionEntity;
-        this.unparsed |= !retentionEntity.isValid();
-        this.returnCondition = returnCondition;
-        this.unparsed |= !returnCondition.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_COHORT_CRITERIA)
+          RetentionCohortCriteria cohortCriteria,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RETENTION_ENTITY)
+          RetentionEntity retentionEntity,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RETURN_CONDITION)
+          RetentionReturnCondition returnCondition) {
+    this.cohortCriteria = cohortCriteria;
+    this.unparsed |= cohortCriteria.unparsed;
+    this.retentionEntity = retentionEntity;
+    this.unparsed |= !retentionEntity.isValid();
+    this.returnCondition = returnCondition;
+    this.unparsed |= !returnCondition.isValid();
   }
+
   public RetentionSearch cohortCriteria(RetentionCohortCriteria cohortCriteria) {
     this.cohortCriteria = cohortCriteria;
     this.unparsed |= cohortCriteria.unparsed;
@@ -81,21 +65,23 @@ public class RetentionSearch {
   }
 
   /**
-   * <p>Cohort criteria for retention queries.</p>
+   * Cohort criteria for retention queries.
+   *
    * @return cohortCriteria
-  **/
-      @JsonProperty(JSON_PROPERTY_COHORT_CRITERIA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionCohortCriteria getCohortCriteria() {
-        return cohortCriteria;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COHORT_CRITERIA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionCohortCriteria getCohortCriteria() {
+    return cohortCriteria;
+  }
+
   public void setCohortCriteria(RetentionCohortCriteria cohortCriteria) {
     this.cohortCriteria = cohortCriteria;
     if (cohortCriteria != null) {
       this.unparsed |= cohortCriteria.unparsed;
     }
   }
+
   public RetentionSearch filters(RetentionFilters filters) {
     this.filters = filters;
     this.unparsed |= filters.unparsed;
@@ -103,22 +89,24 @@ public class RetentionSearch {
   }
 
   /**
-   * <p>Filters for retention queries.</p>
+   * Filters for retention queries.
+   *
    * @return filters
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILTERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public RetentionFilters getFilters() {
-        return filters;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RetentionFilters getFilters() {
+    return filters;
+  }
+
   public void setFilters(RetentionFilters filters) {
     this.filters = filters;
     if (filters != null) {
       this.unparsed |= filters.unparsed;
     }
   }
+
   public RetentionSearch retentionEntity(RetentionEntity retentionEntity) {
     this.retentionEntity = retentionEntity;
     this.unparsed |= !retentionEntity.isValid();
@@ -126,21 +114,23 @@ public class RetentionSearch {
   }
 
   /**
-   * <p>Entity to track for retention.</p>
+   * Entity to track for retention.
+   *
    * @return retentionEntity
-  **/
-      @JsonProperty(JSON_PROPERTY_RETENTION_ENTITY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionEntity getRetentionEntity() {
-        return retentionEntity;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RETENTION_ENTITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionEntity getRetentionEntity() {
+    return retentionEntity;
+  }
+
   public void setRetentionEntity(RetentionEntity retentionEntity) {
     if (!retentionEntity.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.retentionEntity = retentionEntity;
   }
+
   public RetentionSearch returnCondition(RetentionReturnCondition returnCondition) {
     this.returnCondition = returnCondition;
     this.unparsed |= !returnCondition.isValid();
@@ -148,21 +138,23 @@ public class RetentionSearch {
   }
 
   /**
-   * <p>Condition for counting user return.</p>
+   * Condition for counting user return.
+   *
    * @return returnCondition
-  **/
-      @JsonProperty(JSON_PROPERTY_RETURN_CONDITION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionReturnCondition getReturnCondition() {
-        return returnCondition;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RETURN_CONDITION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionReturnCondition getReturnCondition() {
+    return returnCondition;
+  }
+
   public void setReturnCondition(RetentionReturnCondition returnCondition) {
     if (!returnCondition.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.returnCondition = returnCondition;
   }
+
   public RetentionSearch returnCriteria(RetentionReturnCriteria returnCriteria) {
     this.returnCriteria = returnCriteria;
     this.unparsed |= returnCriteria.unparsed;
@@ -170,16 +162,17 @@ public class RetentionSearch {
   }
 
   /**
-   * <p>Return criteria for retention queries.</p>
+   * Return criteria for retention queries.
+   *
    * @return returnCriteria
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RETURN_CRITERIA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public RetentionReturnCriteria getReturnCriteria() {
-        return returnCriteria;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RETURN_CRITERIA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RetentionReturnCriteria getReturnCriteria() {
+    return returnCriteria;
+  }
+
   public void setReturnCriteria(RetentionReturnCriteria returnCriteria) {
     this.returnCriteria = returnCriteria;
     if (returnCriteria != null) {
@@ -187,9 +180,7 @@ public class RetentionSearch {
     }
   }
 
-  /**
-   * Return true if this RetentionSearch object is equal to o.
-   */
+  /** Return true if this RetentionSearch object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -199,13 +190,16 @@ public class RetentionSearch {
       return false;
     }
     RetentionSearch retentionSearch = (RetentionSearch) o;
-    return Objects.equals(this.cohortCriteria, retentionSearch.cohortCriteria) && Objects.equals(this.filters, retentionSearch.filters) && Objects.equals(this.retentionEntity, retentionSearch.retentionEntity) && Objects.equals(this.returnCondition, retentionSearch.returnCondition) && Objects.equals(this.returnCriteria, retentionSearch.returnCriteria);
+    return Objects.equals(this.cohortCriteria, retentionSearch.cohortCriteria)
+        && Objects.equals(this.filters, retentionSearch.filters)
+        && Objects.equals(this.retentionEntity, retentionSearch.retentionEntity)
+        && Objects.equals(this.returnCondition, retentionSearch.returnCondition)
+        && Objects.equals(this.returnCriteria, retentionSearch.returnCriteria);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cohortCriteria,filters,retentionEntity,returnCondition,returnCriteria);
+    return Objects.hash(cohortCriteria, filters, retentionEntity, returnCondition, returnCriteria);
   }
 
   @Override
@@ -222,8 +216,7 @@ public class RetentionSearch {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for an experimentation simple search request.</p>
- */
+/** Attributes for an experimentation simple search request. */
 @JsonPropertyOrder({
   LLMObsExperimentationSimpleSearchDataAttributesRequest.JSON_PROPERTY_CONTENT_PREVIEW,
   LLMObsExperimentationSimpleSearchDataAttributesRequest.JSON_PROPERTY_FILTER,
@@ -41,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsExperimentationSimpleSearchDataAttributesRequest.JSON_PROPERTY_PAGE,
   LLMObsExperimentationSimpleSearchDataAttributesRequest.JSON_PROPERTY_SORT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTENT_PREVIEW = "content_preview";
   private LLMObsExperimentationContentPreview contentPreview;
 
@@ -64,111 +50,128 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
 
   @JsonCreator
   public LLMObsExperimentationSimpleSearchDataAttributesRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FILTER)LLMObsExperimentationFilter filter) {
-        this.filter = filter;
-        this.unparsed |= filter.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILTER)
+          LLMObsExperimentationFilter filter) {
+    this.filter = filter;
+    this.unparsed |= filter.unparsed;
   }
-  public LLMObsExperimentationSimpleSearchDataAttributesRequest contentPreview(LLMObsExperimentationContentPreview contentPreview) {
+
+  public LLMObsExperimentationSimpleSearchDataAttributesRequest contentPreview(
+      LLMObsExperimentationContentPreview contentPreview) {
     this.contentPreview = contentPreview;
     this.unparsed |= contentPreview.unparsed;
     return this;
   }
 
   /**
-   * <p>Options to control content preview truncation.</p>
+   * Options to control content preview truncation.
+   *
    * @return contentPreview
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONTENT_PREVIEW)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsExperimentationContentPreview getContentPreview() {
-        return contentPreview;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTENT_PREVIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsExperimentationContentPreview getContentPreview() {
+    return contentPreview;
+  }
+
   public void setContentPreview(LLMObsExperimentationContentPreview contentPreview) {
     this.contentPreview = contentPreview;
     if (contentPreview != null) {
       this.unparsed |= contentPreview.unparsed;
     }
   }
-  public LLMObsExperimentationSimpleSearchDataAttributesRequest filter(LLMObsExperimentationFilter filter) {
+
+  public LLMObsExperimentationSimpleSearchDataAttributesRequest filter(
+      LLMObsExperimentationFilter filter) {
     this.filter = filter;
     this.unparsed |= filter.unparsed;
     return this;
   }
 
   /**
-   * <p>Filter criteria for an experimentation search request.</p>
+   * Filter criteria for an experimentation search request.
+   *
    * @return filter
-  **/
-      @JsonProperty(JSON_PROPERTY_FILTER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LLMObsExperimentationFilter getFilter() {
-        return filter;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LLMObsExperimentationFilter getFilter() {
+    return filter;
+  }
+
   public void setFilter(LLMObsExperimentationFilter filter) {
     this.filter = filter;
     if (filter != null) {
       this.unparsed |= filter.unparsed;
     }
   }
-  public LLMObsExperimentationSimpleSearchDataAttributesRequest include(LLMObsExperimentationInclude include) {
+
+  public LLMObsExperimentationSimpleSearchDataAttributesRequest include(
+      LLMObsExperimentationInclude include) {
     this.include = include;
     this.unparsed |= include.unparsed;
     return this;
   }
 
   /**
-   * <p>Additional data to include in the response.</p>
+   * Additional data to include in the response.
+   *
    * @return include
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsExperimentationInclude getInclude() {
-        return include;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsExperimentationInclude getInclude() {
+    return include;
+  }
+
   public void setInclude(LLMObsExperimentationInclude include) {
     this.include = include;
     if (include != null) {
       this.unparsed |= include.unparsed;
     }
   }
-  public LLMObsExperimentationSimpleSearchDataAttributesRequest page(LLMObsExperimentationNumberPage page) {
+
+  public LLMObsExperimentationSimpleSearchDataAttributesRequest page(
+      LLMObsExperimentationNumberPage page) {
     this.page = page;
     this.unparsed |= page.unparsed;
     return this;
   }
 
   /**
-   * <p>Offset-based pagination parameters for simple search.</p>
+   * Offset-based pagination parameters for simple search.
+   *
    * @return page
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsExperimentationNumberPage getPage() {
-        return page;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsExperimentationNumberPage getPage() {
+    return page;
+  }
+
   public void setPage(LLMObsExperimentationNumberPage page) {
     this.page = page;
     if (page != null) {
       this.unparsed |= page.unparsed;
     }
   }
-  public LLMObsExperimentationSimpleSearchDataAttributesRequest sort(List<LLMObsExperimentationSortField> sort) {
+
+  public LLMObsExperimentationSimpleSearchDataAttributesRequest sort(
+      List<LLMObsExperimentationSortField> sort) {
     this.sort = sort;
     if (sort != null) {
-    for (LLMObsExperimentationSortField item : sort) {
-      this.unparsed |= item.unparsed;
-    }
+      for (LLMObsExperimentationSortField item : sort) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public LLMObsExperimentationSimpleSearchDataAttributesRequest addSortItem(LLMObsExperimentationSortField sortItem) {
+
+  public LLMObsExperimentationSimpleSearchDataAttributesRequest addSortItem(
+      LLMObsExperimentationSortField sortItem) {
     if (this.sort == null) {
       this.sort = new ArrayList<>();
     }
@@ -178,16 +181,17 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
   }
 
   /**
-   * <p>Sort order for results.</p>
+   * Sort order for results.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LLMObsExperimentationSortField> getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LLMObsExperimentationSortField> getSort() {
+    return sort;
+  }
+
   public void setSort(List<LLMObsExperimentationSortField> sort) {
     this.sort = sort;
     if (sort != null) {
@@ -198,24 +202,24 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsExperimentationSimpleSearchDataAttributesRequest
    */
   @JsonAnySetter
-  public LLMObsExperimentationSimpleSearchDataAttributesRequest putAdditionalProperty(String key, Object value) {
+  public LLMObsExperimentationSimpleSearchDataAttributesRequest putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -239,13 +243,14 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this LLMObsExperimentationSimpleSearchDataAttributesRequest object is equal to o.
+   * Return true if this LLMObsExperimentationSimpleSearchDataAttributesRequest object is equal to
+   * o.
    */
   @Override
   public boolean equals(Object o) {
@@ -255,14 +260,26 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsExperimentationSimpleSearchDataAttributesRequest llmObsExperimentationSimpleSearchDataAttributesRequest = (LLMObsExperimentationSimpleSearchDataAttributesRequest) o;
-    return Objects.equals(this.contentPreview, llmObsExperimentationSimpleSearchDataAttributesRequest.contentPreview) && Objects.equals(this.filter, llmObsExperimentationSimpleSearchDataAttributesRequest.filter) && Objects.equals(this.include, llmObsExperimentationSimpleSearchDataAttributesRequest.include) && Objects.equals(this.page, llmObsExperimentationSimpleSearchDataAttributesRequest.page) && Objects.equals(this.sort, llmObsExperimentationSimpleSearchDataAttributesRequest.sort) && Objects.equals(this.additionalProperties, llmObsExperimentationSimpleSearchDataAttributesRequest.additionalProperties);
+    LLMObsExperimentationSimpleSearchDataAttributesRequest
+        llmObsExperimentationSimpleSearchDataAttributesRequest =
+            (LLMObsExperimentationSimpleSearchDataAttributesRequest) o;
+    return Objects.equals(
+            this.contentPreview,
+            llmObsExperimentationSimpleSearchDataAttributesRequest.contentPreview)
+        && Objects.equals(
+            this.filter, llmObsExperimentationSimpleSearchDataAttributesRequest.filter)
+        && Objects.equals(
+            this.include, llmObsExperimentationSimpleSearchDataAttributesRequest.include)
+        && Objects.equals(this.page, llmObsExperimentationSimpleSearchDataAttributesRequest.page)
+        && Objects.equals(this.sort, llmObsExperimentationSimpleSearchDataAttributesRequest.sort)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsExperimentationSimpleSearchDataAttributesRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentPreview,filter,include,page,sort, additionalProperties);
+    return Objects.hash(contentPreview, filter, include, page, sort, additionalProperties);
   }
 
   @Override
@@ -282,8 +299,7 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

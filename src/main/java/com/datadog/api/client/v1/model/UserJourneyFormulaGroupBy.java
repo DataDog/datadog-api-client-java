@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Group by configuration for User Journey formula queries.</p>
- */
+/** Group by configuration for User Journey formula queries. */
 @JsonPropertyOrder({
   UserJourneyFormulaGroupBy.JSON_PROPERTY_FACET,
   UserJourneyFormulaGroupBy.JSON_PROPERTY_LIMIT,
@@ -41,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UserJourneyFormulaGroupBy.JSON_PROPERTY_SORT,
   UserJourneyFormulaGroupBy.JSON_PROPERTY_TARGET
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserJourneyFormulaGroupBy {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -64,66 +48,72 @@ public class UserJourneyFormulaGroupBy {
 
   @JsonCreator
   public UserJourneyFormulaGroupBy(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FACET)String facet) {
-        this.facet = facet;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
+    this.facet = facet;
   }
+
   public UserJourneyFormulaGroupBy facet(String facet) {
     this.facet = facet;
     return this;
   }
 
   /**
-   * <p>Facet name to group by.</p>
+   * Facet name to group by.
+   *
    * @return facet
-  **/
-      @JsonProperty(JSON_PROPERTY_FACET)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getFacet() {
-        return facet;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FACET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getFacet() {
+    return facet;
+  }
+
   public void setFacet(String facet) {
     this.facet = facet;
   }
+
   public UserJourneyFormulaGroupBy limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>Maximum number of groups to return.</p>
-   * maximum: 10000
+   * Maximum number of groups to return. maximum: 10000
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLimit() {
+    return limit;
+  }
+
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
+
   public UserJourneyFormulaGroupBy shouldExcludeMissing(Boolean shouldExcludeMissing) {
     this.shouldExcludeMissing = shouldExcludeMissing;
     return this;
   }
 
   /**
-   * <p>Whether to exclude events missing the group-by facet.</p>
+   * Whether to exclude events missing the group-by facet.
+   *
    * @return shouldExcludeMissing
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOULD_EXCLUDE_MISSING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShouldExcludeMissing() {
-        return shouldExcludeMissing;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOULD_EXCLUDE_MISSING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShouldExcludeMissing() {
+    return shouldExcludeMissing;
+  }
+
   public void setShouldExcludeMissing(Boolean shouldExcludeMissing) {
     this.shouldExcludeMissing = shouldExcludeMissing;
   }
+
   public UserJourneyFormulaGroupBy sort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -131,22 +121,24 @@ public class UserJourneyFormulaGroupBy {
   }
 
   /**
-   * <p>Options for sorting group by results.</p>
+   * Options for sorting group by results.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FormulaAndFunctionEventQueryGroupBySort getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionEventQueryGroupBySort getSort() {
+    return sort;
+  }
+
   public void setSort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
     if (sort != null) {
       this.unparsed |= sort.unparsed;
     }
   }
+
   public UserJourneyFormulaGroupBy target(UserJourneySearchTarget target) {
     this.target = target;
     this.unparsed |= target.unparsed;
@@ -154,16 +146,17 @@ public class UserJourneyFormulaGroupBy {
   }
 
   /**
-   * <p>Target for user journey search.</p>
+   * Target for user journey search.
+   *
    * @return target
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TARGET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UserJourneySearchTarget getTarget() {
-        return target;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UserJourneySearchTarget getTarget() {
+    return target;
+  }
+
   public void setTarget(UserJourneySearchTarget target) {
     this.target = target;
     if (target != null) {
@@ -172,15 +165,14 @@ public class UserJourneyFormulaGroupBy {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -189,7 +181,7 @@ public class UserJourneyFormulaGroupBy {
   @JsonAnySetter
   public UserJourneyFormulaGroupBy putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -213,14 +205,12 @@ public class UserJourneyFormulaGroupBy {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UserJourneyFormulaGroupBy object is equal to o.
-   */
+  /** Return true if this UserJourneyFormulaGroupBy object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,13 +220,18 @@ public class UserJourneyFormulaGroupBy {
       return false;
     }
     UserJourneyFormulaGroupBy userJourneyFormulaGroupBy = (UserJourneyFormulaGroupBy) o;
-    return Objects.equals(this.facet, userJourneyFormulaGroupBy.facet) && Objects.equals(this.limit, userJourneyFormulaGroupBy.limit) && Objects.equals(this.shouldExcludeMissing, userJourneyFormulaGroupBy.shouldExcludeMissing) && Objects.equals(this.sort, userJourneyFormulaGroupBy.sort) && Objects.equals(this.target, userJourneyFormulaGroupBy.target) && Objects.equals(this.additionalProperties, userJourneyFormulaGroupBy.additionalProperties);
+    return Objects.equals(this.facet, userJourneyFormulaGroupBy.facet)
+        && Objects.equals(this.limit, userJourneyFormulaGroupBy.limit)
+        && Objects.equals(this.shouldExcludeMissing, userJourneyFormulaGroupBy.shouldExcludeMissing)
+        && Objects.equals(this.sort, userJourneyFormulaGroupBy.sort)
+        && Objects.equals(this.target, userJourneyFormulaGroupBy.target)
+        && Objects.equals(
+            this.additionalProperties, userJourneyFormulaGroupBy.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(facet,limit,shouldExcludeMissing,sort,target, additionalProperties);
+    return Objects.hash(facet, limit, shouldExcludeMissing, sort, target, additionalProperties);
   }
 
   @Override
@@ -245,7 +240,9 @@ public class UserJourneyFormulaGroupBy {
     sb.append("class UserJourneyFormulaGroupBy {\n");
     sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    shouldExcludeMissing: ").append(toIndentedString(shouldExcludeMissing)).append("\n");
+    sb.append("    shouldExcludeMissing: ")
+        .append(toIndentedString(shouldExcludeMissing))
+        .append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    additionalProperties: ")
@@ -256,8 +253,7 @@ public class UserJourneyFormulaGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the cross-queue annotated interactions response.</p>
- */
+/** Attributes of the cross-queue annotated interactions response. */
 @JsonPropertyOrder({
   LLMObsAnnotatedInteractionsByTraceDataAttributesResponse.JSON_PROPERTY_ANNOTATED_INTERACTIONS,
   LLMObsAnnotatedInteractionsByTraceDataAttributesResponse.JSON_PROPERTY_TOTAL_COUNT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATED_INTERACTIONS = "annotated_interactions";
   private List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions = new ArrayList<>();
 
@@ -52,38 +38,45 @@ public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
 
   @JsonCreator
   public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ANNOTATED_INTERACTIONS)List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL_COUNT)Integer totalCount) {
-        this.annotatedInteractions = annotatedInteractions;
-        for (LLMObsAnnotatedInteractionByTraceItem item : annotatedInteractions) {
-          this.unparsed |= item.unparsed;
-        }
-        this.totalCount = totalCount;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATED_INTERACTIONS)
+          List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Integer totalCount) {
+    this.annotatedInteractions = annotatedInteractions;
+    for (LLMObsAnnotatedInteractionByTraceItem item : annotatedInteractions) {
+      this.unparsed |= item.unparsed;
+    }
+    this.totalCount = totalCount;
   }
-  public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse annotatedInteractions(List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions) {
+
+  public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse annotatedInteractions(
+      List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions) {
     this.annotatedInteractions = annotatedInteractions;
     for (LLMObsAnnotatedInteractionByTraceItem item : annotatedInteractions) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse addAnnotatedInteractionsItem(LLMObsAnnotatedInteractionByTraceItem annotatedInteractionsItem) {
+
+  public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse addAnnotatedInteractionsItem(
+      LLMObsAnnotatedInteractionByTraceItem annotatedInteractionsItem) {
     this.annotatedInteractions.add(annotatedInteractionsItem);
     this.unparsed |= annotatedInteractionsItem.unparsed;
     return this;
   }
 
   /**
-   * <p>List of annotated interactions across all queues for the requested content IDs.</p>
+   * List of annotated interactions across all queues for the requested content IDs.
+   *
    * @return annotatedInteractions
-  **/
-      @JsonProperty(JSON_PROPERTY_ANNOTATED_INTERACTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<LLMObsAnnotatedInteractionByTraceItem> getAnnotatedInteractions() {
-        return annotatedInteractions;
-      }
-  public void setAnnotatedInteractions(List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions) {
+   */
+  @JsonProperty(JSON_PROPERTY_ANNOTATED_INTERACTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsAnnotatedInteractionByTraceItem> getAnnotatedInteractions() {
+    return annotatedInteractions;
+  }
+
+  public void setAnnotatedInteractions(
+      List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions) {
     this.annotatedInteractions = annotatedInteractions;
     if (annotatedInteractions != null) {
       for (LLMObsAnnotatedInteractionByTraceItem item : annotatedInteractions) {
@@ -91,45 +84,46 @@ public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
       }
     }
   }
+
   public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
 
   /**
-   * <p>Total number of annotated interactions matching the query.</p>
-   * maximum: 2147483647
+   * Total number of annotated interactions matching the query. maximum: 2147483647
+   *
    * @return totalCount
-  **/
-      @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Integer getTotalCount() {
-        return totalCount;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
   public void setTotalCount(Integer totalCount) {
     this.totalCount = totalCount;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsAnnotatedInteractionsByTraceDataAttributesResponse
    */
   @JsonAnySetter
-  public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse putAdditionalProperty(String key, Object value) {
+  public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -153,13 +147,14 @@ public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this LLMObsAnnotatedInteractionsByTraceDataAttributesResponse object is equal to o.
+   * Return true if this LLMObsAnnotatedInteractionsByTraceDataAttributesResponse object is equal to
+   * o.
    */
   @Override
   public boolean equals(Object o) {
@@ -169,21 +164,31 @@ public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsAnnotatedInteractionsByTraceDataAttributesResponse llmObsAnnotatedInteractionsByTraceDataAttributesResponse = (LLMObsAnnotatedInteractionsByTraceDataAttributesResponse) o;
-    return Objects.equals(this.annotatedInteractions, llmObsAnnotatedInteractionsByTraceDataAttributesResponse.annotatedInteractions) && Objects.equals(this.totalCount, llmObsAnnotatedInteractionsByTraceDataAttributesResponse.totalCount) && Objects.equals(this.additionalProperties, llmObsAnnotatedInteractionsByTraceDataAttributesResponse.additionalProperties);
+    LLMObsAnnotatedInteractionsByTraceDataAttributesResponse
+        llmObsAnnotatedInteractionsByTraceDataAttributesResponse =
+            (LLMObsAnnotatedInteractionsByTraceDataAttributesResponse) o;
+    return Objects.equals(
+            this.annotatedInteractions,
+            llmObsAnnotatedInteractionsByTraceDataAttributesResponse.annotatedInteractions)
+        && Objects.equals(
+            this.totalCount, llmObsAnnotatedInteractionsByTraceDataAttributesResponse.totalCount)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsAnnotatedInteractionsByTraceDataAttributesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotatedInteractions,totalCount, additionalProperties);
+    return Objects.hash(annotatedInteractions, totalCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {\n");
-    sb.append("    annotatedInteractions: ").append(toIndentedString(annotatedInteractions)).append("\n");
+    sb.append("    annotatedInteractions: ")
+        .append(toIndentedString(annotatedInteractions))
+        .append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -193,8 +198,7 @@ public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

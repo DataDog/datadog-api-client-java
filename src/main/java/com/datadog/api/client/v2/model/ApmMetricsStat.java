@@ -6,50 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The APM metric statistic to query.</p>
- */
+/** The APM metric statistic to query. */
 @JsonSerialize(using = ApmMetricsStat.ApmMetricsStatSerializer.class)
 public class ApmMetricsStat extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("error_rate", "errors", "errors_per_second", "hits", "hits_per_second", "apdex", "latency_avg", "latency_max", "latency_p50", "latency_p75", "latency_p90", "latency_p95", "latency_p99", "latency_p999", "latency_distribution", "total_time"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "error_rate",
+              "errors",
+              "errors_per_second",
+              "hits",
+              "hits_per_second",
+              "apdex",
+              "latency_avg",
+              "latency_max",
+              "latency_p50",
+              "latency_p75",
+              "latency_p90",
+              "latency_p95",
+              "latency_p99",
+              "latency_p999",
+              "latency_distribution",
+              "total_time"));
 
   public static final ApmMetricsStat ERROR_RATE = new ApmMetricsStat("error_rate");
   public static final ApmMetricsStat ERRORS = new ApmMetricsStat("errors");
@@ -65,27 +56,28 @@ public class ApmMetricsStat extends ModelEnum<String> {
   public static final ApmMetricsStat LATENCY_P95 = new ApmMetricsStat("latency_p95");
   public static final ApmMetricsStat LATENCY_P99 = new ApmMetricsStat("latency_p99");
   public static final ApmMetricsStat LATENCY_P999 = new ApmMetricsStat("latency_p999");
-  public static final ApmMetricsStat LATENCY_DISTRIBUTION = new ApmMetricsStat("latency_distribution");
+  public static final ApmMetricsStat LATENCY_DISTRIBUTION =
+      new ApmMetricsStat("latency_distribution");
   public static final ApmMetricsStat TOTAL_TIME = new ApmMetricsStat("total_time");
-
 
   ApmMetricsStat(String value) {
     super(value, allowedValues);
   }
 
   public static class ApmMetricsStatSerializer extends StdSerializer<ApmMetricsStat> {
-      public ApmMetricsStatSerializer(Class<ApmMetricsStat> t) {
-          super(t);
-      }
+    public ApmMetricsStatSerializer(Class<ApmMetricsStat> t) {
+      super(t);
+    }
 
-      public ApmMetricsStatSerializer() {
-          this(null);
-      }
+    public ApmMetricsStatSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ApmMetricsStat value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(ApmMetricsStat value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

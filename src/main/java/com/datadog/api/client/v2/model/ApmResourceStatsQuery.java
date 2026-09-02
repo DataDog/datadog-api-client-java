@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,14 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>A query for APM resource statistics such as latency, error rate, and hit count, grouped by resource name.</p>
+ * A query for APM resource statistics such as latency, error rate, and hit count, grouped by
+ * resource name.
  */
 @JsonPropertyOrder({
   ApmResourceStatsQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
@@ -47,10 +36,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ApmResourceStatsQuery.JSON_PROPERTY_SERVICE,
   ApmResourceStatsQuery.JSON_PROPERTY_STAT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmResourceStatsQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
   private List<String> crossOrgUuids = null;
 
@@ -88,23 +77,26 @@ public class ApmResourceStatsQuery {
 
   @JsonCreator
   public ApmResourceStatsQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)ApmResourceStatsDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ENV)String env,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE)String service,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STAT)ApmResourceStatName stat) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.env = env;
-        this.name = name;
-        this.service = service;
-        this.stat = stat;
-        this.unparsed |= !stat.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          ApmResourceStatsDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STAT) ApmResourceStatName stat) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.env = env;
+    this.name = name;
+    this.service = service;
+    this.stat = stat;
+    this.unparsed |= !stat.isValid();
   }
+
   public ApmResourceStatsQuery crossOrgUuids(List<String> crossOrgUuids) {
     this.crossOrgUuids = crossOrgUuids;
     return this;
   }
+
   public ApmResourceStatsQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
     if (this.crossOrgUuids == null) {
       this.crossOrgUuids = new ArrayList<>();
@@ -114,19 +106,23 @@ public class ApmResourceStatsQuery {
   }
 
   /**
-   * <p>Organization UUIDs to query when using <a href="/account_management/org_settings/cross_org_visibility/">cross-organization visibility</a>. Limited to one organization UUID.</p>
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
    * @return crossOrgUuids
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getCrossOrgUuids() {
-        return crossOrgUuids;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
   public void setCrossOrgUuids(List<String> crossOrgUuids) {
     this.crossOrgUuids = crossOrgUuids;
   }
+
   public ApmResourceStatsQuery dataSource(ApmResourceStatsDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -134,43 +130,48 @@ public class ApmResourceStatsQuery {
   }
 
   /**
-   * <p>A data source for APM resource statistics queries.</p>
+   * A data source for APM resource statistics queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ApmResourceStatsDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ApmResourceStatsDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(ApmResourceStatsDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public ApmResourceStatsQuery env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * <p>The environment to query.</p>
+   * The environment to query.
+   *
    * @return env
-  **/
-      @JsonProperty(JSON_PROPERTY_ENV)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEnv() {
-        return env;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEnv() {
+    return env;
+  }
+
   public void setEnv(String env) {
     this.env = env;
   }
+
   public ApmResourceStatsQuery groupBy(List<String> groupBy) {
     this.groupBy = groupBy;
     return this;
   }
+
   public ApmResourceStatsQuery addGroupByItem(String groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -180,131 +181,148 @@ public class ApmResourceStatsQuery {
   }
 
   /**
-   * <p>Tag keys to group results by.</p>
+   * Tag keys to group results by.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<String> groupBy) {
     this.groupBy = groupBy;
   }
+
   public ApmResourceStatsQuery name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The variable name for use in formulas.</p>
+   * The variable name for use in formulas.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public ApmResourceStatsQuery operationName(String operationName) {
     this.operationName = operationName;
     return this;
   }
 
   /**
-   * <p>The APM operation name.</p>
+   * The APM operation name.
+   *
    * @return operationName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOperationName() {
-        return operationName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOperationName() {
+    return operationName;
+  }
+
   public void setOperationName(String operationName) {
     this.operationName = operationName;
   }
+
   public ApmResourceStatsQuery primaryTagName(String primaryTagName) {
     this.primaryTagName = primaryTagName;
     return this;
   }
 
   /**
-   * <p>Name of the second primary tag used within APM. Required when <code>primary_tag_value</code> is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog</p>
+   * Name of the second primary tag used within APM. Required when <code>primary_tag_value</code> is
+   * specified. See
+   * https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
+   *
    * @return primaryTagName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPrimaryTagName() {
-        return primaryTagName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPrimaryTagName() {
+    return primaryTagName;
+  }
+
   public void setPrimaryTagName(String primaryTagName) {
     this.primaryTagName = primaryTagName;
   }
+
   public ApmResourceStatsQuery primaryTagValue(String primaryTagValue) {
     this.primaryTagValue = primaryTagValue;
     return this;
   }
 
   /**
-   * <p>Value of the second primary tag by which to filter APM data. <code>primary_tag_name</code> must also be specified.</p>
+   * Value of the second primary tag by which to filter APM data. <code>primary_tag_name</code> must
+   * also be specified.
+   *
    * @return primaryTagValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPrimaryTagValue() {
-        return primaryTagValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPrimaryTagValue() {
+    return primaryTagValue;
+  }
+
   public void setPrimaryTagValue(String primaryTagValue) {
     this.primaryTagValue = primaryTagValue;
   }
+
   public ApmResourceStatsQuery resourceName(String resourceName) {
     this.resourceName = resourceName;
     return this;
   }
 
   /**
-   * <p>The resource name to filter by.</p>
+   * The resource name to filter by.
+   *
    * @return resourceName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getResourceName() {
-        return resourceName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResourceName() {
+    return resourceName;
+  }
+
   public void setResourceName(String resourceName) {
     this.resourceName = resourceName;
   }
+
   public ApmResourceStatsQuery service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>The service name to filter by.</p>
+   * The service name to filter by.
+   *
    * @return service
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getService() {
-        return service;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public ApmResourceStatsQuery stat(ApmResourceStatName stat) {
     this.stat = stat;
     this.unparsed |= !stat.isValid();
@@ -312,32 +330,32 @@ public class ApmResourceStatsQuery {
   }
 
   /**
-   * <p>The APM resource statistic to query.</p>
+   * The APM resource statistic to query.
+   *
    * @return stat
-  **/
-      @JsonProperty(JSON_PROPERTY_STAT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ApmResourceStatName getStat() {
-        return stat;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STAT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ApmResourceStatName getStat() {
+    return stat;
+  }
+
   public void setStat(ApmResourceStatName stat) {
     if (!stat.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.stat = stat;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -346,7 +364,7 @@ public class ApmResourceStatsQuery {
   @JsonAnySetter
   public ApmResourceStatsQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -370,14 +388,12 @@ public class ApmResourceStatsQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ApmResourceStatsQuery object is equal to o.
-   */
+  /** Return true if this ApmResourceStatsQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -387,13 +403,35 @@ public class ApmResourceStatsQuery {
       return false;
     }
     ApmResourceStatsQuery apmResourceStatsQuery = (ApmResourceStatsQuery) o;
-    return Objects.equals(this.crossOrgUuids, apmResourceStatsQuery.crossOrgUuids) && Objects.equals(this.dataSource, apmResourceStatsQuery.dataSource) && Objects.equals(this.env, apmResourceStatsQuery.env) && Objects.equals(this.groupBy, apmResourceStatsQuery.groupBy) && Objects.equals(this.name, apmResourceStatsQuery.name) && Objects.equals(this.operationName, apmResourceStatsQuery.operationName) && Objects.equals(this.primaryTagName, apmResourceStatsQuery.primaryTagName) && Objects.equals(this.primaryTagValue, apmResourceStatsQuery.primaryTagValue) && Objects.equals(this.resourceName, apmResourceStatsQuery.resourceName) && Objects.equals(this.service, apmResourceStatsQuery.service) && Objects.equals(this.stat, apmResourceStatsQuery.stat) && Objects.equals(this.additionalProperties, apmResourceStatsQuery.additionalProperties);
+    return Objects.equals(this.crossOrgUuids, apmResourceStatsQuery.crossOrgUuids)
+        && Objects.equals(this.dataSource, apmResourceStatsQuery.dataSource)
+        && Objects.equals(this.env, apmResourceStatsQuery.env)
+        && Objects.equals(this.groupBy, apmResourceStatsQuery.groupBy)
+        && Objects.equals(this.name, apmResourceStatsQuery.name)
+        && Objects.equals(this.operationName, apmResourceStatsQuery.operationName)
+        && Objects.equals(this.primaryTagName, apmResourceStatsQuery.primaryTagName)
+        && Objects.equals(this.primaryTagValue, apmResourceStatsQuery.primaryTagValue)
+        && Objects.equals(this.resourceName, apmResourceStatsQuery.resourceName)
+        && Objects.equals(this.service, apmResourceStatsQuery.service)
+        && Objects.equals(this.stat, apmResourceStatsQuery.stat)
+        && Objects.equals(this.additionalProperties, apmResourceStatsQuery.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(crossOrgUuids,dataSource,env,groupBy,name,operationName,primaryTagName,primaryTagValue,resourceName,service,stat, additionalProperties);
+    return Objects.hash(
+        crossOrgUuids,
+        dataSource,
+        env,
+        groupBy,
+        name,
+        operationName,
+        primaryTagName,
+        primaryTagValue,
+        resourceName,
+        service,
+        stat,
+        additionalProperties);
   }
 
   @Override
@@ -419,8 +457,7 @@ public class ApmResourceStatsQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

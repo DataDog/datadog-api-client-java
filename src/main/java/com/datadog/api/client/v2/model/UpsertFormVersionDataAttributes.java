@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes for creating or updating a form version.</p>
- */
+/** The attributes for creating or updating a form version. */
 @JsonPropertyOrder({
   UpsertFormVersionDataAttributes.JSON_PROPERTY_DATA_DEFINITION,
   UpsertFormVersionDataAttributes.JSON_PROPERTY_STATE,
   UpsertFormVersionDataAttributes.JSON_PROPERTY_UI_DEFINITION,
   UpsertFormVersionDataAttributes.JSON_PROPERTY_UPSERT_PARAMS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UpsertFormVersionDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_DEFINITION = "data_definition";
   private FormDataDefinition dataDefinition;
 
@@ -60,19 +44,23 @@ public class UpsertFormVersionDataAttributes {
 
   @JsonCreator
   public UpsertFormVersionDataAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_DEFINITION)FormDataDefinition dataDefinition,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STATE)FormVersionState state,
-            @JsonProperty(required=true, value=JSON_PROPERTY_UI_DEFINITION)FormUiDefinition uiDefinition,
-            @JsonProperty(required=true, value=JSON_PROPERTY_UPSERT_PARAMS)UpsertFormVersionUpsertParams upsertParams) {
-        this.dataDefinition = dataDefinition;
-        this.unparsed |= dataDefinition.unparsed;
-        this.state = state;
-        this.unparsed |= !state.isValid();
-        this.uiDefinition = uiDefinition;
-        this.unparsed |= uiDefinition.unparsed;
-        this.upsertParams = upsertParams;
-        this.unparsed |= upsertParams.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_DEFINITION)
+          FormDataDefinition dataDefinition,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATE) FormVersionState state,
+      @JsonProperty(required = true, value = JSON_PROPERTY_UI_DEFINITION)
+          FormUiDefinition uiDefinition,
+      @JsonProperty(required = true, value = JSON_PROPERTY_UPSERT_PARAMS)
+          UpsertFormVersionUpsertParams upsertParams) {
+    this.dataDefinition = dataDefinition;
+    this.unparsed |= dataDefinition.unparsed;
+    this.state = state;
+    this.unparsed |= !state.isValid();
+    this.uiDefinition = uiDefinition;
+    this.unparsed |= uiDefinition.unparsed;
+    this.upsertParams = upsertParams;
+    this.unparsed |= upsertParams.unparsed;
   }
+
   public UpsertFormVersionDataAttributes dataDefinition(FormDataDefinition dataDefinition) {
     this.dataDefinition = dataDefinition;
     this.unparsed |= dataDefinition.unparsed;
@@ -80,21 +68,23 @@ public class UpsertFormVersionDataAttributes {
   }
 
   /**
-   * <p>A JSON Schema definition that describes the form's data fields.</p>
+   * A JSON Schema definition that describes the form's data fields.
+   *
    * @return dataDefinition
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_DEFINITION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FormDataDefinition getDataDefinition() {
-        return dataDefinition;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_DEFINITION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormDataDefinition getDataDefinition() {
+    return dataDefinition;
+  }
+
   public void setDataDefinition(FormDataDefinition dataDefinition) {
     this.dataDefinition = dataDefinition;
     if (dataDefinition != null) {
       this.unparsed |= dataDefinition.unparsed;
     }
   }
+
   public UpsertFormVersionDataAttributes state(FormVersionState state) {
     this.state = state;
     this.unparsed |= !state.isValid();
@@ -102,21 +92,23 @@ public class UpsertFormVersionDataAttributes {
   }
 
   /**
-   * <p>The state of a form version.</p>
+   * The state of a form version.
+   *
    * @return state
-  **/
-      @JsonProperty(JSON_PROPERTY_STATE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FormVersionState getState() {
-        return state;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormVersionState getState() {
+    return state;
+  }
+
   public void setState(FormVersionState state) {
     if (!state.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.state = state;
   }
+
   public UpsertFormVersionDataAttributes uiDefinition(FormUiDefinition uiDefinition) {
     this.uiDefinition = uiDefinition;
     this.unparsed |= uiDefinition.unparsed;
@@ -124,21 +116,24 @@ public class UpsertFormVersionDataAttributes {
   }
 
   /**
-   * <p>UI configuration for rendering form fields, including widget overrides, field ordering, and themes.</p>
+   * UI configuration for rendering form fields, including widget overrides, field ordering, and
+   * themes.
+   *
    * @return uiDefinition
-  **/
-      @JsonProperty(JSON_PROPERTY_UI_DEFINITION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FormUiDefinition getUiDefinition() {
-        return uiDefinition;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_UI_DEFINITION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormUiDefinition getUiDefinition() {
+    return uiDefinition;
+  }
+
   public void setUiDefinition(FormUiDefinition uiDefinition) {
     this.uiDefinition = uiDefinition;
     if (uiDefinition != null) {
       this.unparsed |= uiDefinition.unparsed;
     }
   }
+
   public UpsertFormVersionDataAttributes upsertParams(UpsertFormVersionUpsertParams upsertParams) {
     this.upsertParams = upsertParams;
     this.unparsed |= upsertParams.unparsed;
@@ -146,15 +141,16 @@ public class UpsertFormVersionDataAttributes {
   }
 
   /**
-   * <p>Concurrency control parameters for the form version upsert operation.</p>
+   * Concurrency control parameters for the form version upsert operation.
+   *
    * @return upsertParams
-  **/
-      @JsonProperty(JSON_PROPERTY_UPSERT_PARAMS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public UpsertFormVersionUpsertParams getUpsertParams() {
-        return upsertParams;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_UPSERT_PARAMS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UpsertFormVersionUpsertParams getUpsertParams() {
+    return upsertParams;
+  }
+
   public void setUpsertParams(UpsertFormVersionUpsertParams upsertParams) {
     this.upsertParams = upsertParams;
     if (upsertParams != null) {
@@ -163,15 +159,14 @@ public class UpsertFormVersionDataAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -180,7 +175,7 @@ public class UpsertFormVersionDataAttributes {
   @JsonAnySetter
   public UpsertFormVersionDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -204,14 +199,12 @@ public class UpsertFormVersionDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UpsertFormVersionDataAttributes object is equal to o.
-   */
+  /** Return true if this UpsertFormVersionDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -220,14 +213,19 @@ public class UpsertFormVersionDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpsertFormVersionDataAttributes upsertFormVersionDataAttributes = (UpsertFormVersionDataAttributes) o;
-    return Objects.equals(this.dataDefinition, upsertFormVersionDataAttributes.dataDefinition) && Objects.equals(this.state, upsertFormVersionDataAttributes.state) && Objects.equals(this.uiDefinition, upsertFormVersionDataAttributes.uiDefinition) && Objects.equals(this.upsertParams, upsertFormVersionDataAttributes.upsertParams) && Objects.equals(this.additionalProperties, upsertFormVersionDataAttributes.additionalProperties);
+    UpsertFormVersionDataAttributes upsertFormVersionDataAttributes =
+        (UpsertFormVersionDataAttributes) o;
+    return Objects.equals(this.dataDefinition, upsertFormVersionDataAttributes.dataDefinition)
+        && Objects.equals(this.state, upsertFormVersionDataAttributes.state)
+        && Objects.equals(this.uiDefinition, upsertFormVersionDataAttributes.uiDefinition)
+        && Objects.equals(this.upsertParams, upsertFormVersionDataAttributes.upsertParams)
+        && Objects.equals(
+            this.additionalProperties, upsertFormVersionDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataDefinition,state,uiDefinition,upsertParams, additionalProperties);
+    return Objects.hash(dataDefinition, state, uiDefinition, upsertParams, additionalProperties);
   }
 
   @Override
@@ -246,8 +244,7 @@ public class UpsertFormVersionDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

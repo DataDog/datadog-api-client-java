@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>One row of the retention grid, holding the results for a single cohort.</p>
- */
+/** One row of the retention grid, holding the results for a single cohort. */
 @JsonPropertyOrder({
   ProductAnalyticsRetentionGridCohort.JSON_PROPERTY_CELLS,
   ProductAnalyticsRetentionGridCohort.JSON_PROPERTY_COHORT_END_TIME,
@@ -45,10 +30,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ProductAnalyticsRetentionGridCohort.JSON_PROPERTY_TYPE,
   ProductAnalyticsRetentionGridCohort.JSON_PROPERTY_UNIT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsRetentionGridCohort {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CELLS = "cells";
   private List<ProductAnalyticsRetentionGridCohortCell> cells = null;
 
@@ -76,16 +61,19 @@ public class ProductAnalyticsRetentionGridCohort {
   public static final String JSON_PROPERTY_UNIT = "unit";
   private List<ProductAnalyticsUnit> unit = null;
 
-  public ProductAnalyticsRetentionGridCohort cells(List<ProductAnalyticsRetentionGridCohortCell> cells) {
+  public ProductAnalyticsRetentionGridCohort cells(
+      List<ProductAnalyticsRetentionGridCohortCell> cells) {
     this.cells = cells;
     if (cells != null) {
-    for (ProductAnalyticsRetentionGridCohortCell item : cells) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ProductAnalyticsRetentionGridCohortCell item : cells) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ProductAnalyticsRetentionGridCohort addCellsItem(ProductAnalyticsRetentionGridCohortCell cellsItem) {
+
+  public ProductAnalyticsRetentionGridCohort addCellsItem(
+      ProductAnalyticsRetentionGridCohortCell cellsItem) {
     if (this.cells == null) {
       this.cells = new ArrayList<>();
     }
@@ -95,16 +83,17 @@ public class ProductAnalyticsRetentionGridCohort {
   }
 
   /**
-   * <p>The cells of the row, one per return period.</p>
+   * The cells of the row, one per return period.
+   *
    * @return cells
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CELLS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ProductAnalyticsRetentionGridCohortCell> getCells() {
-        return cells;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CELLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ProductAnalyticsRetentionGridCohortCell> getCells() {
+    return cells;
+  }
+
   public void setCells(List<ProductAnalyticsRetentionGridCohortCell> cells) {
     this.cells = cells;
     if (cells != null) {
@@ -113,86 +102,96 @@ public class ProductAnalyticsRetentionGridCohort {
       }
     }
   }
+
   public ProductAnalyticsRetentionGridCohort cohortEndTime(Long cohortEndTime) {
     this.cohortEndTime = cohortEndTime;
     return this;
   }
 
   /**
-   * <p>End of the cohort window, in epoch milliseconds.</p>
+   * End of the cohort window, in epoch milliseconds.
+   *
    * @return cohortEndTime
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COHORT_END_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCohortEndTime() {
-        return cohortEndTime;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COHORT_END_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCohortEndTime() {
+    return cohortEndTime;
+  }
+
   public void setCohortEndTime(Long cohortEndTime) {
     this.cohortEndTime = cohortEndTime;
   }
+
   public ProductAnalyticsRetentionGridCohort cohortIndex(Long cohortIndex) {
     this.cohortIndex = cohortIndex;
     return this;
   }
 
   /**
-   * <p>Zero-based index of the cohort in the grid.</p>
+   * Zero-based index of the cohort in the grid.
+   *
    * @return cohortIndex
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COHORT_INDEX)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCohortIndex() {
-        return cohortIndex;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COHORT_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCohortIndex() {
+    return cohortIndex;
+  }
+
   public void setCohortIndex(Long cohortIndex) {
     this.cohortIndex = cohortIndex;
   }
+
   public ProductAnalyticsRetentionGridCohort cohortSize(Long cohortSize) {
     this.cohortSize = cohortSize;
     return this;
   }
 
   /**
-   * <p>Number of entities in the cohort.</p>
+   * Number of entities in the cohort.
+   *
    * @return cohortSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COHORT_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCohortSize() {
-        return cohortSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COHORT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCohortSize() {
+    return cohortSize;
+  }
+
   public void setCohortSize(Long cohortSize) {
     this.cohortSize = cohortSize;
   }
+
   public ProductAnalyticsRetentionGridCohort cohortStartTime(Long cohortStartTime) {
     this.cohortStartTime = cohortStartTime;
     return this;
   }
 
   /**
-   * <p>Start of the cohort window, in epoch milliseconds.</p>
+   * Start of the cohort window, in epoch milliseconds.
+   *
    * @return cohortStartTime
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COHORT_START_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCohortStartTime() {
-        return cohortStartTime;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COHORT_START_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCohortStartTime() {
+    return cohortStartTime;
+  }
+
   public void setCohortStartTime(Long cohortStartTime) {
     this.cohortStartTime = cohortStartTime;
   }
+
   public ProductAnalyticsRetentionGridCohort groupTags(List<String> groupTags) {
     this.groupTags = groupTags;
     return this;
   }
+
   public ProductAnalyticsRetentionGridCohort addGroupTagsItem(String groupTagsItem) {
     if (this.groupTags == null) {
       this.groupTags = new ArrayList<>();
@@ -202,38 +201,42 @@ public class ProductAnalyticsRetentionGridCohort {
   }
 
   /**
-   * <p>The group-by facet values that identify this row.</p>
+   * The group-by facet values that identify this row.
+   *
    * @return groupTags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getGroupTags() {
-        return groupTags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupTags() {
+    return groupTags;
+  }
+
   public void setGroupTags(List<String> groupTags) {
     this.groupTags = groupTags;
   }
+
   public ProductAnalyticsRetentionGridCohort name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Label identifying the cohort, such as the week it started.</p>
+   * Label identifying the cohort, such as the week it started.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public ProductAnalyticsRetentionGridCohort type(ProductAnalyticsRetentionGridCohortType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -241,31 +244,34 @@ public class ProductAnalyticsRetentionGridCohort {
   }
 
   /**
-   * <p>Whether the row holds one cohort's own numbers, or the weighted roll-up across every cohort.</p>
+   * Whether the row holds one cohort's own numbers, or the weighted roll-up across every cohort.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProductAnalyticsRetentionGridCohortType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProductAnalyticsRetentionGridCohortType getType() {
+    return type;
+  }
+
   public void setType(ProductAnalyticsRetentionGridCohortType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public ProductAnalyticsRetentionGridCohort unit(List<ProductAnalyticsUnit> unit) {
     this.unit = unit;
     if (unit != null) {
-    for (ProductAnalyticsUnit item : unit) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ProductAnalyticsUnit item : unit) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public ProductAnalyticsRetentionGridCohort addUnitItem(ProductAnalyticsUnit unitItem) {
     if (this.unit == null) {
       this.unit = new ArrayList<>();
@@ -276,16 +282,17 @@ public class ProductAnalyticsRetentionGridCohort {
   }
 
   /**
-   * <p>Unit definitions for the cell values.</p>
+   * Unit definitions for the cell values.
+   *
    * @return unit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UNIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ProductAnalyticsUnit> getUnit() {
-        return unit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ProductAnalyticsUnit> getUnit() {
+    return unit;
+  }
+
   public void setUnit(List<ProductAnalyticsUnit> unit) {
     this.unit = unit;
     if (unit != null) {
@@ -296,15 +303,14 @@ public class ProductAnalyticsRetentionGridCohort {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -313,7 +319,7 @@ public class ProductAnalyticsRetentionGridCohort {
   @JsonAnySetter
   public ProductAnalyticsRetentionGridCohort putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -337,14 +343,12 @@ public class ProductAnalyticsRetentionGridCohort {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ProductAnalyticsRetentionGridCohort object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsRetentionGridCohort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -353,14 +357,34 @@ public class ProductAnalyticsRetentionGridCohort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsRetentionGridCohort productAnalyticsRetentionGridCohort = (ProductAnalyticsRetentionGridCohort) o;
-    return Objects.equals(this.cells, productAnalyticsRetentionGridCohort.cells) && Objects.equals(this.cohortEndTime, productAnalyticsRetentionGridCohort.cohortEndTime) && Objects.equals(this.cohortIndex, productAnalyticsRetentionGridCohort.cohortIndex) && Objects.equals(this.cohortSize, productAnalyticsRetentionGridCohort.cohortSize) && Objects.equals(this.cohortStartTime, productAnalyticsRetentionGridCohort.cohortStartTime) && Objects.equals(this.groupTags, productAnalyticsRetentionGridCohort.groupTags) && Objects.equals(this.name, productAnalyticsRetentionGridCohort.name) && Objects.equals(this.type, productAnalyticsRetentionGridCohort.type) && Objects.equals(this.unit, productAnalyticsRetentionGridCohort.unit) && Objects.equals(this.additionalProperties, productAnalyticsRetentionGridCohort.additionalProperties);
+    ProductAnalyticsRetentionGridCohort productAnalyticsRetentionGridCohort =
+        (ProductAnalyticsRetentionGridCohort) o;
+    return Objects.equals(this.cells, productAnalyticsRetentionGridCohort.cells)
+        && Objects.equals(this.cohortEndTime, productAnalyticsRetentionGridCohort.cohortEndTime)
+        && Objects.equals(this.cohortIndex, productAnalyticsRetentionGridCohort.cohortIndex)
+        && Objects.equals(this.cohortSize, productAnalyticsRetentionGridCohort.cohortSize)
+        && Objects.equals(this.cohortStartTime, productAnalyticsRetentionGridCohort.cohortStartTime)
+        && Objects.equals(this.groupTags, productAnalyticsRetentionGridCohort.groupTags)
+        && Objects.equals(this.name, productAnalyticsRetentionGridCohort.name)
+        && Objects.equals(this.type, productAnalyticsRetentionGridCohort.type)
+        && Objects.equals(this.unit, productAnalyticsRetentionGridCohort.unit)
+        && Objects.equals(
+            this.additionalProperties, productAnalyticsRetentionGridCohort.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cells,cohortEndTime,cohortIndex,cohortSize,cohortStartTime,groupTags,name,type,unit, additionalProperties);
+    return Objects.hash(
+        cells,
+        cohortEndTime,
+        cohortIndex,
+        cohortSize,
+        cohortStartTime,
+        groupTags,
+        name,
+        type,
+        unit,
+        additionalProperties);
   }
 
   @Override
@@ -384,8 +408,7 @@ public class ProductAnalyticsRetentionGridCohort {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

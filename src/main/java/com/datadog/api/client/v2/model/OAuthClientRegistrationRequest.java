@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Request payload for OAuth2 dynamic client registration as defined by RFC 7591.</p>
- */
+/** Request payload for OAuth2 dynamic client registration as defined by RFC 7591. */
 @JsonPropertyOrder({
   OAuthClientRegistrationRequest.JSON_PROPERTY_CLIENT_NAME,
   OAuthClientRegistrationRequest.JSON_PROPERTY_CLIENT_URI,
@@ -47,10 +33,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   OAuthClientRegistrationRequest.JSON_PROPERTY_TOKEN_ENDPOINT_AUTH_METHOD,
   OAuthClientRegistrationRequest.JSON_PROPERTY_TOS_URI
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OAuthClientRegistrationRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLIENT_NAME = "client_name";
   private String clientName;
 
@@ -78,7 +64,8 @@ public class OAuthClientRegistrationRequest {
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
 
-  public static final String JSON_PROPERTY_TOKEN_ENDPOINT_AUTH_METHOD = "token_endpoint_auth_method";
+  public static final String JSON_PROPERTY_TOKEN_ENDPOINT_AUTH_METHOD =
+      "token_endpoint_auth_method";
   private String tokenEndpointAuthMethod;
 
   public static final String JSON_PROPERTY_TOS_URI = "tos_uri";
@@ -88,53 +75,62 @@ public class OAuthClientRegistrationRequest {
 
   @JsonCreator
   public OAuthClientRegistrationRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CLIENT_NAME)String clientName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_REDIRECT_URIS)List<String> redirectUris) {
-        this.clientName = clientName;
-        this.redirectUris = redirectUris;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_NAME) String clientName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REDIRECT_URIS)
+          List<String> redirectUris) {
+    this.clientName = clientName;
+    this.redirectUris = redirectUris;
   }
+
   public OAuthClientRegistrationRequest clientName(String clientName) {
     this.clientName = clientName;
     return this;
   }
 
   /**
-   * <p>Human-readable name of the client. Control characters are rejected.</p>
+   * Human-readable name of the client. Control characters are rejected.
+   *
    * @return clientName
-  **/
-      @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getClientName() {
-        return clientName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getClientName() {
+    return clientName;
+  }
+
   public void setClientName(String clientName) {
     this.clientName = clientName;
   }
+
   public OAuthClientRegistrationRequest clientUri(String clientUri) {
     this.clientUri = clientUri;
     return this;
   }
 
   /**
-   * <p>URL of the home page of the client.</p>
+   * URL of the home page of the client.
+   *
    * @return clientUri
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CLIENT_URI)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getClientUri() {
-        return clientUri;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLIENT_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getClientUri() {
+    return clientUri;
+  }
+
   public void setClientUri(String clientUri) {
     this.clientUri = clientUri;
   }
-  public OAuthClientRegistrationRequest grantTypes(List<OAuthClientRegistrationGrantType> grantTypes) {
+
+  public OAuthClientRegistrationRequest grantTypes(
+      List<OAuthClientRegistrationGrantType> grantTypes) {
     this.grantTypes = grantTypes;
     return this;
   }
-  public OAuthClientRegistrationRequest addGrantTypesItem(OAuthClientRegistrationGrantType grantTypesItem) {
+
+  public OAuthClientRegistrationRequest addGrantTypesItem(
+      OAuthClientRegistrationGrantType grantTypesItem) {
     if (this.grantTypes == null) {
       this.grantTypes = new ArrayList<>();
     }
@@ -144,104 +140,118 @@ public class OAuthClientRegistrationRequest {
   }
 
   /**
-   * <p>OAuth 2.0 grant types the client may use.
-   * Defaults to <code>authorization_code</code> and <code>refresh_token</code> when omitted.</p>
+   * OAuth 2.0 grant types the client may use. Defaults to <code>authorization_code</code> and
+   * <code>refresh_token</code> when omitted.
+   *
    * @return grantTypes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GRANT_TYPES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<OAuthClientRegistrationGrantType> getGrantTypes() {
-        return grantTypes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GRANT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<OAuthClientRegistrationGrantType> getGrantTypes() {
+    return grantTypes;
+  }
+
   public void setGrantTypes(List<OAuthClientRegistrationGrantType> grantTypes) {
     this.grantTypes = grantTypes;
   }
+
   public OAuthClientRegistrationRequest jwksUri(String jwksUri) {
     this.jwksUri = jwksUri;
     return this;
   }
 
   /**
-   * <p>URL referencing the client's JSON Web Key Set.</p>
+   * URL referencing the client's JSON Web Key Set.
+   *
    * @return jwksUri
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_JWKS_URI)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getJwksUri() {
-        return jwksUri;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_JWKS_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getJwksUri() {
+    return jwksUri;
+  }
+
   public void setJwksUri(String jwksUri) {
     this.jwksUri = jwksUri;
   }
+
   public OAuthClientRegistrationRequest logoUri(String logoUri) {
     this.logoUri = logoUri;
     return this;
   }
 
   /**
-   * <p>URL referencing a logo for the client.</p>
+   * URL referencing a logo for the client.
+   *
    * @return logoUri
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGO_URI)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getLogoUri() {
-        return logoUri;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGO_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLogoUri() {
+    return logoUri;
+  }
+
   public void setLogoUri(String logoUri) {
     this.logoUri = logoUri;
   }
+
   public OAuthClientRegistrationRequest policyUri(String policyUri) {
     this.policyUri = policyUri;
     return this;
   }
 
   /**
-   * <p>URL pointing to the client's privacy policy.</p>
+   * URL pointing to the client's privacy policy.
+   *
    * @return policyUri
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_POLICY_URI)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPolicyUri() {
-        return policyUri;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POLICY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPolicyUri() {
+    return policyUri;
+  }
+
   public void setPolicyUri(String policyUri) {
     this.policyUri = policyUri;
   }
+
   public OAuthClientRegistrationRequest redirectUris(List<String> redirectUris) {
     this.redirectUris = redirectUris;
     return this;
   }
+
   public OAuthClientRegistrationRequest addRedirectUrisItem(String redirectUrisItem) {
     this.redirectUris.add(redirectUrisItem);
     return this;
   }
 
   /**
-   * <p>Array of redirection URI strings used by the client in redirect-based flows.</p>
+   * Array of redirection URI strings used by the client in redirect-based flows.
+   *
    * @return redirectUris
-  **/
-      @JsonProperty(JSON_PROPERTY_REDIRECT_URIS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getRedirectUris() {
-        return redirectUris;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REDIRECT_URIS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getRedirectUris() {
+    return redirectUris;
+  }
+
   public void setRedirectUris(List<String> redirectUris) {
     this.redirectUris = redirectUris;
   }
-  public OAuthClientRegistrationRequest responseTypes(List<OAuthClientRegistrationResponseType> responseTypes) {
+
+  public OAuthClientRegistrationRequest responseTypes(
+      List<OAuthClientRegistrationResponseType> responseTypes) {
     this.responseTypes = responseTypes;
     return this;
   }
-  public OAuthClientRegistrationRequest addResponseTypesItem(OAuthClientRegistrationResponseType responseTypesItem) {
+
+  public OAuthClientRegistrationRequest addResponseTypesItem(
+      OAuthClientRegistrationResponseType responseTypesItem) {
     if (this.responseTypes == null) {
       this.responseTypes = new ArrayList<>();
     }
@@ -251,87 +261,93 @@ public class OAuthClientRegistrationRequest {
   }
 
   /**
-   * <p>OAuth 2.0 response types the client may use. Only <code>code</code> is supported.</p>
+   * OAuth 2.0 response types the client may use. Only <code>code</code> is supported.
+   *
    * @return responseTypes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE_TYPES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<OAuthClientRegistrationResponseType> getResponseTypes() {
-        return responseTypes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<OAuthClientRegistrationResponseType> getResponseTypes() {
+    return responseTypes;
+  }
+
   public void setResponseTypes(List<OAuthClientRegistrationResponseType> responseTypes) {
     this.responseTypes = responseTypes;
   }
+
   public OAuthClientRegistrationRequest scope(String scope) {
     this.scope = scope;
     return this;
   }
 
   /**
-   * <p>Space-separated list of scope values the client may request.</p>
+   * Space-separated list of scope values the client may request.
+   *
    * @return scope
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCOPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getScope() {
-        return scope;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getScope() {
+    return scope;
+  }
+
   public void setScope(String scope) {
     this.scope = scope;
   }
+
   public OAuthClientRegistrationRequest tokenEndpointAuthMethod(String tokenEndpointAuthMethod) {
     this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
     return this;
   }
 
   /**
-   * <p>Requested authentication method for the token endpoint. Only <code>none</code> is supported.</p>
+   * Requested authentication method for the token endpoint. Only <code>none</code> is supported.
+   *
    * @return tokenEndpointAuthMethod
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOKEN_ENDPOINT_AUTH_METHOD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTokenEndpointAuthMethod() {
-        return tokenEndpointAuthMethod;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOKEN_ENDPOINT_AUTH_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTokenEndpointAuthMethod() {
+    return tokenEndpointAuthMethod;
+  }
+
   public void setTokenEndpointAuthMethod(String tokenEndpointAuthMethod) {
     this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
   }
+
   public OAuthClientRegistrationRequest tosUri(String tosUri) {
     this.tosUri = tosUri;
     return this;
   }
 
   /**
-   * <p>URL pointing to the client's terms of service.</p>
+   * URL pointing to the client's terms of service.
+   *
    * @return tosUri
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOS_URI)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTosUri() {
-        return tosUri;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOS_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTosUri() {
+    return tosUri;
+  }
+
   public void setTosUri(String tosUri) {
     this.tosUri = tosUri;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -340,7 +356,7 @@ public class OAuthClientRegistrationRequest {
   @JsonAnySetter
   public OAuthClientRegistrationRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -364,14 +380,12 @@ public class OAuthClientRegistrationRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this OAuthClientRegistrationRequest object is equal to o.
-   */
+  /** Return true if this OAuthClientRegistrationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -380,14 +394,39 @@ public class OAuthClientRegistrationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OAuthClientRegistrationRequest oAuthClientRegistrationRequest = (OAuthClientRegistrationRequest) o;
-    return Objects.equals(this.clientName, oAuthClientRegistrationRequest.clientName) && Objects.equals(this.clientUri, oAuthClientRegistrationRequest.clientUri) && Objects.equals(this.grantTypes, oAuthClientRegistrationRequest.grantTypes) && Objects.equals(this.jwksUri, oAuthClientRegistrationRequest.jwksUri) && Objects.equals(this.logoUri, oAuthClientRegistrationRequest.logoUri) && Objects.equals(this.policyUri, oAuthClientRegistrationRequest.policyUri) && Objects.equals(this.redirectUris, oAuthClientRegistrationRequest.redirectUris) && Objects.equals(this.responseTypes, oAuthClientRegistrationRequest.responseTypes) && Objects.equals(this.scope, oAuthClientRegistrationRequest.scope) && Objects.equals(this.tokenEndpointAuthMethod, oAuthClientRegistrationRequest.tokenEndpointAuthMethod) && Objects.equals(this.tosUri, oAuthClientRegistrationRequest.tosUri) && Objects.equals(this.additionalProperties, oAuthClientRegistrationRequest.additionalProperties);
+    OAuthClientRegistrationRequest oAuthClientRegistrationRequest =
+        (OAuthClientRegistrationRequest) o;
+    return Objects.equals(this.clientName, oAuthClientRegistrationRequest.clientName)
+        && Objects.equals(this.clientUri, oAuthClientRegistrationRequest.clientUri)
+        && Objects.equals(this.grantTypes, oAuthClientRegistrationRequest.grantTypes)
+        && Objects.equals(this.jwksUri, oAuthClientRegistrationRequest.jwksUri)
+        && Objects.equals(this.logoUri, oAuthClientRegistrationRequest.logoUri)
+        && Objects.equals(this.policyUri, oAuthClientRegistrationRequest.policyUri)
+        && Objects.equals(this.redirectUris, oAuthClientRegistrationRequest.redirectUris)
+        && Objects.equals(this.responseTypes, oAuthClientRegistrationRequest.responseTypes)
+        && Objects.equals(this.scope, oAuthClientRegistrationRequest.scope)
+        && Objects.equals(
+            this.tokenEndpointAuthMethod, oAuthClientRegistrationRequest.tokenEndpointAuthMethod)
+        && Objects.equals(this.tosUri, oAuthClientRegistrationRequest.tosUri)
+        && Objects.equals(
+            this.additionalProperties, oAuthClientRegistrationRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientName,clientUri,grantTypes,jwksUri,logoUri,policyUri,redirectUris,responseTypes,scope,tokenEndpointAuthMethod,tosUri, additionalProperties);
+    return Objects.hash(
+        clientName,
+        clientUri,
+        grantTypes,
+        jwksUri,
+        logoUri,
+        policyUri,
+        redirectUris,
+        responseTypes,
+        scope,
+        tokenEndpointAuthMethod,
+        tosUri,
+        additionalProperties);
   }
 
   @Override
@@ -403,7 +442,9 @@ public class OAuthClientRegistrationRequest {
     sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
     sb.append("    responseTypes: ").append(toIndentedString(responseTypes)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-    sb.append("    tokenEndpointAuthMethod: ").append(toIndentedString(tokenEndpointAuthMethod)).append("\n");
+    sb.append("    tokenEndpointAuthMethod: ")
+        .append(toIndentedString(tokenEndpointAuthMethod))
+        .append("\n");
     sb.append("    tosUri: ").append(toIndentedString(tosUri)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -413,8 +454,7 @@ public class OAuthClientRegistrationRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

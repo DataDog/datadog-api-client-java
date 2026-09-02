@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Attributes for the aggregation request, including the search query and grouping configuration.</p>
+ * Attributes for the aggregation request, including the search query and grouping configuration.
  */
 @JsonPropertyOrder({
   CaseAggregateRequestAttributes.JSON_PROPERTY_GROUP_BY,
   CaseAggregateRequestAttributes.JSON_PROPERTY_QUERY_FILTER
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CaseAggregateRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private CaseAggregateGroupBy groupBy;
 
@@ -52,12 +38,13 @@ public class CaseAggregateRequestAttributes {
 
   @JsonCreator
   public CaseAggregateRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_GROUP_BY)CaseAggregateGroupBy groupBy,
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY_FILTER)String queryFilter) {
-        this.groupBy = groupBy;
-        this.unparsed |= groupBy.unparsed;
-        this.queryFilter = queryFilter;
+      @JsonProperty(required = true, value = JSON_PROPERTY_GROUP_BY) CaseAggregateGroupBy groupBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_FILTER) String queryFilter) {
+    this.groupBy = groupBy;
+    this.unparsed |= groupBy.unparsed;
+    this.queryFilter = queryFilter;
   }
+
   public CaseAggregateRequestAttributes groupBy(CaseAggregateGroupBy groupBy) {
     this.groupBy = groupBy;
     this.unparsed |= groupBy.unparsed;
@@ -65,50 +52,53 @@ public class CaseAggregateRequestAttributes {
   }
 
   /**
-   * <p>Configuration for grouping aggregated results by one or more case fields.</p>
+   * Configuration for grouping aggregated results by one or more case fields.
+   *
    * @return groupBy
-  **/
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public CaseAggregateGroupBy getGroupBy() {
-        return groupBy;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CaseAggregateGroupBy getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(CaseAggregateGroupBy groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
       this.unparsed |= groupBy.unparsed;
     }
   }
+
   public CaseAggregateRequestAttributes queryFilter(String queryFilter) {
     this.queryFilter = queryFilter;
     return this;
   }
 
   /**
-   * <p>A search query to filter which cases are included in the aggregation. Uses the same syntax as the Case Management search bar.</p>
+   * A search query to filter which cases are included in the aggregation. Uses the same syntax as
+   * the Case Management search bar.
+   *
    * @return queryFilter
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY_FILTER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQueryFilter() {
-        return queryFilter;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQueryFilter() {
+    return queryFilter;
+  }
+
   public void setQueryFilter(String queryFilter) {
     this.queryFilter = queryFilter;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -117,7 +107,7 @@ public class CaseAggregateRequestAttributes {
   @JsonAnySetter
   public CaseAggregateRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -141,14 +131,12 @@ public class CaseAggregateRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CaseAggregateRequestAttributes object is equal to o.
-   */
+  /** Return true if this CaseAggregateRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,14 +145,17 @@ public class CaseAggregateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CaseAggregateRequestAttributes caseAggregateRequestAttributes = (CaseAggregateRequestAttributes) o;
-    return Objects.equals(this.groupBy, caseAggregateRequestAttributes.groupBy) && Objects.equals(this.queryFilter, caseAggregateRequestAttributes.queryFilter) && Objects.equals(this.additionalProperties, caseAggregateRequestAttributes.additionalProperties);
+    CaseAggregateRequestAttributes caseAggregateRequestAttributes =
+        (CaseAggregateRequestAttributes) o;
+    return Objects.equals(this.groupBy, caseAggregateRequestAttributes.groupBy)
+        && Objects.equals(this.queryFilter, caseAggregateRequestAttributes.queryFilter)
+        && Objects.equals(
+            this.additionalProperties, caseAggregateRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupBy,queryFilter, additionalProperties);
+    return Objects.hash(groupBy, queryFilter, additionalProperties);
   }
 
   @Override
@@ -181,8 +172,7 @@ public class CaseAggregateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

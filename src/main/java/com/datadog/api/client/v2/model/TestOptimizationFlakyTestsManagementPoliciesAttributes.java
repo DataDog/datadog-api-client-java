@@ -6,44 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the Flaky Tests Management policies for a repository.</p>
- */
+/** Attributes of the Flaky Tests Management policies for a repository. */
 @JsonPropertyOrder({
   TestOptimizationFlakyTestsManagementPoliciesAttributes.JSON_PROPERTY_ATTEMPT_TO_FIX,
   TestOptimizationFlakyTestsManagementPoliciesAttributes.JSON_PROPERTY_DISABLED,
   TestOptimizationFlakyTestsManagementPoliciesAttributes.JSON_PROPERTY_QUARANTINED,
   TestOptimizationFlakyTestsManagementPoliciesAttributes.JSON_PROPERTY_REPOSITORY_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTEMPT_TO_FIX = "attempt_to_fix";
   private TestOptimizationFlakyTestsManagementPoliciesAttemptToFix attemptToFix;
 
@@ -56,114 +39,125 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
   public static final String JSON_PROPERTY_REPOSITORY_ID = "repository_id";
   private String repositoryId;
 
-  public TestOptimizationFlakyTestsManagementPoliciesAttributes attemptToFix(TestOptimizationFlakyTestsManagementPoliciesAttemptToFix attemptToFix) {
+  public TestOptimizationFlakyTestsManagementPoliciesAttributes attemptToFix(
+      TestOptimizationFlakyTestsManagementPoliciesAttemptToFix attemptToFix) {
     this.attemptToFix = attemptToFix;
     this.unparsed |= attemptToFix.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration for the attempt-to-fix Flaky Tests Management policy.</p>
+   * Configuration for the attempt-to-fix Flaky Tests Management policy.
+   *
    * @return attemptToFix
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTEMPT_TO_FIX)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TestOptimizationFlakyTestsManagementPoliciesAttemptToFix getAttemptToFix() {
-        return attemptToFix;
-      }
-  public void setAttemptToFix(TestOptimizationFlakyTestsManagementPoliciesAttemptToFix attemptToFix) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTEMPT_TO_FIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TestOptimizationFlakyTestsManagementPoliciesAttemptToFix getAttemptToFix() {
+    return attemptToFix;
+  }
+
+  public void setAttemptToFix(
+      TestOptimizationFlakyTestsManagementPoliciesAttemptToFix attemptToFix) {
     this.attemptToFix = attemptToFix;
     if (attemptToFix != null) {
       this.unparsed |= attemptToFix.unparsed;
     }
   }
-  public TestOptimizationFlakyTestsManagementPoliciesAttributes disabled(TestOptimizationFlakyTestsManagementPoliciesDisabled disabled) {
+
+  public TestOptimizationFlakyTestsManagementPoliciesAttributes disabled(
+      TestOptimizationFlakyTestsManagementPoliciesDisabled disabled) {
     this.disabled = disabled;
     this.unparsed |= disabled.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration for the disabled Flaky Tests Management policy.</p>
+   * Configuration for the disabled Flaky Tests Management policy.
+   *
    * @return disabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DISABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TestOptimizationFlakyTestsManagementPoliciesDisabled getDisabled() {
-        return disabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TestOptimizationFlakyTestsManagementPoliciesDisabled getDisabled() {
+    return disabled;
+  }
+
   public void setDisabled(TestOptimizationFlakyTestsManagementPoliciesDisabled disabled) {
     this.disabled = disabled;
     if (disabled != null) {
       this.unparsed |= disabled.unparsed;
     }
   }
-  public TestOptimizationFlakyTestsManagementPoliciesAttributes quarantined(TestOptimizationFlakyTestsManagementPoliciesQuarantined quarantined) {
+
+  public TestOptimizationFlakyTestsManagementPoliciesAttributes quarantined(
+      TestOptimizationFlakyTestsManagementPoliciesQuarantined quarantined) {
     this.quarantined = quarantined;
     this.unparsed |= quarantined.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration for the quarantined Flaky Tests Management policy.</p>
+   * Configuration for the quarantined Flaky Tests Management policy.
+   *
    * @return quarantined
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUARANTINED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TestOptimizationFlakyTestsManagementPoliciesQuarantined getQuarantined() {
-        return quarantined;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUARANTINED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TestOptimizationFlakyTestsManagementPoliciesQuarantined getQuarantined() {
+    return quarantined;
+  }
+
   public void setQuarantined(TestOptimizationFlakyTestsManagementPoliciesQuarantined quarantined) {
     this.quarantined = quarantined;
     if (quarantined != null) {
       this.unparsed |= quarantined.unparsed;
     }
   }
+
   public TestOptimizationFlakyTestsManagementPoliciesAttributes repositoryId(String repositoryId) {
     this.repositoryId = repositoryId;
     return this;
   }
 
   /**
-   * <p>The repository identifier.</p>
+   * The repository identifier.
+   *
    * @return repositoryId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REPOSITORY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRepositoryId() {
-        return repositoryId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPOSITORY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRepositoryId() {
+    return repositoryId;
+  }
+
   public void setRepositoryId(String repositoryId) {
     this.repositoryId = repositoryId;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return TestOptimizationFlakyTestsManagementPoliciesAttributes
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesAttributes putAdditionalProperty(String key, Object value) {
+  public TestOptimizationFlakyTestsManagementPoliciesAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -187,13 +181,14 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesAttributes object is equal to o.
+   * Return true if this TestOptimizationFlakyTestsManagementPoliciesAttributes object is equal to
+   * o.
    */
   @Override
   public boolean equals(Object o) {
@@ -203,14 +198,25 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesAttributes testOptimizationFlakyTestsManagementPoliciesAttributes = (TestOptimizationFlakyTestsManagementPoliciesAttributes) o;
-    return Objects.equals(this.attemptToFix, testOptimizationFlakyTestsManagementPoliciesAttributes.attemptToFix) && Objects.equals(this.disabled, testOptimizationFlakyTestsManagementPoliciesAttributes.disabled) && Objects.equals(this.quarantined, testOptimizationFlakyTestsManagementPoliciesAttributes.quarantined) && Objects.equals(this.repositoryId, testOptimizationFlakyTestsManagementPoliciesAttributes.repositoryId) && Objects.equals(this.additionalProperties, testOptimizationFlakyTestsManagementPoliciesAttributes.additionalProperties);
+    TestOptimizationFlakyTestsManagementPoliciesAttributes
+        testOptimizationFlakyTestsManagementPoliciesAttributes =
+            (TestOptimizationFlakyTestsManagementPoliciesAttributes) o;
+    return Objects.equals(
+            this.attemptToFix, testOptimizationFlakyTestsManagementPoliciesAttributes.attemptToFix)
+        && Objects.equals(
+            this.disabled, testOptimizationFlakyTestsManagementPoliciesAttributes.disabled)
+        && Objects.equals(
+            this.quarantined, testOptimizationFlakyTestsManagementPoliciesAttributes.quarantined)
+        && Objects.equals(
+            this.repositoryId, testOptimizationFlakyTestsManagementPoliciesAttributes.repositoryId)
+        && Objects.equals(
+            this.additionalProperties,
+            testOptimizationFlakyTestsManagementPoliciesAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attemptToFix,disabled,quarantined,repositoryId, additionalProperties);
+    return Objects.hash(attemptToFix, disabled, quarantined, repositoryId, additionalProperties);
   }
 
   @Override
@@ -229,8 +235,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

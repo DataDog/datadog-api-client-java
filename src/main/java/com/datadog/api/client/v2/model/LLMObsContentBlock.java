@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>A single content block rendered inside a <code>display_block</code> interaction.
-   * <code>type</code> discriminates which other fields are meaningful:</p>
-   * <ul>
-   * <li><code>markdown</code> / <code>text</code>: <code>content</code> must be a string.</li>
-   * <li><code>header</code>: <code>content</code> must be a string; <code>level</code>, when set, must be one of <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>.</li>
-   * <li><code>json</code>: <code>content</code> must be a well-formed JSON value (object, array, or scalar).</li>
-   * <li><code>image</code>: <code>url</code> is required.</li>
-   * <li><code>widget</code>: <code>tileDef</code> is required (any well-formed JSON; the frontend owns the renderable schema).</li>
-   * <li><code>llmobs_trace</code>: <code>traceId</code> is required; <code>interactionType</code>, when set, must be <code>trace</code> or <code>experiment_trace</code>.</li>
-   * </ul>
-   * <p><code>height</code>, when set, must be positive.</p>
+ * A single content block rendered inside a <code>display_block</code> interaction. <code>type
+ * </code> discriminates which other fields are meaningful:
+ *
+ * <ul>
+ *   <li><code>markdown</code> / <code>text</code>: <code>content</code> must be a string.
+ *   <li><code>header</code>: <code>content</code> must be a string; <code>level</code>, when set,
+ *       must be one of <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>.
+ *   <li><code>json</code>: <code>content</code> must be a well-formed JSON value (object, array, or
+ *       scalar).
+ *   <li><code>image</code>: <code>url</code> is required.
+ *   <li><code>widget</code>: <code>tileDef</code> is required (any well-formed JSON; the frontend
+ *       owns the renderable schema).
+ *   <li><code>llmobs_trace</code>: <code>traceId</code> is required; <code>interactionType</code>,
+ *       when set, must be <code>trace</code> or <code>experiment_trace</code>.
+ * </ul>
+ *
+ * <p><code>height</code>, when set, must be positive.
  */
 @JsonPropertyOrder({
   LLMObsContentBlock.JSON_PROPERTY_ALT,
@@ -57,10 +49,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsContentBlock.JSON_PROPERTY_TYPE,
   LLMObsContentBlock.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsContentBlock {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALT = "alt";
   private String alt;
 
@@ -98,112 +90,124 @@ public class LLMObsContentBlock {
 
   @JsonCreator
   public LLMObsContentBlock(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)LLMObsContentBlockType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsContentBlockType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public LLMObsContentBlock alt(String alt) {
     this.alt = alt;
     return this;
   }
 
   /**
-   * <p>Alternative text for an <code>image</code> block.</p>
+   * Alternative text for an <code>image</code> block.
+   *
    * @return alt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ALT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAlt() {
-        return alt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAlt() {
+    return alt;
+  }
+
   public void setAlt(String alt) {
     this.alt = alt;
   }
+
   public LLMObsContentBlock content(Object content) {
     this.content = content;
     return this;
   }
 
   /**
-   * <p>Block payload. A string for <code>markdown</code>, <code>header</code>, and <code>text</code>; an
-   * arbitrary JSON value (object, array, or scalar) for <code>json</code>. Omitted
-   * for <code>image</code>, <code>widget</code>, and <code>llmobs_trace</code>.</p>
+   * Block payload. A string for <code>markdown</code>, <code>header</code>, and <code>text</code>;
+   * an arbitrary JSON value (object, array, or scalar) for <code>json</code>. Omitted for <code>
+   * image</code>, <code>widget</code>, and <code>llmobs_trace</code>.
+   *
    * @return content
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONTENT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getContent() {
-        return content;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getContent() {
+    return content;
+  }
+
   public void setContent(Object content) {
     this.content = content;
   }
+
   public LLMObsContentBlock height(Long height) {
     this.height = height;
     return this;
   }
 
   /**
-   * <p>Optional rendered height. Must be positive when set.</p>
+   * Optional rendered height. Must be positive when set.
+   *
    * @return height
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HEIGHT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getHeight() {
-        return height;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getHeight() {
+    return height;
+  }
+
   public void setHeight(Long height) {
     this.height = height;
   }
-  public LLMObsContentBlock interactionType(LLMObsContentBlockLLMObsTraceInteractionType interactionType) {
+
+  public LLMObsContentBlock interactionType(
+      LLMObsContentBlockLLMObsTraceInteractionType interactionType) {
     this.interactionType = interactionType;
     this.unparsed |= !interactionType.isValid();
     return this;
   }
 
   /**
-   * <p>Upstream interaction type referenced by an <code>llmobs_trace</code> block.
-   * Restricted to <code>trace</code> or <code>experiment_trace</code>.</p>
+   * Upstream interaction type referenced by an <code>llmobs_trace</code> block. Restricted to
+   * <code>trace</code> or <code>experiment_trace</code>.
+   *
    * @return interactionType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTERACTION_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsContentBlockLLMObsTraceInteractionType getInteractionType() {
-        return interactionType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTERACTION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsContentBlockLLMObsTraceInteractionType getInteractionType() {
+    return interactionType;
+  }
+
   public void setInteractionType(LLMObsContentBlockLLMObsTraceInteractionType interactionType) {
     if (!interactionType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.interactionType = interactionType;
   }
+
   public LLMObsContentBlock label(String label) {
     this.label = label;
     return this;
   }
 
   /**
-   * <p>Optional label rendered alongside the block.</p>
+   * Optional label rendered alongside the block.
+   *
    * @return label
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LABEL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getLabel() {
-        return label;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLabel() {
+    return label;
+  }
+
   public void setLabel(String label) {
     this.label = label;
   }
+
   public LLMObsContentBlock level(LLMObsContentBlockHeaderLevel level) {
     this.level = level;
     this.unparsed |= !level.isValid();
@@ -211,42 +215,46 @@ public class LLMObsContentBlock {
   }
 
   /**
-   * <p>Visual size for a <code>header</code> block.</p>
+   * Visual size for a <code>header</code> block.
+   *
    * @return level
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LEVEL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsContentBlockHeaderLevel getLevel() {
-        return level;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsContentBlockHeaderLevel getLevel() {
+    return level;
+  }
+
   public void setLevel(LLMObsContentBlockHeaderLevel level) {
     if (!level.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.level = level;
   }
+
   public LLMObsContentBlock tileDef(Object tileDef) {
     this.tileDef = tileDef;
     return this;
   }
 
   /**
-   * <p>Tile definition for a <code>widget</code> block. Required for <code>widget</code>. The
-   * schema is owned by the frontend renderer.</p>
+   * Tile definition for a <code>widget</code> block. Required for <code>widget</code>. The schema
+   * is owned by the frontend renderer.
+   *
    * @return tileDef
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TILE_DEF)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getTileDef() {
-        return tileDef;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TILE_DEF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getTileDef() {
+    return tileDef;
+  }
+
   public void setTileDef(Object tileDef) {
     this.tileDef = tileDef;
   }
+
   public LLMObsContentBlock timeFrame(LLMObsContentBlockTimeFrame timeFrame) {
     this.timeFrame = timeFrame;
     this.unparsed |= timeFrame.unparsed;
@@ -254,41 +262,45 @@ public class LLMObsContentBlock {
   }
 
   /**
-   * <p>Unix-millis time range used by chart blocks.</p>
+   * Unix-millis time range used by chart blocks.
+   *
    * @return timeFrame
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME_FRAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsContentBlockTimeFrame getTimeFrame() {
-        return timeFrame;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_FRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsContentBlockTimeFrame getTimeFrame() {
+    return timeFrame;
+  }
+
   public void setTimeFrame(LLMObsContentBlockTimeFrame timeFrame) {
     this.timeFrame = timeFrame;
     if (timeFrame != null) {
       this.unparsed |= timeFrame.unparsed;
     }
   }
+
   public LLMObsContentBlock traceId(String traceId) {
     this.traceId = traceId;
     return this;
   }
 
   /**
-   * <p>Trace identifier. Required for <code>llmobs_trace</code> blocks.</p>
+   * Trace identifier. Required for <code>llmobs_trace</code> blocks.
+   *
    * @return traceId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TRACE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTraceId() {
-        return traceId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRACE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTraceId() {
+    return traceId;
+  }
+
   public void setTraceId(String traceId) {
     this.traceId = traceId;
   }
+
   public LLMObsContentBlock type(LLMObsContentBlockType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -296,52 +308,54 @@ public class LLMObsContentBlock {
   }
 
   /**
-   * <p>Discriminator for a single <code>display_block</code> content block. Adding a
-   * variant requires coordinated changes in the frontend renderer.</p>
+   * Discriminator for a single <code>display_block</code> content block. Adding a variant requires
+   * coordinated changes in the frontend renderer.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LLMObsContentBlockType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LLMObsContentBlockType getType() {
+    return type;
+  }
+
   public void setType(LLMObsContentBlockType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public LLMObsContentBlock url(String url) {
     this.url = url;
     return this;
   }
 
   /**
-   * <p>URL of the image. Required for <code>image</code> blocks.</p>
+   * URL of the image. Required for <code>image</code> blocks.
+   *
    * @return url
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUrl() {
-        return url;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
+
   public void setUrl(String url) {
     this.url = url;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -350,7 +364,7 @@ public class LLMObsContentBlock {
   @JsonAnySetter
   public LLMObsContentBlock putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -374,14 +388,12 @@ public class LLMObsContentBlock {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsContentBlock object is equal to o.
-   */
+  /** Return true if this LLMObsContentBlock object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -391,13 +403,35 @@ public class LLMObsContentBlock {
       return false;
     }
     LLMObsContentBlock llmObsContentBlock = (LLMObsContentBlock) o;
-    return Objects.equals(this.alt, llmObsContentBlock.alt) && Objects.equals(this.content, llmObsContentBlock.content) && Objects.equals(this.height, llmObsContentBlock.height) && Objects.equals(this.interactionType, llmObsContentBlock.interactionType) && Objects.equals(this.label, llmObsContentBlock.label) && Objects.equals(this.level, llmObsContentBlock.level) && Objects.equals(this.tileDef, llmObsContentBlock.tileDef) && Objects.equals(this.timeFrame, llmObsContentBlock.timeFrame) && Objects.equals(this.traceId, llmObsContentBlock.traceId) && Objects.equals(this.type, llmObsContentBlock.type) && Objects.equals(this.url, llmObsContentBlock.url) && Objects.equals(this.additionalProperties, llmObsContentBlock.additionalProperties);
+    return Objects.equals(this.alt, llmObsContentBlock.alt)
+        && Objects.equals(this.content, llmObsContentBlock.content)
+        && Objects.equals(this.height, llmObsContentBlock.height)
+        && Objects.equals(this.interactionType, llmObsContentBlock.interactionType)
+        && Objects.equals(this.label, llmObsContentBlock.label)
+        && Objects.equals(this.level, llmObsContentBlock.level)
+        && Objects.equals(this.tileDef, llmObsContentBlock.tileDef)
+        && Objects.equals(this.timeFrame, llmObsContentBlock.timeFrame)
+        && Objects.equals(this.traceId, llmObsContentBlock.traceId)
+        && Objects.equals(this.type, llmObsContentBlock.type)
+        && Objects.equals(this.url, llmObsContentBlock.url)
+        && Objects.equals(this.additionalProperties, llmObsContentBlock.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(alt,content,height,interactionType,label,level,tileDef,timeFrame,traceId,type,url, additionalProperties);
+    return Objects.hash(
+        alt,
+        content,
+        height,
+        interactionType,
+        label,
+        level,
+        tileDef,
+        timeFrame,
+        traceId,
+        type,
+        url,
+        additionalProperties);
   }
 
   @Override
@@ -423,8 +457,7 @@ public class LLMObsContentBlock {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

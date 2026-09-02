@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The action to take when the ticket creation rule matches a finding.</p>
- */
+/** The action to take when the ticket creation rule matches a finding. */
 @JsonPropertyOrder({
   TicketCreationRuleActionResponse.JSON_PROPERTY_ASSIGNEE_ID,
   TicketCreationRuleActionResponse.JSON_PROPERTY_AUTO_DISABLED_REASON,
@@ -42,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   TicketCreationRuleActionResponse.JSON_PROPERTY_PROJECT_ID,
   TicketCreationRuleActionResponse.JSON_PROPERTY_TARGET
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TicketCreationRuleActionResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSIGNEE_ID = "assignee_id";
   private UUID assigneeId;
 
@@ -68,109 +53,124 @@ public class TicketCreationRuleActionResponse {
 
   @JsonCreator
   public TicketCreationRuleActionResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_MAX_TICKETS_PER_DAY)Long maxTicketsPerDay,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PROJECT_ID)UUID projectId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET)TicketCreationTarget target) {
-        this.maxTicketsPerDay = maxTicketsPerDay;
-        this.projectId = projectId;
-        this.target = target;
-        this.unparsed |= !target.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAX_TICKETS_PER_DAY)
+          Long maxTicketsPerDay,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) UUID projectId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) TicketCreationTarget target) {
+    this.maxTicketsPerDay = maxTicketsPerDay;
+    this.projectId = projectId;
+    this.target = target;
+    this.unparsed |= !target.isValid();
   }
+
   public TicketCreationRuleActionResponse assigneeId(UUID assigneeId) {
     this.assigneeId = assigneeId;
     return this;
   }
 
   /**
-   * <p>The UUID of the default assignee for created tickets.</p>
+   * The UUID of the default assignee for created tickets.
+   *
    * @return assigneeId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSIGNEE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UUID getAssigneeId() {
-        return assigneeId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNEE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getAssigneeId() {
+    return assigneeId;
+  }
+
   public void setAssigneeId(UUID assigneeId) {
     this.assigneeId = assigneeId;
   }
+
   public TicketCreationRuleActionResponse autoDisabledReason(String autoDisabledReason) {
     this.autoDisabledReason = autoDisabledReason;
     return this;
   }
 
   /**
-   * <p>The reason the rule was automatically disabled by the system due to a ticketing integration error.</p>
+   * The reason the rule was automatically disabled by the system due to a ticketing integration
+   * error.
+   *
    * @return autoDisabledReason
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUTO_DISABLED_REASON)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAutoDisabledReason() {
-        return autoDisabledReason;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTO_DISABLED_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAutoDisabledReason() {
+    return autoDisabledReason;
+  }
+
   public void setAutoDisabledReason(String autoDisabledReason) {
     this.autoDisabledReason = autoDisabledReason;
   }
+
   public TicketCreationRuleActionResponse fields(Object fields) {
     this.fields = fields;
     return this;
   }
 
   /**
-   * <p>Custom fields of the Jira issue to create. For the list of available fields, see <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get">Jira documentation</a>.</p>
+   * Custom fields of the Jira issue to create. For the list of available fields, see <a
+   * href="https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get">Jira
+   * documentation</a>.
+   *
    * @return fields
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELDS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getFields() {
-        return fields;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getFields() {
+    return fields;
+  }
+
   public void setFields(Object fields) {
     this.fields = fields;
   }
+
   public TicketCreationRuleActionResponse maxTicketsPerDay(Long maxTicketsPerDay) {
     this.maxTicketsPerDay = maxTicketsPerDay;
     return this;
   }
 
   /**
-   * <p>The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule.</p>
-   * minimum: 1
+   * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will
+   * be created, explaining the limit was hit and link back to the responsible rule. minimum: 1
    * maximum: 500
+   *
    * @return maxTicketsPerDay
-  **/
-      @JsonProperty(JSON_PROPERTY_MAX_TICKETS_PER_DAY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getMaxTicketsPerDay() {
-        return maxTicketsPerDay;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MAX_TICKETS_PER_DAY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getMaxTicketsPerDay() {
+    return maxTicketsPerDay;
+  }
+
   public void setMaxTicketsPerDay(Long maxTicketsPerDay) {
     this.maxTicketsPerDay = maxTicketsPerDay;
   }
+
   public TicketCreationRuleActionResponse projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
 
   /**
-   * <p>The UUID of the case management project.</p>
+   * The UUID of the case management project.
+   *
    * @return projectId
-  **/
-      @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public UUID getProjectId() {
-        return projectId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getProjectId() {
+    return projectId;
+  }
+
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
+
   public TicketCreationRuleActionResponse target(TicketCreationTarget target) {
     this.target = target;
     this.unparsed |= !target.isValid();
@@ -178,32 +178,32 @@ public class TicketCreationRuleActionResponse {
   }
 
   /**
-   * <p>The ticketing system to create tickets in.</p>
+   * The ticketing system to create tickets in.
+   *
    * @return target
-  **/
-      @JsonProperty(JSON_PROPERTY_TARGET)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public TicketCreationTarget getTarget() {
-        return target;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TicketCreationTarget getTarget() {
+    return target;
+  }
+
   public void setTarget(TicketCreationTarget target) {
     if (!target.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.target = target;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -212,7 +212,7 @@ public class TicketCreationRuleActionResponse {
   @JsonAnySetter
   public TicketCreationRuleActionResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -236,14 +236,12 @@ public class TicketCreationRuleActionResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TicketCreationRuleActionResponse object is equal to o.
-   */
+  /** Return true if this TicketCreationRuleActionResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -252,14 +250,29 @@ public class TicketCreationRuleActionResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TicketCreationRuleActionResponse ticketCreationRuleActionResponse = (TicketCreationRuleActionResponse) o;
-    return Objects.equals(this.assigneeId, ticketCreationRuleActionResponse.assigneeId) && Objects.equals(this.autoDisabledReason, ticketCreationRuleActionResponse.autoDisabledReason) && Objects.equals(this.fields, ticketCreationRuleActionResponse.fields) && Objects.equals(this.maxTicketsPerDay, ticketCreationRuleActionResponse.maxTicketsPerDay) && Objects.equals(this.projectId, ticketCreationRuleActionResponse.projectId) && Objects.equals(this.target, ticketCreationRuleActionResponse.target) && Objects.equals(this.additionalProperties, ticketCreationRuleActionResponse.additionalProperties);
+    TicketCreationRuleActionResponse ticketCreationRuleActionResponse =
+        (TicketCreationRuleActionResponse) o;
+    return Objects.equals(this.assigneeId, ticketCreationRuleActionResponse.assigneeId)
+        && Objects.equals(
+            this.autoDisabledReason, ticketCreationRuleActionResponse.autoDisabledReason)
+        && Objects.equals(this.fields, ticketCreationRuleActionResponse.fields)
+        && Objects.equals(this.maxTicketsPerDay, ticketCreationRuleActionResponse.maxTicketsPerDay)
+        && Objects.equals(this.projectId, ticketCreationRuleActionResponse.projectId)
+        && Objects.equals(this.target, ticketCreationRuleActionResponse.target)
+        && Objects.equals(
+            this.additionalProperties, ticketCreationRuleActionResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(assigneeId,autoDisabledReason,fields,maxTicketsPerDay,projectId,target, additionalProperties);
+    return Objects.hash(
+        assigneeId,
+        autoDisabledReason,
+        fields,
+        maxTicketsPerDay,
+        projectId,
+        target,
+        additionalProperties);
   }
 
   @Override
@@ -280,8 +293,7 @@ public class TicketCreationRuleActionResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

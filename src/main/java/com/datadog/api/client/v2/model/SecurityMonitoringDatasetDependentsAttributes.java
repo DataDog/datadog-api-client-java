@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes of a dataset dependents entry.</p>
- */
+/** The attributes of a dataset dependents entry. */
 @JsonPropertyOrder({
   SecurityMonitoringDatasetDependentsAttributes.JSON_PROPERTY_COUNT,
   SecurityMonitoringDatasetDependentsAttributes.JSON_PROPERTY_DATASET_ID,
   SecurityMonitoringDatasetDependentsAttributes.JSON_PROPERTY_IDS,
   SecurityMonitoringDatasetDependentsAttributes.JSON_PROPERTY_RESOURCE_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringDatasetDependentsAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
 
@@ -60,111 +46,120 @@ public class SecurityMonitoringDatasetDependentsAttributes {
 
   @JsonCreator
   public SecurityMonitoringDatasetDependentsAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COUNT)Long count,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATASET_ID)String datasetId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_IDS)List<String> ids,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_TYPE)String resourceType) {
-        this.count = count;
-        this.datasetId = datasetId;
-        this.ids = ids;
-        this.resourceType = resourceType;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COUNT) Long count,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATASET_ID) String datasetId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IDS) List<String> ids,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType) {
+    this.count = count;
+    this.datasetId = datasetId;
+    this.ids = ids;
+    this.resourceType = resourceType;
   }
+
   public SecurityMonitoringDatasetDependentsAttributes count(Long count) {
     this.count = count;
     return this;
   }
 
   /**
-   * <p>The number of resources that depend on the dataset.</p>
+   * The number of resources that depend on the dataset.
+   *
    * @return count
-  **/
-      @JsonProperty(JSON_PROPERTY_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getCount() {
-        return count;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getCount() {
+    return count;
+  }
+
   public void setCount(Long count) {
     this.count = count;
   }
+
   public SecurityMonitoringDatasetDependentsAttributes datasetId(String datasetId) {
     this.datasetId = datasetId;
     return this;
   }
 
   /**
-   * <p>The UUID of the dataset whose dependencies are being reported.</p>
+   * The UUID of the dataset whose dependencies are being reported.
+   *
    * @return datasetId
-  **/
-      @JsonProperty(JSON_PROPERTY_DATASET_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDatasetId() {
-        return datasetId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATASET_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDatasetId() {
+    return datasetId;
+  }
+
   public void setDatasetId(String datasetId) {
     this.datasetId = datasetId;
   }
+
   public SecurityMonitoringDatasetDependentsAttributes ids(List<String> ids) {
     this.ids = ids;
     return this;
   }
+
   public SecurityMonitoringDatasetDependentsAttributes addIdsItem(String idsItem) {
     this.ids.add(idsItem);
     return this;
   }
 
   /**
-   * <p>The list of resource IDs that depend on the dataset.</p>
+   * The list of resource IDs that depend on the dataset.
+   *
    * @return ids
-  **/
-      @JsonProperty(JSON_PROPERTY_IDS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getIds() {
-        return ids;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getIds() {
+    return ids;
+  }
+
   public void setIds(List<String> ids) {
     this.ids = ids;
   }
+
   public SecurityMonitoringDatasetDependentsAttributes resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
 
   /**
-   * <p>The type of resource that depends on the dataset.</p>
+   * The type of resource that depends on the dataset.
+   *
    * @return resourceType
-  **/
-      @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getResourceType() {
-        return resourceType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getResourceType() {
+    return resourceType;
+  }
+
   public void setResourceType(String resourceType) {
     this.resourceType = resourceType;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SecurityMonitoringDatasetDependentsAttributes
    */
   @JsonAnySetter
-  public SecurityMonitoringDatasetDependentsAttributes putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringDatasetDependentsAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -188,14 +183,12 @@ public class SecurityMonitoringDatasetDependentsAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SecurityMonitoringDatasetDependentsAttributes object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringDatasetDependentsAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,14 +197,21 @@ public class SecurityMonitoringDatasetDependentsAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringDatasetDependentsAttributes securityMonitoringDatasetDependentsAttributes = (SecurityMonitoringDatasetDependentsAttributes) o;
-    return Objects.equals(this.count, securityMonitoringDatasetDependentsAttributes.count) && Objects.equals(this.datasetId, securityMonitoringDatasetDependentsAttributes.datasetId) && Objects.equals(this.ids, securityMonitoringDatasetDependentsAttributes.ids) && Objects.equals(this.resourceType, securityMonitoringDatasetDependentsAttributes.resourceType) && Objects.equals(this.additionalProperties, securityMonitoringDatasetDependentsAttributes.additionalProperties);
+    SecurityMonitoringDatasetDependentsAttributes securityMonitoringDatasetDependentsAttributes =
+        (SecurityMonitoringDatasetDependentsAttributes) o;
+    return Objects.equals(this.count, securityMonitoringDatasetDependentsAttributes.count)
+        && Objects.equals(this.datasetId, securityMonitoringDatasetDependentsAttributes.datasetId)
+        && Objects.equals(this.ids, securityMonitoringDatasetDependentsAttributes.ids)
+        && Objects.equals(
+            this.resourceType, securityMonitoringDatasetDependentsAttributes.resourceType)
+        && Objects.equals(
+            this.additionalProperties,
+            securityMonitoringDatasetDependentsAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(count,datasetId,ids,resourceType, additionalProperties);
+    return Objects.hash(count, datasetId, ids, resourceType, additionalProperties);
   }
 
   @Override
@@ -230,8 +230,7 @@ public class SecurityMonitoringDatasetDependentsAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

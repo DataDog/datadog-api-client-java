@@ -6,44 +6,29 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The counts of monitors per different criteria.</p>
- */
+/** The counts of monitors per different criteria. */
 @JsonPropertyOrder({
   MonitorSearchResponseCounts.JSON_PROPERTY_MUTED,
   MonitorSearchResponseCounts.JSON_PROPERTY_STATUS,
   MonitorSearchResponseCounts.JSON_PROPERTY_TAG,
   MonitorSearchResponseCounts.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResponseCounts {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MUTED = "muted";
   private List<MonitorSearchCountItem> muted = null;
 
@@ -59,12 +44,13 @@ public class MonitorSearchResponseCounts {
   public MonitorSearchResponseCounts muted(List<MonitorSearchCountItem> muted) {
     this.muted = muted;
     if (muted != null) {
-    for (MonitorSearchCountItem item : muted) {
-      this.unparsed |= item.unparsed;
-    }
+      for (MonitorSearchCountItem item : muted) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public MonitorSearchResponseCounts addMutedItem(MonitorSearchCountItem mutedItem) {
     if (this.muted == null) {
       this.muted = new ArrayList<>();
@@ -75,16 +61,17 @@ public class MonitorSearchResponseCounts {
   }
 
   /**
-   * <p>Search facets.</p>
+   * Search facets.
+   *
    * @return muted
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MUTED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorSearchCountItem> getMuted() {
-        return muted;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MUTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorSearchCountItem> getMuted() {
+    return muted;
+  }
+
   public void setMuted(List<MonitorSearchCountItem> muted) {
     this.muted = muted;
     if (muted != null) {
@@ -93,15 +80,17 @@ public class MonitorSearchResponseCounts {
       }
     }
   }
+
   public MonitorSearchResponseCounts status(List<MonitorSearchCountItem> status) {
     this.status = status;
     if (status != null) {
-    for (MonitorSearchCountItem item : status) {
-      this.unparsed |= item.unparsed;
-    }
+      for (MonitorSearchCountItem item : status) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public MonitorSearchResponseCounts addStatusItem(MonitorSearchCountItem statusItem) {
     if (this.status == null) {
       this.status = new ArrayList<>();
@@ -112,16 +101,17 @@ public class MonitorSearchResponseCounts {
   }
 
   /**
-   * <p>Search facets.</p>
+   * Search facets.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorSearchCountItem> getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorSearchCountItem> getStatus() {
+    return status;
+  }
+
   public void setStatus(List<MonitorSearchCountItem> status) {
     this.status = status;
     if (status != null) {
@@ -130,15 +120,17 @@ public class MonitorSearchResponseCounts {
       }
     }
   }
+
   public MonitorSearchResponseCounts tag(List<MonitorSearchCountItem> tag) {
     this.tag = tag;
     if (tag != null) {
-    for (MonitorSearchCountItem item : tag) {
-      this.unparsed |= item.unparsed;
-    }
+      for (MonitorSearchCountItem item : tag) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public MonitorSearchResponseCounts addTagItem(MonitorSearchCountItem tagItem) {
     if (this.tag == null) {
       this.tag = new ArrayList<>();
@@ -149,16 +141,17 @@ public class MonitorSearchResponseCounts {
   }
 
   /**
-   * <p>Search facets.</p>
+   * Search facets.
+   *
    * @return tag
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorSearchCountItem> getTag() {
-        return tag;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorSearchCountItem> getTag() {
+    return tag;
+  }
+
   public void setTag(List<MonitorSearchCountItem> tag) {
     this.tag = tag;
     if (tag != null) {
@@ -167,15 +160,17 @@ public class MonitorSearchResponseCounts {
       }
     }
   }
+
   public MonitorSearchResponseCounts type(List<MonitorSearchCountItem> type) {
     this.type = type;
     if (type != null) {
-    for (MonitorSearchCountItem item : type) {
-      this.unparsed |= item.unparsed;
-    }
+      for (MonitorSearchCountItem item : type) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public MonitorSearchResponseCounts addTypeItem(MonitorSearchCountItem typeItem) {
     if (this.type == null) {
       this.type = new ArrayList<>();
@@ -186,16 +181,17 @@ public class MonitorSearchResponseCounts {
   }
 
   /**
-   * <p>Search facets.</p>
+   * Search facets.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorSearchCountItem> getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorSearchCountItem> getType() {
+    return type;
+  }
+
   public void setType(List<MonitorSearchCountItem> type) {
     this.type = type;
     if (type != null) {
@@ -206,15 +202,14 @@ public class MonitorSearchResponseCounts {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -223,7 +218,7 @@ public class MonitorSearchResponseCounts {
   @JsonAnySetter
   public MonitorSearchResponseCounts putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -247,14 +242,12 @@ public class MonitorSearchResponseCounts {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this MonitorSearchResponseCounts object is equal to o.
-   */
+  /** Return true if this MonitorSearchResponseCounts object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -264,13 +257,17 @@ public class MonitorSearchResponseCounts {
       return false;
     }
     MonitorSearchResponseCounts monitorSearchResponseCounts = (MonitorSearchResponseCounts) o;
-    return Objects.equals(this.muted, monitorSearchResponseCounts.muted) && Objects.equals(this.status, monitorSearchResponseCounts.status) && Objects.equals(this.tag, monitorSearchResponseCounts.tag) && Objects.equals(this.type, monitorSearchResponseCounts.type) && Objects.equals(this.additionalProperties, monitorSearchResponseCounts.additionalProperties);
+    return Objects.equals(this.muted, monitorSearchResponseCounts.muted)
+        && Objects.equals(this.status, monitorSearchResponseCounts.status)
+        && Objects.equals(this.tag, monitorSearchResponseCounts.tag)
+        && Objects.equals(this.type, monitorSearchResponseCounts.type)
+        && Objects.equals(
+            this.additionalProperties, monitorSearchResponseCounts.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(muted,status,tag,type, additionalProperties);
+    return Objects.hash(muted, status, tag, type, additionalProperties);
   }
 
   @Override
@@ -289,8 +286,7 @@ public class MonitorSearchResponseCounts {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

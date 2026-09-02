@@ -6,33 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Attributes for updating a tag indexing rule. All fields are optional; omitted fields are unchanged.</p>
+ * Attributes for updating a tag indexing rule. All fields are optional; omitted fields are
+ * unchanged.
  */
 @JsonPropertyOrder({
   TagIndexingRuleUpdateAttributes.JSON_PROPERTY_EXCLUDE_TAGS_MODE,
@@ -43,14 +31,15 @@ import com.datadog.api.client.JsonTimeSerializer;
   TagIndexingRuleUpdateAttributes.JSON_PROPERTY_RULE_ORDER,
   TagIndexingRuleUpdateAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TagIndexingRuleUpdateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUDE_TAGS_MODE = "exclude_tags_mode";
   private Boolean excludeTagsMode;
 
-  public static final String JSON_PROPERTY_IGNORED_METRIC_NAME_MATCHES = "ignored_metric_name_matches";
+  public static final String JSON_PROPERTY_IGNORED_METRIC_NAME_MATCHES =
+      "ignored_metric_name_matches";
   private List<String> ignoredMetricNameMatches = null;
 
   public static final String JSON_PROPERTY_METRIC_NAME_MATCHES = "metric_name_matches";
@@ -74,24 +63,29 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * <p>When true, the rule excludes the listed tags and indexes all others.</p>
+   * When true, the rule excludes the listed tags and indexes all others.
+   *
    * @return excludeTagsMode
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS_MODE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getExcludeTagsMode() {
-        return excludeTagsMode;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExcludeTagsMode() {
+    return excludeTagsMode;
+  }
+
   public void setExcludeTagsMode(Boolean excludeTagsMode) {
     this.excludeTagsMode = excludeTagsMode;
   }
-  public TagIndexingRuleUpdateAttributes ignoredMetricNameMatches(List<String> ignoredMetricNameMatches) {
+
+  public TagIndexingRuleUpdateAttributes ignoredMetricNameMatches(
+      List<String> ignoredMetricNameMatches) {
     this.ignoredMetricNameMatches = ignoredMetricNameMatches;
     return this;
   }
-  public TagIndexingRuleUpdateAttributes addIgnoredMetricNameMatchesItem(String ignoredMetricNameMatchesItem) {
+
+  public TagIndexingRuleUpdateAttributes addIgnoredMetricNameMatchesItem(
+      String ignoredMetricNameMatchesItem) {
     if (this.ignoredMetricNameMatches == null) {
       this.ignoredMetricNameMatches = new ArrayList<>();
     }
@@ -100,23 +94,26 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * <p>Metric name prefixes excluded from the rule's scope.</p>
+   * Metric name prefixes excluded from the rule's scope.
+   *
    * @return ignoredMetricNameMatches
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IGNORED_METRIC_NAME_MATCHES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getIgnoredMetricNameMatches() {
-        return ignoredMetricNameMatches;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IGNORED_METRIC_NAME_MATCHES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIgnoredMetricNameMatches() {
+    return ignoredMetricNameMatches;
+  }
+
   public void setIgnoredMetricNameMatches(List<String> ignoredMetricNameMatches) {
     this.ignoredMetricNameMatches = ignoredMetricNameMatches;
   }
+
   public TagIndexingRuleUpdateAttributes metricNameMatches(List<String> metricNameMatches) {
     this.metricNameMatches = metricNameMatches;
     return this;
   }
+
   public TagIndexingRuleUpdateAttributes addMetricNameMatchesItem(String metricNameMatchesItem) {
     if (this.metricNameMatches == null) {
       this.metricNameMatches = new ArrayList<>();
@@ -126,38 +123,42 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * <p>Metric name prefixes (glob patterns) this rule applies to.</p>
+   * Metric name prefixes (glob patterns) this rule applies to.
+   *
    * @return metricNameMatches
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRIC_NAME_MATCHES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getMetricNameMatches() {
-        return metricNameMatches;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC_NAME_MATCHES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMetricNameMatches() {
+    return metricNameMatches;
+  }
+
   public void setMetricNameMatches(List<String> metricNameMatches) {
     this.metricNameMatches = metricNameMatches;
   }
+
   public TagIndexingRuleUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Human-readable name for the rule.</p>
+   * Human-readable name for the rule.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public TagIndexingRuleUpdateAttributes options(TagIndexingRuleOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -165,45 +166,51 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * <p>Versioned configuration options for a tag indexing rule.</p>
+   * Versioned configuration options for a tag indexing rule.
+   *
    * @return options
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TagIndexingRuleOptions getOptions() {
-        return options;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TagIndexingRuleOptions getOptions() {
+    return options;
+  }
+
   public void setOptions(TagIndexingRuleOptions options) {
     this.options = options;
     if (options != null) {
       this.unparsed |= options.unparsed;
     }
   }
+
   public TagIndexingRuleUpdateAttributes ruleOrder(Long ruleOrder) {
     this.ruleOrder = ruleOrder;
     return this;
   }
 
   /**
-   * <p>Desired evaluation order. Returns 409 if the value conflicts with another rule; use POST /api/v2/metrics/tag-indexing-rules/order for atomic re-sequencing.</p>
+   * Desired evaluation order. Returns 409 if the value conflicts with another rule; use POST
+   * /api/v2/metrics/tag-indexing-rules/order for atomic re-sequencing.
+   *
    * @return ruleOrder
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RULE_ORDER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getRuleOrder() {
-        return ruleOrder;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRuleOrder() {
+    return ruleOrder;
+  }
+
   public void setRuleOrder(Long ruleOrder) {
     this.ruleOrder = ruleOrder;
   }
+
   public TagIndexingRuleUpdateAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public TagIndexingRuleUpdateAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -213,30 +220,30 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * <p>Tag keys managed by this rule.</p>
+   * Tag keys managed by this rule.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -245,7 +252,7 @@ public class TagIndexingRuleUpdateAttributes {
   @JsonAnySetter
   public TagIndexingRuleUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -269,14 +276,12 @@ public class TagIndexingRuleUpdateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TagIndexingRuleUpdateAttributes object is equal to o.
-   */
+  /** Return true if this TagIndexingRuleUpdateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -285,14 +290,31 @@ public class TagIndexingRuleUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagIndexingRuleUpdateAttributes tagIndexingRuleUpdateAttributes = (TagIndexingRuleUpdateAttributes) o;
-    return Objects.equals(this.excludeTagsMode, tagIndexingRuleUpdateAttributes.excludeTagsMode) && Objects.equals(this.ignoredMetricNameMatches, tagIndexingRuleUpdateAttributes.ignoredMetricNameMatches) && Objects.equals(this.metricNameMatches, tagIndexingRuleUpdateAttributes.metricNameMatches) && Objects.equals(this.name, tagIndexingRuleUpdateAttributes.name) && Objects.equals(this.options, tagIndexingRuleUpdateAttributes.options) && Objects.equals(this.ruleOrder, tagIndexingRuleUpdateAttributes.ruleOrder) && Objects.equals(this.tags, tagIndexingRuleUpdateAttributes.tags) && Objects.equals(this.additionalProperties, tagIndexingRuleUpdateAttributes.additionalProperties);
+    TagIndexingRuleUpdateAttributes tagIndexingRuleUpdateAttributes =
+        (TagIndexingRuleUpdateAttributes) o;
+    return Objects.equals(this.excludeTagsMode, tagIndexingRuleUpdateAttributes.excludeTagsMode)
+        && Objects.equals(
+            this.ignoredMetricNameMatches, tagIndexingRuleUpdateAttributes.ignoredMetricNameMatches)
+        && Objects.equals(this.metricNameMatches, tagIndexingRuleUpdateAttributes.metricNameMatches)
+        && Objects.equals(this.name, tagIndexingRuleUpdateAttributes.name)
+        && Objects.equals(this.options, tagIndexingRuleUpdateAttributes.options)
+        && Objects.equals(this.ruleOrder, tagIndexingRuleUpdateAttributes.ruleOrder)
+        && Objects.equals(this.tags, tagIndexingRuleUpdateAttributes.tags)
+        && Objects.equals(
+            this.additionalProperties, tagIndexingRuleUpdateAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(excludeTagsMode,ignoredMetricNameMatches,metricNameMatches,name,options,ruleOrder,tags, additionalProperties);
+    return Objects.hash(
+        excludeTagsMode,
+        ignoredMetricNameMatches,
+        metricNameMatches,
+        name,
+        options,
+        ruleOrder,
+        tags,
+        additionalProperties);
   }
 
   @Override
@@ -300,7 +322,9 @@ public class TagIndexingRuleUpdateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class TagIndexingRuleUpdateAttributes {\n");
     sb.append("    excludeTagsMode: ").append(toIndentedString(excludeTagsMode)).append("\n");
-    sb.append("    ignoredMetricNameMatches: ").append(toIndentedString(ignoredMetricNameMatches)).append("\n");
+    sb.append("    ignoredMetricNameMatches: ")
+        .append(toIndentedString(ignoredMetricNameMatches))
+        .append("\n");
     sb.append("    metricNameMatches: ").append(toIndentedString(metricNameMatches)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
@@ -314,8 +338,7 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

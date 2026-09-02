@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A configured account for an LLM provider integration.</p>
- */
+/** A configured account for an LLM provider integration. */
 @JsonPropertyOrder({
   LLMObsIntegrationAccount.JSON_PROPERTY_ACCOUNT_ID,
   LLMObsIntegrationAccount.JSON_PROPERTY_ACCOUNT_NAME,
@@ -43,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsIntegrationAccount.JSON_PROPERTY_INTEGRATION,
   LLMObsIntegrationAccount.JSON_PROPERTY_VERTEX_AI_METADATA
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsIntegrationAccount {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -72,129 +56,143 @@ public class LLMObsIntegrationAccount {
 
   @JsonCreator
   public LLMObsIntegrationAccount(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_ID)String accountId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_NAME)String accountName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_INTEGRATION)String integration) {
-        this.accountId = accountId;
-        this.accountName = accountName;
-        this.id = id;
-        this.integration = integration;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_NAME) String accountName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION) String integration) {
+    this.accountId = accountId;
+    this.accountName = accountName;
+    this.id = id;
+    this.integration = integration;
   }
+
   public LLMObsIntegrationAccount accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
   /**
-   * <p>Provider-specific account identifier.</p>
+   * Provider-specific account identifier.
+   *
    * @return accountId
-  **/
-      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAccountId() {
-        return accountId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAccountId() {
+    return accountId;
+  }
+
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
+
   public LLMObsIntegrationAccount accountName(String accountName) {
     this.accountName = accountName;
     return this;
   }
 
   /**
-   * <p>Human-readable name for the integration account.</p>
+   * Human-readable name for the integration account.
+   *
    * @return accountName
-  **/
-      @JsonProperty(JSON_PROPERTY_ACCOUNT_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAccountName() {
-        return accountName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAccountName() {
+    return accountName;
+  }
+
   public void setAccountName(String accountName) {
     this.accountName = accountName;
   }
+
   public LLMObsIntegrationAccount accountRegion(String accountRegion) {
     this.accountRegion = accountRegion;
     return this;
   }
 
   /**
-   * <p>Provider region associated with the account, if applicable.</p>
+   * Provider region associated with the account, if applicable.
+   *
    * @return accountRegion
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ACCOUNT_REGION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAccountRegion() {
-        return accountRegion;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountRegion() {
+    return accountRegion;
+  }
+
   public void setAccountRegion(String accountRegion) {
     this.accountRegion = accountRegion;
   }
-  public LLMObsIntegrationAccount azureOpenaiMetadata(LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
+
+  public LLMObsIntegrationAccount azureOpenaiMetadata(
+      LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
     this.azureOpenaiMetadata = azureOpenaiMetadata;
     this.unparsed |= azureOpenaiMetadata.unparsed;
     return this;
   }
 
   /**
-   * <p>Azure OpenAI-specific metadata for an integration account or inference request.</p>
+   * Azure OpenAI-specific metadata for an integration account or inference request.
+   *
    * @return azureOpenaiMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AZURE_OPENAI_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsAzureOpenAIMetadata getAzureOpenaiMetadata() {
-        return azureOpenaiMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AZURE_OPENAI_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsAzureOpenAIMetadata getAzureOpenaiMetadata() {
+    return azureOpenaiMetadata;
+  }
+
   public void setAzureOpenaiMetadata(LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
     this.azureOpenaiMetadata = azureOpenaiMetadata;
     if (azureOpenaiMetadata != null) {
       this.unparsed |= azureOpenaiMetadata.unparsed;
     }
   }
+
   public LLMObsIntegrationAccount id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Unique identifier for the integration account.</p>
+   * Unique identifier for the integration account.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public LLMObsIntegrationAccount integration(String integration) {
     this.integration = integration;
     return this;
   }
 
   /**
-   * <p>The name of the LLM provider integration.</p>
+   * The name of the LLM provider integration.
+   *
    * @return integration
-  **/
-      @JsonProperty(JSON_PROPERTY_INTEGRATION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getIntegration() {
-        return integration;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_INTEGRATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getIntegration() {
+    return integration;
+  }
+
   public void setIntegration(String integration) {
     this.integration = integration;
   }
+
   public LLMObsIntegrationAccount vertexAiMetadata(LLMObsVertexAIMetadata vertexAiMetadata) {
     this.vertexAiMetadata = vertexAiMetadata;
     this.unparsed |= vertexAiMetadata.unparsed;
@@ -202,16 +200,17 @@ public class LLMObsIntegrationAccount {
   }
 
   /**
-   * <p>Vertex AI-specific metadata for an integration account or inference request.</p>
+   * Vertex AI-specific metadata for an integration account or inference request.
+   *
    * @return vertexAiMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERTEX_AI_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsVertexAIMetadata getVertexAiMetadata() {
-        return vertexAiMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERTEX_AI_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsVertexAIMetadata getVertexAiMetadata() {
+    return vertexAiMetadata;
+  }
+
   public void setVertexAiMetadata(LLMObsVertexAIMetadata vertexAiMetadata) {
     this.vertexAiMetadata = vertexAiMetadata;
     if (vertexAiMetadata != null) {
@@ -220,15 +219,14 @@ public class LLMObsIntegrationAccount {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -237,7 +235,7 @@ public class LLMObsIntegrationAccount {
   @JsonAnySetter
   public LLMObsIntegrationAccount putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -261,14 +259,12 @@ public class LLMObsIntegrationAccount {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsIntegrationAccount object is equal to o.
-   */
+  /** Return true if this LLMObsIntegrationAccount object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -278,13 +274,27 @@ public class LLMObsIntegrationAccount {
       return false;
     }
     LLMObsIntegrationAccount llmObsIntegrationAccount = (LLMObsIntegrationAccount) o;
-    return Objects.equals(this.accountId, llmObsIntegrationAccount.accountId) && Objects.equals(this.accountName, llmObsIntegrationAccount.accountName) && Objects.equals(this.accountRegion, llmObsIntegrationAccount.accountRegion) && Objects.equals(this.azureOpenaiMetadata, llmObsIntegrationAccount.azureOpenaiMetadata) && Objects.equals(this.id, llmObsIntegrationAccount.id) && Objects.equals(this.integration, llmObsIntegrationAccount.integration) && Objects.equals(this.vertexAiMetadata, llmObsIntegrationAccount.vertexAiMetadata) && Objects.equals(this.additionalProperties, llmObsIntegrationAccount.additionalProperties);
+    return Objects.equals(this.accountId, llmObsIntegrationAccount.accountId)
+        && Objects.equals(this.accountName, llmObsIntegrationAccount.accountName)
+        && Objects.equals(this.accountRegion, llmObsIntegrationAccount.accountRegion)
+        && Objects.equals(this.azureOpenaiMetadata, llmObsIntegrationAccount.azureOpenaiMetadata)
+        && Objects.equals(this.id, llmObsIntegrationAccount.id)
+        && Objects.equals(this.integration, llmObsIntegrationAccount.integration)
+        && Objects.equals(this.vertexAiMetadata, llmObsIntegrationAccount.vertexAiMetadata)
+        && Objects.equals(this.additionalProperties, llmObsIntegrationAccount.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId,accountName,accountRegion,azureOpenaiMetadata,id,integration,vertexAiMetadata, additionalProperties);
+    return Objects.hash(
+        accountId,
+        accountName,
+        accountRegion,
+        azureOpenaiMetadata,
+        id,
+        integration,
+        vertexAiMetadata,
+        additionalProperties);
   }
 
   @Override
@@ -294,7 +304,9 @@ public class LLMObsIntegrationAccount {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountRegion: ").append(toIndentedString(accountRegion)).append("\n");
-    sb.append("    azureOpenaiMetadata: ").append(toIndentedString(azureOpenaiMetadata)).append("\n");
+    sb.append("    azureOpenaiMetadata: ")
+        .append(toIndentedString(azureOpenaiMetadata))
+        .append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
     sb.append("    vertexAiMetadata: ").append(toIndentedString(vertexAiMetadata)).append("\n");
@@ -306,8 +318,7 @@ public class LLMObsIntegrationAccount {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Validation result of a configuration deployment dry run.</p>
- */
+/** Validation result of a configuration deployment dry run. */
 @JsonPropertyOrder({
   FleetDeploymentConfigureV2DryRunResult.JSON_PROPERTY_CONFIG_VALIDATED,
   FleetDeploymentConfigureV2DryRunResult.JSON_PROPERTY_NON_UPGRADABLE_BY_REASON,
   FleetDeploymentConfigureV2DryRunResult.JSON_PROPERTY_NON_UPGRADABLE_HOSTS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FleetDeploymentConfigureV2DryRunResult {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG_VALIDATED = "config_validated";
   private Boolean configValidated;
 
@@ -58,24 +41,29 @@ public class FleetDeploymentConfigureV2DryRunResult {
   }
 
   /**
-   * <p>Whether the configuration passed schema validation.</p>
+   * Whether the configuration passed schema validation.
+   *
    * @return configValidated
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONFIG_VALIDATED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getConfigValidated() {
-        return configValidated;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG_VALIDATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getConfigValidated() {
+    return configValidated;
+  }
+
   public void setConfigValidated(Boolean configValidated) {
     this.configValidated = configValidated;
   }
-  public FleetDeploymentConfigureV2DryRunResult nonUpgradableByReason(Map<String, Long> nonUpgradableByReason) {
+
+  public FleetDeploymentConfigureV2DryRunResult nonUpgradableByReason(
+      Map<String, Long> nonUpgradableByReason) {
     this.nonUpgradableByReason = nonUpgradableByReason;
     return this;
   }
-  public FleetDeploymentConfigureV2DryRunResult putNonUpgradableByReasonItem(String key, Long nonUpgradableByReasonItem) {
+
+  public FleetDeploymentConfigureV2DryRunResult putNonUpgradableByReasonItem(
+      String key, Long nonUpgradableByReasonItem) {
     if (this.nonUpgradableByReason == null) {
       this.nonUpgradableByReason = new HashMap<>();
     }
@@ -84,50 +72,52 @@ public class FleetDeploymentConfigureV2DryRunResult {
   }
 
   /**
-   * <p>Breakdown of ineligible host counts by reason. Only includes reasons with a
-   * non-zero count. Absent from the response when no targeted host is ineligible.</p>
+   * Breakdown of ineligible host counts by reason. Only includes reasons with a non-zero count.
+   * Absent from the response when no targeted host is ineligible.
+   *
    * @return nonUpgradableByReason
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NON_UPGRADABLE_BY_REASON)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Long> getNonUpgradableByReason() {
-        return nonUpgradableByReason;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NON_UPGRADABLE_BY_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Long> getNonUpgradableByReason() {
+    return nonUpgradableByReason;
+  }
+
   public void setNonUpgradableByReason(Map<String, Long> nonUpgradableByReason) {
     this.nonUpgradableByReason = nonUpgradableByReason;
   }
+
   public FleetDeploymentConfigureV2DryRunResult nonUpgradableHosts(Long nonUpgradableHosts) {
     this.nonUpgradableHosts = nonUpgradableHosts;
     return this;
   }
 
   /**
-   * <p>Number of targeted hosts that are not eligible to receive this configuration.</p>
+   * Number of targeted hosts that are not eligible to receive this configuration.
+   *
    * @return nonUpgradableHosts
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NON_UPGRADABLE_HOSTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getNonUpgradableHosts() {
-        return nonUpgradableHosts;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NON_UPGRADABLE_HOSTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNonUpgradableHosts() {
+    return nonUpgradableHosts;
+  }
+
   public void setNonUpgradableHosts(Long nonUpgradableHosts) {
     this.nonUpgradableHosts = nonUpgradableHosts;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -136,7 +126,7 @@ public class FleetDeploymentConfigureV2DryRunResult {
   @JsonAnySetter
   public FleetDeploymentConfigureV2DryRunResult putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -160,14 +150,12 @@ public class FleetDeploymentConfigureV2DryRunResult {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FleetDeploymentConfigureV2DryRunResult object is equal to o.
-   */
+  /** Return true if this FleetDeploymentConfigureV2DryRunResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -176,14 +164,23 @@ public class FleetDeploymentConfigureV2DryRunResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentConfigureV2DryRunResult fleetDeploymentConfigureV2DryRunResult = (FleetDeploymentConfigureV2DryRunResult) o;
-    return Objects.equals(this.configValidated, fleetDeploymentConfigureV2DryRunResult.configValidated) && Objects.equals(this.nonUpgradableByReason, fleetDeploymentConfigureV2DryRunResult.nonUpgradableByReason) && Objects.equals(this.nonUpgradableHosts, fleetDeploymentConfigureV2DryRunResult.nonUpgradableHosts) && Objects.equals(this.additionalProperties, fleetDeploymentConfigureV2DryRunResult.additionalProperties);
+    FleetDeploymentConfigureV2DryRunResult fleetDeploymentConfigureV2DryRunResult =
+        (FleetDeploymentConfigureV2DryRunResult) o;
+    return Objects.equals(
+            this.configValidated, fleetDeploymentConfigureV2DryRunResult.configValidated)
+        && Objects.equals(
+            this.nonUpgradableByReason,
+            fleetDeploymentConfigureV2DryRunResult.nonUpgradableByReason)
+        && Objects.equals(
+            this.nonUpgradableHosts, fleetDeploymentConfigureV2DryRunResult.nonUpgradableHosts)
+        && Objects.equals(
+            this.additionalProperties, fleetDeploymentConfigureV2DryRunResult.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(configValidated,nonUpgradableByReason,nonUpgradableHosts, additionalProperties);
+    return Objects.hash(
+        configValidated, nonUpgradableByReason, nonUpgradableHosts, additionalProperties);
   }
 
   @Override
@@ -191,7 +188,9 @@ public class FleetDeploymentConfigureV2DryRunResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class FleetDeploymentConfigureV2DryRunResult {\n");
     sb.append("    configValidated: ").append(toIndentedString(configValidated)).append("\n");
-    sb.append("    nonUpgradableByReason: ").append(toIndentedString(nonUpgradableByReason)).append("\n");
+    sb.append("    nonUpgradableByReason: ")
+        .append(toIndentedString(nonUpgradableByReason))
+        .append("\n");
     sb.append("    nonUpgradableHosts: ").append(toIndentedString(nonUpgradableHosts)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -201,8 +200,7 @@ public class FleetDeploymentConfigureV2DryRunResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

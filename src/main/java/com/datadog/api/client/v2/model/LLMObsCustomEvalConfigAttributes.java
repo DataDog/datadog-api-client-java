@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a custom Agent Observability evaluator configuration.</p>
- */
+/** Attributes of a custom Agent Observability evaluator configuration. */
 @JsonPropertyOrder({
   LLMObsCustomEvalConfigAttributes.JSON_PROPERTY_CATEGORY,
   LLMObsCustomEvalConfigAttributes.JSON_PROPERTY_CREATED_AT,
@@ -45,10 +30,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsCustomEvalConfigAttributes.JSON_PROPERTY_TARGET,
   LLMObsCustomEvalConfigAttributes.JSON_PROPERTY_UPDATED_AT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsCustomEvalConfigAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
@@ -80,50 +65,55 @@ public class LLMObsCustomEvalConfigAttributes {
 
   @JsonCreator
   public LLMObsCustomEvalConfigAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_EVAL_NAME)String evalName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_AT)OffsetDateTime updatedAt) {
-        this.createdAt = createdAt;
-        this.evalName = evalName;
-        this.updatedAt = updatedAt;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_EVAL_NAME) String evalName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt) {
+    this.createdAt = createdAt;
+    this.evalName = evalName;
+    this.updatedAt = updatedAt;
   }
+
   public LLMObsCustomEvalConfigAttributes category(String category) {
     this.category = category;
     return this;
   }
 
   /**
-   * <p>Category of the evaluator.</p>
+   * Category of the evaluator.
+   *
    * @return category
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CATEGORY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCategory() {
-        return category;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCategory() {
+    return category;
+  }
+
   public void setCategory(String category) {
     this.category = category;
   }
+
   public LLMObsCustomEvalConfigAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>Timestamp when the evaluator configuration was created.</p>
+   * Timestamp when the evaluator configuration was created.
+   *
    * @return createdAt
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
   public LLMObsCustomEvalConfigAttributes createdBy(LLMObsCustomEvalConfigUser createdBy) {
     this.createdBy = createdBy;
     this.unparsed |= createdBy.unparsed;
@@ -131,40 +121,44 @@ public class LLMObsCustomEvalConfigAttributes {
   }
 
   /**
-   * <p>A Datadog user associated with a custom evaluator configuration.</p>
+   * A Datadog user associated with a custom evaluator configuration.
+   *
    * @return createdBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsCustomEvalConfigUser getCreatedBy() {
-        return createdBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsCustomEvalConfigUser getCreatedBy() {
+    return createdBy;
+  }
+
   public void setCreatedBy(LLMObsCustomEvalConfigUser createdBy) {
     this.createdBy = createdBy;
     if (createdBy != null) {
       this.unparsed |= createdBy.unparsed;
     }
   }
+
   public LLMObsCustomEvalConfigAttributes evalName(String evalName) {
     this.evalName = evalName;
     return this;
   }
 
   /**
-   * <p>Name of the custom evaluator.</p>
+   * Name of the custom evaluator.
+   *
    * @return evalName
-  **/
-      @JsonProperty(JSON_PROPERTY_EVAL_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEvalName() {
-        return evalName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EVAL_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEvalName() {
+    return evalName;
+  }
+
   public void setEvalName(String evalName) {
     this.evalName = evalName;
   }
+
   public LLMObsCustomEvalConfigAttributes lastUpdatedBy(LLMObsCustomEvalConfigUser lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
     this.unparsed |= lastUpdatedBy.unparsed;
@@ -172,68 +166,76 @@ public class LLMObsCustomEvalConfigAttributes {
   }
 
   /**
-   * <p>A Datadog user associated with a custom evaluator configuration.</p>
+   * A Datadog user associated with a custom evaluator configuration.
+   *
    * @return lastUpdatedBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsCustomEvalConfigUser getLastUpdatedBy() {
-        return lastUpdatedBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsCustomEvalConfigUser getLastUpdatedBy() {
+    return lastUpdatedBy;
+  }
+
   public void setLastUpdatedBy(LLMObsCustomEvalConfigUser lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
     if (lastUpdatedBy != null) {
       this.unparsed |= lastUpdatedBy.unparsed;
     }
   }
-  public LLMObsCustomEvalConfigAttributes llmJudgeConfig(LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
+
+  public LLMObsCustomEvalConfigAttributes llmJudgeConfig(
+      LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
     this.llmJudgeConfig = llmJudgeConfig;
     this.unparsed |= llmJudgeConfig.unparsed;
     return this;
   }
 
   /**
-   * <p>LLM judge configuration for a custom evaluator.</p>
+   * LLM judge configuration for a custom evaluator.
+   *
    * @return llmJudgeConfig
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LLM_JUDGE_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsCustomEvalConfigLLMJudgeConfig getLlmJudgeConfig() {
-        return llmJudgeConfig;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_JUDGE_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsCustomEvalConfigLLMJudgeConfig getLlmJudgeConfig() {
+    return llmJudgeConfig;
+  }
+
   public void setLlmJudgeConfig(LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
     this.llmJudgeConfig = llmJudgeConfig;
     if (llmJudgeConfig != null) {
       this.unparsed |= llmJudgeConfig.unparsed;
     }
   }
-  public LLMObsCustomEvalConfigAttributes llmProvider(LLMObsCustomEvalConfigLLMProvider llmProvider) {
+
+  public LLMObsCustomEvalConfigAttributes llmProvider(
+      LLMObsCustomEvalConfigLLMProvider llmProvider) {
     this.llmProvider = llmProvider;
     this.unparsed |= llmProvider.unparsed;
     return this;
   }
 
   /**
-   * <p>LLM provider configuration for a custom evaluator.</p>
+   * LLM provider configuration for a custom evaluator.
+   *
    * @return llmProvider
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LLM_PROVIDER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsCustomEvalConfigLLMProvider getLlmProvider() {
-        return llmProvider;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_PROVIDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsCustomEvalConfigLLMProvider getLlmProvider() {
+    return llmProvider;
+  }
+
   public void setLlmProvider(LLMObsCustomEvalConfigLLMProvider llmProvider) {
     this.llmProvider = llmProvider;
     if (llmProvider != null) {
       this.unparsed |= llmProvider.unparsed;
     }
   }
+
   public LLMObsCustomEvalConfigAttributes target(LLMObsCustomEvalConfigTarget target) {
     this.target = target;
     this.unparsed |= target.unparsed;
@@ -241,51 +243,53 @@ public class LLMObsCustomEvalConfigAttributes {
   }
 
   /**
-   * <p>Target application configuration for a custom evaluator.</p>
+   * Target application configuration for a custom evaluator.
+   *
    * @return target
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TARGET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsCustomEvalConfigTarget getTarget() {
-        return target;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsCustomEvalConfigTarget getTarget() {
+    return target;
+  }
+
   public void setTarget(LLMObsCustomEvalConfigTarget target) {
     this.target = target;
     if (target != null) {
       this.unparsed |= target.unparsed;
     }
   }
+
   public LLMObsCustomEvalConfigAttributes updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * <p>Timestamp when the evaluator configuration was last updated.</p>
+   * Timestamp when the evaluator configuration was last updated.
+   *
    * @return updatedAt
-  **/
-      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getUpdatedAt() {
-        return updatedAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -294,7 +298,7 @@ public class LLMObsCustomEvalConfigAttributes {
   @JsonAnySetter
   public LLMObsCustomEvalConfigAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -318,14 +322,12 @@ public class LLMObsCustomEvalConfigAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsCustomEvalConfigAttributes object is equal to o.
-   */
+  /** Return true if this LLMObsCustomEvalConfigAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -334,14 +336,34 @@ public class LLMObsCustomEvalConfigAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsCustomEvalConfigAttributes llmObsCustomEvalConfigAttributes = (LLMObsCustomEvalConfigAttributes) o;
-    return Objects.equals(this.category, llmObsCustomEvalConfigAttributes.category) && Objects.equals(this.createdAt, llmObsCustomEvalConfigAttributes.createdAt) && Objects.equals(this.createdBy, llmObsCustomEvalConfigAttributes.createdBy) && Objects.equals(this.evalName, llmObsCustomEvalConfigAttributes.evalName) && Objects.equals(this.lastUpdatedBy, llmObsCustomEvalConfigAttributes.lastUpdatedBy) && Objects.equals(this.llmJudgeConfig, llmObsCustomEvalConfigAttributes.llmJudgeConfig) && Objects.equals(this.llmProvider, llmObsCustomEvalConfigAttributes.llmProvider) && Objects.equals(this.target, llmObsCustomEvalConfigAttributes.target) && Objects.equals(this.updatedAt, llmObsCustomEvalConfigAttributes.updatedAt) && Objects.equals(this.additionalProperties, llmObsCustomEvalConfigAttributes.additionalProperties);
+    LLMObsCustomEvalConfigAttributes llmObsCustomEvalConfigAttributes =
+        (LLMObsCustomEvalConfigAttributes) o;
+    return Objects.equals(this.category, llmObsCustomEvalConfigAttributes.category)
+        && Objects.equals(this.createdAt, llmObsCustomEvalConfigAttributes.createdAt)
+        && Objects.equals(this.createdBy, llmObsCustomEvalConfigAttributes.createdBy)
+        && Objects.equals(this.evalName, llmObsCustomEvalConfigAttributes.evalName)
+        && Objects.equals(this.lastUpdatedBy, llmObsCustomEvalConfigAttributes.lastUpdatedBy)
+        && Objects.equals(this.llmJudgeConfig, llmObsCustomEvalConfigAttributes.llmJudgeConfig)
+        && Objects.equals(this.llmProvider, llmObsCustomEvalConfigAttributes.llmProvider)
+        && Objects.equals(this.target, llmObsCustomEvalConfigAttributes.target)
+        && Objects.equals(this.updatedAt, llmObsCustomEvalConfigAttributes.updatedAt)
+        && Objects.equals(
+            this.additionalProperties, llmObsCustomEvalConfigAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(category,createdAt,createdBy,evalName,lastUpdatedBy,llmJudgeConfig,llmProvider,target,updatedAt, additionalProperties);
+    return Objects.hash(
+        category,
+        createdAt,
+        createdBy,
+        evalName,
+        lastUpdatedBy,
+        llmJudgeConfig,
+        llmProvider,
+        target,
+        updatedAt,
+        additionalProperties);
   }
 
   @Override
@@ -365,8 +387,7 @@ public class LLMObsCustomEvalConfigAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

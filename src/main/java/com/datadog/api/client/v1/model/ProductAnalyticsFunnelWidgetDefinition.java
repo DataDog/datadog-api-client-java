@@ -6,33 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>The user journey funnel visualization displays conversion funnels based on user journey data from Product Analytics.</p>
+ * The user journey funnel visualization displays conversion funnels based on user journey data from
+ * Product Analytics.
  */
 @JsonPropertyOrder({
   ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
@@ -44,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsFunnelWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -76,80 +61,91 @@ public class ProductAnalyticsFunnelWidgetDefinition {
 
   @JsonCreator
   public ProductAnalyticsFunnelWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<ProductAnalyticsFunnelRequest> requests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)FunnelWidgetDefinitionType type) {
-        this.requests = requests;
-        for (ProductAnalyticsFunnelRequest item : requests) {
-          this.unparsed |= item.unparsed;
-        }
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<ProductAnalyticsFunnelRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FunnelWidgetDefinitionType type) {
+    this.requests = requests;
+    for (ProductAnalyticsFunnelRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public ProductAnalyticsFunnelWidgetDefinition description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * <p>The description of the widget.</p>
+   * The description of the widget.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDescription() {
-        return description;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
   public void setDescription(String description) {
     this.description = description;
   }
-  public ProductAnalyticsFunnelWidgetDefinition groupedDisplay(FunnelGroupedDisplay groupedDisplay) {
+
+  public ProductAnalyticsFunnelWidgetDefinition groupedDisplay(
+      FunnelGroupedDisplay groupedDisplay) {
     this.groupedDisplay = groupedDisplay;
     this.unparsed |= !groupedDisplay.isValid();
     return this;
   }
 
   /**
-   * <p>Display mode for grouped funnel results.</p>
+   * Display mode for grouped funnel results.
+   *
    * @return groupedDisplay
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUPED_DISPLAY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FunnelGroupedDisplay getGroupedDisplay() {
-        return groupedDisplay;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUPED_DISPLAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FunnelGroupedDisplay getGroupedDisplay() {
+    return groupedDisplay;
+  }
+
   public void setGroupedDisplay(FunnelGroupedDisplay groupedDisplay) {
     if (!groupedDisplay.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.groupedDisplay = groupedDisplay;
   }
-  public ProductAnalyticsFunnelWidgetDefinition requests(List<ProductAnalyticsFunnelRequest> requests) {
+
+  public ProductAnalyticsFunnelWidgetDefinition requests(
+      List<ProductAnalyticsFunnelRequest> requests) {
     this.requests = requests;
     for (ProductAnalyticsFunnelRequest item : requests) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public ProductAnalyticsFunnelWidgetDefinition addRequestsItem(ProductAnalyticsFunnelRequest requestsItem) {
+
+  public ProductAnalyticsFunnelWidgetDefinition addRequestsItem(
+      ProductAnalyticsFunnelRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
   /**
-   * <p>Request payload used to query items.</p>
+   * Request payload used to query items.
+   *
    * @return requests
-  **/
-      @JsonProperty(JSON_PROPERTY_REQUESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<ProductAnalyticsFunnelRequest> getRequests() {
-        return requests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<ProductAnalyticsFunnelRequest> getRequests() {
+    return requests;
+  }
+
   public void setRequests(List<ProductAnalyticsFunnelRequest> requests) {
     this.requests = requests;
     if (requests != null) {
@@ -158,6 +154,7 @@ public class ProductAnalyticsFunnelWidgetDefinition {
       }
     }
   }
+
   public ProductAnalyticsFunnelWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -165,41 +162,45 @@ public class ProductAnalyticsFunnelWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
     if (time != null) {
       this.unparsed |= time.unparsed;
     }
   }
+
   public ProductAnalyticsFunnelWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>The title of the widget.</p>
+   * The title of the widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public ProductAnalyticsFunnelWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -207,41 +208,45 @@ public class ProductAnalyticsFunnelWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public ProductAnalyticsFunnelWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>The size of the title.</p>
+   * The size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public ProductAnalyticsFunnelWidgetDefinition type(FunnelWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -249,25 +254,24 @@ public class ProductAnalyticsFunnelWidgetDefinition {
   }
 
   /**
-   * <p>Type of funnel widget.</p>
+   * Type of funnel widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FunnelWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FunnelWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(FunnelWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this ProductAnalyticsFunnelWidgetDefinition object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsFunnelWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -276,14 +280,23 @@ public class ProductAnalyticsFunnelWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsFunnelWidgetDefinition productAnalyticsFunnelWidgetDefinition = (ProductAnalyticsFunnelWidgetDefinition) o;
-    return Objects.equals(this.description, productAnalyticsFunnelWidgetDefinition.description) && Objects.equals(this.groupedDisplay, productAnalyticsFunnelWidgetDefinition.groupedDisplay) && Objects.equals(this.requests, productAnalyticsFunnelWidgetDefinition.requests) && Objects.equals(this.time, productAnalyticsFunnelWidgetDefinition.time) && Objects.equals(this.title, productAnalyticsFunnelWidgetDefinition.title) && Objects.equals(this.titleAlign, productAnalyticsFunnelWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, productAnalyticsFunnelWidgetDefinition.titleSize) && Objects.equals(this.type, productAnalyticsFunnelWidgetDefinition.type);
+    ProductAnalyticsFunnelWidgetDefinition productAnalyticsFunnelWidgetDefinition =
+        (ProductAnalyticsFunnelWidgetDefinition) o;
+    return Objects.equals(this.description, productAnalyticsFunnelWidgetDefinition.description)
+        && Objects.equals(
+            this.groupedDisplay, productAnalyticsFunnelWidgetDefinition.groupedDisplay)
+        && Objects.equals(this.requests, productAnalyticsFunnelWidgetDefinition.requests)
+        && Objects.equals(this.time, productAnalyticsFunnelWidgetDefinition.time)
+        && Objects.equals(this.title, productAnalyticsFunnelWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, productAnalyticsFunnelWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, productAnalyticsFunnelWidgetDefinition.titleSize)
+        && Objects.equals(this.type, productAnalyticsFunnelWidgetDefinition.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(description,groupedDisplay,requests,time,title,titleAlign,titleSize,type);
+    return Objects.hash(
+        description, groupedDisplay, requests, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -303,8 +316,7 @@ public class ProductAnalyticsFunnelWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

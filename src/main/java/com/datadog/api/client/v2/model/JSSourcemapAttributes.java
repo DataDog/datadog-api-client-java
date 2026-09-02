@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a JavaScript source map.</p>
- */
+/** Attributes of a JavaScript source map. */
 @JsonPropertyOrder({
   JSSourcemapAttributes.JSON_PROPERTY_ABSOLUTE_PATH,
   JSSourcemapAttributes.JSON_PROPERTY_BLOB_STORAGE_SOURCEMAP_PATH,
@@ -48,14 +33,15 @@ import com.datadog.api.client.JsonTimeSerializer;
   JSSourcemapAttributes.JSON_PROPERTY_VERSION,
   JSSourcemapAttributes.JSON_PROPERTY_VERSION_CODE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class JSSourcemapAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ABSOLUTE_PATH = "absolute_path";
   private String absolutePath;
 
-  public static final String JSON_PROPERTY_BLOB_STORAGE_SOURCEMAP_PATH = "blob_storage_sourcemap_path";
+  public static final String JSON_PROPERTY_BLOB_STORAGE_SOURCEMAP_PATH =
+      "blob_storage_sourcemap_path";
   private String blobStorageSourcemapPath;
 
   public static final String JSON_PROPERTY_BUILD_ID = "build_id";
@@ -92,249 +78,272 @@ public class JSSourcemapAttributes {
 
   @JsonCreator
   public JSSourcemapAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MAPKIND)String mapkind,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SIZE)Long size) {
-        this.createdAt = createdAt;
-        this.mapkind = mapkind;
-        this.size = size;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) String mapkind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) Long size) {
+    this.createdAt = createdAt;
+    this.mapkind = mapkind;
+    this.size = size;
   }
+
   public JSSourcemapAttributes absolutePath(String absolutePath) {
     this.absolutePath = absolutePath;
     return this;
   }
 
   /**
-   * <p>The absolute path to the minified JavaScript file.</p>
+   * The absolute path to the minified JavaScript file.
+   *
    * @return absolutePath
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ABSOLUTE_PATH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAbsolutePath() {
-        return absolutePath;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ABSOLUTE_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAbsolutePath() {
+    return absolutePath;
+  }
+
   public void setAbsolutePath(String absolutePath) {
     this.absolutePath = absolutePath;
   }
+
   public JSSourcemapAttributes blobStorageSourcemapPath(String blobStorageSourcemapPath) {
     this.blobStorageSourcemapPath = blobStorageSourcemapPath;
     return this;
   }
 
   /**
-   * <p>The path to the source map in blob storage.</p>
+   * The path to the source map in blob storage.
+   *
    * @return blobStorageSourcemapPath
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BLOB_STORAGE_SOURCEMAP_PATH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getBlobStorageSourcemapPath() {
-        return blobStorageSourcemapPath;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOB_STORAGE_SOURCEMAP_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBlobStorageSourcemapPath() {
+    return blobStorageSourcemapPath;
+  }
+
   public void setBlobStorageSourcemapPath(String blobStorageSourcemapPath) {
     this.blobStorageSourcemapPath = blobStorageSourcemapPath;
   }
+
   public JSSourcemapAttributes buildId(String buildId) {
     this.buildId = buildId;
     return this;
   }
 
   /**
-   * <p>The build identifier.</p>
+   * The build identifier.
+   *
    * @return buildId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BUILD_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getBuildId() {
-        return buildId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUILD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBuildId() {
+    return buildId;
+  }
+
   public void setBuildId(String buildId) {
     this.buildId = buildId;
   }
+
   public JSSourcemapAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when the source map was created.</p>
+   * The timestamp when the source map was created.
+   *
    * @return createdAt
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
   public JSSourcemapAttributes domain(String domain) {
     this.domain = domain;
     return this;
   }
 
   /**
-   * <p>The domain associated with the source map.</p>
+   * The domain associated with the source map.
+   *
    * @return domain
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DOMAIN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDomain() {
-        return domain;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DOMAIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDomain() {
+    return domain;
+  }
+
   public void setDomain(String domain) {
     this.domain = domain;
   }
+
   public JSSourcemapAttributes fileName(String fileName) {
     this.fileName = fileName;
     return this;
   }
 
   /**
-   * <p>The file name of the minified JavaScript file.</p>
+   * The file name of the minified JavaScript file.
+   *
    * @return fileName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFileName() {
-        return fileName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFileName() {
+    return fileName;
+  }
+
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
+
   public JSSourcemapAttributes mapkind(String mapkind) {
     this.mapkind = mapkind;
     return this;
   }
 
   /**
-   * <p>The type of source map.</p>
+   * The type of source map.
+   *
    * @return mapkind
-  **/
-      @JsonProperty(JSON_PROPERTY_MAPKIND)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMapkind() {
-        return mapkind;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MAPKIND)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMapkind() {
+    return mapkind;
+  }
+
   public void setMapkind(String mapkind) {
     this.mapkind = mapkind;
   }
+
   public JSSourcemapAttributes service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>The service name associated with the source map.</p>
+   * The service name associated with the source map.
+   *
    * @return service
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getService() {
-        return service;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public JSSourcemapAttributes size(Long size) {
     this.size = size;
     return this;
   }
 
   /**
-   * <p>The size of the source map file in bytes.</p>
+   * The size of the source map file in bytes.
+   *
    * @return size
-  **/
-      @JsonProperty(JSON_PROPERTY_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getSize() {
-        return size;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getSize() {
+    return size;
+  }
+
   public void setSize(Long size) {
     this.size = size;
   }
+
   public JSSourcemapAttributes variant(String variant) {
     this.variant = variant;
     return this;
   }
 
   /**
-   * <p>The source map variant.</p>
+   * The source map variant.
+   *
    * @return variant
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VARIANT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVariant() {
-        return variant;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVariant() {
+    return variant;
+  }
+
   public void setVariant(String variant) {
     this.variant = variant;
   }
+
   public JSSourcemapAttributes version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>The version of the service associated with the source map.</p>
+   * The version of the service associated with the source map.
+   *
    * @return version
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVersion() {
-        return version;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersion() {
+    return version;
+  }
+
   public void setVersion(String version) {
     this.version = version;
   }
+
   public JSSourcemapAttributes versionCode(String versionCode) {
     this.versionCode = versionCode;
     return this;
   }
 
   /**
-   * <p>The version code.</p>
+   * The version code.
+   *
    * @return versionCode
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION_CODE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVersionCode() {
-        return versionCode;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersionCode() {
+    return versionCode;
+  }
+
   public void setVersionCode(String versionCode) {
     this.versionCode = versionCode;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -343,7 +352,7 @@ public class JSSourcemapAttributes {
   @JsonAnySetter
   public JSSourcemapAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -367,14 +376,12 @@ public class JSSourcemapAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this JSSourcemapAttributes object is equal to o.
-   */
+  /** Return true if this JSSourcemapAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -384,13 +391,38 @@ public class JSSourcemapAttributes {
       return false;
     }
     JSSourcemapAttributes jsSourcemapAttributes = (JSSourcemapAttributes) o;
-    return Objects.equals(this.absolutePath, jsSourcemapAttributes.absolutePath) && Objects.equals(this.blobStorageSourcemapPath, jsSourcemapAttributes.blobStorageSourcemapPath) && Objects.equals(this.buildId, jsSourcemapAttributes.buildId) && Objects.equals(this.createdAt, jsSourcemapAttributes.createdAt) && Objects.equals(this.domain, jsSourcemapAttributes.domain) && Objects.equals(this.fileName, jsSourcemapAttributes.fileName) && Objects.equals(this.mapkind, jsSourcemapAttributes.mapkind) && Objects.equals(this.service, jsSourcemapAttributes.service) && Objects.equals(this.size, jsSourcemapAttributes.size) && Objects.equals(this.variant, jsSourcemapAttributes.variant) && Objects.equals(this.version, jsSourcemapAttributes.version) && Objects.equals(this.versionCode, jsSourcemapAttributes.versionCode) && Objects.equals(this.additionalProperties, jsSourcemapAttributes.additionalProperties);
+    return Objects.equals(this.absolutePath, jsSourcemapAttributes.absolutePath)
+        && Objects.equals(
+            this.blobStorageSourcemapPath, jsSourcemapAttributes.blobStorageSourcemapPath)
+        && Objects.equals(this.buildId, jsSourcemapAttributes.buildId)
+        && Objects.equals(this.createdAt, jsSourcemapAttributes.createdAt)
+        && Objects.equals(this.domain, jsSourcemapAttributes.domain)
+        && Objects.equals(this.fileName, jsSourcemapAttributes.fileName)
+        && Objects.equals(this.mapkind, jsSourcemapAttributes.mapkind)
+        && Objects.equals(this.service, jsSourcemapAttributes.service)
+        && Objects.equals(this.size, jsSourcemapAttributes.size)
+        && Objects.equals(this.variant, jsSourcemapAttributes.variant)
+        && Objects.equals(this.version, jsSourcemapAttributes.version)
+        && Objects.equals(this.versionCode, jsSourcemapAttributes.versionCode)
+        && Objects.equals(this.additionalProperties, jsSourcemapAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(absolutePath,blobStorageSourcemapPath,buildId,createdAt,domain,fileName,mapkind,service,size,variant,version,versionCode, additionalProperties);
+    return Objects.hash(
+        absolutePath,
+        blobStorageSourcemapPath,
+        buildId,
+        createdAt,
+        domain,
+        fileName,
+        mapkind,
+        service,
+        size,
+        variant,
+        version,
+        versionCode,
+        additionalProperties);
   }
 
   @Override
@@ -398,7 +430,9 @@ public class JSSourcemapAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class JSSourcemapAttributes {\n");
     sb.append("    absolutePath: ").append(toIndentedString(absolutePath)).append("\n");
-    sb.append("    blobStorageSourcemapPath: ").append(toIndentedString(blobStorageSourcemapPath)).append("\n");
+    sb.append("    blobStorageSourcemapPath: ")
+        .append(toIndentedString(blobStorageSourcemapPath))
+        .append("\n");
     sb.append("    buildId: ").append(toIndentedString(buildId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
@@ -417,8 +451,7 @@ public class JSSourcemapAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

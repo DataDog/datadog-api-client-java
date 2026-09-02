@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,22 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes used to create or update an entity integration configuration.</p>
- */
-@JsonPropertyOrder({
-  EntityIntegrationConfigRequestAttributes.JSON_PROPERTY_CONFIG
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Attributes used to create or update an entity integration configuration. */
+@JsonPropertyOrder({EntityIntegrationConfigRequestAttributes.JSON_PROPERTY_CONFIG})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityIntegrationConfigRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private Map<String, Object> config = new HashMap<String, Object>();
 
@@ -48,42 +30,47 @@ public class EntityIntegrationConfigRequestAttributes {
 
   @JsonCreator
   public EntityIntegrationConfigRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONFIG)Map<String, Object> config) {
-        this.config = config;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) Map<String, Object> config) {
+    this.config = config;
   }
+
   public EntityIntegrationConfigRequestAttributes config(Map<String, Object> config) {
     this.config = config;
     return this;
   }
+
   public EntityIntegrationConfigRequestAttributes putConfigItem(String key, Object configItem) {
     this.config.put(key, configItem);
     return this;
   }
 
   /**
-   * <p>Integration-specific configuration payload. The shape of this object depends on the integration identified by the path parameter. For <code>github</code>, the object must contain an <code>enabled_repos</code> array. For <code>jira</code>, it must contain an <code>enabled_projects</code> array. For <code>pagerduty</code>, it must contain an <code>accounts</code> array.</p>
+   * Integration-specific configuration payload. The shape of this object depends on the integration
+   * identified by the path parameter. For <code>github</code>, the object must contain an <code>
+   * enabled_repos</code> array. For <code>jira</code>, it must contain an <code>enabled_projects
+   * </code> array. For <code>pagerduty</code>, it must contain an <code>accounts</code> array.
+   *
    * @return config
-  **/
-      @JsonProperty(JSON_PROPERTY_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Map<String, Object> getConfig() {
-        return config;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
   public void setConfig(Map<String, Object> config) {
     this.config = config;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -92,7 +79,7 @@ public class EntityIntegrationConfigRequestAttributes {
   @JsonAnySetter
   public EntityIntegrationConfigRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -116,14 +103,12 @@ public class EntityIntegrationConfigRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this EntityIntegrationConfigRequestAttributes object is equal to o.
-   */
+  /** Return true if this EntityIntegrationConfigRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,10 +117,13 @@ public class EntityIntegrationConfigRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EntityIntegrationConfigRequestAttributes entityIntegrationConfigRequestAttributes = (EntityIntegrationConfigRequestAttributes) o;
-    return Objects.equals(this.config, entityIntegrationConfigRequestAttributes.config) && Objects.equals(this.additionalProperties, entityIntegrationConfigRequestAttributes.additionalProperties);
+    EntityIntegrationConfigRequestAttributes entityIntegrationConfigRequestAttributes =
+        (EntityIntegrationConfigRequestAttributes) o;
+    return Objects.equals(this.config, entityIntegrationConfigRequestAttributes.config)
+        && Objects.equals(
+            this.additionalProperties,
+            entityIntegrationConfigRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -155,8 +143,7 @@ public class EntityIntegrationConfigRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

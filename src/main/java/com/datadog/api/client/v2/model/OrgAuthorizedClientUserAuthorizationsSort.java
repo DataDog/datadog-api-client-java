@@ -6,73 +6,58 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Field to sort user authorizations by.</p>
- */
-@JsonSerialize(using = OrgAuthorizedClientUserAuthorizationsSort.OrgAuthorizedClientUserAuthorizationsSortSerializer.class)
+/** Field to sort user authorizations by. */
+@JsonSerialize(
+    using =
+        OrgAuthorizedClientUserAuthorizationsSort
+            .OrgAuthorizedClientUserAuthorizationsSortSerializer.class)
 public class OrgAuthorizedClientUserAuthorizationsSort extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("user.name", "user.email", "oauth2_client.name"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("user.name", "user.email", "oauth2_client.name"));
 
-  public static final OrgAuthorizedClientUserAuthorizationsSort USER_NAME = new OrgAuthorizedClientUserAuthorizationsSort("user.name");
-  public static final OrgAuthorizedClientUserAuthorizationsSort USER_EMAIL = new OrgAuthorizedClientUserAuthorizationsSort("user.email");
-  public static final OrgAuthorizedClientUserAuthorizationsSort OAUTH2_CLIENT_NAME = new OrgAuthorizedClientUserAuthorizationsSort("oauth2_client.name");
-
+  public static final OrgAuthorizedClientUserAuthorizationsSort USER_NAME =
+      new OrgAuthorizedClientUserAuthorizationsSort("user.name");
+  public static final OrgAuthorizedClientUserAuthorizationsSort USER_EMAIL =
+      new OrgAuthorizedClientUserAuthorizationsSort("user.email");
+  public static final OrgAuthorizedClientUserAuthorizationsSort OAUTH2_CLIENT_NAME =
+      new OrgAuthorizedClientUserAuthorizationsSort("oauth2_client.name");
 
   OrgAuthorizedClientUserAuthorizationsSort(String value) {
     super(value, allowedValues);
   }
 
-  public static class OrgAuthorizedClientUserAuthorizationsSortSerializer extends StdSerializer<OrgAuthorizedClientUserAuthorizationsSort> {
-      public OrgAuthorizedClientUserAuthorizationsSortSerializer(Class<OrgAuthorizedClientUserAuthorizationsSort> t) {
-          super(t);
-      }
+  public static class OrgAuthorizedClientUserAuthorizationsSortSerializer
+      extends StdSerializer<OrgAuthorizedClientUserAuthorizationsSort> {
+    public OrgAuthorizedClientUserAuthorizationsSortSerializer(
+        Class<OrgAuthorizedClientUserAuthorizationsSort> t) {
+      super(t);
+    }
 
-      public OrgAuthorizedClientUserAuthorizationsSortSerializer() {
-          this(null);
-      }
+    public OrgAuthorizedClientUserAuthorizationsSortSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(OrgAuthorizedClientUserAuthorizationsSort value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        OrgAuthorizedClientUserAuthorizationsSort value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the Linear issue to create.</p>
- */
+/** Attributes of the Linear issue to create. */
 @JsonPropertyOrder({
   CreateLinearIssueRequestDataAttributes.JSON_PROPERTY_ASSIGNEE_ID,
   CreateLinearIssueRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -42,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   CreateLinearIssueRequestDataAttributes.JSON_PROPERTY_PRIORITY,
   CreateLinearIssueRequestDataAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateLinearIssueRequestDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSIGNEE_ID = "assignee_id";
   private String assigneeId;
 
@@ -70,42 +55,48 @@ public class CreateLinearIssueRequestDataAttributes {
   }
 
   /**
-   * <p>Unique identifier of the Datadog user assigned to the Linear issue.</p>
+   * Unique identifier of the Datadog user assigned to the Linear issue.
+   *
    * @return assigneeId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSIGNEE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAssigneeId() {
-        return assigneeId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNEE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAssigneeId() {
+    return assigneeId;
+  }
+
   public void setAssigneeId(String assigneeId) {
     this.assigneeId = assigneeId;
   }
+
   public CreateLinearIssueRequestDataAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * <p>Description of the Linear issue. If not provided, the description will be automatically generated.</p>
+   * Description of the Linear issue. If not provided, the description will be automatically
+   * generated.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDescription() {
-        return description;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public CreateLinearIssueRequestDataAttributes labelIds(List<String> labelIds) {
     this.labelIds = labelIds;
     return this;
   }
+
   public CreateLinearIssueRequestDataAttributes addLabelIdsItem(String labelIdsItem) {
     if (this.labelIds == null) {
       this.labelIds = new ArrayList<>();
@@ -115,38 +106,43 @@ public class CreateLinearIssueRequestDataAttributes {
   }
 
   /**
-   * <p>Linear label IDs to set on the created issue.</p>
+   * Linear label IDs to set on the created issue.
+   *
    * @return labelIds
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LABEL_IDS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getLabelIds() {
-        return labelIds;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getLabelIds() {
+    return labelIds;
+  }
+
   public void setLabelIds(List<String> labelIds) {
     this.labelIds = labelIds;
   }
+
   public CreateLinearIssueRequestDataAttributes linearProjectId(String linearProjectId) {
     this.linearProjectId = linearProjectId;
     return this;
   }
 
   /**
-   * <p>Unique identifier of the Linear project to pin the issue to. If not provided, the issue is not associated with a Linear project.</p>
+   * Unique identifier of the Linear project to pin the issue to. If not provided, the issue is not
+   * associated with a Linear project.
+   *
    * @return linearProjectId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LINEAR_PROJECT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getLinearProjectId() {
-        return linearProjectId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINEAR_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLinearProjectId() {
+    return linearProjectId;
+  }
+
   public void setLinearProjectId(String linearProjectId) {
     this.linearProjectId = linearProjectId;
   }
+
   public CreateLinearIssueRequestDataAttributes priority(CasePriority priority) {
     this.priority = priority;
     this.unparsed |= !priority.isValid();
@@ -154,52 +150,54 @@ public class CreateLinearIssueRequestDataAttributes {
   }
 
   /**
-   * <p>Case priority</p>
+   * Case priority
+   *
    * @return priority
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRIORITY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CasePriority getPriority() {
-        return priority;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CasePriority getPriority() {
+    return priority;
+  }
+
   public void setPriority(CasePriority priority) {
     if (!priority.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.priority = priority;
   }
+
   public CreateLinearIssueRequestDataAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Title of the Linear issue. If not provided, the title will be automatically generated.</p>
+   * Title of the Linear issue. If not provided, the title will be automatically generated.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -208,7 +206,7 @@ public class CreateLinearIssueRequestDataAttributes {
   @JsonAnySetter
   public CreateLinearIssueRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -232,14 +230,12 @@ public class CreateLinearIssueRequestDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CreateLinearIssueRequestDataAttributes object is equal to o.
-   */
+  /** Return true if this CreateLinearIssueRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -248,14 +244,23 @@ public class CreateLinearIssueRequestDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateLinearIssueRequestDataAttributes createLinearIssueRequestDataAttributes = (CreateLinearIssueRequestDataAttributes) o;
-    return Objects.equals(this.assigneeId, createLinearIssueRequestDataAttributes.assigneeId) && Objects.equals(this.description, createLinearIssueRequestDataAttributes.description) && Objects.equals(this.labelIds, createLinearIssueRequestDataAttributes.labelIds) && Objects.equals(this.linearProjectId, createLinearIssueRequestDataAttributes.linearProjectId) && Objects.equals(this.priority, createLinearIssueRequestDataAttributes.priority) && Objects.equals(this.title, createLinearIssueRequestDataAttributes.title) && Objects.equals(this.additionalProperties, createLinearIssueRequestDataAttributes.additionalProperties);
+    CreateLinearIssueRequestDataAttributes createLinearIssueRequestDataAttributes =
+        (CreateLinearIssueRequestDataAttributes) o;
+    return Objects.equals(this.assigneeId, createLinearIssueRequestDataAttributes.assigneeId)
+        && Objects.equals(this.description, createLinearIssueRequestDataAttributes.description)
+        && Objects.equals(this.labelIds, createLinearIssueRequestDataAttributes.labelIds)
+        && Objects.equals(
+            this.linearProjectId, createLinearIssueRequestDataAttributes.linearProjectId)
+        && Objects.equals(this.priority, createLinearIssueRequestDataAttributes.priority)
+        && Objects.equals(this.title, createLinearIssueRequestDataAttributes.title)
+        && Objects.equals(
+            this.additionalProperties, createLinearIssueRequestDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(assigneeId,description,labelIds,linearProjectId,priority,title, additionalProperties);
+    return Objects.hash(
+        assigneeId, description, labelIds, linearProjectId, priority, title, additionalProperties);
   }
 
   @Override
@@ -276,8 +281,7 @@ public class CreateLinearIssueRequestDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

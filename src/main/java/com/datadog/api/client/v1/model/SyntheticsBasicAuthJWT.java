@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object to handle JWT authentication when performing the test.</p>
- */
+/** Object to handle JWT authentication when performing the test. */
 @JsonPropertyOrder({
   SyntheticsBasicAuthJWT.JSON_PROPERTY_ADD_CLAIMS,
   SyntheticsBasicAuthJWT.JSON_PROPERTY_ALGORITHM,
@@ -44,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsBasicAuthJWT.JSON_PROPERTY_TOKEN_PREFIX,
   SyntheticsBasicAuthJWT.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthJWT {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADD_CLAIMS = "addClaims";
   private SyntheticsBasicAuthJWTAddClaims addClaims;
 
@@ -76,17 +60,19 @@ public class SyntheticsBasicAuthJWT {
 
   @JsonCreator
   public SyntheticsBasicAuthJWT(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ALGORITHM)SyntheticsBasicAuthJWTAlgorithm algorithm,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PAYLOAD)String payload,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SECRET)String secret,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsBasicAuthJWTType type) {
-        this.algorithm = algorithm;
-        this.unparsed |= !algorithm.isValid();
-        this.payload = payload;
-        this.secret = secret;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ALGORITHM)
+          SyntheticsBasicAuthJWTAlgorithm algorithm,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PAYLOAD) String payload,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SECRET) String secret,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBasicAuthJWTType type) {
+    this.algorithm = algorithm;
+    this.unparsed |= !algorithm.isValid();
+    this.payload = payload;
+    this.secret = secret;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public SyntheticsBasicAuthJWT addClaims(SyntheticsBasicAuthJWTAddClaims addClaims) {
     this.addClaims = addClaims;
     this.unparsed |= addClaims.unparsed;
@@ -94,22 +80,24 @@ public class SyntheticsBasicAuthJWT {
   }
 
   /**
-   * <p>Standard JWT claims to automatically inject.</p>
+   * Standard JWT claims to automatically inject.
+   *
    * @return addClaims
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ADD_CLAIMS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsBasicAuthJWTAddClaims getAddClaims() {
-        return addClaims;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADD_CLAIMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsBasicAuthJWTAddClaims getAddClaims() {
+    return addClaims;
+  }
+
   public void setAddClaims(SyntheticsBasicAuthJWTAddClaims addClaims) {
     this.addClaims = addClaims;
     if (addClaims != null) {
       this.unparsed |= addClaims.unparsed;
     }
   }
+
   public SyntheticsBasicAuthJWT algorithm(SyntheticsBasicAuthJWTAlgorithm algorithm) {
     this.algorithm = algorithm;
     this.unparsed |= !algorithm.isValid();
@@ -117,116 +105,128 @@ public class SyntheticsBasicAuthJWT {
   }
 
   /**
-   * <p>Algorithm to use for the JWT authentication.</p>
+   * Algorithm to use for the JWT authentication.
+   *
    * @return algorithm
-  **/
-      @JsonProperty(JSON_PROPERTY_ALGORITHM)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsBasicAuthJWTAlgorithm getAlgorithm() {
-        return algorithm;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsBasicAuthJWTAlgorithm getAlgorithm() {
+    return algorithm;
+  }
+
   public void setAlgorithm(SyntheticsBasicAuthJWTAlgorithm algorithm) {
     if (!algorithm.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.algorithm = algorithm;
   }
+
   public SyntheticsBasicAuthJWT expiresIn(Long expiresIn) {
     this.expiresIn = expiresIn;
     return this;
   }
 
   /**
-   * <p>Token time-to-live in seconds.</p>
-   * minimum: 1
+   * Token time-to-live in seconds. minimum: 1
+   *
    * @return expiresIn
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getExpiresIn() {
-        return expiresIn;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getExpiresIn() {
+    return expiresIn;
+  }
+
   public void setExpiresIn(Long expiresIn) {
     this.expiresIn = expiresIn;
   }
+
   public SyntheticsBasicAuthJWT header(String header) {
     this.header = header;
     return this;
   }
 
   /**
-   * <p>Custom JWT header as a JSON string.</p>
+   * Custom JWT header as a JSON string.
+   *
    * @return header
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HEADER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHeader() {
-        return header;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HEADER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHeader() {
+    return header;
+  }
+
   public void setHeader(String header) {
     this.header = header;
   }
+
   public SyntheticsBasicAuthJWT payload(String payload) {
     this.payload = payload;
     return this;
   }
 
   /**
-   * <p>JWT claims as a JSON string.</p>
+   * JWT claims as a JSON string.
+   *
    * @return payload
-  **/
-      @JsonProperty(JSON_PROPERTY_PAYLOAD)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getPayload() {
-        return payload;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PAYLOAD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPayload() {
+    return payload;
+  }
+
   public void setPayload(String payload) {
     this.payload = payload;
   }
+
   public SyntheticsBasicAuthJWT secret(String secret) {
     this.secret = secret;
     return this;
   }
 
   /**
-   * <p>Signing key for the JWT authentication. Use the shared secret for <code>HS256</code>
-   * or the private key (PEM format) for <code>RS256</code> and <code>ES256</code>.</p>
+   * Signing key for the JWT authentication. Use the shared secret for <code>HS256</code> or the
+   * private key (PEM format) for <code>RS256</code> and <code>ES256</code>.
+   *
    * @return secret
-  **/
-      @JsonProperty(JSON_PROPERTY_SECRET)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getSecret() {
-        return secret;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SECRET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getSecret() {
+    return secret;
+  }
+
   public void setSecret(String secret) {
     this.secret = secret;
   }
+
   public SyntheticsBasicAuthJWT tokenPrefix(String tokenPrefix) {
     this.tokenPrefix = tokenPrefix;
     return this;
   }
 
   /**
-   * <p>Prefix added before the token in the <code>Authorization</code> header. Defaults to <code>Bearer</code>.</p>
+   * Prefix added before the token in the <code>Authorization</code> header. Defaults to <code>
+   * Bearer</code>.
+   *
    * @return tokenPrefix
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOKEN_PREFIX)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTokenPrefix() {
-        return tokenPrefix;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOKEN_PREFIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTokenPrefix() {
+    return tokenPrefix;
+  }
+
   public void setTokenPrefix(String tokenPrefix) {
     this.tokenPrefix = tokenPrefix;
   }
+
   public SyntheticsBasicAuthJWT type(SyntheticsBasicAuthJWTType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -234,32 +234,32 @@ public class SyntheticsBasicAuthJWT {
   }
 
   /**
-   * <p>The type of authentication to use when performing the test.</p>
+   * The type of authentication to use when performing the test.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsBasicAuthJWTType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsBasicAuthJWTType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsBasicAuthJWTType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -268,7 +268,7 @@ public class SyntheticsBasicAuthJWT {
   @JsonAnySetter
   public SyntheticsBasicAuthJWT putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -292,14 +292,12 @@ public class SyntheticsBasicAuthJWT {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsBasicAuthJWT object is equal to o.
-   */
+  /** Return true if this SyntheticsBasicAuthJWT object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -309,13 +307,29 @@ public class SyntheticsBasicAuthJWT {
       return false;
     }
     SyntheticsBasicAuthJWT syntheticsBasicAuthJwt = (SyntheticsBasicAuthJWT) o;
-    return Objects.equals(this.addClaims, syntheticsBasicAuthJwt.addClaims) && Objects.equals(this.algorithm, syntheticsBasicAuthJwt.algorithm) && Objects.equals(this.expiresIn, syntheticsBasicAuthJwt.expiresIn) && Objects.equals(this.header, syntheticsBasicAuthJwt.header) && Objects.equals(this.payload, syntheticsBasicAuthJwt.payload) && Objects.equals(this.secret, syntheticsBasicAuthJwt.secret) && Objects.equals(this.tokenPrefix, syntheticsBasicAuthJwt.tokenPrefix) && Objects.equals(this.type, syntheticsBasicAuthJwt.type) && Objects.equals(this.additionalProperties, syntheticsBasicAuthJwt.additionalProperties);
+    return Objects.equals(this.addClaims, syntheticsBasicAuthJwt.addClaims)
+        && Objects.equals(this.algorithm, syntheticsBasicAuthJwt.algorithm)
+        && Objects.equals(this.expiresIn, syntheticsBasicAuthJwt.expiresIn)
+        && Objects.equals(this.header, syntheticsBasicAuthJwt.header)
+        && Objects.equals(this.payload, syntheticsBasicAuthJwt.payload)
+        && Objects.equals(this.secret, syntheticsBasicAuthJwt.secret)
+        && Objects.equals(this.tokenPrefix, syntheticsBasicAuthJwt.tokenPrefix)
+        && Objects.equals(this.type, syntheticsBasicAuthJwt.type)
+        && Objects.equals(this.additionalProperties, syntheticsBasicAuthJwt.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(addClaims,algorithm,expiresIn,header,payload,secret,tokenPrefix,type, additionalProperties);
+    return Objects.hash(
+        addClaims,
+        algorithm,
+        expiresIn,
+        header,
+        payload,
+        secret,
+        tokenPrefix,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -338,8 +352,7 @@ public class SyntheticsBasicAuthJWT {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

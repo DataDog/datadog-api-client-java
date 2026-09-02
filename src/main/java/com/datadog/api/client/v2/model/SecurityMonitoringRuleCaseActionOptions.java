@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Options for the rule action</p>
- */
+/** Options for the rule action */
 @JsonPropertyOrder({
   SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_DURATION,
   SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_FLAGGED_IP_TYPE,
   SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_USER_BEHAVIOR_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleCaseActionOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
 
@@ -58,73 +41,79 @@ public class SecurityMonitoringRuleCaseActionOptions {
   }
 
   /**
-   * <p>Duration of the action in seconds. 0 indicates no expiration.</p>
-   * minimum: 0
+   * Duration of the action in seconds. 0 indicates no expiration. minimum: 0
+   *
    * @return duration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getDuration() {
-        return duration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDuration() {
+    return duration;
+  }
+
   public void setDuration(Long duration) {
     this.duration = duration;
   }
-  public SecurityMonitoringRuleCaseActionOptions flaggedIpType(SecurityMonitoringRuleCaseActionOptionsFlaggedIPType flaggedIpType) {
+
+  public SecurityMonitoringRuleCaseActionOptions flaggedIpType(
+      SecurityMonitoringRuleCaseActionOptionsFlaggedIPType flaggedIpType) {
     this.flaggedIpType = flaggedIpType;
     this.unparsed |= !flaggedIpType.isValid();
     return this;
   }
 
   /**
-   * <p>Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.</p>
+   * Used with the case action of type 'flag_ip'. The value specified in this field is applied as a
+   * flag to the IP addresses.
+   *
    * @return flaggedIpType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FLAGGED_IP_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringRuleCaseActionOptionsFlaggedIPType getFlaggedIpType() {
-        return flaggedIpType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLAGGED_IP_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleCaseActionOptionsFlaggedIPType getFlaggedIpType() {
+    return flaggedIpType;
+  }
+
   public void setFlaggedIpType(SecurityMonitoringRuleCaseActionOptionsFlaggedIPType flaggedIpType) {
     if (!flaggedIpType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.flaggedIpType = flaggedIpType;
   }
+
   public SecurityMonitoringRuleCaseActionOptions userBehaviorName(String userBehaviorName) {
     this.userBehaviorName = userBehaviorName;
     return this;
   }
 
   /**
-   * <p>Used with the case action of type 'user_behavior'. The value specified in this field is applied as a risk tag to all users affected by the rule.</p>
+   * Used with the case action of type 'user_behavior'. The value specified in this field is applied
+   * as a risk tag to all users affected by the rule.
+   *
    * @return userBehaviorName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_USER_BEHAVIOR_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUserBehaviorName() {
-        return userBehaviorName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER_BEHAVIOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUserBehaviorName() {
+    return userBehaviorName;
+  }
+
   public void setUserBehaviorName(String userBehaviorName) {
     this.userBehaviorName = userBehaviorName;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -133,7 +122,7 @@ public class SecurityMonitoringRuleCaseActionOptions {
   @JsonAnySetter
   public SecurityMonitoringRuleCaseActionOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -157,14 +146,12 @@ public class SecurityMonitoringRuleCaseActionOptions {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SecurityMonitoringRuleCaseActionOptions object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringRuleCaseActionOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -173,14 +160,20 @@ public class SecurityMonitoringRuleCaseActionOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleCaseActionOptions securityMonitoringRuleCaseActionOptions = (SecurityMonitoringRuleCaseActionOptions) o;
-    return Objects.equals(this.duration, securityMonitoringRuleCaseActionOptions.duration) && Objects.equals(this.flaggedIpType, securityMonitoringRuleCaseActionOptions.flaggedIpType) && Objects.equals(this.userBehaviorName, securityMonitoringRuleCaseActionOptions.userBehaviorName) && Objects.equals(this.additionalProperties, securityMonitoringRuleCaseActionOptions.additionalProperties);
+    SecurityMonitoringRuleCaseActionOptions securityMonitoringRuleCaseActionOptions =
+        (SecurityMonitoringRuleCaseActionOptions) o;
+    return Objects.equals(this.duration, securityMonitoringRuleCaseActionOptions.duration)
+        && Objects.equals(this.flaggedIpType, securityMonitoringRuleCaseActionOptions.flaggedIpType)
+        && Objects.equals(
+            this.userBehaviorName, securityMonitoringRuleCaseActionOptions.userBehaviorName)
+        && Objects.equals(
+            this.additionalProperties,
+            securityMonitoringRuleCaseActionOptions.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration,flaggedIpType,userBehaviorName, additionalProperties);
+    return Objects.hash(duration, flaggedIpType, userBehaviorName, additionalProperties);
   }
 
   @Override
@@ -198,8 +191,7 @@ public class SecurityMonitoringRuleCaseActionOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

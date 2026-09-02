@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>This visualization displays a series of values by country on a world map.</p>
- */
+/** This visualization displays a series of values by country on a world map. */
 @JsonPropertyOrder({
   GeomapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   GeomapWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
@@ -46,10 +32,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   GeomapWidgetDefinition.JSON_PROPERTY_TYPE,
   GeomapWidgetDefinition.JSON_PROPERTY_VIEW
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -84,30 +70,33 @@ public class GeomapWidgetDefinition {
 
   @JsonCreator
   public GeomapWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<GeomapWidgetRequest> requests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STYLE)GeomapWidgetDefinitionStyle style,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)GeomapWidgetDefinitionType type,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VIEW)GeomapWidgetDefinitionView view) {
-        this.requests = requests;
-        for (GeomapWidgetRequest item : requests) {
-          this.unparsed |= item.unparsed;
-        }
-        this.style = style;
-        this.unparsed |= style.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        this.view = view;
-        this.unparsed |= view.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<GeomapWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STYLE) GeomapWidgetDefinitionStyle style,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GeomapWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW) GeomapWidgetDefinitionView view) {
+    this.requests = requests;
+    for (GeomapWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
+    this.style = style;
+    this.unparsed |= style.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.view = view;
+    this.unparsed |= view.unparsed;
   }
+
   public GeomapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
     if (customLinks != null) {
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
-    }
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public GeomapWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
     if (this.customLinks == null) {
       this.customLinks = new ArrayList<>();
@@ -118,16 +107,17 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * <p>A list of custom links.</p>
+   * A list of custom links.
+   *
    * @return customLinks
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetCustomLink> getCustomLinks() {
-        return customLinks;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
     if (customLinks != null) {
@@ -136,25 +126,28 @@ public class GeomapWidgetDefinition {
       }
     }
   }
+
   public GeomapWidgetDefinition description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * <p>The description of the widget.</p>
+   * The description of the widget.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDescription() {
-        return description;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public GeomapWidgetDefinition requests(List<GeomapWidgetRequest> requests) {
     this.requests = requests;
     for (GeomapWidgetRequest item : requests) {
@@ -162,6 +155,7 @@ public class GeomapWidgetDefinition {
     }
     return this;
   }
+
   public GeomapWidgetDefinition addRequestsItem(GeomapWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -169,17 +163,20 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * <p>Array of request objects to display in the widget. May include an optional request for the region layer and/or an optional request for the points layer. Region layer requests must contain a <code>group-by</code> tag whose value is a country ISO code.
-   * See the <a href="https://docs.datadoghq.com/dashboards/graphing_json/request_json">Request JSON schema documentation</a>
-   * for information about building the <code>REQUEST_SCHEMA</code>.</p>
+   * Array of request objects to display in the widget. May include an optional request for the
+   * region layer and/or an optional request for the points layer. Region layer requests must
+   * contain a <code>group-by</code> tag whose value is a country ISO code. See the <a
+   * href="https://docs.datadoghq.com/dashboards/graphing_json/request_json">Request JSON schema
+   * documentation</a> for information about building the <code>REQUEST_SCHEMA</code>.
+   *
    * @return requests
-  **/
-      @JsonProperty(JSON_PROPERTY_REQUESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<GeomapWidgetRequest> getRequests() {
-        return requests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<GeomapWidgetRequest> getRequests() {
+    return requests;
+  }
+
   public void setRequests(List<GeomapWidgetRequest> requests) {
     this.requests = requests;
     if (requests != null) {
@@ -188,6 +185,7 @@ public class GeomapWidgetDefinition {
       }
     }
   }
+
   public GeomapWidgetDefinition style(GeomapWidgetDefinitionStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
@@ -195,21 +193,23 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * <p>The style to apply to the widget.</p>
+   * The style to apply to the widget.
+   *
    * @return style
-  **/
-      @JsonProperty(JSON_PROPERTY_STYLE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public GeomapWidgetDefinitionStyle getStyle() {
-        return style;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GeomapWidgetDefinitionStyle getStyle() {
+    return style;
+  }
+
   public void setStyle(GeomapWidgetDefinitionStyle style) {
     this.style = style;
     if (style != null) {
       this.unparsed |= style.unparsed;
     }
   }
+
   public GeomapWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -217,41 +217,45 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
     if (time != null) {
       this.unparsed |= time.unparsed;
     }
   }
+
   public GeomapWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>The title of your widget.</p>
+   * The title of your widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public GeomapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -259,41 +263,45 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public GeomapWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>The size of the title.</p>
+   * The size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public GeomapWidgetDefinition type(GeomapWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -301,21 +309,23 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * <p>Type of the geomap widget.</p>
+   * Type of the geomap widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public GeomapWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GeomapWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(GeomapWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public GeomapWidgetDefinition view(GeomapWidgetDefinitionView view) {
     this.view = view;
     this.unparsed |= view.unparsed;
@@ -323,15 +333,16 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * <p>The view of the world that the map should render.</p>
+   * The view of the world that the map should render.
+   *
    * @return view
-  **/
-      @JsonProperty(JSON_PROPERTY_VIEW)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public GeomapWidgetDefinitionView getView() {
-        return view;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VIEW)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GeomapWidgetDefinitionView getView() {
+    return view;
+  }
+
   public void setView(GeomapWidgetDefinitionView view) {
     this.view = view;
     if (view != null) {
@@ -340,15 +351,14 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -357,7 +367,7 @@ public class GeomapWidgetDefinition {
   @JsonAnySetter
   public GeomapWidgetDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -381,14 +391,12 @@ public class GeomapWidgetDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GeomapWidgetDefinition object is equal to o.
-   */
+  /** Return true if this GeomapWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -398,13 +406,33 @@ public class GeomapWidgetDefinition {
       return false;
     }
     GeomapWidgetDefinition geomapWidgetDefinition = (GeomapWidgetDefinition) o;
-    return Objects.equals(this.customLinks, geomapWidgetDefinition.customLinks) && Objects.equals(this.description, geomapWidgetDefinition.description) && Objects.equals(this.requests, geomapWidgetDefinition.requests) && Objects.equals(this.style, geomapWidgetDefinition.style) && Objects.equals(this.time, geomapWidgetDefinition.time) && Objects.equals(this.title, geomapWidgetDefinition.title) && Objects.equals(this.titleAlign, geomapWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, geomapWidgetDefinition.titleSize) && Objects.equals(this.type, geomapWidgetDefinition.type) && Objects.equals(this.view, geomapWidgetDefinition.view) && Objects.equals(this.additionalProperties, geomapWidgetDefinition.additionalProperties);
+    return Objects.equals(this.customLinks, geomapWidgetDefinition.customLinks)
+        && Objects.equals(this.description, geomapWidgetDefinition.description)
+        && Objects.equals(this.requests, geomapWidgetDefinition.requests)
+        && Objects.equals(this.style, geomapWidgetDefinition.style)
+        && Objects.equals(this.time, geomapWidgetDefinition.time)
+        && Objects.equals(this.title, geomapWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, geomapWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, geomapWidgetDefinition.titleSize)
+        && Objects.equals(this.type, geomapWidgetDefinition.type)
+        && Objects.equals(this.view, geomapWidgetDefinition.view)
+        && Objects.equals(this.additionalProperties, geomapWidgetDefinition.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(customLinks,description,requests,style,time,title,titleAlign,titleSize,type,view, additionalProperties);
+    return Objects.hash(
+        customLinks,
+        description,
+        requests,
+        style,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        view,
+        additionalProperties);
   }
 
   @Override
@@ -429,8 +457,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

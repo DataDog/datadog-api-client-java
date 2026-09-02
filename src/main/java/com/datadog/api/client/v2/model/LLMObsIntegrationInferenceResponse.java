@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The result of an LLM inference request, including input parameters and the model response.</p>
- */
+/** The result of an LLM inference request, including input parameters and the model response. */
 @JsonPropertyOrder({
   LLMObsIntegrationInferenceResponse.JSON_PROPERTY_ANTHROPIC_METADATA,
   LLMObsIntegrationInferenceResponse.JSON_PROPERTY_AZURE_OPENAI_METADATA,
@@ -54,10 +41,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsIntegrationInferenceResponse.JSON_PROPERTY_TOP_P,
   LLMObsIntegrationInferenceResponse.JSON_PROPERTY_VERTEX_AI_METADATA
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsIntegrationInferenceResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANTHROPIC_METADATA = "anthropic_metadata";
   private LLMObsAnthropicMetadata anthropicMetadata;
 
@@ -116,63 +103,72 @@ public class LLMObsIntegrationInferenceResponse {
 
   @JsonCreator
   public LLMObsIntegrationInferenceResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_MESSAGES)List<LLMObsInferenceMessage> messages,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MODEL_ID)String modelId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESPONSE)LLMObsInferenceRunResult response) {
-        this.messages = messages;
-        for (LLMObsInferenceMessage item : messages) {
-          this.unparsed |= item.unparsed;
-        }
-        this.modelId = modelId;
-        this.response = response;
-        this.unparsed |= response.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGES)
+          List<LLMObsInferenceMessage> messages,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODEL_ID) String modelId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESPONSE)
+          LLMObsInferenceRunResult response) {
+    this.messages = messages;
+    for (LLMObsInferenceMessage item : messages) {
+      this.unparsed |= item.unparsed;
+    }
+    this.modelId = modelId;
+    this.response = response;
+    this.unparsed |= response.unparsed;
   }
-  public LLMObsIntegrationInferenceResponse anthropicMetadata(LLMObsAnthropicMetadata anthropicMetadata) {
+
+  public LLMObsIntegrationInferenceResponse anthropicMetadata(
+      LLMObsAnthropicMetadata anthropicMetadata) {
     this.anthropicMetadata = anthropicMetadata;
     this.unparsed |= anthropicMetadata.unparsed;
     return this;
   }
 
   /**
-   * <p>Anthropic-specific metadata for an inference request.</p>
+   * Anthropic-specific metadata for an inference request.
+   *
    * @return anthropicMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ANTHROPIC_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsAnthropicMetadata getAnthropicMetadata() {
-        return anthropicMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANTHROPIC_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsAnthropicMetadata getAnthropicMetadata() {
+    return anthropicMetadata;
+  }
+
   public void setAnthropicMetadata(LLMObsAnthropicMetadata anthropicMetadata) {
     this.anthropicMetadata = anthropicMetadata;
     if (anthropicMetadata != null) {
       this.unparsed |= anthropicMetadata.unparsed;
     }
   }
-  public LLMObsIntegrationInferenceResponse azureOpenaiMetadata(LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
+
+  public LLMObsIntegrationInferenceResponse azureOpenaiMetadata(
+      LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
     this.azureOpenaiMetadata = azureOpenaiMetadata;
     this.unparsed |= azureOpenaiMetadata.unparsed;
     return this;
   }
 
   /**
-   * <p>Azure OpenAI-specific metadata for an integration account or inference request.</p>
+   * Azure OpenAI-specific metadata for an integration account or inference request.
+   *
    * @return azureOpenaiMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AZURE_OPENAI_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsAzureOpenAIMetadata getAzureOpenaiMetadata() {
-        return azureOpenaiMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AZURE_OPENAI_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsAzureOpenAIMetadata getAzureOpenaiMetadata() {
+    return azureOpenaiMetadata;
+  }
+
   public void setAzureOpenaiMetadata(LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
     this.azureOpenaiMetadata = azureOpenaiMetadata;
     if (azureOpenaiMetadata != null) {
       this.unparsed |= azureOpenaiMetadata.unparsed;
     }
   }
+
   public LLMObsIntegrationInferenceResponse bedrockMetadata(LLMObsBedrockMetadata bedrockMetadata) {
     this.bedrockMetadata = bedrockMetadata;
     this.unparsed |= bedrockMetadata.unparsed;
@@ -180,149 +176,174 @@ public class LLMObsIntegrationInferenceResponse {
   }
 
   /**
-   * <p>Amazon Bedrock-specific metadata for an inference request.</p>
+   * Amazon Bedrock-specific metadata for an inference request.
+   *
    * @return bedrockMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BEDROCK_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsBedrockMetadata getBedrockMetadata() {
-        return bedrockMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BEDROCK_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsBedrockMetadata getBedrockMetadata() {
+    return bedrockMetadata;
+  }
+
   public void setBedrockMetadata(LLMObsBedrockMetadata bedrockMetadata) {
     this.bedrockMetadata = bedrockMetadata;
     if (bedrockMetadata != null) {
       this.unparsed |= bedrockMetadata.unparsed;
     }
   }
-  public LLMObsIntegrationInferenceResponse errorResponse(LLMObsInferenceErrorResponse errorResponse) {
+
+  public LLMObsIntegrationInferenceResponse errorResponse(
+      LLMObsInferenceErrorResponse errorResponse) {
     this.errorResponse = errorResponse;
     this.unparsed |= errorResponse.unparsed;
     return this;
   }
 
   /**
-   * <p>Error details returned when an inference provider returns an error.</p>
+   * Error details returned when an inference provider returns an error.
+   *
    * @return errorResponse
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ERROR_RESPONSE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsInferenceErrorResponse getErrorResponse() {
-        return errorResponse;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsInferenceErrorResponse getErrorResponse() {
+    return errorResponse;
+  }
+
   public void setErrorResponse(LLMObsInferenceErrorResponse errorResponse) {
     this.errorResponse = errorResponse;
     if (errorResponse != null) {
       this.unparsed |= errorResponse.unparsed;
     }
   }
+
   public LLMObsIntegrationInferenceResponse frequencyPenalty(Double frequencyPenalty) {
     this.frequencyPenalty = JsonNullable.<Double>of(frequencyPenalty);
     return this;
   }
 
   /**
-   * <p>Frequency penalty that was applied.</p>
+   * Frequency penalty that was applied.
+   *
    * @return frequencyPenalty
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Double getFrequencyPenalty() {
-        return frequencyPenalty.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getFrequencyPenalty() {
+    return frequencyPenalty.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_FREQUENCY_PENALTY)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getFrequencyPenalty_JsonNullable() {
     return frequencyPenalty;
   }
-  @JsonProperty(JSON_PROPERTY_FREQUENCY_PENALTY)public void setFrequencyPenalty_JsonNullable(JsonNullable<Double> frequencyPenalty) {
+
+  @JsonProperty(JSON_PROPERTY_FREQUENCY_PENALTY)
+  public void setFrequencyPenalty_JsonNullable(JsonNullable<Double> frequencyPenalty) {
     this.frequencyPenalty = frequencyPenalty;
   }
+
   public void setFrequencyPenalty(Double frequencyPenalty) {
     this.frequencyPenalty = JsonNullable.<Double>of(frequencyPenalty);
   }
+
   public LLMObsIntegrationInferenceResponse jsonSchema(String jsonSchema) {
     this.jsonSchema = JsonNullable.<String>of(jsonSchema);
     return this;
   }
 
   /**
-   * <p>JSON schema that was applied for structured output.</p>
+   * JSON schema that was applied for structured output.
+   *
    * @return jsonSchema
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getJsonSchema() {
-        return jsonSchema.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getJsonSchema() {
+    return jsonSchema.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_JSON_SCHEMA)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getJsonSchema_JsonNullable() {
     return jsonSchema;
   }
-  @JsonProperty(JSON_PROPERTY_JSON_SCHEMA)public void setJsonSchema_JsonNullable(JsonNullable<String> jsonSchema) {
+
+  @JsonProperty(JSON_PROPERTY_JSON_SCHEMA)
+  public void setJsonSchema_JsonNullable(JsonNullable<String> jsonSchema) {
     this.jsonSchema = jsonSchema;
   }
+
   public void setJsonSchema(String jsonSchema) {
     this.jsonSchema = JsonNullable.<String>of(jsonSchema);
   }
+
   public LLMObsIntegrationInferenceResponse maxCompletionTokens(Long maxCompletionTokens) {
     this.maxCompletionTokens = JsonNullable.<Long>of(maxCompletionTokens);
     return this;
   }
 
   /**
-   * <p>Maximum number of completion tokens that were configured.</p>
+   * Maximum number of completion tokens that were configured.
+   *
    * @return maxCompletionTokens
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getMaxCompletionTokens() {
-        return maxCompletionTokens.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getMaxCompletionTokens() {
+    return maxCompletionTokens.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MAX_COMPLETION_TOKENS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getMaxCompletionTokens_JsonNullable() {
     return maxCompletionTokens;
   }
-  @JsonProperty(JSON_PROPERTY_MAX_COMPLETION_TOKENS)public void setMaxCompletionTokens_JsonNullable(JsonNullable<Long> maxCompletionTokens) {
+
+  @JsonProperty(JSON_PROPERTY_MAX_COMPLETION_TOKENS)
+  public void setMaxCompletionTokens_JsonNullable(JsonNullable<Long> maxCompletionTokens) {
     this.maxCompletionTokens = maxCompletionTokens;
   }
+
   public void setMaxCompletionTokens(Long maxCompletionTokens) {
     this.maxCompletionTokens = JsonNullable.<Long>of(maxCompletionTokens);
   }
+
   public LLMObsIntegrationInferenceResponse maxTokens(Long maxTokens) {
     this.maxTokens = JsonNullable.<Long>of(maxTokens);
     return this;
   }
 
   /**
-   * <p>Maximum number of tokens that were configured.</p>
+   * Maximum number of tokens that were configured.
+   *
    * @return maxTokens
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getMaxTokens() {
-        return maxTokens.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getMaxTokens() {
+    return maxTokens.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MAX_TOKENS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getMaxTokens_JsonNullable() {
     return maxTokens;
   }
-  @JsonProperty(JSON_PROPERTY_MAX_TOKENS)public void setMaxTokens_JsonNullable(JsonNullable<Long> maxTokens) {
+
+  @JsonProperty(JSON_PROPERTY_MAX_TOKENS)
+  public void setMaxTokens_JsonNullable(JsonNullable<Long> maxTokens) {
     this.maxTokens = maxTokens;
   }
+
   public void setMaxTokens(Long maxTokens) {
     this.maxTokens = JsonNullable.<Long>of(maxTokens);
   }
+
   public LLMObsIntegrationInferenceResponse messages(List<LLMObsInferenceMessage> messages) {
     this.messages = messages;
     for (LLMObsInferenceMessage item : messages) {
@@ -330,6 +351,7 @@ public class LLMObsIntegrationInferenceResponse {
     }
     return this;
   }
+
   public LLMObsIntegrationInferenceResponse addMessagesItem(LLMObsInferenceMessage messagesItem) {
     this.messages.add(messagesItem);
     this.unparsed |= messagesItem.unparsed;
@@ -337,15 +359,16 @@ public class LLMObsIntegrationInferenceResponse {
   }
 
   /**
-   * <p>List of messages in an inference conversation.</p>
+   * List of messages in an inference conversation.
+   *
    * @return messages
-  **/
-      @JsonProperty(JSON_PROPERTY_MESSAGES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<LLMObsInferenceMessage> getMessages() {
-        return messages;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MESSAGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsInferenceMessage> getMessages() {
+    return messages;
+  }
+
   public void setMessages(List<LLMObsInferenceMessage> messages) {
     this.messages = messages;
     if (messages != null) {
@@ -354,24 +377,27 @@ public class LLMObsIntegrationInferenceResponse {
       }
     }
   }
+
   public LLMObsIntegrationInferenceResponse modelId(String modelId) {
     this.modelId = modelId;
     return this;
   }
 
   /**
-   * <p>The model identifier used for inference.</p>
+   * The model identifier used for inference.
+   *
    * @return modelId
-  **/
-      @JsonProperty(JSON_PROPERTY_MODEL_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getModelId() {
-        return modelId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MODEL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getModelId() {
+    return modelId;
+  }
+
   public void setModelId(String modelId) {
     this.modelId = modelId;
   }
+
   public LLMObsIntegrationInferenceResponse openaiMetadata(LLMObsOpenAIMetadata openaiMetadata) {
     this.openaiMetadata = openaiMetadata;
     this.unparsed |= openaiMetadata.unparsed;
@@ -379,48 +405,55 @@ public class LLMObsIntegrationInferenceResponse {
   }
 
   /**
-   * <p>OpenAI-specific metadata for an inference request.</p>
+   * OpenAI-specific metadata for an inference request.
+   *
    * @return openaiMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPENAI_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsOpenAIMetadata getOpenaiMetadata() {
-        return openaiMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPENAI_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsOpenAIMetadata getOpenaiMetadata() {
+    return openaiMetadata;
+  }
+
   public void setOpenaiMetadata(LLMObsOpenAIMetadata openaiMetadata) {
     this.openaiMetadata = openaiMetadata;
     if (openaiMetadata != null) {
       this.unparsed |= openaiMetadata.unparsed;
     }
   }
+
   public LLMObsIntegrationInferenceResponse presencePenalty(Double presencePenalty) {
     this.presencePenalty = JsonNullable.<Double>of(presencePenalty);
     return this;
   }
 
   /**
-   * <p>Presence penalty that was applied.</p>
+   * Presence penalty that was applied.
+   *
    * @return presencePenalty
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Double getPresencePenalty() {
-        return presencePenalty.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getPresencePenalty() {
+    return presencePenalty.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PRESENCE_PENALTY)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getPresencePenalty_JsonNullable() {
     return presencePenalty;
   }
-  @JsonProperty(JSON_PROPERTY_PRESENCE_PENALTY)public void setPresencePenalty_JsonNullable(JsonNullable<Double> presencePenalty) {
+
+  @JsonProperty(JSON_PROPERTY_PRESENCE_PENALTY)
+  public void setPresencePenalty_JsonNullable(JsonNullable<Double> presencePenalty) {
     this.presencePenalty = presencePenalty;
   }
+
   public void setPresencePenalty(Double presencePenalty) {
     this.presencePenalty = JsonNullable.<Double>of(presencePenalty);
   }
+
   public LLMObsIntegrationInferenceResponse response(LLMObsInferenceRunResult response) {
     this.response = response;
     this.unparsed |= response.unparsed;
@@ -428,56 +461,64 @@ public class LLMObsIntegrationInferenceResponse {
   }
 
   /**
-   * <p>The output of a completed LLM inference call.</p>
+   * The output of a completed LLM inference call.
+   *
    * @return response
-  **/
-      @JsonProperty(JSON_PROPERTY_RESPONSE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LLMObsInferenceRunResult getResponse() {
-        return response;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LLMObsInferenceRunResult getResponse() {
+    return response;
+  }
+
   public void setResponse(LLMObsInferenceRunResult response) {
     this.response = response;
     if (response != null) {
       this.unparsed |= response.unparsed;
     }
   }
+
   public LLMObsIntegrationInferenceResponse temperature(Double temperature) {
     this.temperature = JsonNullable.<Double>of(temperature);
     return this;
   }
 
   /**
-   * <p>Sampling temperature that was used.</p>
+   * Sampling temperature that was used.
+   *
    * @return temperature
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Double getTemperature() {
-        return temperature.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getTemperature() {
+    return temperature.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TEMPERATURE)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getTemperature_JsonNullable() {
     return temperature;
   }
-  @JsonProperty(JSON_PROPERTY_TEMPERATURE)public void setTemperature_JsonNullable(JsonNullable<Double> temperature) {
+
+  @JsonProperty(JSON_PROPERTY_TEMPERATURE)
+  public void setTemperature_JsonNullable(JsonNullable<Double> temperature) {
     this.temperature = temperature;
   }
+
   public void setTemperature(Double temperature) {
     this.temperature = JsonNullable.<Double>of(temperature);
   }
+
   public LLMObsIntegrationInferenceResponse tools(List<LLMObsInferenceTool> tools) {
     this.tools = tools;
     if (tools != null) {
-    for (LLMObsInferenceTool item : tools) {
-      this.unparsed |= item.unparsed;
-    }
+      for (LLMObsInferenceTool item : tools) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public LLMObsIntegrationInferenceResponse addToolsItem(LLMObsInferenceTool toolsItem) {
     if (this.tools == null) {
       this.tools = new ArrayList<>();
@@ -488,16 +529,17 @@ public class LLMObsIntegrationInferenceResponse {
   }
 
   /**
-   * <p>List of tools available to the model.</p>
+   * List of tools available to the model.
+   *
    * @return tools
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOOLS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LLMObsInferenceTool> getTools() {
-        return tools;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOOLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LLMObsInferenceTool> getTools() {
+    return tools;
+  }
+
   public void setTools(List<LLMObsInferenceTool> tools) {
     this.tools = tools;
     if (tools != null) {
@@ -506,75 +548,88 @@ public class LLMObsIntegrationInferenceResponse {
       }
     }
   }
+
   public LLMObsIntegrationInferenceResponse topK(Long topK) {
     this.topK = JsonNullable.<Long>of(topK);
     return this;
   }
 
   /**
-   * <p>Top-K sampling parameter that was used.</p>
+   * Top-K sampling parameter that was used.
+   *
    * @return topK
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getTopK() {
-        return topK.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getTopK() {
+    return topK.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TOP_K)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getTopK_JsonNullable() {
     return topK;
   }
-  @JsonProperty(JSON_PROPERTY_TOP_K)public void setTopK_JsonNullable(JsonNullable<Long> topK) {
+
+  @JsonProperty(JSON_PROPERTY_TOP_K)
+  public void setTopK_JsonNullable(JsonNullable<Long> topK) {
     this.topK = topK;
   }
+
   public void setTopK(Long topK) {
     this.topK = JsonNullable.<Long>of(topK);
   }
+
   public LLMObsIntegrationInferenceResponse topP(Double topP) {
     this.topP = JsonNullable.<Double>of(topP);
     return this;
   }
 
   /**
-   * <p>Nucleus sampling parameter that was used.</p>
+   * Nucleus sampling parameter that was used.
+   *
    * @return topP
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Double getTopP() {
-        return topP.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getTopP() {
+    return topP.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TOP_P)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getTopP_JsonNullable() {
     return topP;
   }
-  @JsonProperty(JSON_PROPERTY_TOP_P)public void setTopP_JsonNullable(JsonNullable<Double> topP) {
+
+  @JsonProperty(JSON_PROPERTY_TOP_P)
+  public void setTopP_JsonNullable(JsonNullable<Double> topP) {
     this.topP = topP;
   }
+
   public void setTopP(Double topP) {
     this.topP = JsonNullable.<Double>of(topP);
   }
-  public LLMObsIntegrationInferenceResponse vertexAiMetadata(LLMObsVertexAIMetadata vertexAiMetadata) {
+
+  public LLMObsIntegrationInferenceResponse vertexAiMetadata(
+      LLMObsVertexAIMetadata vertexAiMetadata) {
     this.vertexAiMetadata = vertexAiMetadata;
     this.unparsed |= vertexAiMetadata.unparsed;
     return this;
   }
 
   /**
-   * <p>Vertex AI-specific metadata for an integration account or inference request.</p>
+   * Vertex AI-specific metadata for an integration account or inference request.
+   *
    * @return vertexAiMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERTEX_AI_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsVertexAIMetadata getVertexAiMetadata() {
-        return vertexAiMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERTEX_AI_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsVertexAIMetadata getVertexAiMetadata() {
+    return vertexAiMetadata;
+  }
+
   public void setVertexAiMetadata(LLMObsVertexAIMetadata vertexAiMetadata) {
     this.vertexAiMetadata = vertexAiMetadata;
     if (vertexAiMetadata != null) {
@@ -583,15 +638,14 @@ public class LLMObsIntegrationInferenceResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -600,7 +654,7 @@ public class LLMObsIntegrationInferenceResponse {
   @JsonAnySetter
   public LLMObsIntegrationInferenceResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -624,14 +678,12 @@ public class LLMObsIntegrationInferenceResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsIntegrationInferenceResponse object is equal to o.
-   */
+  /** Return true if this LLMObsIntegrationInferenceResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -640,14 +692,57 @@ public class LLMObsIntegrationInferenceResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsIntegrationInferenceResponse llmObsIntegrationInferenceResponse = (LLMObsIntegrationInferenceResponse) o;
-    return Objects.equals(this.anthropicMetadata, llmObsIntegrationInferenceResponse.anthropicMetadata) && Objects.equals(this.azureOpenaiMetadata, llmObsIntegrationInferenceResponse.azureOpenaiMetadata) && Objects.equals(this.bedrockMetadata, llmObsIntegrationInferenceResponse.bedrockMetadata) && Objects.equals(this.errorResponse, llmObsIntegrationInferenceResponse.errorResponse) && Objects.equals(this.frequencyPenalty, llmObsIntegrationInferenceResponse.frequencyPenalty) && Objects.equals(this.jsonSchema, llmObsIntegrationInferenceResponse.jsonSchema) && Objects.equals(this.maxCompletionTokens, llmObsIntegrationInferenceResponse.maxCompletionTokens) && Objects.equals(this.maxTokens, llmObsIntegrationInferenceResponse.maxTokens) && Objects.equals(this.messages, llmObsIntegrationInferenceResponse.messages) && Objects.equals(this.modelId, llmObsIntegrationInferenceResponse.modelId) && Objects.equals(this.openaiMetadata, llmObsIntegrationInferenceResponse.openaiMetadata) && Objects.equals(this.presencePenalty, llmObsIntegrationInferenceResponse.presencePenalty) && Objects.equals(this.response, llmObsIntegrationInferenceResponse.response) && Objects.equals(this.temperature, llmObsIntegrationInferenceResponse.temperature) && Objects.equals(this.tools, llmObsIntegrationInferenceResponse.tools) && Objects.equals(this.topK, llmObsIntegrationInferenceResponse.topK) && Objects.equals(this.topP, llmObsIntegrationInferenceResponse.topP) && Objects.equals(this.vertexAiMetadata, llmObsIntegrationInferenceResponse.vertexAiMetadata) && Objects.equals(this.additionalProperties, llmObsIntegrationInferenceResponse.additionalProperties);
+    LLMObsIntegrationInferenceResponse llmObsIntegrationInferenceResponse =
+        (LLMObsIntegrationInferenceResponse) o;
+    return Objects.equals(
+            this.anthropicMetadata, llmObsIntegrationInferenceResponse.anthropicMetadata)
+        && Objects.equals(
+            this.azureOpenaiMetadata, llmObsIntegrationInferenceResponse.azureOpenaiMetadata)
+        && Objects.equals(this.bedrockMetadata, llmObsIntegrationInferenceResponse.bedrockMetadata)
+        && Objects.equals(this.errorResponse, llmObsIntegrationInferenceResponse.errorResponse)
+        && Objects.equals(
+            this.frequencyPenalty, llmObsIntegrationInferenceResponse.frequencyPenalty)
+        && Objects.equals(this.jsonSchema, llmObsIntegrationInferenceResponse.jsonSchema)
+        && Objects.equals(
+            this.maxCompletionTokens, llmObsIntegrationInferenceResponse.maxCompletionTokens)
+        && Objects.equals(this.maxTokens, llmObsIntegrationInferenceResponse.maxTokens)
+        && Objects.equals(this.messages, llmObsIntegrationInferenceResponse.messages)
+        && Objects.equals(this.modelId, llmObsIntegrationInferenceResponse.modelId)
+        && Objects.equals(this.openaiMetadata, llmObsIntegrationInferenceResponse.openaiMetadata)
+        && Objects.equals(this.presencePenalty, llmObsIntegrationInferenceResponse.presencePenalty)
+        && Objects.equals(this.response, llmObsIntegrationInferenceResponse.response)
+        && Objects.equals(this.temperature, llmObsIntegrationInferenceResponse.temperature)
+        && Objects.equals(this.tools, llmObsIntegrationInferenceResponse.tools)
+        && Objects.equals(this.topK, llmObsIntegrationInferenceResponse.topK)
+        && Objects.equals(this.topP, llmObsIntegrationInferenceResponse.topP)
+        && Objects.equals(
+            this.vertexAiMetadata, llmObsIntegrationInferenceResponse.vertexAiMetadata)
+        && Objects.equals(
+            this.additionalProperties, llmObsIntegrationInferenceResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(anthropicMetadata,azureOpenaiMetadata,bedrockMetadata,errorResponse,frequencyPenalty,jsonSchema,maxCompletionTokens,maxTokens,messages,modelId,openaiMetadata,presencePenalty,response,temperature,tools,topK,topP,vertexAiMetadata, additionalProperties);
+    return Objects.hash(
+        anthropicMetadata,
+        azureOpenaiMetadata,
+        bedrockMetadata,
+        errorResponse,
+        frequencyPenalty,
+        jsonSchema,
+        maxCompletionTokens,
+        maxTokens,
+        messages,
+        modelId,
+        openaiMetadata,
+        presencePenalty,
+        response,
+        temperature,
+        tools,
+        topK,
+        topP,
+        vertexAiMetadata,
+        additionalProperties);
   }
 
   @Override
@@ -655,12 +750,16 @@ public class LLMObsIntegrationInferenceResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsIntegrationInferenceResponse {\n");
     sb.append("    anthropicMetadata: ").append(toIndentedString(anthropicMetadata)).append("\n");
-    sb.append("    azureOpenaiMetadata: ").append(toIndentedString(azureOpenaiMetadata)).append("\n");
+    sb.append("    azureOpenaiMetadata: ")
+        .append(toIndentedString(azureOpenaiMetadata))
+        .append("\n");
     sb.append("    bedrockMetadata: ").append(toIndentedString(bedrockMetadata)).append("\n");
     sb.append("    errorResponse: ").append(toIndentedString(errorResponse)).append("\n");
     sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
     sb.append("    jsonSchema: ").append(toIndentedString(jsonSchema)).append("\n");
-    sb.append("    maxCompletionTokens: ").append(toIndentedString(maxCompletionTokens)).append("\n");
+    sb.append("    maxCompletionTokens: ")
+        .append(toIndentedString(maxCompletionTokens))
+        .append("\n");
     sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
@@ -680,8 +779,7 @@ public class LLMObsIntegrationInferenceResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

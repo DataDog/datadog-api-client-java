@@ -1,46 +1,39 @@
-
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.PaginationIterable;
-
-import jakarta.ws.rs.core.GenericType;
+import com.datadog.api.client.v2.model.AllocationExposureScheduleResponse;
+import com.datadog.api.client.v2.model.AllocationResponse;
+import com.datadog.api.client.v2.model.CreateAllocationsRequest;
+import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
+import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
+import com.datadog.api.client.v2.model.CreateVariant;
+import com.datadog.api.client.v2.model.EnvironmentResponse;
+import com.datadog.api.client.v2.model.FeatureFlagResponse;
+import com.datadog.api.client.v2.model.ListAllocationsResponse;
+import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
+import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
+import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
+import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
+import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
+import com.datadog.api.client.v2.model.UpdateVariantRequest;
+import com.datadog.api.client.v2.model.Variant;
 import jakarta.ws.rs.client.Invocation;
-
-import java.io.File;
-import java.util.Arrays;
+import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.LinkedHashMap;
-import java.util.concurrent.CompletableFuture;
-import java.time.OffsetDateTime;
 import java.util.UUID;
-import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
-import com.datadog.api.client.v2.model.FeatureFlagResponse;
-import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
-import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
-import com.datadog.api.client.v2.model.EnvironmentResponse;
-import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
-import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
-import com.datadog.api.client.v2.model.AllocationExposureScheduleResponse;
-import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
-import com.datadog.api.client.v2.model.AllocationResponse;
-import com.datadog.api.client.v2.model.CreateAllocationsRequest;
-import com.datadog.api.client.v2.model.ListAllocationsResponse;
-import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
-import com.datadog.api.client.v2.model.Variant;
-import com.datadog.api.client.v2.model.CreateVariant;
-import com.datadog.api.client.v2.model.UpdateVariantRequest;
+import java.util.concurrent.CompletableFuture;
 
-
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FeatureFlagsApi {
   private ApiClient apiClient;
+
   public FeatureFlagsApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -68,42 +61,43 @@ public class FeatureFlagsApi {
   }
 
   /**
- * Archive a feature flag.
- *
- * See {@link #archiveFeatureFlagWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @return FeatureFlagResponse
- * @throws ApiException if fails to make API call
- */
-  public FeatureFlagResponse  archiveFeatureFlag(UUID featureFlagId) throws ApiException {
+   * Archive a feature flag.
+   *
+   * <p>See {@link #archiveFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @return FeatureFlagResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagResponse archiveFeatureFlag(UUID featureFlagId) throws ApiException {
     return archiveFeatureFlagWithHttpInfo(featureFlagId).getData();
   }
 
   /**
- * Archive a feature flag.
- *
- * See {@link #archiveFeatureFlagWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @return CompletableFuture&lt;FeatureFlagResponse&gt;
- */
-  public CompletableFuture<FeatureFlagResponse>archiveFeatureFlagAsync(UUID featureFlagId) {
-    return archiveFeatureFlagWithHttpInfoAsync(featureFlagId).thenApply(response -> {
-        return response.getData();
-    });
+   * Archive a feature flag.
+   *
+   * <p>See {@link #archiveFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @return CompletableFuture&lt;FeatureFlagResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagResponse> archiveFeatureFlagAsync(UUID featureFlagId) {
+    return archiveFeatureFlagWithHttpInfoAsync(featureFlagId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Archives a feature flag. Archived flags are
-   * hidden from the main list but remain accessible and can be unarchived.</p>
+   * Archives a feature flag. Archived flags are hidden from the main list but remain accessible and
+   * can be unarchived.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @return ApiResponse&lt;FeatureFlagResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -113,103 +107,150 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FeatureFlagResponse> archiveFeatureFlagWithHttpInfo(UUID featureFlagId) throws ApiException {
+  public ApiResponse<FeatureFlagResponse> archiveFeatureFlagWithHttpInfo(UUID featureFlagId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling archiveFeatureFlag");
+      throw new ApiException(
+          400, "Missing the required parameter 'featureFlagId' when calling archiveFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/archive"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/archive"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.archiveFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.archiveFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
   }
 
   /**
    * Archive a feature flag.
    *
-   * See {@link #archiveFeatureFlagWithHttpInfo}.
+   * <p>See {@link #archiveFeatureFlagWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FeatureFlagResponse>> archiveFeatureFlagWithHttpInfoAsync(UUID featureFlagId) {
+  public CompletableFuture<ApiResponse<FeatureFlagResponse>> archiveFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling archiveFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling archiveFeatureFlag"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/archive"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/archive"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.archiveFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.archiveFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
   }
 
   /**
- * Create targeting rules for a flag env.
- *
- * See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @param body  (required)
- * @return AllocationResponse
- * @throws ApiException if fails to make API call
- */
-  public AllocationResponse  createAllocationsForFeatureFlagInEnvironment(UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) throws ApiException {
-    return createAllocationsForFeatureFlagInEnvironmentWithHttpInfo(featureFlagId, environmentId, body).getData();
-  }
-
-  /**
- * Create targeting rules for a flag env.
- *
- * See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;AllocationResponse&gt;
- */
-  public CompletableFuture<AllocationResponse>createAllocationsForFeatureFlagInEnvironmentAsync(UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) {
-    return createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(featureFlagId, environmentId, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Creates a new targeting rule (allocation) for a specific feature flag in a specific environment.</p>
+   * Create targeting rules for a flag env.
+   *
+   * <p>See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
-   * @param body  (required)
+   * @param body (required)
+   * @return AllocationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AllocationResponse createAllocationsForFeatureFlagInEnvironment(
+      UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) throws ApiException {
+    return createAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+            featureFlagId, environmentId, body)
+        .getData();
+  }
+
+  /**
+   * Create targeting rules for a flag env.
+   *
+   * <p>See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;AllocationResponse&gt;
+   */
+  public CompletableFuture<AllocationResponse> createAllocationsForFeatureFlagInEnvironmentAsync(
+      UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) {
+    return createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+            featureFlagId, environmentId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a new targeting rule (allocation) for a specific feature flag in a specific
+   * environment.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
    * @return ApiResponse&lt;AllocationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -221,223 +262,185 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AllocationResponse> createAllocationsForFeatureFlagInEnvironmentWithHttpInfo(UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) throws ApiException {
+  public ApiResponse<AllocationResponse> createAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+      UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling createAllocationsForFeatureFlagInEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " createAllocationsForFeatureFlagInEnvironment");
     }
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-      throw new ApiException(400, "Missing the required parameter 'environmentId' when calling createAllocationsForFeatureFlagInEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " createAllocationsForFeatureFlagInEnvironment");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createAllocationsForFeatureFlagInEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createAllocationsForFeatureFlagInEnvironment");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.createAllocationsForFeatureFlagInEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createAllocationsForFeatureFlagInEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationResponse>() {});
   }
 
   /**
    * Create targeting rules for a flag env.
    *
-   * See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
+   * <p>See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AllocationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AllocationResponse>> createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) {
+  public CompletableFuture<ApiResponse<AllocationResponse>>
+      createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+          UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling createAllocationsForFeatureFlagInEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " createAllocationsForFeatureFlagInEnvironment"));
+      return result;
     }
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-        CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'environmentId' when calling createAllocationsForFeatureFlagInEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " createAllocationsForFeatureFlagInEnvironment"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createAllocationsForFeatureFlagInEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createAllocationsForFeatureFlagInEnvironment"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.createAllocationsForFeatureFlagInEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createAllocationsForFeatureFlagInEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationResponse>() {});
-  }
-
-  /**
- * Create a feature flag.
- *
- * See {@link #createFeatureFlagWithHttpInfo}.
- *
- * @param body  (required)
- * @return FeatureFlagResponse
- * @throws ApiException if fails to make API call
- */
-  public FeatureFlagResponse  createFeatureFlag(CreateFeatureFlagRequest body) throws ApiException {
-    return createFeatureFlagWithHttpInfo(body).getData();
-  }
-
-  /**
- * Create a feature flag.
- *
- * See {@link #createFeatureFlagWithHttpInfoAsync}.
- *
- * @param body  (required)
- * @return CompletableFuture&lt;FeatureFlagResponse&gt;
- */
-  public CompletableFuture<FeatureFlagResponse>createFeatureFlagAsync(CreateFeatureFlagRequest body) {
-    return createFeatureFlagWithHttpInfoAsync(body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Creates a new feature flag with variants.</p>
-   *
-   * @param body  (required)
-   * @return ApiResponse&lt;FeatureFlagResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   * <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<FeatureFlagResponse> createFeatureFlagWithHttpInfo(CreateFeatureFlagRequest body) throws ApiException {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createFeatureFlag");
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags";
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.createFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationResponse>() {});
   }
 
   /**
    * Create a feature flag.
    *
-   * See {@link #createFeatureFlagWithHttpInfo}.
+   * <p>See {@link #createFeatureFlagWithHttpInfo}.
    *
-   * @param body  (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
+   * @param body (required)
+   * @return FeatureFlagResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<FeatureFlagResponse>> createFeatureFlagWithHttpInfoAsync(CreateFeatureFlagRequest body) {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-        CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createFeatureFlag"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags";
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.createFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+  public FeatureFlagResponse createFeatureFlag(CreateFeatureFlagRequest body) throws ApiException {
+    return createFeatureFlagWithHttpInfo(body).getData();
   }
 
   /**
- * Create an environment.
- *
- * See {@link #createFeatureFlagsEnvironmentWithHttpInfo}.
- *
- * @param body  (required)
- * @return EnvironmentResponse
- * @throws ApiException if fails to make API call
- */
-  public EnvironmentResponse  createFeatureFlagsEnvironment(CreateEnvironmentRequest body) throws ApiException {
-    return createFeatureFlagsEnvironmentWithHttpInfo(body).getData();
-  }
-
-  /**
- * Create an environment.
- *
- * See {@link #createFeatureFlagsEnvironmentWithHttpInfoAsync}.
- *
- * @param body  (required)
- * @return CompletableFuture&lt;EnvironmentResponse&gt;
- */
-  public CompletableFuture<EnvironmentResponse>createFeatureFlagsEnvironmentAsync(CreateEnvironmentRequest body) {
-    return createFeatureFlagsEnvironmentWithHttpInfoAsync(body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Creates a new environment for organizing feature flags.</p>
+   * Create a feature flag.
    *
-   * @param body  (required)
-   * @return ApiResponse&lt;EnvironmentResponse&gt;
+   * <p>See {@link #createFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FeatureFlagResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagResponse> createFeatureFlagAsync(
+      CreateFeatureFlagRequest body) {
+    return createFeatureFlagWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a new feature flag with variants.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FeatureFlagResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -447,104 +450,274 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<EnvironmentResponse> createFeatureFlagsEnvironmentWithHttpInfo(CreateEnvironmentRequest body) throws ApiException {
+  public ApiResponse<FeatureFlagResponse> createFeatureFlagWithHttpInfo(
+      CreateFeatureFlagRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createFeatureFlagsEnvironment");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments";
+    String localVarPath = "/api/v2/feature-flags";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.createFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<EnvironmentResponse>() {});
+  /**
+   * Create a feature flag.
+   *
+   * <p>See {@link #createFeatureFlagWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagResponse>> createFeatureFlagWithHttpInfoAsync(
+      CreateFeatureFlagRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createFeatureFlag"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/feature-flags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
   }
 
   /**
    * Create an environment.
    *
-   * See {@link #createFeatureFlagsEnvironmentWithHttpInfo}.
+   * <p>See {@link #createFeatureFlagsEnvironmentWithHttpInfo}.
    *
-   * @param body  (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;EnvironmentResponse&gt;&gt;
+   * @param body (required)
+   * @return EnvironmentResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<EnvironmentResponse>> createFeatureFlagsEnvironmentWithHttpInfoAsync(CreateEnvironmentRequest body) {
+  public EnvironmentResponse createFeatureFlagsEnvironment(CreateEnvironmentRequest body)
+      throws ApiException {
+    return createFeatureFlagsEnvironmentWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an environment.
+   *
+   * <p>See {@link #createFeatureFlagsEnvironmentWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;EnvironmentResponse&gt;
+   */
+  public CompletableFuture<EnvironmentResponse> createFeatureFlagsEnvironmentAsync(
+      CreateEnvironmentRequest body) {
+    return createFeatureFlagsEnvironmentWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a new environment for organizing feature flags.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;EnvironmentResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EnvironmentResponse> createFeatureFlagsEnvironmentWithHttpInfo(
+      CreateEnvironmentRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createFeatureFlagsEnvironment"));
-        return result;
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createFeatureFlagsEnvironment");
     }
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags/environments";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createFeatureFlagsEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EnvironmentResponse>() {});
+  }
+
+  /**
+   * Create an environment.
+   *
+   * <p>See {@link #createFeatureFlagsEnvironmentWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;EnvironmentResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EnvironmentResponse>>
+      createFeatureFlagsEnvironmentWithHttpInfoAsync(CreateEnvironmentRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createFeatureFlagsEnvironment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/feature-flags/environments";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.createFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createFeatureFlagsEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<EnvironmentResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EnvironmentResponse>() {});
   }
 
   /**
- * Add a variant to a feature flag.
- *
- * See {@link #createVariantForFeatureFlagWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param body  (required)
- * @return Variant
- * @throws ApiException if fails to make API call
- */
-  public Variant  createVariantForFeatureFlag(UUID featureFlagId, CreateVariant body) throws ApiException {
+   * Add a variant to a feature flag.
+   *
+   * <p>See {@link #createVariantForFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return Variant
+   * @throws ApiException if fails to make API call
+   */
+  public Variant createVariantForFeatureFlag(UUID featureFlagId, CreateVariant body)
+      throws ApiException {
     return createVariantForFeatureFlagWithHttpInfo(featureFlagId, body).getData();
   }
 
   /**
- * Add a variant to a feature flag.
- *
- * See {@link #createVariantForFeatureFlagWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;Variant&gt;
- */
-  public CompletableFuture<Variant>createVariantForFeatureFlagAsync(UUID featureFlagId, CreateVariant body) {
-    return createVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Adds a single new variant to an existing feature flag. This endpoint is
-   * additive-only: it never modifies existing variants. A request whose <code>key</code>
-   * already exists on the flag is rejected with <code>409 Conflict</code>; a <code>value</code>
-   * whose type does not match the flag's <code>value_type</code> is rejected with <code>400</code>.
-   * The server generates the variant UUID and returns it in the response body;
-   * callers (for example, the flag-migration tool) need this UUID to reference
-   * the new variant in subsequent allocation syncs.</p>
+   * Add a variant to a feature flag.
+   *
+   * <p>See {@link #createVariantForFeatureFlagWithHttpInfoAsync}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
-   * @param body  (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Variant&gt;
+   */
+  public CompletableFuture<Variant> createVariantForFeatureFlagAsync(
+      UUID featureFlagId, CreateVariant body) {
+    return createVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Adds a single new variant to an existing feature flag. This endpoint is additive-only: it never
+   * modifies existing variants. A request whose <code>key</code> already exists on the flag is
+   * rejected with <code>409 Conflict</code>; a <code>value</code> whose type does not match the
+   * flag's <code>value_type</code> is rejected with <code>400</code>. The server generates the
+   * variant UUID and returns it in the response body; callers (for example, the flag-migration
+   * tool) need this UUID to reference the new variant in subsequent allocation syncs.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
    * @return ApiResponse&lt;Variant&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -555,109 +728,157 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Variant> createVariantForFeatureFlagWithHttpInfo(UUID featureFlagId, CreateVariant body) throws ApiException {
+  public ApiResponse<Variant> createVariantForFeatureFlagWithHttpInfo(
+      UUID featureFlagId, CreateVariant body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling createVariantForFeatureFlag");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " createVariantForFeatureFlag");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createVariantForFeatureFlag");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createVariantForFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/variants"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.createVariantForFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Variant>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createVariantForFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
   }
 
   /**
    * Add a variant to a feature flag.
    *
-   * See {@link #createVariantForFeatureFlagWithHttpInfo}.
+   * <p>See {@link #createVariantForFeatureFlagWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Variant&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Variant>> createVariantForFeatureFlagWithHttpInfoAsync(UUID featureFlagId, CreateVariant body) {
+  public CompletableFuture<ApiResponse<Variant>> createVariantForFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId, CreateVariant body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling createVariantForFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " createVariantForFeatureFlag"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createVariantForFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createVariantForFeatureFlag"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/variants"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.createVariantForFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createVariantForFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Variant>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
   }
 
   /**
- * Delete an environment.
- *
- * See {@link #deleteFeatureFlagsEnvironmentWithHttpInfo}.
- *
- * @param environmentId The ID of the environment. (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  deleteFeatureFlagsEnvironment(UUID environmentId) throws ApiException {
+   * Delete an environment.
+   *
+   * <p>See {@link #deleteFeatureFlagsEnvironmentWithHttpInfo}.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteFeatureFlagsEnvironment(UUID environmentId) throws ApiException {
     deleteFeatureFlagsEnvironmentWithHttpInfo(environmentId);
   }
 
   /**
- * Delete an environment.
- *
- * See {@link #deleteFeatureFlagsEnvironmentWithHttpInfoAsync}.
- *
- * @param environmentId The ID of the environment. (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>deleteFeatureFlagsEnvironmentAsync(UUID environmentId) {
-    return deleteFeatureFlagsEnvironmentWithHttpInfoAsync(environmentId).thenApply(response -> {
-        return response.getData();
-    });
+   * Delete an environment.
+   *
+   * <p>See {@link #deleteFeatureFlagsEnvironmentWithHttpInfoAsync}.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteFeatureFlagsEnvironmentAsync(UUID environmentId) {
+    return deleteFeatureFlagsEnvironmentWithHttpInfoAsync(environmentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Deletes an environment. This operation cannot be undone.</p>
+   * Deletes an environment. This operation cannot be undone.
    *
    * @param environmentId The ID of the environment. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -666,100 +887,147 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteFeatureFlagsEnvironmentWithHttpInfo(UUID environmentId) throws ApiException {
+  public ApiResponse<Void> deleteFeatureFlagsEnvironmentWithHttpInfo(UUID environmentId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-      throw new ApiException(400, "Missing the required parameter 'environmentId' when calling deleteFeatureFlagsEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " deleteFeatureFlagsEnvironment");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments/{environment_id}"
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/environments/{environment_id}"
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.deleteFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.deleteFeatureFlagsEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Delete an environment.
    *
-   * See {@link #deleteFeatureFlagsEnvironmentWithHttpInfo}.
+   * <p>See {@link #deleteFeatureFlagsEnvironmentWithHttpInfo}.
    *
    * @param environmentId The ID of the environment. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteFeatureFlagsEnvironmentWithHttpInfoAsync(UUID environmentId) {
+  public CompletableFuture<ApiResponse<Void>> deleteFeatureFlagsEnvironmentWithHttpInfoAsync(
+      UUID environmentId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'environmentId' when calling deleteFeatureFlagsEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " deleteFeatureFlagsEnvironment"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments/{environment_id}"
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/environments/{environment_id}"
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.deleteFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.deleteFeatureFlagsEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
- * Delete a variant.
- *
- * See {@link #deleteVariantFromFeatureFlagWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param variantId The ID of the variant. (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  deleteVariantFromFeatureFlag(UUID featureFlagId, UUID variantId) throws ApiException {
+   * Delete a variant.
+   *
+   * <p>See {@link #deleteVariantFromFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteVariantFromFeatureFlag(UUID featureFlagId, UUID variantId) throws ApiException {
     deleteVariantFromFeatureFlagWithHttpInfo(featureFlagId, variantId);
   }
 
   /**
- * Delete a variant.
- *
- * See {@link #deleteVariantFromFeatureFlagWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param variantId The ID of the variant. (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>deleteVariantFromFeatureFlagAsync(UUID featureFlagId, UUID variantId) {
-    return deleteVariantFromFeatureFlagWithHttpInfoAsync(featureFlagId, variantId).thenApply(response -> {
-        return response.getData();
-    });
+   * Delete a variant.
+   *
+   * <p>See {@link #deleteVariantFromFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteVariantFromFeatureFlagAsync(
+      UUID featureFlagId, UUID variantId) {
+    return deleteVariantFromFeatureFlagWithHttpInfoAsync(featureFlagId, variantId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Deletes a variant from a feature flag.</p>
-   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of deleting the variant immediately. If a pending suggestion already exists for this flag's variant property, the endpoint returns <code>409 Conflict</code>.</p>
+   * Deletes a variant from a feature flag.
+   *
+   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and
+   * returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of deleting the
+   * variant immediately. If a pending suggestion already exists for this flag's variant property,
+   * the endpoint returns <code>409 Conflict</code>.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -770,231 +1038,164 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteVariantFromFeatureFlagWithHttpInfo(UUID featureFlagId, UUID variantId) throws ApiException {
+  public ApiResponse<Void> deleteVariantFromFeatureFlagWithHttpInfo(
+      UUID featureFlagId, UUID variantId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling deleteVariantFromFeatureFlag");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " deleteVariantFromFeatureFlag");
     }
 
     // verify the required parameter 'variantId' is set
     if (variantId == null) {
-      throw new ApiException(400, "Missing the required parameter 'variantId' when calling deleteVariantFromFeatureFlag");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'variantId' when calling deleteVariantFromFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.deleteVariantFromFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.deleteVariantFromFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Delete a variant.
    *
-   * See {@link #deleteVariantFromFeatureFlagWithHttpInfo}.
+   * <p>See {@link #deleteVariantFromFeatureFlagWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteVariantFromFeatureFlagWithHttpInfoAsync(UUID featureFlagId, UUID variantId) {
+  public CompletableFuture<ApiResponse<Void>> deleteVariantFromFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId, UUID variantId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling deleteVariantFromFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " deleteVariantFromFeatureFlag"));
+      return result;
     }
 
     // verify the required parameter 'variantId' is set
     if (variantId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'variantId' when calling deleteVariantFromFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'variantId' when calling"
+                  + " deleteVariantFromFeatureFlag"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.deleteVariantFromFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.deleteVariantFromFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
-  }
-
-  /**
- * Disable a feature flag in an environment.
- *
- * See {@link #disableFeatureFlagEnvironmentWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  disableFeatureFlagEnvironment(UUID featureFlagId, UUID environmentId) throws ApiException {
-    disableFeatureFlagEnvironmentWithHttpInfo(featureFlagId, environmentId);
-  }
-
-  /**
- * Disable a feature flag in an environment.
- *
- * See {@link #disableFeatureFlagEnvironmentWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>disableFeatureFlagEnvironmentAsync(UUID featureFlagId, UUID environmentId) {
-    return disableFeatureFlagEnvironmentWithHttpInfoAsync(featureFlagId, environmentId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Disable a feature flag in a specific environment.</p>
-   *
-   * @param featureFlagId The ID of the feature flag. (required)
-   * @param environmentId The ID of the environment. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   * <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<Void> disableFeatureFlagEnvironmentWithHttpInfo(UUID featureFlagId, UUID environmentId) throws ApiException {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'featureFlagId' is set
-    if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling disableFeatureFlagEnvironment");
-    }
-
-    // verify the required parameter 'environmentId' is set
-    if (environmentId == null) {
-      throw new ApiException(400, "Missing the required parameter 'environmentId' when calling disableFeatureFlagEnvironment");
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/disable"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.disableFeatureFlagEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Disable a feature flag in an environment.
    *
-   * See {@link #disableFeatureFlagEnvironmentWithHttpInfo}.
+   * <p>See {@link #disableFeatureFlagEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<Void>> disableFeatureFlagEnvironmentWithHttpInfoAsync(UUID featureFlagId, UUID environmentId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'featureFlagId' is set
-    if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling disableFeatureFlagEnvironment"));
-        return result;
-    }
-
-    // verify the required parameter 'environmentId' is set
-    if (environmentId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'environmentId' when calling disableFeatureFlagEnvironment"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/disable"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.disableFeatureFlagEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+  public void disableFeatureFlagEnvironment(UUID featureFlagId, UUID environmentId)
+      throws ApiException {
+    disableFeatureFlagEnvironmentWithHttpInfo(featureFlagId, environmentId);
   }
 
   /**
- * Enable a feature flag in an environment.
- *
- * See {@link #enableFeatureFlagEnvironmentWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  enableFeatureFlagEnvironment(UUID featureFlagId, UUID environmentId) throws ApiException {
-    enableFeatureFlagEnvironmentWithHttpInfo(featureFlagId, environmentId);
+   * Disable a feature flag in an environment.
+   *
+   * <p>See {@link #disableFeatureFlagEnvironmentWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> disableFeatureFlagEnvironmentAsync(
+      UUID featureFlagId, UUID environmentId) {
+    return disableFeatureFlagEnvironmentWithHttpInfoAsync(featureFlagId, environmentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * Enable a feature flag in an environment.
- *
- * See {@link #enableFeatureFlagEnvironmentWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>enableFeatureFlagEnvironmentAsync(UUID featureFlagId, UUID environmentId) {
-    return enableFeatureFlagEnvironmentWithHttpInfoAsync(featureFlagId, environmentId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Enable a feature flag in a specific environment.</p>
+   * Disable a feature flag in a specific environment.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1004,212 +1205,333 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> enableFeatureFlagEnvironmentWithHttpInfo(UUID featureFlagId, UUID environmentId) throws ApiException {
+  public ApiResponse<Void> disableFeatureFlagEnvironmentWithHttpInfo(
+      UUID featureFlagId, UUID environmentId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling enableFeatureFlagEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " disableFeatureFlagEnvironment");
     }
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-      throw new ApiException(400, "Missing the required parameter 'environmentId' when calling enableFeatureFlagEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " disableFeatureFlagEnvironment");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/enable"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/disable"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.enableFeatureFlagEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.disableFeatureFlagEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
-   * Enable a feature flag in an environment.
+   * Disable a feature flag in an environment.
    *
-   * See {@link #enableFeatureFlagEnvironmentWithHttpInfo}.
+   * <p>See {@link #disableFeatureFlagEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> enableFeatureFlagEnvironmentWithHttpInfoAsync(UUID featureFlagId, UUID environmentId) {
+  public CompletableFuture<ApiResponse<Void>> disableFeatureFlagEnvironmentWithHttpInfoAsync(
+      UUID featureFlagId, UUID environmentId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling enableFeatureFlagEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " disableFeatureFlagEnvironment"));
+      return result;
     }
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'environmentId' when calling enableFeatureFlagEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " disableFeatureFlagEnvironment"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/enable"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/disable"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.enableFeatureFlagEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.disableFeatureFlagEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
- * Get a feature flag.
- *
- * See {@link #getFeatureFlagWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @return FeatureFlagResponse
- * @throws ApiException if fails to make API call
- */
-  public FeatureFlagResponse  getFeatureFlag(UUID featureFlagId) throws ApiException {
-    return getFeatureFlagWithHttpInfo(featureFlagId).getData();
-  }
-
-  /**
- * Get a feature flag.
- *
- * See {@link #getFeatureFlagWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @return CompletableFuture&lt;FeatureFlagResponse&gt;
- */
-  public CompletableFuture<FeatureFlagResponse>getFeatureFlagAsync(UUID featureFlagId) {
-    return getFeatureFlagWithHttpInfoAsync(featureFlagId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Returns the details of a specific feature flag
-   * including variants and environment status.</p>
+   * Enable a feature flag in an environment.
+   *
+   * <p>See {@link #enableFeatureFlagEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
-   * @return ApiResponse&lt;FeatureFlagResponse&gt;
+   * @param environmentId The ID of the environment. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void enableFeatureFlagEnvironment(UUID featureFlagId, UUID environmentId)
+      throws ApiException {
+    enableFeatureFlagEnvironmentWithHttpInfo(featureFlagId, environmentId);
+  }
+
+  /**
+   * Enable a feature flag in an environment.
+   *
+   * <p>See {@link #enableFeatureFlagEnvironmentWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> enableFeatureFlagEnvironmentAsync(
+      UUID featureFlagId, UUID environmentId) {
+    return enableFeatureFlagEnvironmentWithHttpInfoAsync(featureFlagId, environmentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Enable a feature flag in a specific environment.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FeatureFlagResponse> getFeatureFlagWithHttpInfo(UUID featureFlagId) throws ApiException {
+  public ApiResponse<Void> enableFeatureFlagEnvironmentWithHttpInfo(
+      UUID featureFlagId, UUID environmentId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling getFeatureFlag");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " enableFeatureFlagEnvironment");
+    }
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " enableFeatureFlagEnvironment");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/enable"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.enableFeatureFlagEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.getFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+  /**
+   * Enable a feature flag in an environment.
+   *
+   * <p>See {@link #enableFeatureFlagEnvironmentWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> enableFeatureFlagEnvironmentWithHttpInfoAsync(
+      UUID featureFlagId, UUID environmentId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " enableFeatureFlagEnvironment"));
+      return result;
+    }
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " enableFeatureFlagEnvironment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/enable"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.enableFeatureFlagEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Get a feature flag.
    *
-   * See {@link #getFeatureFlagWithHttpInfo}.
+   * <p>See {@link #getFeatureFlagWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
+   * @return FeatureFlagResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<FeatureFlagResponse>> getFeatureFlagWithHttpInfoAsync(UUID featureFlagId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'featureFlagId' is set
-    if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling getFeatureFlag"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.getFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+  public FeatureFlagResponse getFeatureFlag(UUID featureFlagId) throws ApiException {
+    return getFeatureFlagWithHttpInfo(featureFlagId).getData();
   }
 
   /**
- * Get an environment.
- *
- * See {@link #getFeatureFlagsEnvironmentWithHttpInfo}.
- *
- * @param environmentId The ID of the environment. (required)
- * @return EnvironmentResponse
- * @throws ApiException if fails to make API call
- */
-  public EnvironmentResponse  getFeatureFlagsEnvironment(UUID environmentId) throws ApiException {
-    return getFeatureFlagsEnvironmentWithHttpInfo(environmentId).getData();
-  }
-
-  /**
- * Get an environment.
- *
- * See {@link #getFeatureFlagsEnvironmentWithHttpInfoAsync}.
- *
- * @param environmentId The ID of the environment. (required)
- * @return CompletableFuture&lt;EnvironmentResponse&gt;
- */
-  public CompletableFuture<EnvironmentResponse>getFeatureFlagsEnvironmentAsync(UUID environmentId) {
-    return getFeatureFlagsEnvironmentWithHttpInfoAsync(environmentId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Returns the details of a specific environment.</p>
+   * Get a feature flag.
    *
-   * @param environmentId The ID of the environment. (required)
-   * @return ApiResponse&lt;EnvironmentResponse&gt;
+   * <p>See {@link #getFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @return CompletableFuture&lt;FeatureFlagResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagResponse> getFeatureFlagAsync(UUID featureFlagId) {
+    return getFeatureFlagWithHttpInfoAsync(featureFlagId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the details of a specific feature flag including variants and environment status.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @return ApiResponse&lt;FeatureFlagResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1218,64 +1540,242 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<EnvironmentResponse> getFeatureFlagsEnvironmentWithHttpInfo(UUID environmentId) throws ApiException {
+  public ApiResponse<FeatureFlagResponse> getFeatureFlagWithHttpInfo(UUID featureFlagId)
+      throws ApiException {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'environmentId' is set
-    if (environmentId == null) {
-      throw new ApiException(400, "Missing the required parameter 'environmentId' when calling getFeatureFlagsEnvironment");
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'featureFlagId' when calling getFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments/{environment_id}"
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.getFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.getFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<EnvironmentResponse>() {});
+  /**
+   * Get a feature flag.
+   *
+   * <p>See {@link #getFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagResponse>> getFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'featureFlagId' when calling getFeatureFlag"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.getFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
   }
 
   /**
    * Get an environment.
    *
-   * See {@link #getFeatureFlagsEnvironmentWithHttpInfo}.
+   * <p>See {@link #getFeatureFlagsEnvironmentWithHttpInfo}.
    *
    * @param environmentId The ID of the environment. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;EnvironmentResponse&gt;&gt;
+   * @return EnvironmentResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<EnvironmentResponse>> getFeatureFlagsEnvironmentWithHttpInfoAsync(UUID environmentId) {
+  public EnvironmentResponse getFeatureFlagsEnvironment(UUID environmentId) throws ApiException {
+    return getFeatureFlagsEnvironmentWithHttpInfo(environmentId).getData();
+  }
+
+  /**
+   * Get an environment.
+   *
+   * <p>See {@link #getFeatureFlagsEnvironmentWithHttpInfoAsync}.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @return CompletableFuture&lt;EnvironmentResponse&gt;
+   */
+  public CompletableFuture<EnvironmentResponse> getFeatureFlagsEnvironmentAsync(
+      UUID environmentId) {
+    return getFeatureFlagsEnvironmentWithHttpInfoAsync(environmentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the details of a specific environment.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @return ApiResponse&lt;EnvironmentResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EnvironmentResponse> getFeatureFlagsEnvironmentWithHttpInfo(UUID environmentId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-        CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'environmentId' when calling getFeatureFlagsEnvironment"));
-        return result;
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling getFeatureFlagsEnvironment");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments/{environment_id}"
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/environments/{environment_id}"
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.getFeatureFlagsEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EnvironmentResponse>() {});
+  }
+
+  /**
+   * Get an environment.
+   *
+   * <p>See {@link #getFeatureFlagsEnvironmentWithHttpInfo}.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;EnvironmentResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EnvironmentResponse>>
+      getFeatureFlagsEnvironmentWithHttpInfoAsync(UUID environmentId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " getFeatureFlagsEnvironment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/environments/{environment_id}"
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.getFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.getFeatureFlagsEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<EnvironmentResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EnvironmentResponse>() {});
   }
 
-  /**
-   * Manage optional parameters to listFeatureFlags.
-   */
+  /** Manage optional parameters to listFeatureFlags. */
   public static class ListFeatureFlagsOptionalParameters {
     private String key;
     private Boolean isArchived;
@@ -1284,6 +1784,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set key.
+     *
      * @param key Filter feature flags by key (partial matching). (optional)
      * @return ListFeatureFlagsOptionalParameters
      */
@@ -1294,6 +1795,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set isArchived.
+     *
      * @param isArchived Filter by archived status. (optional)
      * @return ListFeatureFlagsOptionalParameters
      */
@@ -1304,6 +1806,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set limit.
+     *
      * @param limit Maximum number of results to return. (optional, default to 100)
      * @return ListFeatureFlagsOptionalParameters
      */
@@ -1314,6 +1817,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set offset.
+     *
      * @param offset Number of results to skip. (optional, default to 0)
      * @return ListFeatureFlagsOptionalParameters
      */
@@ -1324,67 +1828,72 @@ public class FeatureFlagsApi {
   }
 
   /**
- * List feature flags.
- *
- * See {@link #listFeatureFlagsWithHttpInfo}.
- *
- * @return ListFeatureFlagsResponse
- * @throws ApiException if fails to make API call
- */
-  public ListFeatureFlagsResponse listFeatureFlags () throws ApiException {
+   * List feature flags.
+   *
+   * <p>See {@link #listFeatureFlagsWithHttpInfo}.
+   *
+   * @return ListFeatureFlagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFeatureFlagsResponse listFeatureFlags() throws ApiException {
     return listFeatureFlagsWithHttpInfo(new ListFeatureFlagsOptionalParameters()).getData();
   }
 
   /**
- * List feature flags.
- *
- * See {@link #listFeatureFlagsWithHttpInfoAsync}.
- *
- * @return CompletableFuture&lt;ListFeatureFlagsResponse&gt;
- */
-  public CompletableFuture<ListFeatureFlagsResponse>listFeatureFlagsAsync() {
-    return listFeatureFlagsWithHttpInfoAsync(new ListFeatureFlagsOptionalParameters()).thenApply(response -> {
-        return response.getData();
-    });
+   * List feature flags.
+   *
+   * <p>See {@link #listFeatureFlagsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListFeatureFlagsResponse&gt;
+   */
+  public CompletableFuture<ListFeatureFlagsResponse> listFeatureFlagsAsync() {
+    return listFeatureFlagsWithHttpInfoAsync(new ListFeatureFlagsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * List feature flags.
- *
- * See {@link #listFeatureFlagsWithHttpInfo}.
- *
- * @param parameters Optional parameters for the request.
- * @return ListFeatureFlagsResponse
- * @throws ApiException if fails to make API call
- */
-  public ListFeatureFlagsResponse listFeatureFlags(ListFeatureFlagsOptionalParameters parameters) throws ApiException {
+   * List feature flags.
+   *
+   * <p>See {@link #listFeatureFlagsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListFeatureFlagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFeatureFlagsResponse listFeatureFlags(ListFeatureFlagsOptionalParameters parameters)
+      throws ApiException {
     return listFeatureFlagsWithHttpInfo(parameters).getData();
   }
 
   /**
- * List feature flags.
- *
- * See {@link #listFeatureFlagsWithHttpInfoAsync}.
- *
- * @param parameters Optional parameters for the request.
- * @return CompletableFuture&lt;ListFeatureFlagsResponse&gt;
- */
-  public CompletableFuture<ListFeatureFlagsResponse>listFeatureFlagsAsync(ListFeatureFlagsOptionalParameters parameters) {
-    return listFeatureFlagsWithHttpInfoAsync(parameters).thenApply(response -> {
-        return response.getData();
-    });
+   * List feature flags.
+   *
+   * <p>See {@link #listFeatureFlagsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListFeatureFlagsResponse&gt;
+   */
+  public CompletableFuture<ListFeatureFlagsResponse> listFeatureFlagsAsync(
+      ListFeatureFlagsOptionalParameters parameters) {
+    return listFeatureFlagsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Returns a list of feature flags for the organization.
-   * Supports filtering by key and archived status.</p>
+   * Returns a list of feature flags for the organization. Supports filtering by key and archived
+   * status.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListFeatureFlagsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1392,7 +1901,8 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ListFeatureFlagsResponse> listFeatureFlagsWithHttpInfo(ListFeatureFlagsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<ListFeatureFlagsResponse> listFeatureFlagsWithHttpInfo(
+      ListFeatureFlagsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String key = parameters.key;
     Boolean isArchived = parameters.isArchived;
@@ -1401,7 +1911,6 @@ public class FeatureFlagsApi {
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1410,19 +1919,36 @@ public class FeatureFlagsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.listFeatureFlags", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListFeatureFlagsResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.listFeatureFlags",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFeatureFlagsResponse>() {});
   }
 
   /**
    * List feature flags.
    *
-   * See {@link #listFeatureFlagsWithHttpInfo}.
+   * <p>See {@link #listFeatureFlagsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ListFeatureFlagsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ListFeatureFlagsResponse>> listFeatureFlagsWithHttpInfoAsync(ListFeatureFlagsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<ListFeatureFlagsResponse>> listFeatureFlagsWithHttpInfoAsync(
+      ListFeatureFlagsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String key = parameters.key;
     Boolean isArchived = parameters.isArchived;
@@ -1431,7 +1957,6 @@ public class FeatureFlagsApi {
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1442,18 +1967,32 @@ public class FeatureFlagsApi {
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.listFeatureFlags", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.listFeatureFlags",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ListFeatureFlagsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListFeatureFlagsResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFeatureFlagsResponse>() {});
   }
 
-  /**
-   * Manage optional parameters to listFeatureFlagsEnvironments.
-   */
+  /** Manage optional parameters to listFeatureFlagsEnvironments. */
   public static class ListFeatureFlagsEnvironmentsOptionalParameters {
     private String name;
     private String key;
@@ -1463,6 +2002,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set name.
+     *
      * @param name Filter environments by name (partial matching). (optional)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
@@ -1473,6 +2013,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set key.
+     *
      * @param key Filter environments by key (partial matching). (optional)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
@@ -1483,7 +2024,9 @@ public class FeatureFlagsApi {
 
     /**
      * Set ddEnv.
-     * @param ddEnv Filter environments by queries that contain the provided DD_ENV value. (optional)
+     *
+     * @param ddEnv Filter environments by queries that contain the provided DD_ENV value.
+     *     (optional)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
     public ListFeatureFlagsEnvironmentsOptionalParameters ddEnv(String ddEnv) {
@@ -1493,6 +2036,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set limit.
+     *
      * @param limit Maximum number of results to return. (optional, default to 100)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
@@ -1503,6 +2047,7 @@ public class FeatureFlagsApi {
 
     /**
      * Set offset.
+     *
      * @param offset Number of results to skip. (optional, default to 0)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
@@ -1513,107 +2058,84 @@ public class FeatureFlagsApi {
   }
 
   /**
- * List environments.
- *
- * See {@link #listFeatureFlagsEnvironmentsWithHttpInfo}.
- *
- * @return ListEnvironmentsResponse
- * @throws ApiException if fails to make API call
- */
-  public ListEnvironmentsResponse listFeatureFlagsEnvironments () throws ApiException {
-    return listFeatureFlagsEnvironmentsWithHttpInfo(new ListFeatureFlagsEnvironmentsOptionalParameters()).getData();
-  }
-
-  /**
- * List environments.
- *
- * See {@link #listFeatureFlagsEnvironmentsWithHttpInfoAsync}.
- *
- * @return CompletableFuture&lt;ListEnvironmentsResponse&gt;
- */
-  public CompletableFuture<ListEnvironmentsResponse>listFeatureFlagsEnvironmentsAsync() {
-    return listFeatureFlagsEnvironmentsWithHttpInfoAsync(new ListFeatureFlagsEnvironmentsOptionalParameters()).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-  /**
- * List environments.
- *
- * See {@link #listFeatureFlagsEnvironmentsWithHttpInfo}.
- *
- * @param parameters Optional parameters for the request.
- * @return ListEnvironmentsResponse
- * @throws ApiException if fails to make API call
- */
-  public ListEnvironmentsResponse listFeatureFlagsEnvironments(ListFeatureFlagsEnvironmentsOptionalParameters parameters) throws ApiException {
-    return listFeatureFlagsEnvironmentsWithHttpInfo(parameters).getData();
-  }
-
-  /**
- * List environments.
- *
- * See {@link #listFeatureFlagsEnvironmentsWithHttpInfoAsync}.
- *
- * @param parameters Optional parameters for the request.
- * @return CompletableFuture&lt;ListEnvironmentsResponse&gt;
- */
-  public CompletableFuture<ListEnvironmentsResponse>listFeatureFlagsEnvironmentsAsync(ListFeatureFlagsEnvironmentsOptionalParameters parameters) {
-    return listFeatureFlagsEnvironmentsWithHttpInfoAsync(parameters).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Returns a list of environments for the organization.
-   * Supports filtering by name, key, and DD_ENV.</p>
+   * List environments.
    *
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ListEnvironmentsResponse&gt;
+   * <p>See {@link #listFeatureFlagsEnvironmentsWithHttpInfo}.
+   *
+   * @return ListEnvironmentsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   * <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<ListEnvironmentsResponse> listFeatureFlagsEnvironmentsWithHttpInfo(ListFeatureFlagsEnvironmentsOptionalParameters parameters) throws ApiException {
-    Object localVarPostBody = null;
-    String name = parameters.name;
-    String key = parameters.key;
-    String ddEnv = parameters.ddEnv;
-    Long limit = parameters.limit;
-    Long offset = parameters.offset;
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments";
-
-    
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "key", key));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dd_env", ddEnv));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.listFeatureFlagsEnvironments", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListEnvironmentsResponse>() {});
+  public ListEnvironmentsResponse listFeatureFlagsEnvironments() throws ApiException {
+    return listFeatureFlagsEnvironmentsWithHttpInfo(
+            new ListFeatureFlagsEnvironmentsOptionalParameters())
+        .getData();
   }
 
   /**
    * List environments.
    *
-   * See {@link #listFeatureFlagsEnvironmentsWithHttpInfo}.
+   * <p>See {@link #listFeatureFlagsEnvironmentsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListEnvironmentsResponse&gt;
+   */
+  public CompletableFuture<ListEnvironmentsResponse> listFeatureFlagsEnvironmentsAsync() {
+    return listFeatureFlagsEnvironmentsWithHttpInfoAsync(
+            new ListFeatureFlagsEnvironmentsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List environments.
+   *
+   * <p>See {@link #listFeatureFlagsEnvironmentsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;ListEnvironmentsResponse&gt;&gt;
+   * @return ListEnvironmentsResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<ListEnvironmentsResponse>> listFeatureFlagsEnvironmentsWithHttpInfoAsync(ListFeatureFlagsEnvironmentsOptionalParameters parameters) {
+  public ListEnvironmentsResponse listFeatureFlagsEnvironments(
+      ListFeatureFlagsEnvironmentsOptionalParameters parameters) throws ApiException {
+    return listFeatureFlagsEnvironmentsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List environments.
+   *
+   * <p>See {@link #listFeatureFlagsEnvironmentsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListEnvironmentsResponse&gt;
+   */
+  public CompletableFuture<ListEnvironmentsResponse> listFeatureFlagsEnvironmentsAsync(
+      ListFeatureFlagsEnvironmentsOptionalParameters parameters) {
+    return listFeatureFlagsEnvironmentsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a list of environments for the organization. Supports filtering by name, key, and
+   * DD_ENV.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListEnvironmentsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListEnvironmentsResponse> listFeatureFlagsEnvironmentsWithHttpInfo(
+      ListFeatureFlagsEnvironmentsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String name = parameters.name;
     String key = parameters.key;
@@ -1623,7 +2145,55 @@ public class FeatureFlagsApi {
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags/environments";
 
-    
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "key", key));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dd_env", ddEnv));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.listFeatureFlagsEnvironments",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListEnvironmentsResponse>() {});
+  }
+
+  /**
+   * List environments.
+   *
+   * <p>See {@link #listFeatureFlagsEnvironmentsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListEnvironmentsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListEnvironmentsResponse>>
+      listFeatureFlagsEnvironmentsWithHttpInfoAsync(
+          ListFeatureFlagsEnvironmentsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String name = parameters.name;
+    String key = parameters.key;
+    String ddEnv = parameters.ddEnv;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
+    // create path and map variables
+    String localVarPath = "/api/v2/feature-flags/environments";
+
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1635,152 +2205,70 @@ public class FeatureFlagsApi {
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.listFeatureFlagsEnvironments", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.listFeatureFlagsEnvironments",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ListEnvironmentsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListEnvironmentsResponse>() {});
-  }
-
-  /**
- * Pause a progressive rollout.
- *
- * See {@link #pauseExposureScheduleWithHttpInfo}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return AllocationExposureScheduleResponse
- * @throws ApiException if fails to make API call
- */
-  public AllocationExposureScheduleResponse  pauseExposureSchedule(UUID exposureScheduleId) throws ApiException {
-    return pauseExposureScheduleWithHttpInfo(exposureScheduleId).getData();
-  }
-
-  /**
- * Pause a progressive rollout.
- *
- * See {@link #pauseExposureScheduleWithHttpInfoAsync}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
- */
-  public CompletableFuture<AllocationExposureScheduleResponse>pauseExposureScheduleAsync(UUID exposureScheduleId) {
-    return pauseExposureScheduleWithHttpInfoAsync(exposureScheduleId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Pauses a progressive rollout while preserving rollout state.</p>
-   *
-   * @param exposureScheduleId The ID of the exposure schedule. (required)
-   * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   * <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<AllocationExposureScheduleResponse> pauseExposureScheduleWithHttpInfo(UUID exposureScheduleId) throws ApiException {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'exposureScheduleId' is set
-    if (exposureScheduleId == null) {
-      throw new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling pauseExposureSchedule");
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.pauseExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListEnvironmentsResponse>() {});
   }
 
   /**
    * Pause a progressive rollout.
    *
-   * See {@link #pauseExposureScheduleWithHttpInfo}.
+   * <p>See {@link #pauseExposureScheduleWithHttpInfo}.
    *
    * @param exposureScheduleId The ID of the exposure schedule. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> pauseExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'exposureScheduleId' is set
-    if (exposureScheduleId == null) {
-        CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling pauseExposureSchedule"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.pauseExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+  public AllocationExposureScheduleResponse pauseExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return pauseExposureScheduleWithHttpInfo(exposureScheduleId).getData();
   }
 
   /**
- * Resume a progressive rollout.
- *
- * See {@link #resumeExposureScheduleWithHttpInfo}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return AllocationExposureScheduleResponse
- * @throws ApiException if fails to make API call
- */
-  public AllocationExposureScheduleResponse  resumeExposureSchedule(UUID exposureScheduleId) throws ApiException {
-    return resumeExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+   * Pause a progressive rollout.
+   *
+   * <p>See {@link #pauseExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> pauseExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return pauseExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * Resume a progressive rollout.
- *
- * See {@link #resumeExposureScheduleWithHttpInfoAsync}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
- */
-  public CompletableFuture<AllocationExposureScheduleResponse>resumeExposureScheduleAsync(UUID exposureScheduleId) {
-    return resumeExposureScheduleWithHttpInfoAsync(exposureScheduleId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Resumes progression for a previously paused progressive rollout.</p>
+   * Pauses a progressive rollout while preserving rollout state.
    *
    * @param exposureScheduleId The ID of the exposure schedule. (required)
    * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1791,97 +2279,144 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AllocationExposureScheduleResponse> resumeExposureScheduleWithHttpInfo(UUID exposureScheduleId) throws ApiException {
+  public ApiResponse<AllocationExposureScheduleResponse> pauseExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'exposureScheduleId' is set
     if (exposureScheduleId == null) {
-      throw new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling resumeExposureSchedule");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling pauseExposureSchedule");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.pauseExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.resumeExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+  /**
+   * Pause a progressive rollout.
+   *
+   * <p>See {@link #pauseExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      pauseExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " pauseExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.pauseExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
   }
 
   /**
    * Resume a progressive rollout.
    *
-   * See {@link #resumeExposureScheduleWithHttpInfo}.
+   * <p>See {@link #resumeExposureScheduleWithHttpInfo}.
    *
    * @param exposureScheduleId The ID of the exposure schedule. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> resumeExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'exposureScheduleId' is set
-    if (exposureScheduleId == null) {
-        CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling resumeExposureSchedule"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.resumeExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+  public AllocationExposureScheduleResponse resumeExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return resumeExposureScheduleWithHttpInfo(exposureScheduleId).getData();
   }
 
   /**
- * Start a progressive rollout.
- *
- * See {@link #startExposureScheduleWithHttpInfo}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return AllocationExposureScheduleResponse
- * @throws ApiException if fails to make API call
- */
-  public AllocationExposureScheduleResponse  startExposureSchedule(UUID exposureScheduleId) throws ApiException {
-    return startExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+   * Resume a progressive rollout.
+   *
+   * <p>See {@link #resumeExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> resumeExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return resumeExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * Start a progressive rollout.
- *
- * See {@link #startExposureScheduleWithHttpInfoAsync}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
- */
-  public CompletableFuture<AllocationExposureScheduleResponse>startExposureScheduleAsync(UUID exposureScheduleId) {
-    return startExposureScheduleWithHttpInfoAsync(exposureScheduleId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Starts a progressive rollout and begins progression.</p>
+   * Resumes progression for a previously paused progressive rollout.
    *
    * @param exposureScheduleId The ID of the exposure schedule. (required)
    * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1892,97 +2427,145 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AllocationExposureScheduleResponse> startExposureScheduleWithHttpInfo(UUID exposureScheduleId) throws ApiException {
+  public ApiResponse<AllocationExposureScheduleResponse> resumeExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'exposureScheduleId' is set
     if (exposureScheduleId == null) {
-      throw new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling startExposureSchedule");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling"
+              + " resumeExposureSchedule");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.resumeExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.startExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+  /**
+   * Resume a progressive rollout.
+   *
+   * <p>See {@link #resumeExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      resumeExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " resumeExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.resumeExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
   }
 
   /**
    * Start a progressive rollout.
    *
-   * See {@link #startExposureScheduleWithHttpInfo}.
+   * <p>See {@link #startExposureScheduleWithHttpInfo}.
    *
    * @param exposureScheduleId The ID of the exposure schedule. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> startExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'exposureScheduleId' is set
-    if (exposureScheduleId == null) {
-        CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling startExposureSchedule"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.startExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+  public AllocationExposureScheduleResponse startExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return startExposureScheduleWithHttpInfo(exposureScheduleId).getData();
   }
 
   /**
- * Stop a progressive rollout.
- *
- * See {@link #stopExposureScheduleWithHttpInfo}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return AllocationExposureScheduleResponse
- * @throws ApiException if fails to make API call
- */
-  public AllocationExposureScheduleResponse  stopExposureSchedule(UUID exposureScheduleId) throws ApiException {
-    return stopExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+   * Start a progressive rollout.
+   *
+   * <p>See {@link #startExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> startExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return startExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * Stop a progressive rollout.
- *
- * See {@link #stopExposureScheduleWithHttpInfoAsync}.
- *
- * @param exposureScheduleId The ID of the exposure schedule. (required)
- * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
- */
-  public CompletableFuture<AllocationExposureScheduleResponse>stopExposureScheduleAsync(UUID exposureScheduleId) {
-    return stopExposureScheduleWithHttpInfoAsync(exposureScheduleId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Stops a progressive rollout and marks it as aborted.</p>
+   * Starts a progressive rollout and begins progression.
    *
    * @param exposureScheduleId The ID of the exposure schedule. (required)
    * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1993,98 +2576,290 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AllocationExposureScheduleResponse> stopExposureScheduleWithHttpInfo(UUID exposureScheduleId) throws ApiException {
+  public ApiResponse<AllocationExposureScheduleResponse> startExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'exposureScheduleId' is set
     if (exposureScheduleId == null) {
-      throw new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling stopExposureSchedule");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling startExposureSchedule");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.startExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.stopExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+  /**
+   * Start a progressive rollout.
+   *
+   * <p>See {@link #startExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      startExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " startExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.startExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
   }
 
   /**
    * Stop a progressive rollout.
    *
-   * See {@link #stopExposureScheduleWithHttpInfo}.
+   * <p>See {@link #stopExposureScheduleWithHttpInfo}.
    *
    * @param exposureScheduleId The ID of the exposure schedule. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> stopExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+  public AllocationExposureScheduleResponse stopExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return stopExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+  }
+
+  /**
+   * Stop a progressive rollout.
+   *
+   * <p>See {@link #stopExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> stopExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return stopExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Stops a progressive rollout and marks it as aborted.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AllocationExposureScheduleResponse> stopExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'exposureScheduleId' is set
     if (exposureScheduleId == null) {
-        CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'exposureScheduleId' when calling stopExposureSchedule"));
-        return result;
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling stopExposureSchedule");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop"
-      .replaceAll("\\{" + "exposure_schedule_id" + "\\}", apiClient.escapeString(exposureScheduleId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.stopExposureSchedule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AllocationExposureScheduleResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.stopExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
   }
 
   /**
- * Unarchive a feature flag.
- *
- * See {@link #unarchiveFeatureFlagWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @return FeatureFlagResponse
- * @throws ApiException if fails to make API call
- */
-  public FeatureFlagResponse  unarchiveFeatureFlag(UUID featureFlagId) throws ApiException {
+   * Stop a progressive rollout.
+   *
+   * <p>See {@link #stopExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      stopExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " stopExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.stopExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Unarchive a feature flag.
+   *
+   * <p>See {@link #unarchiveFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @return FeatureFlagResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagResponse unarchiveFeatureFlag(UUID featureFlagId) throws ApiException {
     return unarchiveFeatureFlagWithHttpInfo(featureFlagId).getData();
   }
 
   /**
- * Unarchive a feature flag.
- *
- * See {@link #unarchiveFeatureFlagWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @return CompletableFuture&lt;FeatureFlagResponse&gt;
- */
-  public CompletableFuture<FeatureFlagResponse>unarchiveFeatureFlagAsync(UUID featureFlagId) {
-    return unarchiveFeatureFlagWithHttpInfoAsync(featureFlagId).thenApply(response -> {
-        return response.getData();
-    });
+   * Unarchive a feature flag.
+   *
+   * <p>See {@link #unarchiveFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @return CompletableFuture&lt;FeatureFlagResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagResponse> unarchiveFeatureFlagAsync(UUID featureFlagId) {
+    return unarchiveFeatureFlagWithHttpInfoAsync(featureFlagId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Unarchives a previously archived feature flag,
-   * making it visible in the main list again.</p>
+   * Unarchives a previously archived feature flag, making it visible in the main list again.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @return ApiResponse&lt;FeatureFlagResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2094,104 +2869,152 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FeatureFlagResponse> unarchiveFeatureFlagWithHttpInfo(UUID featureFlagId) throws ApiException {
+  public ApiResponse<FeatureFlagResponse> unarchiveFeatureFlagWithHttpInfo(UUID featureFlagId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling unarchiveFeatureFlag");
+      throw new ApiException(
+          400, "Missing the required parameter 'featureFlagId' when calling unarchiveFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/unarchive"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/unarchive"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.unarchiveFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.unarchiveFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
   }
 
   /**
    * Unarchive a feature flag.
    *
-   * See {@link #unarchiveFeatureFlagWithHttpInfo}.
+   * <p>See {@link #unarchiveFeatureFlagWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FeatureFlagResponse>> unarchiveFeatureFlagWithHttpInfoAsync(UUID featureFlagId) {
+  public CompletableFuture<ApiResponse<FeatureFlagResponse>> unarchiveFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling unarchiveFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling unarchiveFeatureFlag"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/unarchive"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/unarchive"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.unarchiveFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.unarchiveFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
   }
 
   /**
- * Update targeting rules for a flag.
- *
- * See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @param body  (required)
- * @return ListAllocationsResponse
- * @throws ApiException if fails to make API call
- */
-  public ListAllocationsResponse  updateAllocationsForFeatureFlagInEnvironment(UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) throws ApiException {
-    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(featureFlagId, environmentId, body).getData();
-  }
-
-  /**
- * Update targeting rules for a flag.
- *
- * See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param environmentId The ID of the environment. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;ListAllocationsResponse&gt;
- */
-  public CompletableFuture<ListAllocationsResponse>updateAllocationsForFeatureFlagInEnvironmentAsync(UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
-    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(featureFlagId, environmentId, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Updates targeting rules (allocations) for a specific feature flag in a specific environment.
-   * This operation replaces the existing allocation set with the request payload.</p>
+   * Update targeting rules for a flag.
+   *
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
-   * @param body  (required)
+   * @param body (required)
+   * @return ListAllocationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAllocationsResponse updateAllocationsForFeatureFlagInEnvironment(
+      UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body)
+      throws ApiException {
+    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+            featureFlagId, environmentId, body)
+        .getData();
+  }
+
+  /**
+   * Update targeting rules for a flag.
+   *
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ListAllocationsResponse&gt;
+   */
+  public CompletableFuture<ListAllocationsResponse>
+      updateAllocationsForFeatureFlagInEnvironmentAsync(
+          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
+    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+            featureFlagId, environmentId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates targeting rules (allocations) for a specific feature flag in a specific environment.
+   * This operation replaces the existing allocation set with the request payload.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
    * @return ApiResponse&lt;ListAllocationsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2203,246 +3026,192 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ListAllocationsResponse> updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) throws ApiException {
+  public ApiResponse<ListAllocationsResponse>
+      updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body)
+          throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling updateAllocationsForFeatureFlagInEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " updateAllocationsForFeatureFlagInEnvironment");
     }
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-      throw new ApiException(400, "Missing the required parameter 'environmentId' when calling updateAllocationsForFeatureFlagInEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " updateAllocationsForFeatureFlagInEnvironment");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAllocationsForFeatureFlagInEnvironment");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateAllocationsForFeatureFlagInEnvironment");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListAllocationsResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAllocationsResponse>() {});
   }
 
   /**
    * Update targeting rules for a flag.
    *
-   * See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ListAllocationsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ListAllocationsResponse>> updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
+  public CompletableFuture<ApiResponse<ListAllocationsResponse>>
+      updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling updateAllocationsForFeatureFlagInEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " updateAllocationsForFeatureFlagInEnvironment"));
+      return result;
     }
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-        CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'environmentId' when calling updateAllocationsForFeatureFlagInEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " updateAllocationsForFeatureFlagInEnvironment"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateAllocationsForFeatureFlagInEnvironment"));
-        return result;
+      CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateAllocationsForFeatureFlagInEnvironment"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListAllocationsResponse>() {});
-  }
-
-  /**
- * Update a feature flag.
- *
- * See {@link #updateFeatureFlagWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param body  (required)
- * @return FeatureFlagResponse
- * @throws ApiException if fails to make API call
- */
-  public FeatureFlagResponse  updateFeatureFlag(UUID featureFlagId, UpdateFeatureFlagRequest body) throws ApiException {
-    return updateFeatureFlagWithHttpInfo(featureFlagId, body).getData();
-  }
-
-  /**
- * Update a feature flag.
- *
- * See {@link #updateFeatureFlagWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;FeatureFlagResponse&gt;
- */
-  public CompletableFuture<FeatureFlagResponse>updateFeatureFlagAsync(UUID featureFlagId, UpdateFeatureFlagRequest body) {
-    return updateFeatureFlagWithHttpInfoAsync(featureFlagId, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Updates an existing feature flag's metadata such as
-   *  name and description. Does not modify targeting rules or allocations.</p>
-   *
-   * @param featureFlagId The ID of the feature flag. (required)
-   * @param body  (required)
-   * @return ApiResponse&lt;FeatureFlagResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   * <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<FeatureFlagResponse> updateFeatureFlagWithHttpInfo(UUID featureFlagId, UpdateFeatureFlagRequest body) throws ApiException {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'featureFlagId' is set
-    if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling updateFeatureFlag");
-    }
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateFeatureFlag");
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAllocationsResponse>() {});
   }
 
   /**
    * Update a feature flag.
    *
-   * See {@link #updateFeatureFlagWithHttpInfo}.
+   * <p>See {@link #updateFeatureFlagWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
-   * @param body  (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
+   * @param body (required)
+   * @return FeatureFlagResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<FeatureFlagResponse>> updateFeatureFlagWithHttpInfoAsync(UUID featureFlagId, UpdateFeatureFlagRequest body) {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'featureFlagId' is set
-    if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling updateFeatureFlag"));
-        return result;
-    }
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-        CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateFeatureFlag"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<FeatureFlagResponse>() {});
+  public FeatureFlagResponse updateFeatureFlag(UUID featureFlagId, UpdateFeatureFlagRequest body)
+      throws ApiException {
+    return updateFeatureFlagWithHttpInfo(featureFlagId, body).getData();
   }
 
   /**
- * Update an environment.
- *
- * See {@link #updateFeatureFlagsEnvironmentWithHttpInfo}.
- *
- * @param environmentId The ID of the environment. (required)
- * @param body  (required)
- * @return EnvironmentResponse
- * @throws ApiException if fails to make API call
- */
-  public EnvironmentResponse  updateFeatureFlagsEnvironment(UUID environmentId, UpdateEnvironmentRequest body) throws ApiException {
-    return updateFeatureFlagsEnvironmentWithHttpInfo(environmentId, body).getData();
-  }
-
-  /**
- * Update an environment.
- *
- * See {@link #updateFeatureFlagsEnvironmentWithHttpInfoAsync}.
- *
- * @param environmentId The ID of the environment. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;EnvironmentResponse&gt;
- */
-  public CompletableFuture<EnvironmentResponse>updateFeatureFlagsEnvironmentAsync(UUID environmentId, UpdateEnvironmentRequest body) {
-    return updateFeatureFlagsEnvironmentWithHttpInfoAsync(environmentId, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Updates an existing environment's metadata such as
-   *  name and description.</p>
+   * Update a feature flag.
    *
-   * @param environmentId The ID of the environment. (required)
-   * @param body  (required)
-   * @return ApiResponse&lt;EnvironmentResponse&gt;
+   * <p>See {@link #updateFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FeatureFlagResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagResponse> updateFeatureFlagAsync(
+      UUID featureFlagId, UpdateFeatureFlagRequest body) {
+    return updateFeatureFlagWithHttpInfoAsync(featureFlagId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates an existing feature flag's metadata such as name and description. Does not modify
+   * targeting rules or allocations.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FeatureFlagResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2452,117 +3221,333 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<EnvironmentResponse> updateFeatureFlagsEnvironmentWithHttpInfo(UUID environmentId, UpdateEnvironmentRequest body) throws ApiException {
+  public ApiResponse<FeatureFlagResponse> updateFeatureFlagWithHttpInfo(
+      UUID featureFlagId, UpdateFeatureFlagRequest body) throws ApiException {
     Object localVarPostBody = body;
 
-    // verify the required parameter 'environmentId' is set
-    if (environmentId == null) {
-      throw new ApiException(400, "Missing the required parameter 'environmentId' when calling updateFeatureFlagsEnvironment");
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'featureFlagId' when calling updateFeatureFlag");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateFeatureFlagsEnvironment");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments/{environment_id}"
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<EnvironmentResponse>() {});
+  /**
+   * Update a feature flag.
+   *
+   * <p>See {@link #updateFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagResponse>> updateFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId, UpdateFeatureFlagRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling updateFeatureFlag"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateFeatureFlag"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
   }
 
   /**
    * Update an environment.
    *
-   * See {@link #updateFeatureFlagsEnvironmentWithHttpInfo}.
+   * <p>See {@link #updateFeatureFlagsEnvironmentWithHttpInfo}.
    *
    * @param environmentId The ID of the environment. (required)
-   * @param body  (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;EnvironmentResponse&gt;&gt;
+   * @param body (required)
+   * @return EnvironmentResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<EnvironmentResponse>> updateFeatureFlagsEnvironmentWithHttpInfoAsync(UUID environmentId, UpdateEnvironmentRequest body) {
+  public EnvironmentResponse updateFeatureFlagsEnvironment(
+      UUID environmentId, UpdateEnvironmentRequest body) throws ApiException {
+    return updateFeatureFlagsEnvironmentWithHttpInfo(environmentId, body).getData();
+  }
+
+  /**
+   * Update an environment.
+   *
+   * <p>See {@link #updateFeatureFlagsEnvironmentWithHttpInfoAsync}.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;EnvironmentResponse&gt;
+   */
+  public CompletableFuture<EnvironmentResponse> updateFeatureFlagsEnvironmentAsync(
+      UUID environmentId, UpdateEnvironmentRequest body) {
+    return updateFeatureFlagsEnvironmentWithHttpInfoAsync(environmentId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates an existing environment's metadata such as name and description.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;EnvironmentResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EnvironmentResponse> updateFeatureFlagsEnvironmentWithHttpInfo(
+      UUID environmentId, UpdateEnvironmentRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'environmentId' is set
     if (environmentId == null) {
-        CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'environmentId' when calling updateFeatureFlagsEnvironment"));
-        return result;
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " updateFeatureFlagsEnvironment");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateFeatureFlagsEnvironment"));
-        return result;
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateFeatureFlagsEnvironment");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/environments/{environment_id}"
-      .replaceAll("\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/environments/{environment_id}"
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateFeatureFlagsEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EnvironmentResponse>() {});
+  }
+
+  /**
+   * Update an environment.
+   *
+   * <p>See {@link #updateFeatureFlagsEnvironmentWithHttpInfo}.
+   *
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;EnvironmentResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EnvironmentResponse>>
+      updateFeatureFlagsEnvironmentWithHttpInfoAsync(
+          UUID environmentId, UpdateEnvironmentRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " updateFeatureFlagsEnvironment"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateFeatureFlagsEnvironment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/environments/{environment_id}"
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateFeatureFlagsEnvironment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateFeatureFlagsEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<EnvironmentResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<EnvironmentResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EnvironmentResponse>() {});
   }
 
   /**
- * Update a variant.
- *
- * See {@link #updateVariantForFeatureFlagWithHttpInfo}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param variantId The ID of the variant. (required)
- * @param body  (required)
- * @return Variant
- * @throws ApiException if fails to make API call
- */
-  public Variant  updateVariantForFeatureFlag(UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
+   * Update a variant.
+   *
+   * <p>See {@link #updateVariantForFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @param body (required)
+   * @return Variant
+   * @throws ApiException if fails to make API call
+   */
+  public Variant updateVariantForFeatureFlag(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
     return updateVariantForFeatureFlagWithHttpInfo(featureFlagId, variantId, body).getData();
   }
 
   /**
- * Update a variant.
- *
- * See {@link #updateVariantForFeatureFlagWithHttpInfoAsync}.
- *
- * @param featureFlagId The ID of the feature flag. (required)
- * @param variantId The ID of the variant. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;Variant&gt;
- */
-  public CompletableFuture<Variant>updateVariantForFeatureFlagAsync(UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
-    return updateVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, variantId, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Updates the name and value of an existing variant on a feature flag.</p>
-   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of applying the change immediately. Use the returned suggestion <code>id</code> to approve or reject the change. If a pending suggestion already exists for this flag's variant property, the endpoint returns <code>409 Conflict</code>.</p>
+   * Update a variant.
+   *
+   * <p>See {@link #updateVariantForFeatureFlagWithHttpInfoAsync}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
-   * @param body  (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Variant&gt;
+   */
+  public CompletableFuture<Variant> updateVariantForFeatureFlagAsync(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
+    return updateVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, variantId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates the name and value of an existing variant on a feature flag.
+   *
+   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and
+   * returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of applying the
+   * change immediately. Use the returned suggestion <code>id</code> to approve or reject the
+   * change. If a pending suggestion already exists for this flag's variant property, the endpoint
+   * returns <code>409 Conflict</code>.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @param body (required)
    * @return ApiResponse&lt;Variant&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2573,86 +3558,137 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Variant> updateVariantForFeatureFlagWithHttpInfo(UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
+  public ApiResponse<Variant> updateVariantForFeatureFlagWithHttpInfo(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      throw new ApiException(400, "Missing the required parameter 'featureFlagId' when calling updateVariantForFeatureFlag");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " updateVariantForFeatureFlag");
     }
 
     // verify the required parameter 'variantId' is set
     if (variantId == null) {
-      throw new ApiException(400, "Missing the required parameter 'variantId' when calling updateVariantForFeatureFlag");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'variantId' when calling updateVariantForFeatureFlag");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateVariantForFeatureFlag");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateVariantForFeatureFlag");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateVariantForFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Variant>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateVariantForFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
   }
 
   /**
    * Update a variant.
    *
-   * See {@link #updateVariantForFeatureFlagWithHttpInfo}.
+   * <p>See {@link #updateVariantForFeatureFlagWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Variant&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Variant>> updateVariantForFeatureFlagWithHttpInfoAsync(UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
+  public CompletableFuture<ApiResponse<Variant>> updateVariantForFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-        CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'featureFlagId' when calling updateVariantForFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " updateVariantForFeatureFlag"));
+      return result;
     }
 
     // verify the required parameter 'variantId' is set
     if (variantId == null) {
-        CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'variantId' when calling updateVariantForFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'variantId' when calling"
+                  + " updateVariantForFeatureFlag"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateVariantForFeatureFlag"));
-        return result;
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateVariantForFeatureFlag"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
-      .replaceAll("\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
-      .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.FeatureFlagsApi.updateVariantForFeatureFlag", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateVariantForFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Variant>() {});
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
   }
 }

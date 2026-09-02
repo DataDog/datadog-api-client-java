@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of an ELF symbol file.</p>
- */
+/** Attributes of an ELF symbol file. */
 @JsonPropertyOrder({
   ELFSourcemapAttributes.JSON_PROPERTY_ARCH,
   ELFSourcemapAttributes.JSON_PROPERTY_CREATED_AT,
@@ -47,10 +32,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ELFSourcemapAttributes.JSON_PROPERTY_SIZE,
   ELFSourcemapAttributes.JSON_PROPERTY_SYMBOL_SOURCE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ELFSourcemapAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCH = "arch";
   private String arch;
 
@@ -88,230 +73,251 @@ public class ELFSourcemapAttributes {
 
   @JsonCreator
   public ELFSourcemapAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MAPKIND)String mapkind,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SIZE)Long size) {
-        this.createdAt = createdAt;
-        this.mapkind = mapkind;
-        this.size = size;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) String mapkind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) Long size) {
+    this.createdAt = createdAt;
+    this.mapkind = mapkind;
+    this.size = size;
   }
+
   public ELFSourcemapAttributes arch(String arch) {
     this.arch = arch;
     return this;
   }
 
   /**
-   * <p>The target CPU architecture.</p>
+   * The target CPU architecture.
+   *
    * @return arch
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ARCH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getArch() {
-        return arch;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ARCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getArch() {
+    return arch;
+  }
+
   public void setArch(String arch) {
     this.arch = arch;
   }
+
   public ELFSourcemapAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when the symbol file was created.</p>
+   * The timestamp when the symbol file was created.
+   *
    * @return createdAt
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
   public ELFSourcemapAttributes fileHash(String fileHash) {
     this.fileHash = fileHash;
     return this;
   }
 
   /**
-   * <p>The SHA256 hash of the ELF file.</p>
+   * The SHA256 hash of the ELF file.
+   *
    * @return fileHash
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILE_HASH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFileHash() {
-        return fileHash;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILE_HASH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFileHash() {
+    return fileHash;
+  }
+
   public void setFileHash(String fileHash) {
     this.fileHash = fileHash;
   }
+
   public ELFSourcemapAttributes fileName(String fileName) {
     this.fileName = fileName;
     return this;
   }
 
   /**
-   * <p>The ELF file name.</p>
+   * The ELF file name.
+   *
    * @return fileName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFileName() {
-        return fileName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFileName() {
+    return fileName;
+  }
+
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
+
   public ELFSourcemapAttributes gnuBuildId(String gnuBuildId) {
     this.gnuBuildId = gnuBuildId;
     return this;
   }
 
   /**
-   * <p>The GNU build ID (UUID format).</p>
+   * The GNU build ID (UUID format).
+   *
    * @return gnuBuildId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GNU_BUILD_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getGnuBuildId() {
-        return gnuBuildId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GNU_BUILD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGnuBuildId() {
+    return gnuBuildId;
+  }
+
   public void setGnuBuildId(String gnuBuildId) {
     this.gnuBuildId = gnuBuildId;
   }
+
   public ELFSourcemapAttributes goBuildId(String goBuildId) {
     this.goBuildId = goBuildId;
     return this;
   }
 
   /**
-   * <p>The Go build ID (UUID format).</p>
+   * The Go build ID (UUID format).
+   *
    * @return goBuildId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GO_BUILD_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getGoBuildId() {
-        return goBuildId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GO_BUILD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGoBuildId() {
+    return goBuildId;
+  }
+
   public void setGoBuildId(String goBuildId) {
     this.goBuildId = goBuildId;
   }
+
   public ELFSourcemapAttributes mapkind(String mapkind) {
     this.mapkind = mapkind;
     return this;
   }
 
   /**
-   * <p>The type of source map.</p>
+   * The type of source map.
+   *
    * @return mapkind
-  **/
-      @JsonProperty(JSON_PROPERTY_MAPKIND)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMapkind() {
-        return mapkind;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MAPKIND)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMapkind() {
+    return mapkind;
+  }
+
   public void setMapkind(String mapkind) {
     this.mapkind = mapkind;
   }
+
   public ELFSourcemapAttributes origin(String origin) {
     this.origin = origin;
     return this;
   }
 
   /**
-   * <p>The origin of the ELF file.</p>
+   * The origin of the ELF file.
+   *
    * @return origin
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORIGIN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrigin() {
-        return origin;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrigin() {
+    return origin;
+  }
+
   public void setOrigin(String origin) {
     this.origin = origin;
   }
+
   public ELFSourcemapAttributes originVersion(String originVersion) {
     this.originVersion = originVersion;
     return this;
   }
 
   /**
-   * <p>The version of the origin package.</p>
+   * The version of the origin package.
+   *
    * @return originVersion
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORIGIN_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOriginVersion() {
-        return originVersion;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGIN_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOriginVersion() {
+    return originVersion;
+  }
+
   public void setOriginVersion(String originVersion) {
     this.originVersion = originVersion;
   }
+
   public ELFSourcemapAttributes size(Long size) {
     this.size = size;
     return this;
   }
 
   /**
-   * <p>The size of the ELF file in bytes.</p>
+   * The size of the ELF file in bytes.
+   *
    * @return size
-  **/
-      @JsonProperty(JSON_PROPERTY_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getSize() {
-        return size;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getSize() {
+    return size;
+  }
+
   public void setSize(Long size) {
     this.size = size;
   }
+
   public ELFSourcemapAttributes symbolSource(String symbolSource) {
     this.symbolSource = symbolSource;
     return this;
   }
 
   /**
-   * <p>The source of the debug symbols.</p>
+   * The source of the debug symbols.
+   *
    * @return symbolSource
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SYMBOL_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSymbolSource() {
-        return symbolSource;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYMBOL_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSymbolSource() {
+    return symbolSource;
+  }
+
   public void setSymbolSource(String symbolSource) {
     this.symbolSource = symbolSource;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -320,7 +326,7 @@ public class ELFSourcemapAttributes {
   @JsonAnySetter
   public ELFSourcemapAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -344,14 +350,12 @@ public class ELFSourcemapAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ELFSourcemapAttributes object is equal to o.
-   */
+  /** Return true if this ELFSourcemapAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -361,13 +365,35 @@ public class ELFSourcemapAttributes {
       return false;
     }
     ELFSourcemapAttributes elfSourcemapAttributes = (ELFSourcemapAttributes) o;
-    return Objects.equals(this.arch, elfSourcemapAttributes.arch) && Objects.equals(this.createdAt, elfSourcemapAttributes.createdAt) && Objects.equals(this.fileHash, elfSourcemapAttributes.fileHash) && Objects.equals(this.fileName, elfSourcemapAttributes.fileName) && Objects.equals(this.gnuBuildId, elfSourcemapAttributes.gnuBuildId) && Objects.equals(this.goBuildId, elfSourcemapAttributes.goBuildId) && Objects.equals(this.mapkind, elfSourcemapAttributes.mapkind) && Objects.equals(this.origin, elfSourcemapAttributes.origin) && Objects.equals(this.originVersion, elfSourcemapAttributes.originVersion) && Objects.equals(this.size, elfSourcemapAttributes.size) && Objects.equals(this.symbolSource, elfSourcemapAttributes.symbolSource) && Objects.equals(this.additionalProperties, elfSourcemapAttributes.additionalProperties);
+    return Objects.equals(this.arch, elfSourcemapAttributes.arch)
+        && Objects.equals(this.createdAt, elfSourcemapAttributes.createdAt)
+        && Objects.equals(this.fileHash, elfSourcemapAttributes.fileHash)
+        && Objects.equals(this.fileName, elfSourcemapAttributes.fileName)
+        && Objects.equals(this.gnuBuildId, elfSourcemapAttributes.gnuBuildId)
+        && Objects.equals(this.goBuildId, elfSourcemapAttributes.goBuildId)
+        && Objects.equals(this.mapkind, elfSourcemapAttributes.mapkind)
+        && Objects.equals(this.origin, elfSourcemapAttributes.origin)
+        && Objects.equals(this.originVersion, elfSourcemapAttributes.originVersion)
+        && Objects.equals(this.size, elfSourcemapAttributes.size)
+        && Objects.equals(this.symbolSource, elfSourcemapAttributes.symbolSource)
+        && Objects.equals(this.additionalProperties, elfSourcemapAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(arch,createdAt,fileHash,fileName,gnuBuildId,goBuildId,mapkind,origin,originVersion,size,symbolSource, additionalProperties);
+    return Objects.hash(
+        arch,
+        createdAt,
+        fileHash,
+        fileName,
+        gnuBuildId,
+        goBuildId,
+        mapkind,
+        origin,
+        originVersion,
+        size,
+        symbolSource,
+        additionalProperties);
   }
 
   @Override
@@ -393,8 +419,7 @@ public class ELFSourcemapAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

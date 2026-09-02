@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for a Container Image.</p>
- */
+/** Attributes for a Container Image. */
 @JsonPropertyOrder({
   ContainerImageAttributes.JSON_PROPERTY_CONTAINER_COUNT,
   ContainerImageAttributes.JSON_PROPERTY_IMAGE_FLAVORS,
@@ -53,10 +38,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ContainerImageAttributes.JSON_PROPERTY_TAGS,
   ContainerImageAttributes.JSON_PROPERTY_VULNERABILITY_COUNT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ContainerImageAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTAINER_COUNT = "container_count";
   private Long containerCount;
 
@@ -114,28 +99,31 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>Number of containers running the image.</p>
+   * Number of containers running the image.
+   *
    * @return containerCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getContainerCount() {
-        return containerCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getContainerCount() {
+    return containerCount;
+  }
+
   public void setContainerCount(Long containerCount) {
     this.containerCount = containerCount;
   }
+
   public ContainerImageAttributes imageFlavors(List<ContainerImageFlavor> imageFlavors) {
     this.imageFlavors = imageFlavors;
     if (imageFlavors != null) {
-    for (ContainerImageFlavor item : imageFlavors) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ContainerImageFlavor item : imageFlavors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public ContainerImageAttributes addImageFlavorsItem(ContainerImageFlavor imageFlavorsItem) {
     if (this.imageFlavors == null) {
       this.imageFlavors = new ArrayList<>();
@@ -146,17 +134,18 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of platform-specific images associated with the image record.
-   * The list contains more than 1 entry for multi-architecture images.</p>
+   * List of platform-specific images associated with the image record. The list contains more than
+   * 1 entry for multi-architecture images.
+   *
    * @return imageFlavors
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IMAGE_FLAVORS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ContainerImageFlavor> getImageFlavors() {
-        return imageFlavors;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IMAGE_FLAVORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ContainerImageFlavor> getImageFlavors() {
+    return imageFlavors;
+  }
+
   public void setImageFlavors(List<ContainerImageFlavor> imageFlavors) {
     this.imageFlavors = imageFlavors;
     if (imageFlavors != null) {
@@ -165,10 +154,12 @@ public class ContainerImageAttributes {
       }
     }
   }
+
   public ContainerImageAttributes imageTags(List<String> imageTags) {
     this.imageTags = imageTags;
     return this;
   }
+
   public ContainerImageAttributes addImageTagsItem(String imageTagsItem) {
     if (this.imageTags == null) {
       this.imageTags = new ArrayList<>();
@@ -178,23 +169,26 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of image tags associated with the Container Image.</p>
+   * List of image tags associated with the Container Image.
+   *
    * @return imageTags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IMAGE_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getImageTags() {
-        return imageTags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IMAGE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getImageTags() {
+    return imageTags;
+  }
+
   public void setImageTags(List<String> imageTags) {
     this.imageTags = imageTags;
   }
+
   public ContainerImageAttributes imagesBuiltAt(List<String> imagesBuiltAt) {
     this.imagesBuiltAt = imagesBuiltAt;
     return this;
   }
+
   public ContainerImageAttributes addImagesBuiltAtItem(String imagesBuiltAtItem) {
     if (this.imagesBuiltAt == null) {
       this.imagesBuiltAt = new ArrayList<>();
@@ -204,43 +198,48 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of build times associated with the Container Image.
-   * The list contains more than 1 entry for multi-architecture images.</p>
+   * List of build times associated with the Container Image. The list contains more than 1 entry
+   * for multi-architecture images.
+   *
    * @return imagesBuiltAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IMAGES_BUILT_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getImagesBuiltAt() {
-        return imagesBuiltAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IMAGES_BUILT_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getImagesBuiltAt() {
+    return imagesBuiltAt;
+  }
+
   public void setImagesBuiltAt(List<String> imagesBuiltAt) {
     this.imagesBuiltAt = imagesBuiltAt;
   }
+
   public ContainerImageAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the Container Image.</p>
+   * Name of the Container Image.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public ContainerImageAttributes osArchitectures(List<String> osArchitectures) {
     this.osArchitectures = osArchitectures;
     return this;
   }
+
   public ContainerImageAttributes addOsArchitecturesItem(String osArchitecturesItem) {
     if (this.osArchitectures == null) {
       this.osArchitectures = new ArrayList<>();
@@ -250,23 +249,26 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of Operating System architectures supported by the Container Image.</p>
+   * List of Operating System architectures supported by the Container Image.
+   *
    * @return osArchitectures
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OS_ARCHITECTURES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getOsArchitectures() {
-        return osArchitectures;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OS_ARCHITECTURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getOsArchitectures() {
+    return osArchitectures;
+  }
+
   public void setOsArchitectures(List<String> osArchitectures) {
     this.osArchitectures = osArchitectures;
   }
+
   public ContainerImageAttributes osNames(List<String> osNames) {
     this.osNames = osNames;
     return this;
   }
+
   public ContainerImageAttributes addOsNamesItem(String osNamesItem) {
     if (this.osNames == null) {
       this.osNames = new ArrayList<>();
@@ -276,23 +278,26 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of Operating System names supported by the Container Image.</p>
+   * List of Operating System names supported by the Container Image.
+   *
    * @return osNames
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OS_NAMES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getOsNames() {
-        return osNames;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OS_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getOsNames() {
+    return osNames;
+  }
+
   public void setOsNames(List<String> osNames) {
     this.osNames = osNames;
   }
+
   public ContainerImageAttributes osVersions(List<String> osVersions) {
     this.osVersions = osVersions;
     return this;
   }
+
   public ContainerImageAttributes addOsVersionsItem(String osVersionsItem) {
     if (this.osVersions == null) {
       this.osVersions = new ArrayList<>();
@@ -302,118 +307,131 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of Operating System versions supported by the Container Image.</p>
+   * List of Operating System versions supported by the Container Image.
+   *
    * @return osVersions
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OS_VERSIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getOsVersions() {
-        return osVersions;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OS_VERSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getOsVersions() {
+    return osVersions;
+  }
+
   public void setOsVersions(List<String> osVersions) {
     this.osVersions = osVersions;
   }
+
   public ContainerImageAttributes publishedAt(String publishedAt) {
     this.publishedAt = publishedAt;
     return this;
   }
 
   /**
-   * <p>Time the image was pushed to the container registry.</p>
+   * Time the image was pushed to the container registry.
+   *
    * @return publishedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLISHED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublishedAt() {
-        return publishedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLISHED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublishedAt() {
+    return publishedAt;
+  }
+
   public void setPublishedAt(String publishedAt) {
     this.publishedAt = publishedAt;
   }
+
   public ContainerImageAttributes registry(String registry) {
     this.registry = registry;
     return this;
   }
 
   /**
-   * <p>Registry the Container Image was pushed to.</p>
+   * Registry the Container Image was pushed to.
+   *
    * @return registry
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REGISTRY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRegistry() {
-        return registry;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGISTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegistry() {
+    return registry;
+  }
+
   public void setRegistry(String registry) {
     this.registry = registry;
   }
+
   public ContainerImageAttributes repoDigest(String repoDigest) {
     this.repoDigest = repoDigest;
     return this;
   }
 
   /**
-   * <p>Digest of the compressed image manifest.</p>
+   * Digest of the compressed image manifest.
+   *
    * @return repoDigest
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REPO_DIGEST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRepoDigest() {
-        return repoDigest;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPO_DIGEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRepoDigest() {
+    return repoDigest;
+  }
+
   public void setRepoDigest(String repoDigest) {
     this.repoDigest = repoDigest;
   }
+
   public ContainerImageAttributes repository(String repository) {
     this.repository = repository;
     return this;
   }
 
   /**
-   * <p>Repository where the Container Image is stored in.</p>
+   * Repository where the Container Image is stored in.
+   *
    * @return repository
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REPOSITORY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRepository() {
-        return repository;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPOSITORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRepository() {
+    return repository;
+  }
+
   public void setRepository(String repository) {
     this.repository = repository;
   }
+
   public ContainerImageAttributes shortImage(String shortImage) {
     this.shortImage = shortImage;
     return this;
   }
 
   /**
-   * <p>Short version of the Container Image name.</p>
+   * Short version of the Container Image name.
+   *
    * @return shortImage
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHORT_IMAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getShortImage() {
-        return shortImage;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHORT_IMAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShortImage() {
+    return shortImage;
+  }
+
   public void setShortImage(String shortImage) {
     this.shortImage = shortImage;
   }
+
   public ContainerImageAttributes sizes(List<Long> sizes) {
     this.sizes = sizes;
     return this;
   }
+
   public ContainerImageAttributes addSizesItem(Long sizesItem) {
     if (this.sizes == null) {
       this.sizes = new ArrayList<>();
@@ -423,24 +441,27 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of size for each platform-specific image associated with the image record.
-   * The list contains more than 1 entry for multi-architecture images.</p>
+   * List of size for each platform-specific image associated with the image record. The list
+   * contains more than 1 entry for multi-architecture images.
+   *
    * @return sizes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SIZES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<Long> getSizes() {
-        return sizes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIZES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Long> getSizes() {
+    return sizes;
+  }
+
   public void setSizes(List<Long> sizes) {
     this.sizes = sizes;
   }
+
   public ContainerImageAttributes sources(List<String> sources) {
     this.sources = sources;
     return this;
   }
+
   public ContainerImageAttributes addSourcesItem(String sourcesItem) {
     if (this.sources == null) {
       this.sources = new ArrayList<>();
@@ -450,23 +471,26 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of sources where the Container Image was collected from.</p>
+   * List of sources where the Container Image was collected from.
+   *
    * @return sources
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SOURCES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getSources() {
-        return sources;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getSources() {
+    return sources;
+  }
+
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
+
   public ContainerImageAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public ContainerImageAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -476,36 +500,40 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * <p>List of tags associated with the Container Image.</p>
+   * List of tags associated with the Container Image.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-  public ContainerImageAttributes vulnerabilityCount(ContainerImageVulnerabilities vulnerabilityCount) {
+
+  public ContainerImageAttributes vulnerabilityCount(
+      ContainerImageVulnerabilities vulnerabilityCount) {
     this.vulnerabilityCount = vulnerabilityCount;
     this.unparsed |= vulnerabilityCount.unparsed;
     return this;
   }
 
   /**
-   * <p>Vulnerability counts associated with the Container Image.</p>
+   * Vulnerability counts associated with the Container Image.
+   *
    * @return vulnerabilityCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VULNERABILITY_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ContainerImageVulnerabilities getVulnerabilityCount() {
-        return vulnerabilityCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VULNERABILITY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ContainerImageVulnerabilities getVulnerabilityCount() {
+    return vulnerabilityCount;
+  }
+
   public void setVulnerabilityCount(ContainerImageVulnerabilities vulnerabilityCount) {
     this.vulnerabilityCount = vulnerabilityCount;
     if (vulnerabilityCount != null) {
@@ -514,15 +542,14 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -531,7 +558,7 @@ public class ContainerImageAttributes {
   @JsonAnySetter
   public ContainerImageAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -555,14 +582,12 @@ public class ContainerImageAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ContainerImageAttributes object is equal to o.
-   */
+  /** Return true if this ContainerImageAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -572,13 +597,47 @@ public class ContainerImageAttributes {
       return false;
     }
     ContainerImageAttributes containerImageAttributes = (ContainerImageAttributes) o;
-    return Objects.equals(this.containerCount, containerImageAttributes.containerCount) && Objects.equals(this.imageFlavors, containerImageAttributes.imageFlavors) && Objects.equals(this.imageTags, containerImageAttributes.imageTags) && Objects.equals(this.imagesBuiltAt, containerImageAttributes.imagesBuiltAt) && Objects.equals(this.name, containerImageAttributes.name) && Objects.equals(this.osArchitectures, containerImageAttributes.osArchitectures) && Objects.equals(this.osNames, containerImageAttributes.osNames) && Objects.equals(this.osVersions, containerImageAttributes.osVersions) && Objects.equals(this.publishedAt, containerImageAttributes.publishedAt) && Objects.equals(this.registry, containerImageAttributes.registry) && Objects.equals(this.repoDigest, containerImageAttributes.repoDigest) && Objects.equals(this.repository, containerImageAttributes.repository) && Objects.equals(this.shortImage, containerImageAttributes.shortImage) && Objects.equals(this.sizes, containerImageAttributes.sizes) && Objects.equals(this.sources, containerImageAttributes.sources) && Objects.equals(this.tags, containerImageAttributes.tags) && Objects.equals(this.vulnerabilityCount, containerImageAttributes.vulnerabilityCount) && Objects.equals(this.additionalProperties, containerImageAttributes.additionalProperties);
+    return Objects.equals(this.containerCount, containerImageAttributes.containerCount)
+        && Objects.equals(this.imageFlavors, containerImageAttributes.imageFlavors)
+        && Objects.equals(this.imageTags, containerImageAttributes.imageTags)
+        && Objects.equals(this.imagesBuiltAt, containerImageAttributes.imagesBuiltAt)
+        && Objects.equals(this.name, containerImageAttributes.name)
+        && Objects.equals(this.osArchitectures, containerImageAttributes.osArchitectures)
+        && Objects.equals(this.osNames, containerImageAttributes.osNames)
+        && Objects.equals(this.osVersions, containerImageAttributes.osVersions)
+        && Objects.equals(this.publishedAt, containerImageAttributes.publishedAt)
+        && Objects.equals(this.registry, containerImageAttributes.registry)
+        && Objects.equals(this.repoDigest, containerImageAttributes.repoDigest)
+        && Objects.equals(this.repository, containerImageAttributes.repository)
+        && Objects.equals(this.shortImage, containerImageAttributes.shortImage)
+        && Objects.equals(this.sizes, containerImageAttributes.sizes)
+        && Objects.equals(this.sources, containerImageAttributes.sources)
+        && Objects.equals(this.tags, containerImageAttributes.tags)
+        && Objects.equals(this.vulnerabilityCount, containerImageAttributes.vulnerabilityCount)
+        && Objects.equals(this.additionalProperties, containerImageAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerCount,imageFlavors,imageTags,imagesBuiltAt,name,osArchitectures,osNames,osVersions,publishedAt,registry,repoDigest,repository,shortImage,sizes,sources,tags,vulnerabilityCount, additionalProperties);
+    return Objects.hash(
+        containerCount,
+        imageFlavors,
+        imageTags,
+        imagesBuiltAt,
+        name,
+        osArchitectures,
+        osNames,
+        osVersions,
+        publishedAt,
+        registry,
+        repoDigest,
+        repository,
+        shortImage,
+        sizes,
+        sources,
+        tags,
+        vulnerabilityCount,
+        additionalProperties);
   }
 
   @Override
@@ -610,8 +669,7 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

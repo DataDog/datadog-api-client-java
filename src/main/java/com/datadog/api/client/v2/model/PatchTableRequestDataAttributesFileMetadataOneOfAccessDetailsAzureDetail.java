@@ -6,52 +6,40 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Azure Blob Storage access configuration.</p>
- */
+/** Azure Blob Storage access configuration. */
 @JsonPropertyOrder({
-  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.JSON_PROPERTY_AZURE_CLIENT_ID,
-  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.JSON_PROPERTY_AZURE_CONTAINER_NAME,
-  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME,
-  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.JSON_PROPERTY_AZURE_TENANT_ID,
+  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+      .JSON_PROPERTY_AZURE_CLIENT_ID,
+  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+      .JSON_PROPERTY_AZURE_CONTAINER_NAME,
+  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+      .JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME,
+  PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+      .JSON_PROPERTY_AZURE_TENANT_ID,
   PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.JSON_PROPERTY_FILE_PATH
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AZURE_CLIENT_ID = "azure_client_id";
   private String azureClientId;
 
   public static final String JSON_PROPERTY_AZURE_CONTAINER_NAME = "azure_container_name";
   private String azureContainerName;
 
-  public static final String JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME = "azure_storage_account_name";
+  public static final String JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME =
+      "azure_storage_account_name";
   private String azureStorageAccountName;
 
   public static final String JSON_PROPERTY_AZURE_TENANT_ID = "azure_tenant_id";
@@ -60,121 +48,135 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureD
   public static final String JSON_PROPERTY_FILE_PATH = "file_path";
   private String filePath;
 
-  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureClientId(String azureClientId) {
+  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureClientId(
+      String azureClientId) {
     this.azureClientId = azureClientId;
     return this;
   }
 
   /**
-   * <p>Azure service principal (application) client ID with permissions to read from the container.</p>
+   * Azure service principal (application) client ID with permissions to read from the container.
+   *
    * @return azureClientId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AZURE_CLIENT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAzureClientId() {
-        return azureClientId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AZURE_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAzureClientId() {
+    return azureClientId;
+  }
+
   public void setAzureClientId(String azureClientId) {
     this.azureClientId = azureClientId;
   }
-  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureContainerName(String azureContainerName) {
+
+  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+      azureContainerName(String azureContainerName) {
     this.azureContainerName = azureContainerName;
     return this;
   }
 
   /**
-   * <p>Azure Blob Storage container containing the CSV file.</p>
+   * Azure Blob Storage container containing the CSV file.
+   *
    * @return azureContainerName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AZURE_CONTAINER_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAzureContainerName() {
-        return azureContainerName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AZURE_CONTAINER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAzureContainerName() {
+    return azureContainerName;
+  }
+
   public void setAzureContainerName(String azureContainerName) {
     this.azureContainerName = azureContainerName;
   }
-  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureStorageAccountName(String azureStorageAccountName) {
+
+  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+      azureStorageAccountName(String azureStorageAccountName) {
     this.azureStorageAccountName = azureStorageAccountName;
     return this;
   }
 
   /**
-   * <p>Azure storage account where the container is located.</p>
+   * Azure storage account where the container is located.
+   *
    * @return azureStorageAccountName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAzureStorageAccountName() {
-        return azureStorageAccountName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAzureStorageAccountName() {
+    return azureStorageAccountName;
+  }
+
   public void setAzureStorageAccountName(String azureStorageAccountName) {
     this.azureStorageAccountName = azureStorageAccountName;
   }
-  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureTenantId(String azureTenantId) {
+
+  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureTenantId(
+      String azureTenantId) {
     this.azureTenantId = azureTenantId;
     return this;
   }
 
   /**
-   * <p>Azure Active Directory tenant ID.</p>
+   * Azure Active Directory tenant ID.
+   *
    * @return azureTenantId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AZURE_TENANT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAzureTenantId() {
-        return azureTenantId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AZURE_TENANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAzureTenantId() {
+    return azureTenantId;
+  }
+
   public void setAzureTenantId(String azureTenantId) {
     this.azureTenantId = azureTenantId;
   }
-  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail filePath(String filePath) {
+
+  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail filePath(
+      String filePath) {
     this.filePath = filePath;
     return this;
   }
 
   /**
-   * <p>The relative file path from the Azure container root to the CSV file.</p>
+   * The relative file path from the Azure container root to the CSV file.
+   *
    * @return filePath
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILE_PATH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFilePath() {
-        return filePath;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILE_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFilePath() {
+    return filePath;
+  }
+
   public void setFilePath(String filePath) {
     this.filePath = filePath;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
    */
   @JsonAnySetter
-  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail putAdditionalProperty(String key, Object value) {
+  public PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+      putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -198,13 +200,14 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureD
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail object is equal to o.
+   * Return true if this PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+   * object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -214,14 +217,41 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureD
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail = (PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail) o;
-    return Objects.equals(this.azureClientId, patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.azureClientId) && Objects.equals(this.azureContainerName, patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.azureContainerName) && Objects.equals(this.azureStorageAccountName, patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.azureStorageAccountName) && Objects.equals(this.azureTenantId, patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.azureTenantId) && Objects.equals(this.filePath, patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.filePath) && Objects.equals(this.additionalProperties, patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.additionalProperties);
+    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+        patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail =
+            (PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail) o;
+    return Objects.equals(
+            this.azureClientId,
+            patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.azureClientId)
+        && Objects.equals(
+            this.azureContainerName,
+            patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+                .azureContainerName)
+        && Objects.equals(
+            this.azureStorageAccountName,
+            patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+                .azureStorageAccountName)
+        && Objects.equals(
+            this.azureTenantId,
+            patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.azureTenantId)
+        && Objects.equals(
+            this.filePath,
+            patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail.filePath)
+        && Objects.equals(
+            this.additionalProperties,
+            patchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
+                .additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureClientId,azureContainerName,azureStorageAccountName,azureTenantId,filePath, additionalProperties);
+    return Objects.hash(
+        azureClientId,
+        azureContainerName,
+        azureStorageAccountName,
+        azureTenantId,
+        filePath,
+        additionalProperties);
   }
 
   @Override
@@ -230,7 +260,9 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureD
     sb.append("class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail {\n");
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureContainerName: ").append(toIndentedString(azureContainerName)).append("\n");
-    sb.append("    azureStorageAccountName: ").append(toIndentedString(azureStorageAccountName)).append("\n");
+    sb.append("    azureStorageAccountName: ")
+        .append(toIndentedString(azureStorageAccountName))
+        .append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    additionalProperties: ")
@@ -241,8 +273,7 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureD
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
