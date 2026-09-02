@@ -24,8 +24,10 @@ import java.util.Objects;
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CUSTOM_SQL,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CUSTOM_WHERE,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_GROUP_BY_COLUMNS,
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_CONFIGURATION,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_TYPE_OVERRIDE,
-  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_SENSITIVITY
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_SENSITIVITY,
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_SOURCE_TO_TARGET_CONFIG
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,11 +45,17 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
   public static final String JSON_PROPERTY_GROUP_BY_COLUMNS = "group_by_columns";
   private List<String> groupByColumns = null;
 
+  public static final String JSON_PROPERTY_MODEL_CONFIGURATION = "model_configuration";
+  private MonitorFormulaAndFunctionDataQualityModelConfiguration modelConfiguration;
+
   public static final String JSON_PROPERTY_MODEL_TYPE_OVERRIDE = "model_type_override";
   private MonitorFormulaAndFunctionDataQualityModelTypeOverride modelTypeOverride;
 
   public static final String JSON_PROPERTY_SENSITIVITY = "sensitivity";
   private Double sensitivity;
+
+  public static final String JSON_PROPERTY_SOURCE_TO_TARGET_CONFIG = "source_to_target_config";
+  private MonitorFormulaAndFunctionDataQualitySourceToTargetConfig sourceToTargetConfig;
 
   public MonitorFormulaAndFunctionDataQualityMonitorOptions crontabOverride(
       String crontabOverride) {
@@ -144,6 +152,33 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     this.groupByColumns = groupByColumns;
   }
 
+  public MonitorFormulaAndFunctionDataQualityMonitorOptions modelConfiguration(
+      MonitorFormulaAndFunctionDataQualityModelConfiguration modelConfiguration) {
+    this.modelConfiguration = modelConfiguration;
+    this.unparsed |= modelConfiguration.unparsed;
+    return this;
+  }
+
+  /**
+   * Tuning options for the anomaly detection model used by the monitor.
+   *
+   * @return modelConfiguration
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODEL_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorFormulaAndFunctionDataQualityModelConfiguration getModelConfiguration() {
+    return modelConfiguration;
+  }
+
+  public void setModelConfiguration(
+      MonitorFormulaAndFunctionDataQualityModelConfiguration modelConfiguration) {
+    this.modelConfiguration = modelConfiguration;
+    if (modelConfiguration != null) {
+      this.unparsed |= modelConfiguration.unparsed;
+    }
+  }
+
   public MonitorFormulaAndFunctionDataQualityMonitorOptions modelTypeOverride(
       MonitorFormulaAndFunctionDataQualityModelTypeOverride modelTypeOverride) {
     this.modelTypeOverride = modelTypeOverride;
@@ -192,6 +227,34 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
 
   public void setSensitivity(Double sensitivity) {
     this.sensitivity = sensitivity;
+  }
+
+  public MonitorFormulaAndFunctionDataQualityMonitorOptions sourceToTargetConfig(
+      MonitorFormulaAndFunctionDataQualitySourceToTargetConfig sourceToTargetConfig) {
+    this.sourceToTargetConfig = sourceToTargetConfig;
+    this.unparsed |= sourceToTargetConfig.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for a source to target monitor, which compares the same measure across two data
+   * entities and alerts on the difference between them.
+   *
+   * @return sourceToTargetConfig
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE_TO_TARGET_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorFormulaAndFunctionDataQualitySourceToTargetConfig getSourceToTargetConfig() {
+    return sourceToTargetConfig;
+  }
+
+  public void setSourceToTargetConfig(
+      MonitorFormulaAndFunctionDataQualitySourceToTargetConfig sourceToTargetConfig) {
+    this.sourceToTargetConfig = sourceToTargetConfig;
+    if (sourceToTargetConfig != null) {
+      this.unparsed |= sourceToTargetConfig.unparsed;
+    }
   }
 
   /**
@@ -265,10 +328,16 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
         && Objects.equals(
             this.groupByColumns, monitorFormulaAndFunctionDataQualityMonitorOptions.groupByColumns)
         && Objects.equals(
+            this.modelConfiguration,
+            monitorFormulaAndFunctionDataQualityMonitorOptions.modelConfiguration)
+        && Objects.equals(
             this.modelTypeOverride,
             monitorFormulaAndFunctionDataQualityMonitorOptions.modelTypeOverride)
         && Objects.equals(
             this.sensitivity, monitorFormulaAndFunctionDataQualityMonitorOptions.sensitivity)
+        && Objects.equals(
+            this.sourceToTargetConfig,
+            monitorFormulaAndFunctionDataQualityMonitorOptions.sourceToTargetConfig)
         && Objects.equals(
             this.additionalProperties,
             monitorFormulaAndFunctionDataQualityMonitorOptions.additionalProperties);
@@ -281,8 +350,10 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
         customSql,
         customWhere,
         groupByColumns,
+        modelConfiguration,
         modelTypeOverride,
         sensitivity,
+        sourceToTargetConfig,
         additionalProperties);
   }
 
@@ -294,8 +365,12 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     sb.append("    customSql: ").append(toIndentedString(customSql)).append("\n");
     sb.append("    customWhere: ").append(toIndentedString(customWhere)).append("\n");
     sb.append("    groupByColumns: ").append(toIndentedString(groupByColumns)).append("\n");
+    sb.append("    modelConfiguration: ").append(toIndentedString(modelConfiguration)).append("\n");
     sb.append("    modelTypeOverride: ").append(toIndentedString(modelTypeOverride)).append("\n");
     sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
+    sb.append("    sourceToTargetConfig: ")
+        .append(toIndentedString(sourceToTargetConfig))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
