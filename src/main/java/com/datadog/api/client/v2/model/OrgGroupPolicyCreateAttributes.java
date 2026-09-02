@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes for creating an org group policy. If <code>policy_type</code> or <code>
- * enforcement_tier</code> are not provided, they default to <code>org_config</code> and <code>
- * DEFAULT</code> respectively.
+ * Attributes for creating an org group policy. If <code>policy_type</code> is not provided, it
+ * defaults to <code>org_config</code>. <code>enforcement_tier</code> is optional; if not provided,
+ * the resulting value depends on <code>policy_type</code> and is otherwise unspecified.
  */
 @JsonPropertyOrder({
   OrgGroupPolicyCreateAttributes.JSON_PROPERTY_CONTENT,
@@ -36,8 +36,7 @@ public class OrgGroupPolicyCreateAttributes {
   private Map<String, Object> content = new HashMap<String, Object>();
 
   public static final String JSON_PROPERTY_ENFORCEMENT_TIER = "enforcement_tier";
-  private OrgGroupPolicyEnforcementTier enforcementTier =
-      OrgGroupPolicyEnforcementTier.OVERRIDE_ALLOWED;
+  private OrgGroupPolicyEnforcementTier enforcementTier;
 
   public static final String JSON_PROPERTY_POLICY_NAME = "policy_name";
   private String policyName;
@@ -66,7 +65,10 @@ public class OrgGroupPolicyCreateAttributes {
   }
 
   /**
-   * The policy content as key-value pairs.
+   * The policy content as key-value pairs. For <code>org_config</code> policies, an arbitrary
+   * key-value map (for example, <code>{"value": "UTC"}</code>). For <code>role</code> policies, a
+   * <code>permissions</code> key containing an array of permission UUIDs (for example, <code>
+   * {"permissions": ["&lt;uuid&gt;", ...]}</code>).
    *
    * @return content
    */
@@ -91,7 +93,10 @@ public class OrgGroupPolicyCreateAttributes {
    * The enforcement tier of the policy. <code>OVERRIDE_ALLOWED</code> means the policy is set but
    * member orgs may mutate it. <code>GROUP_MANAGED</code> means the policy is strictly controlled
    * and mutations are blocked for affected orgs. <code>DELEGATE</code> means each member org
-   * controls its own value.
+   * controls its own value. <code>role</code> policies only support <code>GROUP_MANAGED</code> and
+   * <code>DELEGATE</code> — <code>OVERRIDE_ALLOWED</code> is rejected for this policy type.
+   * Transitioning a <code>role</code> policy to <code>DELEGATE</code> (disabling it) is one-way —
+   * the policy cannot be transitioned back to <code>GROUP_MANAGED</code> afterward.
    *
    * @return enforcementTier
    */
@@ -115,7 +120,8 @@ public class OrgGroupPolicyCreateAttributes {
   }
 
   /**
-   * The name of the policy.
+   * The name of the policy. This becomes the name of the resource created across orgs in the group
+   * (for example, for <code>role</code> policies, the name of the created role).
    *
    * @return policyName
    */
@@ -136,8 +142,8 @@ public class OrgGroupPolicyCreateAttributes {
   }
 
   /**
-   * The type of the policy. Only <code>org_config</code> is supported, indicating a policy backed
-   * by an organization configuration setting.
+   * The type of the policy. <code>org_config</code> indicates a policy backed by an organization
+   * configuration setting. <code>role</code> indicates a policy backed by a Datadog custom role.
    *
    * @return policyType
    */

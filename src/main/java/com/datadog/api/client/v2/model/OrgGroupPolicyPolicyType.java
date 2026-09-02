@@ -19,16 +19,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The type of the policy. Only <code>org_config</code> is supported, indicating a policy backed by
- * an organization configuration setting.
+ * The type of the policy. <code>org_config</code> indicates a policy backed by an organization
+ * configuration setting. <code>role</code> indicates a policy backed by a Datadog custom role.
  */
 @JsonSerialize(using = OrgGroupPolicyPolicyType.OrgGroupPolicyPolicyTypeSerializer.class)
 public class OrgGroupPolicyPolicyType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("org_config"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("org_config", "role"));
 
   public static final OrgGroupPolicyPolicyType ORG_CONFIG =
       new OrgGroupPolicyPolicyType("org_config");
+  public static final OrgGroupPolicyPolicyType ROLE = new OrgGroupPolicyPolicyType("role");
 
   OrgGroupPolicyPolicyType(String value) {
     super(value, allowedValues);

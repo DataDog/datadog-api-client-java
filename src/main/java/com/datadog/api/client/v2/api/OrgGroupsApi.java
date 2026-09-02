@@ -13,6 +13,7 @@ import com.datadog.api.client.v2.model.OrgGroupMembershipSortOption;
 import com.datadog.api.client.v2.model.OrgGroupMembershipUpdateRequest;
 import com.datadog.api.client.v2.model.OrgGroupPolicyConfigListResponse;
 import com.datadog.api.client.v2.model.OrgGroupPolicyCreateRequest;
+import com.datadog.api.client.v2.model.OrgGroupPolicyFilterPolicyTypeValue;
 import com.datadog.api.client.v2.model.OrgGroupPolicyListResponse;
 import com.datadog.api.client.v2.model.OrgGroupPolicyOverrideCreateRequest;
 import com.datadog.api.client.v2.model.OrgGroupPolicyOverrideListResponse;
@@ -2066,6 +2067,7 @@ public class OrgGroupsApi {
   /** Manage optional parameters to listOrgGroupPolicies. */
   public static class ListOrgGroupPoliciesOptionalParameters {
     private String filterPolicyName;
+    private OrgGroupPolicyFilterPolicyTypeValue filterPolicyType;
     private Long pageNumber;
     private Long pageSize;
     private OrgGroupPolicySortOption sort;
@@ -2078,6 +2080,19 @@ public class OrgGroupsApi {
      */
     public ListOrgGroupPoliciesOptionalParameters filterPolicyName(String filterPolicyName) {
       this.filterPolicyName = filterPolicyName;
+      return this;
+    }
+
+    /**
+     * Set filterPolicyType.
+     *
+     * @param filterPolicyType Filter policies by policy type. Supported values are <code>org_config
+     *     </code> and <code>role</code>. (optional)
+     * @return ListOrgGroupPoliciesOptionalParameters
+     */
+    public ListOrgGroupPoliciesOptionalParameters filterPolicyType(
+        OrgGroupPolicyFilterPolicyTypeValue filterPolicyType) {
+      this.filterPolicyType = filterPolicyType;
       return this;
     }
 
@@ -2222,6 +2237,7 @@ public class OrgGroupsApi {
           "Missing the required parameter 'filterOrgGroupId' when calling listOrgGroupPolicies");
     }
     String filterPolicyName = parameters.filterPolicyName;
+    OrgGroupPolicyFilterPolicyTypeValue filterPolicyType = parameters.filterPolicyType;
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
     OrgGroupPolicySortOption sort = parameters.sort;
@@ -2235,6 +2251,8 @@ public class OrgGroupsApi {
         apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[policy_name]", filterPolicyName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[policy_type]", filterPolicyType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
@@ -2294,6 +2312,7 @@ public class OrgGroupsApi {
       return result;
     }
     String filterPolicyName = parameters.filterPolicyName;
+    OrgGroupPolicyFilterPolicyTypeValue filterPolicyType = parameters.filterPolicyType;
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
     OrgGroupPolicySortOption sort = parameters.sort;
@@ -2307,6 +2326,8 @@ public class OrgGroupsApi {
         apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[policy_name]", filterPolicyName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[policy_type]", filterPolicyType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
