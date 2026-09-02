@@ -26,6 +26,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_ID,
+  ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_MAX_CONNECTION_DURATION_SECS,
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_TYPE
 })
@@ -38,6 +39,10 @@ public class ObservabilityPipelineSplunkTcpSource {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_MAX_CONNECTION_DURATION_SECS =
+      "max_connection_duration_secs";
+  private Long maxConnectionDurationSecs;
 
   public static final String JSON_PROPERTY_TLS = "tls";
   private ObservabilityPipelineMtlsServerTls tls;
@@ -99,6 +104,29 @@ public class ObservabilityPipelineSplunkTcpSource {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ObservabilityPipelineSplunkTcpSource maxConnectionDurationSecs(
+      Long maxConnectionDurationSecs) {
+    this.maxConnectionDurationSecs = maxConnectionDurationSecs;
+    return this;
+  }
+
+  /**
+   * Maximum duration, in seconds, that a connection can remain open before it is closed. When
+   * unset, connections can remain open indefinitely. minimum: 1 maximum: 9007199254740991
+   *
+   * @return maxConnectionDurationSecs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_CONNECTION_DURATION_SECS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMaxConnectionDurationSecs() {
+    return maxConnectionDurationSecs;
+  }
+
+  public void setMaxConnectionDurationSecs(Long maxConnectionDurationSecs) {
+    this.maxConnectionDurationSecs = maxConnectionDurationSecs;
   }
 
   public ObservabilityPipelineSplunkTcpSource tls(ObservabilityPipelineMtlsServerTls tls) {
@@ -210,6 +238,9 @@ public class ObservabilityPipelineSplunkTcpSource {
         (ObservabilityPipelineSplunkTcpSource) o;
     return Objects.equals(this.addressKey, observabilityPipelineSplunkTcpSource.addressKey)
         && Objects.equals(this.id, observabilityPipelineSplunkTcpSource.id)
+        && Objects.equals(
+            this.maxConnectionDurationSecs,
+            observabilityPipelineSplunkTcpSource.maxConnectionDurationSecs)
         && Objects.equals(this.tls, observabilityPipelineSplunkTcpSource.tls)
         && Objects.equals(this.type, observabilityPipelineSplunkTcpSource.type)
         && Objects.equals(
@@ -218,7 +249,7 @@ public class ObservabilityPipelineSplunkTcpSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressKey, id, tls, type, additionalProperties);
+    return Objects.hash(addressKey, id, maxConnectionDurationSecs, tls, type, additionalProperties);
   }
 
   @Override
@@ -227,6 +258,9 @@ public class ObservabilityPipelineSplunkTcpSource {
     sb.append("class ObservabilityPipelineSplunkTcpSource {\n");
     sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    maxConnectionDurationSecs: ")
+        .append(toIndentedString(maxConnectionDurationSecs))
+        .append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
