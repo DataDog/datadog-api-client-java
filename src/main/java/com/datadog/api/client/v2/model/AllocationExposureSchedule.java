@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AllocationExposureSchedule.JSON_PROPERTY_ID,
   AllocationExposureSchedule.JSON_PROPERTY_ROLLOUT_OPTIONS,
   AllocationExposureSchedule.JSON_PROPERTY_ROLLOUT_STEPS,
+  AllocationExposureSchedule.JSON_PROPERTY_SCHEDULED_START_TIME,
   AllocationExposureSchedule.JSON_PROPERTY_UPDATED_AT
 })
 @jakarta.annotation.Generated(
@@ -66,6 +67,10 @@ public class AllocationExposureSchedule {
 
   public static final String JSON_PROPERTY_ROLLOUT_STEPS = "rollout_steps";
   private List<AllocationExposureRolloutStep> rolloutSteps = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_SCHEDULED_START_TIME = "scheduled_start_time";
+  private JsonNullable<OffsetDateTime> scheduledStartTime =
+      JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
@@ -348,6 +353,38 @@ public class AllocationExposureSchedule {
     }
   }
 
+  public AllocationExposureSchedule scheduledStartTime(OffsetDateTime scheduledStartTime) {
+    this.scheduledStartTime = JsonNullable.<OffsetDateTime>of(scheduledStartTime);
+    return this;
+  }
+
+  /**
+   * The resolved UTC start time computed from <code>scheduled_start</code>. This field is read-only
+   * and cannot be set directly.
+   *
+   * @return scheduledStartTime
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getScheduledStartTime() {
+    return scheduledStartTime.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCHEDULED_START_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getScheduledStartTime_JsonNullable() {
+    return scheduledStartTime;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCHEDULED_START_TIME)
+  public void setScheduledStartTime_JsonNullable(JsonNullable<OffsetDateTime> scheduledStartTime) {
+    this.scheduledStartTime = scheduledStartTime;
+  }
+
+  public void setScheduledStartTime(OffsetDateTime scheduledStartTime) {
+    this.scheduledStartTime = JsonNullable.<OffsetDateTime>of(scheduledStartTime);
+  }
+
   public AllocationExposureSchedule updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -434,6 +471,7 @@ public class AllocationExposureSchedule {
         && Objects.equals(this.id, allocationExposureSchedule.id)
         && Objects.equals(this.rolloutOptions, allocationExposureSchedule.rolloutOptions)
         && Objects.equals(this.rolloutSteps, allocationExposureSchedule.rolloutSteps)
+        && Objects.equals(this.scheduledStartTime, allocationExposureSchedule.scheduledStartTime)
         && Objects.equals(this.updatedAt, allocationExposureSchedule.updatedAt)
         && Objects.equals(
             this.additionalProperties, allocationExposureSchedule.additionalProperties);
@@ -451,6 +489,7 @@ public class AllocationExposureSchedule {
         id,
         rolloutOptions,
         rolloutSteps,
+        scheduledStartTime,
         updatedAt,
         additionalProperties);
   }
@@ -470,6 +509,7 @@ public class AllocationExposureSchedule {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rolloutOptions: ").append(toIndentedString(rolloutOptions)).append("\n");
     sb.append("    rolloutSteps: ").append(toIndentedString(rolloutSteps)).append("\n");
+    sb.append("    scheduledStartTime: ").append(toIndentedString(scheduledStartTime)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

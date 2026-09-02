@@ -47,6 +47,7 @@ public class Example {
                                         .rolloutOptions(
                                             new RolloutOptionsRequest()
                                                 .autostart(false)
+                                                .scheduledStart("absolute:2025-06-13T12:00:00Z")
                                                 .selectionIntervalMs(3600000L)
                                                 .strategy(RolloutStrategy.UNIFORM_INTERVALS))
                                         .rolloutSteps(

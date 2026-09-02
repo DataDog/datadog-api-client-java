@@ -21,6 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Rollout options request payload. */
 @JsonPropertyOrder({
   RolloutOptionsRequest.JSON_PROPERTY_AUTOSTART,
+  RolloutOptionsRequest.JSON_PROPERTY_SCHEDULED_START,
   RolloutOptionsRequest.JSON_PROPERTY_SELECTION_INTERVAL_MS,
   RolloutOptionsRequest.JSON_PROPERTY_STRATEGY
 })
@@ -30,6 +31,9 @@ public class RolloutOptionsRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTOSTART = "autostart";
   private JsonNullable<Boolean> autostart = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_SCHEDULED_START = "scheduled_start";
+  private String scheduledStart;
 
   public static final String JSON_PROPERTY_SELECTION_INTERVAL_MS = "selection_interval_ms";
   private Long selectionIntervalMs;
@@ -52,16 +56,20 @@ public class RolloutOptionsRequest {
   }
 
   /**
-   * Whether the schedule should begin automatically.
+   * Whether the schedule should begin automatically. Deprecated in favor of <code>scheduled_start
+   * </code>, which takes precedence when both are set.
    *
    * @return autostart
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonIgnore
   public Boolean getAutostart() {
     return autostart.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_AUTOSTART)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Boolean> getAutostart_JsonNullable() {
@@ -75,6 +83,39 @@ public class RolloutOptionsRequest {
 
   public void setAutostart(Boolean autostart) {
     this.autostart = JsonNullable.<Boolean>of(autostart);
+  }
+
+  public RolloutOptionsRequest scheduledStart(String scheduledStart) {
+    this.scheduledStart = scheduledStart;
+    return this;
+  }
+
+  /**
+   * Controls when the schedule starts. Supersedes <code>autostart</code>. One of:
+   *
+   * <ul>
+   *   <li><code>none</code>: create the schedule without starting it.
+   *   <li><code>now</code>: start the schedule immediately.
+   *   <li><code>relative:&lt;duration&gt;</code>: start after a duration (for example <code>
+   *       relative:2h</code>).
+   *   <li><code>absolute:&lt;RFC3339 timestamp&gt;</code>: start at a specific time (for example
+   *       <code>absolute:2025-06-13T12:00:00Z</code>).
+   * </ul>
+   *
+   * <p>An <code>absolute</code> timestamp in the past or present is treated as <code>now</code>. A
+   * future start time is not supported for allocations linked to a standard experiment.
+   *
+   * @return scheduledStart
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEDULED_START)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getScheduledStart() {
+    return scheduledStart;
+  }
+
+  public void setScheduledStart(String scheduledStart) {
+    this.scheduledStart = scheduledStart;
   }
 
   public RolloutOptionsRequest selectionIntervalMs(Long selectionIntervalMs) {
@@ -179,6 +220,7 @@ public class RolloutOptionsRequest {
     }
     RolloutOptionsRequest rolloutOptionsRequest = (RolloutOptionsRequest) o;
     return Objects.equals(this.autostart, rolloutOptionsRequest.autostart)
+        && Objects.equals(this.scheduledStart, rolloutOptionsRequest.scheduledStart)
         && Objects.equals(this.selectionIntervalMs, rolloutOptionsRequest.selectionIntervalMs)
         && Objects.equals(this.strategy, rolloutOptionsRequest.strategy)
         && Objects.equals(this.additionalProperties, rolloutOptionsRequest.additionalProperties);
@@ -186,7 +228,8 @@ public class RolloutOptionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autostart, selectionIntervalMs, strategy, additionalProperties);
+    return Objects.hash(
+        autostart, scheduledStart, selectionIntervalMs, strategy, additionalProperties);
   }
 
   @Override
@@ -194,6 +237,7 @@ public class RolloutOptionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RolloutOptionsRequest {\n");
     sb.append("    autostart: ").append(toIndentedString(autostart)).append("\n");
+    sb.append("    scheduledStart: ").append(toIndentedString(scheduledStart)).append("\n");
     sb.append("    selectionIntervalMs: ")
         .append(toIndentedString(selectionIntervalMs))
         .append("\n");

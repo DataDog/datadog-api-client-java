@@ -30,11 +30,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagAttributes.JSON_PROPERTY_DESCRIPTION,
   FeatureFlagAttributes.JSON_PROPERTY_DISTRIBUTION_CHANNEL,
   FeatureFlagAttributes.JSON_PROPERTY_FEATURE_FLAG_ENVIRONMENTS,
+  FeatureFlagAttributes.JSON_PROPERTY_IS_FAVORITE,
   FeatureFlagAttributes.JSON_PROPERTY_JSON_SCHEMA,
   FeatureFlagAttributes.JSON_PROPERTY_KEY,
   FeatureFlagAttributes.JSON_PROPERTY_LAST_UPDATED_BY,
   FeatureFlagAttributes.JSON_PROPERTY_NAME,
   FeatureFlagAttributes.JSON_PROPERTY_REQUIRE_APPROVAL,
+  FeatureFlagAttributes.JSON_PROPERTY_STALENESS_DETAILS,
   FeatureFlagAttributes.JSON_PROPERTY_STALENESS_STATUS,
   FeatureFlagAttributes.JSON_PROPERTY_TAGS,
   FeatureFlagAttributes.JSON_PROPERTY_UPDATED_AT,
@@ -63,6 +65,9 @@ public class FeatureFlagAttributes {
   public static final String JSON_PROPERTY_FEATURE_FLAG_ENVIRONMENTS = "feature_flag_environments";
   private List<FeatureFlagEnvironment> featureFlagEnvironments = null;
 
+  public static final String JSON_PROPERTY_IS_FAVORITE = "is_favorite";
+  private Boolean isFavorite;
+
   public static final String JSON_PROPERTY_JSON_SCHEMA = "json_schema";
   private JsonNullable<String> jsonSchema = JsonNullable.<String>undefined();
 
@@ -77,6 +82,10 @@ public class FeatureFlagAttributes {
 
   public static final String JSON_PROPERTY_REQUIRE_APPROVAL = "require_approval";
   private Boolean requireApproval;
+
+  public static final String JSON_PROPERTY_STALENESS_DETAILS = "staleness_details";
+  private JsonNullable<FeatureFlagAttributesStalenessDetails> stalenessDetails =
+      JsonNullable.<FeatureFlagAttributesStalenessDetails>undefined();
 
   public static final String JSON_PROPERTY_STALENESS_STATUS = "staleness_status";
   private String stalenessStatus;
@@ -269,6 +278,27 @@ public class FeatureFlagAttributes {
     }
   }
 
+  public FeatureFlagAttributes isFavorite(Boolean isFavorite) {
+    this.isFavorite = isFavorite;
+    return this;
+  }
+
+  /**
+   * Indicates whether the feature flag is marked as a favorite by the current user.
+   *
+   * @return isFavorite
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsFavorite() {
+    return isFavorite;
+  }
+
+  public void setIsFavorite(Boolean isFavorite) {
+    this.isFavorite = isFavorite;
+  }
+
   public FeatureFlagAttributes jsonSchema(String jsonSchema) {
     this.jsonSchema = JsonNullable.<String>of(jsonSchema);
     return this;
@@ -380,6 +410,41 @@ public class FeatureFlagAttributes {
 
   public void setRequireApproval(Boolean requireApproval) {
     this.requireApproval = requireApproval;
+  }
+
+  public FeatureFlagAttributes stalenessDetails(
+      FeatureFlagAttributesStalenessDetails stalenessDetails) {
+    this.stalenessDetails =
+        JsonNullable.<FeatureFlagAttributesStalenessDetails>of(stalenessDetails);
+    return this;
+  }
+
+  /**
+   * Details about the feature flag's staleness status.
+   *
+   * @return stalenessDetails
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public FeatureFlagAttributesStalenessDetails getStalenessDetails() {
+    return stalenessDetails.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STALENESS_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<FeatureFlagAttributesStalenessDetails> getStalenessDetails_JsonNullable() {
+    return stalenessDetails;
+  }
+
+  @JsonProperty(JSON_PROPERTY_STALENESS_DETAILS)
+  public void setStalenessDetails_JsonNullable(
+      JsonNullable<FeatureFlagAttributesStalenessDetails> stalenessDetails) {
+    this.stalenessDetails = stalenessDetails;
+  }
+
+  public void setStalenessDetails(FeatureFlagAttributesStalenessDetails stalenessDetails) {
+    this.stalenessDetails =
+        JsonNullable.<FeatureFlagAttributesStalenessDetails>of(stalenessDetails);
   }
 
   public FeatureFlagAttributes stalenessStatus(String stalenessStatus) {
@@ -574,11 +639,13 @@ public class FeatureFlagAttributes {
         && Objects.equals(this.distributionChannel, featureFlagAttributes.distributionChannel)
         && Objects.equals(
             this.featureFlagEnvironments, featureFlagAttributes.featureFlagEnvironments)
+        && Objects.equals(this.isFavorite, featureFlagAttributes.isFavorite)
         && Objects.equals(this.jsonSchema, featureFlagAttributes.jsonSchema)
         && Objects.equals(this.key, featureFlagAttributes.key)
         && Objects.equals(this.lastUpdatedBy, featureFlagAttributes.lastUpdatedBy)
         && Objects.equals(this.name, featureFlagAttributes.name)
         && Objects.equals(this.requireApproval, featureFlagAttributes.requireApproval)
+        && Objects.equals(this.stalenessDetails, featureFlagAttributes.stalenessDetails)
         && Objects.equals(this.stalenessStatus, featureFlagAttributes.stalenessStatus)
         && Objects.equals(this.tags, featureFlagAttributes.tags)
         && Objects.equals(this.updatedAt, featureFlagAttributes.updatedAt)
@@ -596,11 +663,13 @@ public class FeatureFlagAttributes {
         description,
         distributionChannel,
         featureFlagEnvironments,
+        isFavorite,
         jsonSchema,
         key,
         lastUpdatedBy,
         name,
         requireApproval,
+        stalenessDetails,
         stalenessStatus,
         tags,
         updatedAt,
@@ -623,11 +692,13 @@ public class FeatureFlagAttributes {
     sb.append("    featureFlagEnvironments: ")
         .append(toIndentedString(featureFlagEnvironments))
         .append("\n");
+    sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    jsonSchema: ").append(toIndentedString(jsonSchema)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    lastUpdatedBy: ").append(toIndentedString(lastUpdatedBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    requireApproval: ").append(toIndentedString(requireApproval)).append("\n");
+    sb.append("    stalenessDetails: ").append(toIndentedString(stalenessDetails)).append("\n");
     sb.append("    stalenessStatus: ").append(toIndentedString(stalenessStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagEnvironment.JSON_PROPERTY_ENVIRONMENT_NAME,
   FeatureFlagEnvironment.JSON_PROPERTY_ENVIRONMENT_QUERIES,
   FeatureFlagEnvironment.JSON_PROPERTY_IS_PRODUCTION,
+  FeatureFlagEnvironment.JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA,
   FeatureFlagEnvironment.JSON_PROPERTY_OVERRIDE_ALLOCATION_KEY,
   FeatureFlagEnvironment.JSON_PROPERTY_OVERRIDE_VARIANT_ID,
   FeatureFlagEnvironment.JSON_PROPERTY_PENDING_SUGGESTION_ID,
@@ -61,6 +62,10 @@ public class FeatureFlagEnvironment {
 
   public static final String JSON_PROPERTY_IS_PRODUCTION = "is_production";
   private Boolean isProduction;
+
+  public static final String JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA =
+      "observe_full_evaluation_data";
+  private Boolean observeFullEvaluationData;
 
   public static final String JSON_PROPERTY_OVERRIDE_ALLOCATION_KEY = "override_allocation_key";
   private String overrideAllocationKey;
@@ -275,6 +280,27 @@ public class FeatureFlagEnvironment {
     this.isProduction = isProduction;
   }
 
+  public FeatureFlagEnvironment observeFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
+    return this;
+  }
+
+  /**
+   * Indicates whether full evaluation data is observed for this environment.
+   *
+   * @return observeFullEvaluationData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getObserveFullEvaluationData() {
+    return observeFullEvaluationData;
+  }
+
+  public void setObserveFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
+  }
+
   public FeatureFlagEnvironment overrideAllocationKey(String overrideAllocationKey) {
     this.overrideAllocationKey = overrideAllocationKey;
     return this;
@@ -466,6 +492,8 @@ public class FeatureFlagEnvironment {
         && Objects.equals(this.environmentName, featureFlagEnvironment.environmentName)
         && Objects.equals(this.environmentQueries, featureFlagEnvironment.environmentQueries)
         && Objects.equals(this.isProduction, featureFlagEnvironment.isProduction)
+        && Objects.equals(
+            this.observeFullEvaluationData, featureFlagEnvironment.observeFullEvaluationData)
         && Objects.equals(this.overrideAllocationKey, featureFlagEnvironment.overrideAllocationKey)
         && Objects.equals(this.overrideVariantId, featureFlagEnvironment.overrideVariantId)
         && Objects.equals(this.pendingSuggestionId, featureFlagEnvironment.pendingSuggestionId)
@@ -485,6 +513,7 @@ public class FeatureFlagEnvironment {
         environmentName,
         environmentQueries,
         isProduction,
+        observeFullEvaluationData,
         overrideAllocationKey,
         overrideVariantId,
         pendingSuggestionId,
@@ -506,6 +535,9 @@ public class FeatureFlagEnvironment {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    environmentQueries: ").append(toIndentedString(environmentQueries)).append("\n");
     sb.append("    isProduction: ").append(toIndentedString(isProduction)).append("\n");
+    sb.append("    observeFullEvaluationData: ")
+        .append(toIndentedString(observeFullEvaluationData))
+        .append("\n");
     sb.append("    overrideAllocationKey: ")
         .append(toIndentedString(overrideAllocationKey))
         .append("\n");
