@@ -27,6 +27,9 @@ import com.datadog.api.client.v2.model.TriggerRateLimit;
 import com.datadog.api.client.v2.model.WorkflowData;
 import com.datadog.api.client.v2.model.WorkflowDataAttributes;
 import com.datadog.api.client.v2.model.WorkflowDataType;
+import com.datadog.api.client.v2.model.WorkflowRunAs;
+import com.datadog.api.client.v2.model.WorkflowRunAsOwner;
+import com.datadog.api.client.v2.model.WorkflowRunAsOwnerType;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -44,6 +47,9 @@ public class Example {
                             .description("A sample workflow.")
                             .name("Example Workflow")
                             .published(true)
+                            .runAs(
+                                new WorkflowRunAs(
+                                    new WorkflowRunAsOwner().type(WorkflowRunAsOwnerType.OWNER)))
                             .spec(
                                 new Spec()
                                     .connectionEnvs(
