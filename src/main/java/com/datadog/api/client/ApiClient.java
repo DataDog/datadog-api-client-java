@@ -868,6 +868,7 @@ public class ApiClient {
           put("v2.deleteLLMObsProjects", false);
           put("v2.deleteLLMObsPrompt", false);
           put("v2.exportLLMObsDataset", false);
+          put("v2.getLLMObsAnnotatedInteraction", false);
           put("v2.getLLMObsAnnotatedInteractions", false);
           put("v2.getLLMObsAnnotatedInteractionsByTraceIDs", false);
           put("v2.getLLMObsAnnotationQueueLabelSchema", false);
