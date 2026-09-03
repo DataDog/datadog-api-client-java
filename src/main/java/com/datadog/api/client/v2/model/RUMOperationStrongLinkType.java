@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The JSON:API type for RUM operation strong link resources. */
+/** The JSON:API type for RUM operation link resources. */
 @JsonSerialize(using = RUMOperationStrongLinkType.RUMOperationStrongLinkTypeSerializer.class)
 public class RUMOperationStrongLinkType extends ModelEnum<String> {
 

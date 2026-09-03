@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The response for a single RUM operation strong link. */
+/** The response for a single RUM operation link. */
 @JsonPropertyOrder({RUMOperationStrongLinkResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class RUMOperationStrongLinkResponse {
   }
 
   /**
-   * The data object in a RUM operation strong link response.
+   * The data object in a RUM operation link response.
    *
    * @return data
    */

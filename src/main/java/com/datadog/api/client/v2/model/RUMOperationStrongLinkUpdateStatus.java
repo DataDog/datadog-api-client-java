@@ -19,8 +19,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The status of a RUM operation strong link. Can only be set to <code>CONFIRMED</code> or <code>
- * REJECTED</code>.
+ * The status of a RUM operation link. Can only be set to <code>CONFIRMED</code> or <code>REJECTED
+ * </code>.
  */
 @JsonSerialize(
     using = RUMOperationStrongLinkUpdateStatus.RUMOperationStrongLinkUpdateStatusSerializer.class)
