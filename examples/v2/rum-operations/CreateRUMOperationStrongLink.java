@@ -1,4 +1,4 @@
-// Create a RUM operation strong link returns "Created" response
+// Create a RUM operation link returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -23,7 +23,7 @@ public class Example {
                     .attributes(
                         new RUMOperationStrongLinkCreateRequestAttributes()
                             .description(null)
-                            .featureId("feature-123")
+                            .featureId("journey-123")
                             .operationId("abc12345-1234-5678-abcd-ef1234567890")
                             .status(RUMOperationStrongLinkStatus.CONFIRMED))
                     .type(RUMOperationStrongLinkType.STRONG_LINKS));
