@@ -20,13 +20,37 @@ import java.util.Objects;
  * Trigger a workflow from an On-Call Page or On-Call Handover. For automatic triggering a handle
  * must be configured and the workflow must be published.
  */
-@JsonPropertyOrder({OnCallTrigger.JSON_PROPERTY_RATE_LIMIT})
+@JsonPropertyOrder({OnCallTrigger.JSON_PROPERTY_HANDLE, OnCallTrigger.JSON_PROPERTY_RATE_LIMIT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OnCallTrigger {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HANDLE = "handle";
+  private String handle;
+
   public static final String JSON_PROPERTY_RATE_LIMIT = "rateLimit";
   private TriggerRateLimit rateLimit;
+
+  public OnCallTrigger handle(String handle) {
+    this.handle = handle;
+    return this;
+  }
+
+  /**
+   * The handle used to reference this trigger from On-Call. Required for automatic triggering.
+   *
+   * @return handle
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandle() {
+    return handle;
+  }
+
+  public void setHandle(String handle) {
+    this.handle = handle;
+  }
 
   public OnCallTrigger rateLimit(TriggerRateLimit rateLimit) {
     this.rateLimit = rateLimit;
@@ -109,19 +133,21 @@ public class OnCallTrigger {
       return false;
     }
     OnCallTrigger onCallTrigger = (OnCallTrigger) o;
-    return Objects.equals(this.rateLimit, onCallTrigger.rateLimit)
+    return Objects.equals(this.handle, onCallTrigger.handle)
+        && Objects.equals(this.rateLimit, onCallTrigger.rateLimit)
         && Objects.equals(this.additionalProperties, onCallTrigger.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rateLimit, additionalProperties);
+    return Objects.hash(handle, rateLimit, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OnCallTrigger {\n");
+    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    rateLimit: ").append(toIndentedString(rateLimit)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
