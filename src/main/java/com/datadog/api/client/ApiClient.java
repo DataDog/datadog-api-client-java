@@ -1222,6 +1222,11 @@ public class ApiClient {
           put("v2.updateIncidentUserDefinedField", false);
           put("v2.updateIncidentUserDefinedRole", false);
           put("v2.updateTimestampOverride", false);
+          put("v2.createDatabricksIntegrationAccount", false);
+          put("v2.deleteDatabricksIntegrationAccount", false);
+          put("v2.getDatabricksIntegrationAccount", false);
+          put("v2.listDatabricksIntegrationAccounts", false);
+          put("v2.updateDatabricksIntegrationAccount", false);
           put("v2.createElasticCloudIntegrationAccount", false);
           put("v2.deleteElasticCloudIntegrationAccount", false);
           put("v2.getElasticCloudIntegrationAccount", false);
