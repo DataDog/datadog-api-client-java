@@ -1779,8 +1779,8 @@ public class FeatureFlagsApi {
   public static class ListFeatureFlagsOptionalParameters {
     private String key;
     private Boolean isArchived;
-    private Long limit;
-    private Long offset;
+    private Long pageLimit;
+    private Long pageOffset;
 
     /**
      * Set key.
@@ -1805,24 +1805,24 @@ public class FeatureFlagsApi {
     }
 
     /**
-     * Set limit.
+     * Set pageLimit.
      *
-     * @param limit Maximum number of results to return. (optional, default to 100)
+     * @param pageLimit Maximum number of feature flags to return. (optional, default to 25)
      * @return ListFeatureFlagsOptionalParameters
      */
-    public ListFeatureFlagsOptionalParameters limit(Long limit) {
-      this.limit = limit;
+    public ListFeatureFlagsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
       return this;
     }
 
     /**
-     * Set offset.
+     * Set pageOffset.
      *
-     * @param offset Number of results to skip. (optional, default to 0)
+     * @param pageOffset Number of feature flags to skip for pagination. (optional, default to 0)
      * @return ListFeatureFlagsOptionalParameters
      */
-    public ListFeatureFlagsOptionalParameters offset(Long offset) {
-      this.offset = offset;
+    public ListFeatureFlagsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
       return this;
     }
   }
@@ -1906,8 +1906,8 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String key = parameters.key;
     Boolean isArchived = parameters.isArchived;
-    Long limit = parameters.limit;
-    Long offset = parameters.offset;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
@@ -1916,8 +1916,8 @@ public class FeatureFlagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "key", key));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_archived", isArchived));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1952,8 +1952,8 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String key = parameters.key;
     Boolean isArchived = parameters.isArchived;
-    Long limit = parameters.limit;
-    Long offset = parameters.offset;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
@@ -1962,8 +1962,8 @@ public class FeatureFlagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "key", key));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_archived", isArchived));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder;
     try {
