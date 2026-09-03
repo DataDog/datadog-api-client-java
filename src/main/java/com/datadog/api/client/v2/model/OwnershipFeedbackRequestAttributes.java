@@ -21,8 +21,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** The attributes of an ownership feedback request. */
 @JsonPropertyOrder({
   OwnershipFeedbackRequestAttributes.JSON_PROPERTY_ACTION,
-  OwnershipFeedbackRequestAttributes.JSON_PROPERTY_ACTOR_HANDLE,
-  OwnershipFeedbackRequestAttributes.JSON_PROPERTY_ACTOR_TYPE,
   OwnershipFeedbackRequestAttributes.JSON_PROPERTY_CORRECTED_OWNER_HANDLE,
   OwnershipFeedbackRequestAttributes.JSON_PROPERTY_CORRECTED_OWNER_TYPE,
   OwnershipFeedbackRequestAttributes.JSON_PROPERTY_INFERENCE_CHECKSUM,
@@ -34,12 +32,6 @@ public class OwnershipFeedbackRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private OwnershipFeedbackAction action;
-
-  public static final String JSON_PROPERTY_ACTOR_HANDLE = "actor_handle";
-  private String actorHandle;
-
-  public static final String JSON_PROPERTY_ACTOR_TYPE = "actor_type";
-  private String actorType;
 
   public static final String JSON_PROPERTY_CORRECTED_OWNER_HANDLE = "corrected_owner_handle";
   private JsonNullable<String> correctedOwnerHandle = JsonNullable.<String>undefined();
@@ -58,14 +50,10 @@ public class OwnershipFeedbackRequestAttributes {
   @JsonCreator
   public OwnershipFeedbackRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_ACTION) OwnershipFeedbackAction action,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACTOR_HANDLE) String actorHandle,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACTOR_TYPE) String actorType,
       @JsonProperty(required = true, value = JSON_PROPERTY_INFERENCE_CHECKSUM)
           String inferenceChecksum) {
     this.action = action;
     this.unparsed |= !action.isValid();
-    this.actorHandle = actorHandle;
-    this.actorType = actorType;
     this.inferenceChecksum = inferenceChecksum;
   }
 
@@ -91,47 +79,6 @@ public class OwnershipFeedbackRequestAttributes {
       this.unparsed = true;
     }
     this.action = action;
-  }
-
-  public OwnershipFeedbackRequestAttributes actorHandle(String actorHandle) {
-    this.actorHandle = actorHandle;
-    return this;
-  }
-
-  /**
-   * The handle of the actor submitting the feedback.
-   *
-   * @return actorHandle
-   */
-  @JsonProperty(JSON_PROPERTY_ACTOR_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getActorHandle() {
-    return actorHandle;
-  }
-
-  public void setActorHandle(String actorHandle) {
-    this.actorHandle = actorHandle;
-  }
-
-  public OwnershipFeedbackRequestAttributes actorType(String actorType) {
-    this.actorType = actorType;
-    return this;
-  }
-
-  /**
-   * The type of actor submitting the feedback, for example <code>user</code> or <code>service
-   * </code>.
-   *
-   * @return actorType
-   */
-  @JsonProperty(JSON_PROPERTY_ACTOR_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getActorType() {
-    return actorType;
-  }
-
-  public void setActorType(String actorType) {
-    this.actorType = actorType;
   }
 
   public OwnershipFeedbackRequestAttributes correctedOwnerHandle(String correctedOwnerHandle) {
@@ -306,8 +253,6 @@ public class OwnershipFeedbackRequestAttributes {
     OwnershipFeedbackRequestAttributes ownershipFeedbackRequestAttributes =
         (OwnershipFeedbackRequestAttributes) o;
     return Objects.equals(this.action, ownershipFeedbackRequestAttributes.action)
-        && Objects.equals(this.actorHandle, ownershipFeedbackRequestAttributes.actorHandle)
-        && Objects.equals(this.actorType, ownershipFeedbackRequestAttributes.actorType)
         && Objects.equals(
             this.correctedOwnerHandle, ownershipFeedbackRequestAttributes.correctedOwnerHandle)
         && Objects.equals(
@@ -323,8 +268,6 @@ public class OwnershipFeedbackRequestAttributes {
   public int hashCode() {
     return Objects.hash(
         action,
-        actorHandle,
-        actorType,
         correctedOwnerHandle,
         correctedOwnerType,
         inferenceChecksum,
@@ -337,8 +280,6 @@ public class OwnershipFeedbackRequestAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class OwnershipFeedbackRequestAttributes {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    actorHandle: ").append(toIndentedString(actorHandle)).append("\n");
-    sb.append("    actorType: ").append(toIndentedString(actorType)).append("\n");
     sb.append("    correctedOwnerHandle: ")
         .append(toIndentedString(correctedOwnerHandle))
         .append("\n");
