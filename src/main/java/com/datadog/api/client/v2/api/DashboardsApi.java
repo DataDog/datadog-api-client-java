@@ -7,6 +7,8 @@ import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.DashboardUsage;
 import com.datadog.api.client.v2.model.DashboardUsageResponse;
+import com.datadog.api.client.v2.model.DashboardWidgetValidationRequest;
+import com.datadog.api.client.v2.model.DashboardWidgetValidationResponse;
 import com.datadog.api.client.v2.model.ListDashboardsUsageResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -513,5 +515,159 @@ public class DashboardsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListDashboardsUsageResponse>() {});
+  }
+
+  /**
+   * Validate dashboard widgets.
+   *
+   * <p>See {@link #validateDashboardWidgetsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return DashboardWidgetValidationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DashboardWidgetValidationResponse validateDashboardWidgets(
+      DashboardWidgetValidationRequest body) throws ApiException {
+    return validateDashboardWidgetsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Validate dashboard widgets.
+   *
+   * <p>See {@link #validateDashboardWidgetsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;DashboardWidgetValidationResponse&gt;
+   */
+  public CompletableFuture<DashboardWidgetValidationResponse> validateDashboardWidgetsAsync(
+      DashboardWidgetValidationRequest body) {
+    return validateDashboardWidgetsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate dashboard widgets without creating or updating a dashboard.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;DashboardWidgetValidationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DashboardWidgetValidationResponse> validateDashboardWidgetsWithHttpInfo(
+      DashboardWidgetValidationRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validateDashboardWidgets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling validateDashboardWidgets");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/dashboard/widgets/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DashboardsApi.validateDashboardWidgets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DashboardWidgetValidationResponse>() {});
+  }
+
+  /**
+   * Validate dashboard widgets.
+   *
+   * <p>See {@link #validateDashboardWidgetsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardWidgetValidationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DashboardWidgetValidationResponse>>
+      validateDashboardWidgetsWithHttpInfoAsync(DashboardWidgetValidationRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "validateDashboardWidgets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DashboardWidgetValidationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DashboardWidgetValidationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling validateDashboardWidgets"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/dashboard/widgets/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DashboardsApi.validateDashboardWidgets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DashboardWidgetValidationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DashboardWidgetValidationResponse>() {});
   }
 }
