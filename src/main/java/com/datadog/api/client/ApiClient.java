@@ -1109,6 +1109,7 @@ public class ApiClient {
           put("v2.updateForm", false);
           put("v2.upsertAndPublishFormVersion", false);
           put("v2.upsertFormVersion", false);
+          put("v2.updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl", false);
           put("v2.updateOrgSamlConfigurations", false);
           put("v2.getGovernanceConfig", false);
           put("v2.getGovernanceControl", false);
