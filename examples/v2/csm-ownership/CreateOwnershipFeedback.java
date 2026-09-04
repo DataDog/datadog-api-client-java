@@ -24,8 +24,6 @@ public class Example {
                     .attributes(
                         new OwnershipFeedbackRequestAttributes()
                             .action(OwnershipFeedbackAction.CONFIRM)
-                            .actorHandle("user@example.com")
-                            .actorType("user")
                             .correctedOwnerHandle("team-b")
                             .correctedOwnerType("team")
                             .inferenceChecksum("abc123")
