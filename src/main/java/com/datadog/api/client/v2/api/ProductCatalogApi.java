@@ -55,7 +55,8 @@ public class ProductCatalogApi {
      *
      * @param asOfDate The date the returned prices, allotments, and pricing tiers are effective as
      *     of, in <code>YYYY-MM-DD</code> format. Defaults to the date of the request, and must not
-     *     be later than it. (optional)
+     *     be later than it. Set it to a date in a past billing period to reconcile that period
+     *     against the prices that were in effect then, rather than today. (optional)
      * @return ListProductCatalogSKUsOptionalParameters
      */
     public ListProductCatalogSKUsOptionalParameters asOfDate(OffsetDateTime asOfDate) {
@@ -69,8 +70,9 @@ public class ProductCatalogApi {
    *
    * <p>See {@link #listProductCatalogSKUsWithHttpInfo}.
    *
-   * @param version The version of the product catalog contract to return. <code>v1</code> is the
-   *     latest. (required)
+   * @param version The version of the product catalog response contract to return. <code>v1</code>
+   *     is the latest. This is independent of the <code>/api/v2</code> path segment, which is the
+   *     version of the Datadog API itself. (required)
    * @return ProductCatalogSKUsResponse
    * @throws ApiException if fails to make API call
    */
@@ -86,8 +88,9 @@ public class ProductCatalogApi {
    *
    * <p>See {@link #listProductCatalogSKUsWithHttpInfoAsync}.
    *
-   * @param version The version of the product catalog contract to return. <code>v1</code> is the
-   *     latest. (required)
+   * @param version The version of the product catalog response contract to return. <code>v1</code>
+   *     is the latest. This is independent of the <code>/api/v2</code> path segment, which is the
+   *     version of the Datadog API itself. (required)
    * @return CompletableFuture&lt;ProductCatalogSKUsResponse&gt;
    */
   public CompletableFuture<ProductCatalogSKUsResponse> listProductCatalogSKUsAsync(
@@ -105,8 +108,9 @@ public class ProductCatalogApi {
    *
    * <p>See {@link #listProductCatalogSKUsWithHttpInfo}.
    *
-   * @param version The version of the product catalog contract to return. <code>v1</code> is the
-   *     latest. (required)
+   * @param version The version of the product catalog response contract to return. <code>v1</code>
+   *     is the latest. This is independent of the <code>/api/v2</code> path segment, which is the
+   *     version of the Datadog API itself. (required)
    * @param parameters Optional parameters for the request.
    * @return ProductCatalogSKUsResponse
    * @throws ApiException if fails to make API call
@@ -122,8 +126,9 @@ public class ProductCatalogApi {
    *
    * <p>See {@link #listProductCatalogSKUsWithHttpInfoAsync}.
    *
-   * @param version The version of the product catalog contract to return. <code>v1</code> is the
-   *     latest. (required)
+   * @param version The version of the product catalog response contract to return. <code>v1</code>
+   *     is the latest. This is independent of the <code>/api/v2</code> path segment, which is the
+   *     version of the Datadog API itself. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ProductCatalogSKUsResponse&gt;
    */
@@ -150,8 +155,9 @@ public class ProductCatalogApi {
    * by that code in ascending order. The whole catalog is returned in a single response, so this
    * endpoint is not paginated.
    *
-   * @param version The version of the product catalog contract to return. <code>v1</code> is the
-   *     latest. (required)
+   * @param version The version of the product catalog response contract to return. <code>v1</code>
+   *     is the latest. This is independent of the <code>/api/v2</code> path segment, which is the
+   *     version of the Datadog API itself. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ProductCatalogSKUsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -218,8 +224,9 @@ public class ProductCatalogApi {
    *
    * <p>See {@link #listProductCatalogSKUsWithHttpInfo}.
    *
-   * @param version The version of the product catalog contract to return. <code>v1</code> is the
-   *     latest. (required)
+   * @param version The version of the product catalog response contract to return. <code>v1</code>
+   *     is the latest. This is independent of the <code>/api/v2</code> path segment, which is the
+   *     version of the Datadog API itself. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ProductCatalogSKUsResponse&gt;&gt;
    */
