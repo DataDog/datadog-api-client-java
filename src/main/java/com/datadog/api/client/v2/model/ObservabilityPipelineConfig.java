@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Specifies the pipeline's configuration, including its sources, processors, and destinations. */
 @JsonPropertyOrder({
   ObservabilityPipelineConfig.JSON_PROPERTY_DESTINATIONS,
+  ObservabilityPipelineConfig.JSON_PROPERTY_END_TO_END_ACKNOWLEDGEMENTS,
   ObservabilityPipelineConfig.JSON_PROPERTY_PIPELINE_TYPE,
   ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSOR_GROUPS,
   ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSORS,
@@ -34,6 +35,10 @@ public class ObservabilityPipelineConfig {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATIONS = "destinations";
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_END_TO_END_ACKNOWLEDGEMENTS =
+      "end_to_end_acknowledgements";
+  private Boolean endToEndAcknowledgements;
 
   public static final String JSON_PROPERTY_PIPELINE_TYPE = "pipeline_type";
   private ObservabilityPipelineConfigPipelineType pipelineType =
@@ -103,6 +108,31 @@ public class ObservabilityPipelineConfig {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public ObservabilityPipelineConfig endToEndAcknowledgements(Boolean endToEndAcknowledgements) {
+    this.endToEndAcknowledgements = endToEndAcknowledgements;
+    return this;
+  }
+
+  /**
+   * Enables end-to-end event delivery confirmation. Without a disk buffer, sources acknowledge
+   * events after delivery to all final destinations; when a disk buffer provides the acknowledgment
+   * boundary, they acknowledge after durable persistence. Defaults to <code>false</code> when
+   * omitted. Requires Observability Pipelines Worker 2.14 or later. All configured sources must
+   * support this behavior.
+   *
+   * @return endToEndAcknowledgements
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_END_TO_END_ACKNOWLEDGEMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEndToEndAcknowledgements() {
+    return endToEndAcknowledgements;
+  }
+
+  public void setEndToEndAcknowledgements(Boolean endToEndAcknowledgements) {
+    this.endToEndAcknowledgements = endToEndAcknowledgements;
   }
 
   public ObservabilityPipelineConfig pipelineType(
@@ -340,6 +370,8 @@ public class ObservabilityPipelineConfig {
     }
     ObservabilityPipelineConfig observabilityPipelineConfig = (ObservabilityPipelineConfig) o;
     return Objects.equals(this.destinations, observabilityPipelineConfig.destinations)
+        && Objects.equals(
+            this.endToEndAcknowledgements, observabilityPipelineConfig.endToEndAcknowledgements)
         && Objects.equals(this.pipelineType, observabilityPipelineConfig.pipelineType)
         && Objects.equals(this.processorGroups, observabilityPipelineConfig.processorGroups)
         && Objects.equals(this.processors, observabilityPipelineConfig.processors)
@@ -354,6 +386,7 @@ public class ObservabilityPipelineConfig {
   public int hashCode() {
     return Objects.hash(
         destinations,
+        endToEndAcknowledgements,
         pipelineType,
         processorGroups,
         processors,
@@ -367,6 +400,9 @@ public class ObservabilityPipelineConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineConfig {\n");
     sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+    sb.append("    endToEndAcknowledgements: ")
+        .append(toIndentedString(endToEndAcknowledgements))
+        .append("\n");
     sb.append("    pipelineType: ").append(toIndentedString(pipelineType)).append("\n");
     sb.append("    processorGroups: ").append(toIndentedString(processorGroups)).append("\n");
     sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
