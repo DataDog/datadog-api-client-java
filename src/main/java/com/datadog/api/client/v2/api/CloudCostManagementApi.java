@@ -71,6 +71,10 @@ import com.datadog.api.client.v2.model.RulesetResp;
 import com.datadog.api.client.v2.model.RulesetRespArray;
 import com.datadog.api.client.v2.model.RulesetStatusRespArray;
 import com.datadog.api.client.v2.model.UCConfigPair;
+import com.datadog.api.client.v2.model.UnitCostCreateRequest;
+import com.datadog.api.client.v2.model.UnitCostResponse;
+import com.datadog.api.client.v2.model.UnitCostUpdateRequest;
+import com.datadog.api.client.v2.model.UnitCostsResponse;
 import com.datadog.api.client.v2.model.UpdateRulesetRequest;
 import com.datadog.api.client.v2.model.ValidationResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -79,6 +83,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -787,6 +792,154 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<RulesetResp>() {});
+  }
+
+  /**
+   * Create a unit cost.
+   *
+   * <p>See {@link #createUnitCostWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return UnitCostResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCostResponse createUnitCost(UnitCostCreateRequest body) throws ApiException {
+    return createUnitCostWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a unit cost.
+   *
+   * <p>See {@link #createUnitCostWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;UnitCostResponse&gt;
+   */
+  public CompletableFuture<UnitCostResponse> createUnitCostAsync(UnitCostCreateRequest body) {
+    return createUnitCostWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an ROI metric (unit cost) using the given numerator and denominator queries.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;UnitCostResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UnitCostResponse> createUnitCostWithHttpInfo(UnitCostCreateRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createUnitCost");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/unit_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.createUnitCost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostResponse>() {});
+  }
+
+  /**
+   * Create a unit cost.
+   *
+   * <p>See {@link #createUnitCostWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UnitCostResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UnitCostResponse>> createUnitCostWithHttpInfoAsync(
+      UnitCostCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createUnitCost"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/unit_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.createUnitCost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostResponse>() {});
   }
 
   /**
@@ -2061,6 +2214,158 @@ public class CloudCostManagementApi {
               new HashMap<String, String>(),
               new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a unit cost.
+   *
+   * <p>See {@link #deleteUnitCostWithHttpInfo}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteUnitCost(UUID unitCostId) throws ApiException {
+    deleteUnitCostWithHttpInfo(unitCostId);
+  }
+
+  /**
+   * Delete a unit cost.
+   *
+   * <p>See {@link #deleteUnitCostWithHttpInfoAsync}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteUnitCostAsync(UUID unitCostId) {
+    return deleteUnitCostWithHttpInfoAsync(unitCostId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an ROI metric (unit cost).
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteUnitCostWithHttpInfo(UUID unitCostId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'unitCostId' is set
+    if (unitCostId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'unitCostId' when calling deleteUnitCost");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/unit_costs/{unit_cost_id}"
+            .replaceAll(
+                "\\{" + "unit_cost_id" + "\\}", apiClient.escapeString(unitCostId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteUnitCost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a unit cost.
+   *
+   * <p>See {@link #deleteUnitCostWithHttpInfo}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteUnitCostWithHttpInfoAsync(UUID unitCostId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'unitCostId' is set
+    if (unitCostId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'unitCostId' when calling deleteUnitCost"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/unit_costs/{unit_cost_id}"
+            .replaceAll(
+                "\\{" + "unit_cost_id" + "\\}", apiClient.escapeString(unitCostId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteUnitCost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -7017,6 +7322,161 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Get a unit cost.
+   *
+   * <p>See {@link #getUnitCostWithHttpInfo}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @return UnitCostResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCostResponse getUnitCost(UUID unitCostId) throws ApiException {
+    return getUnitCostWithHttpInfo(unitCostId).getData();
+  }
+
+  /**
+   * Get a unit cost.
+   *
+   * <p>See {@link #getUnitCostWithHttpInfoAsync}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @return CompletableFuture&lt;UnitCostResponse&gt;
+   */
+  public CompletableFuture<UnitCostResponse> getUnitCostAsync(UUID unitCostId) {
+    return getUnitCostWithHttpInfoAsync(unitCostId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve an ROI metric (unit cost) by UUID.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @return ApiResponse&lt;UnitCostResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UnitCostResponse> getUnitCostWithHttpInfo(UUID unitCostId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'unitCostId' is set
+    if (unitCostId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'unitCostId' when calling getUnitCost");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/unit_costs/{unit_cost_id}"
+            .replaceAll(
+                "\\{" + "unit_cost_id" + "\\}", apiClient.escapeString(unitCostId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getUnitCost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostResponse>() {});
+  }
+
+  /**
+   * Get a unit cost.
+   *
+   * <p>See {@link #getUnitCostWithHttpInfo}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UnitCostResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UnitCostResponse>> getUnitCostWithHttpInfoAsync(
+      UUID unitCostId) {
+    // Check if unstable operation is enabled
+    String operationId = "getUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'unitCostId' is set
+    if (unitCostId == null) {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'unitCostId' when calling getUnitCost"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/unit_costs/{unit_cost_id}"
+            .replaceAll(
+                "\\{" + "unit_cost_id" + "\\}", apiClient.escapeString(unitCostId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getUnitCost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostResponse>() {});
+  }
+
+  /**
    * List budgets.
    *
    * <p>See {@link #listBudgetsWithHttpInfo}.
@@ -10372,6 +10832,132 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * List unit costs.
+   *
+   * <p>See {@link #listUnitCostsWithHttpInfo}.
+   *
+   * @return UnitCostsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCostsResponse listUnitCosts() throws ApiException {
+    return listUnitCostsWithHttpInfo().getData();
+  }
+
+  /**
+   * List unit costs.
+   *
+   * <p>See {@link #listUnitCostsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;UnitCostsResponse&gt;
+   */
+  public CompletableFuture<UnitCostsResponse> listUnitCostsAsync() {
+    return listUnitCostsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the ROI metrics (unit costs) for the authenticated organization.
+   *
+   * @return ApiResponse&lt;UnitCostsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UnitCostsResponse> listUnitCostsWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listUnitCosts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/unit_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listUnitCosts",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostsResponse>() {});
+  }
+
+  /**
+   * List unit costs.
+   *
+   * <p>See {@link #listUnitCostsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;UnitCostsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UnitCostsResponse>> listUnitCostsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listUnitCosts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UnitCostsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/unit_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listUnitCosts",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UnitCostsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostsResponse>() {});
+  }
+
+  /**
    * Reorder custom allocation rules.
    *
    * <p>See {@link #reorderCustomAllocationRulesWithHttpInfo}.
@@ -11858,6 +12444,182 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<RulesetResp>() {});
+  }
+
+  /**
+   * Update a unit cost.
+   *
+   * <p>See {@link #updateUnitCostWithHttpInfo}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @param body (required)
+   * @return UnitCostResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCostResponse updateUnitCost(UUID unitCostId, UnitCostUpdateRequest body)
+      throws ApiException {
+    return updateUnitCostWithHttpInfo(unitCostId, body).getData();
+  }
+
+  /**
+   * Update a unit cost.
+   *
+   * <p>See {@link #updateUnitCostWithHttpInfoAsync}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;UnitCostResponse&gt;
+   */
+  public CompletableFuture<UnitCostResponse> updateUnitCostAsync(
+      UUID unitCostId, UnitCostUpdateRequest body) {
+    return updateUnitCostWithHttpInfoAsync(unitCostId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Replace an ROI metric (unit cost) with a new set of attributes.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;UnitCostResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UnitCostResponse> updateUnitCostWithHttpInfo(
+      UUID unitCostId, UnitCostUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'unitCostId' is set
+    if (unitCostId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'unitCostId' when calling updateUnitCost");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateUnitCost");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/unit_costs/{unit_cost_id}"
+            .replaceAll(
+                "\\{" + "unit_cost_id" + "\\}", apiClient.escapeString(unitCostId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.updateUnitCost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostResponse>() {});
+  }
+
+  /**
+   * Update a unit cost.
+   *
+   * <p>See {@link #updateUnitCostWithHttpInfo}.
+   *
+   * @param unitCostId The UUID of the unit cost. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UnitCostResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UnitCostResponse>> updateUnitCostWithHttpInfoAsync(
+      UUID unitCostId, UnitCostUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateUnitCost";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'unitCostId' is set
+    if (unitCostId == null) {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'unitCostId' when calling updateUnitCost"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateUnitCost"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/unit_costs/{unit_cost_id}"
+            .replaceAll(
+                "\\{" + "unit_cost_id" + "\\}", apiClient.escapeString(unitCostId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.updateUnitCost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UnitCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UnitCostResponse>() {});
   }
 
   /**
