@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** The action the rule can perform if triggered */
 @JsonPropertyOrder({
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_DISABLED,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_FILTER,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_HASH,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_KILL,
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleAction {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISABLED = "disabled";
+  private Boolean disabled;
+
   public static final String JSON_PROPERTY_FILTER = "filter";
   private String filter;
 
@@ -42,6 +46,27 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public static final String JSON_PROPERTY_SET = "set";
   private CloudWorkloadSecurityAgentRuleActionSet set;
+
+  public CloudWorkloadSecurityAgentRuleAction disabled(Boolean disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+
+  /**
+   * Whether the action is disabled
+   *
+   * @return disabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisabled() {
+    return disabled;
+  }
+
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
+  }
 
   public CloudWorkloadSecurityAgentRuleAction filter(String filter) {
     this.filter = filter;
@@ -222,7 +247,8 @@ public class CloudWorkloadSecurityAgentRuleAction {
     }
     CloudWorkloadSecurityAgentRuleAction cloudWorkloadSecurityAgentRuleAction =
         (CloudWorkloadSecurityAgentRuleAction) o;
-    return Objects.equals(this.filter, cloudWorkloadSecurityAgentRuleAction.filter)
+    return Objects.equals(this.disabled, cloudWorkloadSecurityAgentRuleAction.disabled)
+        && Objects.equals(this.filter, cloudWorkloadSecurityAgentRuleAction.filter)
         && Objects.equals(this.hash, cloudWorkloadSecurityAgentRuleAction.hash)
         && Objects.equals(this.kill, cloudWorkloadSecurityAgentRuleAction.kill)
         && Objects.equals(this.metadata, cloudWorkloadSecurityAgentRuleAction.metadata)
@@ -233,13 +259,14 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, hash, kill, metadata, set, additionalProperties);
+    return Objects.hash(disabled, filter, hash, kill, metadata, set, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleAction {\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("    kill: ").append(toIndentedString(kill)).append("\n");

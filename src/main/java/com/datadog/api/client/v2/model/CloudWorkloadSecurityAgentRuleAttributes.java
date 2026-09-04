@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_ACTIONS,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_AGENT_CONSTRAINT,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_AGENT_VERSION,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_BLOCKING,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CATEGORY,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATION_AUTHOR_UU_ID,
@@ -32,8 +33,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_DESCRIPTION,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_DISABLED,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_ENABLED,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_EVERY,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_FILTERS,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_GROUP_ID,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_MONITORING,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_NAME,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_PRODUCT_TAGS,
@@ -54,6 +57,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public static final String JSON_PROPERTY_AGENT_CONSTRAINT = "agentConstraint";
   private String agentConstraint;
+
+  public static final String JSON_PROPERTY_AGENT_VERSION = "agent_version";
+  private String agentVersion;
 
   public static final String JSON_PROPERTY_BLOCKING = "blocking";
   private List<String> blocking = null;
@@ -82,11 +88,17 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  public static final String JSON_PROPERTY_EVERY = "every";
+  private Long every;
+
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
   private String expression;
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<String> filters = null;
+
+  public static final String JSON_PROPERTY_GROUP_ID = "group_id";
+  private String groupId;
 
   public static final String JSON_PROPERTY_MONITORING = "monitoring";
   private List<String> monitoring = null;
@@ -180,6 +192,27 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public void setAgentConstraint(String agentConstraint) {
     this.agentConstraint = agentConstraint;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes agentVersion(String agentVersion) {
+    this.agentVersion = agentVersion;
+    return this;
+  }
+
+  /**
+   * The version constraint of the Datadog Agent the rule applies to
+   *
+   * @return agentVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGENT_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAgentVersion() {
+    return agentVersion;
+  }
+
+  public void setAgentVersion(String agentVersion) {
+    this.agentVersion = agentVersion;
   }
 
   public CloudWorkloadSecurityAgentRuleAttributes blocking(List<String> blocking) {
@@ -392,6 +425,27 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     this.enabled = enabled;
   }
 
+  public CloudWorkloadSecurityAgentRuleAttributes every(Long every) {
+    this.every = every;
+    return this;
+  }
+
+  /**
+   * The rate limiting duration of the Agent rule, in nanoseconds
+   *
+   * @return every
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEvery() {
+    return every;
+  }
+
+  public void setEvery(Long every) {
+    this.every = every;
+  }
+
   public CloudWorkloadSecurityAgentRuleAttributes expression(String expression) {
     this.expression = expression;
     return this;
@@ -440,6 +494,27 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public void setFilters(List<String> filters) {
     this.filters = filters;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes groupId(String groupId) {
+    this.groupId = groupId;
+    return this;
+  }
+
+  /**
+   * The group of rules the Agent rule belongs to
+   *
+   * @return groupId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGroupId() {
+    return groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
   }
 
   public CloudWorkloadSecurityAgentRuleAttributes monitoring(List<String> monitoring) {
@@ -712,6 +787,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     return Objects.equals(this.actions, cloudWorkloadSecurityAgentRuleAttributes.actions)
         && Objects.equals(
             this.agentConstraint, cloudWorkloadSecurityAgentRuleAttributes.agentConstraint)
+        && Objects.equals(this.agentVersion, cloudWorkloadSecurityAgentRuleAttributes.agentVersion)
         && Objects.equals(this.blocking, cloudWorkloadSecurityAgentRuleAttributes.blocking)
         && Objects.equals(this.category, cloudWorkloadSecurityAgentRuleAttributes.category)
         && Objects.equals(
@@ -722,8 +798,10 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         && Objects.equals(this.description, cloudWorkloadSecurityAgentRuleAttributes.description)
         && Objects.equals(this.disabled, cloudWorkloadSecurityAgentRuleAttributes.disabled)
         && Objects.equals(this.enabled, cloudWorkloadSecurityAgentRuleAttributes.enabled)
+        && Objects.equals(this.every, cloudWorkloadSecurityAgentRuleAttributes.every)
         && Objects.equals(this.expression, cloudWorkloadSecurityAgentRuleAttributes.expression)
         && Objects.equals(this.filters, cloudWorkloadSecurityAgentRuleAttributes.filters)
+        && Objects.equals(this.groupId, cloudWorkloadSecurityAgentRuleAttributes.groupId)
         && Objects.equals(this.monitoring, cloudWorkloadSecurityAgentRuleAttributes.monitoring)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleAttributes.name)
         && Objects.equals(this.productTags, cloudWorkloadSecurityAgentRuleAttributes.productTags)
@@ -744,6 +822,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     return Objects.hash(
         actions,
         agentConstraint,
+        agentVersion,
         blocking,
         category,
         creationAuthorUuId,
@@ -753,8 +832,10 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         description,
         disabled,
         enabled,
+        every,
         expression,
         filters,
+        groupId,
         monitoring,
         name,
         productTags,
@@ -773,6 +854,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     sb.append("class CloudWorkloadSecurityAgentRuleAttributes {\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    agentConstraint: ").append(toIndentedString(agentConstraint)).append("\n");
+    sb.append("    agentVersion: ").append(toIndentedString(agentVersion)).append("\n");
     sb.append("    blocking: ").append(toIndentedString(blocking)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    creationAuthorUuId: ").append(toIndentedString(creationAuthorUuId)).append("\n");
@@ -782,8 +864,10 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    every: ").append(toIndentedString(every)).append("\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    monitoring: ").append(toIndentedString(monitoring)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    productTags: ").append(toIndentedString(productTags)).append("\n");
