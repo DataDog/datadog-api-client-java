@@ -17,10 +17,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A Cloud Workload Security Agent policy returned by the API */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_BLOCKING_RULES_COUNT,
+  CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_CONTENT_PACK_UPDATE_AVAILABLE,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_DATADOG_MANAGED,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_DESCRIPTION,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_DISABLED_RULES_COUNT,
@@ -34,6 +36,7 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_POLICY_VERSION,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_PRIORITY,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_RULE_COUNT,
+  CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_SOURCE_DEFAULT_POLICY_ID,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_UPDATE_DATE,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_UPDATED_AT,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_UPDATER,
@@ -45,6 +48,10 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BLOCKING_RULES_COUNT = "blockingRulesCount";
   private Integer blockingRulesCount;
+
+  public static final String JSON_PROPERTY_CONTENT_PACK_UPDATE_AVAILABLE =
+      "contentPackUpdateAvailable";
+  private JsonNullable<Boolean> contentPackUpdateAvailable = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_DATADOG_MANAGED = "datadogManaged";
   private Boolean datadogManaged;
@@ -85,6 +92,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
   public static final String JSON_PROPERTY_RULE_COUNT = "ruleCount";
   private Integer ruleCount;
 
+  public static final String JSON_PROPERTY_SOURCE_DEFAULT_POLICY_ID = "sourceDefaultPolicyId";
+  private String sourceDefaultPolicyId;
+
   public static final String JSON_PROPERTY_UPDATE_DATE = "updateDate";
   private Long updateDate;
 
@@ -116,6 +126,40 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
 
   public void setBlockingRulesCount(Integer blockingRulesCount) {
     this.blockingRulesCount = blockingRulesCount;
+  }
+
+  public CloudWorkloadSecurityAgentPolicyAttributes contentPackUpdateAvailable(
+      Boolean contentPackUpdateAvailable) {
+    this.contentPackUpdateAvailable = JsonNullable.<Boolean>of(contentPackUpdateAvailable);
+    return this;
+  }
+
+  /**
+   * Whether an update is available for the content pack. Only set for activated content packs,
+   * <code>null</code> otherwise
+   *
+   * @return contentPackUpdateAvailable
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Boolean getContentPackUpdateAvailable() {
+    return contentPackUpdateAvailable.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONTENT_PACK_UPDATE_AVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getContentPackUpdateAvailable_JsonNullable() {
+    return contentPackUpdateAvailable;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONTENT_PACK_UPDATE_AVAILABLE)
+  public void setContentPackUpdateAvailable_JsonNullable(
+      JsonNullable<Boolean> contentPackUpdateAvailable) {
+    this.contentPackUpdateAvailable = contentPackUpdateAvailable;
+  }
+
+  public void setContentPackUpdateAvailable(Boolean contentPackUpdateAvailable) {
+    this.contentPackUpdateAvailable = JsonNullable.<Boolean>of(contentPackUpdateAvailable);
   }
 
   public CloudWorkloadSecurityAgentPolicyAttributes datadogManaged(Boolean datadogManaged) {
@@ -411,6 +455,28 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
     this.ruleCount = ruleCount;
   }
 
+  public CloudWorkloadSecurityAgentPolicyAttributes sourceDefaultPolicyId(
+      String sourceDefaultPolicyId) {
+    this.sourceDefaultPolicyId = sourceDefaultPolicyId;
+    return this;
+  }
+
+  /**
+   * The ID of the Datadog-managed default policy this policy is derived from
+   *
+   * @return sourceDefaultPolicyId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE_DEFAULT_POLICY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSourceDefaultPolicyId() {
+    return sourceDefaultPolicyId;
+  }
+
+  public void setSourceDefaultPolicyId(String sourceDefaultPolicyId) {
+    this.sourceDefaultPolicyId = sourceDefaultPolicyId;
+  }
+
   public CloudWorkloadSecurityAgentPolicyAttributes updateDate(Long updateDate) {
     this.updateDate = updateDate;
     return this;
@@ -582,6 +648,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
     return Objects.equals(
             this.blockingRulesCount, cloudWorkloadSecurityAgentPolicyAttributes.blockingRulesCount)
         && Objects.equals(
+            this.contentPackUpdateAvailable,
+            cloudWorkloadSecurityAgentPolicyAttributes.contentPackUpdateAvailable)
+        && Objects.equals(
             this.datadogManaged, cloudWorkloadSecurityAgentPolicyAttributes.datadogManaged)
         && Objects.equals(this.description, cloudWorkloadSecurityAgentPolicyAttributes.description)
         && Objects.equals(
@@ -600,6 +669,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
             this.policyVersion, cloudWorkloadSecurityAgentPolicyAttributes.policyVersion)
         && Objects.equals(this.priority, cloudWorkloadSecurityAgentPolicyAttributes.priority)
         && Objects.equals(this.ruleCount, cloudWorkloadSecurityAgentPolicyAttributes.ruleCount)
+        && Objects.equals(
+            this.sourceDefaultPolicyId,
+            cloudWorkloadSecurityAgentPolicyAttributes.sourceDefaultPolicyId)
         && Objects.equals(this.updateDate, cloudWorkloadSecurityAgentPolicyAttributes.updateDate)
         && Objects.equals(this.updatedAt, cloudWorkloadSecurityAgentPolicyAttributes.updatedAt)
         && Objects.equals(this.updater, cloudWorkloadSecurityAgentPolicyAttributes.updater)
@@ -613,6 +685,7 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
   public int hashCode() {
     return Objects.hash(
         blockingRulesCount,
+        contentPackUpdateAvailable,
         datadogManaged,
         description,
         disabledRulesCount,
@@ -626,6 +699,7 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
         policyVersion,
         priority,
         ruleCount,
+        sourceDefaultPolicyId,
         updateDate,
         updatedAt,
         updater,
@@ -638,6 +712,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentPolicyAttributes {\n");
     sb.append("    blockingRulesCount: ").append(toIndentedString(blockingRulesCount)).append("\n");
+    sb.append("    contentPackUpdateAvailable: ")
+        .append(toIndentedString(contentPackUpdateAvailable))
+        .append("\n");
     sb.append("    datadogManaged: ").append(toIndentedString(datadogManaged)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    disabledRulesCount: ").append(toIndentedString(disabledRulesCount)).append("\n");
@@ -653,6 +730,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
     sb.append("    policyVersion: ").append(toIndentedString(policyVersion)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
+    sb.append("    sourceDefaultPolicyId: ")
+        .append(toIndentedString(sourceDefaultPolicyId))
+        .append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updater: ").append(toIndentedString(updater)).append("\n");
