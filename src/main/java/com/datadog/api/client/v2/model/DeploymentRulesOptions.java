@@ -178,6 +178,52 @@ public class DeploymentRulesOptions extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'DeploymentRuleOptionsMonitor'", e);
       }
 
+      // deserialize DeploymentRuleOptionsMonitorIds
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DeploymentRuleOptionsMonitorIds.class.equals(Integer.class)
+            || DeploymentRuleOptionsMonitorIds.class.equals(Long.class)
+            || DeploymentRuleOptionsMonitorIds.class.equals(Float.class)
+            || DeploymentRuleOptionsMonitorIds.class.equals(Double.class)
+            || DeploymentRuleOptionsMonitorIds.class.equals(Boolean.class)
+            || DeploymentRuleOptionsMonitorIds.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DeploymentRuleOptionsMonitorIds.class.equals(Integer.class)
+                        || DeploymentRuleOptionsMonitorIds.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DeploymentRuleOptionsMonitorIds.class.equals(Float.class)
+                        || DeploymentRuleOptionsMonitorIds.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DeploymentRuleOptionsMonitorIds.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DeploymentRuleOptionsMonitorIds.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(DeploymentRuleOptionsMonitorIds.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DeploymentRuleOptionsMonitorIds) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'DeploymentRuleOptionsMonitorIds'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'DeploymentRuleOptionsMonitorIds'", e);
+      }
+
       DeploymentRulesOptions ret = new DeploymentRulesOptions();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -217,11 +263,18 @@ public class DeploymentRulesOptions extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public DeploymentRulesOptions(DeploymentRuleOptionsMonitorIds o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "DeploymentRuleOptionsFaultyDeploymentDetection",
         new GenericType<DeploymentRuleOptionsFaultyDeploymentDetection>() {});
     schemas.put("DeploymentRuleOptionsMonitor", new GenericType<DeploymentRuleOptionsMonitor>() {});
+    schemas.put(
+        "DeploymentRuleOptionsMonitorIds", new GenericType<DeploymentRuleOptionsMonitorIds>() {});
     JSON.registerDescendants(DeploymentRulesOptions.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -233,7 +286,7 @@ public class DeploymentRulesOptions extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: DeploymentRuleOptionsFaultyDeploymentDetection,
-   * DeploymentRuleOptionsMonitor
+   * DeploymentRuleOptionsMonitor, DeploymentRuleOptionsMonitorIds
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -249,6 +302,11 @@ public class DeploymentRulesOptions extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        DeploymentRuleOptionsMonitorIds.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -256,15 +314,16 @@ public class DeploymentRulesOptions extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be DeploymentRuleOptionsFaultyDeploymentDetection,"
-            + " DeploymentRuleOptionsMonitor");
+            + " DeploymentRuleOptionsMonitor, DeploymentRuleOptionsMonitorIds");
   }
 
   /**
    * Get the actual instance, which can be the following:
-   * DeploymentRuleOptionsFaultyDeploymentDetection, DeploymentRuleOptionsMonitor
+   * DeploymentRuleOptionsFaultyDeploymentDetection, DeploymentRuleOptionsMonitor,
+   * DeploymentRuleOptionsMonitorIds
    *
    * @return The actual instance (DeploymentRuleOptionsFaultyDeploymentDetection,
-   *     DeploymentRuleOptionsMonitor)
+   *     DeploymentRuleOptionsMonitor, DeploymentRuleOptionsMonitorIds)
    */
   @Override
   public Object getActualInstance() {
@@ -294,5 +353,17 @@ public class DeploymentRulesOptions extends AbstractOpenApiSchema {
    */
   public DeploymentRuleOptionsMonitor getDeploymentRuleOptionsMonitor() throws ClassCastException {
     return (DeploymentRuleOptionsMonitor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DeploymentRuleOptionsMonitorIds`. If the actual instance is not
+   * `DeploymentRuleOptionsMonitorIds`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DeploymentRuleOptionsMonitorIds`
+   * @throws ClassCastException if the instance is not `DeploymentRuleOptionsMonitorIds`
+   */
+  public DeploymentRuleOptionsMonitorIds getDeploymentRuleOptionsMonitorIds()
+      throws ClassCastException {
+    return (DeploymentRuleOptionsMonitorIds) super.getActualInstance();
   }
 }
