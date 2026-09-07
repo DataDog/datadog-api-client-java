@@ -278,7 +278,7 @@ public class SpaApi {
   }
 
   /**
-   * Get SPA Recommendations with a shard parameter.
+   * Get SPA recommendations using a shard parameter.
    *
    * <p>See {@link #getSPARecommendationsWithShardWithHttpInfo}.
    *
@@ -296,7 +296,7 @@ public class SpaApi {
   }
 
   /**
-   * Get SPA Recommendations with a shard parameter.
+   * Get SPA recommendations using a shard parameter.
    *
    * <p>See {@link #getSPARecommendationsWithShardWithHttpInfoAsync}.
    *
@@ -316,7 +316,7 @@ public class SpaApi {
   }
 
   /**
-   * Get SPA Recommendations with a shard parameter.
+   * Get SPA recommendations using a shard parameter.
    *
    * <p>See {@link #getSPARecommendationsWithShardWithHttpInfo}.
    *
@@ -334,7 +334,7 @@ public class SpaApi {
   }
 
   /**
-   * Get SPA Recommendations with a shard parameter.
+   * Get SPA recommendations using a shard parameter.
    *
    * <p>See {@link #getSPARecommendationsWithShardWithHttpInfoAsync}.
    *
@@ -433,7 +433,7 @@ public class SpaApi {
   }
 
   /**
-   * Get SPA Recommendations with a shard parameter.
+   * Get SPA recommendations using a shard parameter.
    *
    * <p>See {@link #getSPARecommendationsWithShardWithHttpInfo}.
    *
