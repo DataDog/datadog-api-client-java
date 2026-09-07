@@ -437,7 +437,8 @@ public class MetricsApi {
   /**
    * <strong>Note</strong>: This endpoint is deprecated. Use <code>/api/v2/metrics</code> instead.
    *
-   * <p>Search for metrics from the last 24 hours in Datadog.
+   * <p>Search for metrics from the last 24 hours in Datadog. This integration test verifies review
+   * gating for public operations.
    *
    * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
    *     </code>. (required)
