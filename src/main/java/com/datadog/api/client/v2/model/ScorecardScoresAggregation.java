@@ -6,57 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Dimension to group scores by. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Dimension to group scores by.</p>
+ */
 @JsonSerialize(using = ScorecardScoresAggregation.ScorecardScoresAggregationSerializer.class)
 public class ScorecardScoresAggregation extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("by-entity", "by-rule", "by-scorecard", "by-team", "by-kind"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("by-entity", "by-rule", "by-scorecard", "by-team", "by-kind"));
 
-  public static final ScorecardScoresAggregation BY_ENTITY =
-      new ScorecardScoresAggregation("by-entity");
-  public static final ScorecardScoresAggregation BY_RULE =
-      new ScorecardScoresAggregation("by-rule");
-  public static final ScorecardScoresAggregation BY_SCORECARD =
-      new ScorecardScoresAggregation("by-scorecard");
-  public static final ScorecardScoresAggregation BY_TEAM =
-      new ScorecardScoresAggregation("by-team");
-  public static final ScorecardScoresAggregation BY_KIND =
-      new ScorecardScoresAggregation("by-kind");
+  public static final ScorecardScoresAggregation BY_ENTITY = new ScorecardScoresAggregation("by-entity");
+  public static final ScorecardScoresAggregation BY_RULE = new ScorecardScoresAggregation("by-rule");
+  public static final ScorecardScoresAggregation BY_SCORECARD = new ScorecardScoresAggregation("by-scorecard");
+  public static final ScorecardScoresAggregation BY_TEAM = new ScorecardScoresAggregation("by-team");
+  public static final ScorecardScoresAggregation BY_KIND = new ScorecardScoresAggregation("by-kind");
+
 
   ScorecardScoresAggregation(String value) {
     super(value, allowedValues);
   }
 
-  public static class ScorecardScoresAggregationSerializer
-      extends StdSerializer<ScorecardScoresAggregation> {
-    public ScorecardScoresAggregationSerializer(Class<ScorecardScoresAggregation> t) {
-      super(t);
-    }
+  public static class ScorecardScoresAggregationSerializer extends StdSerializer<ScorecardScoresAggregation> {
+      public ScorecardScoresAggregationSerializer(Class<ScorecardScoresAggregation> t) {
+          super(t);
+      }
 
-    public ScorecardScoresAggregationSerializer() {
-      this(null);
-    }
+      public ScorecardScoresAggregationSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ScorecardScoresAggregation value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ScorecardScoresAggregation value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

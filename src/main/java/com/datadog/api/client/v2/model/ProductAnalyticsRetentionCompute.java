@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The metric and aggregation applied to a retention query. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The metric and aggregation applied to a retention query.</p>
+ */
 @JsonPropertyOrder({
   ProductAnalyticsRetentionCompute.JSON_PROPERTY_AGGREGATION,
   ProductAnalyticsRetentionCompute.JSON_PROPERTY_METRIC
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsRetentionCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private String aggregation;
 
@@ -36,34 +52,30 @@ public class ProductAnalyticsRetentionCompute {
 
   @JsonCreator
   public ProductAnalyticsRetentionCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) String aggregation,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC)
-          ProductAnalyticsRetentionComputeMetric metric) {
-    this.aggregation = aggregation;
-    this.metric = metric;
-    this.unparsed |= !metric.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)String aggregation,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC)ProductAnalyticsRetentionComputeMetric metric) {
+        this.aggregation = aggregation;
+        this.metric = metric;
+        this.unparsed |= !metric.isValid();
   }
-
   public ProductAnalyticsRetentionCompute aggregation(String aggregation) {
     this.aggregation = aggregation;
     return this;
   }
 
   /**
-   * The aggregation function applied to the metric, such as <code>count</code> or <code>avg</code>.
-   *
+   * <p>The aggregation function applied to the metric, such as <code>count</code> or <code>avg</code>.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(String aggregation) {
     this.aggregation = aggregation;
   }
-
   public ProductAnalyticsRetentionCompute metric(ProductAnalyticsRetentionComputeMetric metric) {
     this.metric = metric;
     this.unparsed |= !metric.isValid();
@@ -71,32 +83,32 @@ public class ProductAnalyticsRetentionCompute {
   }
 
   /**
-   * The retention metric to compute, either an absolute count or a rate.
-   *
+   * <p>The retention metric to compute, either an absolute count or a rate.</p>
    * @return metric
-   */
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsRetentionComputeMetric getMetric() {
-    return metric;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsRetentionComputeMetric getMetric() {
+        return metric;
+      }
   public void setMetric(ProductAnalyticsRetentionComputeMetric metric) {
     if (!metric.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.metric = metric;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -105,7 +117,7 @@ public class ProductAnalyticsRetentionCompute {
   @JsonAnySetter
   public ProductAnalyticsRetentionCompute putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -129,12 +141,14 @@ public class ProductAnalyticsRetentionCompute {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProductAnalyticsRetentionCompute object is equal to o. */
+  /**
+   * Return true if this ProductAnalyticsRetentionCompute object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,17 +157,14 @@ public class ProductAnalyticsRetentionCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsRetentionCompute productAnalyticsRetentionCompute =
-        (ProductAnalyticsRetentionCompute) o;
-    return Objects.equals(this.aggregation, productAnalyticsRetentionCompute.aggregation)
-        && Objects.equals(this.metric, productAnalyticsRetentionCompute.metric)
-        && Objects.equals(
-            this.additionalProperties, productAnalyticsRetentionCompute.additionalProperties);
+    ProductAnalyticsRetentionCompute productAnalyticsRetentionCompute = (ProductAnalyticsRetentionCompute) o;
+    return Objects.equals(this.aggregation, productAnalyticsRetentionCompute.aggregation) && Objects.equals(this.metric, productAnalyticsRetentionCompute.metric) && Objects.equals(this.additionalProperties, productAnalyticsRetentionCompute.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, metric, additionalProperties);
+    return Objects.hash(aggregation,metric, additionalProperties);
   }
 
   @Override
@@ -170,7 +181,8 @@ public class ProductAnalyticsRetentionCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

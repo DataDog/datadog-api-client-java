@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Vulnerability counts associated with the Container Image. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Vulnerability counts associated with the Container Image.</p>
+ */
 @JsonPropertyOrder({
   ContainerImageVulnerabilities.JSON_PROPERTY_ASSET_ID,
   ContainerImageVulnerabilities.JSON_PROPERTY_CRITICAL,
@@ -26,10 +43,10 @@ import java.util.Objects;
   ContainerImageVulnerabilities.JSON_PROPERTY_NONE,
   ContainerImageVulnerabilities.JSON_PROPERTY_UNKNOWN
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ContainerImageVulnerabilities {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSET_ID = "asset_id";
   private String assetId;
 
@@ -57,156 +74,144 @@ public class ContainerImageVulnerabilities {
   }
 
   /**
-   * ID of the Container Image.
-   *
+   * <p>ID of the Container Image.</p>
    * @return assetId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSET_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAssetId() {
-    return assetId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASSET_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAssetId() {
+        return assetId;
+      }
   public void setAssetId(String assetId) {
     this.assetId = assetId;
   }
-
   public ContainerImageVulnerabilities critical(Long critical) {
     this.critical = critical;
     return this;
   }
 
   /**
-   * Number of vulnerabilities with CVSS Critical severity.
-   *
+   * <p>Number of vulnerabilities with CVSS Critical severity.</p>
    * @return critical
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CRITICAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCritical() {
-    return critical;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CRITICAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCritical() {
+        return critical;
+      }
   public void setCritical(Long critical) {
     this.critical = critical;
   }
-
   public ContainerImageVulnerabilities high(Long high) {
     this.high = high;
     return this;
   }
 
   /**
-   * Number of vulnerabilities with CVSS High severity.
-   *
+   * <p>Number of vulnerabilities with CVSS High severity.</p>
    * @return high
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIGH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHigh() {
-    return high;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HIGH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getHigh() {
+        return high;
+      }
   public void setHigh(Long high) {
     this.high = high;
   }
-
   public ContainerImageVulnerabilities low(Long low) {
     this.low = low;
     return this;
   }
 
   /**
-   * Number of vulnerabilities with CVSS Low severity.
-   *
+   * <p>Number of vulnerabilities with CVSS Low severity.</p>
    * @return low
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLow() {
-    return low;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOW)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLow() {
+        return low;
+      }
   public void setLow(Long low) {
     this.low = low;
   }
-
   public ContainerImageVulnerabilities medium(Long medium) {
     this.medium = medium;
     return this;
   }
 
   /**
-   * Number of vulnerabilities with CVSS Medium severity.
-   *
+   * <p>Number of vulnerabilities with CVSS Medium severity.</p>
    * @return medium
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MEDIUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMedium() {
-    return medium;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MEDIUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMedium() {
+        return medium;
+      }
   public void setMedium(Long medium) {
     this.medium = medium;
   }
-
   public ContainerImageVulnerabilities none(Long none) {
     this.none = none;
     return this;
   }
 
   /**
-   * Number of vulnerabilities with CVSS None severity.
-   *
+   * <p>Number of vulnerabilities with CVSS None severity.</p>
    * @return none
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNone() {
-    return none;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NONE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNone() {
+        return none;
+      }
   public void setNone(Long none) {
     this.none = none;
   }
-
   public ContainerImageVulnerabilities unknown(Long unknown) {
     this.unknown = unknown;
     return this;
   }
 
   /**
-   * Number of vulnerabilities with an unknown CVSS severity.
-   *
+   * <p>Number of vulnerabilities with an unknown CVSS severity.</p>
    * @return unknown
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNKNOWN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getUnknown() {
-    return unknown;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UNKNOWN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getUnknown() {
+        return unknown;
+      }
   public void setUnknown(Long unknown) {
     this.unknown = unknown;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -215,7 +220,7 @@ public class ContainerImageVulnerabilities {
   @JsonAnySetter
   public ContainerImageVulnerabilities putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -239,12 +244,14 @@ public class ContainerImageVulnerabilities {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ContainerImageVulnerabilities object is equal to o. */
+  /**
+   * Return true if this ContainerImageVulnerabilities object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -254,20 +261,13 @@ public class ContainerImageVulnerabilities {
       return false;
     }
     ContainerImageVulnerabilities containerImageVulnerabilities = (ContainerImageVulnerabilities) o;
-    return Objects.equals(this.assetId, containerImageVulnerabilities.assetId)
-        && Objects.equals(this.critical, containerImageVulnerabilities.critical)
-        && Objects.equals(this.high, containerImageVulnerabilities.high)
-        && Objects.equals(this.low, containerImageVulnerabilities.low)
-        && Objects.equals(this.medium, containerImageVulnerabilities.medium)
-        && Objects.equals(this.none, containerImageVulnerabilities.none)
-        && Objects.equals(this.unknown, containerImageVulnerabilities.unknown)
-        && Objects.equals(
-            this.additionalProperties, containerImageVulnerabilities.additionalProperties);
+    return Objects.equals(this.assetId, containerImageVulnerabilities.assetId) && Objects.equals(this.critical, containerImageVulnerabilities.critical) && Objects.equals(this.high, containerImageVulnerabilities.high) && Objects.equals(this.low, containerImageVulnerabilities.low) && Objects.equals(this.medium, containerImageVulnerabilities.medium) && Objects.equals(this.none, containerImageVulnerabilities.none) && Objects.equals(this.unknown, containerImageVulnerabilities.unknown) && Objects.equals(this.additionalProperties, containerImageVulnerabilities.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(assetId, critical, high, low, medium, none, unknown, additionalProperties);
+    return Objects.hash(assetId,critical,high,low,medium,none,unknown, additionalProperties);
   }
 
   @Override
@@ -289,7 +289,8 @@ public class ContainerImageVulnerabilities {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

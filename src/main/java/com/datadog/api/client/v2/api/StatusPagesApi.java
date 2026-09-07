@@ -1,53 +1,60 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.CreateBackfilledDegradationRequest;
-import com.datadog.api.client.v2.model.CreateBackfilledMaintenanceRequest;
-import com.datadog.api.client.v2.model.CreateComponentRequest;
-import com.datadog.api.client.v2.model.CreateDegradationRequest;
-import com.datadog.api.client.v2.model.CreateDegradationTemplateRequest;
-import com.datadog.api.client.v2.model.CreateMaintenanceRequest;
-import com.datadog.api.client.v2.model.CreateMaintenanceTemplateRequest;
-import com.datadog.api.client.v2.model.CreateStatusPageRequest;
-import com.datadog.api.client.v2.model.Degradation;
-import com.datadog.api.client.v2.model.DegradationArray;
-import com.datadog.api.client.v2.model.DegradationTemplate;
-import com.datadog.api.client.v2.model.DegradationTemplateArray;
-import com.datadog.api.client.v2.model.DegradationUpdate;
-import com.datadog.api.client.v2.model.Maintenance;
-import com.datadog.api.client.v2.model.MaintenanceArray;
-import com.datadog.api.client.v2.model.MaintenanceTemplate;
-import com.datadog.api.client.v2.model.MaintenanceTemplateArray;
-import com.datadog.api.client.v2.model.MaintenanceUpdate;
-import com.datadog.api.client.v2.model.PatchComponentRequest;
-import com.datadog.api.client.v2.model.PatchDegradationRequest;
-import com.datadog.api.client.v2.model.PatchDegradationTemplateRequest;
-import com.datadog.api.client.v2.model.PatchDegradationUpdateRequest;
-import com.datadog.api.client.v2.model.PatchMaintenanceRequest;
-import com.datadog.api.client.v2.model.PatchMaintenanceTemplateRequest;
-import com.datadog.api.client.v2.model.PatchMaintenanceUpdateRequest;
-import com.datadog.api.client.v2.model.PatchStatusPageRequest;
-import com.datadog.api.client.v2.model.StatusPage;
-import com.datadog.api.client.v2.model.StatusPageArray;
-import com.datadog.api.client.v2.model.StatusPagesComponent;
-import com.datadog.api.client.v2.model.StatusPagesComponentArray;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.StatusPageArray;
+import com.datadog.api.client.v2.model.StatusPage;
+import com.datadog.api.client.v2.model.CreateStatusPageRequest;
+import com.datadog.api.client.v2.model.DegradationArray;
+import com.datadog.api.client.v2.model.MaintenanceArray;
+import com.datadog.api.client.v2.model.PatchStatusPageRequest;
+import com.datadog.api.client.v2.model.StatusPagesComponentArray;
+import com.datadog.api.client.v2.model.StatusPagesComponent;
+import com.datadog.api.client.v2.model.CreateComponentRequest;
+import com.datadog.api.client.v2.model.PatchComponentRequest;
+import com.datadog.api.client.v2.model.DegradationTemplateArray;
+import com.datadog.api.client.v2.model.DegradationTemplate;
+import com.datadog.api.client.v2.model.CreateDegradationTemplateRequest;
+import com.datadog.api.client.v2.model.PatchDegradationTemplateRequest;
+import com.datadog.api.client.v2.model.Degradation;
+import com.datadog.api.client.v2.model.CreateDegradationRequest;
+import com.datadog.api.client.v2.model.CreateBackfilledDegradationRequest;
+import com.datadog.api.client.v2.model.PatchDegradationRequest;
+import com.datadog.api.client.v2.model.DegradationUpdate;
+import com.datadog.api.client.v2.model.PatchDegradationUpdateRequest;
+import com.datadog.api.client.v2.model.MaintenanceTemplateArray;
+import com.datadog.api.client.v2.model.MaintenanceTemplate;
+import com.datadog.api.client.v2.model.CreateMaintenanceTemplateRequest;
+import com.datadog.api.client.v2.model.PatchMaintenanceTemplateRequest;
+import com.datadog.api.client.v2.model.Maintenance;
+import com.datadog.api.client.v2.model.CreateMaintenanceRequest;
+import com.datadog.api.client.v2.model.CreateBackfilledMaintenanceRequest;
+import com.datadog.api.client.v2.model.PatchMaintenanceRequest;
+import com.datadog.api.client.v2.model.MaintenanceUpdate;
+import com.datadog.api.client.v2.model.PatchMaintenanceUpdateRequest;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class StatusPagesApi {
   private ApiClient apiClient;
-
   public StatusPagesApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -74,15 +81,15 @@ public class StatusPagesApi {
     this.apiClient = apiClient;
   }
 
-  /** Manage optional parameters to createBackfilledDegradation. */
+  /**
+   * Manage optional parameters to createBackfilledDegradation.
+   */
   public static class CreateBackfilledDegradationOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return CreateBackfilledDegradationOptionalParameters
      */
     public CreateBackfilledDegradationOptionalParameters include(String include) {
@@ -92,187 +99,141 @@ public class StatusPagesApi {
   }
 
   /**
-   * Create backfilled degradation.
-   *
-   * <p>See {@link #createBackfilledDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation createBackfilledDegradation(
-      UUID pageId, CreateBackfilledDegradationRequest body) throws ApiException {
-    return createBackfilledDegradationWithHttpInfo(
-            pageId, body, new CreateBackfilledDegradationOptionalParameters())
-        .getData();
+ * Create backfilled degradation.
+ *
+ * See {@link #createBackfilledDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation createBackfilledDegradation (UUID pageId, CreateBackfilledDegradationRequest body) throws ApiException {
+    return createBackfilledDegradationWithHttpInfo( pageId,  body, new CreateBackfilledDegradationOptionalParameters()).getData();
   }
 
   /**
-   * Create backfilled degradation.
-   *
-   * <p>See {@link #createBackfilledDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> createBackfilledDegradationAsync(
-      UUID pageId, CreateBackfilledDegradationRequest body) {
-    return createBackfilledDegradationWithHttpInfoAsync(
-            pageId, body, new CreateBackfilledDegradationOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create backfilled degradation.
+ *
+ * See {@link #createBackfilledDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>createBackfilledDegradationAsync(UUID pageId, CreateBackfilledDegradationRequest body) {
+    return createBackfilledDegradationWithHttpInfoAsync(pageId, body, new CreateBackfilledDegradationOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Create backfilled degradation.
-   *
-   * <p>See {@link #createBackfilledDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation createBackfilledDegradation(
-      UUID pageId,
-      CreateBackfilledDegradationRequest body,
-      CreateBackfilledDegradationOptionalParameters parameters)
-      throws ApiException {
+ * Create backfilled degradation.
+ *
+ * See {@link #createBackfilledDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation createBackfilledDegradation(UUID pageId, CreateBackfilledDegradationRequest body, CreateBackfilledDegradationOptionalParameters parameters) throws ApiException {
     return createBackfilledDegradationWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Create backfilled degradation.
-   *
-   * <p>See {@link #createBackfilledDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> createBackfilledDegradationAsync(
-      UUID pageId,
-      CreateBackfilledDegradationRequest body,
-      CreateBackfilledDegradationOptionalParameters parameters) {
-    return createBackfilledDegradationWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create backfilled degradation.
+ *
+ * See {@link #createBackfilledDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>createBackfilledDegradationAsync( UUID pageId,  CreateBackfilledDegradationRequest body, CreateBackfilledDegradationOptionalParameters parameters) {
+    return createBackfilledDegradationWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Creates a backfilled degradation with predefined updates.
+   * <p>Creates a backfilled degradation with predefined updates.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Degradation&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Degradation> createBackfilledDegradationWithHttpInfo(
-      UUID pageId,
-      CreateBackfilledDegradationRequest body,
-      CreateBackfilledDegradationOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Degradation> createBackfilledDegradationWithHttpInfo(UUID pageId, CreateBackfilledDegradationRequest body, CreateBackfilledDegradationOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling createBackfilledDegradation");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling createBackfilledDegradation");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createBackfilledDegradation");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createBackfilledDegradation");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/backfill"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/backfill"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createBackfilledDegradation",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createBackfilledDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
   /**
    * Create backfilled degradation.
    *
-   * <p>See {@link #createBackfilledDegradationWithHttpInfo}.
+   * See {@link #createBackfilledDegradationWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Degradation&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Degradation>> createBackfilledDegradationWithHttpInfoAsync(
-      UUID pageId,
-      CreateBackfilledDegradationRequest body,
-      CreateBackfilledDegradationOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Degradation>> createBackfilledDegradationWithHttpInfoAsync(UUID pageId, CreateBackfilledDegradationRequest body, CreateBackfilledDegradationOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling createBackfilledDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling createBackfilledDegradation"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling createBackfilledDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createBackfilledDegradation"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/backfill"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/backfill"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -280,40 +241,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createBackfilledDegradation",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createBackfilledDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
-  /** Manage optional parameters to createBackfilledMaintenance. */
+  /**
+   * Manage optional parameters to createBackfilledMaintenance.
+   */
   public static class CreateBackfilledMaintenanceOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return CreateBackfilledMaintenanceOptionalParameters
      */
     public CreateBackfilledMaintenanceOptionalParameters include(String include) {
@@ -323,187 +268,141 @@ public class StatusPagesApi {
   }
 
   /**
-   * Create backfilled maintenance.
-   *
-   * <p>See {@link #createBackfilledMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance createBackfilledMaintenance(
-      UUID pageId, CreateBackfilledMaintenanceRequest body) throws ApiException {
-    return createBackfilledMaintenanceWithHttpInfo(
-            pageId, body, new CreateBackfilledMaintenanceOptionalParameters())
-        .getData();
+ * Create backfilled maintenance.
+ *
+ * See {@link #createBackfilledMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance createBackfilledMaintenance (UUID pageId, CreateBackfilledMaintenanceRequest body) throws ApiException {
+    return createBackfilledMaintenanceWithHttpInfo( pageId,  body, new CreateBackfilledMaintenanceOptionalParameters()).getData();
   }
 
   /**
-   * Create backfilled maintenance.
-   *
-   * <p>See {@link #createBackfilledMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> createBackfilledMaintenanceAsync(
-      UUID pageId, CreateBackfilledMaintenanceRequest body) {
-    return createBackfilledMaintenanceWithHttpInfoAsync(
-            pageId, body, new CreateBackfilledMaintenanceOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create backfilled maintenance.
+ *
+ * See {@link #createBackfilledMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>createBackfilledMaintenanceAsync(UUID pageId, CreateBackfilledMaintenanceRequest body) {
+    return createBackfilledMaintenanceWithHttpInfoAsync(pageId, body, new CreateBackfilledMaintenanceOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Create backfilled maintenance.
-   *
-   * <p>See {@link #createBackfilledMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance createBackfilledMaintenance(
-      UUID pageId,
-      CreateBackfilledMaintenanceRequest body,
-      CreateBackfilledMaintenanceOptionalParameters parameters)
-      throws ApiException {
+ * Create backfilled maintenance.
+ *
+ * See {@link #createBackfilledMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance createBackfilledMaintenance(UUID pageId, CreateBackfilledMaintenanceRequest body, CreateBackfilledMaintenanceOptionalParameters parameters) throws ApiException {
     return createBackfilledMaintenanceWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Create backfilled maintenance.
-   *
-   * <p>See {@link #createBackfilledMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> createBackfilledMaintenanceAsync(
-      UUID pageId,
-      CreateBackfilledMaintenanceRequest body,
-      CreateBackfilledMaintenanceOptionalParameters parameters) {
-    return createBackfilledMaintenanceWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create backfilled maintenance.
+ *
+ * See {@link #createBackfilledMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>createBackfilledMaintenanceAsync( UUID pageId,  CreateBackfilledMaintenanceRequest body, CreateBackfilledMaintenanceOptionalParameters parameters) {
+    return createBackfilledMaintenanceWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Creates a backfilled maintenance with predefined updates.
+   * <p>Creates a backfilled maintenance with predefined updates.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Maintenance&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Maintenance> createBackfilledMaintenanceWithHttpInfo(
-      UUID pageId,
-      CreateBackfilledMaintenanceRequest body,
-      CreateBackfilledMaintenanceOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Maintenance> createBackfilledMaintenanceWithHttpInfo(UUID pageId, CreateBackfilledMaintenanceRequest body, CreateBackfilledMaintenanceOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling createBackfilledMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling createBackfilledMaintenance");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createBackfilledMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createBackfilledMaintenance");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/backfill"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/backfill"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createBackfilledMaintenance",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createBackfilledMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
   /**
    * Create backfilled maintenance.
    *
-   * <p>See {@link #createBackfilledMaintenanceWithHttpInfo}.
+   * See {@link #createBackfilledMaintenanceWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Maintenance>> createBackfilledMaintenanceWithHttpInfoAsync(
-      UUID pageId,
-      CreateBackfilledMaintenanceRequest body,
-      CreateBackfilledMaintenanceOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Maintenance>> createBackfilledMaintenanceWithHttpInfoAsync(UUID pageId, CreateBackfilledMaintenanceRequest body, CreateBackfilledMaintenanceOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling createBackfilledMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling createBackfilledMaintenance"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling createBackfilledMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createBackfilledMaintenance"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/backfill"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/backfill"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -511,40 +410,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createBackfilledMaintenance",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createBackfilledMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
-  /** Manage optional parameters to createComponent. */
+  /**
+   * Manage optional parameters to createComponent.
+   */
   public static class CreateComponentOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page, group. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page, group. (optional)
      * @return CreateComponentOptionalParameters
      */
     public CreateComponentOptionalParameters include(String include) {
@@ -554,175 +437,141 @@ public class StatusPagesApi {
   }
 
   /**
-   * Create component.
-   *
-   * <p>See {@link #createComponentWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return StatusPagesComponent
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponent createComponent(UUID pageId, CreateComponentRequest body)
-      throws ApiException {
-    return createComponentWithHttpInfo(pageId, body, new CreateComponentOptionalParameters())
-        .getData();
+ * Create component.
+ *
+ * See {@link #createComponentWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return StatusPagesComponent
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponent createComponent (UUID pageId, CreateComponentRequest body) throws ApiException {
+    return createComponentWithHttpInfo( pageId,  body, new CreateComponentOptionalParameters()).getData();
   }
 
   /**
-   * Create component.
-   *
-   * <p>See {@link #createComponentWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;StatusPagesComponent&gt;
-   */
-  public CompletableFuture<StatusPagesComponent> createComponentAsync(
-      UUID pageId, CreateComponentRequest body) {
-    return createComponentWithHttpInfoAsync(pageId, body, new CreateComponentOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create component.
+ *
+ * See {@link #createComponentWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;StatusPagesComponent&gt;
+ */
+  public CompletableFuture<StatusPagesComponent>createComponentAsync(UUID pageId, CreateComponentRequest body) {
+    return createComponentWithHttpInfoAsync(pageId, body, new CreateComponentOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Create component.
-   *
-   * <p>See {@link #createComponentWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return StatusPagesComponent
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponent createComponent(
-      UUID pageId, CreateComponentRequest body, CreateComponentOptionalParameters parameters)
-      throws ApiException {
+ * Create component.
+ *
+ * See {@link #createComponentWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return StatusPagesComponent
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponent createComponent(UUID pageId, CreateComponentRequest body, CreateComponentOptionalParameters parameters) throws ApiException {
     return createComponentWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Create component.
-   *
-   * <p>See {@link #createComponentWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPagesComponent&gt;
-   */
-  public CompletableFuture<StatusPagesComponent> createComponentAsync(
-      UUID pageId, CreateComponentRequest body, CreateComponentOptionalParameters parameters) {
-    return createComponentWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create component.
+ *
+ * See {@link #createComponentWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPagesComponent&gt;
+ */
+  public CompletableFuture<StatusPagesComponent>createComponentAsync( UUID pageId,  CreateComponentRequest body, CreateComponentOptionalParameters parameters) {
+    return createComponentWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Creates a new component.
+   * <p>Creates a new component.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;StatusPagesComponent&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPagesComponent> createComponentWithHttpInfo(
-      UUID pageId, CreateComponentRequest body, CreateComponentOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<StatusPagesComponent> createComponentWithHttpInfo(UUID pageId, CreateComponentRequest body, CreateComponentOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling createComponent");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling createComponent");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createComponent");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createComponent");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createComponent",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponent>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createComponent", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponent>() {});
   }
 
   /**
    * Create component.
    *
-   * <p>See {@link #createComponentWithHttpInfo}.
+   * See {@link #createComponentWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPagesComponent&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPagesComponent>> createComponentWithHttpInfoAsync(
-      UUID pageId, CreateComponentRequest body, CreateComponentOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPagesComponent>> createComponentWithHttpInfoAsync(UUID pageId, CreateComponentRequest body, CreateComponentOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling createComponent"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling createComponent"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createComponent"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createComponent"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -730,41 +579,25 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createComponent",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createComponent", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponent>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponent>() {});
   }
 
-  /** Manage optional parameters to createDegradation. */
+  /**
+   * Manage optional parameters to createDegradation.
+   */
   public static class CreateDegradationOptionalParameters {
     private Boolean notifySubscribers;
     private String include;
 
     /**
      * Set notifySubscribers.
-     *
-     * @param notifySubscribers Whether to notify page subscribers of the degradation. (optional,
-     *     default to true)
+     * @param notifySubscribers Whether to notify page subscribers of the degradation. (optional, default to true)
      * @return CreateDegradationOptionalParameters
      */
     public CreateDegradationOptionalParameters notifySubscribers(Boolean notifySubscribers) {
@@ -774,9 +607,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return CreateDegradationOptionalParameters
      */
     public CreateDegradationOptionalParameters include(String include) {
@@ -786,223 +617,170 @@ public class StatusPagesApi {
   }
 
   /**
-   * Create degradation.
-   *
-   * <p>See {@link #createDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation createDegradation(UUID pageId, CreateDegradationRequest body)
-      throws ApiException {
-    return createDegradationWithHttpInfo(pageId, body, new CreateDegradationOptionalParameters())
-        .getData();
+ * Create degradation.
+ *
+ * See {@link #createDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation createDegradation (UUID pageId, CreateDegradationRequest body) throws ApiException {
+    return createDegradationWithHttpInfo( pageId,  body, new CreateDegradationOptionalParameters()).getData();
   }
 
   /**
-   * Create degradation.
-   *
-   * <p>See {@link #createDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> createDegradationAsync(
-      UUID pageId, CreateDegradationRequest body) {
-    return createDegradationWithHttpInfoAsync(
-            pageId, body, new CreateDegradationOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create degradation.
+ *
+ * See {@link #createDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>createDegradationAsync(UUID pageId, CreateDegradationRequest body) {
+    return createDegradationWithHttpInfoAsync(pageId, body, new CreateDegradationOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Create degradation.
-   *
-   * <p>See {@link #createDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation createDegradation(
-      UUID pageId, CreateDegradationRequest body, CreateDegradationOptionalParameters parameters)
-      throws ApiException {
+ * Create degradation.
+ *
+ * See {@link #createDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation createDegradation(UUID pageId, CreateDegradationRequest body, CreateDegradationOptionalParameters parameters) throws ApiException {
     return createDegradationWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Create degradation.
-   *
-   * <p>See {@link #createDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> createDegradationAsync(
-      UUID pageId, CreateDegradationRequest body, CreateDegradationOptionalParameters parameters) {
-    return createDegradationWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create degradation.
+ *
+ * See {@link #createDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>createDegradationAsync( UUID pageId,  CreateDegradationRequest body, CreateDegradationOptionalParameters parameters) {
+    return createDegradationWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Creates a new degradation.
+   * <p>Creates a new degradation.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Degradation&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Degradation> createDegradationWithHttpInfo(
-      UUID pageId, CreateDegradationRequest body, CreateDegradationOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Degradation> createDegradationWithHttpInfo(UUID pageId, CreateDegradationRequest body, CreateDegradationOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling createDegradation");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling createDegradation");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createDegradation");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDegradation");
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createDegradation",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
   /**
    * Create degradation.
    *
-   * <p>See {@link #createDegradationWithHttpInfo}.
+   * See {@link #createDegradationWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Degradation&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Degradation>> createDegradationWithHttpInfoAsync(
-      UUID pageId, CreateDegradationRequest body, CreateDegradationOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Degradation>> createDegradationWithHttpInfoAsync(UUID pageId, CreateDegradationRequest body, CreateDegradationOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling createDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling createDegradation"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createDegradation"));
+        return result;
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createDegradation",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
-  /** Manage optional parameters to createDegradationTemplate. */
+  /**
+   * Manage optional parameters to createDegradationTemplate.
+   */
   public static class CreateDegradationTemplateOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return CreateDegradationTemplateOptionalParameters
      */
     public CreateDegradationTemplateOptionalParameters include(String include) {
@@ -1012,187 +790,141 @@ public class StatusPagesApi {
   }
 
   /**
-   * Create degradation template.
-   *
-   * <p>See {@link #createDegradationTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return DegradationTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplate createDegradationTemplate(
-      UUID pageId, CreateDegradationTemplateRequest body) throws ApiException {
-    return createDegradationTemplateWithHttpInfo(
-            pageId, body, new CreateDegradationTemplateOptionalParameters())
-        .getData();
+ * Create degradation template.
+ *
+ * See {@link #createDegradationTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return DegradationTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplate createDegradationTemplate (UUID pageId, CreateDegradationTemplateRequest body) throws ApiException {
+    return createDegradationTemplateWithHttpInfo( pageId,  body, new CreateDegradationTemplateOptionalParameters()).getData();
   }
 
   /**
-   * Create degradation template.
-   *
-   * <p>See {@link #createDegradationTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;DegradationTemplate&gt;
-   */
-  public CompletableFuture<DegradationTemplate> createDegradationTemplateAsync(
-      UUID pageId, CreateDegradationTemplateRequest body) {
-    return createDegradationTemplateWithHttpInfoAsync(
-            pageId, body, new CreateDegradationTemplateOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create degradation template.
+ *
+ * See {@link #createDegradationTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;DegradationTemplate&gt;
+ */
+  public CompletableFuture<DegradationTemplate>createDegradationTemplateAsync(UUID pageId, CreateDegradationTemplateRequest body) {
+    return createDegradationTemplateWithHttpInfoAsync(pageId, body, new CreateDegradationTemplateOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Create degradation template.
-   *
-   * <p>See {@link #createDegradationTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return DegradationTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplate createDegradationTemplate(
-      UUID pageId,
-      CreateDegradationTemplateRequest body,
-      CreateDegradationTemplateOptionalParameters parameters)
-      throws ApiException {
+ * Create degradation template.
+ *
+ * See {@link #createDegradationTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return DegradationTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplate createDegradationTemplate(UUID pageId, CreateDegradationTemplateRequest body, CreateDegradationTemplateOptionalParameters parameters) throws ApiException {
     return createDegradationTemplateWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Create degradation template.
-   *
-   * <p>See {@link #createDegradationTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;DegradationTemplate&gt;
-   */
-  public CompletableFuture<DegradationTemplate> createDegradationTemplateAsync(
-      UUID pageId,
-      CreateDegradationTemplateRequest body,
-      CreateDegradationTemplateOptionalParameters parameters) {
-    return createDegradationTemplateWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create degradation template.
+ *
+ * See {@link #createDegradationTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;DegradationTemplate&gt;
+ */
+  public CompletableFuture<DegradationTemplate>createDegradationTemplateAsync( UUID pageId,  CreateDegradationTemplateRequest body, CreateDegradationTemplateOptionalParameters parameters) {
+    return createDegradationTemplateWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Creates a new degradation template.
+   * <p>Creates a new degradation template.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DegradationTemplate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DegradationTemplate> createDegradationTemplateWithHttpInfo(
-      UUID pageId,
-      CreateDegradationTemplateRequest body,
-      CreateDegradationTemplateOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<DegradationTemplate> createDegradationTemplateWithHttpInfo(UUID pageId, CreateDegradationTemplateRequest body, CreateDegradationTemplateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling createDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling createDegradationTemplate");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDegradationTemplate");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createDegradationTemplate",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplate>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createDegradationTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplate>() {});
   }
 
   /**
    * Create degradation template.
    *
-   * <p>See {@link #createDegradationTemplateWithHttpInfo}.
+   * See {@link #createDegradationTemplateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DegradationTemplate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DegradationTemplate>>
-      createDegradationTemplateWithHttpInfoAsync(
-          UUID pageId,
-          CreateDegradationTemplateRequest body,
-          CreateDegradationTemplateOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<DegradationTemplate>> createDegradationTemplateWithHttpInfoAsync(UUID pageId, CreateDegradationTemplateRequest body, CreateDegradationTemplateOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling createDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling createDegradationTemplate"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createDegradationTemplate"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1200,41 +932,25 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createDegradationTemplate",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createDegradationTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplate>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplate>() {});
   }
 
-  /** Manage optional parameters to createMaintenance. */
+  /**
+   * Manage optional parameters to createMaintenance.
+   */
   public static class CreateMaintenanceOptionalParameters {
     private Boolean notifySubscribers;
     private String include;
 
     /**
      * Set notifySubscribers.
-     *
-     * @param notifySubscribers Whether to notify page subscribers of the maintenance. (optional,
-     *     default to true)
+     * @param notifySubscribers Whether to notify page subscribers of the maintenance. (optional, default to true)
      * @return CreateMaintenanceOptionalParameters
      */
     public CreateMaintenanceOptionalParameters notifySubscribers(Boolean notifySubscribers) {
@@ -1244,9 +960,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return CreateMaintenanceOptionalParameters
      */
     public CreateMaintenanceOptionalParameters include(String include) {
@@ -1256,223 +970,170 @@ public class StatusPagesApi {
   }
 
   /**
-   * Schedule maintenance.
-   *
-   * <p>See {@link #createMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance createMaintenance(UUID pageId, CreateMaintenanceRequest body)
-      throws ApiException {
-    return createMaintenanceWithHttpInfo(pageId, body, new CreateMaintenanceOptionalParameters())
-        .getData();
+ * Schedule maintenance.
+ *
+ * See {@link #createMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance createMaintenance (UUID pageId, CreateMaintenanceRequest body) throws ApiException {
+    return createMaintenanceWithHttpInfo( pageId,  body, new CreateMaintenanceOptionalParameters()).getData();
   }
 
   /**
-   * Schedule maintenance.
-   *
-   * <p>See {@link #createMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> createMaintenanceAsync(
-      UUID pageId, CreateMaintenanceRequest body) {
-    return createMaintenanceWithHttpInfoAsync(
-            pageId, body, new CreateMaintenanceOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Schedule maintenance.
+ *
+ * See {@link #createMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>createMaintenanceAsync(UUID pageId, CreateMaintenanceRequest body) {
+    return createMaintenanceWithHttpInfoAsync(pageId, body, new CreateMaintenanceOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Schedule maintenance.
-   *
-   * <p>See {@link #createMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance createMaintenance(
-      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters)
-      throws ApiException {
+ * Schedule maintenance.
+ *
+ * See {@link #createMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance createMaintenance(UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) throws ApiException {
     return createMaintenanceWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Schedule maintenance.
-   *
-   * <p>See {@link #createMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> createMaintenanceAsync(
-      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) {
-    return createMaintenanceWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Schedule maintenance.
+ *
+ * See {@link #createMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>createMaintenanceAsync( UUID pageId,  CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) {
+    return createMaintenanceWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Schedules a new maintenance.
+   * <p>Schedules a new maintenance.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Maintenance&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Maintenance> createMaintenanceWithHttpInfo(
-      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Maintenance> createMaintenanceWithHttpInfo(UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling createMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling createMaintenance");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createMaintenance");
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createMaintenance",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
   /**
    * Schedule maintenance.
    *
-   * <p>See {@link #createMaintenanceWithHttpInfo}.
+   * See {@link #createMaintenanceWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Maintenance>> createMaintenanceWithHttpInfoAsync(
-      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Maintenance>> createMaintenanceWithHttpInfoAsync(UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling createMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling createMaintenance"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createMaintenance"));
+        return result;
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createMaintenance",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
-  /** Manage optional parameters to createMaintenanceTemplate. */
+  /**
+   * Manage optional parameters to createMaintenanceTemplate.
+   */
   public static class CreateMaintenanceTemplateOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return CreateMaintenanceTemplateOptionalParameters
      */
     public CreateMaintenanceTemplateOptionalParameters include(String include) {
@@ -1482,187 +1143,141 @@ public class StatusPagesApi {
   }
 
   /**
-   * Create maintenance template.
-   *
-   * <p>See {@link #createMaintenanceTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return MaintenanceTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplate createMaintenanceTemplate(
-      UUID pageId, CreateMaintenanceTemplateRequest body) throws ApiException {
-    return createMaintenanceTemplateWithHttpInfo(
-            pageId, body, new CreateMaintenanceTemplateOptionalParameters())
-        .getData();
+ * Create maintenance template.
+ *
+ * See {@link #createMaintenanceTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return MaintenanceTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplate createMaintenanceTemplate (UUID pageId, CreateMaintenanceTemplateRequest body) throws ApiException {
+    return createMaintenanceTemplateWithHttpInfo( pageId,  body, new CreateMaintenanceTemplateOptionalParameters()).getData();
   }
 
   /**
-   * Create maintenance template.
-   *
-   * <p>See {@link #createMaintenanceTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;MaintenanceTemplate&gt;
-   */
-  public CompletableFuture<MaintenanceTemplate> createMaintenanceTemplateAsync(
-      UUID pageId, CreateMaintenanceTemplateRequest body) {
-    return createMaintenanceTemplateWithHttpInfoAsync(
-            pageId, body, new CreateMaintenanceTemplateOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create maintenance template.
+ *
+ * See {@link #createMaintenanceTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;MaintenanceTemplate&gt;
+ */
+  public CompletableFuture<MaintenanceTemplate>createMaintenanceTemplateAsync(UUID pageId, CreateMaintenanceTemplateRequest body) {
+    return createMaintenanceTemplateWithHttpInfoAsync(pageId, body, new CreateMaintenanceTemplateOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Create maintenance template.
-   *
-   * <p>See {@link #createMaintenanceTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return MaintenanceTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplate createMaintenanceTemplate(
-      UUID pageId,
-      CreateMaintenanceTemplateRequest body,
-      CreateMaintenanceTemplateOptionalParameters parameters)
-      throws ApiException {
+ * Create maintenance template.
+ *
+ * See {@link #createMaintenanceTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return MaintenanceTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplate createMaintenanceTemplate(UUID pageId, CreateMaintenanceTemplateRequest body, CreateMaintenanceTemplateOptionalParameters parameters) throws ApiException {
     return createMaintenanceTemplateWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Create maintenance template.
-   *
-   * <p>See {@link #createMaintenanceTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MaintenanceTemplate&gt;
-   */
-  public CompletableFuture<MaintenanceTemplate> createMaintenanceTemplateAsync(
-      UUID pageId,
-      CreateMaintenanceTemplateRequest body,
-      CreateMaintenanceTemplateOptionalParameters parameters) {
-    return createMaintenanceTemplateWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create maintenance template.
+ *
+ * See {@link #createMaintenanceTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MaintenanceTemplate&gt;
+ */
+  public CompletableFuture<MaintenanceTemplate>createMaintenanceTemplateAsync( UUID pageId,  CreateMaintenanceTemplateRequest body, CreateMaintenanceTemplateOptionalParameters parameters) {
+    return createMaintenanceTemplateWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Creates a new maintenance template.
+   * <p>Creates a new maintenance template.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MaintenanceTemplate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MaintenanceTemplate> createMaintenanceTemplateWithHttpInfo(
-      UUID pageId,
-      CreateMaintenanceTemplateRequest body,
-      CreateMaintenanceTemplateOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<MaintenanceTemplate> createMaintenanceTemplateWithHttpInfo(UUID pageId, CreateMaintenanceTemplateRequest body, CreateMaintenanceTemplateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling createMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling createMaintenanceTemplate");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createMaintenanceTemplate");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createMaintenanceTemplate",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplate>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createMaintenanceTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplate>() {});
   }
 
   /**
    * Create maintenance template.
    *
-   * <p>See {@link #createMaintenanceTemplateWithHttpInfo}.
+   * See {@link #createMaintenanceTemplateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceTemplate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MaintenanceTemplate>>
-      createMaintenanceTemplateWithHttpInfoAsync(
-          UUID pageId,
-          CreateMaintenanceTemplateRequest body,
-          CreateMaintenanceTemplateOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MaintenanceTemplate>> createMaintenanceTemplateWithHttpInfoAsync(UUID pageId, CreateMaintenanceTemplateRequest body, CreateMaintenanceTemplateOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling createMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling createMaintenanceTemplate"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createMaintenanceTemplate"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1670,40 +1285,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createMaintenanceTemplate",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createMaintenanceTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplate>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplate>() {});
   }
 
-  /** Manage optional parameters to createStatusPage. */
+  /**
+   * Manage optional parameters to createStatusPage.
+   */
   public static class CreateStatusPageOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user. (optional)
      * @return CreateStatusPageOptionalParameters
      */
     public CreateStatusPageOptionalParameters include(String include) {
@@ -1713,149 +1312,121 @@ public class StatusPagesApi {
   }
 
   /**
-   * Create status page.
-   *
-   * <p>See {@link #createStatusPageWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return StatusPage
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPage createStatusPage(CreateStatusPageRequest body) throws ApiException {
-    return createStatusPageWithHttpInfo(body, new CreateStatusPageOptionalParameters()).getData();
+ * Create status page.
+ *
+ * See {@link #createStatusPageWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return StatusPage
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPage createStatusPage (CreateStatusPageRequest body) throws ApiException {
+    return createStatusPageWithHttpInfo( body, new CreateStatusPageOptionalParameters()).getData();
   }
 
   /**
-   * Create status page.
-   *
-   * <p>See {@link #createStatusPageWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;StatusPage&gt;
-   */
-  public CompletableFuture<StatusPage> createStatusPageAsync(CreateStatusPageRequest body) {
-    return createStatusPageWithHttpInfoAsync(body, new CreateStatusPageOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create status page.
+ *
+ * See {@link #createStatusPageWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;StatusPage&gt;
+ */
+  public CompletableFuture<StatusPage>createStatusPageAsync(CreateStatusPageRequest body) {
+    return createStatusPageWithHttpInfoAsync(body, new CreateStatusPageOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Create status page.
-   *
-   * <p>See {@link #createStatusPageWithHttpInfo}.
-   *
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return StatusPage
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPage createStatusPage(
-      CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters)
-      throws ApiException {
+ * Create status page.
+ *
+ * See {@link #createStatusPageWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return StatusPage
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPage createStatusPage(CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters) throws ApiException {
     return createStatusPageWithHttpInfo(body, parameters).getData();
   }
 
   /**
-   * Create status page.
-   *
-   * <p>See {@link #createStatusPageWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPage&gt;
-   */
-  public CompletableFuture<StatusPage> createStatusPageAsync(
-      CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters) {
-    return createStatusPageWithHttpInfoAsync(body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create status page.
+ *
+ * See {@link #createStatusPageWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPage&gt;
+ */
+  public CompletableFuture<StatusPage>createStatusPageAsync( CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters) {
+    return createStatusPageWithHttpInfoAsync(body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Creates a new status page in an unpublished state. Use the dedicated <a
-   * href="#publish-status-page">publish</a> status page endpoint to publish the page after
-   * creation.
+   * <p>Creates a new status page in an unpublished state. Use the dedicated <a href="#publish-status-page">publish</a> status page endpoint to publish the page after creation.</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;StatusPage&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPage> createStatusPageWithHttpInfo(
-      CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<StatusPage> createStatusPageWithHttpInfo(CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createStatusPage");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createStatusPage");
     }
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.createStatusPage",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPage>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.createStatusPage", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPage>() {});
   }
 
   /**
    * Create status page.
    *
-   * <p>See {@link #createStatusPageWithHttpInfo}.
+   * See {@link #createStatusPageWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPage&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPage>> createStatusPageWithHttpInfoAsync(
-      CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPage>> createStatusPageWithHttpInfoAsync(CreateStatusPageRequest body, CreateStatusPageOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createStatusPage"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createStatusPage"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1863,696 +1434,506 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.createStatusPage",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.createStatusPage", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPage>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPage>() {});
   }
 
   /**
-   * Delete component.
-   *
-   * <p>See {@link #deleteComponentWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteComponent(UUID pageId, UUID componentId) throws ApiException {
+ * Delete component.
+ *
+ * See {@link #deleteComponentWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteComponent(UUID pageId, UUID componentId) throws ApiException {
     deleteComponentWithHttpInfo(pageId, componentId);
   }
 
   /**
-   * Delete component.
-   *
-   * <p>See {@link #deleteComponentWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteComponentAsync(UUID pageId, UUID componentId) {
-    return deleteComponentWithHttpInfoAsync(pageId, componentId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete component.
+ *
+ * See {@link #deleteComponentWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteComponentAsync(UUID pageId, UUID componentId) {
+    return deleteComponentWithHttpInfoAsync(pageId, componentId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Deletes a component by its ID.
+   * <p>Deletes a component by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param componentId The ID of the component. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteComponentWithHttpInfo(UUID pageId, UUID componentId)
-      throws ApiException {
+  public ApiResponse<Void> deleteComponentWithHttpInfo(UUID pageId, UUID componentId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling deleteComponent");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling deleteComponent");
     }
 
     // verify the required parameter 'componentId' is set
     if (componentId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'componentId' when calling deleteComponent");
+      throw new ApiException(400, "Missing the required parameter 'componentId' when calling deleteComponent");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components/{component_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components/{component_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.deleteComponent",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.deleteComponent", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete component.
    *
-   * <p>See {@link #deleteComponentWithHttpInfo}.
+   * See {@link #deleteComponentWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param componentId The ID of the component. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteComponentWithHttpInfoAsync(
-      UUID pageId, UUID componentId) {
+  public CompletableFuture<ApiResponse<Void>> deleteComponentWithHttpInfoAsync(UUID pageId, UUID componentId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling deleteComponent"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling deleteComponent"));
+        return result;
     }
 
     // verify the required parameter 'componentId' is set
     if (componentId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'componentId' when calling deleteComponent"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'componentId' when calling deleteComponent"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components/{component_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components/{component_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.deleteComponent",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.deleteComponent", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete degradation.
-   *
-   * <p>See {@link #deleteDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteDegradation(UUID pageId, UUID degradationId) throws ApiException {
+ * Delete degradation.
+ *
+ * See {@link #deleteDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteDegradation(UUID pageId, UUID degradationId) throws ApiException {
     deleteDegradationWithHttpInfo(pageId, degradationId);
   }
 
   /**
-   * Delete degradation.
-   *
-   * <p>See {@link #deleteDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteDegradationAsync(UUID pageId, UUID degradationId) {
-    return deleteDegradationWithHttpInfoAsync(pageId, degradationId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete degradation.
+ *
+ * See {@link #deleteDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteDegradationAsync(UUID pageId, UUID degradationId) {
+    return deleteDegradationWithHttpInfoAsync(pageId, degradationId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Deletes a degradation by its ID.
+   * <p>Deletes a degradation by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param degradationId The ID of the degradation. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteDegradationWithHttpInfo(UUID pageId, UUID degradationId)
-      throws ApiException {
+  public ApiResponse<Void> deleteDegradationWithHttpInfo(UUID pageId, UUID degradationId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling deleteDegradation");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling deleteDegradation");
     }
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'degradationId' when calling deleteDegradation");
+      throw new ApiException(400, "Missing the required parameter 'degradationId' when calling deleteDegradation");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.deleteDegradation",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.deleteDegradation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete degradation.
    *
-   * <p>See {@link #deleteDegradationWithHttpInfo}.
+   * See {@link #deleteDegradationWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param degradationId The ID of the degradation. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteDegradationWithHttpInfoAsync(
-      UUID pageId, UUID degradationId) {
+  public CompletableFuture<ApiResponse<Void>> deleteDegradationWithHttpInfoAsync(UUID pageId, UUID degradationId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling deleteDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling deleteDegradation"));
+        return result;
     }
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'degradationId' when calling deleteDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'degradationId' when calling deleteDegradation"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.deleteDegradation",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.deleteDegradation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete degradation template.
-   *
-   * <p>See {@link #deleteDegradationTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteDegradationTemplate(UUID pageId, UUID templateId) throws ApiException {
+ * Delete degradation template.
+ *
+ * See {@link #deleteDegradationTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteDegradationTemplate(UUID pageId, UUID templateId) throws ApiException {
     deleteDegradationTemplateWithHttpInfo(pageId, templateId);
   }
 
   /**
-   * Delete degradation template.
-   *
-   * <p>See {@link #deleteDegradationTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteDegradationTemplateAsync(UUID pageId, UUID templateId) {
-    return deleteDegradationTemplateWithHttpInfoAsync(pageId, templateId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete degradation template.
+ *
+ * See {@link #deleteDegradationTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteDegradationTemplateAsync(UUID pageId, UUID templateId) {
+    return deleteDegradationTemplateWithHttpInfoAsync(pageId, templateId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Deletes a degradation template by its ID (soft delete).
+   * <p>Deletes a degradation template by its ID (soft delete).</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteDegradationTemplateWithHttpInfo(UUID pageId, UUID templateId)
-      throws ApiException {
+  public ApiResponse<Void> deleteDegradationTemplateWithHttpInfo(UUID pageId, UUID templateId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling deleteDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling deleteDegradationTemplate");
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'templateId' when calling deleteDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling deleteDegradationTemplate");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.deleteDegradationTemplate",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.deleteDegradationTemplate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete degradation template.
    *
-   * <p>See {@link #deleteDegradationTemplateWithHttpInfo}.
+   * See {@link #deleteDegradationTemplateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteDegradationTemplateWithHttpInfoAsync(
-      UUID pageId, UUID templateId) {
+  public CompletableFuture<ApiResponse<Void>> deleteDegradationTemplateWithHttpInfoAsync(UUID pageId, UUID templateId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling deleteDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling deleteDegradationTemplate"));
+        return result;
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'templateId' when calling"
-                  + " deleteDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'templateId' when calling deleteDegradationTemplate"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.deleteDegradationTemplate",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.deleteDegradationTemplate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete maintenance template.
-   *
-   * <p>See {@link #deleteMaintenanceTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteMaintenanceTemplate(UUID pageId, UUID templateId) throws ApiException {
+ * Delete maintenance template.
+ *
+ * See {@link #deleteMaintenanceTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteMaintenanceTemplate(UUID pageId, UUID templateId) throws ApiException {
     deleteMaintenanceTemplateWithHttpInfo(pageId, templateId);
   }
 
   /**
-   * Delete maintenance template.
-   *
-   * <p>See {@link #deleteMaintenanceTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteMaintenanceTemplateAsync(UUID pageId, UUID templateId) {
-    return deleteMaintenanceTemplateWithHttpInfoAsync(pageId, templateId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete maintenance template.
+ *
+ * See {@link #deleteMaintenanceTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteMaintenanceTemplateAsync(UUID pageId, UUID templateId) {
+    return deleteMaintenanceTemplateWithHttpInfoAsync(pageId, templateId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Deletes a maintenance template by its ID (soft delete).
+   * <p>Deletes a maintenance template by its ID (soft delete).</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteMaintenanceTemplateWithHttpInfo(UUID pageId, UUID templateId)
-      throws ApiException {
+  public ApiResponse<Void> deleteMaintenanceTemplateWithHttpInfo(UUID pageId, UUID templateId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling deleteMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling deleteMaintenanceTemplate");
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'templateId' when calling deleteMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling deleteMaintenanceTemplate");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.deleteMaintenanceTemplate",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.deleteMaintenanceTemplate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete maintenance template.
    *
-   * <p>See {@link #deleteMaintenanceTemplateWithHttpInfo}.
+   * See {@link #deleteMaintenanceTemplateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteMaintenanceTemplateWithHttpInfoAsync(
-      UUID pageId, UUID templateId) {
+  public CompletableFuture<ApiResponse<Void>> deleteMaintenanceTemplateWithHttpInfoAsync(UUID pageId, UUID templateId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling deleteMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling deleteMaintenanceTemplate"));
+        return result;
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'templateId' when calling"
-                  + " deleteMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'templateId' when calling deleteMaintenanceTemplate"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.deleteMaintenanceTemplate",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.deleteMaintenanceTemplate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete status page.
-   *
-   * <p>See {@link #deleteStatusPageWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteStatusPage(UUID pageId) throws ApiException {
+ * Delete status page.
+ *
+ * See {@link #deleteStatusPageWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteStatusPage(UUID pageId) throws ApiException {
     deleteStatusPageWithHttpInfo(pageId);
   }
 
   /**
-   * Delete status page.
-   *
-   * <p>See {@link #deleteStatusPageWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteStatusPageAsync(UUID pageId) {
-    return deleteStatusPageWithHttpInfoAsync(pageId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete status page.
+ *
+ * See {@link #deleteStatusPageWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteStatusPageAsync(UUID pageId) {
+    return deleteStatusPageWithHttpInfoAsync(pageId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Deletes a status page by its ID.
+   * <p>Deletes a status page by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -2564,40 +1945,24 @@ public class StatusPagesApi {
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling deleteStatusPage");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling deleteStatusPage");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.deleteStatusPage",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.deleteStatusPage", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete status page.
    *
-   * <p>See {@link #deleteStatusPageWithHttpInfo}.
+   * See {@link #deleteStatusPageWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
@@ -2607,55 +1972,38 @@ public class StatusPagesApi {
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling deleteStatusPage"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling deleteStatusPage"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.deleteStatusPage",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.deleteStatusPage", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
-  /** Manage optional parameters to editDegradationUpdate. */
+  /**
+   * Manage optional parameters to editDegradationUpdate.
+   */
   public static class EditDegradationUpdateOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, degradation, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, degradation, status_page. (optional)
      * @return EditDegradationUpdateOptionalParameters
      */
     public EditDegradationUpdateOptionalParameters include(String include) {
@@ -2665,244 +2013,181 @@ public class StatusPagesApi {
   }
 
   /**
-   * Edit degradation update.
-   *
-   * <p>See {@link #editDegradationUpdateWithHttpInfo}.
-   *
-   * @param degradationId The ID of the degradation. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param updateId The ID of the degradation update. (required)
-   * @param body (required)
-   * @return DegradationUpdate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationUpdate editDegradationUpdate(
-      UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body)
-      throws ApiException {
-    return editDegradationUpdateWithHttpInfo(
-            degradationId, pageId, updateId, body, new EditDegradationUpdateOptionalParameters())
-        .getData();
+ * Edit degradation update.
+ *
+ * See {@link #editDegradationUpdateWithHttpInfo}.
+ *
+ * @param degradationId The ID of the degradation. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param updateId The ID of the degradation update. (required)
+ * @param body  (required)
+ * @return DegradationUpdate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationUpdate editDegradationUpdate (UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body) throws ApiException {
+    return editDegradationUpdateWithHttpInfo( degradationId,  pageId,  updateId,  body, new EditDegradationUpdateOptionalParameters()).getData();
   }
 
   /**
-   * Edit degradation update.
-   *
-   * <p>See {@link #editDegradationUpdateWithHttpInfoAsync}.
-   *
-   * @param degradationId The ID of the degradation. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param updateId The ID of the degradation update. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;DegradationUpdate&gt;
-   */
-  public CompletableFuture<DegradationUpdate> editDegradationUpdateAsync(
-      UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body) {
-    return editDegradationUpdateWithHttpInfoAsync(
-            degradationId, pageId, updateId, body, new EditDegradationUpdateOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Edit degradation update.
+ *
+ * See {@link #editDegradationUpdateWithHttpInfoAsync}.
+ *
+ * @param degradationId The ID of the degradation. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param updateId The ID of the degradation update. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;DegradationUpdate&gt;
+ */
+  public CompletableFuture<DegradationUpdate>editDegradationUpdateAsync(UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body) {
+    return editDegradationUpdateWithHttpInfoAsync(degradationId, pageId, updateId, body, new EditDegradationUpdateOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Edit degradation update.
-   *
-   * <p>See {@link #editDegradationUpdateWithHttpInfo}.
-   *
-   * @param degradationId The ID of the degradation. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param updateId The ID of the degradation update. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return DegradationUpdate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationUpdate editDegradationUpdate(
-      UUID degradationId,
-      UUID pageId,
-      UUID updateId,
-      PatchDegradationUpdateRequest body,
-      EditDegradationUpdateOptionalParameters parameters)
-      throws ApiException {
-    return editDegradationUpdateWithHttpInfo(degradationId, pageId, updateId, body, parameters)
-        .getData();
+ * Edit degradation update.
+ *
+ * See {@link #editDegradationUpdateWithHttpInfo}.
+ *
+ * @param degradationId The ID of the degradation. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param updateId The ID of the degradation update. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return DegradationUpdate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationUpdate editDegradationUpdate(UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body, EditDegradationUpdateOptionalParameters parameters) throws ApiException {
+    return editDegradationUpdateWithHttpInfo(degradationId, pageId, updateId, body, parameters).getData();
   }
 
   /**
-   * Edit degradation update.
-   *
-   * <p>See {@link #editDegradationUpdateWithHttpInfoAsync}.
-   *
-   * @param degradationId The ID of the degradation. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param updateId The ID of the degradation update. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;DegradationUpdate&gt;
-   */
-  public CompletableFuture<DegradationUpdate> editDegradationUpdateAsync(
-      UUID degradationId,
-      UUID pageId,
-      UUID updateId,
-      PatchDegradationUpdateRequest body,
-      EditDegradationUpdateOptionalParameters parameters) {
-    return editDegradationUpdateWithHttpInfoAsync(degradationId, pageId, updateId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Edit degradation update.
+ *
+ * See {@link #editDegradationUpdateWithHttpInfoAsync}.
+ *
+ * @param degradationId The ID of the degradation. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param updateId The ID of the degradation update. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;DegradationUpdate&gt;
+ */
+  public CompletableFuture<DegradationUpdate>editDegradationUpdateAsync( UUID degradationId,  UUID pageId,  UUID updateId,  PatchDegradationUpdateRequest body, EditDegradationUpdateOptionalParameters parameters) {
+    return editDegradationUpdateWithHttpInfoAsync(degradationId, pageId, updateId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Edits a specific degradation update.
+   * <p>Edits a specific degradation update.</p>
    *
    * @param degradationId The ID of the degradation. (required)
    * @param pageId The ID of the status page. (required)
    * @param updateId The ID of the degradation update. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DegradationUpdate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DegradationUpdate> editDegradationUpdateWithHttpInfo(
-      UUID degradationId,
-      UUID pageId,
-      UUID updateId,
-      PatchDegradationUpdateRequest body,
-      EditDegradationUpdateOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<DegradationUpdate> editDegradationUpdateWithHttpInfo(UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body, EditDegradationUpdateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'degradationId' when calling editDegradationUpdate");
+      throw new ApiException(400, "Missing the required parameter 'degradationId' when calling editDegradationUpdate");
     }
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling editDegradationUpdate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling editDegradationUpdate");
     }
 
     // verify the required parameter 'updateId' is set
     if (updateId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'updateId' when calling editDegradationUpdate");
+      throw new ApiException(400, "Missing the required parameter 'updateId' when calling editDegradationUpdate");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling editDegradationUpdate");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling editDegradationUpdate");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.editDegradationUpdate",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationUpdate>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.editDegradationUpdate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationUpdate>() {});
   }
 
   /**
    * Edit degradation update.
    *
-   * <p>See {@link #editDegradationUpdateWithHttpInfo}.
+   * See {@link #editDegradationUpdateWithHttpInfo}.
    *
    * @param degradationId The ID of the degradation. (required)
    * @param pageId The ID of the status page. (required)
    * @param updateId The ID of the degradation update. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DegradationUpdate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DegradationUpdate>> editDegradationUpdateWithHttpInfoAsync(
-      UUID degradationId,
-      UUID pageId,
-      UUID updateId,
-      PatchDegradationUpdateRequest body,
-      EditDegradationUpdateOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<DegradationUpdate>> editDegradationUpdateWithHttpInfoAsync(UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body, EditDegradationUpdateOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'degradationId' when calling editDegradationUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'degradationId' when calling editDegradationUpdate"));
+        return result;
     }
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling editDegradationUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling editDegradationUpdate"));
+        return result;
     }
 
     // verify the required parameter 'updateId' is set
     if (updateId == null) {
-      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'updateId' when calling editDegradationUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'updateId' when calling editDegradationUpdate"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling editDegradationUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling editDegradationUpdate"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2910,40 +2195,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.editDegradationUpdate",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.editDegradationUpdate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationUpdate>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationUpdate>() {});
   }
 
-  /** Manage optional parameters to getComponent. */
+  /**
+   * Manage optional parameters to getComponent.
+   */
   public static class GetComponentOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page, group. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page, group. (optional)
      * @return GetComponentOptionalParameters
      */
     public GetComponentOptionalParameters include(String include) {
@@ -2953,75 +2222,68 @@ public class StatusPagesApi {
   }
 
   /**
-   * Get component.
-   *
-   * <p>See {@link #getComponentWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @return StatusPagesComponent
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponent getComponent(UUID pageId, UUID componentId) throws ApiException {
-    return getComponentWithHttpInfo(pageId, componentId, new GetComponentOptionalParameters())
-        .getData();
+ * Get component.
+ *
+ * See {@link #getComponentWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @return StatusPagesComponent
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponent getComponent (UUID pageId, UUID componentId) throws ApiException {
+    return getComponentWithHttpInfo( pageId,  componentId, new GetComponentOptionalParameters()).getData();
   }
 
   /**
-   * Get component.
-   *
-   * <p>See {@link #getComponentWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @return CompletableFuture&lt;StatusPagesComponent&gt;
-   */
-  public CompletableFuture<StatusPagesComponent> getComponentAsync(UUID pageId, UUID componentId) {
-    return getComponentWithHttpInfoAsync(pageId, componentId, new GetComponentOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get component.
+ *
+ * See {@link #getComponentWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @return CompletableFuture&lt;StatusPagesComponent&gt;
+ */
+  public CompletableFuture<StatusPagesComponent>getComponentAsync(UUID pageId, UUID componentId) {
+    return getComponentWithHttpInfoAsync(pageId, componentId, new GetComponentOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get component.
-   *
-   * <p>See {@link #getComponentWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @param parameters Optional parameters for the request.
-   * @return StatusPagesComponent
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponent getComponent(
-      UUID pageId, UUID componentId, GetComponentOptionalParameters parameters)
-      throws ApiException {
+ * Get component.
+ *
+ * See {@link #getComponentWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @param parameters Optional parameters for the request.
+ * @return StatusPagesComponent
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponent getComponent(UUID pageId, UUID componentId, GetComponentOptionalParameters parameters) throws ApiException {
     return getComponentWithHttpInfo(pageId, componentId, parameters).getData();
   }
 
   /**
-   * Get component.
-   *
-   * <p>See {@link #getComponentWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPagesComponent&gt;
-   */
-  public CompletableFuture<StatusPagesComponent> getComponentAsync(
-      UUID pageId, UUID componentId, GetComponentOptionalParameters parameters) {
-    return getComponentWithHttpInfoAsync(pageId, componentId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get component.
+ *
+ * See {@link #getComponentWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPagesComponent&gt;
+ */
+  public CompletableFuture<StatusPagesComponent>getComponentAsync( UUID pageId,  UUID componentId, GetComponentOptionalParameters parameters) {
+    return getComponentWithHttpInfoAsync(pageId, componentId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Retrieves a specific component by its ID.
+   * <p>Retrieves a specific component by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param componentId The ID of the component. (required)
@@ -3029,101 +2291,74 @@ public class StatusPagesApi {
    * @return ApiResponse&lt;StatusPagesComponent&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPagesComponent> getComponentWithHttpInfo(
-      UUID pageId, UUID componentId, GetComponentOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<StatusPagesComponent> getComponentWithHttpInfo(UUID pageId, UUID componentId, GetComponentOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling getComponent");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling getComponent");
     }
 
     // verify the required parameter 'componentId' is set
     if (componentId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'componentId' when calling getComponent");
+      throw new ApiException(400, "Missing the required parameter 'componentId' when calling getComponent");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components/{component_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components/{component_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.getComponent",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponent>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.getComponent", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponent>() {});
   }
 
   /**
    * Get component.
    *
-   * <p>See {@link #getComponentWithHttpInfo}.
+   * See {@link #getComponentWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param componentId The ID of the component. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPagesComponent&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPagesComponent>> getComponentWithHttpInfoAsync(
-      UUID pageId, UUID componentId, GetComponentOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPagesComponent>> getComponentWithHttpInfoAsync(UUID pageId, UUID componentId, GetComponentOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling getComponent"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling getComponent"));
+        return result;
     }
 
     // verify the required parameter 'componentId' is set
     if (componentId == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'componentId' when calling getComponent"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'componentId' when calling getComponent"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components/{component_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components/{component_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3131,40 +2366,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.getComponent",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.getComponent", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponent>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponent>() {});
   }
 
-  /** Manage optional parameters to getDegradation. */
+  /**
+   * Manage optional parameters to getDegradation.
+   */
   public static class GetDegradationOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return GetDegradationOptionalParameters
      */
     public GetDegradationOptionalParameters include(String include) {
@@ -3174,76 +2393,68 @@ public class StatusPagesApi {
   }
 
   /**
-   * Get degradation.
-   *
-   * <p>See {@link #getDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation getDegradation(UUID pageId, UUID degradationId) throws ApiException {
-    return getDegradationWithHttpInfo(pageId, degradationId, new GetDegradationOptionalParameters())
-        .getData();
+ * Get degradation.
+ *
+ * See {@link #getDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation getDegradation (UUID pageId, UUID degradationId) throws ApiException {
+    return getDegradationWithHttpInfo( pageId,  degradationId, new GetDegradationOptionalParameters()).getData();
   }
 
   /**
-   * Get degradation.
-   *
-   * <p>See {@link #getDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> getDegradationAsync(UUID pageId, UUID degradationId) {
-    return getDegradationWithHttpInfoAsync(
-            pageId, degradationId, new GetDegradationOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get degradation.
+ *
+ * See {@link #getDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>getDegradationAsync(UUID pageId, UUID degradationId) {
+    return getDegradationWithHttpInfoAsync(pageId, degradationId, new GetDegradationOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get degradation.
-   *
-   * <p>See {@link #getDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @param parameters Optional parameters for the request.
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation getDegradation(
-      UUID pageId, UUID degradationId, GetDegradationOptionalParameters parameters)
-      throws ApiException {
+ * Get degradation.
+ *
+ * See {@link #getDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @param parameters Optional parameters for the request.
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation getDegradation(UUID pageId, UUID degradationId, GetDegradationOptionalParameters parameters) throws ApiException {
     return getDegradationWithHttpInfo(pageId, degradationId, parameters).getData();
   }
 
   /**
-   * Get degradation.
-   *
-   * <p>See {@link #getDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> getDegradationAsync(
-      UUID pageId, UUID degradationId, GetDegradationOptionalParameters parameters) {
-    return getDegradationWithHttpInfoAsync(pageId, degradationId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get degradation.
+ *
+ * See {@link #getDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>getDegradationAsync( UUID pageId,  UUID degradationId, GetDegradationOptionalParameters parameters) {
+    return getDegradationWithHttpInfoAsync(pageId, degradationId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Retrieves a specific degradation by its ID.
+   * <p>Retrieves a specific degradation by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param degradationId The ID of the degradation. (required)
@@ -3251,101 +2462,74 @@ public class StatusPagesApi {
    * @return ApiResponse&lt;Degradation&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Degradation> getDegradationWithHttpInfo(
-      UUID pageId, UUID degradationId, GetDegradationOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Degradation> getDegradationWithHttpInfo(UUID pageId, UUID degradationId, GetDegradationOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling getDegradation");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling getDegradation");
     }
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'degradationId' when calling getDegradation");
+      throw new ApiException(400, "Missing the required parameter 'degradationId' when calling getDegradation");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.getDegradation",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.getDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
   /**
    * Get degradation.
    *
-   * <p>See {@link #getDegradationWithHttpInfo}.
+   * See {@link #getDegradationWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param degradationId The ID of the degradation. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Degradation&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Degradation>> getDegradationWithHttpInfoAsync(
-      UUID pageId, UUID degradationId, GetDegradationOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Degradation>> getDegradationWithHttpInfoAsync(UUID pageId, UUID degradationId, GetDegradationOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling getDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling getDegradation"));
+        return result;
     }
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'degradationId' when calling getDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'degradationId' when calling getDegradation"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3353,40 +2537,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.getDegradation",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.getDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
-  /** Manage optional parameters to getDegradationTemplate. */
+  /**
+   * Manage optional parameters to getDegradationTemplate.
+   */
   public static class GetDegradationTemplateOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return GetDegradationTemplateOptionalParameters
      */
     public GetDegradationTemplateOptionalParameters include(String include) {
@@ -3396,79 +2564,68 @@ public class StatusPagesApi {
   }
 
   /**
-   * Get degradation template.
-   *
-   * <p>See {@link #getDegradationTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @return DegradationTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplate getDegradationTemplate(UUID pageId, UUID templateId)
-      throws ApiException {
-    return getDegradationTemplateWithHttpInfo(
-            pageId, templateId, new GetDegradationTemplateOptionalParameters())
-        .getData();
+ * Get degradation template.
+ *
+ * See {@link #getDegradationTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @return DegradationTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplate getDegradationTemplate (UUID pageId, UUID templateId) throws ApiException {
+    return getDegradationTemplateWithHttpInfo( pageId,  templateId, new GetDegradationTemplateOptionalParameters()).getData();
   }
 
   /**
-   * Get degradation template.
-   *
-   * <p>See {@link #getDegradationTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @return CompletableFuture&lt;DegradationTemplate&gt;
-   */
-  public CompletableFuture<DegradationTemplate> getDegradationTemplateAsync(
-      UUID pageId, UUID templateId) {
-    return getDegradationTemplateWithHttpInfoAsync(
-            pageId, templateId, new GetDegradationTemplateOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get degradation template.
+ *
+ * See {@link #getDegradationTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @return CompletableFuture&lt;DegradationTemplate&gt;
+ */
+  public CompletableFuture<DegradationTemplate>getDegradationTemplateAsync(UUID pageId, UUID templateId) {
+    return getDegradationTemplateWithHttpInfoAsync(pageId, templateId, new GetDegradationTemplateOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get degradation template.
-   *
-   * <p>See {@link #getDegradationTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param parameters Optional parameters for the request.
-   * @return DegradationTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplate getDegradationTemplate(
-      UUID pageId, UUID templateId, GetDegradationTemplateOptionalParameters parameters)
-      throws ApiException {
+ * Get degradation template.
+ *
+ * See {@link #getDegradationTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param parameters Optional parameters for the request.
+ * @return DegradationTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplate getDegradationTemplate(UUID pageId, UUID templateId, GetDegradationTemplateOptionalParameters parameters) throws ApiException {
     return getDegradationTemplateWithHttpInfo(pageId, templateId, parameters).getData();
   }
 
   /**
-   * Get degradation template.
-   *
-   * <p>See {@link #getDegradationTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;DegradationTemplate&gt;
-   */
-  public CompletableFuture<DegradationTemplate> getDegradationTemplateAsync(
-      UUID pageId, UUID templateId, GetDegradationTemplateOptionalParameters parameters) {
-    return getDegradationTemplateWithHttpInfoAsync(pageId, templateId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get degradation template.
+ *
+ * See {@link #getDegradationTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;DegradationTemplate&gt;
+ */
+  public CompletableFuture<DegradationTemplate>getDegradationTemplateAsync( UUID pageId,  UUID templateId, GetDegradationTemplateOptionalParameters parameters) {
+    return getDegradationTemplateWithHttpInfoAsync(pageId, templateId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Retrieves a specific degradation template by its ID.
+   * <p>Retrieves a specific degradation template by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
@@ -3476,103 +2633,74 @@ public class StatusPagesApi {
    * @return ApiResponse&lt;DegradationTemplate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DegradationTemplate> getDegradationTemplateWithHttpInfo(
-      UUID pageId, UUID templateId, GetDegradationTemplateOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<DegradationTemplate> getDegradationTemplateWithHttpInfo(UUID pageId, UUID templateId, GetDegradationTemplateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling getDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling getDegradationTemplate");
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'templateId' when calling getDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling getDegradationTemplate");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.getDegradationTemplate",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplate>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.getDegradationTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplate>() {});
   }
 
   /**
    * Get degradation template.
    *
-   * <p>See {@link #getDegradationTemplateWithHttpInfo}.
+   * See {@link #getDegradationTemplateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DegradationTemplate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DegradationTemplate>>
-      getDegradationTemplateWithHttpInfoAsync(
-          UUID pageId, UUID templateId, GetDegradationTemplateOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<DegradationTemplate>> getDegradationTemplateWithHttpInfoAsync(UUID pageId, UUID templateId, GetDegradationTemplateOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling getDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling getDegradationTemplate"));
+        return result;
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'templateId' when calling getDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'templateId' when calling getDegradationTemplate"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3580,40 +2708,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.getDegradationTemplate",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.getDegradationTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplate>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplate>() {});
   }
 
-  /** Manage optional parameters to getMaintenance. */
+  /**
+   * Manage optional parameters to getMaintenance.
+   */
   public static class GetMaintenanceOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return GetMaintenanceOptionalParameters
      */
     public GetMaintenanceOptionalParameters include(String include) {
@@ -3623,76 +2735,68 @@ public class StatusPagesApi {
   }
 
   /**
-   * Get maintenance.
-   *
-   * <p>See {@link #getMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance getMaintenance(UUID pageId, UUID maintenanceId) throws ApiException {
-    return getMaintenanceWithHttpInfo(pageId, maintenanceId, new GetMaintenanceOptionalParameters())
-        .getData();
+ * Get maintenance.
+ *
+ * See {@link #getMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance getMaintenance (UUID pageId, UUID maintenanceId) throws ApiException {
+    return getMaintenanceWithHttpInfo( pageId,  maintenanceId, new GetMaintenanceOptionalParameters()).getData();
   }
 
   /**
-   * Get maintenance.
-   *
-   * <p>See {@link #getMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> getMaintenanceAsync(UUID pageId, UUID maintenanceId) {
-    return getMaintenanceWithHttpInfoAsync(
-            pageId, maintenanceId, new GetMaintenanceOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get maintenance.
+ *
+ * See {@link #getMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>getMaintenanceAsync(UUID pageId, UUID maintenanceId) {
+    return getMaintenanceWithHttpInfoAsync(pageId, maintenanceId, new GetMaintenanceOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get maintenance.
-   *
-   * <p>See {@link #getMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param parameters Optional parameters for the request.
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance getMaintenance(
-      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters)
-      throws ApiException {
+ * Get maintenance.
+ *
+ * See {@link #getMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param parameters Optional parameters for the request.
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance getMaintenance(UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters) throws ApiException {
     return getMaintenanceWithHttpInfo(pageId, maintenanceId, parameters).getData();
   }
 
   /**
-   * Get maintenance.
-   *
-   * <p>See {@link #getMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> getMaintenanceAsync(
-      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters) {
-    return getMaintenanceWithHttpInfoAsync(pageId, maintenanceId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get maintenance.
+ *
+ * See {@link #getMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>getMaintenanceAsync( UUID pageId,  UUID maintenanceId, GetMaintenanceOptionalParameters parameters) {
+    return getMaintenanceWithHttpInfoAsync(pageId, maintenanceId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Retrieves a specific maintenance by its ID.
+   * <p>Retrieves a specific maintenance by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param maintenanceId The ID of the maintenance. (required)
@@ -3700,101 +2804,74 @@ public class StatusPagesApi {
    * @return ApiResponse&lt;Maintenance&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Maintenance> getMaintenanceWithHttpInfo(
-      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Maintenance> getMaintenanceWithHttpInfo(UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling getMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling getMaintenance");
     }
 
     // verify the required parameter 'maintenanceId' is set
     if (maintenanceId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'maintenanceId' when calling getMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'maintenanceId' when calling getMaintenance");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.getMaintenance",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.getMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
   /**
    * Get maintenance.
    *
-   * <p>See {@link #getMaintenanceWithHttpInfo}.
+   * See {@link #getMaintenanceWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param maintenanceId The ID of the maintenance. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Maintenance>> getMaintenanceWithHttpInfoAsync(
-      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Maintenance>> getMaintenanceWithHttpInfoAsync(UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling getMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling getMaintenance"));
+        return result;
     }
 
     // verify the required parameter 'maintenanceId' is set
     if (maintenanceId == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'maintenanceId' when calling getMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'maintenanceId' when calling getMaintenance"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3802,40 +2879,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.getMaintenance",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.getMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
-  /** Manage optional parameters to getMaintenanceTemplate. */
+  /**
+   * Manage optional parameters to getMaintenanceTemplate.
+   */
   public static class GetMaintenanceTemplateOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return GetMaintenanceTemplateOptionalParameters
      */
     public GetMaintenanceTemplateOptionalParameters include(String include) {
@@ -3845,79 +2906,68 @@ public class StatusPagesApi {
   }
 
   /**
-   * Get maintenance template.
-   *
-   * <p>See {@link #getMaintenanceTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @return MaintenanceTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplate getMaintenanceTemplate(UUID pageId, UUID templateId)
-      throws ApiException {
-    return getMaintenanceTemplateWithHttpInfo(
-            pageId, templateId, new GetMaintenanceTemplateOptionalParameters())
-        .getData();
+ * Get maintenance template.
+ *
+ * See {@link #getMaintenanceTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @return MaintenanceTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplate getMaintenanceTemplate (UUID pageId, UUID templateId) throws ApiException {
+    return getMaintenanceTemplateWithHttpInfo( pageId,  templateId, new GetMaintenanceTemplateOptionalParameters()).getData();
   }
 
   /**
-   * Get maintenance template.
-   *
-   * <p>See {@link #getMaintenanceTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @return CompletableFuture&lt;MaintenanceTemplate&gt;
-   */
-  public CompletableFuture<MaintenanceTemplate> getMaintenanceTemplateAsync(
-      UUID pageId, UUID templateId) {
-    return getMaintenanceTemplateWithHttpInfoAsync(
-            pageId, templateId, new GetMaintenanceTemplateOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get maintenance template.
+ *
+ * See {@link #getMaintenanceTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @return CompletableFuture&lt;MaintenanceTemplate&gt;
+ */
+  public CompletableFuture<MaintenanceTemplate>getMaintenanceTemplateAsync(UUID pageId, UUID templateId) {
+    return getMaintenanceTemplateWithHttpInfoAsync(pageId, templateId, new GetMaintenanceTemplateOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get maintenance template.
-   *
-   * <p>See {@link #getMaintenanceTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param parameters Optional parameters for the request.
-   * @return MaintenanceTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplate getMaintenanceTemplate(
-      UUID pageId, UUID templateId, GetMaintenanceTemplateOptionalParameters parameters)
-      throws ApiException {
+ * Get maintenance template.
+ *
+ * See {@link #getMaintenanceTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param parameters Optional parameters for the request.
+ * @return MaintenanceTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplate getMaintenanceTemplate(UUID pageId, UUID templateId, GetMaintenanceTemplateOptionalParameters parameters) throws ApiException {
     return getMaintenanceTemplateWithHttpInfo(pageId, templateId, parameters).getData();
   }
 
   /**
-   * Get maintenance template.
-   *
-   * <p>See {@link #getMaintenanceTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MaintenanceTemplate&gt;
-   */
-  public CompletableFuture<MaintenanceTemplate> getMaintenanceTemplateAsync(
-      UUID pageId, UUID templateId, GetMaintenanceTemplateOptionalParameters parameters) {
-    return getMaintenanceTemplateWithHttpInfoAsync(pageId, templateId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get maintenance template.
+ *
+ * See {@link #getMaintenanceTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MaintenanceTemplate&gt;
+ */
+  public CompletableFuture<MaintenanceTemplate>getMaintenanceTemplateAsync( UUID pageId,  UUID templateId, GetMaintenanceTemplateOptionalParameters parameters) {
+    return getMaintenanceTemplateWithHttpInfoAsync(pageId, templateId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Retrieves a specific maintenance template by its ID.
+   * <p>Retrieves a specific maintenance template by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
@@ -3925,103 +2975,74 @@ public class StatusPagesApi {
    * @return ApiResponse&lt;MaintenanceTemplate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MaintenanceTemplate> getMaintenanceTemplateWithHttpInfo(
-      UUID pageId, UUID templateId, GetMaintenanceTemplateOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<MaintenanceTemplate> getMaintenanceTemplateWithHttpInfo(UUID pageId, UUID templateId, GetMaintenanceTemplateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling getMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling getMaintenanceTemplate");
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'templateId' when calling getMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling getMaintenanceTemplate");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.getMaintenanceTemplate",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplate>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.getMaintenanceTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplate>() {});
   }
 
   /**
    * Get maintenance template.
    *
-   * <p>See {@link #getMaintenanceTemplateWithHttpInfo}.
+   * See {@link #getMaintenanceTemplateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceTemplate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MaintenanceTemplate>>
-      getMaintenanceTemplateWithHttpInfoAsync(
-          UUID pageId, UUID templateId, GetMaintenanceTemplateOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MaintenanceTemplate>> getMaintenanceTemplateWithHttpInfoAsync(UUID pageId, UUID templateId, GetMaintenanceTemplateOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling getMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling getMaintenanceTemplate"));
+        return result;
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'templateId' when calling getMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'templateId' when calling getMaintenanceTemplate"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4029,40 +3050,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.getMaintenanceTemplate",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.getMaintenanceTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplate>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplate>() {});
   }
 
-  /** Manage optional parameters to getStatusPage. */
+  /**
+   * Manage optional parameters to getStatusPage.
+   */
   public static class GetStatusPageOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user. (optional)
      * @return GetStatusPageOptionalParameters
      */
     public GetStatusPageOptionalParameters include(String include) {
@@ -4072,149 +3077,123 @@ public class StatusPagesApi {
   }
 
   /**
-   * Get status page.
-   *
-   * <p>See {@link #getStatusPageWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return StatusPage
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPage getStatusPage(UUID pageId) throws ApiException {
-    return getStatusPageWithHttpInfo(pageId, new GetStatusPageOptionalParameters()).getData();
+ * Get status page.
+ *
+ * See {@link #getStatusPageWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return StatusPage
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPage getStatusPage (UUID pageId) throws ApiException {
+    return getStatusPageWithHttpInfo( pageId, new GetStatusPageOptionalParameters()).getData();
   }
 
   /**
-   * Get status page.
-   *
-   * <p>See {@link #getStatusPageWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return CompletableFuture&lt;StatusPage&gt;
-   */
-  public CompletableFuture<StatusPage> getStatusPageAsync(UUID pageId) {
-    return getStatusPageWithHttpInfoAsync(pageId, new GetStatusPageOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get status page.
+ *
+ * See {@link #getStatusPageWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return CompletableFuture&lt;StatusPage&gt;
+ */
+  public CompletableFuture<StatusPage>getStatusPageAsync(UUID pageId) {
+    return getStatusPageWithHttpInfoAsync(pageId, new GetStatusPageOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get status page.
-   *
-   * <p>See {@link #getStatusPageWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return StatusPage
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPage getStatusPage(UUID pageId, GetStatusPageOptionalParameters parameters)
-      throws ApiException {
+ * Get status page.
+ *
+ * See {@link #getStatusPageWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return StatusPage
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPage getStatusPage(UUID pageId, GetStatusPageOptionalParameters parameters) throws ApiException {
     return getStatusPageWithHttpInfo(pageId, parameters).getData();
   }
 
   /**
-   * Get status page.
-   *
-   * <p>See {@link #getStatusPageWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPage&gt;
-   */
-  public CompletableFuture<StatusPage> getStatusPageAsync(
-      UUID pageId, GetStatusPageOptionalParameters parameters) {
-    return getStatusPageWithHttpInfoAsync(pageId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get status page.
+ *
+ * See {@link #getStatusPageWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPage&gt;
+ */
+  public CompletableFuture<StatusPage>getStatusPageAsync( UUID pageId, GetStatusPageOptionalParameters parameters) {
+    return getStatusPageWithHttpInfoAsync(pageId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Retrieves a specific status page by its ID.
+   * <p>Retrieves a specific status page by its ID.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;StatusPage&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPage> getStatusPageWithHttpInfo(
-      UUID pageId, GetStatusPageOptionalParameters parameters) throws ApiException {
+  public ApiResponse<StatusPage> getStatusPageWithHttpInfo(UUID pageId, GetStatusPageOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling getStatusPage");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling getStatusPage");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.getStatusPage",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPage>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.getStatusPage", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPage>() {});
   }
 
   /**
    * Get status page.
    *
-   * <p>See {@link #getStatusPageWithHttpInfo}.
+   * See {@link #getStatusPageWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPage&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPage>> getStatusPageWithHttpInfoAsync(
-      UUID pageId, GetStatusPageOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPage>> getStatusPageWithHttpInfoAsync(UUID pageId, GetStatusPageOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling getStatusPage"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling getStatusPage"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4222,40 +3201,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.getStatusPage",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.getStatusPage", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPage>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPage>() {});
   }
 
-  /** Manage optional parameters to listComponents. */
+  /**
+   * Manage optional parameters to listComponents.
+   */
   public static class ListComponentsOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page, group. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page, group. (optional)
      * @return ListComponentsOptionalParameters
      */
     public ListComponentsOptionalParameters include(String include) {
@@ -4265,149 +3228,123 @@ public class StatusPagesApi {
   }
 
   /**
-   * List components.
-   *
-   * <p>See {@link #listComponentsWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return StatusPagesComponentArray
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponentArray listComponents(UUID pageId) throws ApiException {
-    return listComponentsWithHttpInfo(pageId, new ListComponentsOptionalParameters()).getData();
+ * List components.
+ *
+ * See {@link #listComponentsWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return StatusPagesComponentArray
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponentArray listComponents (UUID pageId) throws ApiException {
+    return listComponentsWithHttpInfo( pageId, new ListComponentsOptionalParameters()).getData();
   }
 
   /**
-   * List components.
-   *
-   * <p>See {@link #listComponentsWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return CompletableFuture&lt;StatusPagesComponentArray&gt;
-   */
-  public CompletableFuture<StatusPagesComponentArray> listComponentsAsync(UUID pageId) {
-    return listComponentsWithHttpInfoAsync(pageId, new ListComponentsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List components.
+ *
+ * See {@link #listComponentsWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return CompletableFuture&lt;StatusPagesComponentArray&gt;
+ */
+  public CompletableFuture<StatusPagesComponentArray>listComponentsAsync(UUID pageId) {
+    return listComponentsWithHttpInfoAsync(pageId, new ListComponentsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List components.
-   *
-   * <p>See {@link #listComponentsWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return StatusPagesComponentArray
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponentArray listComponents(
-      UUID pageId, ListComponentsOptionalParameters parameters) throws ApiException {
+ * List components.
+ *
+ * See {@link #listComponentsWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return StatusPagesComponentArray
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponentArray listComponents(UUID pageId, ListComponentsOptionalParameters parameters) throws ApiException {
     return listComponentsWithHttpInfo(pageId, parameters).getData();
   }
 
   /**
-   * List components.
-   *
-   * <p>See {@link #listComponentsWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPagesComponentArray&gt;
-   */
-  public CompletableFuture<StatusPagesComponentArray> listComponentsAsync(
-      UUID pageId, ListComponentsOptionalParameters parameters) {
-    return listComponentsWithHttpInfoAsync(pageId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List components.
+ *
+ * See {@link #listComponentsWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPagesComponentArray&gt;
+ */
+  public CompletableFuture<StatusPagesComponentArray>listComponentsAsync( UUID pageId, ListComponentsOptionalParameters parameters) {
+    return listComponentsWithHttpInfoAsync(pageId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Lists all components for a status page.
+   * <p>Lists all components for a status page.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;StatusPagesComponentArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPagesComponentArray> listComponentsWithHttpInfo(
-      UUID pageId, ListComponentsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<StatusPagesComponentArray> listComponentsWithHttpInfo(UUID pageId, ListComponentsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling listComponents");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling listComponents");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.listComponents",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponentArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.listComponents", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponentArray>() {});
   }
 
   /**
    * List components.
    *
-   * <p>See {@link #listComponentsWithHttpInfo}.
+   * See {@link #listComponentsWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPagesComponentArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPagesComponentArray>> listComponentsWithHttpInfoAsync(
-      UUID pageId, ListComponentsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPagesComponentArray>> listComponentsWithHttpInfoAsync(UUID pageId, ListComponentsOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponentArray>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling listComponents"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponentArray>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling listComponents"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4415,32 +3352,18 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.listComponents",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.listComponents", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPagesComponentArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponentArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponentArray>() {});
   }
 
-  /** Manage optional parameters to listDegradations. */
+  /**
+   * Manage optional parameters to listDegradations.
+   */
   public static class ListDegradationsOptionalParameters {
     private String filterPageId;
     private Long pageOffset;
@@ -4452,7 +3375,6 @@ public class StatusPagesApi {
 
     /**
      * Set filterPageId.
-     *
      * @param filterPageId Optional page id filter. (optional)
      * @return ListDegradationsOptionalParameters
      */
@@ -4463,7 +3385,6 @@ public class StatusPagesApi {
 
     /**
      * Set pageOffset.
-     *
      * @param pageOffset Offset to use as the start of the page. (optional, default to 0)
      * @return ListDegradationsOptionalParameters
      */
@@ -4474,7 +3395,6 @@ public class StatusPagesApi {
 
     /**
      * Set pageLimit.
-     *
      * @param pageLimit The number of degradations to return per page. (optional, default to 50)
      * @return ListDegradationsOptionalParameters
      */
@@ -4485,9 +3405,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return ListDegradationsOptionalParameters
      */
     public ListDegradationsOptionalParameters include(String include) {
@@ -4497,9 +3415,7 @@ public class StatusPagesApi {
 
     /**
      * Set filterStatus.
-     *
-     * @param filterStatus Optional degradation status filter. Supported values: investigating,
-     *     identified, monitoring, resolved. (optional)
+     * @param filterStatus Optional degradation status filter. Supported values: investigating, identified, monitoring, resolved. (optional)
      * @return ListDegradationsOptionalParameters
      */
     public ListDegradationsOptionalParameters filterStatus(String filterStatus) {
@@ -4509,9 +3425,7 @@ public class StatusPagesApi {
 
     /**
      * Set sort.
-     *
-     * @param sort Sort order. Prefix with '-' for descending. Supported values: created_at,
-     *     -created_at, modified_at, -modified_at. (optional)
+     * @param sort Sort order. Prefix with '-' for descending. Supported values: created_at, -created_at, modified_at, -modified_at. (optional)
      * @return ListDegradationsOptionalParameters
      */
     public ListDegradationsOptionalParameters sort(String sort) {
@@ -4521,9 +3435,7 @@ public class StatusPagesApi {
 
     /**
      * Set filterSourceId.
-     *
-     * @param filterSourceId Optional source ID filter. Returns only degradations whose source
-     *     matches this ID (for example, an incident ID). (optional)
+     * @param filterSourceId Optional source ID filter. Returns only degradations whose source matches this ID (for example, an incident ID). (optional)
      * @return ListDegradationsOptionalParameters
      */
     public ListDegradationsOptionalParameters filterSourceId(String filterSourceId) {
@@ -4533,79 +3445,73 @@ public class StatusPagesApi {
   }
 
   /**
-   * List degradations.
-   *
-   * <p>See {@link #listDegradationsWithHttpInfo}.
-   *
-   * @return DegradationArray
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationArray listDegradations() throws ApiException {
+ * List degradations.
+ *
+ * See {@link #listDegradationsWithHttpInfo}.
+ *
+ * @return DegradationArray
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationArray listDegradations () throws ApiException {
     return listDegradationsWithHttpInfo(new ListDegradationsOptionalParameters()).getData();
   }
 
   /**
-   * List degradations.
-   *
-   * <p>See {@link #listDegradationsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;DegradationArray&gt;
-   */
-  public CompletableFuture<DegradationArray> listDegradationsAsync() {
-    return listDegradationsWithHttpInfoAsync(new ListDegradationsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List degradations.
+ *
+ * See {@link #listDegradationsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;DegradationArray&gt;
+ */
+  public CompletableFuture<DegradationArray>listDegradationsAsync() {
+    return listDegradationsWithHttpInfoAsync(new ListDegradationsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List degradations.
-   *
-   * <p>See {@link #listDegradationsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return DegradationArray
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationArray listDegradations(ListDegradationsOptionalParameters parameters)
-      throws ApiException {
+ * List degradations.
+ *
+ * See {@link #listDegradationsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return DegradationArray
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationArray listDegradations(ListDegradationsOptionalParameters parameters) throws ApiException {
     return listDegradationsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * List degradations.
-   *
-   * <p>See {@link #listDegradationsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;DegradationArray&gt;
-   */
-  public CompletableFuture<DegradationArray> listDegradationsAsync(
-      ListDegradationsOptionalParameters parameters) {
-    return listDegradationsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List degradations.
+ *
+ * See {@link #listDegradationsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;DegradationArray&gt;
+ */
+  public CompletableFuture<DegradationArray>listDegradationsAsync(ListDegradationsOptionalParameters parameters) {
+    return listDegradationsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Lists all degradations for the organization. Optionally filter by status and page.
+   * <p>Lists all degradations for the organization. Optionally filter by status and page.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DegradationArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DegradationArray> listDegradationsWithHttpInfo(
-      ListDegradationsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<DegradationArray> listDegradationsWithHttpInfo(ListDegradationsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
     Long pageOffset = parameters.pageOffset;
@@ -4617,6 +3523,7 @@ public class StatusPagesApi {
     // create path and map variables
     String localVarPath = "/api/v2/statuspages/degradations";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4628,36 +3535,19 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[source_id]", filterSourceId));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.listDegradations",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.listDegradations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationArray>() {});
   }
 
   /**
    * List degradations.
    *
-   * <p>See {@link #listDegradationsWithHttpInfo}.
+   * See {@link #listDegradationsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DegradationArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DegradationArray>> listDegradationsWithHttpInfoAsync(
-      ListDegradationsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<DegradationArray>> listDegradationsWithHttpInfoAsync(ListDegradationsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
     Long pageOffset = parameters.pageOffset;
@@ -4669,6 +3559,7 @@ public class StatusPagesApi {
     // create path and map variables
     String localVarPath = "/api/v2/statuspages/degradations";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4682,40 +3573,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.listDegradations",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.listDegradations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DegradationArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationArray>() {});
   }
 
-  /** Manage optional parameters to listDegradationTemplates. */
+  /**
+   * Manage optional parameters to listDegradationTemplates.
+   */
   public static class ListDegradationTemplatesOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return ListDegradationTemplatesOptionalParameters
      */
     public ListDegradationTemplatesOptionalParameters include(String include) {
@@ -4725,154 +3600,123 @@ public class StatusPagesApi {
   }
 
   /**
-   * List degradation templates.
-   *
-   * <p>See {@link #listDegradationTemplatesWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return DegradationTemplateArray
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplateArray listDegradationTemplates(UUID pageId) throws ApiException {
-    return listDegradationTemplatesWithHttpInfo(
-            pageId, new ListDegradationTemplatesOptionalParameters())
-        .getData();
+ * List degradation templates.
+ *
+ * See {@link #listDegradationTemplatesWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return DegradationTemplateArray
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplateArray listDegradationTemplates (UUID pageId) throws ApiException {
+    return listDegradationTemplatesWithHttpInfo( pageId, new ListDegradationTemplatesOptionalParameters()).getData();
   }
 
   /**
-   * List degradation templates.
-   *
-   * <p>See {@link #listDegradationTemplatesWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return CompletableFuture&lt;DegradationTemplateArray&gt;
-   */
-  public CompletableFuture<DegradationTemplateArray> listDegradationTemplatesAsync(UUID pageId) {
-    return listDegradationTemplatesWithHttpInfoAsync(
-            pageId, new ListDegradationTemplatesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List degradation templates.
+ *
+ * See {@link #listDegradationTemplatesWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return CompletableFuture&lt;DegradationTemplateArray&gt;
+ */
+  public CompletableFuture<DegradationTemplateArray>listDegradationTemplatesAsync(UUID pageId) {
+    return listDegradationTemplatesWithHttpInfoAsync(pageId, new ListDegradationTemplatesOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List degradation templates.
-   *
-   * <p>See {@link #listDegradationTemplatesWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return DegradationTemplateArray
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplateArray listDegradationTemplates(
-      UUID pageId, ListDegradationTemplatesOptionalParameters parameters) throws ApiException {
+ * List degradation templates.
+ *
+ * See {@link #listDegradationTemplatesWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return DegradationTemplateArray
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplateArray listDegradationTemplates(UUID pageId, ListDegradationTemplatesOptionalParameters parameters) throws ApiException {
     return listDegradationTemplatesWithHttpInfo(pageId, parameters).getData();
   }
 
   /**
-   * List degradation templates.
-   *
-   * <p>See {@link #listDegradationTemplatesWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;DegradationTemplateArray&gt;
-   */
-  public CompletableFuture<DegradationTemplateArray> listDegradationTemplatesAsync(
-      UUID pageId, ListDegradationTemplatesOptionalParameters parameters) {
-    return listDegradationTemplatesWithHttpInfoAsync(pageId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List degradation templates.
+ *
+ * See {@link #listDegradationTemplatesWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;DegradationTemplateArray&gt;
+ */
+  public CompletableFuture<DegradationTemplateArray>listDegradationTemplatesAsync( UUID pageId, ListDegradationTemplatesOptionalParameters parameters) {
+    return listDegradationTemplatesWithHttpInfoAsync(pageId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Lists all degradation templates for a status page.
+   * <p>Lists all degradation templates for a status page.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DegradationTemplateArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DegradationTemplateArray> listDegradationTemplatesWithHttpInfo(
-      UUID pageId, ListDegradationTemplatesOptionalParameters parameters) throws ApiException {
+  public ApiResponse<DegradationTemplateArray> listDegradationTemplatesWithHttpInfo(UUID pageId, ListDegradationTemplatesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling listDegradationTemplates");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling listDegradationTemplates");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.listDegradationTemplates",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplateArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.listDegradationTemplates", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplateArray>() {});
   }
 
   /**
    * List degradation templates.
    *
-   * <p>See {@link #listDegradationTemplatesWithHttpInfo}.
+   * See {@link #listDegradationTemplatesWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DegradationTemplateArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DegradationTemplateArray>>
-      listDegradationTemplatesWithHttpInfoAsync(
-          UUID pageId, ListDegradationTemplatesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<DegradationTemplateArray>> listDegradationTemplatesWithHttpInfoAsync(UUID pageId, ListDegradationTemplatesOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<DegradationTemplateArray>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling listDegradationTemplates"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplateArray>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling listDegradationTemplates"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4880,32 +3724,18 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.listDegradationTemplates",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.listDegradationTemplates", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DegradationTemplateArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplateArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplateArray>() {});
   }
 
-  /** Manage optional parameters to listMaintenances. */
+  /**
+   * Manage optional parameters to listMaintenances.
+   */
   public static class ListMaintenancesOptionalParameters {
     private String filterPageId;
     private Long pageOffset;
@@ -4916,7 +3746,6 @@ public class StatusPagesApi {
 
     /**
      * Set filterPageId.
-     *
      * @param filterPageId Optional page id filter. (optional)
      * @return ListMaintenancesOptionalParameters
      */
@@ -4927,7 +3756,6 @@ public class StatusPagesApi {
 
     /**
      * Set pageOffset.
-     *
      * @param pageOffset Offset to use as the start of the page. (optional, default to 0)
      * @return ListMaintenancesOptionalParameters
      */
@@ -4938,7 +3766,6 @@ public class StatusPagesApi {
 
     /**
      * Set pageLimit.
-     *
      * @param pageLimit The number of maintenances to return per page. (optional, default to 50)
      * @return ListMaintenancesOptionalParameters
      */
@@ -4949,9 +3776,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return ListMaintenancesOptionalParameters
      */
     public ListMaintenancesOptionalParameters include(String include) {
@@ -4961,9 +3786,7 @@ public class StatusPagesApi {
 
     /**
      * Set filterStatus.
-     *
-     * @param filterStatus Optional maintenance status filter. Supported values: scheduled,
-     *     in_progress, completed. (optional)
+     * @param filterStatus Optional maintenance status filter. Supported values: scheduled, in_progress, completed. (optional)
      * @return ListMaintenancesOptionalParameters
      */
     public ListMaintenancesOptionalParameters filterStatus(String filterStatus) {
@@ -4973,9 +3796,7 @@ public class StatusPagesApi {
 
     /**
      * Set sort.
-     *
-     * @param sort Sort order. Prefix with '-' for descending. Supported values: created_at,
-     *     -created_at, start_date, -start_date. (optional)
+     * @param sort Sort order. Prefix with '-' for descending. Supported values: created_at, -created_at, start_date, -start_date. (optional)
      * @return ListMaintenancesOptionalParameters
      */
     public ListMaintenancesOptionalParameters sort(String sort) {
@@ -4985,79 +3806,73 @@ public class StatusPagesApi {
   }
 
   /**
-   * List maintenances.
-   *
-   * <p>See {@link #listMaintenancesWithHttpInfo}.
-   *
-   * @return MaintenanceArray
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceArray listMaintenances() throws ApiException {
+ * List maintenances.
+ *
+ * See {@link #listMaintenancesWithHttpInfo}.
+ *
+ * @return MaintenanceArray
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceArray listMaintenances () throws ApiException {
     return listMaintenancesWithHttpInfo(new ListMaintenancesOptionalParameters()).getData();
   }
 
   /**
-   * List maintenances.
-   *
-   * <p>See {@link #listMaintenancesWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;MaintenanceArray&gt;
-   */
-  public CompletableFuture<MaintenanceArray> listMaintenancesAsync() {
-    return listMaintenancesWithHttpInfoAsync(new ListMaintenancesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List maintenances.
+ *
+ * See {@link #listMaintenancesWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;MaintenanceArray&gt;
+ */
+  public CompletableFuture<MaintenanceArray>listMaintenancesAsync() {
+    return listMaintenancesWithHttpInfoAsync(new ListMaintenancesOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List maintenances.
-   *
-   * <p>See {@link #listMaintenancesWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return MaintenanceArray
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceArray listMaintenances(ListMaintenancesOptionalParameters parameters)
-      throws ApiException {
+ * List maintenances.
+ *
+ * See {@link #listMaintenancesWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return MaintenanceArray
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceArray listMaintenances(ListMaintenancesOptionalParameters parameters) throws ApiException {
     return listMaintenancesWithHttpInfo(parameters).getData();
   }
 
   /**
-   * List maintenances.
-   *
-   * <p>See {@link #listMaintenancesWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MaintenanceArray&gt;
-   */
-  public CompletableFuture<MaintenanceArray> listMaintenancesAsync(
-      ListMaintenancesOptionalParameters parameters) {
-    return listMaintenancesWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List maintenances.
+ *
+ * See {@link #listMaintenancesWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MaintenanceArray&gt;
+ */
+  public CompletableFuture<MaintenanceArray>listMaintenancesAsync(ListMaintenancesOptionalParameters parameters) {
+    return listMaintenancesWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Lists all maintenances for the organization. Optionally filter by status and page.
+   * <p>Lists all maintenances for the organization. Optionally filter by status and page.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MaintenanceArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MaintenanceArray> listMaintenancesWithHttpInfo(
-      ListMaintenancesOptionalParameters parameters) throws ApiException {
+  public ApiResponse<MaintenanceArray> listMaintenancesWithHttpInfo(ListMaintenancesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
     Long pageOffset = parameters.pageOffset;
@@ -5068,6 +3883,7 @@ public class StatusPagesApi {
     // create path and map variables
     String localVarPath = "/api/v2/statuspages/maintenances";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5078,36 +3894,19 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.listMaintenances",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.listMaintenances", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceArray>() {});
   }
 
   /**
    * List maintenances.
    *
-   * <p>See {@link #listMaintenancesWithHttpInfo}.
+   * See {@link #listMaintenancesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MaintenanceArray>> listMaintenancesWithHttpInfoAsync(
-      ListMaintenancesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MaintenanceArray>> listMaintenancesWithHttpInfoAsync(ListMaintenancesOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
     Long pageOffset = parameters.pageOffset;
@@ -5118,6 +3917,7 @@ public class StatusPagesApi {
     // create path and map variables
     String localVarPath = "/api/v2/statuspages/maintenances";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5130,40 +3930,24 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.listMaintenances",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.listMaintenances", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MaintenanceArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceArray>() {});
   }
 
-  /** Manage optional parameters to listMaintenanceTemplates. */
+  /**
+   * Manage optional parameters to listMaintenanceTemplates.
+   */
   public static class ListMaintenanceTemplatesOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return ListMaintenanceTemplatesOptionalParameters
      */
     public ListMaintenanceTemplatesOptionalParameters include(String include) {
@@ -5173,154 +3957,123 @@ public class StatusPagesApi {
   }
 
   /**
-   * List maintenance templates.
-   *
-   * <p>See {@link #listMaintenanceTemplatesWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return MaintenanceTemplateArray
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplateArray listMaintenanceTemplates(UUID pageId) throws ApiException {
-    return listMaintenanceTemplatesWithHttpInfo(
-            pageId, new ListMaintenanceTemplatesOptionalParameters())
-        .getData();
+ * List maintenance templates.
+ *
+ * See {@link #listMaintenanceTemplatesWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return MaintenanceTemplateArray
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplateArray listMaintenanceTemplates (UUID pageId) throws ApiException {
+    return listMaintenanceTemplatesWithHttpInfo( pageId, new ListMaintenanceTemplatesOptionalParameters()).getData();
   }
 
   /**
-   * List maintenance templates.
-   *
-   * <p>See {@link #listMaintenanceTemplatesWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return CompletableFuture&lt;MaintenanceTemplateArray&gt;
-   */
-  public CompletableFuture<MaintenanceTemplateArray> listMaintenanceTemplatesAsync(UUID pageId) {
-    return listMaintenanceTemplatesWithHttpInfoAsync(
-            pageId, new ListMaintenanceTemplatesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List maintenance templates.
+ *
+ * See {@link #listMaintenanceTemplatesWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return CompletableFuture&lt;MaintenanceTemplateArray&gt;
+ */
+  public CompletableFuture<MaintenanceTemplateArray>listMaintenanceTemplatesAsync(UUID pageId) {
+    return listMaintenanceTemplatesWithHttpInfoAsync(pageId, new ListMaintenanceTemplatesOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List maintenance templates.
-   *
-   * <p>See {@link #listMaintenanceTemplatesWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return MaintenanceTemplateArray
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplateArray listMaintenanceTemplates(
-      UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) throws ApiException {
+ * List maintenance templates.
+ *
+ * See {@link #listMaintenanceTemplatesWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return MaintenanceTemplateArray
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplateArray listMaintenanceTemplates(UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) throws ApiException {
     return listMaintenanceTemplatesWithHttpInfo(pageId, parameters).getData();
   }
 
   /**
-   * List maintenance templates.
-   *
-   * <p>See {@link #listMaintenanceTemplatesWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MaintenanceTemplateArray&gt;
-   */
-  public CompletableFuture<MaintenanceTemplateArray> listMaintenanceTemplatesAsync(
-      UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) {
-    return listMaintenanceTemplatesWithHttpInfoAsync(pageId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List maintenance templates.
+ *
+ * See {@link #listMaintenanceTemplatesWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MaintenanceTemplateArray&gt;
+ */
+  public CompletableFuture<MaintenanceTemplateArray>listMaintenanceTemplatesAsync( UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) {
+    return listMaintenanceTemplatesWithHttpInfoAsync(pageId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Lists all maintenance templates for a status page.
+   * <p>Lists all maintenance templates for a status page.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MaintenanceTemplateArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MaintenanceTemplateArray> listMaintenanceTemplatesWithHttpInfo(
-      UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) throws ApiException {
+  public ApiResponse<MaintenanceTemplateArray> listMaintenanceTemplatesWithHttpInfo(UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling listMaintenanceTemplates");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling listMaintenanceTemplates");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.listMaintenanceTemplates",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplateArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.listMaintenanceTemplates", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplateArray>() {});
   }
 
   /**
    * List maintenance templates.
    *
-   * <p>See {@link #listMaintenanceTemplatesWithHttpInfo}.
+   * See {@link #listMaintenanceTemplatesWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceTemplateArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MaintenanceTemplateArray>>
-      listMaintenanceTemplatesWithHttpInfoAsync(
-          UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MaintenanceTemplateArray>> listMaintenanceTemplatesWithHttpInfoAsync(UUID pageId, ListMaintenanceTemplatesOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplateArray>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling listMaintenanceTemplates"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplateArray>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling listMaintenanceTemplates"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5328,32 +4081,18 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.listMaintenanceTemplates",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.listMaintenanceTemplates", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MaintenanceTemplateArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplateArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplateArray>() {});
   }
 
-  /** Manage optional parameters to listStatusPages. */
+  /**
+   * Manage optional parameters to listStatusPages.
+   */
   public static class ListStatusPagesOptionalParameters {
     private Long pageOffset;
     private Long pageLimit;
@@ -5362,7 +4101,6 @@ public class StatusPagesApi {
 
     /**
      * Set pageOffset.
-     *
      * @param pageOffset Offset to use as the start of the page. (optional, default to 0)
      * @return ListStatusPagesOptionalParameters
      */
@@ -5373,7 +4111,6 @@ public class StatusPagesApi {
 
     /**
      * Set pageLimit.
-     *
      * @param pageLimit The number of status pages to return per page. (optional, default to 50)
      * @return ListStatusPagesOptionalParameters
      */
@@ -5384,9 +4121,7 @@ public class StatusPagesApi {
 
     /**
      * Set filterDomainPrefix.
-     *
-     * @param filterDomainPrefix Filter status pages by exact domain prefix match. Returns at most
-     *     one result. (optional)
+     * @param filterDomainPrefix Filter status pages by exact domain prefix match. Returns at most one result. (optional)
      * @return ListStatusPagesOptionalParameters
      */
     public ListStatusPagesOptionalParameters filterDomainPrefix(String filterDomainPrefix) {
@@ -5396,9 +4131,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user. (optional)
      * @return ListStatusPagesOptionalParameters
      */
     public ListStatusPagesOptionalParameters include(String include) {
@@ -5408,79 +4141,73 @@ public class StatusPagesApi {
   }
 
   /**
-   * List status pages.
-   *
-   * <p>See {@link #listStatusPagesWithHttpInfo}.
-   *
-   * @return StatusPageArray
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPageArray listStatusPages() throws ApiException {
+ * List status pages.
+ *
+ * See {@link #listStatusPagesWithHttpInfo}.
+ *
+ * @return StatusPageArray
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPageArray listStatusPages () throws ApiException {
     return listStatusPagesWithHttpInfo(new ListStatusPagesOptionalParameters()).getData();
   }
 
   /**
-   * List status pages.
-   *
-   * <p>See {@link #listStatusPagesWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;StatusPageArray&gt;
-   */
-  public CompletableFuture<StatusPageArray> listStatusPagesAsync() {
-    return listStatusPagesWithHttpInfoAsync(new ListStatusPagesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List status pages.
+ *
+ * See {@link #listStatusPagesWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;StatusPageArray&gt;
+ */
+  public CompletableFuture<StatusPageArray>listStatusPagesAsync() {
+    return listStatusPagesWithHttpInfoAsync(new ListStatusPagesOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List status pages.
-   *
-   * <p>See {@link #listStatusPagesWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return StatusPageArray
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPageArray listStatusPages(ListStatusPagesOptionalParameters parameters)
-      throws ApiException {
+ * List status pages.
+ *
+ * See {@link #listStatusPagesWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return StatusPageArray
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPageArray listStatusPages(ListStatusPagesOptionalParameters parameters) throws ApiException {
     return listStatusPagesWithHttpInfo(parameters).getData();
   }
 
   /**
-   * List status pages.
-   *
-   * <p>See {@link #listStatusPagesWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPageArray&gt;
-   */
-  public CompletableFuture<StatusPageArray> listStatusPagesAsync(
-      ListStatusPagesOptionalParameters parameters) {
-    return listStatusPagesWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List status pages.
+ *
+ * See {@link #listStatusPagesWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPageArray&gt;
+ */
+  public CompletableFuture<StatusPageArray>listStatusPagesAsync(ListStatusPagesOptionalParameters parameters) {
+    return listStatusPagesWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Lists all status pages for the organization.
+   * <p>Lists all status pages for the organization.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;StatusPageArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPageArray> listStatusPagesWithHttpInfo(
-      ListStatusPagesOptionalParameters parameters) throws ApiException {
+  public ApiResponse<StatusPageArray> listStatusPagesWithHttpInfo(ListStatusPagesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
@@ -5489,45 +4216,28 @@ public class StatusPagesApi {
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.listStatusPages",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPageArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.listStatusPages", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPageArray>() {});
   }
 
   /**
    * List status pages.
    *
-   * <p>See {@link #listStatusPagesWithHttpInfo}.
+   * See {@link #listStatusPagesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPageArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPageArray>> listStatusPagesWithHttpInfoAsync(
-      ListStatusPagesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPageArray>> listStatusPagesWithHttpInfoAsync(ListStatusPagesOptionalParameters parameters) {
     Object localVarPostBody = null;
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
@@ -5536,287 +4246,210 @@ public class StatusPagesApi {
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.listStatusPages",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.listStatusPages", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPageArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPageArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPageArray>() {});
   }
 
   /**
-   * Edit maintenance update.
-   *
-   * <p>See {@link #patchMaintenanceUpdateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param updateId The ID of the maintenance update. (required)
-   * @param body (required)
-   * @return MaintenanceUpdate
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceUpdate patchMaintenanceUpdate(
-      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body)
-      throws ApiException {
+ * Edit maintenance update.
+ *
+ * See {@link #patchMaintenanceUpdateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param updateId The ID of the maintenance update. (required)
+ * @param body  (required)
+ * @return MaintenanceUpdate
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceUpdate  patchMaintenanceUpdate(UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) throws ApiException {
     return patchMaintenanceUpdateWithHttpInfo(pageId, maintenanceId, updateId, body).getData();
   }
 
   /**
-   * Edit maintenance update.
-   *
-   * <p>See {@link #patchMaintenanceUpdateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param updateId The ID of the maintenance update. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;MaintenanceUpdate&gt;
-   */
-  public CompletableFuture<MaintenanceUpdate> patchMaintenanceUpdateAsync(
-      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) {
-    return patchMaintenanceUpdateWithHttpInfoAsync(pageId, maintenanceId, updateId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Edit maintenance update.
+ *
+ * See {@link #patchMaintenanceUpdateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param updateId The ID of the maintenance update. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;MaintenanceUpdate&gt;
+ */
+  public CompletableFuture<MaintenanceUpdate>patchMaintenanceUpdateAsync(UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) {
+    return patchMaintenanceUpdateWithHttpInfoAsync(pageId, maintenanceId, updateId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Edits the message of a specific maintenance update. Editing is allowed regardless of the parent
-   * maintenance's status, including completed and canceled maintenances.
+   * <p>Edits the message of a specific maintenance update. Editing is allowed regardless of the parent maintenance's status, including completed and canceled maintenances.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param maintenanceId The ID of the maintenance. (required)
    * @param updateId The ID of the maintenance update. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;MaintenanceUpdate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MaintenanceUpdate> patchMaintenanceUpdateWithHttpInfo(
-      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body)
-      throws ApiException {
+  public ApiResponse<MaintenanceUpdate> patchMaintenanceUpdateWithHttpInfo(UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling patchMaintenanceUpdate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling patchMaintenanceUpdate");
     }
 
     // verify the required parameter 'maintenanceId' is set
     if (maintenanceId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'maintenanceId' when calling patchMaintenanceUpdate");
+      throw new ApiException(400, "Missing the required parameter 'maintenanceId' when calling patchMaintenanceUpdate");
     }
 
     // verify the required parameter 'updateId' is set
     if (updateId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'updateId' when calling patchMaintenanceUpdate");
+      throw new ApiException(400, "Missing the required parameter 'updateId' when calling patchMaintenanceUpdate");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling patchMaintenanceUpdate");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling patchMaintenanceUpdate");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}/updates/{update_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()))
-            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}/updates/{update_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()))
+      .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.patchMaintenanceUpdate",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceUpdate>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.patchMaintenanceUpdate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceUpdate>() {});
   }
 
   /**
    * Edit maintenance update.
    *
-   * <p>See {@link #patchMaintenanceUpdateWithHttpInfo}.
+   * See {@link #patchMaintenanceUpdateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param maintenanceId The ID of the maintenance. (required)
    * @param updateId The ID of the maintenance update. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceUpdate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MaintenanceUpdate>> patchMaintenanceUpdateWithHttpInfoAsync(
-      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) {
+  public CompletableFuture<ApiResponse<MaintenanceUpdate>> patchMaintenanceUpdateWithHttpInfoAsync(UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling patchMaintenanceUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling patchMaintenanceUpdate"));
+        return result;
     }
 
     // verify the required parameter 'maintenanceId' is set
     if (maintenanceId == null) {
-      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'maintenanceId' when calling"
-                  + " patchMaintenanceUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'maintenanceId' when calling patchMaintenanceUpdate"));
+        return result;
     }
 
     // verify the required parameter 'updateId' is set
     if (updateId == null) {
-      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'updateId' when calling patchMaintenanceUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'updateId' when calling patchMaintenanceUpdate"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling patchMaintenanceUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling patchMaintenanceUpdate"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}/updates/{update_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()))
-            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}/updates/{update_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()))
+      .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.patchMaintenanceUpdate",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.patchMaintenanceUpdate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceUpdate>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceUpdate>() {});
   }
 
   /**
-   * Publish status page.
-   *
-   * <p>See {@link #publishStatusPageWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void publishStatusPage(UUID pageId) throws ApiException {
+ * Publish status page.
+ *
+ * See {@link #publishStatusPageWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  publishStatusPage(UUID pageId) throws ApiException {
     publishStatusPageWithHttpInfo(pageId);
   }
 
   /**
-   * Publish status page.
-   *
-   * <p>See {@link #publishStatusPageWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> publishStatusPageAsync(UUID pageId) {
-    return publishStatusPageWithHttpInfoAsync(pageId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Publish status page.
+ *
+ * See {@link #publishStatusPageWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>publishStatusPageAsync(UUID pageId) {
+    return publishStatusPageWithHttpInfoAsync(pageId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Publishes a status page. For pages of type <code>public</code>, makes the status page available
-   * on the public internet and requires the <code>status_pages_public_page_publish</code>
-   * permission. For pages of type <code>internal</code>, makes the status page available under the
-   * <code>status-pages/$domain_prefix/view</code> route within the Datadog organization and
-   * requires the <code>status_pages_internal_page_publish</code> permission.
+   * <p>Publishes a status page. For pages of type <code>public</code>, makes the status page available on the public internet and requires the <code>status_pages_public_page_publish</code> permission. For pages of type <code>internal</code>, makes the status page available under the <code>status-pages/$domain_prefix/view</code> route within the Datadog organization and requires the <code>status_pages_internal_page_publish</code> permission.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -5828,40 +4461,24 @@ public class StatusPagesApi {
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling publishStatusPage");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling publishStatusPage");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/publish"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/publish"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.publishStatusPage",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.publishStatusPage", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Publish status page.
    *
-   * <p>See {@link #publishStatusPageWithHttpInfo}.
+   * See {@link #publishStatusPageWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
@@ -5871,82 +4488,62 @@ public class StatusPagesApi {
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling publishStatusPage"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling publishStatusPage"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/publish"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/publish"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.publishStatusPage",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.publishStatusPage", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Soft delete degradation update.
-   *
-   * <p>See {@link #softDeleteDegradationUpdateWithHttpInfo}.
-   *
-   * @param degradationId The ID of the degradation. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param updateId The ID of the degradation update. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void softDeleteDegradationUpdate(UUID degradationId, UUID pageId, UUID updateId)
-      throws ApiException {
+ * Soft delete degradation update.
+ *
+ * See {@link #softDeleteDegradationUpdateWithHttpInfo}.
+ *
+ * @param degradationId The ID of the degradation. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param updateId The ID of the degradation update. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  softDeleteDegradationUpdate(UUID degradationId, UUID pageId, UUID updateId) throws ApiException {
     softDeleteDegradationUpdateWithHttpInfo(degradationId, pageId, updateId);
   }
 
   /**
-   * Soft delete degradation update.
-   *
-   * <p>See {@link #softDeleteDegradationUpdateWithHttpInfoAsync}.
-   *
-   * @param degradationId The ID of the degradation. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param updateId The ID of the degradation update. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> softDeleteDegradationUpdateAsync(
-      UUID degradationId, UUID pageId, UUID updateId) {
-    return softDeleteDegradationUpdateWithHttpInfoAsync(degradationId, pageId, updateId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Soft delete degradation update.
+ *
+ * See {@link #softDeleteDegradationUpdateWithHttpInfoAsync}.
+ *
+ * @param degradationId The ID of the degradation. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param updateId The ID of the degradation update. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>softDeleteDegradationUpdateAsync(UUID degradationId, UUID pageId, UUID updateId) {
+    return softDeleteDegradationUpdateWithHttpInfoAsync(degradationId, pageId, updateId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Soft-deletes a degradation update.
+   * <p>Soft-deletes a degradation update.</p>
    *
    * @param degradationId The ID of the degradation. (required)
    * @param pageId The ID of the status page. (required)
@@ -5954,189 +4551,133 @@ public class StatusPagesApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> softDeleteDegradationUpdateWithHttpInfo(
-      UUID degradationId, UUID pageId, UUID updateId) throws ApiException {
+  public ApiResponse<Void> softDeleteDegradationUpdateWithHttpInfo(UUID degradationId, UUID pageId, UUID updateId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'degradationId' when calling"
-              + " softDeleteDegradationUpdate");
+      throw new ApiException(400, "Missing the required parameter 'degradationId' when calling softDeleteDegradationUpdate");
     }
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling softDeleteDegradationUpdate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling softDeleteDegradationUpdate");
     }
 
     // verify the required parameter 'updateId' is set
     if (updateId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'updateId' when calling softDeleteDegradationUpdate");
+      throw new ApiException(400, "Missing the required parameter 'updateId' when calling softDeleteDegradationUpdate");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.softDeleteDegradationUpdate",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.softDeleteDegradationUpdate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Soft delete degradation update.
    *
-   * <p>See {@link #softDeleteDegradationUpdateWithHttpInfo}.
+   * See {@link #softDeleteDegradationUpdateWithHttpInfo}.
    *
    * @param degradationId The ID of the degradation. (required)
    * @param pageId The ID of the status page. (required)
    * @param updateId The ID of the degradation update. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> softDeleteDegradationUpdateWithHttpInfoAsync(
-      UUID degradationId, UUID pageId, UUID updateId) {
+  public CompletableFuture<ApiResponse<Void>> softDeleteDegradationUpdateWithHttpInfoAsync(UUID degradationId, UUID pageId, UUID updateId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'degradationId' when calling"
-                  + " softDeleteDegradationUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'degradationId' when calling softDeleteDegradationUpdate"));
+        return result;
     }
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling softDeleteDegradationUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling softDeleteDegradationUpdate"));
+        return result;
     }
 
     // verify the required parameter 'updateId' is set
     if (updateId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'updateId' when calling"
-                  + " softDeleteDegradationUpdate"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'updateId' when calling softDeleteDegradationUpdate"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.softDeleteDegradationUpdate",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.softDeleteDegradationUpdate", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Unpublish status page.
-   *
-   * <p>See {@link #unpublishStatusPageWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void unpublishStatusPage(UUID pageId) throws ApiException {
+ * Unpublish status page.
+ *
+ * See {@link #unpublishStatusPageWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  unpublishStatusPage(UUID pageId) throws ApiException {
     unpublishStatusPageWithHttpInfo(pageId);
   }
 
   /**
-   * Unpublish status page.
-   *
-   * <p>See {@link #unpublishStatusPageWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> unpublishStatusPageAsync(UUID pageId) {
-    return unpublishStatusPageWithHttpInfoAsync(pageId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Unpublish status page.
+ *
+ * See {@link #unpublishStatusPageWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>unpublishStatusPageAsync(UUID pageId) {
+    return unpublishStatusPageWithHttpInfoAsync(pageId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Unpublishes a status page. For pages of type <code>public</code>, removes the status page from
-   * the public internet and requires the <code>status_pages_public_page_publish</code> permission.
-   * For pages of type <code>internal</code>, removes the <code>status-pages/$domain_prefix/view
-   * </code> route from the Datadog organization and requires the <code>
-   * status_pages_internal_page_publish</code> permission.
+   * <p>Unpublishes a status page. For pages of type <code>public</code>, removes the status page from the public internet and requires the <code>status_pages_public_page_publish</code> permission. For pages of type <code>internal</code>, removes the <code>status-pages/$domain_prefix/view</code> route from the Datadog organization and requires the <code>status_pages_internal_page_publish</code> permission.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -6148,40 +4689,24 @@ public class StatusPagesApi {
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling unpublishStatusPage");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling unpublishStatusPage");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/unpublish"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/unpublish"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.unpublishStatusPage",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.unpublishStatusPage", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Unpublish status page.
    *
-   * <p>See {@link #unpublishStatusPageWithHttpInfo}.
+   * See {@link #unpublishStatusPageWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
@@ -6191,55 +4716,38 @@ public class StatusPagesApi {
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling unpublishStatusPage"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling unpublishStatusPage"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/unpublish"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/unpublish"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.unpublishStatusPage",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.unpublishStatusPage", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
-  /** Manage optional parameters to updateComponent. */
+  /**
+   * Manage optional parameters to updateComponent.
+   */
   public static class UpdateComponentOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page, group. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page, group. (optional)
      * @return UpdateComponentOptionalParameters
      */
     public UpdateComponentOptionalParameters include(String include) {
@@ -6249,214 +4757,161 @@ public class StatusPagesApi {
   }
 
   /**
-   * Update component.
-   *
-   * <p>See {@link #updateComponentWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @param body (required)
-   * @return StatusPagesComponent
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponent updateComponent(
-      UUID pageId, UUID componentId, PatchComponentRequest body) throws ApiException {
-    return updateComponentWithHttpInfo(
-            pageId, componentId, body, new UpdateComponentOptionalParameters())
-        .getData();
+ * Update component.
+ *
+ * See {@link #updateComponentWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @param body  (required)
+ * @return StatusPagesComponent
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponent updateComponent (UUID pageId, UUID componentId, PatchComponentRequest body) throws ApiException {
+    return updateComponentWithHttpInfo( pageId,  componentId,  body, new UpdateComponentOptionalParameters()).getData();
   }
 
   /**
-   * Update component.
-   *
-   * <p>See {@link #updateComponentWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;StatusPagesComponent&gt;
-   */
-  public CompletableFuture<StatusPagesComponent> updateComponentAsync(
-      UUID pageId, UUID componentId, PatchComponentRequest body) {
-    return updateComponentWithHttpInfoAsync(
-            pageId, componentId, body, new UpdateComponentOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update component.
+ *
+ * See {@link #updateComponentWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;StatusPagesComponent&gt;
+ */
+  public CompletableFuture<StatusPagesComponent>updateComponentAsync(UUID pageId, UUID componentId, PatchComponentRequest body) {
+    return updateComponentWithHttpInfoAsync(pageId, componentId, body, new UpdateComponentOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Update component.
-   *
-   * <p>See {@link #updateComponentWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return StatusPagesComponent
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPagesComponent updateComponent(
-      UUID pageId,
-      UUID componentId,
-      PatchComponentRequest body,
-      UpdateComponentOptionalParameters parameters)
-      throws ApiException {
+ * Update component.
+ *
+ * See {@link #updateComponentWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return StatusPagesComponent
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPagesComponent updateComponent(UUID pageId, UUID componentId, PatchComponentRequest body, UpdateComponentOptionalParameters parameters) throws ApiException {
     return updateComponentWithHttpInfo(pageId, componentId, body, parameters).getData();
   }
 
   /**
-   * Update component.
-   *
-   * <p>See {@link #updateComponentWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param componentId The ID of the component. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPagesComponent&gt;
-   */
-  public CompletableFuture<StatusPagesComponent> updateComponentAsync(
-      UUID pageId,
-      UUID componentId,
-      PatchComponentRequest body,
-      UpdateComponentOptionalParameters parameters) {
-    return updateComponentWithHttpInfoAsync(pageId, componentId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update component.
+ *
+ * See {@link #updateComponentWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param componentId The ID of the component. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPagesComponent&gt;
+ */
+  public CompletableFuture<StatusPagesComponent>updateComponentAsync( UUID pageId,  UUID componentId,  PatchComponentRequest body, UpdateComponentOptionalParameters parameters) {
+    return updateComponentWithHttpInfoAsync(pageId, componentId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Updates an existing component's attributes.
+   * <p>Updates an existing component's attributes.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param componentId The ID of the component. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;StatusPagesComponent&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPagesComponent> updateComponentWithHttpInfo(
-      UUID pageId,
-      UUID componentId,
-      PatchComponentRequest body,
-      UpdateComponentOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<StatusPagesComponent> updateComponentWithHttpInfo(UUID pageId, UUID componentId, PatchComponentRequest body, UpdateComponentOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling updateComponent");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling updateComponent");
     }
 
     // verify the required parameter 'componentId' is set
     if (componentId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'componentId' when calling updateComponent");
+      throw new ApiException(400, "Missing the required parameter 'componentId' when calling updateComponent");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateComponent");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateComponent");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components/{component_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components/{component_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.updateComponent",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponent>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.updateComponent", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponent>() {});
   }
 
   /**
    * Update component.
    *
-   * <p>See {@link #updateComponentWithHttpInfo}.
+   * See {@link #updateComponentWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param componentId The ID of the component. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPagesComponent&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPagesComponent>> updateComponentWithHttpInfoAsync(
-      UUID pageId,
-      UUID componentId,
-      PatchComponentRequest body,
-      UpdateComponentOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPagesComponent>> updateComponentWithHttpInfoAsync(UUID pageId, UUID componentId, PatchComponentRequest body, UpdateComponentOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling updateComponent"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling updateComponent"));
+        return result;
     }
 
     // verify the required parameter 'componentId' is set
     if (componentId == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'componentId' when calling updateComponent"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'componentId' when calling updateComponent"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateComponent"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateComponent"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/components/{component_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/components/{component_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "component_id" + "\\}", apiClient.escapeString(componentId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6464,41 +4919,25 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.updateComponent",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.updateComponent", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPagesComponent>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPagesComponent>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPagesComponent>() {});
   }
 
-  /** Manage optional parameters to updateDegradation. */
+  /**
+   * Manage optional parameters to updateDegradation.
+   */
   public static class UpdateDegradationOptionalParameters {
     private Boolean notifySubscribers;
     private String include;
 
     /**
      * Set notifySubscribers.
-     *
-     * @param notifySubscribers Whether to notify page subscribers of the degradation. (optional,
-     *     default to true)
+     * @param notifySubscribers Whether to notify page subscribers of the degradation. (optional, default to true)
      * @return UpdateDegradationOptionalParameters
      */
     public UpdateDegradationOptionalParameters notifySubscribers(Boolean notifySubscribers) {
@@ -6508,9 +4947,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return UpdateDegradationOptionalParameters
      */
     public UpdateDegradationOptionalParameters include(String include) {
@@ -6520,262 +4957,190 @@ public class StatusPagesApi {
   }
 
   /**
-   * Update degradation.
-   *
-   * <p>See {@link #updateDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @param body (required)
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation updateDegradation(
-      UUID pageId, UUID degradationId, PatchDegradationRequest body) throws ApiException {
-    return updateDegradationWithHttpInfo(
-            pageId, degradationId, body, new UpdateDegradationOptionalParameters())
-        .getData();
+ * Update degradation.
+ *
+ * See {@link #updateDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @param body  (required)
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation updateDegradation (UUID pageId, UUID degradationId, PatchDegradationRequest body) throws ApiException {
+    return updateDegradationWithHttpInfo( pageId,  degradationId,  body, new UpdateDegradationOptionalParameters()).getData();
   }
 
   /**
-   * Update degradation.
-   *
-   * <p>See {@link #updateDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> updateDegradationAsync(
-      UUID pageId, UUID degradationId, PatchDegradationRequest body) {
-    return updateDegradationWithHttpInfoAsync(
-            pageId, degradationId, body, new UpdateDegradationOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update degradation.
+ *
+ * See {@link #updateDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>updateDegradationAsync(UUID pageId, UUID degradationId, PatchDegradationRequest body) {
+    return updateDegradationWithHttpInfoAsync(pageId, degradationId, body, new UpdateDegradationOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Update degradation.
-   *
-   * <p>See {@link #updateDegradationWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return Degradation
-   * @throws ApiException if fails to make API call
-   */
-  public Degradation updateDegradation(
-      UUID pageId,
-      UUID degradationId,
-      PatchDegradationRequest body,
-      UpdateDegradationOptionalParameters parameters)
-      throws ApiException {
+ * Update degradation.
+ *
+ * See {@link #updateDegradationWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return Degradation
+ * @throws ApiException if fails to make API call
+ */
+  public Degradation updateDegradation(UUID pageId, UUID degradationId, PatchDegradationRequest body, UpdateDegradationOptionalParameters parameters) throws ApiException {
     return updateDegradationWithHttpInfo(pageId, degradationId, body, parameters).getData();
   }
 
   /**
-   * Update degradation.
-   *
-   * <p>See {@link #updateDegradationWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param degradationId The ID of the degradation. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Degradation&gt;
-   */
-  public CompletableFuture<Degradation> updateDegradationAsync(
-      UUID pageId,
-      UUID degradationId,
-      PatchDegradationRequest body,
-      UpdateDegradationOptionalParameters parameters) {
-    return updateDegradationWithHttpInfoAsync(pageId, degradationId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update degradation.
+ *
+ * See {@link #updateDegradationWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param degradationId The ID of the degradation. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Degradation&gt;
+ */
+  public CompletableFuture<Degradation>updateDegradationAsync( UUID pageId,  UUID degradationId,  PatchDegradationRequest body, UpdateDegradationOptionalParameters parameters) {
+    return updateDegradationWithHttpInfoAsync(pageId, degradationId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Updates an existing degradation's attributes.
+   * <p>Updates an existing degradation's attributes.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param degradationId The ID of the degradation. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Degradation&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Degradation> updateDegradationWithHttpInfo(
-      UUID pageId,
-      UUID degradationId,
-      PatchDegradationRequest body,
-      UpdateDegradationOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Degradation> updateDegradationWithHttpInfo(UUID pageId, UUID degradationId, PatchDegradationRequest body, UpdateDegradationOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling updateDegradation");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling updateDegradation");
     }
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'degradationId' when calling updateDegradation");
+      throw new ApiException(400, "Missing the required parameter 'degradationId' when calling updateDegradation");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateDegradation");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateDegradation");
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.updateDegradation",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.updateDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
   /**
    * Update degradation.
    *
-   * <p>See {@link #updateDegradationWithHttpInfo}.
+   * See {@link #updateDegradationWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param degradationId The ID of the degradation. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Degradation&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Degradation>> updateDegradationWithHttpInfoAsync(
-      UUID pageId,
-      UUID degradationId,
-      PatchDegradationRequest body,
-      UpdateDegradationOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Degradation>> updateDegradationWithHttpInfoAsync(UUID pageId, UUID degradationId, PatchDegradationRequest body, UpdateDegradationOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling updateDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling updateDegradation"));
+        return result;
     }
 
     // verify the required parameter 'degradationId' is set
     if (degradationId == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'degradationId' when calling updateDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'degradationId' when calling updateDegradation"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateDegradation"));
-      return result;
+        CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateDegradation"));
+        return result;
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradations/{degradation_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.updateDegradation",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.updateDegradation", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Degradation>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Degradation>() {});
   }
 
-  /** Manage optional parameters to updateDegradationTemplate. */
+  /**
+   * Manage optional parameters to updateDegradationTemplate.
+   */
   public static class UpdateDegradationTemplateOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return UpdateDegradationTemplateOptionalParameters
      */
     public UpdateDegradationTemplateOptionalParameters include(String include) {
@@ -6785,219 +5150,161 @@ public class StatusPagesApi {
   }
 
   /**
-   * Update degradation template.
-   *
-   * <p>See {@link #updateDegradationTemplateWithHttpInfo}.
-   *
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return DegradationTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplate updateDegradationTemplate(
-      UUID templateId, UUID pageId, PatchDegradationTemplateRequest body) throws ApiException {
-    return updateDegradationTemplateWithHttpInfo(
-            templateId, pageId, body, new UpdateDegradationTemplateOptionalParameters())
-        .getData();
+ * Update degradation template.
+ *
+ * See {@link #updateDegradationTemplateWithHttpInfo}.
+ *
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return DegradationTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplate updateDegradationTemplate (UUID templateId, UUID pageId, PatchDegradationTemplateRequest body) throws ApiException {
+    return updateDegradationTemplateWithHttpInfo( templateId,  pageId,  body, new UpdateDegradationTemplateOptionalParameters()).getData();
   }
 
   /**
-   * Update degradation template.
-   *
-   * <p>See {@link #updateDegradationTemplateWithHttpInfoAsync}.
-   *
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;DegradationTemplate&gt;
-   */
-  public CompletableFuture<DegradationTemplate> updateDegradationTemplateAsync(
-      UUID templateId, UUID pageId, PatchDegradationTemplateRequest body) {
-    return updateDegradationTemplateWithHttpInfoAsync(
-            templateId, pageId, body, new UpdateDegradationTemplateOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update degradation template.
+ *
+ * See {@link #updateDegradationTemplateWithHttpInfoAsync}.
+ *
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;DegradationTemplate&gt;
+ */
+  public CompletableFuture<DegradationTemplate>updateDegradationTemplateAsync(UUID templateId, UUID pageId, PatchDegradationTemplateRequest body) {
+    return updateDegradationTemplateWithHttpInfoAsync(templateId, pageId, body, new UpdateDegradationTemplateOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Update degradation template.
-   *
-   * <p>See {@link #updateDegradationTemplateWithHttpInfo}.
-   *
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return DegradationTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public DegradationTemplate updateDegradationTemplate(
-      UUID templateId,
-      UUID pageId,
-      PatchDegradationTemplateRequest body,
-      UpdateDegradationTemplateOptionalParameters parameters)
-      throws ApiException {
+ * Update degradation template.
+ *
+ * See {@link #updateDegradationTemplateWithHttpInfo}.
+ *
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return DegradationTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public DegradationTemplate updateDegradationTemplate(UUID templateId, UUID pageId, PatchDegradationTemplateRequest body, UpdateDegradationTemplateOptionalParameters parameters) throws ApiException {
     return updateDegradationTemplateWithHttpInfo(templateId, pageId, body, parameters).getData();
   }
 
   /**
-   * Update degradation template.
-   *
-   * <p>See {@link #updateDegradationTemplateWithHttpInfoAsync}.
-   *
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;DegradationTemplate&gt;
-   */
-  public CompletableFuture<DegradationTemplate> updateDegradationTemplateAsync(
-      UUID templateId,
-      UUID pageId,
-      PatchDegradationTemplateRequest body,
-      UpdateDegradationTemplateOptionalParameters parameters) {
-    return updateDegradationTemplateWithHttpInfoAsync(templateId, pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update degradation template.
+ *
+ * See {@link #updateDegradationTemplateWithHttpInfoAsync}.
+ *
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;DegradationTemplate&gt;
+ */
+  public CompletableFuture<DegradationTemplate>updateDegradationTemplateAsync( UUID templateId,  UUID pageId,  PatchDegradationTemplateRequest body, UpdateDegradationTemplateOptionalParameters parameters) {
+    return updateDegradationTemplateWithHttpInfoAsync(templateId, pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Updates an existing degradation template's attributes.
+   * <p>Updates an existing degradation template's attributes.</p>
    *
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DegradationTemplate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DegradationTemplate> updateDegradationTemplateWithHttpInfo(
-      UUID templateId,
-      UUID pageId,
-      PatchDegradationTemplateRequest body,
-      UpdateDegradationTemplateOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<DegradationTemplate> updateDegradationTemplateWithHttpInfo(UUID templateId, UUID pageId, PatchDegradationTemplateRequest body, UpdateDegradationTemplateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'templateId' when calling updateDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling updateDegradationTemplate");
     }
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling updateDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling updateDegradationTemplate");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateDegradationTemplate");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateDegradationTemplate");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()))
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()))
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.updateDegradationTemplate",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplate>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.updateDegradationTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplate>() {});
   }
 
   /**
    * Update degradation template.
    *
-   * <p>See {@link #updateDegradationTemplateWithHttpInfo}.
+   * See {@link #updateDegradationTemplateWithHttpInfo}.
    *
    * @param templateId The ID of the degradation or maintenance template. (required)
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DegradationTemplate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DegradationTemplate>>
-      updateDegradationTemplateWithHttpInfoAsync(
-          UUID templateId,
-          UUID pageId,
-          PatchDegradationTemplateRequest body,
-          UpdateDegradationTemplateOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<DegradationTemplate>> updateDegradationTemplateWithHttpInfoAsync(UUID templateId, UUID pageId, PatchDegradationTemplateRequest body, UpdateDegradationTemplateOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'templateId' when calling"
-                  + " updateDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'templateId' when calling updateDegradationTemplate"));
+        return result;
     }
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling updateDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling updateDegradationTemplate"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateDegradationTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateDegradationTemplate"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()))
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/degradation_templates/{template_id}"
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()))
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7005,41 +5312,25 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.updateDegradationTemplate",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.updateDegradationTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DegradationTemplate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DegradationTemplate>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DegradationTemplate>() {});
   }
 
-  /** Manage optional parameters to updateMaintenance. */
+  /**
+   * Manage optional parameters to updateMaintenance.
+   */
   public static class UpdateMaintenanceOptionalParameters {
     private Boolean notifySubscribers;
     private String include;
 
     /**
      * Set notifySubscribers.
-     *
-     * @param notifySubscribers Whether to notify page subscribers of the maintenance. (optional,
-     *     default to true)
+     * @param notifySubscribers Whether to notify page subscribers of the maintenance. (optional, default to true)
      * @return UpdateMaintenanceOptionalParameters
      */
     public UpdateMaintenanceOptionalParameters notifySubscribers(Boolean notifySubscribers) {
@@ -7049,9 +5340,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return UpdateMaintenanceOptionalParameters
      */
     public UpdateMaintenanceOptionalParameters include(String include) {
@@ -7061,262 +5350,190 @@ public class StatusPagesApi {
   }
 
   /**
-   * Update maintenance.
-   *
-   * <p>See {@link #updateMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param body (required)
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance updateMaintenance(
-      UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body) throws ApiException {
-    return updateMaintenanceWithHttpInfo(
-            pageId, maintenanceId, body, new UpdateMaintenanceOptionalParameters())
-        .getData();
+ * Update maintenance.
+ *
+ * See {@link #updateMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param body  (required)
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance updateMaintenance (UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body) throws ApiException {
+    return updateMaintenanceWithHttpInfo( pageId,  maintenanceId,  body, new UpdateMaintenanceOptionalParameters()).getData();
   }
 
   /**
-   * Update maintenance.
-   *
-   * <p>See {@link #updateMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> updateMaintenanceAsync(
-      UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body) {
-    return updateMaintenanceWithHttpInfoAsync(
-            pageId, maintenanceId, body, new UpdateMaintenanceOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update maintenance.
+ *
+ * See {@link #updateMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>updateMaintenanceAsync(UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body) {
+    return updateMaintenanceWithHttpInfoAsync(pageId, maintenanceId, body, new UpdateMaintenanceOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Update maintenance.
-   *
-   * <p>See {@link #updateMaintenanceWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return Maintenance
-   * @throws ApiException if fails to make API call
-   */
-  public Maintenance updateMaintenance(
-      UUID pageId,
-      UUID maintenanceId,
-      PatchMaintenanceRequest body,
-      UpdateMaintenanceOptionalParameters parameters)
-      throws ApiException {
+ * Update maintenance.
+ *
+ * See {@link #updateMaintenanceWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return Maintenance
+ * @throws ApiException if fails to make API call
+ */
+  public Maintenance updateMaintenance(UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body, UpdateMaintenanceOptionalParameters parameters) throws ApiException {
     return updateMaintenanceWithHttpInfo(pageId, maintenanceId, body, parameters).getData();
   }
 
   /**
-   * Update maintenance.
-   *
-   * <p>See {@link #updateMaintenanceWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param maintenanceId The ID of the maintenance. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;Maintenance&gt;
-   */
-  public CompletableFuture<Maintenance> updateMaintenanceAsync(
-      UUID pageId,
-      UUID maintenanceId,
-      PatchMaintenanceRequest body,
-      UpdateMaintenanceOptionalParameters parameters) {
-    return updateMaintenanceWithHttpInfoAsync(pageId, maintenanceId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update maintenance.
+ *
+ * See {@link #updateMaintenanceWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param maintenanceId The ID of the maintenance. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;Maintenance&gt;
+ */
+  public CompletableFuture<Maintenance>updateMaintenanceAsync( UUID pageId,  UUID maintenanceId,  PatchMaintenanceRequest body, UpdateMaintenanceOptionalParameters parameters) {
+    return updateMaintenanceWithHttpInfoAsync(pageId, maintenanceId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Updates an existing maintenance's attributes.
+   * <p>Updates an existing maintenance's attributes.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param maintenanceId The ID of the maintenance. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Maintenance&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Maintenance> updateMaintenanceWithHttpInfo(
-      UUID pageId,
-      UUID maintenanceId,
-      PatchMaintenanceRequest body,
-      UpdateMaintenanceOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<Maintenance> updateMaintenanceWithHttpInfo(UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body, UpdateMaintenanceOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling updateMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling updateMaintenance");
     }
 
     // verify the required parameter 'maintenanceId' is set
     if (maintenanceId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'maintenanceId' when calling updateMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'maintenanceId' when calling updateMaintenance");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateMaintenance");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateMaintenance");
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.updateMaintenance",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.updateMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
   /**
    * Update maintenance.
    *
-   * <p>See {@link #updateMaintenanceWithHttpInfo}.
+   * See {@link #updateMaintenanceWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param maintenanceId The ID of the maintenance. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Maintenance>> updateMaintenanceWithHttpInfoAsync(
-      UUID pageId,
-      UUID maintenanceId,
-      PatchMaintenanceRequest body,
-      UpdateMaintenanceOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Maintenance>> updateMaintenanceWithHttpInfoAsync(UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body, UpdateMaintenanceOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling updateMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling updateMaintenance"));
+        return result;
     }
 
     // verify the required parameter 'maintenanceId' is set
     if (maintenanceId == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'maintenanceId' when calling updateMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'maintenanceId' when calling updateMaintenance"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateMaintenance"));
-      return result;
+        CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateMaintenance"));
+        return result;
     }
     Boolean notifySubscribers = parameters.notifySubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.updateMaintenance",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.updateMaintenance", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Maintenance>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Maintenance>() {});
   }
 
-  /** Manage optional parameters to updateMaintenanceTemplate. */
+  /**
+   * Manage optional parameters to updateMaintenanceTemplate.
+   */
   public static class UpdateMaintenanceTemplateOptionalParameters {
     private String include;
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page. (optional)
      * @return UpdateMaintenanceTemplateOptionalParameters
      */
     public UpdateMaintenanceTemplateOptionalParameters include(String include) {
@@ -7326,219 +5543,161 @@ public class StatusPagesApi {
   }
 
   /**
-   * Update maintenance template.
-   *
-   * <p>See {@link #updateMaintenanceTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param body (required)
-   * @return MaintenanceTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplate updateMaintenanceTemplate(
-      UUID pageId, UUID templateId, PatchMaintenanceTemplateRequest body) throws ApiException {
-    return updateMaintenanceTemplateWithHttpInfo(
-            pageId, templateId, body, new UpdateMaintenanceTemplateOptionalParameters())
-        .getData();
+ * Update maintenance template.
+ *
+ * See {@link #updateMaintenanceTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param body  (required)
+ * @return MaintenanceTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplate updateMaintenanceTemplate (UUID pageId, UUID templateId, PatchMaintenanceTemplateRequest body) throws ApiException {
+    return updateMaintenanceTemplateWithHttpInfo( pageId,  templateId,  body, new UpdateMaintenanceTemplateOptionalParameters()).getData();
   }
 
   /**
-   * Update maintenance template.
-   *
-   * <p>See {@link #updateMaintenanceTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;MaintenanceTemplate&gt;
-   */
-  public CompletableFuture<MaintenanceTemplate> updateMaintenanceTemplateAsync(
-      UUID pageId, UUID templateId, PatchMaintenanceTemplateRequest body) {
-    return updateMaintenanceTemplateWithHttpInfoAsync(
-            pageId, templateId, body, new UpdateMaintenanceTemplateOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update maintenance template.
+ *
+ * See {@link #updateMaintenanceTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;MaintenanceTemplate&gt;
+ */
+  public CompletableFuture<MaintenanceTemplate>updateMaintenanceTemplateAsync(UUID pageId, UUID templateId, PatchMaintenanceTemplateRequest body) {
+    return updateMaintenanceTemplateWithHttpInfoAsync(pageId, templateId, body, new UpdateMaintenanceTemplateOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Update maintenance template.
-   *
-   * <p>See {@link #updateMaintenanceTemplateWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return MaintenanceTemplate
-   * @throws ApiException if fails to make API call
-   */
-  public MaintenanceTemplate updateMaintenanceTemplate(
-      UUID pageId,
-      UUID templateId,
-      PatchMaintenanceTemplateRequest body,
-      UpdateMaintenanceTemplateOptionalParameters parameters)
-      throws ApiException {
+ * Update maintenance template.
+ *
+ * See {@link #updateMaintenanceTemplateWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return MaintenanceTemplate
+ * @throws ApiException if fails to make API call
+ */
+  public MaintenanceTemplate updateMaintenanceTemplate(UUID pageId, UUID templateId, PatchMaintenanceTemplateRequest body, UpdateMaintenanceTemplateOptionalParameters parameters) throws ApiException {
     return updateMaintenanceTemplateWithHttpInfo(pageId, templateId, body, parameters).getData();
   }
 
   /**
-   * Update maintenance template.
-   *
-   * <p>See {@link #updateMaintenanceTemplateWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MaintenanceTemplate&gt;
-   */
-  public CompletableFuture<MaintenanceTemplate> updateMaintenanceTemplateAsync(
-      UUID pageId,
-      UUID templateId,
-      PatchMaintenanceTemplateRequest body,
-      UpdateMaintenanceTemplateOptionalParameters parameters) {
-    return updateMaintenanceTemplateWithHttpInfoAsync(pageId, templateId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update maintenance template.
+ *
+ * See {@link #updateMaintenanceTemplateWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param templateId The ID of the degradation or maintenance template. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MaintenanceTemplate&gt;
+ */
+  public CompletableFuture<MaintenanceTemplate>updateMaintenanceTemplateAsync( UUID pageId,  UUID templateId,  PatchMaintenanceTemplateRequest body, UpdateMaintenanceTemplateOptionalParameters parameters) {
+    return updateMaintenanceTemplateWithHttpInfoAsync(pageId, templateId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Updates an existing maintenance template's attributes.
+   * <p>Updates an existing maintenance template's attributes.</p>
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MaintenanceTemplate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MaintenanceTemplate> updateMaintenanceTemplateWithHttpInfo(
-      UUID pageId,
-      UUID templateId,
-      PatchMaintenanceTemplateRequest body,
-      UpdateMaintenanceTemplateOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<MaintenanceTemplate> updateMaintenanceTemplateWithHttpInfo(UUID pageId, UUID templateId, PatchMaintenanceTemplateRequest body, UpdateMaintenanceTemplateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling updateMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling updateMaintenanceTemplate");
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'templateId' when calling updateMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling updateMaintenanceTemplate");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateMaintenanceTemplate");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateMaintenanceTemplate");
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.updateMaintenanceTemplate",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplate>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.updateMaintenanceTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplate>() {});
   }
 
   /**
    * Update maintenance template.
    *
-   * <p>See {@link #updateMaintenanceTemplateWithHttpInfo}.
+   * See {@link #updateMaintenanceTemplateWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
    * @param templateId The ID of the degradation or maintenance template. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceTemplate&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MaintenanceTemplate>>
-      updateMaintenanceTemplateWithHttpInfoAsync(
-          UUID pageId,
-          UUID templateId,
-          PatchMaintenanceTemplateRequest body,
-          UpdateMaintenanceTemplateOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MaintenanceTemplate>> updateMaintenanceTemplateWithHttpInfoAsync(UUID pageId, UUID templateId, PatchMaintenanceTemplateRequest body, UpdateMaintenanceTemplateOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'pageId' when calling updateMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling updateMaintenanceTemplate"));
+        return result;
     }
 
     // verify the required parameter 'templateId' is set
     if (templateId == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'templateId' when calling"
-                  + " updateMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'templateId' when calling updateMaintenanceTemplate"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateMaintenanceTemplate"));
-      return result;
+        CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateMaintenanceTemplate"));
+        return result;
     }
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
-            .replaceAll(
-                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}/maintenance_templates/{template_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7546,41 +5705,25 @@ public class StatusPagesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.updateMaintenanceTemplate",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.updateMaintenanceTemplate", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MaintenanceTemplate>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MaintenanceTemplate>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MaintenanceTemplate>() {});
   }
 
-  /** Manage optional parameters to updateStatusPage. */
+  /**
+   * Manage optional parameters to updateStatusPage.
+   */
   public static class UpdateStatusPageOptionalParameters {
     private Boolean deleteSubscribers;
     private String include;
 
     /**
      * Set deleteSubscribers.
-     *
-     * @param deleteSubscribers Whether to delete existing subscribers when updating a status page's
-     *     type. (optional, default to false)
+     * @param deleteSubscribers Whether to delete existing subscribers when updating a status page's type. (optional, default to false)
      * @return UpdateStatusPageOptionalParameters
      */
     public UpdateStatusPageOptionalParameters deleteSubscribers(Boolean deleteSubscribers) {
@@ -7590,9 +5733,7 @@ public class StatusPagesApi {
 
     /**
      * Set include.
-     *
-     * @param include Comma-separated list of resources to include. Supported values:
-     *     created_by_user, last_modified_by_user. (optional)
+     * @param include Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user. (optional)
      * @return UpdateStatusPageOptionalParameters
      */
     public UpdateStatusPageOptionalParameters include(String include) {
@@ -7602,211 +5743,158 @@ public class StatusPagesApi {
   }
 
   /**
-   * Update status page.
-   *
-   * <p>See {@link #updateStatusPageWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return StatusPage
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPage updateStatusPage(UUID pageId, PatchStatusPageRequest body) throws ApiException {
-    return updateStatusPageWithHttpInfo(pageId, body, new UpdateStatusPageOptionalParameters())
-        .getData();
+ * Update status page.
+ *
+ * See {@link #updateStatusPageWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return StatusPage
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPage updateStatusPage (UUID pageId, PatchStatusPageRequest body) throws ApiException {
+    return updateStatusPageWithHttpInfo( pageId,  body, new UpdateStatusPageOptionalParameters()).getData();
   }
 
   /**
-   * Update status page.
-   *
-   * <p>See {@link #updateStatusPageWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;StatusPage&gt;
-   */
-  public CompletableFuture<StatusPage> updateStatusPageAsync(
-      UUID pageId, PatchStatusPageRequest body) {
-    return updateStatusPageWithHttpInfoAsync(pageId, body, new UpdateStatusPageOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update status page.
+ *
+ * See {@link #updateStatusPageWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;StatusPage&gt;
+ */
+  public CompletableFuture<StatusPage>updateStatusPageAsync(UUID pageId, PatchStatusPageRequest body) {
+    return updateStatusPageWithHttpInfoAsync(pageId, body, new UpdateStatusPageOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Update status page.
-   *
-   * <p>See {@link #updateStatusPageWithHttpInfo}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return StatusPage
-   * @throws ApiException if fails to make API call
-   */
-  public StatusPage updateStatusPage(
-      UUID pageId, PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters)
-      throws ApiException {
+ * Update status page.
+ *
+ * See {@link #updateStatusPageWithHttpInfo}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return StatusPage
+ * @throws ApiException if fails to make API call
+ */
+  public StatusPage updateStatusPage(UUID pageId, PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters) throws ApiException {
     return updateStatusPageWithHttpInfo(pageId, body, parameters).getData();
   }
 
   /**
-   * Update status page.
-   *
-   * <p>See {@link #updateStatusPageWithHttpInfoAsync}.
-   *
-   * @param pageId The ID of the status page. (required)
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;StatusPage&gt;
-   */
-  public CompletableFuture<StatusPage> updateStatusPageAsync(
-      UUID pageId, PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters) {
-    return updateStatusPageWithHttpInfoAsync(pageId, body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update status page.
+ *
+ * See {@link #updateStatusPageWithHttpInfoAsync}.
+ *
+ * @param pageId The ID of the status page. (required)
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;StatusPage&gt;
+ */
+  public CompletableFuture<StatusPage>updateStatusPageAsync( UUID pageId,  PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters) {
+    return updateStatusPageWithHttpInfoAsync(pageId, body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Updates an existing status page's attributes. To publish and unpublish status pages, use the
-   * dedicated <a href="#publish-status-page">publish</a> and <a
-   * href="#unpublish-status-page">unpublish</a> status page endpoints.
+   * <p>Updates an existing status page's attributes. To publish and unpublish status pages, use the dedicated <a href="#publish-status-page">publish</a> and <a href="#unpublish-status-page">unpublish</a> status page endpoints.</p>
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;StatusPage&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<StatusPage> updateStatusPageWithHttpInfo(
-      UUID pageId, PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<StatusPage> updateStatusPageWithHttpInfo(UUID pageId, PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'pageId' when calling updateStatusPage");
+      throw new ApiException(400, "Missing the required parameter 'pageId' when calling updateStatusPage");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateStatusPage");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateStatusPage");
     }
     Boolean deleteSubscribers = parameters.deleteSubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "delete_subscribers", deleteSubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "delete_subscribers", deleteSubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.StatusPagesApi.updateStatusPage",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPage>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.StatusPagesApi.updateStatusPage", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPage>() {});
   }
 
   /**
    * Update status page.
    *
-   * <p>See {@link #updateStatusPageWithHttpInfo}.
+   * See {@link #updateStatusPageWithHttpInfo}.
    *
    * @param pageId The ID of the status page. (required)
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;StatusPage&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<StatusPage>> updateStatusPageWithHttpInfoAsync(
-      UUID pageId, PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<StatusPage>> updateStatusPageWithHttpInfoAsync(UUID pageId, PatchStatusPageRequest body, UpdateStatusPageOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'pageId' is set
     if (pageId == null) {
-      CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'pageId' when calling updateStatusPage"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'pageId' when calling updateStatusPage"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateStatusPage"));
-      return result;
+        CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateStatusPage"));
+        return result;
     }
     Boolean deleteSubscribers = parameters.deleteSubscribers;
     String include = parameters.include;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/statuspages/{page_id}"
-            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+    String localVarPath = "/api/v2/statuspages/{page_id}"
+      .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "delete_subscribers", deleteSubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "delete_subscribers", deleteSubscribers));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.StatusPagesApi.updateStatusPage",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.StatusPagesApi.updateStatusPage", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<StatusPage>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<StatusPage>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<StatusPage>() {});
   }
 }

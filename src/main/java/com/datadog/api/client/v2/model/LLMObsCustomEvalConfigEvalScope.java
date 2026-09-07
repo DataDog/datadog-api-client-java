@@ -6,53 +6,73 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Scope at which to evaluate spans. */
-@JsonSerialize(
-    using = LLMObsCustomEvalConfigEvalScope.LLMObsCustomEvalConfigEvalScopeSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Scope at which to evaluate spans.</p>
+ */
+@JsonSerialize(using = LLMObsCustomEvalConfigEvalScope.LLMObsCustomEvalConfigEvalScopeSerializer.class)
 public class LLMObsCustomEvalConfigEvalScope extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("span", "trace", "session"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("span", "trace", "session"));
 
-  public static final LLMObsCustomEvalConfigEvalScope SPAN =
-      new LLMObsCustomEvalConfigEvalScope("span");
-  public static final LLMObsCustomEvalConfigEvalScope TRACE =
-      new LLMObsCustomEvalConfigEvalScope("trace");
-  public static final LLMObsCustomEvalConfigEvalScope SESSION =
-      new LLMObsCustomEvalConfigEvalScope("session");
+  public static final LLMObsCustomEvalConfigEvalScope SPAN = new LLMObsCustomEvalConfigEvalScope("span");
+  public static final LLMObsCustomEvalConfigEvalScope TRACE = new LLMObsCustomEvalConfigEvalScope("trace");
+  public static final LLMObsCustomEvalConfigEvalScope SESSION = new LLMObsCustomEvalConfigEvalScope("session");
+
 
   LLMObsCustomEvalConfigEvalScope(String value) {
     super(value, allowedValues);
   }
 
-  public static class LLMObsCustomEvalConfigEvalScopeSerializer
-      extends StdSerializer<LLMObsCustomEvalConfigEvalScope> {
-    public LLMObsCustomEvalConfigEvalScopeSerializer(Class<LLMObsCustomEvalConfigEvalScope> t) {
-      super(t);
-    }
+  public static class LLMObsCustomEvalConfigEvalScopeSerializer extends StdSerializer<LLMObsCustomEvalConfigEvalScope> {
+      public LLMObsCustomEvalConfigEvalScopeSerializer(Class<LLMObsCustomEvalConfigEvalScope> t) {
+          super(t);
+      }
 
-    public LLMObsCustomEvalConfigEvalScopeSerializer() {
-      this(null);
-    }
+      public LLMObsCustomEvalConfigEvalScopeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        LLMObsCustomEvalConfigEvalScope value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(LLMObsCustomEvalConfigEvalScope value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

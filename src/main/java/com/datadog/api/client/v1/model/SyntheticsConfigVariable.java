@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object defining a variable that can be used in your test configuration. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object defining a variable that can be used in your test configuration.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsConfigVariable.JSON_PROPERTY_EXAMPLE,
   SyntheticsConfigVariable.JSON_PROPERTY_ID,
@@ -26,10 +42,10 @@ import java.util.Objects;
   SyntheticsConfigVariable.JSON_PROPERTY_SECURE,
   SyntheticsConfigVariable.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsConfigVariable {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXAMPLE = "example";
   private String example;
 
@@ -52,119 +68,106 @@ public class SyntheticsConfigVariable {
 
   @JsonCreator
   public SyntheticsConfigVariable(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SyntheticsConfigVariableType type) {
-    this.name = name;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsConfigVariableType type) {
+        this.name = name;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public SyntheticsConfigVariable example(String example) {
     this.example = example;
     return this;
   }
 
   /**
-   * Example for the variable.
-   *
+   * <p>Example for the variable.</p>
    * @return example
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXAMPLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getExample() {
-    return example;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXAMPLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getExample() {
+        return example;
+      }
   public void setExample(String example) {
     this.example = example;
   }
-
   public SyntheticsConfigVariable id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * ID of the variable for global variables.
-   *
+   * <p>ID of the variable for global variables.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public SyntheticsConfigVariable name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the variable.
-   *
+   * <p>Name of the variable.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SyntheticsConfigVariable pattern(String pattern) {
     this.pattern = pattern;
     return this;
   }
 
   /**
-   * Pattern of the variable.
-   *
+   * <p>Pattern of the variable.</p>
    * @return pattern
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATTERN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPattern() {
-    return pattern;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PATTERN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPattern() {
+        return pattern;
+      }
   public void setPattern(String pattern) {
     this.pattern = pattern;
   }
-
   public SyntheticsConfigVariable secure(Boolean secure) {
     this.secure = secure;
     return this;
   }
 
   /**
-   * Whether the value of this variable will be obfuscated in test results. Only for config
-   * variables of type <code>text</code>.
-   *
+   * <p>Whether the value of this variable will be obfuscated in test results. Only for config variables of type <code>text</code>.</p>
    * @return secure
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSecure() {
-    return secure;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SECURE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getSecure() {
+        return secure;
+      }
   public void setSecure(Boolean secure) {
     this.secure = secure;
   }
-
   public SyntheticsConfigVariable type(SyntheticsConfigVariableType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -172,32 +175,32 @@ public class SyntheticsConfigVariable {
   }
 
   /**
-   * Type of the configuration variable.
-   *
+   * <p>Type of the configuration variable.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsConfigVariableType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsConfigVariableType getType() {
+        return type;
+      }
   public void setType(SyntheticsConfigVariableType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -206,7 +209,7 @@ public class SyntheticsConfigVariable {
   @JsonAnySetter
   public SyntheticsConfigVariable putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -230,12 +233,14 @@ public class SyntheticsConfigVariable {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsConfigVariable object is equal to o. */
+  /**
+   * Return true if this SyntheticsConfigVariable object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -245,18 +250,13 @@ public class SyntheticsConfigVariable {
       return false;
     }
     SyntheticsConfigVariable syntheticsConfigVariable = (SyntheticsConfigVariable) o;
-    return Objects.equals(this.example, syntheticsConfigVariable.example)
-        && Objects.equals(this.id, syntheticsConfigVariable.id)
-        && Objects.equals(this.name, syntheticsConfigVariable.name)
-        && Objects.equals(this.pattern, syntheticsConfigVariable.pattern)
-        && Objects.equals(this.secure, syntheticsConfigVariable.secure)
-        && Objects.equals(this.type, syntheticsConfigVariable.type)
-        && Objects.equals(this.additionalProperties, syntheticsConfigVariable.additionalProperties);
+    return Objects.equals(this.example, syntheticsConfigVariable.example) && Objects.equals(this.id, syntheticsConfigVariable.id) && Objects.equals(this.name, syntheticsConfigVariable.name) && Objects.equals(this.pattern, syntheticsConfigVariable.pattern) && Objects.equals(this.secure, syntheticsConfigVariable.secure) && Objects.equals(this.type, syntheticsConfigVariable.type) && Objects.equals(this.additionalProperties, syntheticsConfigVariable.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(example, id, name, pattern, secure, type, additionalProperties);
+    return Objects.hash(example,id,name,pattern,secure,type, additionalProperties);
   }
 
   @Override
@@ -277,7 +277,8 @@ public class SyntheticsConfigVariable {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

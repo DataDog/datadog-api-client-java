@@ -6,58 +6,73 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** HTTP authentication strategy. */
-@JsonSerialize(
-    using =
-        ObservabilityPipelineHttpClientDestinationAuthStrategy
-            .ObservabilityPipelineHttpClientDestinationAuthStrategySerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>HTTP authentication strategy.</p>
+ */
+@JsonSerialize(using = ObservabilityPipelineHttpClientDestinationAuthStrategy.ObservabilityPipelineHttpClientDestinationAuthStrategySerializer.class)
 public class ObservabilityPipelineHttpClientDestinationAuthStrategy extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("none", "basic", "bearer"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("none", "basic", "bearer"));
 
-  public static final ObservabilityPipelineHttpClientDestinationAuthStrategy NONE =
-      new ObservabilityPipelineHttpClientDestinationAuthStrategy("none");
-  public static final ObservabilityPipelineHttpClientDestinationAuthStrategy BASIC =
-      new ObservabilityPipelineHttpClientDestinationAuthStrategy("basic");
-  public static final ObservabilityPipelineHttpClientDestinationAuthStrategy BEARER =
-      new ObservabilityPipelineHttpClientDestinationAuthStrategy("bearer");
+  public static final ObservabilityPipelineHttpClientDestinationAuthStrategy NONE = new ObservabilityPipelineHttpClientDestinationAuthStrategy("none");
+  public static final ObservabilityPipelineHttpClientDestinationAuthStrategy BASIC = new ObservabilityPipelineHttpClientDestinationAuthStrategy("basic");
+  public static final ObservabilityPipelineHttpClientDestinationAuthStrategy BEARER = new ObservabilityPipelineHttpClientDestinationAuthStrategy("bearer");
+
 
   ObservabilityPipelineHttpClientDestinationAuthStrategy(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineHttpClientDestinationAuthStrategySerializer
-      extends StdSerializer<ObservabilityPipelineHttpClientDestinationAuthStrategy> {
-    public ObservabilityPipelineHttpClientDestinationAuthStrategySerializer(
-        Class<ObservabilityPipelineHttpClientDestinationAuthStrategy> t) {
-      super(t);
-    }
+  public static class ObservabilityPipelineHttpClientDestinationAuthStrategySerializer extends StdSerializer<ObservabilityPipelineHttpClientDestinationAuthStrategy> {
+      public ObservabilityPipelineHttpClientDestinationAuthStrategySerializer(Class<ObservabilityPipelineHttpClientDestinationAuthStrategy> t) {
+          super(t);
+      }
 
-    public ObservabilityPipelineHttpClientDestinationAuthStrategySerializer() {
-      this(null);
-    }
+      public ObservabilityPipelineHttpClientDestinationAuthStrategySerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ObservabilityPipelineHttpClientDestinationAuthStrategy value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ObservabilityPipelineHttpClientDestinationAuthStrategy value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

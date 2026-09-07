@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,23 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a governance mitigation request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of a governance mitigation request.</p>
+ */
 @JsonPropertyOrder({
   GovernanceMitigationRequestAttributes.JSON_PROPERTY_DETECTION_IDS,
   GovernanceMitigationRequestAttributes.JSON_PROPERTY_DETECTION_TYPE,
   GovernanceMitigationRequestAttributes.JSON_PROPERTY_MITIGATION_PARAMETERS,
   GovernanceMitigationRequestAttributes.JSON_PROPERTY_MITIGATION_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GovernanceMitigationRequestAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETECTION_IDS = "detection_ids";
   private List<String> detectionIds = new ArrayList<>();
 
@@ -46,65 +60,56 @@ public class GovernanceMitigationRequestAttributes {
 
   @JsonCreator
   public GovernanceMitigationRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_IDS) List<String> detectionIds,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_TYPE) String detectionType) {
-    this.detectionIds = detectionIds;
-    this.detectionType = detectionType;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DETECTION_IDS)List<String> detectionIds,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DETECTION_TYPE)String detectionType) {
+        this.detectionIds = detectionIds;
+        this.detectionType = detectionType;
   }
-
   public GovernanceMitigationRequestAttributes detectionIds(List<String> detectionIds) {
     this.detectionIds = detectionIds;
     return this;
   }
-
   public GovernanceMitigationRequestAttributes addDetectionIdsItem(String detectionIdsItem) {
     this.detectionIds.add(detectionIdsItem);
     return this;
   }
 
   /**
-   * The identifiers of the detections to mitigate in this request.
-   *
+   * <p>The identifiers of the detections to mitigate in this request.</p>
    * @return detectionIds
-   */
-  @JsonProperty(JSON_PROPERTY_DETECTION_IDS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getDetectionIds() {
-    return detectionIds;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DETECTION_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getDetectionIds() {
+        return detectionIds;
+      }
   public void setDetectionIds(List<String> detectionIds) {
     this.detectionIds = detectionIds;
   }
-
   public GovernanceMitigationRequestAttributes detectionType(String detectionType) {
     this.detectionType = detectionType;
     return this;
   }
 
   /**
-   * The detection type whose detections should be mitigated.
-   *
+   * <p>The detection type whose detections should be mitigated.</p>
    * @return detectionType
-   */
-  @JsonProperty(JSON_PROPERTY_DETECTION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDetectionType() {
-    return detectionType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DETECTION_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDetectionType() {
+        return detectionType;
+      }
   public void setDetectionType(String detectionType) {
     this.detectionType = detectionType;
   }
-
-  public GovernanceMitigationRequestAttributes mitigationParameters(
-      Map<String, Object> mitigationParameters) {
+  public GovernanceMitigationRequestAttributes mitigationParameters(Map<String, Object> mitigationParameters) {
     this.mitigationParameters = mitigationParameters;
     return this;
   }
-
-  public GovernanceMitigationRequestAttributes putMitigationParametersItem(
-      String key, Object mitigationParametersItem) {
+  public GovernanceMitigationRequestAttributes putMitigationParametersItem(String key, Object mitigationParametersItem) {
     if (this.mitigationParameters == null) {
       this.mitigationParameters = new HashMap<>();
     }
@@ -113,52 +118,49 @@ public class GovernanceMitigationRequestAttributes {
   }
 
   /**
-   * A free-form map of parameter names to their configured values.
-   *
+   * <p>A free-form map of parameter names to their configured values.</p>
    * @return mitigationParameters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MITIGATION_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getMitigationParameters() {
-    return mitigationParameters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MITIGATION_PARAMETERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getMitigationParameters() {
+        return mitigationParameters;
+      }
   public void setMitigationParameters(Map<String, Object> mitigationParameters) {
     this.mitigationParameters = mitigationParameters;
   }
-
   public GovernanceMitigationRequestAttributes mitigationType(String mitigationType) {
     this.mitigationType = mitigationType;
     return this;
   }
 
   /**
-   * The mitigation to apply to the selected detections. Defaults to the control's configured
-   * mitigation when omitted.
-   *
+   * <p>The mitigation to apply to the selected detections. Defaults to the control's configured mitigation when omitted.</p>
    * @return mitigationType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MITIGATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMitigationType() {
-    return mitigationType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MITIGATION_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMitigationType() {
+        return mitigationType;
+      }
   public void setMitigationType(String mitigationType) {
     this.mitigationType = mitigationType;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -167,7 +169,7 @@ public class GovernanceMitigationRequestAttributes {
   @JsonAnySetter
   public GovernanceMitigationRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -191,12 +193,14 @@ public class GovernanceMitigationRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GovernanceMitigationRequestAttributes object is equal to o. */
+  /**
+   * Return true if this GovernanceMitigationRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,21 +209,14 @@ public class GovernanceMitigationRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GovernanceMitigationRequestAttributes governanceMitigationRequestAttributes =
-        (GovernanceMitigationRequestAttributes) o;
-    return Objects.equals(this.detectionIds, governanceMitigationRequestAttributes.detectionIds)
-        && Objects.equals(this.detectionType, governanceMitigationRequestAttributes.detectionType)
-        && Objects.equals(
-            this.mitigationParameters, governanceMitigationRequestAttributes.mitigationParameters)
-        && Objects.equals(this.mitigationType, governanceMitigationRequestAttributes.mitigationType)
-        && Objects.equals(
-            this.additionalProperties, governanceMitigationRequestAttributes.additionalProperties);
+    GovernanceMitigationRequestAttributes governanceMitigationRequestAttributes = (GovernanceMitigationRequestAttributes) o;
+    return Objects.equals(this.detectionIds, governanceMitigationRequestAttributes.detectionIds) && Objects.equals(this.detectionType, governanceMitigationRequestAttributes.detectionType) && Objects.equals(this.mitigationParameters, governanceMitigationRequestAttributes.mitigationParameters) && Objects.equals(this.mitigationType, governanceMitigationRequestAttributes.mitigationType) && Objects.equals(this.additionalProperties, governanceMitigationRequestAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        detectionIds, detectionType, mitigationParameters, mitigationType, additionalProperties);
+    return Objects.hash(detectionIds,detectionType,mitigationParameters,mitigationType, additionalProperties);
   }
 
   @Override
@@ -228,9 +225,7 @@ public class GovernanceMitigationRequestAttributes {
     sb.append("class GovernanceMitigationRequestAttributes {\n");
     sb.append("    detectionIds: ").append(toIndentedString(detectionIds)).append("\n");
     sb.append("    detectionType: ").append(toIndentedString(detectionType)).append("\n");
-    sb.append("    mitigationParameters: ")
-        .append(toIndentedString(mitigationParameters))
-        .append("\n");
+    sb.append("    mitigationParameters: ").append(toIndentedString(mitigationParameters)).append("\n");
     sb.append("    mitigationType: ").append(toIndentedString(mitigationType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -240,7 +235,8 @@ public class GovernanceMitigationRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

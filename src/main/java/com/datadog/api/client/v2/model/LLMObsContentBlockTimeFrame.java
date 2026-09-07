@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Unix-millis time range used by chart blocks. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Unix-millis time range used by chart blocks.</p>
+ */
 @JsonPropertyOrder({
   LLMObsContentBlockTimeFrame.JSON_PROPERTY_END,
   LLMObsContentBlockTimeFrame.JSON_PROPERTY_START
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsContentBlockTimeFrame {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_END = "end";
   private Long end;
 
@@ -36,61 +52,58 @@ public class LLMObsContentBlockTimeFrame {
 
   @JsonCreator
   public LLMObsContentBlockTimeFrame(
-      @JsonProperty(required = true, value = JSON_PROPERTY_END) Long end,
-      @JsonProperty(required = true, value = JSON_PROPERTY_START) Long start) {
-    this.end = end;
-    this.start = start;
+            @JsonProperty(required=true, value=JSON_PROPERTY_END)Long end,
+            @JsonProperty(required=true, value=JSON_PROPERTY_START)Long start) {
+        this.end = end;
+        this.start = start;
   }
-
   public LLMObsContentBlockTimeFrame end(Long end) {
     this.end = end;
     return this;
   }
 
   /**
-   * End of the range, in Unix milliseconds.
-   *
+   * <p>End of the range, in Unix milliseconds.</p>
    * @return end
-   */
-  @JsonProperty(JSON_PROPERTY_END)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getEnd() {
-    return end;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_END)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getEnd() {
+        return end;
+      }
   public void setEnd(Long end) {
     this.end = end;
   }
-
   public LLMObsContentBlockTimeFrame start(Long start) {
     this.start = start;
     return this;
   }
 
   /**
-   * Start of the range, in Unix milliseconds.
-   *
+   * <p>Start of the range, in Unix milliseconds.</p>
    * @return start
-   */
-  @JsonProperty(JSON_PROPERTY_START)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getStart() {
-    return start;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_START)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getStart() {
+        return start;
+      }
   public void setStart(Long start) {
     this.start = start;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -99,7 +112,7 @@ public class LLMObsContentBlockTimeFrame {
   @JsonAnySetter
   public LLMObsContentBlockTimeFrame putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -123,12 +136,14 @@ public class LLMObsContentBlockTimeFrame {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsContentBlockTimeFrame object is equal to o. */
+  /**
+   * Return true if this LLMObsContentBlockTimeFrame object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,15 +153,13 @@ public class LLMObsContentBlockTimeFrame {
       return false;
     }
     LLMObsContentBlockTimeFrame llmObsContentBlockTimeFrame = (LLMObsContentBlockTimeFrame) o;
-    return Objects.equals(this.end, llmObsContentBlockTimeFrame.end)
-        && Objects.equals(this.start, llmObsContentBlockTimeFrame.start)
-        && Objects.equals(
-            this.additionalProperties, llmObsContentBlockTimeFrame.additionalProperties);
+    return Objects.equals(this.end, llmObsContentBlockTimeFrame.end) && Objects.equals(this.start, llmObsContentBlockTimeFrame.start) && Objects.equals(this.additionalProperties, llmObsContentBlockTimeFrame.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(end, start, additionalProperties);
+    return Objects.hash(end,start, additionalProperties);
   }
 
   @Override
@@ -163,7 +176,8 @@ public class LLMObsContentBlockTimeFrame {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

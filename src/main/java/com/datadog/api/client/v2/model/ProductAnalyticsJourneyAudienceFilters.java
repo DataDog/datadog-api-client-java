@@ -6,21 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Restricts the journey to an audience built from named sub-queries. Sub-query names must be unique
- * across <code>users</code>, <code>segments</code>, and <code>accounts</code>.
+   * <p>Restricts the journey to an audience built from named sub-queries.
+   * Sub-query names must be unique across <code>users</code>, <code>segments</code>, and <code>accounts</code>.</p>
  */
 @JsonPropertyOrder({
   ProductAnalyticsJourneyAudienceFilters.JSON_PROPERTY_ACCOUNTS,
@@ -28,10 +41,10 @@ import java.util.Objects;
   ProductAnalyticsJourneyAudienceFilters.JSON_PROPERTY_SEGMENTS,
   ProductAnalyticsJourneyAudienceFilters.JSON_PROPERTY_USERS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsJourneyAudienceFilters {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
   private List<ProductAnalyticsJourneyAudienceAccountQuery> accounts = null;
 
@@ -44,19 +57,16 @@ public class ProductAnalyticsJourneyAudienceFilters {
   public static final String JSON_PROPERTY_USERS = "users";
   private List<ProductAnalyticsJourneyAudienceUserQuery> users = null;
 
-  public ProductAnalyticsJourneyAudienceFilters accounts(
-      List<ProductAnalyticsJourneyAudienceAccountQuery> accounts) {
+  public ProductAnalyticsJourneyAudienceFilters accounts(List<ProductAnalyticsJourneyAudienceAccountQuery> accounts) {
     this.accounts = accounts;
     if (accounts != null) {
-      for (ProductAnalyticsJourneyAudienceAccountQuery item : accounts) {
-        this.unparsed |= item.unparsed;
-      }
+    for (ProductAnalyticsJourneyAudienceAccountQuery item : accounts) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public ProductAnalyticsJourneyAudienceFilters addAccountsItem(
-      ProductAnalyticsJourneyAudienceAccountQuery accountsItem) {
+  public ProductAnalyticsJourneyAudienceFilters addAccountsItem(ProductAnalyticsJourneyAudienceAccountQuery accountsItem) {
     if (this.accounts == null) {
       this.accounts = new ArrayList<>();
     }
@@ -66,17 +76,16 @@ public class ProductAnalyticsJourneyAudienceFilters {
   }
 
   /**
-   * Named account sub-queries.
-   *
+   * <p>Named account sub-queries.</p>
    * @return accounts
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ProductAnalyticsJourneyAudienceAccountQuery> getAccounts() {
-    return accounts;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ProductAnalyticsJourneyAudienceAccountQuery> getAccounts() {
+        return accounts;
+      }
   public void setAccounts(List<ProductAnalyticsJourneyAudienceAccountQuery> accounts) {
     this.accounts = accounts;
     if (accounts != null) {
@@ -85,42 +94,36 @@ public class ProductAnalyticsJourneyAudienceFilters {
       }
     }
   }
-
   public ProductAnalyticsJourneyAudienceFilters formula(String formula) {
     this.formula = formula;
     return this;
   }
 
   /**
-   * Boolean expression combining the sub-query names with <code>AND</code>, <code>OR</code>, and
-   * <code>NOT</code>. When empty, all sub-queries are combined with <code>AND</code>.
-   *
+   * <p>Boolean expression combining the sub-query names with <code>AND</code>, <code>OR</code>, and <code>NOT</code>.
+   * When empty, all sub-queries are combined with <code>AND</code>.</p>
    * @return formula
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORMULA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFormula() {
-    return formula;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FORMULA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getFormula() {
+        return formula;
+      }
   public void setFormula(String formula) {
     this.formula = formula;
   }
-
-  public ProductAnalyticsJourneyAudienceFilters segments(
-      List<ProductAnalyticsJourneyAudienceSegmentQuery> segments) {
+  public ProductAnalyticsJourneyAudienceFilters segments(List<ProductAnalyticsJourneyAudienceSegmentQuery> segments) {
     this.segments = segments;
     if (segments != null) {
-      for (ProductAnalyticsJourneyAudienceSegmentQuery item : segments) {
-        this.unparsed |= item.unparsed;
-      }
+    for (ProductAnalyticsJourneyAudienceSegmentQuery item : segments) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public ProductAnalyticsJourneyAudienceFilters addSegmentsItem(
-      ProductAnalyticsJourneyAudienceSegmentQuery segmentsItem) {
+  public ProductAnalyticsJourneyAudienceFilters addSegmentsItem(ProductAnalyticsJourneyAudienceSegmentQuery segmentsItem) {
     if (this.segments == null) {
       this.segments = new ArrayList<>();
     }
@@ -130,17 +133,16 @@ public class ProductAnalyticsJourneyAudienceFilters {
   }
 
   /**
-   * Named segment sub-queries.
-   *
+   * <p>Named segment sub-queries.</p>
    * @return segments
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SEGMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ProductAnalyticsJourneyAudienceSegmentQuery> getSegments() {
-    return segments;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SEGMENTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ProductAnalyticsJourneyAudienceSegmentQuery> getSegments() {
+        return segments;
+      }
   public void setSegments(List<ProductAnalyticsJourneyAudienceSegmentQuery> segments) {
     this.segments = segments;
     if (segments != null) {
@@ -149,20 +151,16 @@ public class ProductAnalyticsJourneyAudienceFilters {
       }
     }
   }
-
-  public ProductAnalyticsJourneyAudienceFilters users(
-      List<ProductAnalyticsJourneyAudienceUserQuery> users) {
+  public ProductAnalyticsJourneyAudienceFilters users(List<ProductAnalyticsJourneyAudienceUserQuery> users) {
     this.users = users;
     if (users != null) {
-      for (ProductAnalyticsJourneyAudienceUserQuery item : users) {
-        this.unparsed |= item.unparsed;
-      }
+    for (ProductAnalyticsJourneyAudienceUserQuery item : users) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public ProductAnalyticsJourneyAudienceFilters addUsersItem(
-      ProductAnalyticsJourneyAudienceUserQuery usersItem) {
+  public ProductAnalyticsJourneyAudienceFilters addUsersItem(ProductAnalyticsJourneyAudienceUserQuery usersItem) {
     if (this.users == null) {
       this.users = new ArrayList<>();
     }
@@ -172,17 +170,16 @@ public class ProductAnalyticsJourneyAudienceFilters {
   }
 
   /**
-   * Named user sub-queries.
-   *
+   * <p>Named user sub-queries.</p>
    * @return users
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ProductAnalyticsJourneyAudienceUserQuery> getUsers() {
-    return users;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ProductAnalyticsJourneyAudienceUserQuery> getUsers() {
+        return users;
+      }
   public void setUsers(List<ProductAnalyticsJourneyAudienceUserQuery> users) {
     this.users = users;
     if (users != null) {
@@ -193,14 +190,15 @@ public class ProductAnalyticsJourneyAudienceFilters {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -209,7 +207,7 @@ public class ProductAnalyticsJourneyAudienceFilters {
   @JsonAnySetter
   public ProductAnalyticsJourneyAudienceFilters putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -233,12 +231,14 @@ public class ProductAnalyticsJourneyAudienceFilters {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProductAnalyticsJourneyAudienceFilters object is equal to o. */
+  /**
+   * Return true if this ProductAnalyticsJourneyAudienceFilters object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -247,19 +247,14 @@ public class ProductAnalyticsJourneyAudienceFilters {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsJourneyAudienceFilters productAnalyticsJourneyAudienceFilters =
-        (ProductAnalyticsJourneyAudienceFilters) o;
-    return Objects.equals(this.accounts, productAnalyticsJourneyAudienceFilters.accounts)
-        && Objects.equals(this.formula, productAnalyticsJourneyAudienceFilters.formula)
-        && Objects.equals(this.segments, productAnalyticsJourneyAudienceFilters.segments)
-        && Objects.equals(this.users, productAnalyticsJourneyAudienceFilters.users)
-        && Objects.equals(
-            this.additionalProperties, productAnalyticsJourneyAudienceFilters.additionalProperties);
+    ProductAnalyticsJourneyAudienceFilters productAnalyticsJourneyAudienceFilters = (ProductAnalyticsJourneyAudienceFilters) o;
+    return Objects.equals(this.accounts, productAnalyticsJourneyAudienceFilters.accounts) && Objects.equals(this.formula, productAnalyticsJourneyAudienceFilters.formula) && Objects.equals(this.segments, productAnalyticsJourneyAudienceFilters.segments) && Objects.equals(this.users, productAnalyticsJourneyAudienceFilters.users) && Objects.equals(this.additionalProperties, productAnalyticsJourneyAudienceFilters.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounts, formula, segments, users, additionalProperties);
+    return Objects.hash(accounts,formula,segments,users, additionalProperties);
   }
 
   @Override
@@ -278,7 +273,8 @@ public class ProductAnalyticsJourneyAudienceFilters {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

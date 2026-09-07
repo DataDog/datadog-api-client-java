@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A CycloneDX 1.5 Bill of Materials (BOM) document containing vulnerability data. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A CycloneDX 1.5 Bill of Materials (BOM) document containing vulnerability data.</p>
+ */
 @JsonPropertyOrder({
   CycloneDXBom.JSON_PROPERTY_BOM_FORMAT,
   CycloneDXBom.JSON_PROPERTY_COMPONENTS,
@@ -28,10 +42,10 @@ import java.util.Objects;
   CycloneDXBom.JSON_PROPERTY_VERSION,
   CycloneDXBom.JSON_PROPERTY_VULNERABILITIES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CycloneDXBom {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BOM_FORMAT = "bomFormat";
   private String bomFormat;
 
@@ -54,47 +68,42 @@ public class CycloneDXBom {
 
   @JsonCreator
   public CycloneDXBom(
-      @JsonProperty(required = true, value = JSON_PROPERTY_BOM_FORMAT) String bomFormat,
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENTS)
-          List<CycloneDXComponent> components,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METADATA) CycloneDXMetadata metadata,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SPEC_VERSION) String specVersion,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VULNERABILITIES)
-          List<CycloneDXVulnerability> vulnerabilities) {
-    this.bomFormat = bomFormat;
-    this.components = components;
-    for (CycloneDXComponent item : components) {
-      this.unparsed |= item.unparsed;
-    }
-    this.metadata = metadata;
-    this.unparsed |= metadata.unparsed;
-    this.specVersion = specVersion;
-    this.vulnerabilities = vulnerabilities;
-    for (CycloneDXVulnerability item : vulnerabilities) {
-      this.unparsed |= item.unparsed;
-    }
+            @JsonProperty(required=true, value=JSON_PROPERTY_BOM_FORMAT)String bomFormat,
+            @JsonProperty(required=true, value=JSON_PROPERTY_COMPONENTS)List<CycloneDXComponent> components,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METADATA)CycloneDXMetadata metadata,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SPEC_VERSION)String specVersion,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VULNERABILITIES)List<CycloneDXVulnerability> vulnerabilities) {
+        this.bomFormat = bomFormat;
+        this.components = components;
+        for (CycloneDXComponent item : components) {
+          this.unparsed |= item.unparsed;
+        }
+        this.metadata = metadata;
+        this.unparsed |= metadata.unparsed;
+        this.specVersion = specVersion;
+        this.vulnerabilities = vulnerabilities;
+        for (CycloneDXVulnerability item : vulnerabilities) {
+          this.unparsed |= item.unparsed;
+        }
   }
-
   public CycloneDXBom bomFormat(String bomFormat) {
     this.bomFormat = bomFormat;
     return this;
   }
 
   /**
-   * The BOM format identifier. Must be <code>CycloneDX</code>.
-   *
+   * <p>The BOM format identifier. Must be <code>CycloneDX</code>.</p>
    * @return bomFormat
-   */
-  @JsonProperty(JSON_PROPERTY_BOM_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getBomFormat() {
-    return bomFormat;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_BOM_FORMAT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getBomFormat() {
+        return bomFormat;
+      }
   public void setBomFormat(String bomFormat) {
     this.bomFormat = bomFormat;
   }
-
   public CycloneDXBom components(List<CycloneDXComponent> components) {
     this.components = components;
     for (CycloneDXComponent item : components) {
@@ -102,7 +111,6 @@ public class CycloneDXBom {
     }
     return this;
   }
-
   public CycloneDXBom addComponentsItem(CycloneDXComponent componentsItem) {
     this.components.add(componentsItem);
     this.unparsed |= componentsItem.unparsed;
@@ -110,16 +118,15 @@ public class CycloneDXBom {
   }
 
   /**
-   * The list of scanned software components. Cannot be empty.
-   *
+   * <p>The list of scanned software components. Cannot be empty.</p>
    * @return components
-   */
-  @JsonProperty(JSON_PROPERTY_COMPONENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CycloneDXComponent> getComponents() {
-    return components;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_COMPONENTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<CycloneDXComponent> getComponents() {
+        return components;
+      }
   public void setComponents(List<CycloneDXComponent> components) {
     this.components = components;
     if (components != null) {
@@ -128,7 +135,6 @@ public class CycloneDXBom {
       }
     }
   }
-
   public CycloneDXBom metadata(CycloneDXMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
@@ -136,64 +142,58 @@ public class CycloneDXBom {
   }
 
   /**
-   * Metadata about the BOM, including the scanned asset and the scanner tool.
-   *
+   * <p>Metadata about the BOM, including the scanned asset and the scanner tool.</p>
    * @return metadata
-   */
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CycloneDXMetadata getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CycloneDXMetadata getMetadata() {
+        return metadata;
+      }
   public void setMetadata(CycloneDXMetadata metadata) {
     this.metadata = metadata;
     if (metadata != null) {
       this.unparsed |= metadata.unparsed;
     }
   }
-
   public CycloneDXBom specVersion(String specVersion) {
     this.specVersion = specVersion;
     return this;
   }
 
   /**
-   * The CycloneDX specification version. Must be <code>1.5</code>.
-   *
+   * <p>The CycloneDX specification version. Must be <code>1.5</code>.</p>
    * @return specVersion
-   */
-  @JsonProperty(JSON_PROPERTY_SPEC_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSpecVersion() {
-    return specVersion;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SPEC_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSpecVersion() {
+        return specVersion;
+      }
   public void setSpecVersion(String specVersion) {
     this.specVersion = specVersion;
   }
-
   public CycloneDXBom version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version number of the BOM document.
-   *
+   * <p>The version number of the BOM document.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getVersion() {
+        return version;
+      }
   public void setVersion(Long version) {
     this.version = version;
   }
-
   public CycloneDXBom vulnerabilities(List<CycloneDXVulnerability> vulnerabilities) {
     this.vulnerabilities = vulnerabilities;
     for (CycloneDXVulnerability item : vulnerabilities) {
@@ -201,7 +201,6 @@ public class CycloneDXBom {
     }
     return this;
   }
-
   public CycloneDXBom addVulnerabilitiesItem(CycloneDXVulnerability vulnerabilitiesItem) {
     this.vulnerabilities.add(vulnerabilitiesItem);
     this.unparsed |= vulnerabilitiesItem.unparsed;
@@ -209,16 +208,15 @@ public class CycloneDXBom {
   }
 
   /**
-   * The list of detected vulnerabilities. Cannot be empty.
-   *
+   * <p>The list of detected vulnerabilities. Cannot be empty.</p>
    * @return vulnerabilities
-   */
-  @JsonProperty(JSON_PROPERTY_VULNERABILITIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CycloneDXVulnerability> getVulnerabilities() {
-    return vulnerabilities;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VULNERABILITIES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<CycloneDXVulnerability> getVulnerabilities() {
+        return vulnerabilities;
+      }
   public void setVulnerabilities(List<CycloneDXVulnerability> vulnerabilities) {
     this.vulnerabilities = vulnerabilities;
     if (vulnerabilities != null) {
@@ -229,14 +227,15 @@ public class CycloneDXBom {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -245,7 +244,7 @@ public class CycloneDXBom {
   @JsonAnySetter
   public CycloneDXBom putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -269,12 +268,14 @@ public class CycloneDXBom {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CycloneDXBom object is equal to o. */
+  /**
+   * Return true if this CycloneDXBom object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -284,25 +285,13 @@ public class CycloneDXBom {
       return false;
     }
     CycloneDXBom cycloneDxBom = (CycloneDXBom) o;
-    return Objects.equals(this.bomFormat, cycloneDxBom.bomFormat)
-        && Objects.equals(this.components, cycloneDxBom.components)
-        && Objects.equals(this.metadata, cycloneDxBom.metadata)
-        && Objects.equals(this.specVersion, cycloneDxBom.specVersion)
-        && Objects.equals(this.version, cycloneDxBom.version)
-        && Objects.equals(this.vulnerabilities, cycloneDxBom.vulnerabilities)
-        && Objects.equals(this.additionalProperties, cycloneDxBom.additionalProperties);
+    return Objects.equals(this.bomFormat, cycloneDxBom.bomFormat) && Objects.equals(this.components, cycloneDxBom.components) && Objects.equals(this.metadata, cycloneDxBom.metadata) && Objects.equals(this.specVersion, cycloneDxBom.specVersion) && Objects.equals(this.version, cycloneDxBom.version) && Objects.equals(this.vulnerabilities, cycloneDxBom.vulnerabilities) && Objects.equals(this.additionalProperties, cycloneDxBom.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        bomFormat,
-        components,
-        metadata,
-        specVersion,
-        version,
-        vulnerabilities,
-        additionalProperties);
+    return Objects.hash(bomFormat,components,metadata,specVersion,version,vulnerabilities, additionalProperties);
   }
 
   @Override
@@ -323,7 +312,8 @@ public class CycloneDXBom {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

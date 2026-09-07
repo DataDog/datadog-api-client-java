@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An individual team's ownership entry within a teams ownership rule. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An individual team's ownership entry within a teams ownership rule.</p>
+ */
 @JsonPropertyOrder({
   TeamsOwnershipRuleTeamMapping.JSON_PROPERTY_MAPPING_ID,
   TeamsOwnershipRuleTeamMapping.JSON_PROPERTY_TEAM_HANDLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamsOwnershipRuleTeamMapping {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_MAPPING_ID = "mapping_id";
   private String mappingId;
 
@@ -36,61 +52,58 @@ public class TeamsOwnershipRuleTeamMapping {
 
   @JsonCreator
   public TeamsOwnershipRuleTeamMapping(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAPPING_ID) String mappingId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TEAM_HANDLE) String teamHandle) {
-    this.mappingId = mappingId;
-    this.teamHandle = teamHandle;
+            @JsonProperty(required=true, value=JSON_PROPERTY_MAPPING_ID)String mappingId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TEAM_HANDLE)String teamHandle) {
+        this.mappingId = mappingId;
+        this.teamHandle = teamHandle;
   }
-
   public TeamsOwnershipRuleTeamMapping mappingId(String mappingId) {
     this.mappingId = mappingId;
     return this;
   }
 
   /**
-   * The ID of the underlying mapping, used to delete this team's ownership individually.
-   *
+   * <p>The ID of the underlying mapping, used to delete this team's ownership individually.</p>
    * @return mappingId
-   */
-  @JsonProperty(JSON_PROPERTY_MAPPING_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMappingId() {
-    return mappingId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MAPPING_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getMappingId() {
+        return mappingId;
+      }
   public void setMappingId(String mappingId) {
     this.mappingId = mappingId;
   }
-
   public TeamsOwnershipRuleTeamMapping teamHandle(String teamHandle) {
     this.teamHandle = teamHandle;
     return this;
   }
 
   /**
-   * The handle of the owning team.
-   *
+   * <p>The handle of the owning team.</p>
    * @return teamHandle
-   */
-  @JsonProperty(JSON_PROPERTY_TEAM_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTeamHandle() {
-    return teamHandle;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TEAM_HANDLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTeamHandle() {
+        return teamHandle;
+      }
   public void setTeamHandle(String teamHandle) {
     this.teamHandle = teamHandle;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -99,7 +112,7 @@ public class TeamsOwnershipRuleTeamMapping {
   @JsonAnySetter
   public TeamsOwnershipRuleTeamMapping putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -123,12 +136,14 @@ public class TeamsOwnershipRuleTeamMapping {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamsOwnershipRuleTeamMapping object is equal to o. */
+  /**
+   * Return true if this TeamsOwnershipRuleTeamMapping object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,15 +153,13 @@ public class TeamsOwnershipRuleTeamMapping {
       return false;
     }
     TeamsOwnershipRuleTeamMapping teamsOwnershipRuleTeamMapping = (TeamsOwnershipRuleTeamMapping) o;
-    return Objects.equals(this.mappingId, teamsOwnershipRuleTeamMapping.mappingId)
-        && Objects.equals(this.teamHandle, teamsOwnershipRuleTeamMapping.teamHandle)
-        && Objects.equals(
-            this.additionalProperties, teamsOwnershipRuleTeamMapping.additionalProperties);
+    return Objects.equals(this.mappingId, teamsOwnershipRuleTeamMapping.mappingId) && Objects.equals(this.teamHandle, teamsOwnershipRuleTeamMapping.teamHandle) && Objects.equals(this.additionalProperties, teamsOwnershipRuleTeamMapping.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(mappingId, teamHandle, additionalProperties);
+    return Objects.hash(mappingId,teamHandle, additionalProperties);
   }
 
   @Override
@@ -163,7 +176,8 @@ public class TeamsOwnershipRuleTeamMapping {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

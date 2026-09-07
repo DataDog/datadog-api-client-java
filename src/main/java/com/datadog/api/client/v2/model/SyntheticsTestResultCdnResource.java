@@ -6,27 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A CDN resource encountered while executing a browser step. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A CDN resource encountered while executing a browser step.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestResultCdnResource.JSON_PROPERTY_CDN,
   SyntheticsTestResultCdnResource.JSON_PROPERTY_RESOLVED_IP,
   SyntheticsTestResultCdnResource.JSON_PROPERTY_TIMESTAMP,
   SyntheticsTestResultCdnResource.JSON_PROPERTY_TIMINGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestResultCdnResource {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CDN = "cdn";
   private SyntheticsTestResultCdnProviderInfo cdn;
 
@@ -46,71 +63,64 @@ public class SyntheticsTestResultCdnResource {
   }
 
   /**
-   * CDN provider details inferred from response headers.
-   *
+   * <p>CDN provider details inferred from response headers.</p>
    * @return cdn
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CDN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultCdnProviderInfo getCdn() {
-    return cdn;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CDN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultCdnProviderInfo getCdn() {
+        return cdn;
+      }
   public void setCdn(SyntheticsTestResultCdnProviderInfo cdn) {
     this.cdn = cdn;
     if (cdn != null) {
       this.unparsed |= cdn.unparsed;
     }
   }
-
   public SyntheticsTestResultCdnResource resolvedIp(String resolvedIp) {
     this.resolvedIp = resolvedIp;
     return this;
   }
 
   /**
-   * Resolved IP address for the CDN resource.
-   *
+   * <p>Resolved IP address for the CDN resource.</p>
    * @return resolvedIp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESOLVED_IP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getResolvedIp() {
-    return resolvedIp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESOLVED_IP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getResolvedIp() {
+        return resolvedIp;
+      }
   public void setResolvedIp(String resolvedIp) {
     this.resolvedIp = resolvedIp;
   }
-
   public SyntheticsTestResultCdnResource timestamp(Long timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
   /**
-   * Unix timestamp (ms) of when the resource was fetched.
-   *
+   * <p>Unix timestamp (ms) of when the resource was fetched.</p>
    * @return timestamp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTimestamp() {
-    return timestamp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTimestamp() {
+        return timestamp;
+      }
   public void setTimestamp(Long timestamp) {
     this.timestamp = timestamp;
   }
-
   public SyntheticsTestResultCdnResource timings(Map<String, Object> timings) {
     this.timings = timings;
     return this;
   }
-
   public SyntheticsTestResultCdnResource putTimingsItem(String key, Object timingsItem) {
     if (this.timings == null) {
       this.timings = new HashMap<>();
@@ -120,30 +130,30 @@ public class SyntheticsTestResultCdnResource {
   }
 
   /**
-   * Timing breakdown for fetching the CDN resource.
-   *
+   * <p>Timing breakdown for fetching the CDN resource.</p>
    * @return timings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getTimings() {
-    return timings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIMINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getTimings() {
+        return timings;
+      }
   public void setTimings(Map<String, Object> timings) {
     this.timings = timings;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -152,7 +162,7 @@ public class SyntheticsTestResultCdnResource {
   @JsonAnySetter
   public SyntheticsTestResultCdnResource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -176,12 +186,14 @@ public class SyntheticsTestResultCdnResource {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestResultCdnResource object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestResultCdnResource object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -190,19 +202,14 @@ public class SyntheticsTestResultCdnResource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestResultCdnResource syntheticsTestResultCdnResource =
-        (SyntheticsTestResultCdnResource) o;
-    return Objects.equals(this.cdn, syntheticsTestResultCdnResource.cdn)
-        && Objects.equals(this.resolvedIp, syntheticsTestResultCdnResource.resolvedIp)
-        && Objects.equals(this.timestamp, syntheticsTestResultCdnResource.timestamp)
-        && Objects.equals(this.timings, syntheticsTestResultCdnResource.timings)
-        && Objects.equals(
-            this.additionalProperties, syntheticsTestResultCdnResource.additionalProperties);
+    SyntheticsTestResultCdnResource syntheticsTestResultCdnResource = (SyntheticsTestResultCdnResource) o;
+    return Objects.equals(this.cdn, syntheticsTestResultCdnResource.cdn) && Objects.equals(this.resolvedIp, syntheticsTestResultCdnResource.resolvedIp) && Objects.equals(this.timestamp, syntheticsTestResultCdnResource.timestamp) && Objects.equals(this.timings, syntheticsTestResultCdnResource.timings) && Objects.equals(this.additionalProperties, syntheticsTestResultCdnResource.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdn, resolvedIp, timestamp, timings, additionalProperties);
+    return Objects.hash(cdn,resolvedIp,timestamp,timings, additionalProperties);
   }
 
   @Override
@@ -221,7 +228,8 @@ public class SyntheticsTestResultCdnResource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

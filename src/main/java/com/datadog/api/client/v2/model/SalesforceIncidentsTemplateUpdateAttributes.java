@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Salesforce incident template attributes for an update request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Salesforce incident template attributes for an update request.</p>
+ */
 @JsonPropertyOrder({
   SalesforceIncidentsTemplateUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
   SalesforceIncidentsTemplateUpdateAttributes.JSON_PROPERTY_NAME,
@@ -26,10 +42,10 @@ import java.util.UUID;
   SalesforceIncidentsTemplateUpdateAttributes.JSON_PROPERTY_SALESFORCE_ORG_ID,
   SalesforceIncidentsTemplateUpdateAttributes.JSON_PROPERTY_SUBJECT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SalesforceIncidentsTemplateUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -54,150 +70,138 @@ public class SalesforceIncidentsTemplateUpdateAttributes {
   }
 
   /**
-   * Long-form description body for Salesforce incidents created from this template.
-   *
+   * <p>Long-form description body for Salesforce incidents created from this template.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public SalesforceIncidentsTemplateUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Human-readable name for this incident template.
-   *
+   * <p>Human-readable name for this incident template.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SalesforceIncidentsTemplateUpdateAttributes ownerId(String ownerId) {
     this.ownerId = ownerId;
     return this;
   }
 
   /**
-   * The Salesforce user ID that owns incidents created from this template.
-   *
+   * <p>The Salesforce user ID that owns incidents created from this template.</p>
    * @return ownerId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OWNER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getOwnerId() {
-    return ownerId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OWNER_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getOwnerId() {
+        return ownerId;
+      }
   public void setOwnerId(String ownerId) {
     this.ownerId = ownerId;
   }
-
-  public SalesforceIncidentsTemplateUpdateAttributes priority(
-      SalesforceIncidentsTemplatePriority priority) {
+  public SalesforceIncidentsTemplateUpdateAttributes priority(SalesforceIncidentsTemplatePriority priority) {
     this.priority = priority;
     this.unparsed |= !priority.isValid();
     return this;
   }
 
   /**
-   * Priority of the Salesforce incident created from this template.
-   *
+   * <p>Priority of the Salesforce incident created from this template.</p>
    * @return priority
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SalesforceIncidentsTemplatePriority getPriority() {
-    return priority;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRIORITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SalesforceIncidentsTemplatePriority getPriority() {
+        return priority;
+      }
   public void setPriority(SalesforceIncidentsTemplatePriority priority) {
     if (!priority.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.priority = priority;
   }
-
   public SalesforceIncidentsTemplateUpdateAttributes salesforceOrgId(UUID salesforceOrgId) {
     this.salesforceOrgId = salesforceOrgId;
     return this;
   }
 
   /**
-   * The Datadog-assigned ID of the Salesforce organization this template belongs to.
-   *
+   * <p>The Datadog-assigned ID of the Salesforce organization this template belongs to.</p>
    * @return salesforceOrgId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SALESFORCE_ORG_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UUID getSalesforceOrgId() {
-    return salesforceOrgId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SALESFORCE_ORG_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public UUID getSalesforceOrgId() {
+        return salesforceOrgId;
+      }
   public void setSalesforceOrgId(UUID salesforceOrgId) {
     this.salesforceOrgId = salesforceOrgId;
   }
-
   public SalesforceIncidentsTemplateUpdateAttributes subject(String subject) {
     this.subject = subject;
     return this;
   }
 
   /**
-   * Subject line for Salesforce incidents created from this template.
-   *
+   * <p>Subject line for Salesforce incidents created from this template.</p>
    * @return subject
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSubject() {
-    return subject;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SUBJECT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSubject() {
+        return subject;
+      }
   public void setSubject(String subject) {
     this.subject = subject;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SalesforceIncidentsTemplateUpdateAttributes
    */
   @JsonAnySetter
-  public SalesforceIncidentsTemplateUpdateAttributes putAdditionalProperty(
-      String key, Object value) {
+  public SalesforceIncidentsTemplateUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -221,12 +225,14 @@ public class SalesforceIncidentsTemplateUpdateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SalesforceIncidentsTemplateUpdateAttributes object is equal to o. */
+  /**
+   * Return true if this SalesforceIncidentsTemplateUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -235,24 +241,14 @@ public class SalesforceIncidentsTemplateUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SalesforceIncidentsTemplateUpdateAttributes salesforceIncidentsTemplateUpdateAttributes =
-        (SalesforceIncidentsTemplateUpdateAttributes) o;
-    return Objects.equals(this.description, salesforceIncidentsTemplateUpdateAttributes.description)
-        && Objects.equals(this.name, salesforceIncidentsTemplateUpdateAttributes.name)
-        && Objects.equals(this.ownerId, salesforceIncidentsTemplateUpdateAttributes.ownerId)
-        && Objects.equals(this.priority, salesforceIncidentsTemplateUpdateAttributes.priority)
-        && Objects.equals(
-            this.salesforceOrgId, salesforceIncidentsTemplateUpdateAttributes.salesforceOrgId)
-        && Objects.equals(this.subject, salesforceIncidentsTemplateUpdateAttributes.subject)
-        && Objects.equals(
-            this.additionalProperties,
-            salesforceIncidentsTemplateUpdateAttributes.additionalProperties);
+    SalesforceIncidentsTemplateUpdateAttributes salesforceIncidentsTemplateUpdateAttributes = (SalesforceIncidentsTemplateUpdateAttributes) o;
+    return Objects.equals(this.description, salesforceIncidentsTemplateUpdateAttributes.description) && Objects.equals(this.name, salesforceIncidentsTemplateUpdateAttributes.name) && Objects.equals(this.ownerId, salesforceIncidentsTemplateUpdateAttributes.ownerId) && Objects.equals(this.priority, salesforceIncidentsTemplateUpdateAttributes.priority) && Objects.equals(this.salesforceOrgId, salesforceIncidentsTemplateUpdateAttributes.salesforceOrgId) && Objects.equals(this.subject, salesforceIncidentsTemplateUpdateAttributes.subject) && Objects.equals(this.additionalProperties, salesforceIncidentsTemplateUpdateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        description, name, ownerId, priority, salesforceOrgId, subject, additionalProperties);
+    return Objects.hash(description,name,ownerId,priority,salesforceOrgId,subject, additionalProperties);
   }
 
   @Override
@@ -273,7 +269,8 @@ public class SalesforceIncidentsTemplateUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

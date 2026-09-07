@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Used to handle errors in an action. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Used to handle errors in an action.</p>
+ */
 @JsonPropertyOrder({
   ErrorHandler.JSON_PROPERTY_FALLBACK_STEP_NAME,
   ErrorHandler.JSON_PROPERTY_RETRY_STRATEGY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ErrorHandler {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FALLBACK_STEP_NAME = "fallbackStepName";
   private String fallbackStepName;
 
@@ -32,35 +52,30 @@ public class ErrorHandler {
 
   @JsonCreator
   public ErrorHandler(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FALLBACK_STEP_NAME)
-          String fallbackStepName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RETRY_STRATEGY)
-          RetryStrategy retryStrategy) {
-    this.fallbackStepName = fallbackStepName;
-    this.retryStrategy = retryStrategy;
-    this.unparsed |= retryStrategy.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_FALLBACK_STEP_NAME)String fallbackStepName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RETRY_STRATEGY)RetryStrategy retryStrategy) {
+        this.fallbackStepName = fallbackStepName;
+        this.retryStrategy = retryStrategy;
+        this.unparsed |= retryStrategy.unparsed;
   }
-
   public ErrorHandler fallbackStepName(String fallbackStepName) {
     this.fallbackStepName = fallbackStepName;
     return this;
   }
 
   /**
-   * The <code>ErrorHandler</code> <code>fallbackStepName</code>.
-   *
+   * <p>The <code>ErrorHandler</code> <code>fallbackStepName</code>.</p>
    * @return fallbackStepName
-   */
-  @JsonProperty(JSON_PROPERTY_FALLBACK_STEP_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFallbackStepName() {
-    return fallbackStepName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FALLBACK_STEP_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFallbackStepName() {
+        return fallbackStepName;
+      }
   public void setFallbackStepName(String fallbackStepName) {
     this.fallbackStepName = fallbackStepName;
   }
-
   public ErrorHandler retryStrategy(RetryStrategy retryStrategy) {
     this.retryStrategy = retryStrategy;
     this.unparsed |= retryStrategy.unparsed;
@@ -68,16 +83,15 @@ public class ErrorHandler {
   }
 
   /**
-   * The definition of <code>RetryStrategy</code> object.
-   *
+   * <p>The definition of <code>RetryStrategy</code> object.</p>
    * @return retryStrategy
-   */
-  @JsonProperty(JSON_PROPERTY_RETRY_STRATEGY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetryStrategy getRetryStrategy() {
-    return retryStrategy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RETRY_STRATEGY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetryStrategy getRetryStrategy() {
+        return retryStrategy;
+      }
   public void setRetryStrategy(RetryStrategy retryStrategy) {
     this.retryStrategy = retryStrategy;
     if (retryStrategy != null) {
@@ -85,7 +99,9 @@ public class ErrorHandler {
     }
   }
 
-  /** Return true if this ErrorHandler object is equal to o. */
+  /**
+   * Return true if this ErrorHandler object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -95,13 +111,13 @@ public class ErrorHandler {
       return false;
     }
     ErrorHandler errorHandler = (ErrorHandler) o;
-    return Objects.equals(this.fallbackStepName, errorHandler.fallbackStepName)
-        && Objects.equals(this.retryStrategy, errorHandler.retryStrategy);
+    return Objects.equals(this.fallbackStepName, errorHandler.fallbackStepName) && Objects.equals(this.retryStrategy, errorHandler.retryStrategy);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(fallbackStepName, retryStrategy);
+    return Objects.hash(fallbackStepName,retryStrategy);
   }
 
   @Override
@@ -115,7 +131,8 @@ public class ErrorHandler {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

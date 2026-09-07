@@ -6,23 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Join condition for aggregate augmented queries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Join condition for aggregate augmented queries.</p>
+ */
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionAggregateQueryJoinCondition.JSON_PROPERTY_AUGMENT_ATTRIBUTE,
   MonitorFormulaAndFunctionAggregateQueryJoinCondition.JSON_PROPERTY_BASE_ATTRIBUTE,
   MonitorFormulaAndFunctionAggregateQueryJoinCondition.JSON_PROPERTY_JOIN_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionAggregateQueryJoinCondition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUGMENT_ATTRIBUTE = "augment_attribute";
   private String augmentAttribute;
 
@@ -36,79 +56,69 @@ public class MonitorFormulaAndFunctionAggregateQueryJoinCondition {
 
   @JsonCreator
   public MonitorFormulaAndFunctionAggregateQueryJoinCondition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUGMENT_ATTRIBUTE)
-          String augmentAttribute,
-      @JsonProperty(required = true, value = JSON_PROPERTY_BASE_ATTRIBUTE) String baseAttribute,
-      @JsonProperty(required = true, value = JSON_PROPERTY_JOIN_TYPE)
-          MonitorFormulaAndFunctionAggregateQueryJoinType joinType) {
-    this.augmentAttribute = augmentAttribute;
-    this.baseAttribute = baseAttribute;
-    this.joinType = joinType;
-    this.unparsed |= !joinType.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AUGMENT_ATTRIBUTE)String augmentAttribute,
+            @JsonProperty(required=true, value=JSON_PROPERTY_BASE_ATTRIBUTE)String baseAttribute,
+            @JsonProperty(required=true, value=JSON_PROPERTY_JOIN_TYPE)MonitorFormulaAndFunctionAggregateQueryJoinType joinType) {
+        this.augmentAttribute = augmentAttribute;
+        this.baseAttribute = baseAttribute;
+        this.joinType = joinType;
+        this.unparsed |= !joinType.isValid();
   }
-
-  public MonitorFormulaAndFunctionAggregateQueryJoinCondition augmentAttribute(
-      String augmentAttribute) {
+  public MonitorFormulaAndFunctionAggregateQueryJoinCondition augmentAttribute(String augmentAttribute) {
     this.augmentAttribute = augmentAttribute;
     return this;
   }
 
   /**
-   * Attribute from the augment query to join on.
-   *
+   * <p>Attribute from the augment query to join on.</p>
    * @return augmentAttribute
-   */
-  @JsonProperty(JSON_PROPERTY_AUGMENT_ATTRIBUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAugmentAttribute() {
-    return augmentAttribute;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AUGMENT_ATTRIBUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAugmentAttribute() {
+        return augmentAttribute;
+      }
   public void setAugmentAttribute(String augmentAttribute) {
     this.augmentAttribute = augmentAttribute;
   }
-
   public MonitorFormulaAndFunctionAggregateQueryJoinCondition baseAttribute(String baseAttribute) {
     this.baseAttribute = baseAttribute;
     return this;
   }
 
   /**
-   * Attribute from the base query to join on.
-   *
+   * <p>Attribute from the base query to join on.</p>
    * @return baseAttribute
-   */
-  @JsonProperty(JSON_PROPERTY_BASE_ATTRIBUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getBaseAttribute() {
-    return baseAttribute;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_BASE_ATTRIBUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getBaseAttribute() {
+        return baseAttribute;
+      }
   public void setBaseAttribute(String baseAttribute) {
     this.baseAttribute = baseAttribute;
   }
-
-  public MonitorFormulaAndFunctionAggregateQueryJoinCondition joinType(
-      MonitorFormulaAndFunctionAggregateQueryJoinType joinType) {
+  public MonitorFormulaAndFunctionAggregateQueryJoinCondition joinType(MonitorFormulaAndFunctionAggregateQueryJoinType joinType) {
     this.joinType = joinType;
     this.unparsed |= !joinType.isValid();
     return this;
   }
 
   /**
-   * Join type for aggregate query join conditions.
-   *
+   * <p>Join type for aggregate query join conditions.</p>
    * @return joinType
-   */
-  @JsonProperty(JSON_PROPERTY_JOIN_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MonitorFormulaAndFunctionAggregateQueryJoinType getJoinType() {
-    return joinType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_JOIN_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public MonitorFormulaAndFunctionAggregateQueryJoinType getJoinType() {
+        return joinType;
+      }
   public void setJoinType(MonitorFormulaAndFunctionAggregateQueryJoinType joinType) {
     if (!joinType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.joinType = joinType;
   }
@@ -124,21 +134,14 @@ public class MonitorFormulaAndFunctionAggregateQueryJoinCondition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionAggregateQueryJoinCondition
-        monitorFormulaAndFunctionAggregateQueryJoinCondition =
-            (MonitorFormulaAndFunctionAggregateQueryJoinCondition) o;
-    return Objects.equals(
-            this.augmentAttribute,
-            monitorFormulaAndFunctionAggregateQueryJoinCondition.augmentAttribute)
-        && Objects.equals(
-            this.baseAttribute, monitorFormulaAndFunctionAggregateQueryJoinCondition.baseAttribute)
-        && Objects.equals(
-            this.joinType, monitorFormulaAndFunctionAggregateQueryJoinCondition.joinType);
+    MonitorFormulaAndFunctionAggregateQueryJoinCondition monitorFormulaAndFunctionAggregateQueryJoinCondition = (MonitorFormulaAndFunctionAggregateQueryJoinCondition) o;
+    return Objects.equals(this.augmentAttribute, monitorFormulaAndFunctionAggregateQueryJoinCondition.augmentAttribute) && Objects.equals(this.baseAttribute, monitorFormulaAndFunctionAggregateQueryJoinCondition.baseAttribute) && Objects.equals(this.joinType, monitorFormulaAndFunctionAggregateQueryJoinCondition.joinType);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(augmentAttribute, baseAttribute, joinType);
+    return Objects.hash(augmentAttribute,baseAttribute,joinType);
   }
 
   @Override
@@ -153,7 +156,8 @@ public class MonitorFormulaAndFunctionAggregateQueryJoinCondition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Salesforce incident template data for an update request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Salesforce incident template data for an update request.</p>
+ */
 @JsonPropertyOrder({
   SalesforceIncidentsTemplateUpdateData.JSON_PROPERTY_ATTRIBUTES,
   SalesforceIncidentsTemplateUpdateData.JSON_PROPERTY_ID,
   SalesforceIncidentsTemplateUpdateData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SalesforceIncidentsTemplateUpdateData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SalesforceIncidentsTemplateUpdateAttributes attributes;
 
@@ -34,70 +50,61 @@ public class SalesforceIncidentsTemplateUpdateData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SalesforceIncidentsTemplateType type =
-      SalesforceIncidentsTemplateType.SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE;
+  private SalesforceIncidentsTemplateType type = SalesforceIncidentsTemplateType.SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE;
 
   public SalesforceIncidentsTemplateUpdateData() {}
 
   @JsonCreator
   public SalesforceIncidentsTemplateUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          SalesforceIncidentsTemplateUpdateAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SalesforceIncidentsTemplateType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)SalesforceIncidentsTemplateUpdateAttributes attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SalesforceIncidentsTemplateType type) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
-  public SalesforceIncidentsTemplateUpdateData attributes(
-      SalesforceIncidentsTemplateUpdateAttributes attributes) {
+  public SalesforceIncidentsTemplateUpdateData attributes(SalesforceIncidentsTemplateUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Salesforce incident template attributes for an update request.
-   *
+   * <p>Salesforce incident template attributes for an update request.</p>
    * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SalesforceIncidentsTemplateUpdateAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SalesforceIncidentsTemplateUpdateAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(SalesforceIncidentsTemplateUpdateAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
-
   public SalesforceIncidentsTemplateUpdateData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the Salesforce incident template being updated. Must match the path parameter.
-   *
+   * <p>The ID of the Salesforce incident template being updated. Must match the path parameter.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public SalesforceIncidentsTemplateUpdateData type(SalesforceIncidentsTemplateType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -105,32 +112,32 @@ public class SalesforceIncidentsTemplateUpdateData {
   }
 
   /**
-   * Salesforce incident template resource type.
-   *
+   * <p>Salesforce incident template resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SalesforceIncidentsTemplateType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SalesforceIncidentsTemplateType getType() {
+        return type;
+      }
   public void setType(SalesforceIncidentsTemplateType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -139,7 +146,7 @@ public class SalesforceIncidentsTemplateUpdateData {
   @JsonAnySetter
   public SalesforceIncidentsTemplateUpdateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -163,12 +170,14 @@ public class SalesforceIncidentsTemplateUpdateData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SalesforceIncidentsTemplateUpdateData object is equal to o. */
+  /**
+   * Return true if this SalesforceIncidentsTemplateUpdateData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -177,18 +186,14 @@ public class SalesforceIncidentsTemplateUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SalesforceIncidentsTemplateUpdateData salesforceIncidentsTemplateUpdateData =
-        (SalesforceIncidentsTemplateUpdateData) o;
-    return Objects.equals(this.attributes, salesforceIncidentsTemplateUpdateData.attributes)
-        && Objects.equals(this.id, salesforceIncidentsTemplateUpdateData.id)
-        && Objects.equals(this.type, salesforceIncidentsTemplateUpdateData.type)
-        && Objects.equals(
-            this.additionalProperties, salesforceIncidentsTemplateUpdateData.additionalProperties);
+    SalesforceIncidentsTemplateUpdateData salesforceIncidentsTemplateUpdateData = (SalesforceIncidentsTemplateUpdateData) o;
+    return Objects.equals(this.attributes, salesforceIncidentsTemplateUpdateData.attributes) && Objects.equals(this.id, salesforceIncidentsTemplateUpdateData.id) && Objects.equals(this.type, salesforceIncidentsTemplateUpdateData.type) && Objects.equals(this.additionalProperties, salesforceIncidentsTemplateUpdateData.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes,id,type, additionalProperties);
   }
 
   @Override
@@ -206,7 +211,8 @@ public class SalesforceIncidentsTemplateUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

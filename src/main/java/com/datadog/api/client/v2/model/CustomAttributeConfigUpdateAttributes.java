@@ -6,19 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Attributes that can be updated on a custom attribute configuration. All fields are optional; only
- * provided fields are changed.
+   * <p>Attributes that can be updated on a custom attribute configuration. All fields are optional; only provided fields are changed.</p>
  */
 @JsonPropertyOrder({
   CustomAttributeConfigUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -27,10 +41,10 @@ import java.util.Objects;
   CustomAttributeConfigUpdateAttributes.JSON_PROPERTY_TYPE,
   CustomAttributeConfigUpdateAttributes.JSON_PROPERTY_TYPE_DATA
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CustomAttributeConfigUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -52,64 +66,57 @@ public class CustomAttributeConfigUpdateAttributes {
   }
 
   /**
-   * A description explaining the purpose and expected values for this custom attribute.
-   *
+   * <p>A description explaining the purpose and expected values for this custom attribute.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public CustomAttributeConfigUpdateAttributes displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
   /**
-   * The human-readable label shown in the Case Management UI for this custom attribute.
-   *
+   * <p>The human-readable label shown in the Case Management UI for this custom attribute.</p>
    * @return displayName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDisplayName() {
-    return displayName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDisplayName() {
+        return displayName;
+      }
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
-
   public CustomAttributeConfigUpdateAttributes mapFrom(String mapFrom) {
     this.mapFrom = mapFrom;
     return this;
   }
 
   /**
-   * An external field identifier to auto-populate this attribute from (used for integrations with
-   * external systems).
-   *
+   * <p>An external field identifier to auto-populate this attribute from (used for integrations with external systems).</p>
    * @return mapFrom
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAP_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMapFrom() {
-    return mapFrom;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MAP_FROM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMapFrom() {
+        return mapFrom;
+      }
   public void setMapFrom(String mapFrom) {
     this.mapFrom = mapFrom;
   }
-
   public CustomAttributeConfigUpdateAttributes type(CustomAttributeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -117,25 +124,22 @@ public class CustomAttributeConfigUpdateAttributes {
   }
 
   /**
-   * The data type of the custom attribute, which determines the allowed values and UI input
-   * control.
-   *
+   * <p>The data type of the custom attribute, which determines the allowed values and UI input control.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CustomAttributeType getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CustomAttributeType getType() {
+        return type;
+      }
   public void setType(CustomAttributeType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
-
   public CustomAttributeConfigUpdateAttributes typeData(CustomAttributeTypeData typeData) {
     this.typeData = typeData;
     this.unparsed |= typeData.unparsed;
@@ -143,18 +147,16 @@ public class CustomAttributeConfigUpdateAttributes {
   }
 
   /**
-   * Type-specific configuration for the custom attribute. For SELECT-type attributes, this contains
-   * the list of allowed options.
-   *
+   * <p>Type-specific configuration for the custom attribute. For SELECT-type attributes, this contains the list of allowed options.</p>
    * @return typeData
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CustomAttributeTypeData getTypeData() {
-    return typeData;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CustomAttributeTypeData getTypeData() {
+        return typeData;
+      }
   public void setTypeData(CustomAttributeTypeData typeData) {
     this.typeData = typeData;
     if (typeData != null) {
@@ -163,14 +165,15 @@ public class CustomAttributeConfigUpdateAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -179,7 +182,7 @@ public class CustomAttributeConfigUpdateAttributes {
   @JsonAnySetter
   public CustomAttributeConfigUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -203,12 +206,14 @@ public class CustomAttributeConfigUpdateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CustomAttributeConfigUpdateAttributes object is equal to o. */
+  /**
+   * Return true if this CustomAttributeConfigUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -217,20 +222,14 @@ public class CustomAttributeConfigUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomAttributeConfigUpdateAttributes customAttributeConfigUpdateAttributes =
-        (CustomAttributeConfigUpdateAttributes) o;
-    return Objects.equals(this.description, customAttributeConfigUpdateAttributes.description)
-        && Objects.equals(this.displayName, customAttributeConfigUpdateAttributes.displayName)
-        && Objects.equals(this.mapFrom, customAttributeConfigUpdateAttributes.mapFrom)
-        && Objects.equals(this.type, customAttributeConfigUpdateAttributes.type)
-        && Objects.equals(this.typeData, customAttributeConfigUpdateAttributes.typeData)
-        && Objects.equals(
-            this.additionalProperties, customAttributeConfigUpdateAttributes.additionalProperties);
+    CustomAttributeConfigUpdateAttributes customAttributeConfigUpdateAttributes = (CustomAttributeConfigUpdateAttributes) o;
+    return Objects.equals(this.description, customAttributeConfigUpdateAttributes.description) && Objects.equals(this.displayName, customAttributeConfigUpdateAttributes.displayName) && Objects.equals(this.mapFrom, customAttributeConfigUpdateAttributes.mapFrom) && Objects.equals(this.type, customAttributeConfigUpdateAttributes.type) && Objects.equals(this.typeData, customAttributeConfigUpdateAttributes.typeData) && Objects.equals(this.additionalProperties, customAttributeConfigUpdateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, displayName, mapFrom, type, typeData, additionalProperties);
+    return Objects.hash(description,displayName,mapFrom,type,typeData, additionalProperties);
   }
 
   @Override
@@ -250,7 +249,8 @@ public class CustomAttributeConfigUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

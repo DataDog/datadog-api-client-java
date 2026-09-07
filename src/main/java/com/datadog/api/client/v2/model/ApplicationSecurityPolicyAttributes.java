@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A WAF policy. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A WAF policy.</p>
+ */
 @JsonPropertyOrder({
   ApplicationSecurityPolicyAttributes.JSON_PROPERTY_DESCRIPTION,
   ApplicationSecurityPolicyAttributes.JSON_PROPERTY_IS_DEFAULT,
@@ -30,10 +44,10 @@ import java.util.Objects;
   ApplicationSecurityPolicyAttributes.JSON_PROPERTY_SCOPE,
   ApplicationSecurityPolicyAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationSecurityPolicyAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -62,81 +76,72 @@ public class ApplicationSecurityPolicyAttributes {
 
   @JsonCreator
   public ApplicationSecurityPolicyAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.description = description;
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION)String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.description = description;
+        this.name = name;
   }
-
   public ApplicationSecurityPolicyAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Description of the WAF policy.
-   *
+   * <p>Description of the WAF policy.</p>
    * @return description
-   */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public ApplicationSecurityPolicyAttributes isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
 
   /**
-   * Make this policy the default policy. The default policy is applied to every service not
-   * specifically assigned to another policy.
-   *
+   * <p>Make this policy the default policy. The default policy is applied to
+   * every service not specifically assigned to another policy.</p>
    * @return isDefault
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsDefault() {
-    return isDefault;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsDefault() {
+        return isDefault;
+      }
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
-
   public ApplicationSecurityPolicyAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the WAF policy.
-   *
+   * <p>The name of the WAF policy.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public ApplicationSecurityPolicyAttributes protectionPresets(List<String> protectionPresets) {
     this.protectionPresets = protectionPresets;
     return this;
   }
-
-  public ApplicationSecurityPolicyAttributes addProtectionPresetsItem(
-      String protectionPresetsItem) {
+  public ApplicationSecurityPolicyAttributes addProtectionPresetsItem(String protectionPresetsItem) {
     if (this.protectionPresets == null) {
       this.protectionPresets = new ArrayList<>();
     }
@@ -145,34 +150,29 @@ public class ApplicationSecurityPolicyAttributes {
   }
 
   /**
-   * Presets enabled on this policy.
-   *
+   * <p>Presets enabled on this policy.</p>
    * @return protectionPresets
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROTECTION_PRESETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getProtectionPresets() {
-    return protectionPresets;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROTECTION_PRESETS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getProtectionPresets() {
+        return protectionPresets;
+      }
   public void setProtectionPresets(List<String> protectionPresets) {
     this.protectionPresets = protectionPresets;
   }
-
-  public ApplicationSecurityPolicyAttributes rules(
-      List<ApplicationSecurityPolicyRuleOverride> rules) {
+  public ApplicationSecurityPolicyAttributes rules(List<ApplicationSecurityPolicyRuleOverride> rules) {
     this.rules = rules;
     if (rules != null) {
-      for (ApplicationSecurityPolicyRuleOverride item : rules) {
-        this.unparsed |= item.unparsed;
-      }
+    for (ApplicationSecurityPolicyRuleOverride item : rules) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public ApplicationSecurityPolicyAttributes addRulesItem(
-      ApplicationSecurityPolicyRuleOverride rulesItem) {
+  public ApplicationSecurityPolicyAttributes addRulesItem(ApplicationSecurityPolicyRuleOverride rulesItem) {
     if (this.rules == null) {
       this.rules = new ArrayList<>();
     }
@@ -182,17 +182,16 @@ public class ApplicationSecurityPolicyAttributes {
   }
 
   /**
-   * Rule overrides applied by the policy.
-   *
+   * <p>Rule overrides applied by the policy.</p>
    * @return rules
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ApplicationSecurityPolicyRuleOverride> getRules() {
-    return rules;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RULES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ApplicationSecurityPolicyRuleOverride> getRules() {
+        return rules;
+      }
   public void setRules(List<ApplicationSecurityPolicyRuleOverride> rules) {
     this.rules = rules;
     if (rules != null) {
@@ -201,20 +200,16 @@ public class ApplicationSecurityPolicyAttributes {
       }
     }
   }
-
-  public ApplicationSecurityPolicyAttributes rulesets(
-      List<ApplicationSecurityPolicyRulesetOverride> rulesets) {
+  public ApplicationSecurityPolicyAttributes rulesets(List<ApplicationSecurityPolicyRulesetOverride> rulesets) {
     this.rulesets = rulesets;
     if (rulesets != null) {
-      for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
-        this.unparsed |= item.unparsed;
-      }
+    for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public ApplicationSecurityPolicyAttributes addRulesetsItem(
-      ApplicationSecurityPolicyRulesetOverride rulesetsItem) {
+  public ApplicationSecurityPolicyAttributes addRulesetsItem(ApplicationSecurityPolicyRulesetOverride rulesetsItem) {
     if (this.rulesets == null) {
       this.rulesets = new ArrayList<>();
     }
@@ -224,19 +219,18 @@ public class ApplicationSecurityPolicyAttributes {
   }
 
   /**
-   * Deprecated: Ruleset overrides. Use <code>protectionPresets</code> instead.
-   *
+   * <p>Deprecated: Ruleset overrides. Use <code>protectionPresets</code> instead.</p>
    * @return rulesets
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULESETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ApplicationSecurityPolicyRulesetOverride> getRulesets() {
-    return rulesets;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RULESETS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ApplicationSecurityPolicyRulesetOverride> getRulesets() {
+        return rulesets;
+      }
   @Deprecated
   public void setRulesets(List<ApplicationSecurityPolicyRulesetOverride> rulesets) {
     this.rulesets = rulesets;
@@ -246,19 +240,16 @@ public class ApplicationSecurityPolicyAttributes {
       }
     }
   }
-
   public ApplicationSecurityPolicyAttributes scope(List<ApplicationSecurityPolicyScope> scope) {
     this.scope = scope;
     if (scope != null) {
-      for (ApplicationSecurityPolicyScope item : scope) {
-        this.unparsed |= item.unparsed;
-      }
+    for (ApplicationSecurityPolicyScope item : scope) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public ApplicationSecurityPolicyAttributes addScopeItem(
-      ApplicationSecurityPolicyScope scopeItem) {
+  public ApplicationSecurityPolicyAttributes addScopeItem(ApplicationSecurityPolicyScope scopeItem) {
     if (this.scope == null) {
       this.scope = new ArrayList<>();
     }
@@ -268,17 +259,16 @@ public class ApplicationSecurityPolicyAttributes {
   }
 
   /**
-   * The scope of the WAF policy.
-   *
+   * <p>The scope of the WAF policy.</p>
    * @return scope
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ApplicationSecurityPolicyScope> getScope() {
-    return scope;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCOPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ApplicationSecurityPolicyScope> getScope() {
+        return scope;
+      }
   public void setScope(List<ApplicationSecurityPolicyScope> scope) {
     this.scope = scope;
     if (scope != null) {
@@ -287,37 +277,36 @@ public class ApplicationSecurityPolicyAttributes {
       }
     }
   }
-
   public ApplicationSecurityPolicyAttributes version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * Version of the WAF ruleset maintained by Datadog used by this policy. 0 is the default value.
-   *
+   * <p>Version of the WAF ruleset maintained by Datadog used by this policy. 0 is the default value.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getVersion() {
+        return version;
+      }
   public void setVersion(Long version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -326,7 +315,7 @@ public class ApplicationSecurityPolicyAttributes {
   @JsonAnySetter
   public ApplicationSecurityPolicyAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -350,12 +339,14 @@ public class ApplicationSecurityPolicyAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ApplicationSecurityPolicyAttributes object is equal to o. */
+  /**
+   * Return true if this ApplicationSecurityPolicyAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -364,33 +355,14 @@ public class ApplicationSecurityPolicyAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationSecurityPolicyAttributes applicationSecurityPolicyAttributes =
-        (ApplicationSecurityPolicyAttributes) o;
-    return Objects.equals(this.description, applicationSecurityPolicyAttributes.description)
-        && Objects.equals(this.isDefault, applicationSecurityPolicyAttributes.isDefault)
-        && Objects.equals(this.name, applicationSecurityPolicyAttributes.name)
-        && Objects.equals(
-            this.protectionPresets, applicationSecurityPolicyAttributes.protectionPresets)
-        && Objects.equals(this.rules, applicationSecurityPolicyAttributes.rules)
-        && Objects.equals(this.rulesets, applicationSecurityPolicyAttributes.rulesets)
-        && Objects.equals(this.scope, applicationSecurityPolicyAttributes.scope)
-        && Objects.equals(this.version, applicationSecurityPolicyAttributes.version)
-        && Objects.equals(
-            this.additionalProperties, applicationSecurityPolicyAttributes.additionalProperties);
+    ApplicationSecurityPolicyAttributes applicationSecurityPolicyAttributes = (ApplicationSecurityPolicyAttributes) o;
+    return Objects.equals(this.description, applicationSecurityPolicyAttributes.description) && Objects.equals(this.isDefault, applicationSecurityPolicyAttributes.isDefault) && Objects.equals(this.name, applicationSecurityPolicyAttributes.name) && Objects.equals(this.protectionPresets, applicationSecurityPolicyAttributes.protectionPresets) && Objects.equals(this.rules, applicationSecurityPolicyAttributes.rules) && Objects.equals(this.rulesets, applicationSecurityPolicyAttributes.rulesets) && Objects.equals(this.scope, applicationSecurityPolicyAttributes.scope) && Objects.equals(this.version, applicationSecurityPolicyAttributes.version) && Objects.equals(this.additionalProperties, applicationSecurityPolicyAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        description,
-        isDefault,
-        name,
-        protectionPresets,
-        rules,
-        rulesets,
-        scope,
-        version,
-        additionalProperties);
+    return Objects.hash(description,isDefault,name,protectionPresets,rules,rulesets,scope,version, additionalProperties);
   }
 
   @Override
@@ -413,7 +385,8 @@ public class ApplicationSecurityPolicyAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

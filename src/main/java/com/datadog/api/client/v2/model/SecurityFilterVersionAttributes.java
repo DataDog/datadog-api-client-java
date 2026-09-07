@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,22 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes describing a single security filter configuration version. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes describing a single security filter configuration version.</p>
+ */
 @JsonPropertyOrder({
   SecurityFilterVersionAttributes.JSON_PROPERTY_DATE,
   SecurityFilterVersionAttributes.JSON_PROPERTY_FILTERS,
   SecurityFilterVersionAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterVersionAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATE = "date";
   private Long date;
 
@@ -42,38 +56,34 @@ public class SecurityFilterVersionAttributes {
 
   @JsonCreator
   public SecurityFilterVersionAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATE) Long date,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS)
-          List<SecurityFilterVersionEntry> filters,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Integer version) {
-    this.date = date;
-    this.filters = filters;
-    for (SecurityFilterVersionEntry item : filters) {
-      this.unparsed |= item.unparsed;
-    }
-    this.version = version;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATE)Long date,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FILTERS)List<SecurityFilterVersionEntry> filters,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VERSION)Integer version) {
+        this.date = date;
+        this.filters = filters;
+        for (SecurityFilterVersionEntry item : filters) {
+          this.unparsed |= item.unparsed;
+        }
+        this.version = version;
   }
-
   public SecurityFilterVersionAttributes date(Long date) {
     this.date = date;
     return this;
   }
 
   /**
-   * The Unix timestamp in milliseconds at which this configuration version was applied.
-   *
+   * <p>The Unix timestamp in milliseconds at which this configuration version was applied.</p>
    * @return date
-   */
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getDate() {
-    return date;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getDate() {
+        return date;
+      }
   public void setDate(Long date) {
     this.date = date;
   }
-
   public SecurityFilterVersionAttributes filters(List<SecurityFilterVersionEntry> filters) {
     this.filters = filters;
     for (SecurityFilterVersionEntry item : filters) {
@@ -81,7 +91,6 @@ public class SecurityFilterVersionAttributes {
     }
     return this;
   }
-
   public SecurityFilterVersionAttributes addFiltersItem(SecurityFilterVersionEntry filtersItem) {
     this.filters.add(filtersItem);
     this.unparsed |= filtersItem.unparsed;
@@ -89,16 +98,15 @@ public class SecurityFilterVersionAttributes {
   }
 
   /**
-   * The set of security filters at this configuration version.
-   *
+   * <p>The set of security filters at this configuration version.</p>
    * @return filters
-   */
-  @JsonProperty(JSON_PROPERTY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SecurityFilterVersionEntry> getFilters() {
-    return filters;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SecurityFilterVersionEntry> getFilters() {
+        return filters;
+      }
   public void setFilters(List<SecurityFilterVersionEntry> filters) {
     this.filters = filters;
     if (filters != null) {
@@ -107,36 +115,36 @@ public class SecurityFilterVersionAttributes {
       }
     }
   }
-
   public SecurityFilterVersionAttributes version(Integer version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The configuration version number. maximum: 2147483647
-   *
+   * <p>The configuration version number.</p>
+   * maximum: 2147483647
    * @return version
-   */
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getVersion() {
-    return version;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getVersion() {
+        return version;
+      }
   public void setVersion(Integer version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -145,7 +153,7 @@ public class SecurityFilterVersionAttributes {
   @JsonAnySetter
   public SecurityFilterVersionAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -169,12 +177,14 @@ public class SecurityFilterVersionAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityFilterVersionAttributes object is equal to o. */
+  /**
+   * Return true if this SecurityFilterVersionAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -183,18 +193,14 @@ public class SecurityFilterVersionAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityFilterVersionAttributes securityFilterVersionAttributes =
-        (SecurityFilterVersionAttributes) o;
-    return Objects.equals(this.date, securityFilterVersionAttributes.date)
-        && Objects.equals(this.filters, securityFilterVersionAttributes.filters)
-        && Objects.equals(this.version, securityFilterVersionAttributes.version)
-        && Objects.equals(
-            this.additionalProperties, securityFilterVersionAttributes.additionalProperties);
+    SecurityFilterVersionAttributes securityFilterVersionAttributes = (SecurityFilterVersionAttributes) o;
+    return Objects.equals(this.date, securityFilterVersionAttributes.date) && Objects.equals(this.filters, securityFilterVersionAttributes.filters) && Objects.equals(this.version, securityFilterVersionAttributes.version) && Objects.equals(this.additionalProperties, securityFilterVersionAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, filters, version, additionalProperties);
+    return Objects.hash(date,filters,version, additionalProperties);
   }
 
   @Override
@@ -212,7 +218,8 @@ public class SecurityFilterVersionAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

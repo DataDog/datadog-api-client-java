@@ -6,27 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Per-finding warnings and failures produced while processing the bulk assignee request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Per-finding warnings and failures produced while processing the bulk assignee request.</p>
+ */
 @JsonPropertyOrder({
   AssigneeResponseMeta.JSON_PROPERTY_FAILURES,
   AssigneeResponseMeta.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AssigneeResponseMeta {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAILURES = "failures";
   private List<AssignmentResult> failures = null;
 
@@ -36,13 +51,12 @@ public class AssigneeResponseMeta {
   public AssigneeResponseMeta failures(List<AssignmentResult> failures) {
     this.failures = failures;
     if (failures != null) {
-      for (AssignmentResult item : failures) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AssignmentResult item : failures) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public AssigneeResponseMeta addFailuresItem(AssignmentResult failuresItem) {
     if (this.failures == null) {
       this.failures = new ArrayList<>();
@@ -53,17 +67,16 @@ public class AssigneeResponseMeta {
   }
 
   /**
-   * Findings that could not be assigned or unassigned.
-   *
+   * <p>Findings that could not be assigned or unassigned.</p>
    * @return failures
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAILURES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AssignmentResult> getFailures() {
-    return failures;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FAILURES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AssignmentResult> getFailures() {
+        return failures;
+      }
   public void setFailures(List<AssignmentResult> failures) {
     this.failures = failures;
     if (failures != null) {
@@ -72,17 +85,15 @@ public class AssigneeResponseMeta {
       }
     }
   }
-
   public AssigneeResponseMeta warnings(List<AssignmentResult> warnings) {
     this.warnings = warnings;
     if (warnings != null) {
-      for (AssignmentResult item : warnings) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AssignmentResult item : warnings) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public AssigneeResponseMeta addWarningsItem(AssignmentResult warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
@@ -93,18 +104,16 @@ public class AssigneeResponseMeta {
   }
 
   /**
-   * Findings for which the assignment succeeded but a non-critical error occurred during
-   * processing.
-   *
+   * <p>Findings for which the assignment succeeded but a non-critical error occurred during processing.</p>
    * @return warnings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AssignmentResult> getWarnings() {
-    return warnings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARNINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AssignmentResult> getWarnings() {
+        return warnings;
+      }
   public void setWarnings(List<AssignmentResult> warnings) {
     this.warnings = warnings;
     if (warnings != null) {
@@ -115,14 +124,15 @@ public class AssigneeResponseMeta {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -131,7 +141,7 @@ public class AssigneeResponseMeta {
   @JsonAnySetter
   public AssigneeResponseMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -155,12 +165,14 @@ public class AssigneeResponseMeta {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AssigneeResponseMeta object is equal to o. */
+  /**
+   * Return true if this AssigneeResponseMeta object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -170,14 +182,13 @@ public class AssigneeResponseMeta {
       return false;
     }
     AssigneeResponseMeta assigneeResponseMeta = (AssigneeResponseMeta) o;
-    return Objects.equals(this.failures, assigneeResponseMeta.failures)
-        && Objects.equals(this.warnings, assigneeResponseMeta.warnings)
-        && Objects.equals(this.additionalProperties, assigneeResponseMeta.additionalProperties);
+    return Objects.equals(this.failures, assigneeResponseMeta.failures) && Objects.equals(this.warnings, assigneeResponseMeta.warnings) && Objects.equals(this.additionalProperties, assigneeResponseMeta.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(failures, warnings, additionalProperties);
+    return Objects.hash(failures,warnings, additionalProperties);
   }
 
   @Override
@@ -194,7 +205,8 @@ public class AssigneeResponseMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

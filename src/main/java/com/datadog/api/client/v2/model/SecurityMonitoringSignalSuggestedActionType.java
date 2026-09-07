@@ -6,56 +6,72 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The type of the suggested action resource. */
-@JsonSerialize(
-    using =
-        SecurityMonitoringSignalSuggestedActionType
-            .SecurityMonitoringSignalSuggestedActionTypeSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The type of the suggested action resource.</p>
+ */
+@JsonSerialize(using = SecurityMonitoringSignalSuggestedActionType.SecurityMonitoringSignalSuggestedActionTypeSerializer.class)
 public class SecurityMonitoringSignalSuggestedActionType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("investigation_log_queries", "recommended_blog_posts"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("investigation_log_queries", "recommended_blog_posts"));
 
-  public static final SecurityMonitoringSignalSuggestedActionType INVESTIGATION_LOG_QUERIES =
-      new SecurityMonitoringSignalSuggestedActionType("investigation_log_queries");
-  public static final SecurityMonitoringSignalSuggestedActionType RECOMMENDED_BLOG_POSTS =
-      new SecurityMonitoringSignalSuggestedActionType("recommended_blog_posts");
+  public static final SecurityMonitoringSignalSuggestedActionType INVESTIGATION_LOG_QUERIES = new SecurityMonitoringSignalSuggestedActionType("investigation_log_queries");
+  public static final SecurityMonitoringSignalSuggestedActionType RECOMMENDED_BLOG_POSTS = new SecurityMonitoringSignalSuggestedActionType("recommended_blog_posts");
+
 
   SecurityMonitoringSignalSuggestedActionType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringSignalSuggestedActionTypeSerializer
-      extends StdSerializer<SecurityMonitoringSignalSuggestedActionType> {
-    public SecurityMonitoringSignalSuggestedActionTypeSerializer(
-        Class<SecurityMonitoringSignalSuggestedActionType> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringSignalSuggestedActionTypeSerializer extends StdSerializer<SecurityMonitoringSignalSuggestedActionType> {
+      public SecurityMonitoringSignalSuggestedActionTypeSerializer(Class<SecurityMonitoringSignalSuggestedActionType> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringSignalSuggestedActionTypeSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringSignalSuggestedActionTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringSignalSuggestedActionType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringSignalSuggestedActionType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

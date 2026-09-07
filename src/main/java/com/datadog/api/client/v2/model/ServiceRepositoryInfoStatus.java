@@ -6,57 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The status of the service repository info lookup. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The status of the service repository info lookup.</p>
+ */
 @JsonSerialize(using = ServiceRepositoryInfoStatus.ServiceRepositoryInfoStatusSerializer.class)
 public class ServiceRepositoryInfoStatus extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("success", "not_found", "no_repository", "internal_error", "unknown"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("success", "not_found", "no_repository", "internal_error", "unknown"));
 
-  public static final ServiceRepositoryInfoStatus SUCCESS =
-      new ServiceRepositoryInfoStatus("success");
-  public static final ServiceRepositoryInfoStatus NOT_FOUND =
-      new ServiceRepositoryInfoStatus("not_found");
-  public static final ServiceRepositoryInfoStatus NO_REPOSITORY =
-      new ServiceRepositoryInfoStatus("no_repository");
-  public static final ServiceRepositoryInfoStatus INTERNAL_ERROR =
-      new ServiceRepositoryInfoStatus("internal_error");
-  public static final ServiceRepositoryInfoStatus UNKNOWN =
-      new ServiceRepositoryInfoStatus("unknown");
+  public static final ServiceRepositoryInfoStatus SUCCESS = new ServiceRepositoryInfoStatus("success");
+  public static final ServiceRepositoryInfoStatus NOT_FOUND = new ServiceRepositoryInfoStatus("not_found");
+  public static final ServiceRepositoryInfoStatus NO_REPOSITORY = new ServiceRepositoryInfoStatus("no_repository");
+  public static final ServiceRepositoryInfoStatus INTERNAL_ERROR = new ServiceRepositoryInfoStatus("internal_error");
+  public static final ServiceRepositoryInfoStatus UNKNOWN = new ServiceRepositoryInfoStatus("unknown");
+
 
   ServiceRepositoryInfoStatus(String value) {
     super(value, allowedValues);
   }
 
-  public static class ServiceRepositoryInfoStatusSerializer
-      extends StdSerializer<ServiceRepositoryInfoStatus> {
-    public ServiceRepositoryInfoStatusSerializer(Class<ServiceRepositoryInfoStatus> t) {
-      super(t);
-    }
+  public static class ServiceRepositoryInfoStatusSerializer extends StdSerializer<ServiceRepositoryInfoStatus> {
+      public ServiceRepositoryInfoStatusSerializer(Class<ServiceRepositoryInfoStatus> t) {
+          super(t);
+      }
 
-    public ServiceRepositoryInfoStatusSerializer() {
-      this(null);
-    }
+      public ServiceRepositoryInfoStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ServiceRepositoryInfoStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ServiceRepositoryInfoStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

@@ -6,50 +6,72 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** A label attached to an Agent Observability prompt version. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>A label attached to an Agent Observability prompt version.</p>
+ */
 @JsonSerialize(using = LLMObsPromptVersionLabel.LLMObsPromptVersionLabelSerializer.class)
 public class LLMObsPromptVersionLabel extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("production", "development"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("production", "development"));
 
-  public static final LLMObsPromptVersionLabel PRODUCTION =
-      new LLMObsPromptVersionLabel("production");
-  public static final LLMObsPromptVersionLabel DEVELOPMENT =
-      new LLMObsPromptVersionLabel("development");
+  public static final LLMObsPromptVersionLabel PRODUCTION = new LLMObsPromptVersionLabel("production");
+  public static final LLMObsPromptVersionLabel DEVELOPMENT = new LLMObsPromptVersionLabel("development");
+
 
   LLMObsPromptVersionLabel(String value) {
     super(value, allowedValues);
   }
 
-  public static class LLMObsPromptVersionLabelSerializer
-      extends StdSerializer<LLMObsPromptVersionLabel> {
-    public LLMObsPromptVersionLabelSerializer(Class<LLMObsPromptVersionLabel> t) {
-      super(t);
-    }
+  public static class LLMObsPromptVersionLabelSerializer extends StdSerializer<LLMObsPromptVersionLabel> {
+      public LLMObsPromptVersionLabelSerializer(Class<LLMObsPromptVersionLabel> t) {
+          super(t);
+      }
 
-    public LLMObsPromptVersionLabelSerializer() {
-      this(null);
-    }
+      public LLMObsPromptVersionLabelSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        LLMObsPromptVersionLabel value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(LLMObsPromptVersionLabel value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

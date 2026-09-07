@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for an AWS CCM config validation request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for an AWS CCM config validation request.</p>
+ */
 @JsonPropertyOrder({
   AWSCcmConfigValidationRequestAttributes.JSON_PROPERTY_ACCOUNT_ID,
   AWSCcmConfigValidationRequestAttributes.JSON_PROPERTY_BUCKET_NAME,
@@ -25,10 +41,10 @@ import java.util.Objects;
   AWSCcmConfigValidationRequestAttributes.JSON_PROPERTY_REPORT_NAME,
   AWSCcmConfigValidationRequestAttributes.JSON_PROPERTY_REPORT_PREFIX
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSCcmConfigValidationRequestAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -48,126 +64,117 @@ public class AWSCcmConfigValidationRequestAttributes {
 
   @JsonCreator
   public AWSCcmConfigValidationRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET_NAME) String bucketName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET_REGION) String bucketRegion,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REPORT_NAME) String reportName) {
-    this.accountId = accountId;
-    this.bucketName = bucketName;
-    this.bucketRegion = bucketRegion;
-    this.reportName = reportName;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_ID)String accountId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_BUCKET_NAME)String bucketName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_BUCKET_REGION)String bucketRegion,
+            @JsonProperty(required=true, value=JSON_PROPERTY_REPORT_NAME)String reportName) {
+        this.accountId = accountId;
+        this.bucketName = bucketName;
+        this.bucketRegion = bucketRegion;
+        this.reportName = reportName;
   }
-
   public AWSCcmConfigValidationRequestAttributes accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
   /**
-   * Your AWS Account ID without dashes.
-   *
+   * <p>Your AWS Account ID without dashes.</p>
    * @return accountId
-   */
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAccountId() {
-    return accountId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAccountId() {
+        return accountId;
+      }
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
-
   public AWSCcmConfigValidationRequestAttributes bucketName(String bucketName) {
     this.bucketName = bucketName;
     return this;
   }
 
   /**
-   * Name of the S3 bucket where the Cost and Usage Report is stored.
-   *
+   * <p>Name of the S3 bucket where the Cost and Usage Report is stored.</p>
    * @return bucketName
-   */
-  @JsonProperty(JSON_PROPERTY_BUCKET_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getBucketName() {
-    return bucketName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_BUCKET_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getBucketName() {
+        return bucketName;
+      }
   public void setBucketName(String bucketName) {
     this.bucketName = bucketName;
   }
-
   public AWSCcmConfigValidationRequestAttributes bucketRegion(String bucketRegion) {
     this.bucketRegion = bucketRegion;
     return this;
   }
 
   /**
-   * AWS region of the S3 bucket.
-   *
+   * <p>AWS region of the S3 bucket.</p>
    * @return bucketRegion
-   */
-  @JsonProperty(JSON_PROPERTY_BUCKET_REGION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getBucketRegion() {
-    return bucketRegion;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_BUCKET_REGION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getBucketRegion() {
+        return bucketRegion;
+      }
   public void setBucketRegion(String bucketRegion) {
     this.bucketRegion = bucketRegion;
   }
-
   public AWSCcmConfigValidationRequestAttributes reportName(String reportName) {
     this.reportName = reportName;
     return this;
   }
 
   /**
-   * Name of the Cost and Usage Report.
-   *
+   * <p>Name of the Cost and Usage Report.</p>
    * @return reportName
-   */
-  @JsonProperty(JSON_PROPERTY_REPORT_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getReportName() {
-    return reportName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REPORT_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getReportName() {
+        return reportName;
+      }
   public void setReportName(String reportName) {
     this.reportName = reportName;
   }
-
   public AWSCcmConfigValidationRequestAttributes reportPrefix(String reportPrefix) {
     this.reportPrefix = reportPrefix;
     return this;
   }
 
   /**
-   * S3 prefix where the Cost and Usage Report is stored.
-   *
+   * <p>S3 prefix where the Cost and Usage Report is stored.</p>
    * @return reportPrefix
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REPORT_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getReportPrefix() {
-    return reportPrefix;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REPORT_PREFIX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getReportPrefix() {
+        return reportPrefix;
+      }
   public void setReportPrefix(String reportPrefix) {
     this.reportPrefix = reportPrefix;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -176,7 +183,7 @@ public class AWSCcmConfigValidationRequestAttributes {
   @JsonAnySetter
   public AWSCcmConfigValidationRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -200,12 +207,14 @@ public class AWSCcmConfigValidationRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AWSCcmConfigValidationRequestAttributes object is equal to o. */
+  /**
+   * Return true if this AWSCcmConfigValidationRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -214,22 +223,14 @@ public class AWSCcmConfigValidationRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSCcmConfigValidationRequestAttributes awsCcmConfigValidationRequestAttributes =
-        (AWSCcmConfigValidationRequestAttributes) o;
-    return Objects.equals(this.accountId, awsCcmConfigValidationRequestAttributes.accountId)
-        && Objects.equals(this.bucketName, awsCcmConfigValidationRequestAttributes.bucketName)
-        && Objects.equals(this.bucketRegion, awsCcmConfigValidationRequestAttributes.bucketRegion)
-        && Objects.equals(this.reportName, awsCcmConfigValidationRequestAttributes.reportName)
-        && Objects.equals(this.reportPrefix, awsCcmConfigValidationRequestAttributes.reportPrefix)
-        && Objects.equals(
-            this.additionalProperties,
-            awsCcmConfigValidationRequestAttributes.additionalProperties);
+    AWSCcmConfigValidationRequestAttributes awsCcmConfigValidationRequestAttributes = (AWSCcmConfigValidationRequestAttributes) o;
+    return Objects.equals(this.accountId, awsCcmConfigValidationRequestAttributes.accountId) && Objects.equals(this.bucketName, awsCcmConfigValidationRequestAttributes.bucketName) && Objects.equals(this.bucketRegion, awsCcmConfigValidationRequestAttributes.bucketRegion) && Objects.equals(this.reportName, awsCcmConfigValidationRequestAttributes.reportName) && Objects.equals(this.reportPrefix, awsCcmConfigValidationRequestAttributes.reportPrefix) && Objects.equals(this.additionalProperties, awsCcmConfigValidationRequestAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        accountId, bucketName, bucketRegion, reportName, reportPrefix, additionalProperties);
+    return Objects.hash(accountId,bucketName,bucketRegion,reportName,reportPrefix, additionalProperties);
   }
 
   @Override
@@ -249,7 +250,8 @@ public class AWSCcmConfigValidationRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

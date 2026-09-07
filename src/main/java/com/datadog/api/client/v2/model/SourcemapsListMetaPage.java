@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Page information for the source maps list response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Page information for the source maps list response.</p>
+ */
 @JsonPropertyOrder({
   SourcemapsListMetaPage.JSON_PROPERTY_HAS_MORE_RESULTS,
   SourcemapsListMetaPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SourcemapsListMetaPage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_MORE_RESULTS = "has_more_results";
   private Boolean hasMoreResults;
 
@@ -36,62 +52,58 @@ public class SourcemapsListMetaPage {
 
   @JsonCreator
   public SourcemapsListMetaPage(
-      @JsonProperty(required = true, value = JSON_PROPERTY_HAS_MORE_RESULTS) Boolean hasMoreResults,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_FILTERED_COUNT)
-          Long totalFilteredCount) {
-    this.hasMoreResults = hasMoreResults;
-    this.totalFilteredCount = totalFilteredCount;
+            @JsonProperty(required=true, value=JSON_PROPERTY_HAS_MORE_RESULTS)Boolean hasMoreResults,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL_FILTERED_COUNT)Long totalFilteredCount) {
+        this.hasMoreResults = hasMoreResults;
+        this.totalFilteredCount = totalFilteredCount;
   }
-
   public SourcemapsListMetaPage hasMoreResults(Boolean hasMoreResults) {
     this.hasMoreResults = hasMoreResults;
     return this;
   }
 
   /**
-   * Whether there are more results available beyond the current page.
-   *
+   * <p>Whether there are more results available beyond the current page.</p>
    * @return hasMoreResults
-   */
-  @JsonProperty(JSON_PROPERTY_HAS_MORE_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getHasMoreResults() {
-    return hasMoreResults;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_HAS_MORE_RESULTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getHasMoreResults() {
+        return hasMoreResults;
+      }
   public void setHasMoreResults(Boolean hasMoreResults) {
     this.hasMoreResults = hasMoreResults;
   }
-
   public SourcemapsListMetaPage totalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
     return this;
   }
 
   /**
-   * Total number of source maps matching the filter criteria.
-   *
+   * <p>Total number of source maps matching the filter criteria.</p>
    * @return totalFilteredCount
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTotalFilteredCount() {
-    return totalFilteredCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getTotalFilteredCount() {
+        return totalFilteredCount;
+      }
   public void setTotalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -100,7 +112,7 @@ public class SourcemapsListMetaPage {
   @JsonAnySetter
   public SourcemapsListMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -124,12 +136,14 @@ public class SourcemapsListMetaPage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SourcemapsListMetaPage object is equal to o. */
+  /**
+   * Return true if this SourcemapsListMetaPage object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -139,14 +153,13 @@ public class SourcemapsListMetaPage {
       return false;
     }
     SourcemapsListMetaPage sourcemapsListMetaPage = (SourcemapsListMetaPage) o;
-    return Objects.equals(this.hasMoreResults, sourcemapsListMetaPage.hasMoreResults)
-        && Objects.equals(this.totalFilteredCount, sourcemapsListMetaPage.totalFilteredCount)
-        && Objects.equals(this.additionalProperties, sourcemapsListMetaPage.additionalProperties);
+    return Objects.equals(this.hasMoreResults, sourcemapsListMetaPage.hasMoreResults) && Objects.equals(this.totalFilteredCount, sourcemapsListMetaPage.totalFilteredCount) && Objects.equals(this.additionalProperties, sourcemapsListMetaPage.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasMoreResults, totalFilteredCount, additionalProperties);
+    return Objects.hash(hasMoreResults,totalFilteredCount, additionalProperties);
   }
 
   @Override
@@ -163,7 +176,8 @@ public class SourcemapsListMetaPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

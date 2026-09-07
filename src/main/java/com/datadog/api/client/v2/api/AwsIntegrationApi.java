@@ -1,40 +1,48 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.AWSAccountCreateRequest;
-import com.datadog.api.client.v2.model.AWSAccountResponse;
-import com.datadog.api.client.v2.model.AWSAccountUpdateRequest;
-import com.datadog.api.client.v2.model.AWSAccountsResponse;
-import com.datadog.api.client.v2.model.AWSCcmConfigRequest;
-import com.datadog.api.client.v2.model.AWSCcmConfigResponse;
-import com.datadog.api.client.v2.model.AWSCcmConfigValidationRequest;
-import com.datadog.api.client.v2.model.AWSCcmConfigValidationResponse;
-import com.datadog.api.client.v2.model.AWSEventBridgeCreateRequest;
-import com.datadog.api.client.v2.model.AWSEventBridgeCreateResponse;
-import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequest;
-import com.datadog.api.client.v2.model.AWSEventBridgeDeleteResponse;
-import com.datadog.api.client.v2.model.AWSEventBridgeListResponse;
-import com.datadog.api.client.v2.model.AWSIntegrationIamPermissionsResponse;
-import com.datadog.api.client.v2.model.AWSMetricNameFilterPreviewRequest;
-import com.datadog.api.client.v2.model.AWSMetricNameFilterPreviewResponse;
-import com.datadog.api.client.v2.model.AWSNamespacesResponse;
-import com.datadog.api.client.v2.model.AWSNewExternalIDResponse;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.AWSAccountsResponse;
+import com.datadog.api.client.v2.model.AWSAccountResponse;
+import com.datadog.api.client.v2.model.AWSAccountCreateRequest;
+import com.datadog.api.client.v2.model.AWSAccountUpdateRequest;
+import com.datadog.api.client.v2.model.AWSCcmConfigResponse;
+import com.datadog.api.client.v2.model.AWSCcmConfigRequest;
+import com.datadog.api.client.v2.model.AWSMetricNameFilterPreviewResponse;
+import com.datadog.api.client.v2.model.AWSMetricNameFilterPreviewRequest;
+import com.datadog.api.client.v2.model.AWSNamespacesResponse;
+import com.datadog.api.client.v2.model.AWSEventBridgeDeleteResponse;
+import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequest;
+import com.datadog.api.client.v2.model.AWSEventBridgeListResponse;
+import com.datadog.api.client.v2.model.AWSEventBridgeCreateResponse;
+import com.datadog.api.client.v2.model.AWSEventBridgeCreateRequest;
+import com.datadog.api.client.v2.model.AWSNewExternalIDResponse;
+import com.datadog.api.client.v2.model.AWSIntegrationIamPermissionsResponse;
+import com.datadog.api.client.v2.model.AWSCcmConfigValidationResponse;
+import com.datadog.api.client.v2.model.AWSCcmConfigValidationRequest;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsIntegrationApi {
   private ApiClient apiClient;
-
   public AwsIntegrationApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -62,42 +70,41 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration.
-   *
-   * <p>See {@link #createAWSAccountWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return AWSAccountResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSAccountResponse createAWSAccount(AWSAccountCreateRequest body) throws ApiException {
+ * Create an AWS integration.
+ *
+ * See {@link #createAWSAccountWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return AWSAccountResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSAccountResponse  createAWSAccount(AWSAccountCreateRequest body) throws ApiException {
     return createAWSAccountWithHttpInfo(body).getData();
   }
 
   /**
-   * Create an AWS integration.
-   *
-   * <p>See {@link #createAWSAccountWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;AWSAccountResponse&gt;
-   */
-  public CompletableFuture<AWSAccountResponse> createAWSAccountAsync(AWSAccountCreateRequest body) {
-    return createAWSAccountWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create an AWS integration.
+ *
+ * See {@link #createAWSAccountWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;AWSAccountResponse&gt;
+ */
+  public CompletableFuture<AWSAccountResponse>createAWSAccountAsync(AWSAccountCreateRequest body) {
+    return createAWSAccountWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a new AWS Account Integration Config.
+   * <p>Create a new AWS Account Integration Config.</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;AWSAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS Account object </td><td>  -  </td></tr>
@@ -107,147 +114,99 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSAccountResponse> createAWSAccountWithHttpInfo(AWSAccountCreateRequest body)
-      throws ApiException {
+  public ApiResponse<AWSAccountResponse> createAWSAccountWithHttpInfo(AWSAccountCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createAWSAccount");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createAWSAccount");
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/accounts";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.createAWSAccount",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.createAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountResponse>() {});
   }
 
   /**
    * Create an AWS integration.
    *
-   * <p>See {@link #createAWSAccountWithHttpInfo}.
+   * See {@link #createAWSAccountWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSAccountResponse>> createAWSAccountWithHttpInfoAsync(
-      AWSAccountCreateRequest body) {
+  public CompletableFuture<ApiResponse<AWSAccountResponse>> createAWSAccountWithHttpInfoAsync(AWSAccountCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createAWSAccount"));
-      return result;
+        CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createAWSAccount"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/accounts";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.createAWSAccount",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.createAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountResponse>() {});
   }
 
   /**
-   * Create AWS CCM config.
-   *
-   * <p>See {@link #createAWSAccountCCMConfigWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
-   * @return AWSCcmConfigResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSCcmConfigResponse createAWSAccountCCMConfig(
-      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+ * Create AWS CCM config.
+ *
+ * See {@link #createAWSAccountCCMConfigWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body Create a Cloud Cost Management config for an AWS Account Integration Config. (required)
+ * @return AWSCcmConfigResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSCcmConfigResponse  createAWSAccountCCMConfig(String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
     return createAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId, body).getData();
   }
 
   /**
-   * Create AWS CCM config.
-   *
-   * <p>See {@link #createAWSAccountCCMConfigWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
-   * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
-   */
-  public CompletableFuture<AWSCcmConfigResponse> createAWSAccountCCMConfigAsync(
-      String awsAccountConfigId, AWSCcmConfigRequest body) {
-    return createAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create AWS CCM config.
+ *
+ * See {@link #createAWSAccountCCMConfigWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body Create a Cloud Cost Management config for an AWS Account Integration Config. (required)
+ * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
+ */
+  public CompletableFuture<AWSCcmConfigResponse>createAWSAccountCCMConfigAsync(String awsAccountConfigId, AWSCcmConfigRequest body) {
+    return createAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create the Cloud Cost Management config for an AWS Account Integration Config using Cost and
-   * Usage Report (CUR) 2.0 by config ID.
+   * <p>Create the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+   * (CUR) 2.0 by config ID.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config. (required)
    * @return ApiResponse&lt;AWSCcmConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS CCM Config object </td><td>  -  </td></tr>
@@ -257,8 +216,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSCcmConfigResponse> createAWSAccountCCMConfigWithHttpInfo(
-      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+  public ApiResponse<AWSCcmConfigResponse> createAWSAccountCCMConfigWithHttpInfo(String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -270,171 +228,114 @@ public class AwsIntegrationApi {
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'awsAccountConfigId' when calling"
-              + " createAWSAccountCCMConfig");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling createAWSAccountCCMConfig");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createAWSAccountCCMConfig");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createAWSAccountCCMConfig");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.createAWSAccountCCMConfig",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.createAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
    * Create AWS CCM config.
    *
-   * <p>See {@link #createAWSAccountCCMConfigWithHttpInfo}.
+   * See {@link #createAWSAccountCCMConfigWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>>
-      createAWSAccountCCMConfigWithHttpInfoAsync(
-          String awsAccountConfigId, AWSCcmConfigRequest body) {
+  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>> createAWSAccountCCMConfigWithHttpInfoAsync(String awsAccountConfigId, AWSCcmConfigRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling"
-                  + " createAWSAccountCCMConfig"));
-      return result;
+        CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling createAWSAccountCCMConfig"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createAWSAccountCCMConfig"));
-      return result;
+        CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createAWSAccountCCMConfig"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.createAWSAccountCCMConfig",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.createAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
-   * Create an Amazon EventBridge source.
-   *
-   * <p>See {@link #createAWSEventBridgeSourceWithHttpInfo}.
-   *
-   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
-   *     region. (required)
-   * @return AWSEventBridgeCreateResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSEventBridgeCreateResponse createAWSEventBridgeSource(AWSEventBridgeCreateRequest body)
-      throws ApiException {
+ * Create an Amazon EventBridge source.
+ *
+ * See {@link #createAWSEventBridgeSourceWithHttpInfo}.
+ *
+ * @param body Create an Amazon EventBridge source for an AWS account with a given name and region. (required)
+ * @return AWSEventBridgeCreateResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSEventBridgeCreateResponse  createAWSEventBridgeSource(AWSEventBridgeCreateRequest body) throws ApiException {
     return createAWSEventBridgeSourceWithHttpInfo(body).getData();
   }
 
   /**
-   * Create an Amazon EventBridge source.
-   *
-   * <p>See {@link #createAWSEventBridgeSourceWithHttpInfoAsync}.
-   *
-   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
-   *     region. (required)
-   * @return CompletableFuture&lt;AWSEventBridgeCreateResponse&gt;
-   */
-  public CompletableFuture<AWSEventBridgeCreateResponse> createAWSEventBridgeSourceAsync(
-      AWSEventBridgeCreateRequest body) {
-    return createAWSEventBridgeSourceWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create an Amazon EventBridge source.
+ *
+ * See {@link #createAWSEventBridgeSourceWithHttpInfoAsync}.
+ *
+ * @param body Create an Amazon EventBridge source for an AWS account with a given name and region. (required)
+ * @return CompletableFuture&lt;AWSEventBridgeCreateResponse&gt;
+ */
+  public CompletableFuture<AWSEventBridgeCreateResponse>createAWSEventBridgeSourceAsync(AWSEventBridgeCreateRequest body) {
+    return createAWSEventBridgeSourceWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create an Amazon EventBridge source.
+   * <p>Create an Amazon EventBridge source.</p>
    *
-   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
-   *     region. (required)
+   * @param body Create an Amazon EventBridge source for an AWS account with a given name and region. (required)
    * @return ApiResponse&lt;AWSEventBridgeCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Amazon EventBridge source created. </td><td>  -  </td></tr>
@@ -444,130 +345,92 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSEventBridgeCreateResponse> createAWSEventBridgeSourceWithHttpInfo(
-      AWSEventBridgeCreateRequest body) throws ApiException {
+  public ApiResponse<AWSEventBridgeCreateResponse> createAWSEventBridgeSourceWithHttpInfo(AWSEventBridgeCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createAWSEventBridgeSource");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createAWSEventBridgeSource");
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/event_bridge";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.createAWSEventBridgeSource",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSEventBridgeCreateResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.createAWSEventBridgeSource", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSEventBridgeCreateResponse>() {});
   }
 
   /**
    * Create an Amazon EventBridge source.
    *
-   * <p>See {@link #createAWSEventBridgeSourceWithHttpInfo}.
+   * See {@link #createAWSEventBridgeSourceWithHttpInfo}.
    *
-   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
-   *     region. (required)
+   * @param body Create an Amazon EventBridge source for an AWS account with a given name and region. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeCreateResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>>
-      createAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeCreateRequest body) {
+  public CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>> createAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling createAWSEventBridgeSource"));
-      return result;
+        CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createAWSEventBridgeSource"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/event_bridge";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.createAWSEventBridgeSource",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.createAWSEventBridgeSource", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSEventBridgeCreateResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSEventBridgeCreateResponse>() {});
   }
 
   /**
-   * Generate a new external ID.
-   *
-   * <p>See {@link #createNewAWSExternalIDWithHttpInfo}.
-   *
-   * @return AWSNewExternalIDResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSNewExternalIDResponse createNewAWSExternalID() throws ApiException {
+ * Generate a new external ID.
+ *
+ * See {@link #createNewAWSExternalIDWithHttpInfo}.
+ *
+ * @return AWSNewExternalIDResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSNewExternalIDResponse  createNewAWSExternalID() throws ApiException {
     return createNewAWSExternalIDWithHttpInfo().getData();
   }
 
   /**
-   * Generate a new external ID.
-   *
-   * <p>See {@link #createNewAWSExternalIDWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;AWSNewExternalIDResponse&gt;
-   */
-  public CompletableFuture<AWSNewExternalIDResponse> createNewAWSExternalIDAsync() {
-    return createNewAWSExternalIDWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Generate a new external ID.
+ *
+ * See {@link #createNewAWSExternalIDWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;AWSNewExternalIDResponse&gt;
+ */
+  public CompletableFuture<AWSNewExternalIDResponse>createNewAWSExternalIDAsync() {
+    return createNewAWSExternalIDWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Generate a new external ID for AWS role-based authentication.
+   * <p>Generate a new external ID for AWS role-based authentication.</p>
    *
    * @return ApiResponse&lt;AWSNewExternalIDResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS External ID object </td><td>  -  </td></tr>
@@ -575,121 +438,81 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSNewExternalIDResponse> createNewAWSExternalIDWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<AWSNewExternalIDResponse> createNewAWSExternalIDWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/generate_new_external_id";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.createNewAWSExternalID",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSNewExternalIDResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.createNewAWSExternalID", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSNewExternalIDResponse>() {});
   }
 
   /**
    * Generate a new external ID.
    *
-   * <p>See {@link #createNewAWSExternalIDWithHttpInfo}.
+   * See {@link #createNewAWSExternalIDWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSNewExternalIDResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSNewExternalIDResponse>>
-      createNewAWSExternalIDWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<AWSNewExternalIDResponse>> createNewAWSExternalIDWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/generate_new_external_id";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.createNewAWSExternalID",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.createNewAWSExternalID", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSNewExternalIDResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSNewExternalIDResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSNewExternalIDResponse>() {});
   }
 
   /**
-   * Delete an AWS integration.
-   *
-   * <p>See {@link #deleteAWSAccountWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteAWSAccount(String awsAccountConfigId) throws ApiException {
+ * Delete an AWS integration.
+ *
+ * See {@link #deleteAWSAccountWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteAWSAccount(String awsAccountConfigId) throws ApiException {
     deleteAWSAccountWithHttpInfo(awsAccountConfigId);
   }
 
   /**
-   * Delete an AWS integration.
-   *
-   * <p>See {@link #deleteAWSAccountWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteAWSAccountAsync(String awsAccountConfigId) {
-    return deleteAWSAccountWithHttpInfoAsync(awsAccountConfigId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete an AWS integration.
+ *
+ * See {@link #deleteAWSAccountWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteAWSAccountAsync(String awsAccountConfigId) {
+    return deleteAWSAccountWithHttpInfoAsync(awsAccountConfigId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete an AWS Account Integration Config by config ID.
+   * <p>Delete an AWS Account Integration Config by config ID.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -699,150 +522,97 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteAWSAccountWithHttpInfo(String awsAccountConfigId)
-      throws ApiException {
+  public ApiResponse<Void> deleteAWSAccountWithHttpInfo(String awsAccountConfigId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'awsAccountConfigId' when calling deleteAWSAccount");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling deleteAWSAccount");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.deleteAWSAccount",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.deleteAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete an AWS integration.
    *
-   * <p>See {@link #deleteAWSAccountWithHttpInfo}.
+   * See {@link #deleteAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteAWSAccountWithHttpInfoAsync(
-      String awsAccountConfigId) {
+  public CompletableFuture<ApiResponse<Void>> deleteAWSAccountWithHttpInfoAsync(String awsAccountConfigId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling deleteAWSAccount"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling deleteAWSAccount"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.deleteAWSAccount",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.deleteAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete AWS CCM config.
-   *
-   * <p>See {@link #deleteAWSAccountCCMConfigWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteAWSAccountCCMConfig(String awsAccountConfigId) throws ApiException {
+ * Delete AWS CCM config.
+ *
+ * See {@link #deleteAWSAccountCCMConfigWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteAWSAccountCCMConfig(String awsAccountConfigId) throws ApiException {
     deleteAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId);
   }
 
   /**
-   * Delete AWS CCM config.
-   *
-   * <p>See {@link #deleteAWSAccountCCMConfigWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteAWSAccountCCMConfigAsync(String awsAccountConfigId) {
-    return deleteAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete AWS CCM config.
+ *
+ * See {@link #deleteAWSAccountCCMConfigWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteAWSAccountCCMConfigAsync(String awsAccountConfigId) {
+    return deleteAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete the Cloud Cost Management config for an AWS Account Integration Config using Cost and
-   * Usage Report (CUR) 2.0 by config ID.
+   * <p>Delete the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+   * (CUR) 2.0 by config ID.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -851,8 +621,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteAWSAccountCCMConfigWithHttpInfo(String awsAccountConfigId)
-      throws ApiException {
+  public ApiResponse<Void> deleteAWSAccountCCMConfigWithHttpInfo(String awsAccountConfigId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -864,153 +633,101 @@ public class AwsIntegrationApi {
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'awsAccountConfigId' when calling"
-              + " deleteAWSAccountCCMConfig");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling deleteAWSAccountCCMConfig");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.deleteAWSAccountCCMConfig",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.deleteAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete AWS CCM config.
    *
-   * <p>See {@link #deleteAWSAccountCCMConfigWithHttpInfo}.
+   * See {@link #deleteAWSAccountCCMConfigWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteAWSAccountCCMConfigWithHttpInfoAsync(
-      String awsAccountConfigId) {
+  public CompletableFuture<ApiResponse<Void>> deleteAWSAccountCCMConfigWithHttpInfoAsync(String awsAccountConfigId) {
     // Check if unstable operation is enabled
     String operationId = "deleteAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling"
-                  + " deleteAWSAccountCCMConfig"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling deleteAWSAccountCCMConfig"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.deleteAWSAccountCCMConfig",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.deleteAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete an Amazon EventBridge source.
-   *
-   * <p>See {@link #deleteAWSEventBridgeSourceWithHttpInfo}.
-   *
-   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
-   *     AWS account. (required)
-   * @return AWSEventBridgeDeleteResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSEventBridgeDeleteResponse deleteAWSEventBridgeSource(AWSEventBridgeDeleteRequest body)
-      throws ApiException {
+ * Delete an Amazon EventBridge source.
+ *
+ * See {@link #deleteAWSEventBridgeSourceWithHttpInfo}.
+ *
+ * @param body Delete the Amazon EventBridge source with the given name, region, and associated AWS account. (required)
+ * @return AWSEventBridgeDeleteResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSEventBridgeDeleteResponse  deleteAWSEventBridgeSource(AWSEventBridgeDeleteRequest body) throws ApiException {
     return deleteAWSEventBridgeSourceWithHttpInfo(body).getData();
   }
 
   /**
-   * Delete an Amazon EventBridge source.
-   *
-   * <p>See {@link #deleteAWSEventBridgeSourceWithHttpInfoAsync}.
-   *
-   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
-   *     AWS account. (required)
-   * @return CompletableFuture&lt;AWSEventBridgeDeleteResponse&gt;
-   */
-  public CompletableFuture<AWSEventBridgeDeleteResponse> deleteAWSEventBridgeSourceAsync(
-      AWSEventBridgeDeleteRequest body) {
-    return deleteAWSEventBridgeSourceWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete an Amazon EventBridge source.
+ *
+ * See {@link #deleteAWSEventBridgeSourceWithHttpInfoAsync}.
+ *
+ * @param body Delete the Amazon EventBridge source with the given name, region, and associated AWS account. (required)
+ * @return CompletableFuture&lt;AWSEventBridgeDeleteResponse&gt;
+ */
+  public CompletableFuture<AWSEventBridgeDeleteResponse>deleteAWSEventBridgeSourceAsync(AWSEventBridgeDeleteRequest body) {
+    return deleteAWSEventBridgeSourceWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete an Amazon EventBridge source.
+   * <p>Delete an Amazon EventBridge source.</p>
    *
-   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
-   *     AWS account. (required)
+   * @param body Delete the Amazon EventBridge source with the given name, region, and associated AWS account. (required)
    * @return ApiResponse&lt;AWSEventBridgeDeleteResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Amazon EventBridge source deleted. </td><td>  -  </td></tr>
@@ -1019,142 +736,95 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSEventBridgeDeleteResponse> deleteAWSEventBridgeSourceWithHttpInfo(
-      AWSEventBridgeDeleteRequest body) throws ApiException {
+  public ApiResponse<AWSEventBridgeDeleteResponse> deleteAWSEventBridgeSourceWithHttpInfo(AWSEventBridgeDeleteRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling deleteAWSEventBridgeSource");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteAWSEventBridgeSource");
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/event_bridge";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.deleteAWSEventBridgeSource",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSEventBridgeDeleteResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.deleteAWSEventBridgeSource", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSEventBridgeDeleteResponse>() {});
   }
 
   /**
    * Delete an Amazon EventBridge source.
    *
-   * <p>See {@link #deleteAWSEventBridgeSourceWithHttpInfo}.
+   * See {@link #deleteAWSEventBridgeSourceWithHttpInfo}.
    *
-   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
-   *     AWS account. (required)
+   * @param body Delete the Amazon EventBridge source with the given name, region, and associated AWS account. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeDeleteResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>>
-      deleteAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeDeleteRequest body) {
+  public CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>> deleteAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeDeleteRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling deleteAWSEventBridgeSource"));
-      return result;
+        CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling deleteAWSEventBridgeSource"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/event_bridge";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.deleteAWSEventBridgeSource",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.deleteAWSEventBridgeSource", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSEventBridgeDeleteResponse>() {});
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSEventBridgeDeleteResponse>() {});
   }
 
   /**
-   * Get an AWS integration by config ID.
-   *
-   * <p>See {@link #getAWSAccountWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return AWSAccountResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSAccountResponse getAWSAccount(String awsAccountConfigId) throws ApiException {
+ * Get an AWS integration by config ID.
+ *
+ * See {@link #getAWSAccountWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return AWSAccountResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSAccountResponse  getAWSAccount(String awsAccountConfigId) throws ApiException {
     return getAWSAccountWithHttpInfo(awsAccountConfigId).getData();
   }
 
   /**
-   * Get an AWS integration by config ID.
-   *
-   * <p>See {@link #getAWSAccountWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return CompletableFuture&lt;AWSAccountResponse&gt;
-   */
-  public CompletableFuture<AWSAccountResponse> getAWSAccountAsync(String awsAccountConfigId) {
-    return getAWSAccountWithHttpInfoAsync(awsAccountConfigId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get an AWS integration by config ID.
+ *
+ * See {@link #getAWSAccountWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return CompletableFuture&lt;AWSAccountResponse&gt;
+ */
+  public CompletableFuture<AWSAccountResponse>getAWSAccountAsync(String awsAccountConfigId) {
+    return getAWSAccountWithHttpInfoAsync(awsAccountConfigId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get an AWS Account Integration Config by config ID.
+   * <p>Get an AWS Account Integration Config by config ID.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return ApiResponse&lt;AWSAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS Account object </td><td>  -  </td></tr>
@@ -1164,153 +834,98 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSAccountResponse> getAWSAccountWithHttpInfo(String awsAccountConfigId)
-      throws ApiException {
+  public ApiResponse<AWSAccountResponse> getAWSAccountWithHttpInfo(String awsAccountConfigId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'awsAccountConfigId' when calling getAWSAccount");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling getAWSAccount");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.getAWSAccount",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountResponse>() {});
   }
 
   /**
    * Get an AWS integration by config ID.
    *
-   * <p>See {@link #getAWSAccountWithHttpInfo}.
+   * See {@link #getAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSAccountResponse>> getAWSAccountWithHttpInfoAsync(
-      String awsAccountConfigId) {
+  public CompletableFuture<ApiResponse<AWSAccountResponse>> getAWSAccountWithHttpInfoAsync(String awsAccountConfigId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling getAWSAccount"));
-      return result;
+        CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling getAWSAccount"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.getAWSAccount",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountResponse>() {});
   }
 
   /**
-   * Get AWS CCM config.
-   *
-   * <p>See {@link #getAWSAccountCCMConfigWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return AWSCcmConfigResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSCcmConfigResponse getAWSAccountCCMConfig(String awsAccountConfigId)
-      throws ApiException {
+ * Get AWS CCM config.
+ *
+ * See {@link #getAWSAccountCCMConfigWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return AWSCcmConfigResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSCcmConfigResponse  getAWSAccountCCMConfig(String awsAccountConfigId) throws ApiException {
     return getAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId).getData();
   }
 
   /**
-   * Get AWS CCM config.
-   *
-   * <p>See {@link #getAWSAccountCCMConfigWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
-   */
-  public CompletableFuture<AWSCcmConfigResponse> getAWSAccountCCMConfigAsync(
-      String awsAccountConfigId) {
-    return getAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get AWS CCM config.
+ *
+ * See {@link #getAWSAccountCCMConfigWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
+ */
+  public CompletableFuture<AWSCcmConfigResponse>getAWSAccountCCMConfigAsync(String awsAccountConfigId) {
+    return getAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage
-   * Report (CUR) 2.0 by config ID.
+   * <p>Get the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+   * (CUR) 2.0 by config ID.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return ApiResponse&lt;AWSCcmConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS CCM Config object </td><td>  -  </td></tr>
@@ -1319,8 +934,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSCcmConfigResponse> getAWSAccountCCMConfigWithHttpInfo(
-      String awsAccountConfigId) throws ApiException {
+  public ApiResponse<AWSCcmConfigResponse> getAWSAccountCCMConfigWithHttpInfo(String awsAccountConfigId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1332,499 +946,338 @@ public class AwsIntegrationApi {
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'awsAccountConfigId' when calling"
-              + " getAWSAccountCCMConfig");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling getAWSAccountCCMConfig");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.getAWSAccountCCMConfig",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
    * Get AWS CCM config.
    *
-   * <p>See {@link #getAWSAccountCCMConfigWithHttpInfo}.
+   * See {@link #getAWSAccountCCMConfigWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>>
-      getAWSAccountCCMConfigWithHttpInfoAsync(String awsAccountConfigId) {
+  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>> getAWSAccountCCMConfigWithHttpInfoAsync(String awsAccountConfigId) {
     // Check if unstable operation is enabled
     String operationId = "getAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling"
-                  + " getAWSAccountCCMConfig"));
-      return result;
+        CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling getAWSAccountCCMConfig"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.getAWSAccountCCMConfig",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
-   * Get AWS integration IAM permissions.
-   *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsWithHttpInfo}.
-   *
-   * @return AWSIntegrationIamPermissionsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSIntegrationIamPermissionsResponse getAWSIntegrationIAMPermissions()
-      throws ApiException {
+ * Get AWS integration IAM permissions.
+ *
+ * See {@link #getAWSIntegrationIAMPermissionsWithHttpInfo}.
+ *
+ * @return AWSIntegrationIamPermissionsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSIntegrationIamPermissionsResponse  getAWSIntegrationIAMPermissions() throws ApiException {
     return getAWSIntegrationIAMPermissionsWithHttpInfo().getData();
   }
 
   /**
-   * Get AWS integration IAM permissions.
-   *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
-   */
-  public CompletableFuture<AWSIntegrationIamPermissionsResponse>
-      getAWSIntegrationIAMPermissionsAsync() {
-    return getAWSIntegrationIAMPermissionsWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get AWS integration IAM permissions.
+ *
+ * See {@link #getAWSIntegrationIAMPermissionsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
+ */
+  public CompletableFuture<AWSIntegrationIamPermissionsResponse>getAWSIntegrationIAMPermissionsAsync() {
+    return getAWSIntegrationIAMPermissionsWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all AWS IAM permissions required for the AWS integration.
+   * <p>Get all AWS IAM permissions required for the AWS integration.</p>
    *
    * @return ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS IAM Permissions object </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSIntegrationIamPermissionsResponse>
-      getAWSIntegrationIAMPermissionsWithHttpInfo() throws ApiException {
+  public ApiResponse<AWSIntegrationIamPermissionsResponse> getAWSIntegrationIAMPermissionsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/iam_permissions";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissions",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSIntegrationIAMPermissions", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
   /**
    * Get AWS integration IAM permissions.
    *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsWithHttpInfo}.
+   * See {@link #getAWSIntegrationIAMPermissionsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>>
-      getAWSIntegrationIAMPermissionsWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> getAWSIntegrationIAMPermissionsWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/iam_permissions";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissions",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSIntegrationIAMPermissions", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
   /**
-   * Get resource collection IAM permissions.
-   *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo}.
-   *
-   * @return AWSIntegrationIamPermissionsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSIntegrationIamPermissionsResponse getAWSIntegrationIAMPermissionsResourceCollection()
-      throws ApiException {
+ * Get resource collection IAM permissions.
+ *
+ * See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo}.
+ *
+ * @return AWSIntegrationIamPermissionsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSIntegrationIamPermissionsResponse  getAWSIntegrationIAMPermissionsResourceCollection() throws ApiException {
     return getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo().getData();
   }
 
   /**
-   * Get resource collection IAM permissions.
-   *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
-   */
-  public CompletableFuture<AWSIntegrationIamPermissionsResponse>
-      getAWSIntegrationIAMPermissionsResourceCollectionAsync() {
-    return getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get resource collection IAM permissions.
+ *
+ * See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
+ */
+  public CompletableFuture<AWSIntegrationIamPermissionsResponse>getAWSIntegrationIAMPermissionsResourceCollectionAsync() {
+    return getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all resource collection AWS IAM permissions required for the AWS integration.
+   * <p>Get all resource collection AWS IAM permissions required for the AWS integration.</p>
    *
    * @return ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS integration resource collection IAM permissions. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSIntegrationIamPermissionsResponse>
-      getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo() throws ApiException {
+  public ApiResponse<AWSIntegrationIamPermissionsResponse> getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/iam_permissions/resource_collection";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsResourceCollection",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsResourceCollection", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
   /**
    * Get resource collection IAM permissions.
    *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo}.
+   * See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>>
-      getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/iam_permissions/resource_collection";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsResourceCollection",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsResourceCollection", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
   /**
-   * Get AWS integration standard IAM permissions.
-   *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfo}.
-   *
-   * @return AWSIntegrationIamPermissionsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSIntegrationIamPermissionsResponse getAWSIntegrationIAMPermissionsStandard()
-      throws ApiException {
+ * Get AWS integration standard IAM permissions.
+ *
+ * See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfo}.
+ *
+ * @return AWSIntegrationIamPermissionsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSIntegrationIamPermissionsResponse  getAWSIntegrationIAMPermissionsStandard() throws ApiException {
     return getAWSIntegrationIAMPermissionsStandardWithHttpInfo().getData();
   }
 
   /**
-   * Get AWS integration standard IAM permissions.
-   *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
-   */
-  public CompletableFuture<AWSIntegrationIamPermissionsResponse>
-      getAWSIntegrationIAMPermissionsStandardAsync() {
-    return getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get AWS integration standard IAM permissions.
+ *
+ * See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
+ */
+  public CompletableFuture<AWSIntegrationIamPermissionsResponse>getAWSIntegrationIAMPermissionsStandardAsync() {
+    return getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all standard AWS IAM permissions required for the AWS integration.
+   * <p>Get all standard AWS IAM permissions required for the AWS integration.</p>
    *
    * @return ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS integration standard IAM permissions. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSIntegrationIamPermissionsResponse>
-      getAWSIntegrationIAMPermissionsStandardWithHttpInfo() throws ApiException {
+  public ApiResponse<AWSIntegrationIamPermissionsResponse> getAWSIntegrationIAMPermissionsStandardWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/iam_permissions/standard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsStandard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsStandard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
   /**
    * Get AWS integration standard IAM permissions.
    *
-   * <p>See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfo}.
+   * See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>>
-      getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/iam_permissions/standard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsStandard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsStandard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
   /**
-   * Get AWS metric name filter preview.
-   *
-   * <p>See {@link #getAWSMetricNameFilterPreviewWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return AWSMetricNameFilterPreviewResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSMetricNameFilterPreviewResponse getAWSMetricNameFilterPreview(String awsAccountConfigId)
-      throws ApiException {
+ * Get AWS metric name filter preview.
+ *
+ * See {@link #getAWSMetricNameFilterPreviewWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return AWSMetricNameFilterPreviewResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSMetricNameFilterPreviewResponse  getAWSMetricNameFilterPreview(String awsAccountConfigId) throws ApiException {
     return getAWSMetricNameFilterPreviewWithHttpInfo(awsAccountConfigId).getData();
   }
 
   /**
-   * Get AWS metric name filter preview.
-   *
-   * <p>See {@link #getAWSMetricNameFilterPreviewWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @return CompletableFuture&lt;AWSMetricNameFilterPreviewResponse&gt;
-   */
-  public CompletableFuture<AWSMetricNameFilterPreviewResponse> getAWSMetricNameFilterPreviewAsync(
-      String awsAccountConfigId) {
-    return getAWSMetricNameFilterPreviewWithHttpInfoAsync(awsAccountConfigId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get AWS metric name filter preview.
+ *
+ * See {@link #getAWSMetricNameFilterPreviewWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @return CompletableFuture&lt;AWSMetricNameFilterPreviewResponse&gt;
+ */
+  public CompletableFuture<AWSMetricNameFilterPreviewResponse>getAWSMetricNameFilterPreviewAsync(String awsAccountConfigId) {
+    return getAWSMetricNameFilterPreviewWithHttpInfoAsync(awsAccountConfigId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Preview which collected CloudWatch metrics would be filtered by the account's saved metric name
-   * filters.
+   * <p>Preview which collected CloudWatch metrics would be filtered by the account's saved metric name filters.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS metric name filter preview result </td><td>  -  </td></tr>
@@ -1833,8 +1286,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSMetricNameFilterPreviewResponse> getAWSMetricNameFilterPreviewWithHttpInfo(
-      String awsAccountConfigId) throws ApiException {
+  public ApiResponse<AWSMetricNameFilterPreviewResponse> getAWSMetricNameFilterPreviewWithHttpInfo(String awsAccountConfigId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getAWSMetricNameFilterPreview";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1846,123 +1298,74 @@ public class AwsIntegrationApi {
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'awsAccountConfigId' when calling"
-              + " getAWSMetricNameFilterPreview");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling getAWSMetricNameFilterPreview");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.getAWSMetricNameFilterPreview",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSMetricNameFilterPreview", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSMetricNameFilterPreviewResponse>() {});
   }
 
   /**
    * Get AWS metric name filter preview.
    *
-   * <p>See {@link #getAWSMetricNameFilterPreviewWithHttpInfo}.
+   * See {@link #getAWSMetricNameFilterPreviewWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>>
-      getAWSMetricNameFilterPreviewWithHttpInfoAsync(String awsAccountConfigId) {
+  public CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> getAWSMetricNameFilterPreviewWithHttpInfoAsync(String awsAccountConfigId) {
     // Check if unstable operation is enabled
     String operationId = "getAWSMetricNameFilterPreview";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling"
-                  + " getAWSMetricNameFilterPreview"));
-      return result;
+        CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling getAWSMetricNameFilterPreview"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.getAWSMetricNameFilterPreview",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.getAWSMetricNameFilterPreview", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSMetricNameFilterPreviewResponse>() {});
   }
 
-  /** Manage optional parameters to listAWSAccounts. */
+  /**
+   * Manage optional parameters to listAWSAccounts.
+   */
   public static class ListAWSAccountsOptionalParameters {
     private String awsAccountId;
 
     /**
      * Set awsAccountId.
-     *
-     * @param awsAccountId Optional query parameter to filter accounts by AWS Account ID. If not
-     *     provided, all accounts are returned. (optional)
+     * @param awsAccountId Optional query parameter to filter accounts by AWS Account ID. If not provided, all accounts are returned. (optional)
      * @return ListAWSAccountsOptionalParameters
      */
     public ListAWSAccountsOptionalParameters awsAccountId(String awsAccountId) {
@@ -1972,71 +1375,66 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations.
-   *
-   * <p>See {@link #listAWSAccountsWithHttpInfo}.
-   *
-   * @return AWSAccountsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSAccountsResponse listAWSAccounts() throws ApiException {
+ * List all AWS integrations.
+ *
+ * See {@link #listAWSAccountsWithHttpInfo}.
+ *
+ * @return AWSAccountsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSAccountsResponse listAWSAccounts () throws ApiException {
     return listAWSAccountsWithHttpInfo(new ListAWSAccountsOptionalParameters()).getData();
   }
 
   /**
-   * List all AWS integrations.
-   *
-   * <p>See {@link #listAWSAccountsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;AWSAccountsResponse&gt;
-   */
-  public CompletableFuture<AWSAccountsResponse> listAWSAccountsAsync() {
-    return listAWSAccountsWithHttpInfoAsync(new ListAWSAccountsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List all AWS integrations.
+ *
+ * See {@link #listAWSAccountsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;AWSAccountsResponse&gt;
+ */
+  public CompletableFuture<AWSAccountsResponse>listAWSAccountsAsync() {
+    return listAWSAccountsWithHttpInfoAsync(new ListAWSAccountsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List all AWS integrations.
-   *
-   * <p>See {@link #listAWSAccountsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return AWSAccountsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSAccountsResponse listAWSAccounts(ListAWSAccountsOptionalParameters parameters)
-      throws ApiException {
+ * List all AWS integrations.
+ *
+ * See {@link #listAWSAccountsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return AWSAccountsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSAccountsResponse listAWSAccounts(ListAWSAccountsOptionalParameters parameters) throws ApiException {
     return listAWSAccountsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * List all AWS integrations.
-   *
-   * <p>See {@link #listAWSAccountsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;AWSAccountsResponse&gt;
-   */
-  public CompletableFuture<AWSAccountsResponse> listAWSAccountsAsync(
-      ListAWSAccountsOptionalParameters parameters) {
-    return listAWSAccountsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List all AWS integrations.
+ *
+ * See {@link #listAWSAccountsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;AWSAccountsResponse&gt;
+ */
+  public CompletableFuture<AWSAccountsResponse>listAWSAccountsAsync(ListAWSAccountsOptionalParameters parameters) {
+    return listAWSAccountsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get a list of AWS Account Integration Configs.
+   * <p>Get a list of AWS Account Integration Configs.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AWSAccountsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS Accounts List object </td><td>  -  </td></tr>
@@ -2044,53 +1442,37 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSAccountsResponse> listAWSAccountsWithHttpInfo(
-      ListAWSAccountsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<AWSAccountsResponse> listAWSAccountsWithHttpInfo(ListAWSAccountsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String awsAccountId = parameters.awsAccountId;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/accounts";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "aws_account_id", awsAccountId));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.listAWSAccounts",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountsResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.listAWSAccounts", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountsResponse>() {});
   }
 
   /**
    * List all AWS integrations.
    *
-   * <p>See {@link #listAWSAccountsWithHttpInfo}.
+   * See {@link #listAWSAccountsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSAccountsResponse>> listAWSAccountsWithHttpInfoAsync(
-      ListAWSAccountsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<AWSAccountsResponse>> listAWSAccountsWithHttpInfoAsync(ListAWSAccountsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String awsAccountId = parameters.awsAccountId;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/accounts";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2098,65 +1480,48 @@ public class AwsIntegrationApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.listAWSAccounts",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.listAWSAccounts", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSAccountsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountsResponse>() {});
   }
 
   /**
-   * Get all Amazon EventBridge sources.
-   *
-   * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfo}.
-   *
-   * @return AWSEventBridgeListResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSEventBridgeListResponse listAWSEventBridgeSources() throws ApiException {
+ * Get all Amazon EventBridge sources.
+ *
+ * See {@link #listAWSEventBridgeSourcesWithHttpInfo}.
+ *
+ * @return AWSEventBridgeListResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSEventBridgeListResponse  listAWSEventBridgeSources() throws ApiException {
     return listAWSEventBridgeSourcesWithHttpInfo().getData();
   }
 
   /**
-   * Get all Amazon EventBridge sources.
-   *
-   * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;AWSEventBridgeListResponse&gt;
-   */
-  public CompletableFuture<AWSEventBridgeListResponse> listAWSEventBridgeSourcesAsync() {
-    return listAWSEventBridgeSourcesWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all Amazon EventBridge sources.
+ *
+ * See {@link #listAWSEventBridgeSourcesWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;AWSEventBridgeListResponse&gt;
+ */
+  public CompletableFuture<AWSEventBridgeListResponse>listAWSEventBridgeSourcesAsync() {
+    return listAWSEventBridgeSourcesWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all Amazon EventBridge sources.
+   * <p>Get all Amazon EventBridge sources.</p>
    *
    * @return ApiResponse&lt;AWSEventBridgeListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Amazon EventBridge sources list. </td><td>  -  </td></tr>
@@ -2165,110 +1530,79 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSEventBridgeListResponse> listAWSEventBridgeSourcesWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<AWSEventBridgeListResponse> listAWSEventBridgeSourcesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/event_bridge";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.listAWSEventBridgeSources",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSEventBridgeListResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.listAWSEventBridgeSources", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSEventBridgeListResponse>() {});
   }
 
   /**
    * Get all Amazon EventBridge sources.
    *
-   * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfo}.
+   * See {@link #listAWSEventBridgeSourcesWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSEventBridgeListResponse>>
-      listAWSEventBridgeSourcesWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<AWSEventBridgeListResponse>> listAWSEventBridgeSourcesWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/event_bridge";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.listAWSEventBridgeSources",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.listAWSEventBridgeSources", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSEventBridgeListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSEventBridgeListResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSEventBridgeListResponse>() {});
   }
 
   /**
-   * List available namespaces.
-   *
-   * <p>See {@link #listAWSNamespacesWithHttpInfo}.
-   *
-   * @return AWSNamespacesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSNamespacesResponse listAWSNamespaces() throws ApiException {
+ * List available namespaces.
+ *
+ * See {@link #listAWSNamespacesWithHttpInfo}.
+ *
+ * @return AWSNamespacesResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSNamespacesResponse  listAWSNamespaces() throws ApiException {
     return listAWSNamespacesWithHttpInfo().getData();
   }
 
   /**
-   * List available namespaces.
-   *
-   * <p>See {@link #listAWSNamespacesWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;AWSNamespacesResponse&gt;
-   */
-  public CompletableFuture<AWSNamespacesResponse> listAWSNamespacesAsync() {
-    return listAWSNamespacesWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List available namespaces.
+ *
+ * See {@link #listAWSNamespacesWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;AWSNamespacesResponse&gt;
+ */
+  public CompletableFuture<AWSNamespacesResponse>listAWSNamespacesAsync() {
+    return listAWSNamespacesWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get a list of available AWS CloudWatch namespaces that can send metrics to Datadog.
+   * <p>Get a list of available AWS CloudWatch namespaces that can send metrics to Datadog.</p>
    *
    * @return ApiResponse&lt;AWSNamespacesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS Namespaces List object </td><td>  -  </td></tr>
@@ -2281,122 +1615,81 @@ public class AwsIntegrationApi {
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/available_namespaces";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.listAWSNamespaces",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSNamespacesResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.listAWSNamespaces", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSNamespacesResponse>() {});
   }
 
   /**
    * List available namespaces.
    *
-   * <p>See {@link #listAWSNamespacesWithHttpInfo}.
+   * See {@link #listAWSNamespacesWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSNamespacesResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSNamespacesResponse>>
-      listAWSNamespacesWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<AWSNamespacesResponse>> listAWSNamespacesWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/available_namespaces";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.listAWSNamespaces",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.listAWSNamespaces", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSNamespacesResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSNamespacesResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSNamespacesResponse>() {});
   }
 
   /**
-   * Preview AWS metric name filter.
-   *
-   * <p>See {@link #previewAWSMetricNameFilterWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body The metric name filters to preview. (required)
-   * @return AWSMetricNameFilterPreviewResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSMetricNameFilterPreviewResponse previewAWSMetricNameFilter(
-      String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) throws ApiException {
+ * Preview AWS metric name filter.
+ *
+ * See {@link #previewAWSMetricNameFilterWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body The metric name filters to preview. (required)
+ * @return AWSMetricNameFilterPreviewResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSMetricNameFilterPreviewResponse  previewAWSMetricNameFilter(String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) throws ApiException {
     return previewAWSMetricNameFilterWithHttpInfo(awsAccountConfigId, body).getData();
   }
 
   /**
-   * Preview AWS metric name filter.
-   *
-   * <p>See {@link #previewAWSMetricNameFilterWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body The metric name filters to preview. (required)
-   * @return CompletableFuture&lt;AWSMetricNameFilterPreviewResponse&gt;
-   */
-  public CompletableFuture<AWSMetricNameFilterPreviewResponse> previewAWSMetricNameFilterAsync(
-      String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) {
-    return previewAWSMetricNameFilterWithHttpInfoAsync(awsAccountConfigId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Preview AWS metric name filter.
+ *
+ * See {@link #previewAWSMetricNameFilterWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body The metric name filters to preview. (required)
+ * @return CompletableFuture&lt;AWSMetricNameFilterPreviewResponse&gt;
+ */
+  public CompletableFuture<AWSMetricNameFilterPreviewResponse>previewAWSMetricNameFilterAsync(String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) {
+    return previewAWSMetricNameFilterWithHttpInfoAsync(awsAccountConfigId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Preview which collected CloudWatch metrics would be filtered by the supplied metric name
-   * filters. The filters are not persisted.
+   * <p>Preview which collected CloudWatch metrics would be filtered by the supplied metric name filters.
+   * The filters are not persisted.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @param body The metric name filters to preview. (required)
    * @return ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS metric name filter preview result </td><td>  -  </td></tr>
@@ -2406,8 +1699,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSMetricNameFilterPreviewResponse> previewAWSMetricNameFilterWithHttpInfo(
-      String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) throws ApiException {
+  public ApiResponse<AWSMetricNameFilterPreviewResponse> previewAWSMetricNameFilterWithHttpInfo(String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "previewAWSMetricNameFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -2419,184 +1711,117 @@ public class AwsIntegrationApi {
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'awsAccountConfigId' when calling"
-              + " previewAWSMetricNameFilter");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling previewAWSMetricNameFilter");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling previewAWSMetricNameFilter");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling previewAWSMetricNameFilter");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.previewAWSMetricNameFilter",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.previewAWSMetricNameFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSMetricNameFilterPreviewResponse>() {});
   }
 
   /**
    * Preview AWS metric name filter.
    *
-   * <p>See {@link #previewAWSMetricNameFilterWithHttpInfo}.
+   * See {@link #previewAWSMetricNameFilterWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @param body The metric name filters to preview. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>>
-      previewAWSMetricNameFilterWithHttpInfoAsync(
-          String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) {
+  public CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> previewAWSMetricNameFilterWithHttpInfoAsync(String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) {
     // Check if unstable operation is enabled
     String operationId = "previewAWSMetricNameFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling"
-                  + " previewAWSMetricNameFilter"));
-      return result;
+        CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling previewAWSMetricNameFilter"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling previewAWSMetricNameFilter"));
-      return result;
+        CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling previewAWSMetricNameFilter"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.previewAWSMetricNameFilter",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.previewAWSMetricNameFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSMetricNameFilterPreviewResponse>() {});
   }
 
   /**
-   * Update an AWS integration.
-   *
-   * <p>See {@link #updateAWSAccountWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body (required)
-   * @return AWSAccountResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSAccountResponse updateAWSAccount(
-      String awsAccountConfigId, AWSAccountUpdateRequest body) throws ApiException {
+ * Update an AWS integration.
+ *
+ * See {@link #updateAWSAccountWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body  (required)
+ * @return AWSAccountResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSAccountResponse  updateAWSAccount(String awsAccountConfigId, AWSAccountUpdateRequest body) throws ApiException {
     return updateAWSAccountWithHttpInfo(awsAccountConfigId, body).getData();
   }
 
   /**
-   * Update an AWS integration.
-   *
-   * <p>See {@link #updateAWSAccountWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;AWSAccountResponse&gt;
-   */
-  public CompletableFuture<AWSAccountResponse> updateAWSAccountAsync(
-      String awsAccountConfigId, AWSAccountUpdateRequest body) {
-    return updateAWSAccountWithHttpInfoAsync(awsAccountConfigId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update an AWS integration.
+ *
+ * See {@link #updateAWSAccountWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;AWSAccountResponse&gt;
+ */
+  public CompletableFuture<AWSAccountResponse>updateAWSAccountAsync(String awsAccountConfigId, AWSAccountUpdateRequest body) {
+    return updateAWSAccountWithHttpInfoAsync(awsAccountConfigId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update an AWS Account Integration Config by config ID.
+   * <p>Update an AWS Account Integration Config by config ID.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body  (required)
    * @return ApiResponse&lt;AWSAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS Account object </td><td>  -  </td></tr>
@@ -2606,175 +1831,114 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSAccountResponse> updateAWSAccountWithHttpInfo(
-      String awsAccountConfigId, AWSAccountUpdateRequest body) throws ApiException {
+  public ApiResponse<AWSAccountResponse> updateAWSAccountWithHttpInfo(String awsAccountConfigId, AWSAccountUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'awsAccountConfigId' when calling updateAWSAccount");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling updateAWSAccount");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateAWSAccount");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAWSAccount");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.updateAWSAccount",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.updateAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountResponse>() {});
   }
 
   /**
    * Update an AWS integration.
    *
-   * <p>See {@link #updateAWSAccountWithHttpInfo}.
+   * See {@link #updateAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSAccountResponse>> updateAWSAccountWithHttpInfoAsync(
-      String awsAccountConfigId, AWSAccountUpdateRequest body) {
+  public CompletableFuture<ApiResponse<AWSAccountResponse>> updateAWSAccountWithHttpInfoAsync(String awsAccountConfigId, AWSAccountUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling updateAWSAccount"));
-      return result;
+        CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling updateAWSAccount"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateAWSAccount"));
-      return result;
+        CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateAWSAccount"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.updateAWSAccount",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.updateAWSAccount", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSAccountResponse>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSAccountResponse>() {});
   }
 
   /**
-   * Update AWS CCM config.
-   *
-   * <p>See {@link #updateAWSAccountCCMConfigWithHttpInfo}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
-   * @return AWSCcmConfigResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSCcmConfigResponse updateAWSAccountCCMConfig(
-      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+ * Update AWS CCM config.
+ *
+ * See {@link #updateAWSAccountCCMConfigWithHttpInfo}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body Update a Cloud Cost Management config for an AWS Account Integration Config. (required)
+ * @return AWSCcmConfigResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSCcmConfigResponse  updateAWSAccountCCMConfig(String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
     return updateAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId, body).getData();
   }
 
   /**
-   * Update AWS CCM config.
-   *
-   * <p>See {@link #updateAWSAccountCCMConfigWithHttpInfoAsync}.
-   *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
-   * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
-   */
-  public CompletableFuture<AWSCcmConfigResponse> updateAWSAccountCCMConfigAsync(
-      String awsAccountConfigId, AWSCcmConfigRequest body) {
-    return updateAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update AWS CCM config.
+ *
+ * See {@link #updateAWSAccountCCMConfigWithHttpInfoAsync}.
+ *
+ * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+ * @param body Update a Cloud Cost Management config for an AWS Account Integration Config. (required)
+ * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
+ */
+  public CompletableFuture<AWSCcmConfigResponse>updateAWSAccountCCMConfigAsync(String awsAccountConfigId, AWSCcmConfigRequest body) {
+    return updateAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update the Cloud Cost Management config for an AWS Account Integration Config using Cost and
-   * Usage Report (CUR) 2.0 by config ID.
+   * <p>Update the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage Report
+   * (CUR) 2.0 by config ID.</p>
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config. (required)
    * @return ApiResponse&lt;AWSCcmConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS CCM Config object </td><td>  -  </td></tr>
@@ -2783,8 +1947,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSCcmConfigResponse> updateAWSAccountCCMConfigWithHttpInfo(
-      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+  public ApiResponse<AWSCcmConfigResponse> updateAWSAccountCCMConfigWithHttpInfo(String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "updateAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -2796,172 +1959,115 @@ public class AwsIntegrationApi {
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'awsAccountConfigId' when calling"
-              + " updateAWSAccountCCMConfig");
+      throw new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling updateAWSAccountCCMConfig");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateAWSAccountCCMConfig");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAWSAccountCCMConfig");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.updateAWSAccountCCMConfig",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.updateAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
    * Update AWS CCM config.
    *
-   * <p>See {@link #updateAWSAccountCCMConfigWithHttpInfo}.
+   * See {@link #updateAWSAccountCCMConfigWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
-   *     config ID for an account, use the <a
-   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
-   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
-   *     (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>>
-      updateAWSAccountCCMConfigWithHttpInfoAsync(
-          String awsAccountConfigId, AWSCcmConfigRequest body) {
+  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>> updateAWSAccountCCMConfigWithHttpInfoAsync(String awsAccountConfigId, AWSCcmConfigRequest body) {
     // Check if unstable operation is enabled
     String operationId = "updateAWSAccountCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
     if (awsAccountConfigId == null) {
-      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'awsAccountConfigId' when calling"
-                  + " updateAWSAccountCCMConfig"));
-      return result;
+        CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'awsAccountConfigId' when calling updateAWSAccountCCMConfig"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateAWSAccountCCMConfig"));
-      return result;
+        CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateAWSAccountCCMConfig"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
-            .replaceAll(
-                "\\{" + "aws_account_config_id" + "\\}",
-                apiClient.escapeString(awsAccountConfigId.toString()));
+    String localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+      .replaceAll("\\{" + "aws_account_config_id" + "\\}", apiClient.escapeString(awsAccountConfigId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.updateAWSAccountCCMConfig",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.updateAWSAccountCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigResponse>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
-   * Validate AWS CCM config.
-   *
-   * <p>See {@link #validateAWSCCMConfigWithHttpInfo}.
-   *
-   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
-   *     (required)
-   * @return AWSCcmConfigValidationResponse
-   * @throws ApiException if fails to make API call
-   */
-  public AWSCcmConfigValidationResponse validateAWSCCMConfig(AWSCcmConfigValidationRequest body)
-      throws ApiException {
+ * Validate AWS CCM config.
+ *
+ * See {@link #validateAWSCCMConfigWithHttpInfo}.
+ *
+ * @param body Validate a Cloud Cost Management config for an AWS account integration config. (required)
+ * @return AWSCcmConfigValidationResponse
+ * @throws ApiException if fails to make API call
+ */
+  public AWSCcmConfigValidationResponse  validateAWSCCMConfig(AWSCcmConfigValidationRequest body) throws ApiException {
     return validateAWSCCMConfigWithHttpInfo(body).getData();
   }
 
   /**
-   * Validate AWS CCM config.
-   *
-   * <p>See {@link #validateAWSCCMConfigWithHttpInfoAsync}.
-   *
-   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
-   *     (required)
-   * @return CompletableFuture&lt;AWSCcmConfigValidationResponse&gt;
-   */
-  public CompletableFuture<AWSCcmConfigValidationResponse> validateAWSCCMConfigAsync(
-      AWSCcmConfigValidationRequest body) {
-    return validateAWSCCMConfigWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Validate AWS CCM config.
+ *
+ * See {@link #validateAWSCCMConfigWithHttpInfoAsync}.
+ *
+ * @param body Validate a Cloud Cost Management config for an AWS account integration config. (required)
+ * @return CompletableFuture&lt;AWSCcmConfigValidationResponse&gt;
+ */
+  public CompletableFuture<AWSCcmConfigValidationResponse>validateAWSCCMConfigAsync(AWSCcmConfigValidationRequest body) {
+    return validateAWSCCMConfigWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Validate a Cloud Cost Management config for an AWS account using Cost and Usage Report (CUR)
-   * 2.0 against Datadog's ingest requirements without persisting it.
+   * <p>Validate a Cloud Cost Management config for an AWS account using Cost and Usage Report
+   * (CUR) 2.0 against Datadog's ingest requirements without persisting it.</p>
    *
-   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
-   *     (required)
+   * @param body Validate a Cloud Cost Management config for an AWS account integration config. (required)
    * @return ApiResponse&lt;AWSCcmConfigValidationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> AWS CCM Config validation result </td><td>  -  </td></tr>
@@ -2971,8 +2077,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AWSCcmConfigValidationResponse> validateAWSCCMConfigWithHttpInfo(
-      AWSCcmConfigValidationRequest body) throws ApiException {
+  public ApiResponse<AWSCcmConfigValidationResponse> validateAWSCCMConfigWithHttpInfo(AWSCcmConfigValidationRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "validateAWSCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -2984,97 +2089,60 @@ public class AwsIntegrationApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling validateAWSCCMConfig");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateAWSCCMConfig");
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/validate_ccm_config";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AwsIntegrationApi.validateAWSCCMConfig",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigValidationResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.AwsIntegrationApi.validateAWSCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigValidationResponse>() {});
   }
 
   /**
    * Validate AWS CCM config.
    *
-   * <p>See {@link #validateAWSCCMConfigWithHttpInfo}.
+   * See {@link #validateAWSCCMConfigWithHttpInfo}.
    *
-   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
-   *     (required)
+   * @param body Validate a Cloud Cost Management config for an AWS account integration config. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigValidationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>>
-      validateAWSCCMConfigWithHttpInfoAsync(AWSCcmConfigValidationRequest body) {
+  public CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> validateAWSCCMConfigWithHttpInfoAsync(AWSCcmConfigValidationRequest body) {
     // Check if unstable operation is enabled
     String operationId = "validateAWSCCMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling validateAWSCCMConfig"));
-      return result;
+        CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling validateAWSCCMConfig"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/validate_ccm_config";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AwsIntegrationApi.validateAWSCCMConfig",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.AwsIntegrationApi.validateAWSCCMConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<AWSCcmConfigValidationResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<AWSCcmConfigValidationResponse>() {});
   }
 }

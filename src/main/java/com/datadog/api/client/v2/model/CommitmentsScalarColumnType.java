@@ -6,49 +6,72 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The column type. "group" for dimension columns, "number" for metric columns. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The column type. "group" for dimension columns, "number" for metric columns.</p>
+ */
 @JsonSerialize(using = CommitmentsScalarColumnType.CommitmentsScalarColumnTypeSerializer.class)
 public class CommitmentsScalarColumnType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("group", "number"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("group", "number"));
 
   public static final CommitmentsScalarColumnType GROUP = new CommitmentsScalarColumnType("group");
-  public static final CommitmentsScalarColumnType NUMBER =
-      new CommitmentsScalarColumnType("number");
+  public static final CommitmentsScalarColumnType NUMBER = new CommitmentsScalarColumnType("number");
+
 
   CommitmentsScalarColumnType(String value) {
     super(value, allowedValues);
   }
 
-  public static class CommitmentsScalarColumnTypeSerializer
-      extends StdSerializer<CommitmentsScalarColumnType> {
-    public CommitmentsScalarColumnTypeSerializer(Class<CommitmentsScalarColumnType> t) {
-      super(t);
-    }
+  public static class CommitmentsScalarColumnTypeSerializer extends StdSerializer<CommitmentsScalarColumnType> {
+      public CommitmentsScalarColumnTypeSerializer(Class<CommitmentsScalarColumnType> t) {
+          super(t);
+      }
 
-    public CommitmentsScalarColumnTypeSerializer() {
-      this(null);
-    }
+      public CommitmentsScalarColumnTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        CommitmentsScalarColumnType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(CommitmentsScalarColumnType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

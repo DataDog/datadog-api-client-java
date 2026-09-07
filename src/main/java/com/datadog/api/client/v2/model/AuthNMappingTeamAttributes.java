@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Team attributes. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Team attributes.</p>
+ */
 @JsonPropertyOrder({
   AuthNMappingTeamAttributes.JSON_PROPERTY_AVATAR,
   AuthNMappingTeamAttributes.JSON_PROPERTY_BANNER,
@@ -27,10 +43,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AuthNMappingTeamAttributes.JSON_PROPERTY_SUMMARY,
   AuthNMappingTeamAttributes.JSON_PROPERTY_USER_COUNT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingTeamAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVATAR = "avatar";
   private JsonNullable<String> avatar = JsonNullable.<String>undefined();
 
@@ -58,168 +74,153 @@ public class AuthNMappingTeamAttributes {
   }
 
   /**
-   * Unicode representation of the avatar for the team, limited to a single grapheme
-   *
+   * <p>Unicode representation of the avatar for the team, limited to a single grapheme</p>
    * @return avatar
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getAvatar() {
-    return avatar.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getAvatar() {
+        return avatar.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_AVATAR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getAvatar_JsonNullable() {
     return avatar;
   }
-
-  @JsonProperty(JSON_PROPERTY_AVATAR)
-  public void setAvatar_JsonNullable(JsonNullable<String> avatar) {
+  @JsonProperty(JSON_PROPERTY_AVATAR)public void setAvatar_JsonNullable(JsonNullable<String> avatar) {
     this.avatar = avatar;
   }
-
   public void setAvatar(String avatar) {
     this.avatar = JsonNullable.<String>of(avatar);
   }
-
   public AuthNMappingTeamAttributes banner(Long banner) {
     this.banner = JsonNullable.<Long>of(banner);
     return this;
   }
 
   /**
-   * Banner selection for the team
-   *
+   * <p>Banner selection for the team</p>
    * @return banner
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getBanner() {
-    return banner.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getBanner() {
+        return banner.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_BANNER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getBanner_JsonNullable() {
     return banner;
   }
-
-  @JsonProperty(JSON_PROPERTY_BANNER)
-  public void setBanner_JsonNullable(JsonNullable<Long> banner) {
+  @JsonProperty(JSON_PROPERTY_BANNER)public void setBanner_JsonNullable(JsonNullable<Long> banner) {
     this.banner = banner;
   }
-
   public void setBanner(Long banner) {
     this.banner = JsonNullable.<Long>of(banner);
   }
-
   public AuthNMappingTeamAttributes handle(String handle) {
     this.handle = handle;
     return this;
   }
 
   /**
-   * The team's identifier
-   *
+   * <p>The team's identifier</p>
    * @return handle
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHandle() {
-    return handle;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HANDLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHandle() {
+        return handle;
+      }
   public void setHandle(String handle) {
     this.handle = handle;
   }
 
   /**
-   * The number of links belonging to the team maximum: 2147483647
-   *
+   * <p>The number of links belonging to the team</p>
+   * maximum: 2147483647
    * @return linkCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getLinkCount() {
-    return linkCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINK_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getLinkCount() {
+        return linkCount;
+      }
   public AuthNMappingTeamAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the team
-   *
+   * <p>The name of the team</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public AuthNMappingTeamAttributes summary(String summary) {
     this.summary = JsonNullable.<String>of(summary);
     return this;
   }
 
   /**
-   * A brief summary of the team, derived from the <code>description</code>
-   *
+   * <p>A brief summary of the team, derived from the <code>description</code></p>
    * @return summary
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getSummary() {
-    return summary.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getSummary() {
+        return summary.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SUMMARY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getSummary_JsonNullable() {
     return summary;
   }
-
-  @JsonProperty(JSON_PROPERTY_SUMMARY)
-  public void setSummary_JsonNullable(JsonNullable<String> summary) {
+  @JsonProperty(JSON_PROPERTY_SUMMARY)public void setSummary_JsonNullable(JsonNullable<String> summary) {
     this.summary = summary;
   }
-
   public void setSummary(String summary) {
     this.summary = JsonNullable.<String>of(summary);
   }
 
   /**
-   * The number of users belonging to the team maximum: 2147483647
-   *
+   * <p>The number of users belonging to the team</p>
+   * maximum: 2147483647
    * @return userCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getUserCount() {
-    return userCount;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USER_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getUserCount() {
+        return userCount;
+      }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -228,7 +229,7 @@ public class AuthNMappingTeamAttributes {
   @JsonAnySetter
   public AuthNMappingTeamAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -252,12 +253,14 @@ public class AuthNMappingTeamAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AuthNMappingTeamAttributes object is equal to o. */
+  /**
+   * Return true if this AuthNMappingTeamAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -267,21 +270,13 @@ public class AuthNMappingTeamAttributes {
       return false;
     }
     AuthNMappingTeamAttributes authNMappingTeamAttributes = (AuthNMappingTeamAttributes) o;
-    return Objects.equals(this.avatar, authNMappingTeamAttributes.avatar)
-        && Objects.equals(this.banner, authNMappingTeamAttributes.banner)
-        && Objects.equals(this.handle, authNMappingTeamAttributes.handle)
-        && Objects.equals(this.linkCount, authNMappingTeamAttributes.linkCount)
-        && Objects.equals(this.name, authNMappingTeamAttributes.name)
-        && Objects.equals(this.summary, authNMappingTeamAttributes.summary)
-        && Objects.equals(this.userCount, authNMappingTeamAttributes.userCount)
-        && Objects.equals(
-            this.additionalProperties, authNMappingTeamAttributes.additionalProperties);
+    return Objects.equals(this.avatar, authNMappingTeamAttributes.avatar) && Objects.equals(this.banner, authNMappingTeamAttributes.banner) && Objects.equals(this.handle, authNMappingTeamAttributes.handle) && Objects.equals(this.linkCount, authNMappingTeamAttributes.linkCount) && Objects.equals(this.name, authNMappingTeamAttributes.name) && Objects.equals(this.summary, authNMappingTeamAttributes.summary) && Objects.equals(this.userCount, authNMappingTeamAttributes.userCount) && Objects.equals(this.additionalProperties, authNMappingTeamAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        avatar, banner, handle, linkCount, name, summary, userCount, additionalProperties);
+    return Objects.hash(avatar,banner,handle,linkCount,name,summary,userCount, additionalProperties);
   }
 
   @Override
@@ -303,7 +298,8 @@ public class AuthNMappingTeamAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

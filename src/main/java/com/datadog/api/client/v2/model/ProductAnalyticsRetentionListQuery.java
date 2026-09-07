@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,23 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Query definition for a retention list request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Query definition for a retention list request.</p>
+ */
 @JsonPropertyOrder({
   ProductAnalyticsRetentionListQuery.JSON_PROPERTY_COLUMNS,
   ProductAnalyticsRetentionListQuery.JSON_PROPERTY_COMPUTATION_SCOPE,
   ProductAnalyticsRetentionListQuery.JSON_PROPERTY_LIMIT,
   ProductAnalyticsRetentionListQuery.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsRetentionListQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ProductAnalyticsRetentionListColumn> columns = null;
 
@@ -46,29 +60,23 @@ public class ProductAnalyticsRetentionListQuery {
 
   @JsonCreator
   public ProductAnalyticsRetentionListQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTATION_SCOPE)
-          ProductAnalyticsRetentionCellScope computationScope,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH)
-          ProductAnalyticsRetentionSearch search) {
-    this.computationScope = computationScope;
-    this.unparsed |= computationScope.unparsed;
-    this.search = search;
-    this.unparsed |= search.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTATION_SCOPE)ProductAnalyticsRetentionCellScope computationScope,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH)ProductAnalyticsRetentionSearch search) {
+        this.computationScope = computationScope;
+        this.unparsed |= computationScope.unparsed;
+        this.search = search;
+        this.unparsed |= search.unparsed;
   }
-
-  public ProductAnalyticsRetentionListQuery columns(
-      List<ProductAnalyticsRetentionListColumn> columns) {
+  public ProductAnalyticsRetentionListQuery columns(List<ProductAnalyticsRetentionListColumn> columns) {
     this.columns = columns;
     if (columns != null) {
-      for (ProductAnalyticsRetentionListColumn item : columns) {
-        this.unparsed |= item.unparsed;
-      }
+    for (ProductAnalyticsRetentionListColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public ProductAnalyticsRetentionListQuery addColumnsItem(
-      ProductAnalyticsRetentionListColumn columnsItem) {
+  public ProductAnalyticsRetentionListQuery addColumnsItem(ProductAnalyticsRetentionListColumn columnsItem) {
     if (this.columns == null) {
       this.columns = new ArrayList<>();
     }
@@ -78,17 +86,16 @@ public class ProductAnalyticsRetentionListQuery {
   }
 
   /**
-   * The attribute columns to include in each returned row.
-   *
+   * <p>The attribute columns to include in each returned row.</p>
    * @return columns
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COLUMNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ProductAnalyticsRetentionListColumn> getColumns() {
-    return columns;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COLUMNS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ProductAnalyticsRetentionListColumn> getColumns() {
+        return columns;
+      }
   public void setColumns(List<ProductAnalyticsRetentionListColumn> columns) {
     this.columns = columns;
     if (columns != null) {
@@ -97,54 +104,48 @@ public class ProductAnalyticsRetentionListQuery {
       }
     }
   }
-
-  public ProductAnalyticsRetentionListQuery computationScope(
-      ProductAnalyticsRetentionCellScope computationScope) {
+  public ProductAnalyticsRetentionListQuery computationScope(ProductAnalyticsRetentionCellScope computationScope) {
     this.computationScope = computationScope;
     this.unparsed |= computationScope.unparsed;
     return this;
   }
 
   /**
-   * Narrows a retention query to a single cell, at the intersection of one cohort and one return
-   * period.
-   *
+   * <p>Narrows a retention query to a single cell, at the intersection of one cohort and one return period.</p>
    * @return computationScope
-   */
-  @JsonProperty(JSON_PROPERTY_COMPUTATION_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsRetentionCellScope getComputationScope() {
-    return computationScope;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_COMPUTATION_SCOPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsRetentionCellScope getComputationScope() {
+        return computationScope;
+      }
   public void setComputationScope(ProductAnalyticsRetentionCellScope computationScope) {
     this.computationScope = computationScope;
     if (computationScope != null) {
       this.unparsed |= computationScope.unparsed;
     }
   }
-
   public ProductAnalyticsRetentionListQuery limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Maximum number of rows to return. Use <code>0</code> for no limit. minimum: 0
-   *
+   * <p>Maximum number of rows to return. Use <code>0</code> for no limit.</p>
+   * minimum: 0
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public ProductAnalyticsRetentionListQuery search(ProductAnalyticsRetentionSearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -152,16 +153,15 @@ public class ProductAnalyticsRetentionListQuery {
   }
 
   /**
-   * Defines the cohort and return criteria that make up a retention query.
-   *
+   * <p>Defines the cohort and return criteria that make up a retention query.</p>
    * @return search
-   */
-  @JsonProperty(JSON_PROPERTY_SEARCH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsRetentionSearch getSearch() {
-    return search;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SEARCH)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsRetentionSearch getSearch() {
+        return search;
+      }
   public void setSearch(ProductAnalyticsRetentionSearch search) {
     this.search = search;
     if (search != null) {
@@ -170,14 +170,15 @@ public class ProductAnalyticsRetentionListQuery {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -186,7 +187,7 @@ public class ProductAnalyticsRetentionListQuery {
   @JsonAnySetter
   public ProductAnalyticsRetentionListQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -210,12 +211,14 @@ public class ProductAnalyticsRetentionListQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProductAnalyticsRetentionListQuery object is equal to o. */
+  /**
+   * Return true if this ProductAnalyticsRetentionListQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -224,20 +227,14 @@ public class ProductAnalyticsRetentionListQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsRetentionListQuery productAnalyticsRetentionListQuery =
-        (ProductAnalyticsRetentionListQuery) o;
-    return Objects.equals(this.columns, productAnalyticsRetentionListQuery.columns)
-        && Objects.equals(
-            this.computationScope, productAnalyticsRetentionListQuery.computationScope)
-        && Objects.equals(this.limit, productAnalyticsRetentionListQuery.limit)
-        && Objects.equals(this.search, productAnalyticsRetentionListQuery.search)
-        && Objects.equals(
-            this.additionalProperties, productAnalyticsRetentionListQuery.additionalProperties);
+    ProductAnalyticsRetentionListQuery productAnalyticsRetentionListQuery = (ProductAnalyticsRetentionListQuery) o;
+    return Objects.equals(this.columns, productAnalyticsRetentionListQuery.columns) && Objects.equals(this.computationScope, productAnalyticsRetentionListQuery.computationScope) && Objects.equals(this.limit, productAnalyticsRetentionListQuery.limit) && Objects.equals(this.search, productAnalyticsRetentionListQuery.search) && Objects.equals(this.additionalProperties, productAnalyticsRetentionListQuery.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, computationScope, limit, search, additionalProperties);
+    return Objects.hash(columns,computationScope,limit,search, additionalProperties);
   }
 
   @Override
@@ -256,7 +253,8 @@ public class ProductAnalyticsRetentionListQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

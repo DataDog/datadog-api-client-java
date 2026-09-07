@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating a Google Chat target audience. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating a Google Chat target audience.</p>
+ */
 @JsonPropertyOrder({
   GoogleChatTargetAudienceCreateRequestAttributes.JSON_PROPERTY_AUDIENCE_ID,
   GoogleChatTargetAudienceCreateRequestAttributes.JSON_PROPERTY_AUDIENCE_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GoogleChatTargetAudienceCreateRequestAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUDIENCE_ID = "audience_id";
   private String audienceId;
 
@@ -36,71 +52,67 @@ public class GoogleChatTargetAudienceCreateRequestAttributes {
 
   @JsonCreator
   public GoogleChatTargetAudienceCreateRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUDIENCE_ID) String audienceId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUDIENCE_NAME) String audienceName) {
-    this.audienceId = audienceId;
-    this.audienceName = audienceName;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AUDIENCE_ID)String audienceId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AUDIENCE_NAME)String audienceName) {
+        this.audienceId = audienceId;
+        this.audienceName = audienceName;
   }
-
   public GoogleChatTargetAudienceCreateRequestAttributes audienceId(String audienceId) {
     this.audienceId = audienceId;
     return this;
   }
 
   /**
-   * The audience ID.
-   *
+   * <p>The audience ID.</p>
    * @return audienceId
-   */
-  @JsonProperty(JSON_PROPERTY_AUDIENCE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAudienceId() {
-    return audienceId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AUDIENCE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAudienceId() {
+        return audienceId;
+      }
   public void setAudienceId(String audienceId) {
     this.audienceId = audienceId;
   }
-
   public GoogleChatTargetAudienceCreateRequestAttributes audienceName(String audienceName) {
     this.audienceName = audienceName;
     return this;
   }
 
   /**
-   * The audience name.
-   *
+   * <p>The audience name.</p>
    * @return audienceName
-   */
-  @JsonProperty(JSON_PROPERTY_AUDIENCE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAudienceName() {
-    return audienceName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AUDIENCE_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAudienceName() {
+        return audienceName;
+      }
   public void setAudienceName(String audienceName) {
     this.audienceName = audienceName;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return GoogleChatTargetAudienceCreateRequestAttributes
    */
   @JsonAnySetter
-  public GoogleChatTargetAudienceCreateRequestAttributes putAdditionalProperty(
-      String key, Object value) {
+  public GoogleChatTargetAudienceCreateRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -124,12 +136,14 @@ public class GoogleChatTargetAudienceCreateRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GoogleChatTargetAudienceCreateRequestAttributes object is equal to o. */
+  /**
+   * Return true if this GoogleChatTargetAudienceCreateRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,21 +152,14 @@ public class GoogleChatTargetAudienceCreateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GoogleChatTargetAudienceCreateRequestAttributes
-        googleChatTargetAudienceCreateRequestAttributes =
-            (GoogleChatTargetAudienceCreateRequestAttributes) o;
-    return Objects.equals(
-            this.audienceId, googleChatTargetAudienceCreateRequestAttributes.audienceId)
-        && Objects.equals(
-            this.audienceName, googleChatTargetAudienceCreateRequestAttributes.audienceName)
-        && Objects.equals(
-            this.additionalProperties,
-            googleChatTargetAudienceCreateRequestAttributes.additionalProperties);
+    GoogleChatTargetAudienceCreateRequestAttributes googleChatTargetAudienceCreateRequestAttributes = (GoogleChatTargetAudienceCreateRequestAttributes) o;
+    return Objects.equals(this.audienceId, googleChatTargetAudienceCreateRequestAttributes.audienceId) && Objects.equals(this.audienceName, googleChatTargetAudienceCreateRequestAttributes.audienceName) && Objects.equals(this.additionalProperties, googleChatTargetAudienceCreateRequestAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(audienceId, audienceName, additionalProperties);
+    return Objects.hash(audienceId,audienceName, additionalProperties);
   }
 
   @Override
@@ -169,7 +176,8 @@ public class GoogleChatTargetAudienceCreateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

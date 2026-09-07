@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Page-based pagination details for org group list responses. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Page-based pagination details for org group list responses.</p>
+ */
 @JsonPropertyOrder({
   OrgGroupPaginationMetaPage.JSON_PROPERTY_FIRST_NUMBER,
   OrgGroupPaginationMetaPage.JSON_PROPERTY_LAST_NUMBER,
@@ -28,10 +44,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   OrgGroupPaginationMetaPage.JSON_PROPERTY_TOTAL,
   OrgGroupPaginationMetaPage.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrgGroupPaginationMetaPage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIRST_NUMBER = "first_number";
   private Long firstNumber;
 
@@ -62,207 +78,184 @@ public class OrgGroupPaginationMetaPage {
   }
 
   /**
-   * First page number.
-   *
+   * <p>First page number.</p>
    * @return firstNumber
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIRST_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFirstNumber() {
-    return firstNumber;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIRST_NUMBER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFirstNumber() {
+        return firstNumber;
+      }
   public void setFirstNumber(Long firstNumber) {
     this.firstNumber = firstNumber;
   }
-
   public OrgGroupPaginationMetaPage lastNumber(Long lastNumber) {
     this.lastNumber = JsonNullable.<Long>of(lastNumber);
     return this;
   }
 
   /**
-   * Last page number.
-   *
+   * <p>Last page number.</p>
    * @return lastNumber
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getLastNumber() {
-    return lastNumber.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getLastNumber() {
+        return lastNumber.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_LAST_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getLastNumber_JsonNullable() {
     return lastNumber;
   }
-
-  @JsonProperty(JSON_PROPERTY_LAST_NUMBER)
-  public void setLastNumber_JsonNullable(JsonNullable<Long> lastNumber) {
+  @JsonProperty(JSON_PROPERTY_LAST_NUMBER)public void setLastNumber_JsonNullable(JsonNullable<Long> lastNumber) {
     this.lastNumber = lastNumber;
   }
-
   public void setLastNumber(Long lastNumber) {
     this.lastNumber = JsonNullable.<Long>of(lastNumber);
   }
-
   public OrgGroupPaginationMetaPage nextNumber(Long nextNumber) {
     this.nextNumber = JsonNullable.<Long>of(nextNumber);
     return this;
   }
 
   /**
-   * Next page number.
-   *
+   * <p>Next page number.</p>
    * @return nextNumber
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getNextNumber() {
-    return nextNumber.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getNextNumber() {
+        return nextNumber.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NEXT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNextNumber_JsonNullable() {
     return nextNumber;
   }
-
-  @JsonProperty(JSON_PROPERTY_NEXT_NUMBER)
-  public void setNextNumber_JsonNullable(JsonNullable<Long> nextNumber) {
+  @JsonProperty(JSON_PROPERTY_NEXT_NUMBER)public void setNextNumber_JsonNullable(JsonNullable<Long> nextNumber) {
     this.nextNumber = nextNumber;
   }
-
   public void setNextNumber(Long nextNumber) {
     this.nextNumber = JsonNullable.<Long>of(nextNumber);
   }
-
   public OrgGroupPaginationMetaPage number(Long number) {
     this.number = number;
     return this;
   }
 
   /**
-   * Page number.
-   *
+   * <p>Page number.</p>
    * @return number
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNumber() {
-    return number;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NUMBER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNumber() {
+        return number;
+      }
   public void setNumber(Long number) {
     this.number = number;
   }
-
   public OrgGroupPaginationMetaPage prevNumber(Long prevNumber) {
     this.prevNumber = JsonNullable.<Long>of(prevNumber);
     return this;
   }
 
   /**
-   * Previous page number.
-   *
+   * <p>Previous page number.</p>
    * @return prevNumber
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getPrevNumber() {
-    return prevNumber.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getPrevNumber() {
+        return prevNumber.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PREV_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getPrevNumber_JsonNullable() {
     return prevNumber;
   }
-
-  @JsonProperty(JSON_PROPERTY_PREV_NUMBER)
-  public void setPrevNumber_JsonNullable(JsonNullable<Long> prevNumber) {
+  @JsonProperty(JSON_PROPERTY_PREV_NUMBER)public void setPrevNumber_JsonNullable(JsonNullable<Long> prevNumber) {
     this.prevNumber = prevNumber;
   }
-
   public void setPrevNumber(Long prevNumber) {
     this.prevNumber = JsonNullable.<Long>of(prevNumber);
   }
-
   public OrgGroupPaginationMetaPage size(Long size) {
     this.size = size;
     return this;
   }
 
   /**
-   * Page size.
-   *
+   * <p>Page size.</p>
    * @return size
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSize() {
-    return size;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSize() {
+        return size;
+      }
   public void setSize(Long size) {
     this.size = size;
   }
-
   public OrgGroupPaginationMetaPage total(Long total) {
     this.total = total;
     return this;
   }
 
   /**
-   * Total number of results.
-   *
+   * <p>Total number of results.</p>
    * @return total
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotal() {
-    return total;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOTAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTotal() {
+        return total;
+      }
   public void setTotal(Long total) {
     this.total = total;
   }
-
   public OrgGroupPaginationMetaPage type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Pagination type.
-   *
+   * <p>Pagination type.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -271,7 +264,7 @@ public class OrgGroupPaginationMetaPage {
   @JsonAnySetter
   public OrgGroupPaginationMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -295,12 +288,14 @@ public class OrgGroupPaginationMetaPage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this OrgGroupPaginationMetaPage object is equal to o. */
+  /**
+   * Return true if this OrgGroupPaginationMetaPage object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -310,30 +305,13 @@ public class OrgGroupPaginationMetaPage {
       return false;
     }
     OrgGroupPaginationMetaPage orgGroupPaginationMetaPage = (OrgGroupPaginationMetaPage) o;
-    return Objects.equals(this.firstNumber, orgGroupPaginationMetaPage.firstNumber)
-        && Objects.equals(this.lastNumber, orgGroupPaginationMetaPage.lastNumber)
-        && Objects.equals(this.nextNumber, orgGroupPaginationMetaPage.nextNumber)
-        && Objects.equals(this.number, orgGroupPaginationMetaPage.number)
-        && Objects.equals(this.prevNumber, orgGroupPaginationMetaPage.prevNumber)
-        && Objects.equals(this.size, orgGroupPaginationMetaPage.size)
-        && Objects.equals(this.total, orgGroupPaginationMetaPage.total)
-        && Objects.equals(this.type, orgGroupPaginationMetaPage.type)
-        && Objects.equals(
-            this.additionalProperties, orgGroupPaginationMetaPage.additionalProperties);
+    return Objects.equals(this.firstNumber, orgGroupPaginationMetaPage.firstNumber) && Objects.equals(this.lastNumber, orgGroupPaginationMetaPage.lastNumber) && Objects.equals(this.nextNumber, orgGroupPaginationMetaPage.nextNumber) && Objects.equals(this.number, orgGroupPaginationMetaPage.number) && Objects.equals(this.prevNumber, orgGroupPaginationMetaPage.prevNumber) && Objects.equals(this.size, orgGroupPaginationMetaPage.size) && Objects.equals(this.total, orgGroupPaginationMetaPage.total) && Objects.equals(this.type, orgGroupPaginationMetaPage.type) && Objects.equals(this.additionalProperties, orgGroupPaginationMetaPage.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        firstNumber,
-        lastNumber,
-        nextNumber,
-        number,
-        prevNumber,
-        size,
-        total,
-        type,
-        additionalProperties);
+    return Objects.hash(firstNumber,lastNumber,nextNumber,number,prevNumber,size,total,type, additionalProperties);
   }
 
   @Override
@@ -356,7 +334,8 @@ public class OrgGroupPaginationMetaPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

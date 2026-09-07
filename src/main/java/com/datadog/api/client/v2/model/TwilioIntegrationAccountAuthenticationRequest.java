@@ -6,228 +6,212 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.AbstractOpenApiSchema;
-import com.datadog.api.client.JSON;
-import com.datadog.api.client.UnparsedObject;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import jakarta.ws.rs.core.GenericType;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.UnparsedObject;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-@JsonDeserialize(
-    using =
-        TwilioIntegrationAccountAuthenticationRequest
-            .TwilioIntegrationAccountAuthenticationRequestDeserializer.class)
-@JsonSerialize(
-    using =
-        TwilioIntegrationAccountAuthenticationRequest
-            .TwilioIntegrationAccountAuthenticationRequestSerializer.class)
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@JsonDeserialize(using = TwilioIntegrationAccountAuthenticationRequest.TwilioIntegrationAccountAuthenticationRequestDeserializer.class)
+@JsonSerialize(using = TwilioIntegrationAccountAuthenticationRequest.TwilioIntegrationAccountAuthenticationRequestSerializer.class)
 public class TwilioIntegrationAccountAuthenticationRequest extends AbstractOpenApiSchema {
-  private static final Logger log =
-      Logger.getLogger(TwilioIntegrationAccountAuthenticationRequest.class.getName());
+    private static final Logger log = Logger.getLogger(TwilioIntegrationAccountAuthenticationRequest.class.getName());
 
-  @JsonIgnore public boolean unparsed = false;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static class TwilioIntegrationAccountAuthenticationRequestSerializer
-      extends StdSerializer<TwilioIntegrationAccountAuthenticationRequest> {
-    public TwilioIntegrationAccountAuthenticationRequestSerializer(
-        Class<TwilioIntegrationAccountAuthenticationRequest> t) {
-      super(t);
-    }
-
-    public TwilioIntegrationAccountAuthenticationRequestSerializer() {
-      this(null);
-    }
-
-    @Override
-    public void serialize(
-        TwilioIntegrationAccountAuthenticationRequest value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.getActualInstance());
-    }
-  }
-
-  public static class TwilioIntegrationAccountAuthenticationRequestDeserializer
-      extends StdDeserializer<TwilioIntegrationAccountAuthenticationRequest> {
-    public TwilioIntegrationAccountAuthenticationRequestDeserializer() {
-      this(TwilioIntegrationAccountAuthenticationRequest.class);
-    }
-
-    public TwilioIntegrationAccountAuthenticationRequestDeserializer(Class<?> vc) {
-      super(vc);
-    }
-
-    @Override
-    public TwilioIntegrationAccountAuthenticationRequest deserialize(
-        JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-      JsonNode tree = jp.readValueAsTree();
-      Object deserialized = null;
-      Object tmp = null;
-      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
-      int match = 0;
-      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize IntegrationAccountBasicAuthRequest
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (IntegrationAccountBasicAuthRequest.class.equals(Integer.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Long.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Float.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Double.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((IntegrationAccountBasicAuthRequest.class.equals(Integer.class)
-                        || IntegrationAccountBasicAuthRequest.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((IntegrationAccountBasicAuthRequest.class.equals(Float.class)
-                        || IntegrationAccountBasicAuthRequest.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (IntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (IntegrationAccountBasicAuthRequest.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
+    public static class TwilioIntegrationAccountAuthenticationRequestSerializer extends StdSerializer<TwilioIntegrationAccountAuthenticationRequest> {
+        public TwilioIntegrationAccountAuthenticationRequestSerializer(Class<TwilioIntegrationAccountAuthenticationRequest> t) {
+            super(t);
         }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(IntegrationAccountBasicAuthRequest.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((IntegrationAccountBasicAuthRequest) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'IntegrationAccountBasicAuthRequest'");
+
+        public TwilioIntegrationAccountAuthenticationRequestSerializer() {
+            this(null);
         }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'IntegrationAccountBasicAuthRequest'",
-            e);
-      }
 
-      TwilioIntegrationAccountAuthenticationRequest ret =
-          new TwilioIntegrationAccountAuthenticationRequest();
-      if (match == 1) {
-        ret.setActualInstance(deserialized);
-      } else {
-        Map<String, Object> res =
-            new ObjectMapper()
-                .readValue(
-                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
-                    new TypeReference<Map<String, Object>>() {});
-        ret.setActualInstance(new UnparsedObject(res));
-      }
-      return ret;
+        @Override
+        public void serialize(TwilioIntegrationAccountAuthenticationRequest value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
     }
 
-    /** Handle deserialization of the 'null' value. */
+    public static class TwilioIntegrationAccountAuthenticationRequestDeserializer extends StdDeserializer<TwilioIntegrationAccountAuthenticationRequest> {
+        public TwilioIntegrationAccountAuthenticationRequestDeserializer() {
+            this(TwilioIntegrationAccountAuthenticationRequest.class);
+        }
+
+        public TwilioIntegrationAccountAuthenticationRequestDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public TwilioIntegrationAccountAuthenticationRequest deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            Object tmp = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // deserialize IntegrationAccountBasicAuthRequest
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (IntegrationAccountBasicAuthRequest.class.equals(Integer.class) || IntegrationAccountBasicAuthRequest.class.equals(Long.class) || IntegrationAccountBasicAuthRequest.class.equals(Float.class) || IntegrationAccountBasicAuthRequest.class.equals(Double.class) || IntegrationAccountBasicAuthRequest.class.equals(Boolean.class) || IntegrationAccountBasicAuthRequest.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((IntegrationAccountBasicAuthRequest.class.equals(Integer.class) || IntegrationAccountBasicAuthRequest.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((IntegrationAccountBasicAuthRequest.class.equals(Float.class) || IntegrationAccountBasicAuthRequest.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
+                        attemptParsing |= (IntegrationAccountBasicAuthRequest.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (IntegrationAccountBasicAuthRequest.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    tmp = tree.traverse(jp.getCodec()).readValueAs(IntegrationAccountBasicAuthRequest.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    if (!((IntegrationAccountBasicAuthRequest)tmp).unparsed) {
+                        deserialized = tmp;
+                        match++;
+                    }
+                    log.log(Level.FINER, "Input data matches schema 'IntegrationAccountBasicAuthRequest'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'IntegrationAccountBasicAuthRequest'", e);
+            }
+            
+            TwilioIntegrationAccountAuthenticationRequest ret = new TwilioIntegrationAccountAuthenticationRequest();
+            if (match == 1) {
+                ret.setActualInstance(deserialized);
+            } else {
+                Map<String, Object> res = new ObjectMapper().readValue(tree.traverse(jp.getCodec()).readValueAsTree().toString(), new TypeReference<Map<String, Object>>() {});
+                ret.setActualInstance(new UnparsedObject(res));
+            }
+            return ret;
+        }
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public TwilioIntegrationAccountAuthenticationRequest getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "TwilioIntegrationAccountAuthenticationRequest cannot be null");
+        }
+    }
+
+    // store a list of schema names defined in oneOf
+    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+    public TwilioIntegrationAccountAuthenticationRequest() {
+        super("oneOf", Boolean.FALSE);
+    }
+    public TwilioIntegrationAccountAuthenticationRequest(IntegrationAccountBasicAuthRequest o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("IntegrationAccountBasicAuthRequest", new GenericType<IntegrationAccountBasicAuthRequest>() {
+        });
+        JSON.registerDescendants(TwilioIntegrationAccountAuthenticationRequest.class, Collections.unmodifiableMap(schemas));
+    }
+
     @Override
-    public TwilioIntegrationAccountAuthenticationRequest getNullValue(DeserializationContext ctxt)
-        throws JsonMappingException {
-      throw new JsonMappingException(
-          ctxt.getParser(), "TwilioIntegrationAccountAuthenticationRequest cannot be null");
-    }
-  }
-
-  // store a list of schema names defined in oneOf
-  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
-
-  public TwilioIntegrationAccountAuthenticationRequest() {
-    super("oneOf", Boolean.FALSE);
-  }
-
-  public TwilioIntegrationAccountAuthenticationRequest(IntegrationAccountBasicAuthRequest o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  static {
-    schemas.put(
-        "IntegrationAccountBasicAuthRequest",
-        new GenericType<IntegrationAccountBasicAuthRequest>() {});
-    JSON.registerDescendants(
-        TwilioIntegrationAccountAuthenticationRequest.class, Collections.unmodifiableMap(schemas));
-  }
-
-  @Override
-  public Map<String, GenericType> getSchemas() {
-    return TwilioIntegrationAccountAuthenticationRequest.schemas;
-  }
-
-  /**
-   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: IntegrationAccountBasicAuthRequest
-   *
-   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
-   * composed schema (allOf, anyOf, oneOf).
-   */
-  @Override
-  public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(
-        IntegrationAccountBasicAuthRequest.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
+    public Map<String, GenericType> getSchemas() {
+        return TwilioIntegrationAccountAuthenticationRequest.schemas;
     }
 
-    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * IntegrationAccountBasicAuthRequest
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (JSON.isInstanceOf(IntegrationAccountBasicAuthRequest.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+        throw new RuntimeException("Invalid instance type. Must be IntegrationAccountBasicAuthRequest");
     }
-    throw new RuntimeException("Invalid instance type. Must be IntegrationAccountBasicAuthRequest");
-  }
 
-  /**
-   * Get the actual instance, which can be the following: IntegrationAccountBasicAuthRequest
-   *
-   * @return The actual instance (IntegrationAccountBasicAuthRequest)
-   */
-  @Override
-  public Object getActualInstance() {
-    return super.getActualInstance();
-  }
+    /**
+     * Get the actual instance, which can be the following:
+     * IntegrationAccountBasicAuthRequest
+     *
+     * @return The actual instance (IntegrationAccountBasicAuthRequest)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
-  /**
-   * Get the actual instance of `IntegrationAccountBasicAuthRequest`. If the actual instance is not
-   * `IntegrationAccountBasicAuthRequest`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `IntegrationAccountBasicAuthRequest`
-   * @throws ClassCastException if the instance is not `IntegrationAccountBasicAuthRequest`
-   */
-  public IntegrationAccountBasicAuthRequest getIntegrationAccountBasicAuthRequest()
-      throws ClassCastException {
-    return (IntegrationAccountBasicAuthRequest) super.getActualInstance();
-  }
+    /**
+     * Get the actual instance of `IntegrationAccountBasicAuthRequest`. If the actual instance is not `IntegrationAccountBasicAuthRequest`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `IntegrationAccountBasicAuthRequest`
+     * @throws ClassCastException if the instance is not `IntegrationAccountBasicAuthRequest`
+     */
+    public IntegrationAccountBasicAuthRequest getIntegrationAccountBasicAuthRequest() throws ClassCastException {
+        return (IntegrationAccountBasicAuthRequest)super.getActualInstance();
+    }
 }

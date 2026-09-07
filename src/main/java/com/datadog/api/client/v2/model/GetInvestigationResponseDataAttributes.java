@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,22 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of the investigation. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of the investigation.</p>
+ */
 @JsonPropertyOrder({
   GetInvestigationResponseDataAttributes.JSON_PROPERTY_CONCLUSIONS,
   GetInvestigationResponseDataAttributes.JSON_PROPERTY_STATUS,
   GetInvestigationResponseDataAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetInvestigationResponseDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONCLUSIONS = "conclusions";
   private List<InvestigationConclusion> conclusions = new ArrayList<>();
 
@@ -42,45 +56,39 @@ public class GetInvestigationResponseDataAttributes {
 
   @JsonCreator
   public GetInvestigationResponseDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONCLUSIONS)
-          List<InvestigationConclusion> conclusions,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) String status,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.conclusions = conclusions;
-    for (InvestigationConclusion item : conclusions) {
-      this.unparsed |= item.unparsed;
-    }
-    this.status = status;
-    this.title = title;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CONCLUSIONS)List<InvestigationConclusion> conclusions,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)String status,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
+        this.conclusions = conclusions;
+        for (InvestigationConclusion item : conclusions) {
+          this.unparsed |= item.unparsed;
+        }
+        this.status = status;
+        this.title = title;
   }
-
-  public GetInvestigationResponseDataAttributes conclusions(
-      List<InvestigationConclusion> conclusions) {
+  public GetInvestigationResponseDataAttributes conclusions(List<InvestigationConclusion> conclusions) {
     this.conclusions = conclusions;
     for (InvestigationConclusion item : conclusions) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public GetInvestigationResponseDataAttributes addConclusionsItem(
-      InvestigationConclusion conclusionsItem) {
+  public GetInvestigationResponseDataAttributes addConclusionsItem(InvestigationConclusion conclusionsItem) {
     this.conclusions.add(conclusionsItem);
     this.unparsed |= conclusionsItem.unparsed;
     return this;
   }
 
   /**
-   * The conclusions drawn from the investigation.
-   *
+   * <p>The conclusions drawn from the investigation.</p>
    * @return conclusions
-   */
-  @JsonProperty(JSON_PROPERTY_CONCLUSIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<InvestigationConclusion> getConclusions() {
-    return conclusions;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CONCLUSIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<InvestigationConclusion> getConclusions() {
+        return conclusions;
+      }
   public void setConclusions(List<InvestigationConclusion> conclusions) {
     this.conclusions = conclusions;
     if (conclusions != null) {
@@ -89,56 +97,53 @@ public class GetInvestigationResponseDataAttributes {
       }
     }
   }
-
   public GetInvestigationResponseDataAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * The current status of the investigation.
-   *
+   * <p>The current status of the investigation.</p>
    * @return status
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getStatus() {
-    return status;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getStatus() {
+        return status;
+      }
   public void setStatus(String status) {
     this.status = status;
   }
-
   public GetInvestigationResponseDataAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of the investigation.
-   *
+   * <p>The title of the investigation.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -147,7 +152,7 @@ public class GetInvestigationResponseDataAttributes {
   @JsonAnySetter
   public GetInvestigationResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -171,12 +176,14 @@ public class GetInvestigationResponseDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GetInvestigationResponseDataAttributes object is equal to o. */
+  /**
+   * Return true if this GetInvestigationResponseDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -185,18 +192,14 @@ public class GetInvestigationResponseDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetInvestigationResponseDataAttributes getInvestigationResponseDataAttributes =
-        (GetInvestigationResponseDataAttributes) o;
-    return Objects.equals(this.conclusions, getInvestigationResponseDataAttributes.conclusions)
-        && Objects.equals(this.status, getInvestigationResponseDataAttributes.status)
-        && Objects.equals(this.title, getInvestigationResponseDataAttributes.title)
-        && Objects.equals(
-            this.additionalProperties, getInvestigationResponseDataAttributes.additionalProperties);
+    GetInvestigationResponseDataAttributes getInvestigationResponseDataAttributes = (GetInvestigationResponseDataAttributes) o;
+    return Objects.equals(this.conclusions, getInvestigationResponseDataAttributes.conclusions) && Objects.equals(this.status, getInvestigationResponseDataAttributes.status) && Objects.equals(this.title, getInvestigationResponseDataAttributes.title) && Objects.equals(this.additionalProperties, getInvestigationResponseDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(conclusions, status, title, additionalProperties);
+    return Objects.hash(conclusions,status,title, additionalProperties);
   }
 
   @Override
@@ -214,7 +217,8 @@ public class GetInvestigationResponseDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

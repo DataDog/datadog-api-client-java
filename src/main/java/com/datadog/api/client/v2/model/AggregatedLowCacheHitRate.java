@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Aggregated low cache hit rate detection at view level. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Aggregated low cache hit rate detection at view level.</p>
+ */
 @JsonPropertyOrder({
   AggregatedLowCacheHitRate.JSON_PROPERTY_AVG_CACHE_HIT_RATE,
   AggregatedLowCacheHitRate.JSON_PROPERTY_AVG_RESOURCE_DOWNLOAD_SIZE_BYTES,
@@ -25,15 +41,14 @@ import java.util.Objects;
   AggregatedLowCacheHitRate.JSON_PROPERTY_IMPACT_SCORE,
   AggregatedLowCacheHitRate.JSON_PROPERTY_VIEW_OCCURRENCES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AggregatedLowCacheHitRate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVG_CACHE_HIT_RATE = "avg_cache_hit_rate";
   private Double avgCacheHitRate;
 
-  public static final String JSON_PROPERTY_AVG_RESOURCE_DOWNLOAD_SIZE_BYTES =
-      "avg_resource_download_size_bytes";
+  public static final String JSON_PROPERTY_AVG_RESOURCE_DOWNLOAD_SIZE_BYTES = "avg_resource_download_size_bytes";
   private Long avgResourceDownloadSizeBytes;
 
   public static final String JSON_PROPERTY_FINGERPRINT = "fingerprint";
@@ -49,130 +64,119 @@ public class AggregatedLowCacheHitRate {
 
   @JsonCreator
   public AggregatedLowCacheHitRate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AVG_CACHE_HIT_RATE)
-          Double avgCacheHitRate,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AVG_RESOURCE_DOWNLOAD_SIZE_BYTES)
-          Long avgResourceDownloadSizeBytes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FINGERPRINT) String fingerprint,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IMPACT_SCORE) Double impactScore,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_OCCURRENCES)
-          Integer viewOccurrences) {
-    this.avgCacheHitRate = avgCacheHitRate;
-    this.avgResourceDownloadSizeBytes = avgResourceDownloadSizeBytes;
-    this.fingerprint = fingerprint;
-    this.impactScore = impactScore;
-    this.viewOccurrences = viewOccurrences;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AVG_CACHE_HIT_RATE)Double avgCacheHitRate,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AVG_RESOURCE_DOWNLOAD_SIZE_BYTES)Long avgResourceDownloadSizeBytes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FINGERPRINT)String fingerprint,
+            @JsonProperty(required=true, value=JSON_PROPERTY_IMPACT_SCORE)Double impactScore,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VIEW_OCCURRENCES)Integer viewOccurrences) {
+        this.avgCacheHitRate = avgCacheHitRate;
+        this.avgResourceDownloadSizeBytes = avgResourceDownloadSizeBytes;
+        this.fingerprint = fingerprint;
+        this.impactScore = impactScore;
+        this.viewOccurrences = viewOccurrences;
   }
-
   public AggregatedLowCacheHitRate avgCacheHitRate(Double avgCacheHitRate) {
     this.avgCacheHitRate = avgCacheHitRate;
     return this;
   }
 
   /**
-   * Average cache hit rate across affected views.
-   *
+   * <p>Average cache hit rate across affected views.</p>
    * @return avgCacheHitRate
-   */
-  @JsonProperty(JSON_PROPERTY_AVG_CACHE_HIT_RATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getAvgCacheHitRate() {
-    return avgCacheHitRate;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AVG_CACHE_HIT_RATE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getAvgCacheHitRate() {
+        return avgCacheHitRate;
+      }
   public void setAvgCacheHitRate(Double avgCacheHitRate) {
     this.avgCacheHitRate = avgCacheHitRate;
   }
-
   public AggregatedLowCacheHitRate avgResourceDownloadSizeBytes(Long avgResourceDownloadSizeBytes) {
     this.avgResourceDownloadSizeBytes = avgResourceDownloadSizeBytes;
     return this;
   }
 
   /**
-   * Average total download size of uncached resources in bytes.
-   *
+   * <p>Average total download size of uncached resources in bytes.</p>
    * @return avgResourceDownloadSizeBytes
-   */
-  @JsonProperty(JSON_PROPERTY_AVG_RESOURCE_DOWNLOAD_SIZE_BYTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getAvgResourceDownloadSizeBytes() {
-    return avgResourceDownloadSizeBytes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AVG_RESOURCE_DOWNLOAD_SIZE_BYTES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getAvgResourceDownloadSizeBytes() {
+        return avgResourceDownloadSizeBytes;
+      }
   public void setAvgResourceDownloadSizeBytes(Long avgResourceDownloadSizeBytes) {
     this.avgResourceDownloadSizeBytes = avgResourceDownloadSizeBytes;
   }
-
   public AggregatedLowCacheHitRate fingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
     return this;
   }
 
   /**
-   * Unique fingerprint identifying this detection group.
-   *
+   * <p>Unique fingerprint identifying this detection group.</p>
    * @return fingerprint
-   */
-  @JsonProperty(JSON_PROPERTY_FINGERPRINT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFingerprint() {
-    return fingerprint;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FINGERPRINT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFingerprint() {
+        return fingerprint;
+      }
   public void setFingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
   }
-
   public AggregatedLowCacheHitRate impactScore(Double impactScore) {
     this.impactScore = impactScore;
     return this;
   }
 
   /**
-   * Impact score for this detection.
-   *
+   * <p>Impact score for this detection.</p>
    * @return impactScore
-   */
-  @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getImpactScore() {
-    return impactScore;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getImpactScore() {
+        return impactScore;
+      }
   public void setImpactScore(Double impactScore) {
     this.impactScore = impactScore;
   }
-
   public AggregatedLowCacheHitRate viewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
     return this;
   }
 
   /**
-   * Number of sampled views where this detection occurred. maximum: 2147483647
-   *
+   * <p>Number of sampled views where this detection occurred.</p>
+   * maximum: 2147483647
    * @return viewOccurrences
-   */
-  @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getViewOccurrences() {
-    return viewOccurrences;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getViewOccurrences() {
+        return viewOccurrences;
+      }
   public void setViewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -181,7 +185,7 @@ public class AggregatedLowCacheHitRate {
   @JsonAnySetter
   public AggregatedLowCacheHitRate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -205,12 +209,14 @@ public class AggregatedLowCacheHitRate {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AggregatedLowCacheHitRate object is equal to o. */
+  /**
+   * Return true if this AggregatedLowCacheHitRate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -220,26 +226,13 @@ public class AggregatedLowCacheHitRate {
       return false;
     }
     AggregatedLowCacheHitRate aggregatedLowCacheHitRate = (AggregatedLowCacheHitRate) o;
-    return Objects.equals(this.avgCacheHitRate, aggregatedLowCacheHitRate.avgCacheHitRate)
-        && Objects.equals(
-            this.avgResourceDownloadSizeBytes,
-            aggregatedLowCacheHitRate.avgResourceDownloadSizeBytes)
-        && Objects.equals(this.fingerprint, aggregatedLowCacheHitRate.fingerprint)
-        && Objects.equals(this.impactScore, aggregatedLowCacheHitRate.impactScore)
-        && Objects.equals(this.viewOccurrences, aggregatedLowCacheHitRate.viewOccurrences)
-        && Objects.equals(
-            this.additionalProperties, aggregatedLowCacheHitRate.additionalProperties);
+    return Objects.equals(this.avgCacheHitRate, aggregatedLowCacheHitRate.avgCacheHitRate) && Objects.equals(this.avgResourceDownloadSizeBytes, aggregatedLowCacheHitRate.avgResourceDownloadSizeBytes) && Objects.equals(this.fingerprint, aggregatedLowCacheHitRate.fingerprint) && Objects.equals(this.impactScore, aggregatedLowCacheHitRate.impactScore) && Objects.equals(this.viewOccurrences, aggregatedLowCacheHitRate.viewOccurrences) && Objects.equals(this.additionalProperties, aggregatedLowCacheHitRate.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        avgCacheHitRate,
-        avgResourceDownloadSizeBytes,
-        fingerprint,
-        impactScore,
-        viewOccurrences,
-        additionalProperties);
+    return Objects.hash(avgCacheHitRate,avgResourceDownloadSizeBytes,fingerprint,impactScore,viewOccurrences, additionalProperties);
   }
 
   @Override
@@ -247,9 +240,7 @@ public class AggregatedLowCacheHitRate {
     StringBuilder sb = new StringBuilder();
     sb.append("class AggregatedLowCacheHitRate {\n");
     sb.append("    avgCacheHitRate: ").append(toIndentedString(avgCacheHitRate)).append("\n");
-    sb.append("    avgResourceDownloadSizeBytes: ")
-        .append(toIndentedString(avgResourceDownloadSizeBytes))
-        .append("\n");
+    sb.append("    avgResourceDownloadSizeBytes: ").append(toIndentedString(avgResourceDownloadSizeBytes)).append("\n");
     sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    impactScore: ").append(toIndentedString(impactScore)).append("\n");
     sb.append("    viewOccurrences: ").append(toIndentedString(viewOccurrences)).append("\n");
@@ -261,7 +252,8 @@ public class AggregatedLowCacheHitRate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,26 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Geographic location information for an IP indicator. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Geographic location information for an IP indicator.</p>
+ */
 @JsonPropertyOrder({
   IoCGeoLocation.JSON_PROPERTY_CITY,
   IoCGeoLocation.JSON_PROPERTY_COUNTRY_CODE,
   IoCGeoLocation.JSON_PROPERTY_COUNTRY_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IoCGeoLocation {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
@@ -41,72 +58,68 @@ public class IoCGeoLocation {
   }
 
   /**
-   * City name.
-   *
+   * <p>City name.</p>
    * @return city
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCity() {
-    return city;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCity() {
+        return city;
+      }
   public void setCity(String city) {
     this.city = city;
   }
-
   public IoCGeoLocation countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
 
   /**
-   * ISO country code.
-   *
+   * <p>ISO country code.</p>
    * @return countryCode
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCountryCode() {
-    return countryCode;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCountryCode() {
+        return countryCode;
+      }
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
-
   public IoCGeoLocation countryName(String countryName) {
     this.countryName = countryName;
     return this;
   }
 
   /**
-   * Full country name.
-   *
+   * <p>Full country name.</p>
    * @return countryName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COUNTRY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCountryName() {
-    return countryName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COUNTRY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCountryName() {
+        return countryName;
+      }
   public void setCountryName(String countryName) {
     this.countryName = countryName;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -115,7 +128,7 @@ public class IoCGeoLocation {
   @JsonAnySetter
   public IoCGeoLocation putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -139,12 +152,14 @@ public class IoCGeoLocation {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IoCGeoLocation object is equal to o. */
+  /**
+   * Return true if this IoCGeoLocation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,15 +169,13 @@ public class IoCGeoLocation {
       return false;
     }
     IoCGeoLocation ioCGeoLocation = (IoCGeoLocation) o;
-    return Objects.equals(this.city, ioCGeoLocation.city)
-        && Objects.equals(this.countryCode, ioCGeoLocation.countryCode)
-        && Objects.equals(this.countryName, ioCGeoLocation.countryName)
-        && Objects.equals(this.additionalProperties, ioCGeoLocation.additionalProperties);
+    return Objects.equals(this.city, ioCGeoLocation.city) && Objects.equals(this.countryCode, ioCGeoLocation.countryCode) && Objects.equals(this.countryName, ioCGeoLocation.countryName) && Objects.equals(this.additionalProperties, ioCGeoLocation.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, countryCode, countryName, additionalProperties);
+    return Objects.hash(city,countryCode,countryName, additionalProperties);
   }
 
   @Override
@@ -180,7 +193,8 @@ public class IoCGeoLocation {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -7,9 +7,9 @@
 package com.datadog.api.client;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import jakarta.ws.rs.core.GenericType;
 import java.util.Map;
 import java.util.Objects;
+import jakarta.ws.rs.core.GenericType;
 
 /** Abstract class for oneOf,anyOf schemas defined in OpenAPI spec */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")

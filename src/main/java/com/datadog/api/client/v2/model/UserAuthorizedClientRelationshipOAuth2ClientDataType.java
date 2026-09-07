@@ -6,54 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** OAuth2 client resource type. */
-@JsonSerialize(
-    using =
-        UserAuthorizedClientRelationshipOAuth2ClientDataType
-            .UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>OAuth2 client resource type.</p>
+ */
+@JsonSerialize(using = UserAuthorizedClientRelationshipOAuth2ClientDataType.UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer.class)
 public class UserAuthorizedClientRelationshipOAuth2ClientDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("oauth2_clients"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("oauth2_clients"));
 
-  public static final UserAuthorizedClientRelationshipOAuth2ClientDataType OAUTH2_CLIENTS =
-      new UserAuthorizedClientRelationshipOAuth2ClientDataType("oauth2_clients");
+  public static final UserAuthorizedClientRelationshipOAuth2ClientDataType OAUTH2_CLIENTS = new UserAuthorizedClientRelationshipOAuth2ClientDataType("oauth2_clients");
+
 
   UserAuthorizedClientRelationshipOAuth2ClientDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer
-      extends StdSerializer<UserAuthorizedClientRelationshipOAuth2ClientDataType> {
-    public UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer(
-        Class<UserAuthorizedClientRelationshipOAuth2ClientDataType> t) {
-      super(t);
-    }
+  public static class UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer extends StdSerializer<UserAuthorizedClientRelationshipOAuth2ClientDataType> {
+      public UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer(Class<UserAuthorizedClientRelationshipOAuth2ClientDataType> t) {
+          super(t);
+      }
 
-    public UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer() {
-      this(null);
-    }
+      public UserAuthorizedClientRelationshipOAuth2ClientDataTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        UserAuthorizedClientRelationshipOAuth2ClientDataType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(UserAuthorizedClientRelationshipOAuth2ClientDataType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

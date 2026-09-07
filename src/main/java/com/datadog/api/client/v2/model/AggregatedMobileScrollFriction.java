@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,23 +25,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Aggregated mobile scroll friction detection at view level. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Aggregated mobile scroll friction detection at view level.</p>
+ */
 @JsonPropertyOrder({
   AggregatedMobileScrollFriction.JSON_PROPERTY_AVG_SCROLL_FROZEN_FRAME_COUNT,
   AggregatedMobileScrollFriction.JSON_PROPERTY_FINGERPRINT,
   AggregatedMobileScrollFriction.JSON_PROPERTY_IMPACT_SCORE,
   AggregatedMobileScrollFriction.JSON_PROPERTY_VIEW_OCCURRENCES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AggregatedMobileScrollFriction {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AVG_SCROLL_FROZEN_FRAME_COUNT =
-      "avg_scroll_frozen_frame_count";
+  @JsonIgnore
+  public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AVG_SCROLL_FROZEN_FRAME_COUNT = "avg_scroll_frozen_frame_count";
   private Integer avgScrollFrozenFrameCount;
 
   public static final String JSON_PROPERTY_FINGERPRINT = "fingerprint";
@@ -45,108 +60,100 @@ public class AggregatedMobileScrollFriction {
 
   @JsonCreator
   public AggregatedMobileScrollFriction(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AVG_SCROLL_FROZEN_FRAME_COUNT)
-          Integer avgScrollFrozenFrameCount,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FINGERPRINT) String fingerprint,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IMPACT_SCORE) Double impactScore,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_OCCURRENCES)
-          Integer viewOccurrences) {
-    this.avgScrollFrozenFrameCount = avgScrollFrozenFrameCount;
-    this.fingerprint = fingerprint;
-    this.impactScore = impactScore;
-    this.viewOccurrences = viewOccurrences;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AVG_SCROLL_FROZEN_FRAME_COUNT)Integer avgScrollFrozenFrameCount,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FINGERPRINT)String fingerprint,
+            @JsonProperty(required=true, value=JSON_PROPERTY_IMPACT_SCORE)Double impactScore,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VIEW_OCCURRENCES)Integer viewOccurrences) {
+        this.avgScrollFrozenFrameCount = avgScrollFrozenFrameCount;
+        this.fingerprint = fingerprint;
+        this.impactScore = impactScore;
+        this.viewOccurrences = viewOccurrences;
   }
-
-  public AggregatedMobileScrollFriction avgScrollFrozenFrameCount(
-      Integer avgScrollFrozenFrameCount) {
+  public AggregatedMobileScrollFriction avgScrollFrozenFrameCount(Integer avgScrollFrozenFrameCount) {
     this.avgScrollFrozenFrameCount = avgScrollFrozenFrameCount;
     return this;
   }
 
   /**
-   * Average number of frozen frames during scroll interactions. maximum: 2147483647
-   *
+   * <p>Average number of frozen frames during scroll interactions.</p>
+   * maximum: 2147483647
    * @return avgScrollFrozenFrameCount
-   */
-  @JsonProperty(JSON_PROPERTY_AVG_SCROLL_FROZEN_FRAME_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getAvgScrollFrozenFrameCount() {
-    return avgScrollFrozenFrameCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AVG_SCROLL_FROZEN_FRAME_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getAvgScrollFrozenFrameCount() {
+        return avgScrollFrozenFrameCount;
+      }
   public void setAvgScrollFrozenFrameCount(Integer avgScrollFrozenFrameCount) {
     this.avgScrollFrozenFrameCount = avgScrollFrozenFrameCount;
   }
-
   public AggregatedMobileScrollFriction fingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
     return this;
   }
 
   /**
-   * Unique fingerprint identifying this detection group.
-   *
+   * <p>Unique fingerprint identifying this detection group.</p>
    * @return fingerprint
-   */
-  @JsonProperty(JSON_PROPERTY_FINGERPRINT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFingerprint() {
-    return fingerprint;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FINGERPRINT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFingerprint() {
+        return fingerprint;
+      }
   public void setFingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
   }
-
   public AggregatedMobileScrollFriction impactScore(Double impactScore) {
     this.impactScore = impactScore;
     return this;
   }
 
   /**
-   * Impact score for this detection.
-   *
+   * <p>Impact score for this detection.</p>
    * @return impactScore
-   */
-  @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getImpactScore() {
-    return impactScore;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getImpactScore() {
+        return impactScore;
+      }
   public void setImpactScore(Double impactScore) {
     this.impactScore = impactScore;
   }
-
   public AggregatedMobileScrollFriction viewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
     return this;
   }
 
   /**
-   * Number of sampled views where this detection occurred. maximum: 2147483647
-   *
+   * <p>Number of sampled views where this detection occurred.</p>
+   * maximum: 2147483647
    * @return viewOccurrences
-   */
-  @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getViewOccurrences() {
-    return viewOccurrences;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getViewOccurrences() {
+        return viewOccurrences;
+      }
   public void setViewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -155,7 +162,7 @@ public class AggregatedMobileScrollFriction {
   @JsonAnySetter
   public AggregatedMobileScrollFriction putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -179,12 +186,14 @@ public class AggregatedMobileScrollFriction {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AggregatedMobileScrollFriction object is equal to o. */
+  /**
+   * Return true if this AggregatedMobileScrollFriction object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -193,31 +202,21 @@ public class AggregatedMobileScrollFriction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AggregatedMobileScrollFriction aggregatedMobileScrollFriction =
-        (AggregatedMobileScrollFriction) o;
-    return Objects.equals(
-            this.avgScrollFrozenFrameCount,
-            aggregatedMobileScrollFriction.avgScrollFrozenFrameCount)
-        && Objects.equals(this.fingerprint, aggregatedMobileScrollFriction.fingerprint)
-        && Objects.equals(this.impactScore, aggregatedMobileScrollFriction.impactScore)
-        && Objects.equals(this.viewOccurrences, aggregatedMobileScrollFriction.viewOccurrences)
-        && Objects.equals(
-            this.additionalProperties, aggregatedMobileScrollFriction.additionalProperties);
+    AggregatedMobileScrollFriction aggregatedMobileScrollFriction = (AggregatedMobileScrollFriction) o;
+    return Objects.equals(this.avgScrollFrozenFrameCount, aggregatedMobileScrollFriction.avgScrollFrozenFrameCount) && Objects.equals(this.fingerprint, aggregatedMobileScrollFriction.fingerprint) && Objects.equals(this.impactScore, aggregatedMobileScrollFriction.impactScore) && Objects.equals(this.viewOccurrences, aggregatedMobileScrollFriction.viewOccurrences) && Objects.equals(this.additionalProperties, aggregatedMobileScrollFriction.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        avgScrollFrozenFrameCount, fingerprint, impactScore, viewOccurrences, additionalProperties);
+    return Objects.hash(avgScrollFrozenFrameCount,fingerprint,impactScore,viewOccurrences, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AggregatedMobileScrollFriction {\n");
-    sb.append("    avgScrollFrozenFrameCount: ")
-        .append(toIndentedString(avgScrollFrozenFrameCount))
-        .append("\n");
+    sb.append("    avgScrollFrozenFrameCount: ").append(toIndentedString(avgScrollFrozenFrameCount)).append("\n");
     sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    impactScore: ").append(toIndentedString(impactScore)).append("\n");
     sb.append("    viewOccurrences: ").append(toIndentedString(viewOccurrences)).append("\n");
@@ -229,7 +228,8 @@ public class AggregatedMobileScrollFriction {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

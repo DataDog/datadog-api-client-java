@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,16 +25,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The property by which the graph splits */
-@JsonPropertyOrder({SplitDimension.JSON_PROPERTY_ONE_GRAPH_PER})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The property by which the graph splits</p>
+ */
+@JsonPropertyOrder({
+  SplitDimension.JSON_PROPERTY_ONE_GRAPH_PER
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SplitDimension {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ONE_GRAPH_PER = "one_graph_per";
   private String oneGraphPer;
 
@@ -30,40 +48,38 @@ public class SplitDimension {
 
   @JsonCreator
   public SplitDimension(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ONE_GRAPH_PER) String oneGraphPer) {
-    this.oneGraphPer = oneGraphPer;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ONE_GRAPH_PER)String oneGraphPer) {
+        this.oneGraphPer = oneGraphPer;
   }
-
   public SplitDimension oneGraphPer(String oneGraphPer) {
     this.oneGraphPer = oneGraphPer;
     return this;
   }
 
   /**
-   * The system interprets this attribute differently depending on the data source of the query
-   * being split. For metrics, it's a tag. For the events platform, it's an attribute or tag.
-   *
+   * <p>The system interprets this attribute differently depending on the data source of the query being split. For metrics, it's a tag. For the events platform, it's an attribute or tag.</p>
    * @return oneGraphPer
-   */
-  @JsonProperty(JSON_PROPERTY_ONE_GRAPH_PER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getOneGraphPer() {
-    return oneGraphPer;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ONE_GRAPH_PER)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getOneGraphPer() {
+        return oneGraphPer;
+      }
   public void setOneGraphPer(String oneGraphPer) {
     this.oneGraphPer = oneGraphPer;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -72,7 +88,7 @@ public class SplitDimension {
   @JsonAnySetter
   public SplitDimension putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -96,12 +112,14 @@ public class SplitDimension {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SplitDimension object is equal to o. */
+  /**
+   * Return true if this SplitDimension object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,9 +129,9 @@ public class SplitDimension {
       return false;
     }
     SplitDimension splitDimension = (SplitDimension) o;
-    return Objects.equals(this.oneGraphPer, splitDimension.oneGraphPer)
-        && Objects.equals(this.additionalProperties, splitDimension.additionalProperties);
+    return Objects.equals(this.oneGraphPer, splitDimension.oneGraphPer) && Objects.equals(this.additionalProperties, splitDimension.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
@@ -133,7 +151,8 @@ public class SplitDimension {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

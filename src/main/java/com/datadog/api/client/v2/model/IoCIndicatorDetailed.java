@@ -6,21 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An indicator of compromise with extended context from your environment. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An indicator of compromise with extended context from your environment.</p>
+ */
 @JsonPropertyOrder({
   IoCIndicatorDetailed.JSON_PROPERTY_ADDITIONAL_DATA,
   IoCIndicatorDetailed.JSON_PROPERTY_AS_CIDR_BLOCK,
@@ -58,10 +71,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IoCIndicatorDetailed.JSON_PROPERTY_TRIAGED_BY,
   IoCIndicatorDetailed.JSON_PROPERTY_USERS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IoCIndicatorDetailed {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additional_data";
   private Map<String, Object> additionalData = null;
 
@@ -126,8 +139,7 @@ public class IoCIndicatorDetailed {
   private IoCScoreEffect mSources;
 
   public static final String JSON_PROPERTY_MALICIOUS_SOURCES = "malicious_sources";
-  private JsonNullable<List<IoCSource>> maliciousSources =
-      JsonNullable.<List<IoCSource>>undefined();
+  private JsonNullable<List<IoCSource>> maliciousSources = JsonNullable.<List<IoCSource>>undefined();
 
   public static final String JSON_PROPERTY_MAX_TRUST_SCORE = "max_trust_score";
   private IoCScoreEffect maxTrustScore;
@@ -148,8 +160,7 @@ public class IoCIndicatorDetailed {
   private Long signalTier;
 
   public static final String JSON_PROPERTY_SUSPICIOUS_SOURCES = "suspicious_sources";
-  private JsonNullable<List<IoCSource>> suspiciousSources =
-      JsonNullable.<List<IoCSource>>undefined();
+  private JsonNullable<List<IoCSource>> suspiciousSources = JsonNullable.<List<IoCSource>>undefined();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -173,7 +184,6 @@ public class IoCIndicatorDetailed {
     this.additionalData = additionalData;
     return this;
   }
-
   public IoCIndicatorDetailed putAdditionalDataItem(String key, Object additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
@@ -183,42 +193,38 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Additional domain-specific context from threat intelligence sources.
-   *
+   * <p>Additional domain-specific context from threat intelligence sources.</p>
    * @return additionalData
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getAdditionalData() {
-    return additionalData;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getAdditionalData() {
+        return additionalData;
+      }
   public void setAdditionalData(Map<String, Object> additionalData) {
     this.additionalData = additionalData;
   }
-
   public IoCIndicatorDetailed asCidrBlock(String asCidrBlock) {
     this.asCidrBlock = asCidrBlock;
     return this;
   }
 
   /**
-   * Autonomous system CIDR block.
-   *
+   * <p>Autonomous system CIDR block.</p>
    * @return asCidrBlock
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AS_CIDR_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAsCidrBlock() {
-    return asCidrBlock;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AS_CIDR_BLOCK)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAsCidrBlock() {
+        return asCidrBlock;
+      }
   public void setAsCidrBlock(String asCidrBlock) {
     this.asCidrBlock = asCidrBlock;
   }
-
   public IoCIndicatorDetailed asGeo(IoCGeoLocation asGeo) {
     this.asGeo = asGeo;
     this.unparsed |= asGeo.unparsed;
@@ -226,92 +232,83 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Geographic location information for an IP indicator.
-   *
+   * <p>Geographic location information for an IP indicator.</p>
    * @return asGeo
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AS_GEO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IoCGeoLocation getAsGeo() {
-    return asGeo;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AS_GEO)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IoCGeoLocation getAsGeo() {
+        return asGeo;
+      }
   public void setAsGeo(IoCGeoLocation asGeo) {
     this.asGeo = asGeo;
     if (asGeo != null) {
       this.unparsed |= asGeo.unparsed;
     }
   }
-
   public IoCIndicatorDetailed asNumber(String asNumber) {
     this.asNumber = asNumber;
     return this;
   }
 
   /**
-   * Autonomous system number.
-   *
+   * <p>Autonomous system number.</p>
    * @return asNumber
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AS_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAsNumber() {
-    return asNumber;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AS_NUMBER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAsNumber() {
+        return asNumber;
+      }
   public void setAsNumber(String asNumber) {
     this.asNumber = asNumber;
   }
-
   public IoCIndicatorDetailed asOrganization(String asOrganization) {
     this.asOrganization = asOrganization;
     return this;
   }
 
   /**
-   * Autonomous system organization name.
-   *
+   * <p>Autonomous system organization name.</p>
    * @return asOrganization
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AS_ORGANIZATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAsOrganization() {
-    return asOrganization;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AS_ORGANIZATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAsOrganization() {
+        return asOrganization;
+      }
   public void setAsOrganization(String asOrganization) {
     this.asOrganization = asOrganization;
   }
-
   public IoCIndicatorDetailed asType(String asType) {
     this.asType = asType;
     return this;
   }
 
   /**
-   * Autonomous system type.
-   *
+   * <p>Autonomous system type.</p>
    * @return asType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AS_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAsType() {
-    return asType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AS_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAsType() {
+        return asType;
+      }
   public void setAsType(String asType) {
     this.asType = asType;
   }
-
   public IoCIndicatorDetailed benignSources(List<IoCSource> benignSources) {
     this.benignSources = JsonNullable.<List<IoCSource>>of(benignSources);
     return this;
   }
-
   public IoCIndicatorDetailed addBenignSourcesItem(IoCSource benignSourcesItem) {
     if (this.benignSources == null || !this.benignSources.isPresent()) {
       this.benignSources = JsonNullable.<List<IoCSource>>of(new ArrayList<>());
@@ -325,36 +322,30 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Threat intelligence sources that flagged this indicator as benign.
-   *
+   * <p>Threat intelligence sources that flagged this indicator as benign.</p>
    * @return benignSources
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<IoCSource> getBenignSources() {
-    return benignSources.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<IoCSource> getBenignSources() {
+        return benignSources.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_BENIGN_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<IoCSource>> getBenignSources_JsonNullable() {
     return benignSources;
   }
-
-  @JsonProperty(JSON_PROPERTY_BENIGN_SOURCES)
-  public void setBenignSources_JsonNullable(JsonNullable<List<IoCSource>> benignSources) {
+  @JsonProperty(JSON_PROPERTY_BENIGN_SOURCES)public void setBenignSources_JsonNullable(JsonNullable<List<IoCSource>> benignSources) {
     this.benignSources = benignSources;
   }
-
   public void setBenignSources(List<IoCSource> benignSources) {
     this.benignSources = JsonNullable.<List<IoCSource>>of(benignSources);
   }
-
   public IoCIndicatorDetailed categories(List<String> categories) {
     this.categories = categories;
     return this;
   }
-
   public IoCIndicatorDetailed addCategoriesItem(String categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
@@ -364,26 +355,23 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Threat categories associated with the indicator.
-   *
+   * <p>Threat categories associated with the indicator.</p>
    * @return categories
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CATEGORIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getCategories() {
-    return categories;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CATEGORIES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getCategories() {
+        return categories;
+      }
   public void setCategories(List<String> categories) {
     this.categories = categories;
   }
-
   public IoCIndicatorDetailed criticalAssets(List<String> criticalAssets) {
     this.criticalAssets = criticalAssets;
     return this;
   }
-
   public IoCIndicatorDetailed addCriticalAssetsItem(String criticalAssetsItem) {
     if (this.criticalAssets == null) {
       this.criticalAssets = new ArrayList<>();
@@ -393,47 +381,42 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Critical assets associated with this indicator.
-   *
+   * <p>Critical assets associated with this indicator.</p>
    * @return criticalAssets
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CRITICAL_ASSETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getCriticalAssets() {
-    return criticalAssets;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CRITICAL_ASSETS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getCriticalAssets() {
+        return criticalAssets;
+      }
   public void setCriticalAssets(List<String> criticalAssets) {
     this.criticalAssets = criticalAssets;
   }
-
   public IoCIndicatorDetailed firstSeen(OffsetDateTime firstSeen) {
     this.firstSeen = firstSeen;
     return this;
   }
 
   /**
-   * Timestamp when the indicator was first seen.
-   *
+   * <p>Timestamp when the indicator was first seen.</p>
    * @return firstSeen
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIRST_SEEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getFirstSeen() {
-    return firstSeen;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIRST_SEEN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getFirstSeen() {
+        return firstSeen;
+      }
   public void setFirstSeen(OffsetDateTime firstSeen) {
     this.firstSeen = firstSeen;
   }
-
   public IoCIndicatorDetailed hosts(List<String> hosts) {
     this.hosts = hosts;
     return this;
   }
-
   public IoCIndicatorDetailed addHostsItem(String hostsItem) {
     if (this.hosts == null) {
       this.hosts = new ArrayList<>();
@@ -443,131 +426,118 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Hosts associated with this indicator.
-   *
+   * <p>Hosts associated with this indicator.</p>
    * @return hosts
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOSTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getHosts() {
-    return hosts;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HOSTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getHosts() {
+        return hosts;
+      }
   public void setHosts(List<String> hosts) {
     this.hosts = hosts;
   }
-
   public IoCIndicatorDetailed id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique identifier for the indicator.
-   *
+   * <p>Unique identifier for the indicator.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public IoCIndicatorDetailed indicator(String indicator) {
     this.indicator = indicator;
     return this;
   }
 
   /**
-   * The indicator value (for example, an IP address or domain).
-   *
+   * <p>The indicator value (for example, an IP address or domain).</p>
    * @return indicator
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDICATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIndicator() {
-    return indicator;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INDICATOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIndicator() {
+        return indicator;
+      }
   public void setIndicator(String indicator) {
     this.indicator = indicator;
   }
-
   public IoCIndicatorDetailed indicatorType(String indicatorType) {
     this.indicatorType = indicatorType;
     return this;
   }
 
   /**
-   * Type of indicator (for example, IP address or domain).
-   *
+   * <p>Type of indicator (for example, IP address or domain).</p>
    * @return indicatorType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDICATOR_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIndicatorType() {
-    return indicatorType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INDICATOR_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIndicatorType() {
+        return indicatorType;
+      }
   public void setIndicatorType(String indicatorType) {
     this.indicatorType = indicatorType;
   }
-
   public IoCIndicatorDetailed lastSeen(OffsetDateTime lastSeen) {
     this.lastSeen = lastSeen;
     return this;
   }
 
   /**
-   * Timestamp when the indicator was last seen.
-   *
+   * <p>Timestamp when the indicator was last seen.</p>
    * @return lastSeen
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_SEEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getLastSeen() {
-    return lastSeen;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_SEEN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getLastSeen() {
+        return lastSeen;
+      }
   public void setLastSeen(OffsetDateTime lastSeen) {
     this.lastSeen = lastSeen;
   }
-
   public IoCIndicatorDetailed logMatches(Long logMatches) {
     this.logMatches = logMatches;
     return this;
   }
 
   /**
-   * Number of logs that matched this indicator.
-   *
+   * <p>Number of logs that matched this indicator.</p>
    * @return logMatches
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOG_MATCHES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogMatches() {
-    return logMatches;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOG_MATCHES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLogMatches() {
+        return logMatches;
+      }
   public void setLogMatches(Long logMatches) {
     this.logMatches = logMatches;
   }
-
   public IoCIndicatorDetailed logSources(List<String> logSources) {
     this.logSources = logSources;
     return this;
   }
-
   public IoCIndicatorDetailed addLogSourcesItem(String logSourcesItem) {
     if (this.logSources == null) {
       this.logSources = new ArrayList<>();
@@ -577,21 +547,19 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Log sources where this indicator was observed.
-   *
+   * <p>Log sources where this indicator was observed.</p>
    * @return logSources
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOG_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getLogSources() {
-    return logSources;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOG_SOURCES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getLogSources() {
+        return logSources;
+      }
   public void setLogSources(List<String> logSources) {
     this.logSources = logSources;
   }
-
   public IoCIndicatorDetailed mAsType(IoCScoreEffect mAsType) {
     this.mAsType = mAsType;
     this.unparsed |= !mAsType.isValid();
@@ -599,24 +567,22 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Effect of a scoring factor on the indicator's threat score.
-   *
+   * <p>Effect of a scoring factor on the indicator's threat score.</p>
    * @return mAsType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_M_AS_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IoCScoreEffect getMAsType() {
-    return mAsType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_M_AS_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IoCScoreEffect getMAsType() {
+        return mAsType;
+      }
   public void setMAsType(IoCScoreEffect mAsType) {
     if (!mAsType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.mAsType = mAsType;
   }
-
   public IoCIndicatorDetailed mPersistence(IoCScoreEffect mPersistence) {
     this.mPersistence = mPersistence;
     this.unparsed |= !mPersistence.isValid();
@@ -624,24 +590,22 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Effect of a scoring factor on the indicator's threat score.
-   *
+   * <p>Effect of a scoring factor on the indicator's threat score.</p>
    * @return mPersistence
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_M_PERSISTENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IoCScoreEffect getMPersistence() {
-    return mPersistence;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_M_PERSISTENCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IoCScoreEffect getMPersistence() {
+        return mPersistence;
+      }
   public void setMPersistence(IoCScoreEffect mPersistence) {
     if (!mPersistence.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.mPersistence = mPersistence;
   }
-
   public IoCIndicatorDetailed mSignal(IoCScoreEffect mSignal) {
     this.mSignal = mSignal;
     this.unparsed |= !mSignal.isValid();
@@ -649,24 +613,22 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Effect of a scoring factor on the indicator's threat score.
-   *
+   * <p>Effect of a scoring factor on the indicator's threat score.</p>
    * @return mSignal
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_M_SIGNAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IoCScoreEffect getMSignal() {
-    return mSignal;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_M_SIGNAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IoCScoreEffect getMSignal() {
+        return mSignal;
+      }
   public void setMSignal(IoCScoreEffect mSignal) {
     if (!mSignal.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.mSignal = mSignal;
   }
-
   public IoCIndicatorDetailed mSources(IoCScoreEffect mSources) {
     this.mSources = mSources;
     this.unparsed |= !mSources.isValid();
@@ -674,29 +636,26 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Effect of a scoring factor on the indicator's threat score.
-   *
+   * <p>Effect of a scoring factor on the indicator's threat score.</p>
    * @return mSources
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_M_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IoCScoreEffect getMSources() {
-    return mSources;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_M_SOURCES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IoCScoreEffect getMSources() {
+        return mSources;
+      }
   public void setMSources(IoCScoreEffect mSources) {
     if (!mSources.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.mSources = mSources;
   }
-
   public IoCIndicatorDetailed maliciousSources(List<IoCSource> maliciousSources) {
     this.maliciousSources = JsonNullable.<List<IoCSource>>of(maliciousSources);
     return this;
   }
-
   public IoCIndicatorDetailed addMaliciousSourcesItem(IoCSource maliciousSourcesItem) {
     if (this.maliciousSources == null || !this.maliciousSources.isPresent()) {
       this.maliciousSources = JsonNullable.<List<IoCSource>>of(new ArrayList<>());
@@ -710,31 +669,26 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Threat intelligence sources that flagged this indicator as malicious.
-   *
+   * <p>Threat intelligence sources that flagged this indicator as malicious.</p>
    * @return maliciousSources
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<IoCSource> getMaliciousSources() {
-    return maliciousSources.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<IoCSource> getMaliciousSources() {
+        return maliciousSources.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_MALICIOUS_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<IoCSource>> getMaliciousSources_JsonNullable() {
     return maliciousSources;
   }
-
-  @JsonProperty(JSON_PROPERTY_MALICIOUS_SOURCES)
-  public void setMaliciousSources_JsonNullable(JsonNullable<List<IoCSource>> maliciousSources) {
+  @JsonProperty(JSON_PROPERTY_MALICIOUS_SOURCES)public void setMaliciousSources_JsonNullable(JsonNullable<List<IoCSource>> maliciousSources) {
     this.maliciousSources = maliciousSources;
   }
-
   public void setMaliciousSources(List<IoCSource> maliciousSources) {
     this.maliciousSources = JsonNullable.<List<IoCSource>>of(maliciousSources);
   }
-
   public IoCIndicatorDetailed maxTrustScore(IoCScoreEffect maxTrustScore) {
     this.maxTrustScore = maxTrustScore;
     this.unparsed |= !maxTrustScore.isValid();
@@ -742,50 +696,45 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Effect of a scoring factor on the indicator's threat score.
-   *
+   * <p>Effect of a scoring factor on the indicator's threat score.</p>
    * @return maxTrustScore
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_TRUST_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IoCScoreEffect getMaxTrustScore() {
-    return maxTrustScore;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MAX_TRUST_SCORE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IoCScoreEffect getMaxTrustScore() {
+        return maxTrustScore;
+      }
   public void setMaxTrustScore(IoCScoreEffect maxTrustScore) {
     if (!maxTrustScore.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.maxTrustScore = maxTrustScore;
   }
-
   public IoCIndicatorDetailed score(Double score) {
     this.score = score;
     return this;
   }
 
   /**
-   * Threat score for the indicator (0-100).
-   *
+   * <p>Threat score for the indicator (0-100).</p>
    * @return score
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getScore() {
-    return score;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCORE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getScore() {
+        return score;
+      }
   public void setScore(Double score) {
     this.score = score;
   }
-
   public IoCIndicatorDetailed services(List<String> services) {
     this.services = services;
     return this;
   }
-
   public IoCIndicatorDetailed addServicesItem(String servicesItem) {
     if (this.services == null) {
       this.services = new ArrayList<>();
@@ -795,52 +744,47 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Services where this indicator was observed.
-   *
+   * <p>Services where this indicator was observed.</p>
    * @return services
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getServices() {
-    return services;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVICES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getServices() {
+        return services;
+      }
   public void setServices(List<String> services) {
     this.services = services;
   }
-
   public IoCIndicatorDetailed signalMatches(Long signalMatches) {
     this.signalMatches = signalMatches;
     return this;
   }
 
   /**
-   * Number of security signals that matched this indicator.
-   *
+   * <p>Number of security signals that matched this indicator.</p>
    * @return signalMatches
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNAL_MATCHES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSignalMatches() {
-    return signalMatches;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SIGNAL_MATCHES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSignalMatches() {
+        return signalMatches;
+      }
   public void setSignalMatches(Long signalMatches) {
     this.signalMatches = signalMatches;
   }
-
   public IoCIndicatorDetailed signalSeverity(List<IoCSignalSeverityCount> signalSeverity) {
     this.signalSeverity = signalSeverity;
     if (signalSeverity != null) {
-      for (IoCSignalSeverityCount item : signalSeverity) {
-        this.unparsed |= item.unparsed;
-      }
+    for (IoCSignalSeverityCount item : signalSeverity) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public IoCIndicatorDetailed addSignalSeverityItem(IoCSignalSeverityCount signalSeverityItem) {
     if (this.signalSeverity == null) {
       this.signalSeverity = new ArrayList<>();
@@ -851,17 +795,16 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Breakdown of security signals by severity.
-   *
+   * <p>Breakdown of security signals by severity.</p>
    * @return signalSeverity
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNAL_SEVERITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IoCSignalSeverityCount> getSignalSeverity() {
-    return signalSeverity;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SIGNAL_SEVERITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<IoCSignalSeverityCount> getSignalSeverity() {
+        return signalSeverity;
+      }
   public void setSignalSeverity(List<IoCSignalSeverityCount> signalSeverity) {
     this.signalSeverity = signalSeverity;
     if (signalSeverity != null) {
@@ -870,33 +813,29 @@ public class IoCIndicatorDetailed {
       }
     }
   }
-
   public IoCIndicatorDetailed signalTier(Long signalTier) {
     this.signalTier = signalTier;
     return this;
   }
 
   /**
-   * Signal tier level.
-   *
+   * <p>Signal tier level.</p>
    * @return signalTier
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNAL_TIER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSignalTier() {
-    return signalTier;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SIGNAL_TIER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSignalTier() {
+        return signalTier;
+      }
   public void setSignalTier(Long signalTier) {
     this.signalTier = signalTier;
   }
-
   public IoCIndicatorDetailed suspiciousSources(List<IoCSource> suspiciousSources) {
     this.suspiciousSources = JsonNullable.<List<IoCSource>>of(suspiciousSources);
     return this;
   }
-
   public IoCIndicatorDetailed addSuspiciousSourcesItem(IoCSource suspiciousSourcesItem) {
     if (this.suspiciousSources == null || !this.suspiciousSources.isPresent()) {
       this.suspiciousSources = JsonNullable.<List<IoCSource>>of(new ArrayList<>());
@@ -910,36 +849,30 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Threat intelligence sources that flagged this indicator as suspicious.
-   *
+   * <p>Threat intelligence sources that flagged this indicator as suspicious.</p>
    * @return suspiciousSources
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<IoCSource> getSuspiciousSources() {
-    return suspiciousSources.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<IoCSource> getSuspiciousSources() {
+        return suspiciousSources.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SUSPICIOUS_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<IoCSource>> getSuspiciousSources_JsonNullable() {
     return suspiciousSources;
   }
-
-  @JsonProperty(JSON_PROPERTY_SUSPICIOUS_SOURCES)
-  public void setSuspiciousSources_JsonNullable(JsonNullable<List<IoCSource>> suspiciousSources) {
+  @JsonProperty(JSON_PROPERTY_SUSPICIOUS_SOURCES)public void setSuspiciousSources_JsonNullable(JsonNullable<List<IoCSource>> suspiciousSources) {
     this.suspiciousSources = suspiciousSources;
   }
-
   public void setSuspiciousSources(List<IoCSource> suspiciousSources) {
     this.suspiciousSources = JsonNullable.<List<IoCSource>>of(suspiciousSources);
   }
-
   public IoCIndicatorDetailed tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public IoCIndicatorDetailed addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -949,31 +882,28 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Tags associated with the indicator.
-   *
+   * <p>Tags associated with the indicator.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public IoCIndicatorDetailed triageHistory(List<IoCTriageEvent> triageHistory) {
     this.triageHistory = triageHistory;
     if (triageHistory != null) {
-      for (IoCTriageEvent item : triageHistory) {
-        this.unparsed |= item.unparsed;
-      }
+    for (IoCTriageEvent item : triageHistory) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public IoCIndicatorDetailed addTriageHistoryItem(IoCTriageEvent triageHistoryItem) {
     if (this.triageHistory == null) {
       this.triageHistory = new ArrayList<>();
@@ -984,17 +914,16 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Full triage history timeline. Returned only when <code>include_triage_history</code> is true.
-   *
+   * <p>Full triage history timeline. Returned only when <code>include_triage_history</code> is true.</p>
    * @return triageHistory
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIAGE_HISTORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IoCTriageEvent> getTriageHistory() {
-    return triageHistory;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRIAGE_HISTORY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<IoCTriageEvent> getTriageHistory() {
+        return triageHistory;
+      }
   public void setTriageHistory(List<IoCTriageEvent> triageHistory) {
     this.triageHistory = triageHistory;
     if (triageHistory != null) {
@@ -1003,7 +932,6 @@ public class IoCIndicatorDetailed {
       }
     }
   }
-
   public IoCIndicatorDetailed triageState(IoCTriageState triageState) {
     this.triageState = triageState;
     this.unparsed |= !triageState.isValid();
@@ -1011,71 +939,64 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Current triage state of the indicator.
-   *
+   * <p>Current triage state of the indicator.</p>
    * @return triageState
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIAGE_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IoCTriageState getTriageState() {
-    return triageState;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRIAGE_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IoCTriageState getTriageState() {
+        return triageState;
+      }
   public void setTriageState(IoCTriageState triageState) {
     if (!triageState.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.triageState = triageState;
   }
-
   public IoCIndicatorDetailed triagedAt(OffsetDateTime triagedAt) {
     this.triagedAt = triagedAt;
     return this;
   }
 
   /**
-   * Timestamp when the indicator was last triaged.
-   *
+   * <p>Timestamp when the indicator was last triaged.</p>
    * @return triagedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIAGED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getTriagedAt() {
-    return triagedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRIAGED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getTriagedAt() {
+        return triagedAt;
+      }
   public void setTriagedAt(OffsetDateTime triagedAt) {
     this.triagedAt = triagedAt;
   }
-
   public IoCIndicatorDetailed triagedBy(String triagedBy) {
     this.triagedBy = triagedBy;
     return this;
   }
 
   /**
-   * UUID of the user who last triaged the indicator.
-   *
+   * <p>UUID of the user who last triaged the indicator.</p>
    * @return triagedBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIAGED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTriagedBy() {
-    return triagedBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRIAGED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTriagedBy() {
+        return triagedBy;
+      }
   public void setTriagedBy(String triagedBy) {
     this.triagedBy = triagedBy;
   }
-
   public IoCIndicatorDetailed users(Map<String, List<String>> users) {
     this.users = users;
     return this;
   }
-
   public IoCIndicatorDetailed putUsersItem(String key, List<String> usersItem) {
     if (this.users == null) {
       this.users = new HashMap<>();
@@ -1085,30 +1006,30 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Users associated with this indicator, grouped by category.
-   *
+   * <p>Users associated with this indicator, grouped by category.</p>
    * @return users
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, List<String>> getUsers() {
-    return users;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, List<String>> getUsers() {
+        return users;
+      }
   public void setUsers(Map<String, List<String>> users) {
     this.users = users;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -1117,7 +1038,7 @@ public class IoCIndicatorDetailed {
   @JsonAnySetter
   public IoCIndicatorDetailed putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -1141,12 +1062,14 @@ public class IoCIndicatorDetailed {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IoCIndicatorDetailed object is equal to o. */
+  /**
+   * Return true if this IoCIndicatorDetailed object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1156,83 +1079,13 @@ public class IoCIndicatorDetailed {
       return false;
     }
     IoCIndicatorDetailed ioCIndicatorDetailed = (IoCIndicatorDetailed) o;
-    return Objects.equals(this.additionalData, ioCIndicatorDetailed.additionalData)
-        && Objects.equals(this.asCidrBlock, ioCIndicatorDetailed.asCidrBlock)
-        && Objects.equals(this.asGeo, ioCIndicatorDetailed.asGeo)
-        && Objects.equals(this.asNumber, ioCIndicatorDetailed.asNumber)
-        && Objects.equals(this.asOrganization, ioCIndicatorDetailed.asOrganization)
-        && Objects.equals(this.asType, ioCIndicatorDetailed.asType)
-        && Objects.equals(this.benignSources, ioCIndicatorDetailed.benignSources)
-        && Objects.equals(this.categories, ioCIndicatorDetailed.categories)
-        && Objects.equals(this.criticalAssets, ioCIndicatorDetailed.criticalAssets)
-        && Objects.equals(this.firstSeen, ioCIndicatorDetailed.firstSeen)
-        && Objects.equals(this.hosts, ioCIndicatorDetailed.hosts)
-        && Objects.equals(this.id, ioCIndicatorDetailed.id)
-        && Objects.equals(this.indicator, ioCIndicatorDetailed.indicator)
-        && Objects.equals(this.indicatorType, ioCIndicatorDetailed.indicatorType)
-        && Objects.equals(this.lastSeen, ioCIndicatorDetailed.lastSeen)
-        && Objects.equals(this.logMatches, ioCIndicatorDetailed.logMatches)
-        && Objects.equals(this.logSources, ioCIndicatorDetailed.logSources)
-        && Objects.equals(this.mAsType, ioCIndicatorDetailed.mAsType)
-        && Objects.equals(this.mPersistence, ioCIndicatorDetailed.mPersistence)
-        && Objects.equals(this.mSignal, ioCIndicatorDetailed.mSignal)
-        && Objects.equals(this.mSources, ioCIndicatorDetailed.mSources)
-        && Objects.equals(this.maliciousSources, ioCIndicatorDetailed.maliciousSources)
-        && Objects.equals(this.maxTrustScore, ioCIndicatorDetailed.maxTrustScore)
-        && Objects.equals(this.score, ioCIndicatorDetailed.score)
-        && Objects.equals(this.services, ioCIndicatorDetailed.services)
-        && Objects.equals(this.signalMatches, ioCIndicatorDetailed.signalMatches)
-        && Objects.equals(this.signalSeverity, ioCIndicatorDetailed.signalSeverity)
-        && Objects.equals(this.signalTier, ioCIndicatorDetailed.signalTier)
-        && Objects.equals(this.suspiciousSources, ioCIndicatorDetailed.suspiciousSources)
-        && Objects.equals(this.tags, ioCIndicatorDetailed.tags)
-        && Objects.equals(this.triageHistory, ioCIndicatorDetailed.triageHistory)
-        && Objects.equals(this.triageState, ioCIndicatorDetailed.triageState)
-        && Objects.equals(this.triagedAt, ioCIndicatorDetailed.triagedAt)
-        && Objects.equals(this.triagedBy, ioCIndicatorDetailed.triagedBy)
-        && Objects.equals(this.users, ioCIndicatorDetailed.users)
-        && Objects.equals(this.additionalProperties, ioCIndicatorDetailed.additionalProperties);
+    return Objects.equals(this.additionalData, ioCIndicatorDetailed.additionalData) && Objects.equals(this.asCidrBlock, ioCIndicatorDetailed.asCidrBlock) && Objects.equals(this.asGeo, ioCIndicatorDetailed.asGeo) && Objects.equals(this.asNumber, ioCIndicatorDetailed.asNumber) && Objects.equals(this.asOrganization, ioCIndicatorDetailed.asOrganization) && Objects.equals(this.asType, ioCIndicatorDetailed.asType) && Objects.equals(this.benignSources, ioCIndicatorDetailed.benignSources) && Objects.equals(this.categories, ioCIndicatorDetailed.categories) && Objects.equals(this.criticalAssets, ioCIndicatorDetailed.criticalAssets) && Objects.equals(this.firstSeen, ioCIndicatorDetailed.firstSeen) && Objects.equals(this.hosts, ioCIndicatorDetailed.hosts) && Objects.equals(this.id, ioCIndicatorDetailed.id) && Objects.equals(this.indicator, ioCIndicatorDetailed.indicator) && Objects.equals(this.indicatorType, ioCIndicatorDetailed.indicatorType) && Objects.equals(this.lastSeen, ioCIndicatorDetailed.lastSeen) && Objects.equals(this.logMatches, ioCIndicatorDetailed.logMatches) && Objects.equals(this.logSources, ioCIndicatorDetailed.logSources) && Objects.equals(this.mAsType, ioCIndicatorDetailed.mAsType) && Objects.equals(this.mPersistence, ioCIndicatorDetailed.mPersistence) && Objects.equals(this.mSignal, ioCIndicatorDetailed.mSignal) && Objects.equals(this.mSources, ioCIndicatorDetailed.mSources) && Objects.equals(this.maliciousSources, ioCIndicatorDetailed.maliciousSources) && Objects.equals(this.maxTrustScore, ioCIndicatorDetailed.maxTrustScore) && Objects.equals(this.score, ioCIndicatorDetailed.score) && Objects.equals(this.services, ioCIndicatorDetailed.services) && Objects.equals(this.signalMatches, ioCIndicatorDetailed.signalMatches) && Objects.equals(this.signalSeverity, ioCIndicatorDetailed.signalSeverity) && Objects.equals(this.signalTier, ioCIndicatorDetailed.signalTier) && Objects.equals(this.suspiciousSources, ioCIndicatorDetailed.suspiciousSources) && Objects.equals(this.tags, ioCIndicatorDetailed.tags) && Objects.equals(this.triageHistory, ioCIndicatorDetailed.triageHistory) && Objects.equals(this.triageState, ioCIndicatorDetailed.triageState) && Objects.equals(this.triagedAt, ioCIndicatorDetailed.triagedAt) && Objects.equals(this.triagedBy, ioCIndicatorDetailed.triagedBy) && Objects.equals(this.users, ioCIndicatorDetailed.users) && Objects.equals(this.additionalProperties, ioCIndicatorDetailed.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        additionalData,
-        asCidrBlock,
-        asGeo,
-        asNumber,
-        asOrganization,
-        asType,
-        benignSources,
-        categories,
-        criticalAssets,
-        firstSeen,
-        hosts,
-        id,
-        indicator,
-        indicatorType,
-        lastSeen,
-        logMatches,
-        logSources,
-        mAsType,
-        mPersistence,
-        mSignal,
-        mSources,
-        maliciousSources,
-        maxTrustScore,
-        score,
-        services,
-        signalMatches,
-        signalSeverity,
-        signalTier,
-        suspiciousSources,
-        tags,
-        triageHistory,
-        triageState,
-        triagedAt,
-        triagedBy,
-        users,
-        additionalProperties);
+    return Objects.hash(additionalData,asCidrBlock,asGeo,asNumber,asOrganization,asType,benignSources,categories,criticalAssets,firstSeen,hosts,id,indicator,indicatorType,lastSeen,logMatches,logSources,mAsType,mPersistence,mSignal,mSources,maliciousSources,maxTrustScore,score,services,signalMatches,signalSeverity,signalTier,suspiciousSources,tags,triageHistory,triageState,triagedAt,triagedBy,users, additionalProperties);
   }
 
   @Override
@@ -1282,7 +1135,8 @@ public class IoCIndicatorDetailed {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

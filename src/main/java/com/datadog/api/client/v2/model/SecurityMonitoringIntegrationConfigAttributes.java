@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,12 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of an entity context sync configuration as returned by the API. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of an entity context sync configuration as returned by the API.</p>
+ */
 @JsonPropertyOrder({
   SecurityMonitoringIntegrationConfigAttributes.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringIntegrationConfigAttributes.JSON_PROPERTY_DOMAIN,
@@ -29,10 +44,10 @@ import java.util.Objects;
   SecurityMonitoringIntegrationConfigAttributes.JSON_PROPERTY_SETTINGS,
   SecurityMonitoringIntegrationConfigAttributes.JSON_PROPERTY_STATE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringIntegrationConfigAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -61,152 +76,134 @@ public class SecurityMonitoringIntegrationConfigAttributes {
 
   @JsonCreator
   public SecurityMonitoringIntegrationConfigAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION_TYPE)
-          SecurityMonitoringIntegrationType integrationType) {
-    this.domain = domain;
-    this.enabled = enabled;
-    this.integrationType = integrationType;
-    this.unparsed |= !integrationType.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_DOMAIN)String domain,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENABLED)Boolean enabled,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INTEGRATION_TYPE)SecurityMonitoringIntegrationType integrationType) {
+        this.domain = domain;
+        this.enabled = enabled;
+        this.integrationType = integrationType;
+        this.unparsed |= !integrationType.isValid();
   }
-
   public SecurityMonitoringIntegrationConfigAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The time at which the entity context sync configuration was created.
-   *
+   * <p>The time at which the entity context sync configuration was created.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public SecurityMonitoringIntegrationConfigAttributes domain(String domain) {
     this.domain = domain;
     return this;
   }
 
   /**
-   * The domain associated with the external entity source (for example, the customer's identity
-   * provider domain).
-   *
+   * <p>The domain associated with the external entity source (for example, the customer's identity provider domain).</p>
    * @return domain
-   */
-  @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDomain() {
-    return domain;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DOMAIN)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDomain() {
+        return domain;
+      }
   public void setDomain(String domain) {
     this.domain = domain;
   }
-
   public SecurityMonitoringIntegrationConfigAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Whether the sync is enabled and actively ingesting entities into Cloud SIEM.
-   *
+   * <p>Whether the sync is enabled and actively ingesting entities into Cloud SIEM.</p>
    * @return enabled
-   */
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getEnabled() {
+        return enabled;
+      }
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
-  public SecurityMonitoringIntegrationConfigAttributes integrationType(
-      SecurityMonitoringIntegrationType integrationType) {
+  public SecurityMonitoringIntegrationConfigAttributes integrationType(SecurityMonitoringIntegrationType integrationType) {
     this.integrationType = integrationType;
     this.unparsed |= !integrationType.isValid();
     return this;
   }
 
   /**
-   * The type of external source that provides entities to Cloud SIEM.
-   *
+   * <p>The type of external source that provides entities to Cloud SIEM.</p>
    * @return integrationType
-   */
-  @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringIntegrationType getIntegrationType() {
-    return integrationType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityMonitoringIntegrationType getIntegrationType() {
+        return integrationType;
+      }
   public void setIntegrationType(SecurityMonitoringIntegrationType integrationType) {
     if (!integrationType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.integrationType = integrationType;
   }
-
   public SecurityMonitoringIntegrationConfigAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * The time at which the entity context sync configuration was last modified.
-   *
+   * <p>The time at which the entity context sync configuration was last modified.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public SecurityMonitoringIntegrationConfigAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The display name of the entity context sync configuration.
-   *
+   * <p>The display name of the entity context sync configuration.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SecurityMonitoringIntegrationConfigAttributes settings(Map<String, Object> settings) {
     this.settings = settings;
     return this;
   }
-
-  public SecurityMonitoringIntegrationConfigAttributes putSettingsItem(
-      String key, Object settingsItem) {
+  public SecurityMonitoringIntegrationConfigAttributes putSettingsItem(String key, Object settingsItem) {
     if (this.settings == null) {
       this.settings = new HashMap<>();
     }
@@ -215,67 +212,62 @@ public class SecurityMonitoringIntegrationConfigAttributes {
   }
 
   /**
-   * Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the
-   * source type.
-   *
+   * <p>Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the source type.</p>
    * @return settings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getSettings() {
-    return settings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SETTINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getSettings() {
+        return settings;
+      }
   public void setSettings(Map<String, Object> settings) {
     this.settings = settings;
   }
-
-  public SecurityMonitoringIntegrationConfigAttributes state(
-      SecurityMonitoringIntegrationConfigState state) {
+  public SecurityMonitoringIntegrationConfigAttributes state(SecurityMonitoringIntegrationConfigState state) {
     this.state = state;
     this.unparsed |= !state.isValid();
     return this;
   }
 
   /**
-   * The state of the credentials configured on the entity context sync.
-   *
+   * <p>The state of the credentials configured on the entity context sync.</p>
    * @return state
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringIntegrationConfigState getState() {
-    return state;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SecurityMonitoringIntegrationConfigState getState() {
+        return state;
+      }
   public void setState(SecurityMonitoringIntegrationConfigState state) {
     if (!state.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.state = state;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SecurityMonitoringIntegrationConfigAttributes
    */
   @JsonAnySetter
-  public SecurityMonitoringIntegrationConfigAttributes putAdditionalProperty(
-      String key, Object value) {
+  public SecurityMonitoringIntegrationConfigAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -299,12 +291,14 @@ public class SecurityMonitoringIntegrationConfigAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringIntegrationConfigAttributes object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringIntegrationConfigAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -313,34 +307,14 @@ public class SecurityMonitoringIntegrationConfigAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringIntegrationConfigAttributes securityMonitoringIntegrationConfigAttributes =
-        (SecurityMonitoringIntegrationConfigAttributes) o;
-    return Objects.equals(this.createdAt, securityMonitoringIntegrationConfigAttributes.createdAt)
-        && Objects.equals(this.domain, securityMonitoringIntegrationConfigAttributes.domain)
-        && Objects.equals(this.enabled, securityMonitoringIntegrationConfigAttributes.enabled)
-        && Objects.equals(
-            this.integrationType, securityMonitoringIntegrationConfigAttributes.integrationType)
-        && Objects.equals(this.modifiedAt, securityMonitoringIntegrationConfigAttributes.modifiedAt)
-        && Objects.equals(this.name, securityMonitoringIntegrationConfigAttributes.name)
-        && Objects.equals(this.settings, securityMonitoringIntegrationConfigAttributes.settings)
-        && Objects.equals(this.state, securityMonitoringIntegrationConfigAttributes.state)
-        && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringIntegrationConfigAttributes.additionalProperties);
+    SecurityMonitoringIntegrationConfigAttributes securityMonitoringIntegrationConfigAttributes = (SecurityMonitoringIntegrationConfigAttributes) o;
+    return Objects.equals(this.createdAt, securityMonitoringIntegrationConfigAttributes.createdAt) && Objects.equals(this.domain, securityMonitoringIntegrationConfigAttributes.domain) && Objects.equals(this.enabled, securityMonitoringIntegrationConfigAttributes.enabled) && Objects.equals(this.integrationType, securityMonitoringIntegrationConfigAttributes.integrationType) && Objects.equals(this.modifiedAt, securityMonitoringIntegrationConfigAttributes.modifiedAt) && Objects.equals(this.name, securityMonitoringIntegrationConfigAttributes.name) && Objects.equals(this.settings, securityMonitoringIntegrationConfigAttributes.settings) && Objects.equals(this.state, securityMonitoringIntegrationConfigAttributes.state) && Objects.equals(this.additionalProperties, securityMonitoringIntegrationConfigAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        domain,
-        enabled,
-        integrationType,
-        modifiedAt,
-        name,
-        settings,
-        state,
-        additionalProperties);
+    return Objects.hash(createdAt,domain,enabled,integrationType,modifiedAt,name,settings,state, additionalProperties);
   }
 
   @Override
@@ -363,7 +337,8 @@ public class SecurityMonitoringIntegrationConfigAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,14 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Group by configuration for retention queries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Group by configuration for retention queries.</p>
+ */
 @JsonPropertyOrder({
   RetentionGroupBy.JSON_PROPERTY_FACET,
   RetentionGroupBy.JSON_PROPERTY_LIMIT,
@@ -22,10 +42,10 @@ import java.util.Objects;
   RetentionGroupBy.JSON_PROPERTY_SOURCE,
   RetentionGroupBy.JSON_PROPERTY_TARGET
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionGroupBy {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -48,75 +68,68 @@ public class RetentionGroupBy {
 
   @JsonCreator
   public RetentionGroupBy(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) RetentionGroupByTarget target) {
-    this.facet = facet;
-    this.target = target;
-    this.unparsed |= !target.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_FACET)String facet,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET)RetentionGroupByTarget target) {
+        this.facet = facet;
+        this.target = target;
+        this.unparsed |= !target.isValid();
   }
-
   public RetentionGroupBy facet(String facet) {
     this.facet = facet;
     return this;
   }
 
   /**
-   * Facet to group by.
-   *
+   * <p>Facet to group by.</p>
    * @return facet
-   */
-  @JsonProperty(JSON_PROPERTY_FACET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFacet() {
-    return facet;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FACET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFacet() {
+        return facet;
+      }
   public void setFacet(String facet) {
     this.facet = facet;
   }
-
   public RetentionGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Maximum number of groups.
-   *
+   * <p>Maximum number of groups.</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public RetentionGroupBy shouldExcludeMissing(Boolean shouldExcludeMissing) {
     this.shouldExcludeMissing = shouldExcludeMissing;
     return this;
   }
 
   /**
-   * Whether to exclude missing values.
-   *
+   * <p>Whether to exclude missing values.</p>
    * @return shouldExcludeMissing
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOULD_EXCLUDE_MISSING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getShouldExcludeMissing() {
-    return shouldExcludeMissing;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SHOULD_EXCLUDE_MISSING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getShouldExcludeMissing() {
+        return shouldExcludeMissing;
+      }
   public void setShouldExcludeMissing(Boolean shouldExcludeMissing) {
     this.shouldExcludeMissing = shouldExcludeMissing;
   }
-
   public RetentionGroupBy sort(RetentionGroupBySort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -124,45 +137,41 @@ public class RetentionGroupBy {
   }
 
   /**
-   * Sort configuration for retention group by.
-   *
+   * <p>Sort configuration for retention group by.</p>
    * @return sort
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RetentionGroupBySort getSort() {
-    return sort;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RetentionGroupBySort getSort() {
+        return sort;
+      }
   public void setSort(RetentionGroupBySort sort) {
     this.sort = sort;
     if (sort != null) {
       this.unparsed |= sort.unparsed;
     }
   }
-
   public RetentionGroupBy source(String source) {
     this.source = source;
     return this;
   }
 
   /**
-   * Source field.
-   *
+   * <p>Source field.</p>
    * @return source
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSource() {
-    return source;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSource() {
+        return source;
+      }
   public void setSource(String source) {
     this.source = source;
   }
-
   public RetentionGroupBy target(RetentionGroupByTarget target) {
     this.target = target;
     this.unparsed |= !target.isValid();
@@ -170,24 +179,25 @@ public class RetentionGroupBy {
   }
 
   /**
-   * Target for retention group by.
-   *
+   * <p>Target for retention group by.</p>
    * @return target
-   */
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionGroupByTarget getTarget() {
-    return target;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionGroupByTarget getTarget() {
+        return target;
+      }
   public void setTarget(RetentionGroupByTarget target) {
     if (!target.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.target = target;
   }
 
-  /** Return true if this RetentionGroupBy object is equal to o. */
+  /**
+   * Return true if this RetentionGroupBy object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -197,17 +207,13 @@ public class RetentionGroupBy {
       return false;
     }
     RetentionGroupBy retentionGroupBy = (RetentionGroupBy) o;
-    return Objects.equals(this.facet, retentionGroupBy.facet)
-        && Objects.equals(this.limit, retentionGroupBy.limit)
-        && Objects.equals(this.shouldExcludeMissing, retentionGroupBy.shouldExcludeMissing)
-        && Objects.equals(this.sort, retentionGroupBy.sort)
-        && Objects.equals(this.source, retentionGroupBy.source)
-        && Objects.equals(this.target, retentionGroupBy.target);
+    return Objects.equals(this.facet, retentionGroupBy.facet) && Objects.equals(this.limit, retentionGroupBy.limit) && Objects.equals(this.shouldExcludeMissing, retentionGroupBy.shouldExcludeMissing) && Objects.equals(this.sort, retentionGroupBy.sort) && Objects.equals(this.source, retentionGroupBy.source) && Objects.equals(this.target, retentionGroupBy.target);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(facet, limit, shouldExcludeMissing, sort, source, target);
+    return Objects.hash(facet,limit,shouldExcludeMissing,sort,source,target);
   }
 
   @Override
@@ -216,9 +222,7 @@ public class RetentionGroupBy {
     sb.append("class RetentionGroupBy {\n");
     sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    shouldExcludeMissing: ")
-        .append(toIndentedString(shouldExcludeMissing))
-        .append("\n");
+    sb.append("    shouldExcludeMissing: ").append(toIndentedString(shouldExcludeMissing)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
@@ -227,7 +231,8 @@ public class RetentionGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

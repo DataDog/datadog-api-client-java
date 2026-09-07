@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Return criteria for retention queries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Return criteria for retention queries.</p>
+ */
 @JsonPropertyOrder({
   RetentionReturnCriteria.JSON_PROPERTY_BASE_QUERY,
   RetentionReturnCriteria.JSON_PROPERTY_TIME_INTERVAL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionReturnCriteria {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BASE_QUERY = "base_query";
   private ProductAnalyticsBaseQuery baseQuery;
 
@@ -32,12 +52,10 @@ public class RetentionReturnCriteria {
 
   @JsonCreator
   public RetentionReturnCriteria(
-      @JsonProperty(required = true, value = JSON_PROPERTY_BASE_QUERY)
-          ProductAnalyticsBaseQuery baseQuery) {
-    this.baseQuery = baseQuery;
-    this.unparsed |= baseQuery.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_BASE_QUERY)ProductAnalyticsBaseQuery baseQuery) {
+        this.baseQuery = baseQuery;
+        this.unparsed |= baseQuery.unparsed;
   }
-
   public RetentionReturnCriteria baseQuery(ProductAnalyticsBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
     this.unparsed |= baseQuery.unparsed;
@@ -45,23 +63,21 @@ public class RetentionReturnCriteria {
   }
 
   /**
-   * Product Analytics event query.
-   *
+   * <p>Product Analytics event query.</p>
    * @return baseQuery
-   */
-  @JsonProperty(JSON_PROPERTY_BASE_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsBaseQuery getBaseQuery() {
-    return baseQuery;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_BASE_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsBaseQuery getBaseQuery() {
+        return baseQuery;
+      }
   public void setBaseQuery(ProductAnalyticsBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
     if (baseQuery != null) {
       this.unparsed |= baseQuery.unparsed;
     }
   }
-
   public RetentionReturnCriteria timeInterval(RetentionReturnCriteriaTimeInterval timeInterval) {
     this.timeInterval = timeInterval;
     this.unparsed |= timeInterval.unparsed;
@@ -69,17 +85,16 @@ public class RetentionReturnCriteria {
   }
 
   /**
-   * Time interval for return criteria.
-   *
+   * <p>Time interval for return criteria.</p>
    * @return timeInterval
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RetentionReturnCriteriaTimeInterval getTimeInterval() {
-    return timeInterval;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIME_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RetentionReturnCriteriaTimeInterval getTimeInterval() {
+        return timeInterval;
+      }
   public void setTimeInterval(RetentionReturnCriteriaTimeInterval timeInterval) {
     this.timeInterval = timeInterval;
     if (timeInterval != null) {
@@ -87,7 +102,9 @@ public class RetentionReturnCriteria {
     }
   }
 
-  /** Return true if this RetentionReturnCriteria object is equal to o. */
+  /**
+   * Return true if this RetentionReturnCriteria object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -97,13 +114,13 @@ public class RetentionReturnCriteria {
       return false;
     }
     RetentionReturnCriteria retentionReturnCriteria = (RetentionReturnCriteria) o;
-    return Objects.equals(this.baseQuery, retentionReturnCriteria.baseQuery)
-        && Objects.equals(this.timeInterval, retentionReturnCriteria.timeInterval);
+    return Objects.equals(this.baseQuery, retentionReturnCriteria.baseQuery) && Objects.equals(this.timeInterval, retentionReturnCriteria.timeInterval);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseQuery, timeInterval);
+    return Objects.hash(baseQuery,timeInterval);
   }
 
   @Override
@@ -117,7 +134,8 @@ public class RetentionReturnCriteria {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

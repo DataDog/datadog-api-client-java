@@ -6,59 +6,72 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * JSON:API type for update service settings request. The value must always be <code>
- * test_optimization_update_service_settings_request</code>.
+   * <p>JSON:API type for update service settings request.
+   * The value must always be <code>test_optimization_update_service_settings_request</code>.</p>
  */
-@JsonSerialize(
-    using =
-        TestOptimizationUpdateServiceSettingsRequestDataType
-            .TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer.class)
+@JsonSerialize(using = TestOptimizationUpdateServiceSettingsRequestDataType.TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer.class)
 public class TestOptimizationUpdateServiceSettingsRequestDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("test_optimization_update_service_settings_request"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("test_optimization_update_service_settings_request"));
 
-  public static final TestOptimizationUpdateServiceSettingsRequestDataType
-      TEST_OPTIMIZATION_UPDATE_SERVICE_SETTINGS_REQUEST =
-          new TestOptimizationUpdateServiceSettingsRequestDataType(
-              "test_optimization_update_service_settings_request");
+  public static final TestOptimizationUpdateServiceSettingsRequestDataType TEST_OPTIMIZATION_UPDATE_SERVICE_SETTINGS_REQUEST = new TestOptimizationUpdateServiceSettingsRequestDataType("test_optimization_update_service_settings_request");
+
 
   TestOptimizationUpdateServiceSettingsRequestDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer
-      extends StdSerializer<TestOptimizationUpdateServiceSettingsRequestDataType> {
-    public TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer(
-        Class<TestOptimizationUpdateServiceSettingsRequestDataType> t) {
-      super(t);
-    }
+  public static class TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer extends StdSerializer<TestOptimizationUpdateServiceSettingsRequestDataType> {
+      public TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer(Class<TestOptimizationUpdateServiceSettingsRequestDataType> t) {
+          super(t);
+      }
 
-    public TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer() {
-      this(null);
-    }
+      public TestOptimizationUpdateServiceSettingsRequestDataTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        TestOptimizationUpdateServiceSettingsRequestDataType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(TestOptimizationUpdateServiceSettingsRequestDataType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

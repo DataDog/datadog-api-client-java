@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Configuration parameters of the policy that triggered this status change. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Configuration parameters of the policy that triggered this status change.</p>
+ */
 @JsonPropertyOrder({
   FlakyTestHistoryPolicyMetaConfig.JSON_PROPERTY_BRANCHES,
   FlakyTestHistoryPolicyMetaConfig.JSON_PROPERTY_DAYS_ACTIVE,
@@ -29,10 +43,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FlakyTestHistoryPolicyMetaConfig.JSON_PROPERTY_STATE,
   FlakyTestHistoryPolicyMetaConfig.JSON_PROPERTY_TEST_SERVICES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FlakyTestHistoryPolicyMetaConfig {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BRANCHES = "branches";
   private JsonNullable<List<String>> branches = JsonNullable.<List<String>>undefined();
 
@@ -58,7 +72,6 @@ public class FlakyTestHistoryPolicyMetaConfig {
     this.branches = JsonNullable.<List<String>>of(branches);
     return this;
   }
-
   public FlakyTestHistoryPolicyMetaConfig addBranchesItem(String branchesItem) {
     if (this.branches == null || !this.branches.isPresent()) {
       this.branches = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -72,98 +85,85 @@ public class FlakyTestHistoryPolicyMetaConfig {
   }
 
   /**
-   * The branches considered by the policy.
-   *
+   * <p>The branches considered by the policy.</p>
    * @return branches
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getBranches() {
-    return branches.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<String> getBranches() {
+        return branches.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_BRANCHES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getBranches_JsonNullable() {
     return branches;
   }
-
-  @JsonProperty(JSON_PROPERTY_BRANCHES)
-  public void setBranches_JsonNullable(JsonNullable<List<String>> branches) {
+  @JsonProperty(JSON_PROPERTY_BRANCHES)public void setBranches_JsonNullable(JsonNullable<List<String>> branches) {
     this.branches = branches;
   }
-
   public void setBranches(List<String> branches) {
     this.branches = JsonNullable.<List<String>>of(branches);
   }
-
   public FlakyTestHistoryPolicyMetaConfig daysActive(Integer daysActive) {
     this.daysActive = JsonNullable.<Integer>of(daysActive);
     return this;
   }
 
   /**
-   * The number of days a test must have been active for the policy to trigger. maximum: 2147483647
-   *
+   * <p>The number of days a test must have been active for the policy to trigger.</p>
+   * maximum: 2147483647
    * @return daysActive
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Integer getDaysActive() {
-    return daysActive.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Integer getDaysActive() {
+        return daysActive.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DAYS_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Integer> getDaysActive_JsonNullable() {
     return daysActive;
   }
-
-  @JsonProperty(JSON_PROPERTY_DAYS_ACTIVE)
-  public void setDaysActive_JsonNullable(JsonNullable<Integer> daysActive) {
+  @JsonProperty(JSON_PROPERTY_DAYS_ACTIVE)public void setDaysActive_JsonNullable(JsonNullable<Integer> daysActive) {
     this.daysActive = daysActive;
   }
-
   public void setDaysActive(Integer daysActive) {
     this.daysActive = JsonNullable.<Integer>of(daysActive);
   }
-
   public FlakyTestHistoryPolicyMetaConfig failureRate(Double failureRate) {
     this.failureRate = JsonNullable.<Double>of(failureRate);
     return this;
   }
 
   /**
-   * The failure rate threshold for the policy to trigger. minimum: 0 maximum: 1
-   *
+   * <p>The failure rate threshold for the policy to trigger.</p>
+   * minimum: 0
+   * maximum: 1
    * @return failureRate
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Double getFailureRate() {
-    return failureRate.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Double getFailureRate() {
+        return failureRate.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_FAILURE_RATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getFailureRate_JsonNullable() {
     return failureRate;
   }
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_RATE)
-  public void setFailureRate_JsonNullable(JsonNullable<Double> failureRate) {
+  @JsonProperty(JSON_PROPERTY_FAILURE_RATE)public void setFailureRate_JsonNullable(JsonNullable<Double> failureRate) {
     this.failureRate = failureRate;
   }
-
   public void setFailureRate(Double failureRate) {
     this.failureRate = JsonNullable.<Double>of(failureRate);
   }
-
   public FlakyTestHistoryPolicyMetaConfig forgetBranches(List<String> forgetBranches) {
     this.forgetBranches = JsonNullable.<List<String>>of(forgetBranches);
     return this;
   }
-
   public FlakyTestHistoryPolicyMetaConfig addForgetBranchesItem(String forgetBranchesItem) {
     if (this.forgetBranches == null || !this.forgetBranches.isPresent()) {
       this.forgetBranches = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -177,98 +177,83 @@ public class FlakyTestHistoryPolicyMetaConfig {
   }
 
   /**
-   * Branches excluded from the policy evaluation.
-   *
+   * <p>Branches excluded from the policy evaluation.</p>
    * @return forgetBranches
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getForgetBranches() {
-    return forgetBranches.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<String> getForgetBranches() {
+        return forgetBranches.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_FORGET_BRANCHES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getForgetBranches_JsonNullable() {
     return forgetBranches;
   }
-
-  @JsonProperty(JSON_PROPERTY_FORGET_BRANCHES)
-  public void setForgetBranches_JsonNullable(JsonNullable<List<String>> forgetBranches) {
+  @JsonProperty(JSON_PROPERTY_FORGET_BRANCHES)public void setForgetBranches_JsonNullable(JsonNullable<List<String>> forgetBranches) {
     this.forgetBranches = forgetBranches;
   }
-
   public void setForgetBranches(List<String> forgetBranches) {
     this.forgetBranches = JsonNullable.<List<String>>of(forgetBranches);
   }
-
   public FlakyTestHistoryPolicyMetaConfig requiredRuns(Integer requiredRuns) {
     this.requiredRuns = JsonNullable.<Integer>of(requiredRuns);
     return this;
   }
 
   /**
-   * The minimum number of test runs required for the policy to trigger. maximum: 2147483647
-   *
+   * <p>The minimum number of test runs required for the policy to trigger.</p>
+   * maximum: 2147483647
    * @return requiredRuns
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Integer getRequiredRuns() {
-    return requiredRuns.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Integer getRequiredRuns() {
+        return requiredRuns.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_REQUIRED_RUNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Integer> getRequiredRuns_JsonNullable() {
     return requiredRuns;
   }
-
-  @JsonProperty(JSON_PROPERTY_REQUIRED_RUNS)
-  public void setRequiredRuns_JsonNullable(JsonNullable<Integer> requiredRuns) {
+  @JsonProperty(JSON_PROPERTY_REQUIRED_RUNS)public void setRequiredRuns_JsonNullable(JsonNullable<Integer> requiredRuns) {
     this.requiredRuns = requiredRuns;
   }
-
   public void setRequiredRuns(Integer requiredRuns) {
     this.requiredRuns = JsonNullable.<Integer>of(requiredRuns);
   }
-
   public FlakyTestHistoryPolicyMetaConfig state(String state) {
     this.state = JsonNullable.<String>of(state);
     return this;
   }
 
   /**
-   * The target state the policy transitions the test from.
-   *
+   * <p>The target state the policy transitions the test from.</p>
    * @return state
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getState() {
-    return state.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getState() {
+        return state.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getState_JsonNullable() {
     return state;
   }
-
-  @JsonProperty(JSON_PROPERTY_STATE)
-  public void setState_JsonNullable(JsonNullable<String> state) {
+  @JsonProperty(JSON_PROPERTY_STATE)public void setState_JsonNullable(JsonNullable<String> state) {
     this.state = state;
   }
-
   public void setState(String state) {
     this.state = JsonNullable.<String>of(state);
   }
-
   public FlakyTestHistoryPolicyMetaConfig testServices(List<String> testServices) {
     this.testServices = JsonNullable.<List<String>>of(testServices);
     return this;
   }
-
   public FlakyTestHistoryPolicyMetaConfig addTestServicesItem(String testServicesItem) {
     if (this.testServices == null || !this.testServices.isPresent()) {
       this.testServices = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -282,40 +267,37 @@ public class FlakyTestHistoryPolicyMetaConfig {
   }
 
   /**
-   * Test services excluded from the policy evaluation.
-   *
+   * <p>Test services excluded from the policy evaluation.</p>
    * @return testServices
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getTestServices() {
-    return testServices.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<String> getTestServices() {
+        return testServices.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_TEST_SERVICES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getTestServices_JsonNullable() {
     return testServices;
   }
-
-  @JsonProperty(JSON_PROPERTY_TEST_SERVICES)
-  public void setTestServices_JsonNullable(JsonNullable<List<String>> testServices) {
+  @JsonProperty(JSON_PROPERTY_TEST_SERVICES)public void setTestServices_JsonNullable(JsonNullable<List<String>> testServices) {
     this.testServices = testServices;
   }
-
   public void setTestServices(List<String> testServices) {
     this.testServices = JsonNullable.<List<String>>of(testServices);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -324,7 +306,7 @@ public class FlakyTestHistoryPolicyMetaConfig {
   @JsonAnySetter
   public FlakyTestHistoryPolicyMetaConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -348,12 +330,14 @@ public class FlakyTestHistoryPolicyMetaConfig {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FlakyTestHistoryPolicyMetaConfig object is equal to o. */
+  /**
+   * Return true if this FlakyTestHistoryPolicyMetaConfig object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -362,30 +346,14 @@ public class FlakyTestHistoryPolicyMetaConfig {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FlakyTestHistoryPolicyMetaConfig flakyTestHistoryPolicyMetaConfig =
-        (FlakyTestHistoryPolicyMetaConfig) o;
-    return Objects.equals(this.branches, flakyTestHistoryPolicyMetaConfig.branches)
-        && Objects.equals(this.daysActive, flakyTestHistoryPolicyMetaConfig.daysActive)
-        && Objects.equals(this.failureRate, flakyTestHistoryPolicyMetaConfig.failureRate)
-        && Objects.equals(this.forgetBranches, flakyTestHistoryPolicyMetaConfig.forgetBranches)
-        && Objects.equals(this.requiredRuns, flakyTestHistoryPolicyMetaConfig.requiredRuns)
-        && Objects.equals(this.state, flakyTestHistoryPolicyMetaConfig.state)
-        && Objects.equals(this.testServices, flakyTestHistoryPolicyMetaConfig.testServices)
-        && Objects.equals(
-            this.additionalProperties, flakyTestHistoryPolicyMetaConfig.additionalProperties);
+    FlakyTestHistoryPolicyMetaConfig flakyTestHistoryPolicyMetaConfig = (FlakyTestHistoryPolicyMetaConfig) o;
+    return Objects.equals(this.branches, flakyTestHistoryPolicyMetaConfig.branches) && Objects.equals(this.daysActive, flakyTestHistoryPolicyMetaConfig.daysActive) && Objects.equals(this.failureRate, flakyTestHistoryPolicyMetaConfig.failureRate) && Objects.equals(this.forgetBranches, flakyTestHistoryPolicyMetaConfig.forgetBranches) && Objects.equals(this.requiredRuns, flakyTestHistoryPolicyMetaConfig.requiredRuns) && Objects.equals(this.state, flakyTestHistoryPolicyMetaConfig.state) && Objects.equals(this.testServices, flakyTestHistoryPolicyMetaConfig.testServices) && Objects.equals(this.additionalProperties, flakyTestHistoryPolicyMetaConfig.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        branches,
-        daysActive,
-        failureRate,
-        forgetBranches,
-        requiredRuns,
-        state,
-        testServices,
-        additionalProperties);
+    return Objects.hash(branches,daysActive,failureRate,forgetBranches,requiredRuns,state,testServices, additionalProperties);
   }
 
   @Override
@@ -407,7 +375,8 @@ public class FlakyTestHistoryPolicyMetaConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

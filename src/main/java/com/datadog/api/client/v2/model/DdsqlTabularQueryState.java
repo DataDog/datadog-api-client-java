@@ -6,53 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * Lifecycle state of a DDSQL tabular query response. <code>running</code> means the query is still
- * executing and the client should poll the fetch endpoint with the returned <code>query_id</code>.
- * <code>completed</code> means the result set is inlined in <code>columns</code> and no further
- * polling is required.
+   * <p>Lifecycle state of a DDSQL tabular query response.
+   * <code>running</code> means the query is still executing and the client should poll
+   * the fetch endpoint with the returned <code>query_id</code>. <code>completed</code> means the
+   * result set is inlined in <code>columns</code> and no further polling is required.</p>
  */
 @JsonSerialize(using = DdsqlTabularQueryState.DdsqlTabularQueryStateSerializer.class)
 public class DdsqlTabularQueryState extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("running", "completed"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("running", "completed"));
 
   public static final DdsqlTabularQueryState RUNNING = new DdsqlTabularQueryState("running");
   public static final DdsqlTabularQueryState COMPLETED = new DdsqlTabularQueryState("completed");
+
 
   DdsqlTabularQueryState(String value) {
     super(value, allowedValues);
   }
 
-  public static class DdsqlTabularQueryStateSerializer
-      extends StdSerializer<DdsqlTabularQueryState> {
-    public DdsqlTabularQueryStateSerializer(Class<DdsqlTabularQueryState> t) {
-      super(t);
-    }
+  public static class DdsqlTabularQueryStateSerializer extends StdSerializer<DdsqlTabularQueryState> {
+      public DdsqlTabularQueryStateSerializer(Class<DdsqlTabularQueryState> t) {
+          super(t);
+      }
 
-    public DdsqlTabularQueryStateSerializer() {
-      this(null);
-    }
+      public DdsqlTabularQueryStateSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        DdsqlTabularQueryState value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(DdsqlTabularQueryState value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

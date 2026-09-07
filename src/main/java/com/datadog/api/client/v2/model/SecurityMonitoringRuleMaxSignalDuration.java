@@ -6,80 +6,83 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * A signal will "close" regardless of the query being matched once the time exceeds the maximum
- * duration. This time is calculated from the first seen timestamp.
+   * <p>A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
+   * This time is calculated from the first seen timestamp.</p>
  */
-@JsonSerialize(
-    using =
-        SecurityMonitoringRuleMaxSignalDuration.SecurityMonitoringRuleMaxSignalDurationSerializer
-            .class)
+@JsonSerialize(using = SecurityMonitoringRuleMaxSignalDuration.SecurityMonitoringRuleMaxSignalDurationSerializer.class)
 public class SecurityMonitoringRuleMaxSignalDuration extends ModelEnum<Integer> {
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(
-          Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400));
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400));
 
-  public static final SecurityMonitoringRuleMaxSignalDuration ZERO_MINUTES =
-      new SecurityMonitoringRuleMaxSignalDuration(0);
-  public static final SecurityMonitoringRuleMaxSignalDuration ONE_MINUTE =
-      new SecurityMonitoringRuleMaxSignalDuration(60);
-  public static final SecurityMonitoringRuleMaxSignalDuration FIVE_MINUTES =
-      new SecurityMonitoringRuleMaxSignalDuration(300);
-  public static final SecurityMonitoringRuleMaxSignalDuration TEN_MINUTES =
-      new SecurityMonitoringRuleMaxSignalDuration(600);
-  public static final SecurityMonitoringRuleMaxSignalDuration FIFTEEN_MINUTES =
-      new SecurityMonitoringRuleMaxSignalDuration(900);
-  public static final SecurityMonitoringRuleMaxSignalDuration THIRTY_MINUTES =
-      new SecurityMonitoringRuleMaxSignalDuration(1800);
-  public static final SecurityMonitoringRuleMaxSignalDuration ONE_HOUR =
-      new SecurityMonitoringRuleMaxSignalDuration(3600);
-  public static final SecurityMonitoringRuleMaxSignalDuration TWO_HOURS =
-      new SecurityMonitoringRuleMaxSignalDuration(7200);
-  public static final SecurityMonitoringRuleMaxSignalDuration THREE_HOURS =
-      new SecurityMonitoringRuleMaxSignalDuration(10800);
-  public static final SecurityMonitoringRuleMaxSignalDuration SIX_HOURS =
-      new SecurityMonitoringRuleMaxSignalDuration(21600);
-  public static final SecurityMonitoringRuleMaxSignalDuration TWELVE_HOURS =
-      new SecurityMonitoringRuleMaxSignalDuration(43200);
-  public static final SecurityMonitoringRuleMaxSignalDuration ONE_DAY =
-      new SecurityMonitoringRuleMaxSignalDuration(86400);
+  public static final SecurityMonitoringRuleMaxSignalDuration ZERO_MINUTES = new SecurityMonitoringRuleMaxSignalDuration(0);
+  public static final SecurityMonitoringRuleMaxSignalDuration ONE_MINUTE = new SecurityMonitoringRuleMaxSignalDuration(60);
+  public static final SecurityMonitoringRuleMaxSignalDuration FIVE_MINUTES = new SecurityMonitoringRuleMaxSignalDuration(300);
+  public static final SecurityMonitoringRuleMaxSignalDuration TEN_MINUTES = new SecurityMonitoringRuleMaxSignalDuration(600);
+  public static final SecurityMonitoringRuleMaxSignalDuration FIFTEEN_MINUTES = new SecurityMonitoringRuleMaxSignalDuration(900);
+  public static final SecurityMonitoringRuleMaxSignalDuration THIRTY_MINUTES = new SecurityMonitoringRuleMaxSignalDuration(1800);
+  public static final SecurityMonitoringRuleMaxSignalDuration ONE_HOUR = new SecurityMonitoringRuleMaxSignalDuration(3600);
+  public static final SecurityMonitoringRuleMaxSignalDuration TWO_HOURS = new SecurityMonitoringRuleMaxSignalDuration(7200);
+  public static final SecurityMonitoringRuleMaxSignalDuration THREE_HOURS = new SecurityMonitoringRuleMaxSignalDuration(10800);
+  public static final SecurityMonitoringRuleMaxSignalDuration SIX_HOURS = new SecurityMonitoringRuleMaxSignalDuration(21600);
+  public static final SecurityMonitoringRuleMaxSignalDuration TWELVE_HOURS = new SecurityMonitoringRuleMaxSignalDuration(43200);
+  public static final SecurityMonitoringRuleMaxSignalDuration ONE_DAY = new SecurityMonitoringRuleMaxSignalDuration(86400);
+
 
   SecurityMonitoringRuleMaxSignalDuration(Integer value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringRuleMaxSignalDurationSerializer
-      extends StdSerializer<SecurityMonitoringRuleMaxSignalDuration> {
-    public SecurityMonitoringRuleMaxSignalDurationSerializer(
-        Class<SecurityMonitoringRuleMaxSignalDuration> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleMaxSignalDurationSerializer extends StdSerializer<SecurityMonitoringRuleMaxSignalDuration> {
+      public SecurityMonitoringRuleMaxSignalDurationSerializer(Class<SecurityMonitoringRuleMaxSignalDuration> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleMaxSignalDurationSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleMaxSignalDurationSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleMaxSignalDuration value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleMaxSignalDuration value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

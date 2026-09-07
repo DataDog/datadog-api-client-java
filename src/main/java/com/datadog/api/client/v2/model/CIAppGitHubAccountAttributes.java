@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes describing a GitHub account's CI Visibility opt-in status. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes describing a GitHub account's CI Visibility opt-in status.</p>
+ */
 @JsonPropertyOrder({
   CIAppGitHubAccountAttributes.JSON_PROPERTY_ACCOUNT,
   CIAppGitHubAccountAttributes.JSON_PROPERTY_ENABLED,
@@ -26,10 +41,10 @@ import java.util.Objects;
   CIAppGitHubAccountAttributes.JSON_PROPERTY_REPO_COUNT,
   CIAppGitHubAccountAttributes.JSON_PROPERTY_REPOSITORIES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppGitHubAccountAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private String account;
 
@@ -51,98 +66,86 @@ public class CIAppGitHubAccountAttributes {
   }
 
   /**
-   * The GitHub account (organization or user) name.
-   *
+   * <p>The GitHub account (organization or user) name.</p>
    * @return account
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAccount() {
-    return account;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ACCOUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAccount() {
+        return account;
+      }
   public void setAccount(String account) {
     this.account = account;
   }
-
   public CIAppGitHubAccountAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Whether CI Visibility is enabled at the account level.
-   *
+   * <p>Whether CI Visibility is enabled at the account level.</p>
    * @return enabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getEnabled() {
+        return enabled;
+      }
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
   public CIAppGitHubAccountAttributes host(String host) {
     this.host = host;
     return this;
   }
 
   /**
-   * The GitHub host (<code>github.com</code> or a GitHub Enterprise Server (GHES) hostname) this
-   * account belongs to.
-   *
+   * <p>The GitHub host (<code>github.com</code> or a GitHub Enterprise Server (GHES) hostname) this account belongs to.</p>
    * @return host
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHost() {
-    return host;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HOST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHost() {
+        return host;
+      }
   public void setHost(String host) {
     this.host = host;
   }
-
   public CIAppGitHubAccountAttributes repoCount(Long repoCount) {
     this.repoCount = repoCount;
     return this;
   }
 
   /**
-   * The number of repositories known for this account.
-   *
+   * <p>The number of repositories known for this account.</p>
    * @return repoCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REPO_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRepoCount() {
-    return repoCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REPO_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRepoCount() {
+        return repoCount;
+      }
   public void setRepoCount(Long repoCount) {
     this.repoCount = repoCount;
   }
-
-  public CIAppGitHubAccountAttributes repositories(
-      List<CIAppGitHubAccountRepository> repositories) {
+  public CIAppGitHubAccountAttributes repositories(List<CIAppGitHubAccountRepository> repositories) {
     this.repositories = repositories;
     if (repositories != null) {
-      for (CIAppGitHubAccountRepository item : repositories) {
-        this.unparsed |= item.unparsed;
-      }
+    for (CIAppGitHubAccountRepository item : repositories) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public CIAppGitHubAccountAttributes addRepositoriesItem(
-      CIAppGitHubAccountRepository repositoriesItem) {
+  public CIAppGitHubAccountAttributes addRepositoriesItem(CIAppGitHubAccountRepository repositoriesItem) {
     if (this.repositories == null) {
       this.repositories = new ArrayList<>();
     }
@@ -152,17 +155,16 @@ public class CIAppGitHubAccountAttributes {
   }
 
   /**
-   * The repositories belonging to this account, with their individual opt-in status.
-   *
+   * <p>The repositories belonging to this account, with their individual opt-in status.</p>
    * @return repositories
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REPOSITORIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<CIAppGitHubAccountRepository> getRepositories() {
-    return repositories;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REPOSITORIES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<CIAppGitHubAccountRepository> getRepositories() {
+        return repositories;
+      }
   public void setRepositories(List<CIAppGitHubAccountRepository> repositories) {
     this.repositories = repositories;
     if (repositories != null) {
@@ -173,14 +175,15 @@ public class CIAppGitHubAccountAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -189,7 +192,7 @@ public class CIAppGitHubAccountAttributes {
   @JsonAnySetter
   public CIAppGitHubAccountAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -213,12 +216,14 @@ public class CIAppGitHubAccountAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CIAppGitHubAccountAttributes object is equal to o. */
+  /**
+   * Return true if this CIAppGitHubAccountAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -228,18 +233,13 @@ public class CIAppGitHubAccountAttributes {
       return false;
     }
     CIAppGitHubAccountAttributes ciAppGitHubAccountAttributes = (CIAppGitHubAccountAttributes) o;
-    return Objects.equals(this.account, ciAppGitHubAccountAttributes.account)
-        && Objects.equals(this.enabled, ciAppGitHubAccountAttributes.enabled)
-        && Objects.equals(this.host, ciAppGitHubAccountAttributes.host)
-        && Objects.equals(this.repoCount, ciAppGitHubAccountAttributes.repoCount)
-        && Objects.equals(this.repositories, ciAppGitHubAccountAttributes.repositories)
-        && Objects.equals(
-            this.additionalProperties, ciAppGitHubAccountAttributes.additionalProperties);
+    return Objects.equals(this.account, ciAppGitHubAccountAttributes.account) && Objects.equals(this.enabled, ciAppGitHubAccountAttributes.enabled) && Objects.equals(this.host, ciAppGitHubAccountAttributes.host) && Objects.equals(this.repoCount, ciAppGitHubAccountAttributes.repoCount) && Objects.equals(this.repositories, ciAppGitHubAccountAttributes.repositories) && Objects.equals(this.additionalProperties, ciAppGitHubAccountAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, enabled, host, repoCount, repositories, additionalProperties);
+    return Objects.hash(account,enabled,host,repoCount,repositories, additionalProperties);
   }
 
   @Override
@@ -259,7 +259,8 @@ public class CIAppGitHubAccountAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

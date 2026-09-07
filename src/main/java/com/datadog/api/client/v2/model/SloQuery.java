@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A query for SLO status, error budget, and burn rate metrics. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A query for SLO status, error budget, and burn rate metrics.</p>
+ */
 @JsonPropertyOrder({
   SloQuery.JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS,
   SloQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
@@ -30,10 +44,10 @@ import java.util.Objects;
   SloQuery.JSON_PROPERTY_SLO_ID,
   SloQuery.JSON_PROPERTY_SLO_QUERY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SloQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS = "additional_query_filters";
   private String additionalQueryFilters;
 
@@ -62,42 +76,38 @@ public class SloQuery {
 
   @JsonCreator
   public SloQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) SloDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MEASURE) SlosMeasure measure,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SLO_ID) String sloId) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.measure = measure;
-    this.unparsed |= !measure.isValid();
-    this.sloId = sloId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)SloDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MEASURE)SlosMeasure measure,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SLO_ID)String sloId) {
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.measure = measure;
+        this.unparsed |= !measure.isValid();
+        this.sloId = sloId;
   }
-
   public SloQuery additionalQueryFilters(String additionalQueryFilters) {
     this.additionalQueryFilters = additionalQueryFilters;
     return this;
   }
 
   /**
-   * Additional filters applied to the SLO query.
-   *
+   * <p>Additional filters applied to the SLO query.</p>
    * @return additionalQueryFilters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAdditionalQueryFilters() {
-    return additionalQueryFilters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAdditionalQueryFilters() {
+        return additionalQueryFilters;
+      }
   public void setAdditionalQueryFilters(String additionalQueryFilters) {
     this.additionalQueryFilters = additionalQueryFilters;
   }
-
   public SloQuery crossOrgUuids(List<String> crossOrgUuids) {
     this.crossOrgUuids = crossOrgUuids;
     return this;
   }
-
   public SloQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
     if (this.crossOrgUuids == null) {
       this.crossOrgUuids = new ArrayList<>();
@@ -107,23 +117,19 @@ public class SloQuery {
   }
 
   /**
-   * Organization UUIDs to query when using <a
-   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
-   * visibility</a>. Limited to one organization UUID.
-   *
+   * <p>Organization UUIDs to query when using <a href="/account_management/org_settings/cross_org_visibility/">cross-organization visibility</a>. Limited to one organization UUID.</p>
    * @return crossOrgUuids
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getCrossOrgUuids() {
-    return crossOrgUuids;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getCrossOrgUuids() {
+        return crossOrgUuids;
+      }
   public void setCrossOrgUuids(List<String> crossOrgUuids) {
     this.crossOrgUuids = crossOrgUuids;
   }
-
   public SloQuery dataSource(SloDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -131,23 +137,21 @@ public class SloQuery {
   }
 
   /**
-   * A data source for SLO queries.
-   *
+   * <p>A data source for SLO queries.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SloDataSource getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SloDataSource getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(SloDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-
   public SloQuery groupMode(SlosGroupMode groupMode) {
     this.groupMode = groupMode;
     this.unparsed |= !groupMode.isValid();
@@ -155,24 +159,22 @@ public class SloQuery {
   }
 
   /**
-   * How SLO results are grouped in the response.
-   *
+   * <p>How SLO results are grouped in the response.</p>
    * @return groupMode
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SlosGroupMode getGroupMode() {
-    return groupMode;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUP_MODE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SlosGroupMode getGroupMode() {
+        return groupMode;
+      }
   public void setGroupMode(SlosGroupMode groupMode) {
     if (!groupMode.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.groupMode = groupMode;
   }
-
   public SloQuery measure(SlosMeasure measure) {
     this.measure = measure;
     this.unparsed |= !measure.isValid();
@@ -180,64 +182,58 @@ public class SloQuery {
   }
 
   /**
-   * The SLO measurement to retrieve.
-   *
+   * <p>The SLO measurement to retrieve.</p>
    * @return measure
-   */
-  @JsonProperty(JSON_PROPERTY_MEASURE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SlosMeasure getMeasure() {
-    return measure;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MEASURE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SlosMeasure getMeasure() {
+        return measure;
+      }
   public void setMeasure(SlosMeasure measure) {
     if (!measure.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.measure = measure;
   }
-
   public SloQuery name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The variable name for use in formulas.
-   *
+   * <p>The variable name for use in formulas.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SloQuery sloId(String sloId) {
     this.sloId = sloId;
     return this;
   }
 
   /**
-   * The unique identifier of the SLO to query.
-   *
+   * <p>The unique identifier of the SLO to query.</p>
    * @return sloId
-   */
-  @JsonProperty(JSON_PROPERTY_SLO_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSloId() {
-    return sloId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SLO_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSloId() {
+        return sloId;
+      }
   public void setSloId(String sloId) {
     this.sloId = sloId;
   }
-
   public SloQuery sloQueryType(SlosQueryType sloQueryType) {
     this.sloQueryType = sloQueryType;
     this.unparsed |= !sloQueryType.isValid();
@@ -245,33 +241,33 @@ public class SloQuery {
   }
 
   /**
-   * The type of SLO definition being queried.
-   *
+   * <p>The type of SLO definition being queried.</p>
    * @return sloQueryType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLO_QUERY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SlosQueryType getSloQueryType() {
-    return sloQueryType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SLO_QUERY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SlosQueryType getSloQueryType() {
+        return sloQueryType;
+      }
   public void setSloQueryType(SlosQueryType sloQueryType) {
     if (!sloQueryType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.sloQueryType = sloQueryType;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -280,7 +276,7 @@ public class SloQuery {
   @JsonAnySetter
   public SloQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -304,12 +300,14 @@ public class SloQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SloQuery object is equal to o. */
+  /**
+   * Return true if this SloQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -319,38 +317,20 @@ public class SloQuery {
       return false;
     }
     SloQuery sloQuery = (SloQuery) o;
-    return Objects.equals(this.additionalQueryFilters, sloQuery.additionalQueryFilters)
-        && Objects.equals(this.crossOrgUuids, sloQuery.crossOrgUuids)
-        && Objects.equals(this.dataSource, sloQuery.dataSource)
-        && Objects.equals(this.groupMode, sloQuery.groupMode)
-        && Objects.equals(this.measure, sloQuery.measure)
-        && Objects.equals(this.name, sloQuery.name)
-        && Objects.equals(this.sloId, sloQuery.sloId)
-        && Objects.equals(this.sloQueryType, sloQuery.sloQueryType)
-        && Objects.equals(this.additionalProperties, sloQuery.additionalProperties);
+    return Objects.equals(this.additionalQueryFilters, sloQuery.additionalQueryFilters) && Objects.equals(this.crossOrgUuids, sloQuery.crossOrgUuids) && Objects.equals(this.dataSource, sloQuery.dataSource) && Objects.equals(this.groupMode, sloQuery.groupMode) && Objects.equals(this.measure, sloQuery.measure) && Objects.equals(this.name, sloQuery.name) && Objects.equals(this.sloId, sloQuery.sloId) && Objects.equals(this.sloQueryType, sloQuery.sloQueryType) && Objects.equals(this.additionalProperties, sloQuery.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        additionalQueryFilters,
-        crossOrgUuids,
-        dataSource,
-        groupMode,
-        measure,
-        name,
-        sloId,
-        sloQueryType,
-        additionalProperties);
+    return Objects.hash(additionalQueryFilters,crossOrgUuids,dataSource,groupMode,measure,name,sloId,sloQueryType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SloQuery {\n");
-    sb.append("    additionalQueryFilters: ")
-        .append(toIndentedString(additionalQueryFilters))
-        .append("\n");
+    sb.append("    additionalQueryFilters: ").append(toIndentedString(additionalQueryFilters)).append("\n");
     sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    groupMode: ").append(toIndentedString(groupMode)).append("\n");
@@ -366,7 +346,8 @@ public class SloQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The target of an on-call page. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The target of an on-call page.</p>
+ */
 @JsonPropertyOrder({
   IncidentOnCallPageTarget.JSON_PROPERTY_IDENTIFIER,
   IncidentOnCallPageTarget.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentOnCallPageTarget {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   private String identifier;
 
@@ -36,61 +52,58 @@ public class IncidentOnCallPageTarget {
 
   @JsonCreator
   public IncidentOnCallPageTarget(
-      @JsonProperty(required = true, value = JSON_PROPERTY_IDENTIFIER) String identifier,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
-    this.identifier = identifier;
-    this.type = type;
+            @JsonProperty(required=true, value=JSON_PROPERTY_IDENTIFIER)String identifier,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)String type) {
+        this.identifier = identifier;
+        this.type = type;
   }
-
   public IncidentOnCallPageTarget identifier(String identifier) {
     this.identifier = identifier;
     return this;
   }
 
   /**
-   * The identifier of the page target.
-   *
+   * <p>The identifier of the page target.</p>
    * @return identifier
-   */
-  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getIdentifier() {
-    return identifier;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IDENTIFIER)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getIdentifier() {
+        return identifier;
+      }
   public void setIdentifier(String identifier) {
     this.identifier = identifier;
   }
-
   public IncidentOnCallPageTarget type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * The type of the page target.
-   *
+   * <p>The type of the page target.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -99,7 +112,7 @@ public class IncidentOnCallPageTarget {
   @JsonAnySetter
   public IncidentOnCallPageTarget putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -123,12 +136,14 @@ public class IncidentOnCallPageTarget {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentOnCallPageTarget object is equal to o. */
+  /**
+   * Return true if this IncidentOnCallPageTarget object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,14 +153,13 @@ public class IncidentOnCallPageTarget {
       return false;
     }
     IncidentOnCallPageTarget incidentOnCallPageTarget = (IncidentOnCallPageTarget) o;
-    return Objects.equals(this.identifier, incidentOnCallPageTarget.identifier)
-        && Objects.equals(this.type, incidentOnCallPageTarget.type)
-        && Objects.equals(this.additionalProperties, incidentOnCallPageTarget.additionalProperties);
+    return Objects.equals(this.identifier, incidentOnCallPageTarget.identifier) && Objects.equals(this.type, incidentOnCallPageTarget.type) && Objects.equals(this.additionalProperties, incidentOnCallPageTarget.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, type, additionalProperties);
+    return Objects.hash(identifier,type, additionalProperties);
   }
 
   @Override
@@ -162,7 +176,8 @@ public class IncidentOnCallPageTarget {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

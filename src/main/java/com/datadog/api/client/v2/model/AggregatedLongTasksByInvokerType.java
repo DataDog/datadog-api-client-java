@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Aggregated long task statistics for a single invoker type. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Aggregated long task statistics for a single invoker type.</p>
+ */
 @JsonPropertyOrder({
   AggregatedLongTasksByInvokerType.JSON_PROPERTY_CRITERIA_VIEW_OCCURRENCES,
   AggregatedLongTasksByInvokerType.JSON_PROPERTY_IMPACT_SCORE,
@@ -28,10 +42,10 @@ import java.util.Objects;
   AggregatedLongTasksByInvokerType.JSON_PROPERTY_TOP_INVOKERS,
   AggregatedLongTasksByInvokerType.JSON_PROPERTY_VIEW_OCCURRENCES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AggregatedLongTasksByInvokerType {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CRITERIA_VIEW_OCCURRENCES = "criteria_view_occurrences";
   private Integer criteriaViewOccurrences;
 
@@ -54,86 +68,76 @@ public class AggregatedLongTasksByInvokerType {
 
   @JsonCreator
   public AggregatedLongTasksByInvokerType(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INVOKER_TYPE) String invokerType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATS_PER_VIEW)
-          LongTaskStatsPerView statsPerView,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOP_INVOKERS)
-          List<TopLongTaskInvoker> topInvokers,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_OCCURRENCES)
-          Integer viewOccurrences) {
-    this.invokerType = invokerType;
-    this.statsPerView = statsPerView;
-    this.unparsed |= statsPerView.unparsed;
-    this.topInvokers = topInvokers;
-    for (TopLongTaskInvoker item : topInvokers) {
-      this.unparsed |= item.unparsed;
-    }
-    this.viewOccurrences = viewOccurrences;
+            @JsonProperty(required=true, value=JSON_PROPERTY_INVOKER_TYPE)String invokerType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATS_PER_VIEW)LongTaskStatsPerView statsPerView,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOP_INVOKERS)List<TopLongTaskInvoker> topInvokers,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VIEW_OCCURRENCES)Integer viewOccurrences) {
+        this.invokerType = invokerType;
+        this.statsPerView = statsPerView;
+        this.unparsed |= statsPerView.unparsed;
+        this.topInvokers = topInvokers;
+        for (TopLongTaskInvoker item : topInvokers) {
+          this.unparsed |= item.unparsed;
+        }
+        this.viewOccurrences = viewOccurrences;
   }
-
   public AggregatedLongTasksByInvokerType criteriaViewOccurrences(Integer criteriaViewOccurrences) {
     this.criteriaViewOccurrences = criteriaViewOccurrences;
     return this;
   }
 
   /**
-   * Number of sampled views where this invoker type had long tasks contributing to the criteria
-   * metric. maximum: 2147483647
-   *
+   * <p>Number of sampled views where this invoker type had long tasks contributing to the criteria metric.</p>
+   * maximum: 2147483647
    * @return criteriaViewOccurrences
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CRITERIA_VIEW_OCCURRENCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCriteriaViewOccurrences() {
-    return criteriaViewOccurrences;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CRITERIA_VIEW_OCCURRENCES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getCriteriaViewOccurrences() {
+        return criteriaViewOccurrences;
+      }
   public void setCriteriaViewOccurrences(Integer criteriaViewOccurrences) {
     this.criteriaViewOccurrences = criteriaViewOccurrences;
   }
-
   public AggregatedLongTasksByInvokerType impactScore(Double impactScore) {
     this.impactScore = impactScore;
     return this;
   }
 
   /**
-   * Rank-product impact score combining view frequency and blocking time severity.
-   *
+   * <p>Rank-product impact score combining view frequency and blocking time severity.</p>
    * @return impactScore
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getImpactScore() {
-    return impactScore;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getImpactScore() {
+        return impactScore;
+      }
   public void setImpactScore(Double impactScore) {
     this.impactScore = impactScore;
   }
-
   public AggregatedLongTasksByInvokerType invokerType(String invokerType) {
     this.invokerType = invokerType;
     return this;
   }
 
   /**
-   * Category of the long task invoker (for example, resolve-promise, user-callback).
-   *
+   * <p>Category of the long task invoker (for example, resolve-promise, user-callback).</p>
    * @return invokerType
-   */
-  @JsonProperty(JSON_PROPERTY_INVOKER_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getInvokerType() {
-    return invokerType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INVOKER_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getInvokerType() {
+        return invokerType;
+      }
   public void setInvokerType(String invokerType) {
     this.invokerType = invokerType;
   }
-
   public AggregatedLongTasksByInvokerType statsPerView(LongTaskStatsPerView statsPerView) {
     this.statsPerView = statsPerView;
     this.unparsed |= statsPerView.unparsed;
@@ -141,23 +145,21 @@ public class AggregatedLongTasksByInvokerType {
   }
 
   /**
-   * Statistical distributions of long task metrics computed per view across sampled views.
-   *
+   * <p>Statistical distributions of long task metrics computed per view across sampled views.</p>
    * @return statsPerView
-   */
-  @JsonProperty(JSON_PROPERTY_STATS_PER_VIEW)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LongTaskStatsPerView getStatsPerView() {
-    return statsPerView;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATS_PER_VIEW)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LongTaskStatsPerView getStatsPerView() {
+        return statsPerView;
+      }
   public void setStatsPerView(LongTaskStatsPerView statsPerView) {
     this.statsPerView = statsPerView;
     if (statsPerView != null) {
       this.unparsed |= statsPerView.unparsed;
     }
   }
-
   public AggregatedLongTasksByInvokerType topInvokers(List<TopLongTaskInvoker> topInvokers) {
     this.topInvokers = topInvokers;
     for (TopLongTaskInvoker item : topInvokers) {
@@ -165,7 +167,6 @@ public class AggregatedLongTasksByInvokerType {
     }
     return this;
   }
-
   public AggregatedLongTasksByInvokerType addTopInvokersItem(TopLongTaskInvoker topInvokersItem) {
     this.topInvokers.add(topInvokersItem);
     this.unparsed |= topInvokersItem.unparsed;
@@ -173,16 +174,15 @@ public class AggregatedLongTasksByInvokerType {
   }
 
   /**
-   * Top invokers within this invoker type, sorted by impact score descending.
-   *
+   * <p>Top invokers within this invoker type, sorted by impact score descending.</p>
    * @return topInvokers
-   */
-  @JsonProperty(JSON_PROPERTY_TOP_INVOKERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TopLongTaskInvoker> getTopInvokers() {
-    return topInvokers;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOP_INVOKERS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<TopLongTaskInvoker> getTopInvokers() {
+        return topInvokers;
+      }
   public void setTopInvokers(List<TopLongTaskInvoker> topInvokers) {
     this.topInvokers = topInvokers;
     if (topInvokers != null) {
@@ -191,36 +191,36 @@ public class AggregatedLongTasksByInvokerType {
       }
     }
   }
-
   public AggregatedLongTasksByInvokerType viewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
     return this;
   }
 
   /**
-   * Number of sampled views where this invoker type had any long tasks. maximum: 2147483647
-   *
+   * <p>Number of sampled views where this invoker type had any long tasks.</p>
+   * maximum: 2147483647
    * @return viewOccurrences
-   */
-  @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getViewOccurrences() {
-    return viewOccurrences;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getViewOccurrences() {
+        return viewOccurrences;
+      }
   public void setViewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -229,7 +229,7 @@ public class AggregatedLongTasksByInvokerType {
   @JsonAnySetter
   public AggregatedLongTasksByInvokerType putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -253,12 +253,14 @@ public class AggregatedLongTasksByInvokerType {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AggregatedLongTasksByInvokerType object is equal to o. */
+  /**
+   * Return true if this AggregatedLongTasksByInvokerType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -267,38 +269,21 @@ public class AggregatedLongTasksByInvokerType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AggregatedLongTasksByInvokerType aggregatedLongTasksByInvokerType =
-        (AggregatedLongTasksByInvokerType) o;
-    return Objects.equals(
-            this.criteriaViewOccurrences, aggregatedLongTasksByInvokerType.criteriaViewOccurrences)
-        && Objects.equals(this.impactScore, aggregatedLongTasksByInvokerType.impactScore)
-        && Objects.equals(this.invokerType, aggregatedLongTasksByInvokerType.invokerType)
-        && Objects.equals(this.statsPerView, aggregatedLongTasksByInvokerType.statsPerView)
-        && Objects.equals(this.topInvokers, aggregatedLongTasksByInvokerType.topInvokers)
-        && Objects.equals(this.viewOccurrences, aggregatedLongTasksByInvokerType.viewOccurrences)
-        && Objects.equals(
-            this.additionalProperties, aggregatedLongTasksByInvokerType.additionalProperties);
+    AggregatedLongTasksByInvokerType aggregatedLongTasksByInvokerType = (AggregatedLongTasksByInvokerType) o;
+    return Objects.equals(this.criteriaViewOccurrences, aggregatedLongTasksByInvokerType.criteriaViewOccurrences) && Objects.equals(this.impactScore, aggregatedLongTasksByInvokerType.impactScore) && Objects.equals(this.invokerType, aggregatedLongTasksByInvokerType.invokerType) && Objects.equals(this.statsPerView, aggregatedLongTasksByInvokerType.statsPerView) && Objects.equals(this.topInvokers, aggregatedLongTasksByInvokerType.topInvokers) && Objects.equals(this.viewOccurrences, aggregatedLongTasksByInvokerType.viewOccurrences) && Objects.equals(this.additionalProperties, aggregatedLongTasksByInvokerType.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        criteriaViewOccurrences,
-        impactScore,
-        invokerType,
-        statsPerView,
-        topInvokers,
-        viewOccurrences,
-        additionalProperties);
+    return Objects.hash(criteriaViewOccurrences,impactScore,invokerType,statsPerView,topInvokers,viewOccurrences, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AggregatedLongTasksByInvokerType {\n");
-    sb.append("    criteriaViewOccurrences: ")
-        .append(toIndentedString(criteriaViewOccurrences))
-        .append("\n");
+    sb.append("    criteriaViewOccurrences: ").append(toIndentedString(criteriaViewOccurrences)).append("\n");
     sb.append("    impactScore: ").append(toIndentedString(impactScore)).append("\n");
     sb.append("    invokerType: ").append(toIndentedString(invokerType)).append("\n");
     sb.append("    statsPerView: ").append(toIndentedString(statsPerView)).append("\n");
@@ -312,7 +297,8 @@ public class AggregatedLongTasksByInvokerType {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,47 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Type identifier for Jira issue template resources */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Type identifier for Jira issue template resources</p>
+ */
 @JsonSerialize(using = JiraIssueTemplateType.JiraIssueTemplateTypeSerializer.class)
 public class JiraIssueTemplateType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("jira-issue-template"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("jira-issue-template"));
 
-  public static final JiraIssueTemplateType JIRA_ISSUE_TEMPLATE =
-      new JiraIssueTemplateType("jira-issue-template");
+  public static final JiraIssueTemplateType JIRA_ISSUE_TEMPLATE = new JiraIssueTemplateType("jira-issue-template");
+
 
   JiraIssueTemplateType(String value) {
     super(value, allowedValues);
   }
 
   public static class JiraIssueTemplateTypeSerializer extends StdSerializer<JiraIssueTemplateType> {
-    public JiraIssueTemplateTypeSerializer(Class<JiraIssueTemplateType> t) {
-      super(t);
-    }
+      public JiraIssueTemplateTypeSerializer(Class<JiraIssueTemplateType> t) {
+          super(t);
+      }
 
-    public JiraIssueTemplateTypeSerializer() {
-      this(null);
-    }
+      public JiraIssueTemplateTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        JiraIssueTemplateType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(JiraIssueTemplateType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

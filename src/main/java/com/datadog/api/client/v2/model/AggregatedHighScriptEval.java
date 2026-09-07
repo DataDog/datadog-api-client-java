@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Aggregated high script evaluation detection grouped by source. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Aggregated high script evaluation detection grouped by source.</p>
+ */
 @JsonPropertyOrder({
   AggregatedHighScriptEval.JSON_PROPERTY_AVG_DURATION,
   AggregatedHighScriptEval.JSON_PROPERTY_AVG_FORCED_STYLE_LAYOUT,
@@ -30,10 +46,10 @@ import java.util.Objects;
   AggregatedHighScriptEval.JSON_PROPERTY_SOURCE_URL,
   AggregatedHighScriptEval.JSON_PROPERTY_VIEW_OCCURRENCES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AggregatedHighScriptEval {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVG_DURATION = "avg_duration";
   private Long avgDuration;
 
@@ -68,246 +84,230 @@ public class AggregatedHighScriptEval {
 
   @JsonCreator
   public AggregatedHighScriptEval(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AVG_DURATION) Long avgDuration,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AVG_FORCED_STYLE_LAYOUT)
-          Long avgForcedStyleLayout,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FINGERPRINT) String fingerprint,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IMPACT_SCORE) Double impactScore,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INSTANCE_COUNT) Integer instanceCount,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INVOKER_TYPE) String invokerType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_CATEGORY) String sourceCategory,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_FUNCTION_NAME)
-          String sourceFunctionName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_URL) String sourceUrl,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_OCCURRENCES)
-          Integer viewOccurrences) {
-    this.avgDuration = avgDuration;
-    this.avgForcedStyleLayout = avgForcedStyleLayout;
-    this.fingerprint = fingerprint;
-    this.impactScore = impactScore;
-    this.instanceCount = instanceCount;
-    this.invokerType = invokerType;
-    this.sourceCategory = sourceCategory;
-    if (sourceCategory != null) {}
-    this.sourceFunctionName = sourceFunctionName;
-    this.sourceUrl = sourceUrl;
-    if (sourceUrl != null) {}
-    this.viewOccurrences = viewOccurrences;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AVG_DURATION)Long avgDuration,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AVG_FORCED_STYLE_LAYOUT)Long avgForcedStyleLayout,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FINGERPRINT)String fingerprint,
+            @JsonProperty(required=true, value=JSON_PROPERTY_IMPACT_SCORE)Double impactScore,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INSTANCE_COUNT)Integer instanceCount,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INVOKER_TYPE)String invokerType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCE_CATEGORY)String sourceCategory,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCE_FUNCTION_NAME)String sourceFunctionName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCE_URL)String sourceUrl,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VIEW_OCCURRENCES)Integer viewOccurrences) {
+        this.avgDuration = avgDuration;
+        this.avgForcedStyleLayout = avgForcedStyleLayout;
+        this.fingerprint = fingerprint;
+        this.impactScore = impactScore;
+        this.instanceCount = instanceCount;
+        this.invokerType = invokerType;
+        this.sourceCategory = sourceCategory;
+        if (sourceCategory != null) {
+        }
+        this.sourceFunctionName = sourceFunctionName;
+        this.sourceUrl = sourceUrl;
+        if (sourceUrl != null) {
+        }
+        this.viewOccurrences = viewOccurrences;
   }
-
   public AggregatedHighScriptEval avgDuration(Long avgDuration) {
     this.avgDuration = avgDuration;
     return this;
   }
 
   /**
-   * Average script evaluation duration in nanoseconds.
-   *
+   * <p>Average script evaluation duration in nanoseconds.</p>
    * @return avgDuration
-   */
-  @JsonProperty(JSON_PROPERTY_AVG_DURATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getAvgDuration() {
-    return avgDuration;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AVG_DURATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getAvgDuration() {
+        return avgDuration;
+      }
   public void setAvgDuration(Long avgDuration) {
     this.avgDuration = avgDuration;
   }
-
   public AggregatedHighScriptEval avgForcedStyleLayout(Long avgForcedStyleLayout) {
     this.avgForcedStyleLayout = avgForcedStyleLayout;
     return this;
   }
 
   /**
-   * Average forced style/layout duration in nanoseconds.
-   *
+   * <p>Average forced style/layout duration in nanoseconds.</p>
    * @return avgForcedStyleLayout
-   */
-  @JsonProperty(JSON_PROPERTY_AVG_FORCED_STYLE_LAYOUT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getAvgForcedStyleLayout() {
-    return avgForcedStyleLayout;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AVG_FORCED_STYLE_LAYOUT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getAvgForcedStyleLayout() {
+        return avgForcedStyleLayout;
+      }
   public void setAvgForcedStyleLayout(Long avgForcedStyleLayout) {
     this.avgForcedStyleLayout = avgForcedStyleLayout;
   }
-
   public AggregatedHighScriptEval fingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
     return this;
   }
 
   /**
-   * Unique fingerprint identifying this detection group.
-   *
+   * <p>Unique fingerprint identifying this detection group.</p>
    * @return fingerprint
-   */
-  @JsonProperty(JSON_PROPERTY_FINGERPRINT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFingerprint() {
-    return fingerprint;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FINGERPRINT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFingerprint() {
+        return fingerprint;
+      }
   public void setFingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
   }
-
   public AggregatedHighScriptEval impactScore(Double impactScore) {
     this.impactScore = impactScore;
     return this;
   }
 
   /**
-   * Impact score combining view frequency and duration severity.
-   *
+   * <p>Impact score combining view frequency and duration severity.</p>
    * @return impactScore
-   */
-  @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getImpactScore() {
-    return impactScore;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getImpactScore() {
+        return impactScore;
+      }
   public void setImpactScore(Double impactScore) {
     this.impactScore = impactScore;
   }
-
   public AggregatedHighScriptEval instanceCount(Integer instanceCount) {
     this.instanceCount = instanceCount;
     return this;
   }
 
   /**
-   * Total number of detection instances across sampled views. maximum: 2147483647
-   *
+   * <p>Total number of detection instances across sampled views.</p>
+   * maximum: 2147483647
    * @return instanceCount
-   */
-  @JsonProperty(JSON_PROPERTY_INSTANCE_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getInstanceCount() {
-    return instanceCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INSTANCE_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getInstanceCount() {
+        return instanceCount;
+      }
   public void setInstanceCount(Integer instanceCount) {
     this.instanceCount = instanceCount;
   }
-
   public AggregatedHighScriptEval invokerType(String invokerType) {
     this.invokerType = invokerType;
     return this;
   }
 
   /**
-   * Type of invoker that triggered the script evaluation.
-   *
+   * <p>Type of invoker that triggered the script evaluation.</p>
    * @return invokerType
-   */
-  @JsonProperty(JSON_PROPERTY_INVOKER_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getInvokerType() {
-    return invokerType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INVOKER_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getInvokerType() {
+        return invokerType;
+      }
   public void setInvokerType(String invokerType) {
     this.invokerType = invokerType;
   }
-
   public AggregatedHighScriptEval sourceCategory(String sourceCategory) {
     this.sourceCategory = sourceCategory;
-    if (sourceCategory != null) {}
+        if (sourceCategory != null) {
+    }
     return this;
   }
 
   /**
-   * Category of the script source.
-   *
+   * <p>Category of the script source.</p>
    * @return sourceCategory
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSourceCategory() {
-    return sourceCategory;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCE_CATEGORY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSourceCategory() {
+        return sourceCategory;
+      }
   public void setSourceCategory(String sourceCategory) {
     this.sourceCategory = sourceCategory;
   }
-
   public AggregatedHighScriptEval sourceFunctionName(String sourceFunctionName) {
     this.sourceFunctionName = sourceFunctionName;
     return this;
   }
 
   /**
-   * Name of the function that triggered the high script evaluation.
-   *
+   * <p>Name of the function that triggered the high script evaluation.</p>
    * @return sourceFunctionName
-   */
-  @JsonProperty(JSON_PROPERTY_SOURCE_FUNCTION_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSourceFunctionName() {
-    return sourceFunctionName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SOURCE_FUNCTION_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSourceFunctionName() {
+        return sourceFunctionName;
+      }
   public void setSourceFunctionName(String sourceFunctionName) {
     this.sourceFunctionName = sourceFunctionName;
   }
-
   public AggregatedHighScriptEval sourceUrl(String sourceUrl) {
     this.sourceUrl = sourceUrl;
-    if (sourceUrl != null) {}
+        if (sourceUrl != null) {
+    }
     return this;
   }
 
   /**
-   * URL of the script that triggered the high script evaluation.
-   *
+   * <p>URL of the script that triggered the high script evaluation.</p>
    * @return sourceUrl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSourceUrl() {
-    return sourceUrl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCE_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSourceUrl() {
+        return sourceUrl;
+      }
   public void setSourceUrl(String sourceUrl) {
     this.sourceUrl = sourceUrl;
   }
-
   public AggregatedHighScriptEval viewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
     return this;
   }
 
   /**
-   * Number of sampled views where this detection occurred. maximum: 2147483647
-   *
+   * <p>Number of sampled views where this detection occurred.</p>
+   * maximum: 2147483647
    * @return viewOccurrences
-   */
-  @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getViewOccurrences() {
-    return viewOccurrences;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VIEW_OCCURRENCES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getViewOccurrences() {
+        return viewOccurrences;
+      }
   public void setViewOccurrences(Integer viewOccurrences) {
     this.viewOccurrences = viewOccurrences;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -316,7 +316,7 @@ public class AggregatedHighScriptEval {
   @JsonAnySetter
   public AggregatedHighScriptEval putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -340,12 +340,14 @@ public class AggregatedHighScriptEval {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AggregatedHighScriptEval object is equal to o. */
+  /**
+   * Return true if this AggregatedHighScriptEval object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -355,33 +357,13 @@ public class AggregatedHighScriptEval {
       return false;
     }
     AggregatedHighScriptEval aggregatedHighScriptEval = (AggregatedHighScriptEval) o;
-    return Objects.equals(this.avgDuration, aggregatedHighScriptEval.avgDuration)
-        && Objects.equals(this.avgForcedStyleLayout, aggregatedHighScriptEval.avgForcedStyleLayout)
-        && Objects.equals(this.fingerprint, aggregatedHighScriptEval.fingerprint)
-        && Objects.equals(this.impactScore, aggregatedHighScriptEval.impactScore)
-        && Objects.equals(this.instanceCount, aggregatedHighScriptEval.instanceCount)
-        && Objects.equals(this.invokerType, aggregatedHighScriptEval.invokerType)
-        && Objects.equals(this.sourceCategory, aggregatedHighScriptEval.sourceCategory)
-        && Objects.equals(this.sourceFunctionName, aggregatedHighScriptEval.sourceFunctionName)
-        && Objects.equals(this.sourceUrl, aggregatedHighScriptEval.sourceUrl)
-        && Objects.equals(this.viewOccurrences, aggregatedHighScriptEval.viewOccurrences)
-        && Objects.equals(this.additionalProperties, aggregatedHighScriptEval.additionalProperties);
+    return Objects.equals(this.avgDuration, aggregatedHighScriptEval.avgDuration) && Objects.equals(this.avgForcedStyleLayout, aggregatedHighScriptEval.avgForcedStyleLayout) && Objects.equals(this.fingerprint, aggregatedHighScriptEval.fingerprint) && Objects.equals(this.impactScore, aggregatedHighScriptEval.impactScore) && Objects.equals(this.instanceCount, aggregatedHighScriptEval.instanceCount) && Objects.equals(this.invokerType, aggregatedHighScriptEval.invokerType) && Objects.equals(this.sourceCategory, aggregatedHighScriptEval.sourceCategory) && Objects.equals(this.sourceFunctionName, aggregatedHighScriptEval.sourceFunctionName) && Objects.equals(this.sourceUrl, aggregatedHighScriptEval.sourceUrl) && Objects.equals(this.viewOccurrences, aggregatedHighScriptEval.viewOccurrences) && Objects.equals(this.additionalProperties, aggregatedHighScriptEval.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        avgDuration,
-        avgForcedStyleLayout,
-        fingerprint,
-        impactScore,
-        instanceCount,
-        invokerType,
-        sourceCategory,
-        sourceFunctionName,
-        sourceUrl,
-        viewOccurrences,
-        additionalProperties);
+    return Objects.hash(avgDuration,avgForcedStyleLayout,fingerprint,impactScore,instanceCount,invokerType,sourceCategory,sourceFunctionName,sourceUrl,viewOccurrences, additionalProperties);
   }
 
   @Override
@@ -389,9 +371,7 @@ public class AggregatedHighScriptEval {
     StringBuilder sb = new StringBuilder();
     sb.append("class AggregatedHighScriptEval {\n");
     sb.append("    avgDuration: ").append(toIndentedString(avgDuration)).append("\n");
-    sb.append("    avgForcedStyleLayout: ")
-        .append(toIndentedString(avgForcedStyleLayout))
-        .append("\n");
+    sb.append("    avgForcedStyleLayout: ").append(toIndentedString(avgForcedStyleLayout)).append("\n");
     sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    impactScore: ").append(toIndentedString(impactScore)).append("\n");
     sb.append("    instanceCount: ").append(toIndentedString(instanceCount)).append("\n");
@@ -408,7 +388,8 @@ public class AggregatedHighScriptEval {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

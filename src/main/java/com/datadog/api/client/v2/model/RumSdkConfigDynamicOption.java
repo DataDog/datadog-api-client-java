@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A dynamic configuration option that extracts a value at runtime using a specified strategy. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A dynamic configuration option that extracts a value at runtime using a specified strategy.</p>
+ */
 @JsonPropertyOrder({
   RumSdkConfigDynamicOption.JSON_PROPERTY_ATTRIBUTE,
   RumSdkConfigDynamicOption.JSON_PROPERTY_EXTRACTOR,
@@ -28,10 +44,10 @@ import java.util.Objects;
   RumSdkConfigDynamicOption.JSON_PROPERTY_SELECTOR,
   RumSdkConfigDynamicOption.JSON_PROPERTY_STRATEGY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RumSdkConfigDynamicOption {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTE = "attribute";
   private String attribute;
 
@@ -60,37 +76,32 @@ public class RumSdkConfigDynamicOption {
 
   @JsonCreator
   public RumSdkConfigDynamicOption(
-      @JsonProperty(required = true, value = JSON_PROPERTY_RC_SERIALIZED_TYPE)
-          RumSdkConfigDynamicOptionSerializedType rcSerializedType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STRATEGY)
-          RumSdkConfigDynamicOptionStrategy strategy) {
-    this.rcSerializedType = rcSerializedType;
-    this.unparsed |= !rcSerializedType.isValid();
-    this.strategy = strategy;
-    this.unparsed |= !strategy.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_RC_SERIALIZED_TYPE)RumSdkConfigDynamicOptionSerializedType rcSerializedType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STRATEGY)RumSdkConfigDynamicOptionStrategy strategy) {
+        this.rcSerializedType = rcSerializedType;
+        this.unparsed |= !rcSerializedType.isValid();
+        this.strategy = strategy;
+        this.unparsed |= !strategy.isValid();
   }
-
   public RumSdkConfigDynamicOption attribute(String attribute) {
     this.attribute = attribute;
     return this;
   }
 
   /**
-   * The element attribute to read. Used when <code>strategy</code> is <code>dom</code>.
-   *
+   * <p>The element attribute to read. Used when <code>strategy</code> is <code>dom</code>.</p>
    * @return attribute
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAttribute() {
-    return attribute;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAttribute() {
+        return attribute;
+      }
   public void setAttribute(String attribute) {
     this.attribute = attribute;
   }
-
   public RumSdkConfigDynamicOption extractor(RumSdkConfigSerializedRegex extractor) {
     this.extractor = extractor;
     this.unparsed |= extractor.unparsed;
@@ -98,136 +109,120 @@ public class RumSdkConfigDynamicOption {
   }
 
   /**
-   * A serialized regex used as an extractor in dynamic options.
-   *
+   * <p>A serialized regex used as an extractor in dynamic options.</p>
    * @return extractor
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXTRACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RumSdkConfigSerializedRegex getExtractor() {
-    return extractor;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXTRACTOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RumSdkConfigSerializedRegex getExtractor() {
+        return extractor;
+      }
   public void setExtractor(RumSdkConfigSerializedRegex extractor) {
     this.extractor = extractor;
     if (extractor != null) {
       this.unparsed |= extractor.unparsed;
     }
   }
-
   public RumSdkConfigDynamicOption key(String key) {
     this.key = key;
     return this;
   }
 
   /**
-   * The <code>localStorage</code> key to read. Required when <code>strategy</code> is <code>
-   * localStorage</code>.
-   *
+   * <p>The <code>localStorage</code> key to read. Required when <code>strategy</code> is <code>localStorage</code>.</p>
    * @return key
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKey() {
-    return key;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getKey() {
+        return key;
+      }
   public void setKey(String key) {
     this.key = key;
   }
-
   public RumSdkConfigDynamicOption name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The cookie name to read. Required when <code>strategy</code> is <code>cookie</code>.
-   *
+   * <p>The cookie name to read. Required when <code>strategy</code> is <code>cookie</code>.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public RumSdkConfigDynamicOption path(String path) {
     this.path = path;
     return this;
   }
 
   /**
-   * The JavaScript path used to extract the value. Required when <code>strategy</code> is <code>js
-   * </code>.
-   *
+   * <p>The JavaScript path used to extract the value. Required when <code>strategy</code> is <code>js</code>.</p>
    * @return path
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPath() {
-    return path;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PATH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPath() {
+        return path;
+      }
   public void setPath(String path) {
     this.path = path;
   }
-
-  public RumSdkConfigDynamicOption rcSerializedType(
-      RumSdkConfigDynamicOptionSerializedType rcSerializedType) {
+  public RumSdkConfigDynamicOption rcSerializedType(RumSdkConfigDynamicOptionSerializedType rcSerializedType) {
     this.rcSerializedType = rcSerializedType;
     this.unparsed |= !rcSerializedType.isValid();
     return this;
   }
 
   /**
-   * The type identifier for a dynamic option. Always <code>dynamic</code>.
-   *
+   * <p>The type identifier for a dynamic option. Always <code>dynamic</code>.</p>
    * @return rcSerializedType
-   */
-  @JsonProperty(JSON_PROPERTY_RC_SERIALIZED_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RumSdkConfigDynamicOptionSerializedType getRcSerializedType() {
-    return rcSerializedType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RC_SERIALIZED_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RumSdkConfigDynamicOptionSerializedType getRcSerializedType() {
+        return rcSerializedType;
+      }
   public void setRcSerializedType(RumSdkConfigDynamicOptionSerializedType rcSerializedType) {
     if (!rcSerializedType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.rcSerializedType = rcSerializedType;
   }
-
   public RumSdkConfigDynamicOption selector(String selector) {
     this.selector = selector;
     return this;
   }
 
   /**
-   * The CSS selector to read from the page. Required when <code>strategy</code> is <code>dom</code>
-   * .
-   *
+   * <p>The CSS selector to read from the page. Required when <code>strategy</code> is <code>dom</code>.</p>
    * @return selector
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SELECTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSelector() {
-    return selector;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SELECTOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSelector() {
+        return selector;
+      }
   public void setSelector(String selector) {
     this.selector = selector;
   }
-
   public RumSdkConfigDynamicOption strategy(RumSdkConfigDynamicOptionStrategy strategy) {
     this.strategy = strategy;
     this.unparsed |= !strategy.isValid();
@@ -235,32 +230,32 @@ public class RumSdkConfigDynamicOption {
   }
 
   /**
-   * The strategy used to extract the dynamic value.
-   *
+   * <p>The strategy used to extract the dynamic value.</p>
    * @return strategy
-   */
-  @JsonProperty(JSON_PROPERTY_STRATEGY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RumSdkConfigDynamicOptionStrategy getStrategy() {
-    return strategy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STRATEGY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RumSdkConfigDynamicOptionStrategy getStrategy() {
+        return strategy;
+      }
   public void setStrategy(RumSdkConfigDynamicOptionStrategy strategy) {
     if (!strategy.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.strategy = strategy;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -269,7 +264,7 @@ public class RumSdkConfigDynamicOption {
   @JsonAnySetter
   public RumSdkConfigDynamicOption putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -293,12 +288,14 @@ public class RumSdkConfigDynamicOption {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RumSdkConfigDynamicOption object is equal to o. */
+  /**
+   * Return true if this RumSdkConfigDynamicOption object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -308,30 +305,13 @@ public class RumSdkConfigDynamicOption {
       return false;
     }
     RumSdkConfigDynamicOption rumSdkConfigDynamicOption = (RumSdkConfigDynamicOption) o;
-    return Objects.equals(this.attribute, rumSdkConfigDynamicOption.attribute)
-        && Objects.equals(this.extractor, rumSdkConfigDynamicOption.extractor)
-        && Objects.equals(this.key, rumSdkConfigDynamicOption.key)
-        && Objects.equals(this.name, rumSdkConfigDynamicOption.name)
-        && Objects.equals(this.path, rumSdkConfigDynamicOption.path)
-        && Objects.equals(this.rcSerializedType, rumSdkConfigDynamicOption.rcSerializedType)
-        && Objects.equals(this.selector, rumSdkConfigDynamicOption.selector)
-        && Objects.equals(this.strategy, rumSdkConfigDynamicOption.strategy)
-        && Objects.equals(
-            this.additionalProperties, rumSdkConfigDynamicOption.additionalProperties);
+    return Objects.equals(this.attribute, rumSdkConfigDynamicOption.attribute) && Objects.equals(this.extractor, rumSdkConfigDynamicOption.extractor) && Objects.equals(this.key, rumSdkConfigDynamicOption.key) && Objects.equals(this.name, rumSdkConfigDynamicOption.name) && Objects.equals(this.path, rumSdkConfigDynamicOption.path) && Objects.equals(this.rcSerializedType, rumSdkConfigDynamicOption.rcSerializedType) && Objects.equals(this.selector, rumSdkConfigDynamicOption.selector) && Objects.equals(this.strategy, rumSdkConfigDynamicOption.strategy) && Objects.equals(this.additionalProperties, rumSdkConfigDynamicOption.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        attribute,
-        extractor,
-        key,
-        name,
-        path,
-        rcSerializedType,
-        selector,
-        strategy,
-        additionalProperties);
+    return Objects.hash(attribute,extractor,key,name,path,rcSerializedType,selector,strategy, additionalProperties);
   }
 
   @Override
@@ -354,7 +334,8 @@ public class RumSdkConfigDynamicOption {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

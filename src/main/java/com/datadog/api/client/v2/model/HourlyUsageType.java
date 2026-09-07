@@ -6,54 +6,73 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Usage type that is being measured. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Usage type that is being measured.</p>
+ */
 @JsonSerialize(using = HourlyUsageType.HourlyUsageTypeSerializer.class)
 public class HourlyUsageType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "app_sec_host_count",
-              "observability_pipelines_bytes_processed",
-              "lambda_traced_invocations_count"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("app_sec_host_count", "observability_pipelines_bytes_processed", "lambda_traced_invocations_count"));
 
-  public static final HourlyUsageType APP_SEC_HOST_COUNT =
-      new HourlyUsageType("app_sec_host_count");
-  public static final HourlyUsageType OBSERVABILITY_PIPELINES_BYTES_PROCESSSED =
-      new HourlyUsageType("observability_pipelines_bytes_processed");
-  public static final HourlyUsageType LAMBDA_TRACED_INVOCATIONS_COUNT =
-      new HourlyUsageType("lambda_traced_invocations_count");
+  public static final HourlyUsageType APP_SEC_HOST_COUNT = new HourlyUsageType("app_sec_host_count");
+  public static final HourlyUsageType OBSERVABILITY_PIPELINES_BYTES_PROCESSSED = new HourlyUsageType("observability_pipelines_bytes_processed");
+  public static final HourlyUsageType LAMBDA_TRACED_INVOCATIONS_COUNT = new HourlyUsageType("lambda_traced_invocations_count");
+
 
   HourlyUsageType(String value) {
     super(value, allowedValues);
   }
 
   public static class HourlyUsageTypeSerializer extends StdSerializer<HourlyUsageType> {
-    public HourlyUsageTypeSerializer(Class<HourlyUsageType> t) {
-      super(t);
-    }
+      public HourlyUsageTypeSerializer(Class<HourlyUsageType> t) {
+          super(t);
+      }
 
-    public HourlyUsageTypeSerializer() {
-      this(null);
-    }
+      public HourlyUsageTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(HourlyUsageType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(HourlyUsageType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

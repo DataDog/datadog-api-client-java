@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Custom timeframe for funnel comparison. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Custom timeframe for funnel comparison.</p>
+ */
 @JsonPropertyOrder({
   FunnelComparisonCustomTimeframe.JSON_PROPERTY_FROM,
   FunnelComparisonCustomTimeframe.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FunnelComparisonCustomTimeframe {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
   private Double from;
 
@@ -32,53 +52,51 @@ public class FunnelComparisonCustomTimeframe {
 
   @JsonCreator
   public FunnelComparisonCustomTimeframe(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Double from,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TO) Double to) {
-    this.from = from;
-    this.to = to;
+            @JsonProperty(required=true, value=JSON_PROPERTY_FROM)Double from,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TO)Double to) {
+        this.from = from;
+        this.to = to;
   }
-
   public FunnelComparisonCustomTimeframe from(Double from) {
     this.from = from;
     return this;
   }
 
   /**
-   * Start of the custom timeframe.
-   *
+   * <p>Start of the custom timeframe.</p>
    * @return from
-   */
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getFrom() {
-    return from;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FROM)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getFrom() {
+        return from;
+      }
   public void setFrom(Double from) {
     this.from = from;
   }
-
   public FunnelComparisonCustomTimeframe to(Double to) {
     this.to = to;
     return this;
   }
 
   /**
-   * End of the custom timeframe.
-   *
+   * <p>End of the custom timeframe.</p>
    * @return to
-   */
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getTo() {
-    return to;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TO)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getTo() {
+        return to;
+      }
   public void setTo(Double to) {
     this.to = to;
   }
 
-  /** Return true if this FunnelComparisonCustomTimeframe object is equal to o. */
+  /**
+   * Return true if this FunnelComparisonCustomTimeframe object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,15 +105,14 @@ public class FunnelComparisonCustomTimeframe {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunnelComparisonCustomTimeframe funnelComparisonCustomTimeframe =
-        (FunnelComparisonCustomTimeframe) o;
-    return Objects.equals(this.from, funnelComparisonCustomTimeframe.from)
-        && Objects.equals(this.to, funnelComparisonCustomTimeframe.to);
+    FunnelComparisonCustomTimeframe funnelComparisonCustomTimeframe = (FunnelComparisonCustomTimeframe) o;
+    return Objects.equals(this.from, funnelComparisonCustomTimeframe.from) && Objects.equals(this.to, funnelComparisonCustomTimeframe.to);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to);
+    return Objects.hash(from,to);
   }
 
   @Override
@@ -109,7 +126,8 @@ public class FunnelComparisonCustomTimeframe {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

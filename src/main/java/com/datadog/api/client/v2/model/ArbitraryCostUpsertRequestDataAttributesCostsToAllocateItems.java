@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,16 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
+import com.datadog.api.client.JsonTimeSerializer;
+
+
 /**
- * The definition of <code>ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems</code>
- * object.
+   * <p>The definition of <code>ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems</code> object.</p>
  */
 @JsonPropertyOrder({
   ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.JSON_PROPERTY_CONDITION,
@@ -30,10 +40,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.JSON_PROPERTY_VALUE,
   ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.JSON_PROPERTY_VALUES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONDITION = "condition";
   private String condition;
 
@@ -50,80 +60,71 @@ public class ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems {
 
   @JsonCreator
   public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONDITION) String condition,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAG) String tag) {
-    this.condition = condition;
-    this.tag = tag;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CONDITION)String condition,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TAG)String tag) {
+        this.condition = condition;
+        this.tag = tag;
   }
-
   public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems condition(String condition) {
     this.condition = condition;
     return this;
   }
 
   /**
-   * The <code>items</code> <code>condition</code>.
-   *
+   * <p>The <code>items</code> <code>condition</code>.</p>
    * @return condition
-   */
-  @JsonProperty(JSON_PROPERTY_CONDITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCondition() {
-    return condition;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CONDITION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getCondition() {
+        return condition;
+      }
   public void setCondition(String condition) {
     this.condition = condition;
   }
-
   public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems tag(String tag) {
     this.tag = tag;
     return this;
   }
 
   /**
-   * The <code>items</code> <code>tag</code>.
-   *
+   * <p>The <code>items</code> <code>tag</code>.</p>
    * @return tag
-   */
-  @JsonProperty(JSON_PROPERTY_TAG)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTag() {
-    return tag;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TAG)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTag() {
+        return tag;
+      }
   public void setTag(String tag) {
     this.tag = tag;
   }
-
   public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems value(String value) {
     this.value = value;
     return this;
   }
 
   /**
-   * The <code>items</code> <code>value</code>.
-   *
+   * <p>The <code>items</code> <code>value</code>.</p>
    * @return value
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getValue() {
-    return value;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getValue() {
+        return value;
+      }
   public void setValue(String value) {
     this.value = value;
   }
-
   public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems values(List<String> values) {
     this.values = JsonNullable.<List<String>>of(values);
     return this;
   }
-
-  public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems addValuesItem(
-      String valuesItem) {
+  public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems addValuesItem(String valuesItem) {
     if (this.values == null || !this.values.isPresent()) {
       this.values = JsonNullable.<List<String>>of(new ArrayList<>());
     }
@@ -136,50 +137,46 @@ public class ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems {
   }
 
   /**
-   * The <code>items</code> <code>values</code>.
-   *
+   * <p>The <code>items</code> <code>values</code>.</p>
    * @return values
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getValues() {
-    return values.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<String> getValues() {
+        return values.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getValues_JsonNullable() {
     return values;
   }
-
-  @JsonProperty(JSON_PROPERTY_VALUES)
-  public void setValues_JsonNullable(JsonNullable<List<String>> values) {
+  @JsonProperty(JSON_PROPERTY_VALUES)public void setValues_JsonNullable(JsonNullable<List<String>> values) {
     this.values = values;
   }
-
   public void setValues(List<String> values) {
     this.values = JsonNullable.<List<String>>of(values);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems
    */
   @JsonAnySetter
-  public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems putAdditionalProperty(
-      String key, Object value) {
+  public ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -203,14 +200,13 @@ public class ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems object is
-   * equal to o.
+   * Return true if this ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -220,25 +216,14 @@ public class ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems
-        arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems =
-            (ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems) o;
-    return Objects.equals(
-            this.condition, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.condition)
-        && Objects.equals(
-            this.tag, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.tag)
-        && Objects.equals(
-            this.value, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.value)
-        && Objects.equals(
-            this.values, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.values)
-        && Objects.equals(
-            this.additionalProperties,
-            arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.additionalProperties);
+    ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems = (ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems) o;
+    return Objects.equals(this.condition, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.condition) && Objects.equals(this.tag, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.tag) && Objects.equals(this.value, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.value) && Objects.equals(this.values, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.values) && Objects.equals(this.additionalProperties, arbitraryCostUpsertRequestDataAttributesCostsToAllocateItems.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(condition, tag, value, values, additionalProperties);
+    return Objects.hash(condition,tag,value,values, additionalProperties);
   }
 
   @Override
@@ -257,7 +242,8 @@ public class ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

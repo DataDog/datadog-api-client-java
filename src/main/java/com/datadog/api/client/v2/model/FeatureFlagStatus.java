@@ -6,46 +6,72 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The status of a feature flag in an environment. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The status of a feature flag in an environment.</p>
+ */
 @JsonSerialize(using = FeatureFlagStatus.FeatureFlagStatusSerializer.class)
 public class FeatureFlagStatus extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("ENABLED", "DISABLED"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("ENABLED", "DISABLED"));
 
   public static final FeatureFlagStatus ENABLED = new FeatureFlagStatus("ENABLED");
   public static final FeatureFlagStatus DISABLED = new FeatureFlagStatus("DISABLED");
+
 
   FeatureFlagStatus(String value) {
     super(value, allowedValues);
   }
 
   public static class FeatureFlagStatusSerializer extends StdSerializer<FeatureFlagStatus> {
-    public FeatureFlagStatusSerializer(Class<FeatureFlagStatus> t) {
-      super(t);
-    }
+      public FeatureFlagStatusSerializer(Class<FeatureFlagStatus> t) {
+          super(t);
+      }
 
-    public FeatureFlagStatusSerializer() {
-      this(null);
-    }
+      public FeatureFlagStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(FeatureFlagStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(FeatureFlagStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

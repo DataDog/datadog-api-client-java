@@ -6,50 +6,74 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The status of the SLO report job. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The status of the SLO report job.</p>
+ */
 @JsonSerialize(using = SLOReportStatus.SLOReportStatusSerializer.class)
 public class SLOReportStatus extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("in_progress", "completed", "completed_with_errors", "failed"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("in_progress", "completed", "completed_with_errors", "failed"));
 
   public static final SLOReportStatus IN_PROGRESS = new SLOReportStatus("in_progress");
   public static final SLOReportStatus COMPLETED = new SLOReportStatus("completed");
-  public static final SLOReportStatus COMPLETED_WITH_ERRORS =
-      new SLOReportStatus("completed_with_errors");
+  public static final SLOReportStatus COMPLETED_WITH_ERRORS = new SLOReportStatus("completed_with_errors");
   public static final SLOReportStatus FAILED = new SLOReportStatus("failed");
+
 
   SLOReportStatus(String value) {
     super(value, allowedValues);
   }
 
   public static class SLOReportStatusSerializer extends StdSerializer<SLOReportStatus> {
-    public SLOReportStatusSerializer(Class<SLOReportStatus> t) {
-      super(t);
-    }
+      public SLOReportStatusSerializer(Class<SLOReportStatus> t) {
+          super(t);
+      }
 
-    public SLOReportStatusSerializer() {
-      this(null);
-    }
+      public SLOReportStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(SLOReportStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SLOReportStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

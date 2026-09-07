@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The definition of the <code>DatadogAPIKey</code> object. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The definition of the <code>DatadogAPIKey</code> object.</p>
+ */
 @JsonPropertyOrder({
   DatadogAPIKeyUpdate.JSON_PROPERTY_API_KEY,
   DatadogAPIKeyUpdate.JSON_PROPERTY_APP_KEY,
@@ -25,10 +41,10 @@ import java.util.Objects;
   DatadogAPIKeyUpdate.JSON_PROPERTY_SUBDOMAIN,
   DatadogAPIKeyUpdate.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DatadogAPIKeyUpdate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
   private String apiKey;
 
@@ -48,99 +64,86 @@ public class DatadogAPIKeyUpdate {
 
   @JsonCreator
   public DatadogAPIKeyUpdate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DatadogAPIKeyType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)DatadogAPIKeyType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public DatadogAPIKeyUpdate apiKey(String apiKey) {
     this.apiKey = apiKey;
     return this;
   }
 
   /**
-   * The <code>DatadogAPIKeyUpdate</code> <code>api_key</code>.
-   *
+   * <p>The <code>DatadogAPIKeyUpdate</code> <code>api_key</code>.</p>
    * @return apiKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiKey() {
-    return apiKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_API_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getApiKey() {
+        return apiKey;
+      }
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }
-
   public DatadogAPIKeyUpdate appKey(String appKey) {
     this.appKey = appKey;
     return this;
   }
 
   /**
-   * The <code>DatadogAPIKeyUpdate</code> <code>app_key</code>.
-   *
+   * <p>The <code>DatadogAPIKeyUpdate</code> <code>app_key</code>.</p>
    * @return appKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APP_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAppKey() {
-    return appKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APP_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAppKey() {
+        return appKey;
+      }
   public void setAppKey(String appKey) {
     this.appKey = appKey;
   }
-
   public DatadogAPIKeyUpdate datacenter(String datacenter) {
     this.datacenter = datacenter;
     return this;
   }
 
   /**
-   * The <code>DatadogAPIKeyUpdate</code> <code>datacenter</code>.
-   *
+   * <p>The <code>DatadogAPIKeyUpdate</code> <code>datacenter</code>.</p>
    * @return datacenter
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATACENTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDatacenter() {
-    return datacenter;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATACENTER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDatacenter() {
+        return datacenter;
+      }
   public void setDatacenter(String datacenter) {
     this.datacenter = datacenter;
   }
-
   public DatadogAPIKeyUpdate subdomain(String subdomain) {
     this.subdomain = subdomain;
     return this;
   }
 
   /**
-   * Custom subdomain used for Datadog URLs generated with this Connection. For example, if this org
-   * uses <code>https://acme.datadoghq.com</code> to access Datadog, set this field to <code>acme
-   * </code>. If this field is omitted, generated URLs will use the default site URL for its
-   * datacenter (see <a
-   * href="https://docs.datadoghq.com/getting_started/site">https://docs.datadoghq.com/getting_started/site</a>).
-   *
+   * <p>Custom subdomain used for Datadog URLs generated with this Connection. For example, if this org uses <code>https://acme.datadoghq.com</code> to access Datadog, set this field to <code>acme</code>. If this field is omitted, generated URLs will use the default site URL for its datacenter (see <a href="https://docs.datadoghq.com/getting_started/site">https://docs.datadoghq.com/getting_started/site</a>).</p>
    * @return subdomain
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBDOMAIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSubdomain() {
-    return subdomain;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SUBDOMAIN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSubdomain() {
+        return subdomain;
+      }
   public void setSubdomain(String subdomain) {
     this.subdomain = subdomain;
   }
-
   public DatadogAPIKeyUpdate type(DatadogAPIKeyType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -148,32 +151,32 @@ public class DatadogAPIKeyUpdate {
   }
 
   /**
-   * The definition of the <code>DatadogAPIKey</code> object.
-   *
+   * <p>The definition of the <code>DatadogAPIKey</code> object.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DatadogAPIKeyType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public DatadogAPIKeyType getType() {
+        return type;
+      }
   public void setType(DatadogAPIKeyType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -182,7 +185,7 @@ public class DatadogAPIKeyUpdate {
   @JsonAnySetter
   public DatadogAPIKeyUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -206,12 +209,14 @@ public class DatadogAPIKeyUpdate {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DatadogAPIKeyUpdate object is equal to o. */
+  /**
+   * Return true if this DatadogAPIKeyUpdate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -221,17 +226,13 @@ public class DatadogAPIKeyUpdate {
       return false;
     }
     DatadogAPIKeyUpdate datadogApiKeyUpdate = (DatadogAPIKeyUpdate) o;
-    return Objects.equals(this.apiKey, datadogApiKeyUpdate.apiKey)
-        && Objects.equals(this.appKey, datadogApiKeyUpdate.appKey)
-        && Objects.equals(this.datacenter, datadogApiKeyUpdate.datacenter)
-        && Objects.equals(this.subdomain, datadogApiKeyUpdate.subdomain)
-        && Objects.equals(this.type, datadogApiKeyUpdate.type)
-        && Objects.equals(this.additionalProperties, datadogApiKeyUpdate.additionalProperties);
+    return Objects.equals(this.apiKey, datadogApiKeyUpdate.apiKey) && Objects.equals(this.appKey, datadogApiKeyUpdate.appKey) && Objects.equals(this.datacenter, datadogApiKeyUpdate.datacenter) && Objects.equals(this.subdomain, datadogApiKeyUpdate.subdomain) && Objects.equals(this.type, datadogApiKeyUpdate.type) && Objects.equals(this.additionalProperties, datadogApiKeyUpdate.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, appKey, datacenter, subdomain, type, additionalProperties);
+    return Objects.hash(apiKey,appKey,datacenter,subdomain,type, additionalProperties);
   }
 
   @Override
@@ -251,7 +252,8 @@ public class DatadogAPIKeyUpdate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

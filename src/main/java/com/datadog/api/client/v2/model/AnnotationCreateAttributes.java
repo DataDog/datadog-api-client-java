@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating or updating an annotation. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating or updating an annotation.</p>
+ */
 @JsonPropertyOrder({
   AnnotationCreateAttributes.JSON_PROPERTY_COLOR,
   AnnotationCreateAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -30,10 +43,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AnnotationCreateAttributes.JSON_PROPERTY_TYPE,
   AnnotationCreateAttributes.JSON_PROPERTY_WIDGET_IDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AnnotationCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR = "color";
   private AnnotationColor color;
 
@@ -59,20 +72,19 @@ public class AnnotationCreateAttributes {
 
   @JsonCreator
   public AnnotationCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COLOR) AnnotationColor color,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PAGE_ID) String pageId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_START_TIME) Long startTime,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AnnotationKind type) {
-    this.color = color;
-    this.unparsed |= !color.isValid();
-    this.description = description;
-    this.pageId = pageId;
-    this.startTime = startTime;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_COLOR)AnnotationColor color,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION)String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PAGE_ID)String pageId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_START_TIME)Long startTime,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)AnnotationKind type) {
+        this.color = color;
+        this.unparsed |= !color.isValid();
+        this.description = description;
+        this.pageId = pageId;
+        this.startTime = startTime;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public AnnotationCreateAttributes color(AnnotationColor color) {
     this.color = color;
     this.unparsed |= !color.isValid();
@@ -80,116 +92,102 @@ public class AnnotationCreateAttributes {
   }
 
   /**
-   * Color used to render the annotation in the UI.
-   *
+   * <p>Color used to render the annotation in the UI.</p>
    * @return color
-   */
-  @JsonProperty(JSON_PROPERTY_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AnnotationColor getColor() {
-    return color;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_COLOR)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public AnnotationColor getColor() {
+        return color;
+      }
   public void setColor(AnnotationColor color) {
     if (!color.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.color = color;
   }
-
   public AnnotationCreateAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * User-defined text attached to the annotation.
-   *
+   * <p>User-defined text attached to the annotation.</p>
    * @return description
-   */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public AnnotationCreateAttributes endTime(Long endTime) {
     this.endTime = JsonNullable.<Long>of(endTime);
     return this;
   }
 
   /**
-   * End time of the annotation in milliseconds since the Unix epoch. Required for <code>timeRegion
-   * </code> annotations; omit or set to null for <code>pointInTime</code> annotations.
-   *
+   * <p>End time of the annotation in milliseconds since the Unix epoch. Required for <code>timeRegion</code> annotations; omit or set to null for <code>pointInTime</code> annotations.</p>
    * @return endTime
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getEndTime() {
-    return endTime.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getEndTime() {
+        return endTime.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_END_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getEndTime_JsonNullable() {
     return endTime;
   }
-
-  @JsonProperty(JSON_PROPERTY_END_TIME)
-  public void setEndTime_JsonNullable(JsonNullable<Long> endTime) {
+  @JsonProperty(JSON_PROPERTY_END_TIME)public void setEndTime_JsonNullable(JsonNullable<Long> endTime) {
     this.endTime = endTime;
   }
-
   public void setEndTime(Long endTime) {
     this.endTime = JsonNullable.<Long>of(endTime);
   }
-
   public AnnotationCreateAttributes pageId(String pageId) {
     this.pageId = pageId;
     return this;
   }
 
   /**
-   * ID of the page the annotation belongs to, prefixed with the page type and joined by a colon
-   * (for example, <code>dashboard:abc-def-xyz</code> or <code>notebook:1234567890</code>).
-   *
+   * <p>ID of the page the annotation belongs to, prefixed with the page type and joined by a colon
+   * (for example, <code>dashboard:abc-def-xyz</code> or <code>notebook:1234567890</code>).</p>
    * @return pageId
-   */
-  @JsonProperty(JSON_PROPERTY_PAGE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPageId() {
-    return pageId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PAGE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getPageId() {
+        return pageId;
+      }
   public void setPageId(String pageId) {
     this.pageId = pageId;
   }
-
   public AnnotationCreateAttributes startTime(Long startTime) {
     this.startTime = startTime;
     return this;
   }
 
   /**
-   * Start time of the annotation in milliseconds since the Unix epoch.
-   *
+   * <p>Start time of the annotation in milliseconds since the Unix epoch.</p>
    * @return startTime
-   */
-  @JsonProperty(JSON_PROPERTY_START_TIME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getStartTime() {
-    return startTime;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_START_TIME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getStartTime() {
+        return startTime;
+      }
   public void setStartTime(Long startTime) {
     this.startTime = startTime;
   }
-
   public AnnotationCreateAttributes type(AnnotationKind type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -197,29 +195,26 @@ public class AnnotationCreateAttributes {
   }
 
   /**
-   * Kind of annotation. <code>pointInTime</code> annotations mark a single moment in time, while
-   * <code>timeRegion</code> annotations span a window of time and require an <code>end_time</code>.
-   *
+   * <p>Kind of annotation. <code>pointInTime</code> annotations mark a single moment in time,
+   * while <code>timeRegion</code> annotations span a window of time and require an <code>end_time</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AnnotationKind getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public AnnotationKind getType() {
+        return type;
+      }
   public void setType(AnnotationKind type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
-
   public AnnotationCreateAttributes widgetIds(List<String> widgetIds) {
     this.widgetIds = widgetIds;
     return this;
   }
-
   public AnnotationCreateAttributes addWidgetIdsItem(String widgetIdsItem) {
     if (this.widgetIds == null) {
       this.widgetIds = new ArrayList<>();
@@ -229,31 +224,30 @@ public class AnnotationCreateAttributes {
   }
 
   /**
-   * IDs of widgets the annotation is associated with. When empty or omitted, the annotation applies
-   * to the whole page.
-   *
+   * <p>IDs of widgets the annotation is associated with. When empty or omitted, the annotation applies to the whole page.</p>
    * @return widgetIds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDGET_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getWidgetIds() {
-    return widgetIds;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WIDGET_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getWidgetIds() {
+        return widgetIds;
+      }
   public void setWidgetIds(List<String> widgetIds) {
     this.widgetIds = widgetIds;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -262,7 +256,7 @@ public class AnnotationCreateAttributes {
   @JsonAnySetter
   public AnnotationCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -286,12 +280,14 @@ public class AnnotationCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AnnotationCreateAttributes object is equal to o. */
+  /**
+   * Return true if this AnnotationCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -301,21 +297,13 @@ public class AnnotationCreateAttributes {
       return false;
     }
     AnnotationCreateAttributes annotationCreateAttributes = (AnnotationCreateAttributes) o;
-    return Objects.equals(this.color, annotationCreateAttributes.color)
-        && Objects.equals(this.description, annotationCreateAttributes.description)
-        && Objects.equals(this.endTime, annotationCreateAttributes.endTime)
-        && Objects.equals(this.pageId, annotationCreateAttributes.pageId)
-        && Objects.equals(this.startTime, annotationCreateAttributes.startTime)
-        && Objects.equals(this.type, annotationCreateAttributes.type)
-        && Objects.equals(this.widgetIds, annotationCreateAttributes.widgetIds)
-        && Objects.equals(
-            this.additionalProperties, annotationCreateAttributes.additionalProperties);
+    return Objects.equals(this.color, annotationCreateAttributes.color) && Objects.equals(this.description, annotationCreateAttributes.description) && Objects.equals(this.endTime, annotationCreateAttributes.endTime) && Objects.equals(this.pageId, annotationCreateAttributes.pageId) && Objects.equals(this.startTime, annotationCreateAttributes.startTime) && Objects.equals(this.type, annotationCreateAttributes.type) && Objects.equals(this.widgetIds, annotationCreateAttributes.widgetIds) && Objects.equals(this.additionalProperties, annotationCreateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        color, description, endTime, pageId, startTime, type, widgetIds, additionalProperties);
+    return Objects.hash(color,description,endTime,pageId,startTime,type,widgetIds, additionalProperties);
   }
 
   @Override
@@ -337,7 +325,8 @@ public class AnnotationCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

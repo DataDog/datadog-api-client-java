@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A usage range and the price that applies to usage falling inside it. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A usage range and the price that applies to usage falling inside it.</p>
+ */
 @JsonPropertyOrder({
   ProductCatalogSKUPricingTier.JSON_PROPERTY_MAX_USAGE_QUANTITY,
   ProductCatalogSKUPricingTier.JSON_PROPERTY_MIN_USAGE_QUANTITY,
   ProductCatalogSKUPricingTier.JSON_PROPERTY_PRICE,
   ProductCatalogSKUPricingTier.JSON_PROPERTY_PRICING_UNIT_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductCatalogSKUPricingTier {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_MAX_USAGE_QUANTITY = "max_usage_quantity";
   private Long maxUsageQuantity;
 
@@ -44,119 +60,110 @@ public class ProductCatalogSKUPricingTier {
 
   @JsonCreator
   public ProductCatalogSKUPricingTier(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAX_USAGE_QUANTITY)
-          Long maxUsageQuantity,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MIN_USAGE_QUANTITY)
-          Long minUsageQuantity,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRICE) String price,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRICING_UNIT_TYPE)
-          ProductCatalogSKUPricingUnitType pricingUnitType) {
-    this.maxUsageQuantity = maxUsageQuantity;
-    if (maxUsageQuantity != null) {}
-    this.minUsageQuantity = minUsageQuantity;
-    this.price = price;
-    this.pricingUnitType = pricingUnitType;
-    this.unparsed |= !pricingUnitType.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_MAX_USAGE_QUANTITY)Long maxUsageQuantity,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MIN_USAGE_QUANTITY)Long minUsageQuantity,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PRICE)String price,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PRICING_UNIT_TYPE)ProductCatalogSKUPricingUnitType pricingUnitType) {
+        this.maxUsageQuantity = maxUsageQuantity;
+        if (maxUsageQuantity != null) {
+        }
+        this.minUsageQuantity = minUsageQuantity;
+        this.price = price;
+        this.pricingUnitType = pricingUnitType;
+        this.unparsed |= !pricingUnitType.isValid();
   }
-
   public ProductCatalogSKUPricingTier maxUsageQuantity(Long maxUsageQuantity) {
     this.maxUsageQuantity = maxUsageQuantity;
-    if (maxUsageQuantity != null) {}
+        if (maxUsageQuantity != null) {
+    }
     return this;
   }
 
   /**
-   * The exclusive upper bound of the usage range the tier prices. <code>null</code> on the final
-   * tier, which is unbounded.
-   *
+   * <p>The exclusive upper bound of the usage range the tier prices. <code>null</code> on the final
+   * tier, which is unbounded.</p>
    * @return maxUsageQuantity
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_USAGE_QUANTITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getMaxUsageQuantity() {
-    return maxUsageQuantity;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MAX_USAGE_QUANTITY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getMaxUsageQuantity() {
+        return maxUsageQuantity;
+      }
   public void setMaxUsageQuantity(Long maxUsageQuantity) {
     this.maxUsageQuantity = maxUsageQuantity;
   }
-
   public ProductCatalogSKUPricingTier minUsageQuantity(Long minUsageQuantity) {
     this.minUsageQuantity = minUsageQuantity;
     return this;
   }
 
   /**
-   * The inclusive lower bound of the usage range the tier prices.
-   *
+   * <p>The inclusive lower bound of the usage range the tier prices.</p>
    * @return minUsageQuantity
-   */
-  @JsonProperty(JSON_PROPERTY_MIN_USAGE_QUANTITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getMinUsageQuantity() {
-    return minUsageQuantity;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MIN_USAGE_QUANTITY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getMinUsageQuantity() {
+        return minUsageQuantity;
+      }
   public void setMinUsageQuantity(Long minUsageQuantity) {
     this.minUsageQuantity = minUsageQuantity;
   }
-
   public ProductCatalogSKUPricingTier price(String price) {
     this.price = price;
     return this;
   }
 
   /**
-   * The price applied to usage in the tier, as a decimal string. The number of decimal places is
-   * not normalized, so free tiers appear as either <code>0</code> or <code>0.00</code>.
-   *
+   * <p>The price applied to usage in the tier, as a decimal string. The number of decimal
+   * places is not normalized, so free tiers appear as either <code>0</code> or <code>0.00</code>.</p>
    * @return price
-   */
-  @JsonProperty(JSON_PROPERTY_PRICE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPrice() {
-    return price;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PRICE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getPrice() {
+        return price;
+      }
   public void setPrice(String price) {
     this.price = price;
   }
-
-  public ProductCatalogSKUPricingTier pricingUnitType(
-      ProductCatalogSKUPricingUnitType pricingUnitType) {
+  public ProductCatalogSKUPricingTier pricingUnitType(ProductCatalogSKUPricingUnitType pricingUnitType) {
     this.pricingUnitType = pricingUnitType;
     this.unparsed |= !pricingUnitType.isValid();
     return this;
   }
 
   /**
-   * Whether the tier's price applies per unit of usage or to a block of usage.
-   *
+   * <p>Whether the tier's price applies per unit of usage or to a block of usage.</p>
    * @return pricingUnitType
-   */
-  @JsonProperty(JSON_PROPERTY_PRICING_UNIT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductCatalogSKUPricingUnitType getPricingUnitType() {
-    return pricingUnitType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PRICING_UNIT_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductCatalogSKUPricingUnitType getPricingUnitType() {
+        return pricingUnitType;
+      }
   public void setPricingUnitType(ProductCatalogSKUPricingUnitType pricingUnitType) {
     if (!pricingUnitType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.pricingUnitType = pricingUnitType;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -165,7 +172,7 @@ public class ProductCatalogSKUPricingTier {
   @JsonAnySetter
   public ProductCatalogSKUPricingTier putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -189,12 +196,14 @@ public class ProductCatalogSKUPricingTier {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProductCatalogSKUPricingTier object is equal to o. */
+  /**
+   * Return true if this ProductCatalogSKUPricingTier object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,18 +213,13 @@ public class ProductCatalogSKUPricingTier {
       return false;
     }
     ProductCatalogSKUPricingTier productCatalogSkuPricingTier = (ProductCatalogSKUPricingTier) o;
-    return Objects.equals(this.maxUsageQuantity, productCatalogSkuPricingTier.maxUsageQuantity)
-        && Objects.equals(this.minUsageQuantity, productCatalogSkuPricingTier.minUsageQuantity)
-        && Objects.equals(this.price, productCatalogSkuPricingTier.price)
-        && Objects.equals(this.pricingUnitType, productCatalogSkuPricingTier.pricingUnitType)
-        && Objects.equals(
-            this.additionalProperties, productCatalogSkuPricingTier.additionalProperties);
+    return Objects.equals(this.maxUsageQuantity, productCatalogSkuPricingTier.maxUsageQuantity) && Objects.equals(this.minUsageQuantity, productCatalogSkuPricingTier.minUsageQuantity) && Objects.equals(this.price, productCatalogSkuPricingTier.price) && Objects.equals(this.pricingUnitType, productCatalogSkuPricingTier.pricingUnitType) && Objects.equals(this.additionalProperties, productCatalogSkuPricingTier.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        maxUsageQuantity, minUsageQuantity, price, pricingUnitType, additionalProperties);
+    return Objects.hash(maxUsageQuantity,minUsageQuantity,price,pricingUnitType, additionalProperties);
   }
 
   @Override
@@ -234,7 +238,8 @@ public class ProductCatalogSKUPricingTier {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,17 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The <code>splunk_hec_metrics</code> destination forwards metrics to Splunk using the HTTP Event
- * Collector (HEC).
- *
- * <p><strong>Supported pipeline types:</strong> metrics
+   * <p>The <code>splunk_hec_metrics</code> destination forwards metrics to Splunk using the HTTP Event Collector (HEC).</p>
+   * <p><strong>Supported pipeline types:</strong> metrics</p>
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkHecMetricsDestination.JSON_PROPERTY_BUFFER,
@@ -39,16 +49,15 @@ import java.util.Objects;
   ObservabilityPipelineSplunkHecMetricsDestination.JSON_PROPERTY_TOKEN_KEY,
   ObservabilityPipelineSplunkHecMetricsDestination.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSplunkHecMetricsDestination {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_COMPRESSION = "compression";
-  private ObservabilityPipelineSplunkHecMetricsDestinationCompression compression =
-      ObservabilityPipelineSplunkHecMetricsDestinationCompression.NONE;
+  private ObservabilityPipelineSplunkHecMetricsDestinationCompression compression = ObservabilityPipelineSplunkHecMetricsDestinationCompression.NONE;
 
   public static final String JSON_PROPERTY_DEFAULT_NAMESPACE = "default_namespace";
   private String defaultNamespace;
@@ -78,228 +87,201 @@ public class ObservabilityPipelineSplunkHecMetricsDestination {
   private String tokenKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineSplunkHecMetricsDestinationType type =
-      ObservabilityPipelineSplunkHecMetricsDestinationType.SPLUNK_HEC_METRICS;
+  private ObservabilityPipelineSplunkHecMetricsDestinationType type = ObservabilityPipelineSplunkHecMetricsDestinationType.SPLUNK_HEC_METRICS;
 
   public ObservabilityPipelineSplunkHecMetricsDestination() {}
 
   @JsonCreator
   public ObservabilityPipelineSplunkHecMetricsDestination(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineSplunkHecMetricsDestinationType type) {
-    this.id = id;
-    this.inputs = inputs;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INPUTS)List<String> inputs,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineSplunkHecMetricsDestinationType type) {
+        this.id = id;
+        this.inputs = inputs;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
-  public ObservabilityPipelineSplunkHecMetricsDestination buffer(
-      ObservabilityPipelineBufferOptions buffer) {
+  public ObservabilityPipelineSplunkHecMetricsDestination buffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
     this.unparsed |= buffer.unparsed;
     return this;
   }
 
   /**
-   * Configuration for buffer settings on destination components.
-   *
+   * <p>Configuration for buffer settings on destination components.</p>
    * @return buffer
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BUFFER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptions getBuffer() {
-    return buffer;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BUFFER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineBufferOptions getBuffer() {
+        return buffer;
+      }
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
     if (buffer != null) {
       this.unparsed |= buffer.unparsed;
     }
   }
-
-  public ObservabilityPipelineSplunkHecMetricsDestination compression(
-      ObservabilityPipelineSplunkHecMetricsDestinationCompression compression) {
+  public ObservabilityPipelineSplunkHecMetricsDestination compression(ObservabilityPipelineSplunkHecMetricsDestinationCompression compression) {
     this.compression = compression;
     this.unparsed |= !compression.isValid();
     return this;
   }
 
   /**
-   * Compression algorithm applied when sending metrics to Splunk HEC.
-   *
+   * <p>Compression algorithm applied when sending metrics to Splunk HEC.</p>
    * @return compression
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPRESSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineSplunkHecMetricsDestinationCompression getCompression() {
-    return compression;
-  }
-
-  public void setCompression(
-      ObservabilityPipelineSplunkHecMetricsDestinationCompression compression) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPRESSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineSplunkHecMetricsDestinationCompression getCompression() {
+        return compression;
+      }
+  public void setCompression(ObservabilityPipelineSplunkHecMetricsDestinationCompression compression) {
     if (!compression.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.compression = compression;
   }
-
-  public ObservabilityPipelineSplunkHecMetricsDestination defaultNamespace(
-      String defaultNamespace) {
+  public ObservabilityPipelineSplunkHecMetricsDestination defaultNamespace(String defaultNamespace) {
     this.defaultNamespace = defaultNamespace;
     return this;
   }
 
   /**
-   * Optional default namespace for metrics sent to Splunk HEC.
-   *
+   * <p>Optional default namespace for metrics sent to Splunk HEC.</p>
    * @return defaultNamespace
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULT_NAMESPACE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDefaultNamespace() {
-    return defaultNamespace;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEFAULT_NAMESPACE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDefaultNamespace() {
+        return defaultNamespace;
+      }
   public void setDefaultNamespace(String defaultNamespace) {
     this.defaultNamespace = defaultNamespace;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination endpointUrlKey(String endpointUrlKey) {
     this.endpointUrlKey = endpointUrlKey;
     return this;
   }
 
   /**
-   * Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
-   *
+   * <p>Name of the environment variable or secret that holds the Splunk HEC endpoint URL.</p>
    * @return endpointUrlKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEndpointUrlKey() {
-    return endpointUrlKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEndpointUrlKey() {
+        return endpointUrlKey;
+      }
   public void setEndpointUrlKey(String endpointUrlKey) {
     this.endpointUrlKey = endpointUrlKey;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier for this component. Used in other parts of the pipeline to reference this
-   * component (for example, as the <code>input</code> to downstream components).
-   *
+   * <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination index(String index) {
     this.index = index;
     return this;
   }
 
   /**
-   * Optional name of the Splunk index where metrics are written.
-   *
+   * <p>Optional name of the Splunk index where metrics are written.</p>
    * @return index
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIndex() {
-    return index;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INDEX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIndex() {
+        return index;
+      }
   public void setIndex(String index) {
     this.index = index;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination addInputsItem(String inputsItem) {
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
+   * <p>A list of component IDs whose output is used as the <code>input</code> for this component.</p>
    * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INPUTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getInputs() {
+        return inputs;
+      }
   public void setInputs(List<String> inputs) {
     this.inputs = inputs;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination source(String source) {
     this.source = source;
     return this;
   }
 
   /**
-   * The Splunk source field value for metric events.
-   *
+   * <p>The Splunk source field value for metric events.</p>
    * @return source
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSource() {
-    return source;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSource() {
+        return source;
+      }
   public void setSource(String source) {
     this.source = source;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination sourcetype(String sourcetype) {
     this.sourcetype = sourcetype;
     return this;
   }
 
   /**
-   * The Splunk sourcetype to assign to metric events.
-   *
+   * <p>The Splunk sourcetype to assign to metric events.</p>
    * @return sourcetype
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCETYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSourcetype() {
-    return sourcetype;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCETYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSourcetype() {
+        return sourcetype;
+      }
   public void setSourcetype(String sourcetype) {
     this.sourcetype = sourcetype;
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
@@ -307,89 +289,83 @@ public class ObservabilityPipelineSplunkHecMetricsDestination {
   }
 
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
-   *
+   * <p>Configuration for enabling TLS encryption between the pipeline component and external services.</p>
    * @return tls
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TLS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
-    return tls;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TLS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineTls getTls() {
+        return tls;
+      }
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     if (tls != null) {
       this.unparsed |= tls.unparsed;
     }
   }
-
   public ObservabilityPipelineSplunkHecMetricsDestination tokenKey(String tokenKey) {
     this.tokenKey = tokenKey;
     return this;
   }
 
   /**
-   * Name of the environment variable or secret that holds the Splunk HEC token.
-   *
+   * <p>Name of the environment variable or secret that holds the Splunk HEC token.</p>
    * @return tokenKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOKEN_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTokenKey() {
-    return tokenKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOKEN_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTokenKey() {
+        return tokenKey;
+      }
   public void setTokenKey(String tokenKey) {
     this.tokenKey = tokenKey;
   }
-
-  public ObservabilityPipelineSplunkHecMetricsDestination type(
-      ObservabilityPipelineSplunkHecMetricsDestinationType type) {
+  public ObservabilityPipelineSplunkHecMetricsDestination type(ObservabilityPipelineSplunkHecMetricsDestinationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The destination type. Always <code>splunk_hec_metrics</code>.
-   *
+   * <p>The destination type. Always <code>splunk_hec_metrics</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineSplunkHecMetricsDestinationType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineSplunkHecMetricsDestinationType getType() {
+        return type;
+      }
   public void setType(ObservabilityPipelineSplunkHecMetricsDestinationType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineSplunkHecMetricsDestination
    */
   @JsonAnySetter
-  public ObservabilityPipelineSplunkHecMetricsDestination putAdditionalProperty(
-      String key, Object value) {
+  public ObservabilityPipelineSplunkHecMetricsDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -413,12 +389,14 @@ public class ObservabilityPipelineSplunkHecMetricsDestination {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineSplunkHecMetricsDestination object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineSplunkHecMetricsDestination object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -427,47 +405,14 @@ public class ObservabilityPipelineSplunkHecMetricsDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSplunkHecMetricsDestination
-        observabilityPipelineSplunkHecMetricsDestination =
-            (ObservabilityPipelineSplunkHecMetricsDestination) o;
-    return Objects.equals(this.buffer, observabilityPipelineSplunkHecMetricsDestination.buffer)
-        && Objects.equals(
-            this.compression, observabilityPipelineSplunkHecMetricsDestination.compression)
-        && Objects.equals(
-            this.defaultNamespace,
-            observabilityPipelineSplunkHecMetricsDestination.defaultNamespace)
-        && Objects.equals(
-            this.endpointUrlKey, observabilityPipelineSplunkHecMetricsDestination.endpointUrlKey)
-        && Objects.equals(this.id, observabilityPipelineSplunkHecMetricsDestination.id)
-        && Objects.equals(this.index, observabilityPipelineSplunkHecMetricsDestination.index)
-        && Objects.equals(this.inputs, observabilityPipelineSplunkHecMetricsDestination.inputs)
-        && Objects.equals(this.source, observabilityPipelineSplunkHecMetricsDestination.source)
-        && Objects.equals(
-            this.sourcetype, observabilityPipelineSplunkHecMetricsDestination.sourcetype)
-        && Objects.equals(this.tls, observabilityPipelineSplunkHecMetricsDestination.tls)
-        && Objects.equals(this.tokenKey, observabilityPipelineSplunkHecMetricsDestination.tokenKey)
-        && Objects.equals(this.type, observabilityPipelineSplunkHecMetricsDestination.type)
-        && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineSplunkHecMetricsDestination.additionalProperties);
+    ObservabilityPipelineSplunkHecMetricsDestination observabilityPipelineSplunkHecMetricsDestination = (ObservabilityPipelineSplunkHecMetricsDestination) o;
+    return Objects.equals(this.buffer, observabilityPipelineSplunkHecMetricsDestination.buffer) && Objects.equals(this.compression, observabilityPipelineSplunkHecMetricsDestination.compression) && Objects.equals(this.defaultNamespace, observabilityPipelineSplunkHecMetricsDestination.defaultNamespace) && Objects.equals(this.endpointUrlKey, observabilityPipelineSplunkHecMetricsDestination.endpointUrlKey) && Objects.equals(this.id, observabilityPipelineSplunkHecMetricsDestination.id) && Objects.equals(this.index, observabilityPipelineSplunkHecMetricsDestination.index) && Objects.equals(this.inputs, observabilityPipelineSplunkHecMetricsDestination.inputs) && Objects.equals(this.source, observabilityPipelineSplunkHecMetricsDestination.source) && Objects.equals(this.sourcetype, observabilityPipelineSplunkHecMetricsDestination.sourcetype) && Objects.equals(this.tls, observabilityPipelineSplunkHecMetricsDestination.tls) && Objects.equals(this.tokenKey, observabilityPipelineSplunkHecMetricsDestination.tokenKey) && Objects.equals(this.type, observabilityPipelineSplunkHecMetricsDestination.type) && Objects.equals(this.additionalProperties, observabilityPipelineSplunkHecMetricsDestination.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        buffer,
-        compression,
-        defaultNamespace,
-        endpointUrlKey,
-        id,
-        index,
-        inputs,
-        source,
-        sourcetype,
-        tls,
-        tokenKey,
-        type,
-        additionalProperties);
+    return Objects.hash(buffer,compression,defaultNamespace,endpointUrlKey,id,index,inputs,source,sourcetype,tls,tokenKey,type, additionalProperties);
   }
 
   @Override
@@ -494,7 +439,8 @@ public class ObservabilityPipelineSplunkHecMetricsDestination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

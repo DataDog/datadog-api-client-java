@@ -6,19 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Search configuration for Product Analytics event query. */
-@JsonPropertyOrder({ProductAnalyticsEventQuerySearch.JSON_PROPERTY_QUERY})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Search configuration for Product Analytics event query.</p>
+ */
+@JsonPropertyOrder({
+  ProductAnalyticsEventQuerySearch.JSON_PROPERTY_QUERY
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsEventQuerySearch {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -26,31 +48,31 @@ public class ProductAnalyticsEventQuerySearch {
 
   @JsonCreator
   public ProductAnalyticsEventQuerySearch(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query) {
+        this.query = query;
   }
-
   public ProductAnalyticsEventQuerySearch query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * RUM event search query used to filter views or actions.
-   *
+   * <p>RUM event search query used to filter views or actions.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
 
-  /** Return true if this ProductAnalyticsEventQuerySearch object is equal to o. */
+  /**
+   * Return true if this ProductAnalyticsEventQuerySearch object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -59,10 +81,10 @@ public class ProductAnalyticsEventQuerySearch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsEventQuerySearch productAnalyticsEventQuerySearch =
-        (ProductAnalyticsEventQuerySearch) o;
+    ProductAnalyticsEventQuerySearch productAnalyticsEventQuerySearch = (ProductAnalyticsEventQuerySearch) o;
     return Objects.equals(this.query, productAnalyticsEventQuerySearch.query);
   }
+
 
   @Override
   public int hashCode() {
@@ -79,7 +101,8 @@ public class ProductAnalyticsEventQuerySearch {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

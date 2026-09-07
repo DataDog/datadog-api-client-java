@@ -6,101 +6,87 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * Identifies the specific reason a Cost and Usage Report (CUR) 2.0 configuration failed validation.
+   * <p>Identifies the specific reason a Cost and Usage Report (CUR) 2.0 configuration failed validation.</p>
  */
-@JsonSerialize(
-    using = AWSCcmConfigValidationIssueCode.AWSCcmConfigValidationIssueCodeSerializer.class)
+@JsonSerialize(using = AWSCcmConfigValidationIssueCode.AWSCcmConfigValidationIssueCodeSerializer.class)
 public class AWSCcmConfigValidationIssueCode extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "ISSUE_CODE_UNSPECIFIED",
-              "CREDENTIAL_ERROR",
-              "BUCKET_NAME_INVALID_GOVCLOUD",
-              "S3_LIST_PERMISSION_MISSING",
-              "S3_GET_PERMISSION_MISSING",
-              "S3_BUCKET_REGION_MISMATCH",
-              "S3_BUCKET_NOT_ACCESSIBLE",
-              "EXPORT_LIST_PERMISSION_MISSING",
-              "EXPORT_GET_PERMISSION_MISSING",
-              "EXPORT_NOT_FOUND",
-              "EXPORT_STATUS_UNHEALTHY",
-              "TIME_GRANULARITY_INVALID",
-              "FILE_FORMAT_INVALID",
-              "INCLUDE_RESOURCES_DISABLED",
-              "REFRESH_CADENCE_INVALID",
-              "OVERWRITE_MODE_INVALID",
-              "QUERY_STATEMENT_INVALID"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("ISSUE_CODE_UNSPECIFIED", "CREDENTIAL_ERROR", "BUCKET_NAME_INVALID_GOVCLOUD", "S3_LIST_PERMISSION_MISSING", "S3_GET_PERMISSION_MISSING", "S3_BUCKET_REGION_MISMATCH", "S3_BUCKET_NOT_ACCESSIBLE", "EXPORT_LIST_PERMISSION_MISSING", "EXPORT_GET_PERMISSION_MISSING", "EXPORT_NOT_FOUND", "EXPORT_STATUS_UNHEALTHY", "TIME_GRANULARITY_INVALID", "FILE_FORMAT_INVALID", "INCLUDE_RESOURCES_DISABLED", "REFRESH_CADENCE_INVALID", "OVERWRITE_MODE_INVALID", "QUERY_STATEMENT_INVALID"));
 
-  public static final AWSCcmConfigValidationIssueCode ISSUE_CODE_UNSPECIFIED =
-      new AWSCcmConfigValidationIssueCode("ISSUE_CODE_UNSPECIFIED");
-  public static final AWSCcmConfigValidationIssueCode CREDENTIAL_ERROR =
-      new AWSCcmConfigValidationIssueCode("CREDENTIAL_ERROR");
-  public static final AWSCcmConfigValidationIssueCode BUCKET_NAME_INVALID_GOVCLOUD =
-      new AWSCcmConfigValidationIssueCode("BUCKET_NAME_INVALID_GOVCLOUD");
-  public static final AWSCcmConfigValidationIssueCode S3_LIST_PERMISSION_MISSING =
-      new AWSCcmConfigValidationIssueCode("S3_LIST_PERMISSION_MISSING");
-  public static final AWSCcmConfigValidationIssueCode S3_GET_PERMISSION_MISSING =
-      new AWSCcmConfigValidationIssueCode("S3_GET_PERMISSION_MISSING");
-  public static final AWSCcmConfigValidationIssueCode S3_BUCKET_REGION_MISMATCH =
-      new AWSCcmConfigValidationIssueCode("S3_BUCKET_REGION_MISMATCH");
-  public static final AWSCcmConfigValidationIssueCode S3_BUCKET_NOT_ACCESSIBLE =
-      new AWSCcmConfigValidationIssueCode("S3_BUCKET_NOT_ACCESSIBLE");
-  public static final AWSCcmConfigValidationIssueCode EXPORT_LIST_PERMISSION_MISSING =
-      new AWSCcmConfigValidationIssueCode("EXPORT_LIST_PERMISSION_MISSING");
-  public static final AWSCcmConfigValidationIssueCode EXPORT_GET_PERMISSION_MISSING =
-      new AWSCcmConfigValidationIssueCode("EXPORT_GET_PERMISSION_MISSING");
-  public static final AWSCcmConfigValidationIssueCode EXPORT_NOT_FOUND =
-      new AWSCcmConfigValidationIssueCode("EXPORT_NOT_FOUND");
-  public static final AWSCcmConfigValidationIssueCode EXPORT_STATUS_UNHEALTHY =
-      new AWSCcmConfigValidationIssueCode("EXPORT_STATUS_UNHEALTHY");
-  public static final AWSCcmConfigValidationIssueCode TIME_GRANULARITY_INVALID =
-      new AWSCcmConfigValidationIssueCode("TIME_GRANULARITY_INVALID");
-  public static final AWSCcmConfigValidationIssueCode FILE_FORMAT_INVALID =
-      new AWSCcmConfigValidationIssueCode("FILE_FORMAT_INVALID");
-  public static final AWSCcmConfigValidationIssueCode INCLUDE_RESOURCES_DISABLED =
-      new AWSCcmConfigValidationIssueCode("INCLUDE_RESOURCES_DISABLED");
-  public static final AWSCcmConfigValidationIssueCode REFRESH_CADENCE_INVALID =
-      new AWSCcmConfigValidationIssueCode("REFRESH_CADENCE_INVALID");
-  public static final AWSCcmConfigValidationIssueCode OVERWRITE_MODE_INVALID =
-      new AWSCcmConfigValidationIssueCode("OVERWRITE_MODE_INVALID");
-  public static final AWSCcmConfigValidationIssueCode QUERY_STATEMENT_INVALID =
-      new AWSCcmConfigValidationIssueCode("QUERY_STATEMENT_INVALID");
+  public static final AWSCcmConfigValidationIssueCode ISSUE_CODE_UNSPECIFIED = new AWSCcmConfigValidationIssueCode("ISSUE_CODE_UNSPECIFIED");
+  public static final AWSCcmConfigValidationIssueCode CREDENTIAL_ERROR = new AWSCcmConfigValidationIssueCode("CREDENTIAL_ERROR");
+  public static final AWSCcmConfigValidationIssueCode BUCKET_NAME_INVALID_GOVCLOUD = new AWSCcmConfigValidationIssueCode("BUCKET_NAME_INVALID_GOVCLOUD");
+  public static final AWSCcmConfigValidationIssueCode S3_LIST_PERMISSION_MISSING = new AWSCcmConfigValidationIssueCode("S3_LIST_PERMISSION_MISSING");
+  public static final AWSCcmConfigValidationIssueCode S3_GET_PERMISSION_MISSING = new AWSCcmConfigValidationIssueCode("S3_GET_PERMISSION_MISSING");
+  public static final AWSCcmConfigValidationIssueCode S3_BUCKET_REGION_MISMATCH = new AWSCcmConfigValidationIssueCode("S3_BUCKET_REGION_MISMATCH");
+  public static final AWSCcmConfigValidationIssueCode S3_BUCKET_NOT_ACCESSIBLE = new AWSCcmConfigValidationIssueCode("S3_BUCKET_NOT_ACCESSIBLE");
+  public static final AWSCcmConfigValidationIssueCode EXPORT_LIST_PERMISSION_MISSING = new AWSCcmConfigValidationIssueCode("EXPORT_LIST_PERMISSION_MISSING");
+  public static final AWSCcmConfigValidationIssueCode EXPORT_GET_PERMISSION_MISSING = new AWSCcmConfigValidationIssueCode("EXPORT_GET_PERMISSION_MISSING");
+  public static final AWSCcmConfigValidationIssueCode EXPORT_NOT_FOUND = new AWSCcmConfigValidationIssueCode("EXPORT_NOT_FOUND");
+  public static final AWSCcmConfigValidationIssueCode EXPORT_STATUS_UNHEALTHY = new AWSCcmConfigValidationIssueCode("EXPORT_STATUS_UNHEALTHY");
+  public static final AWSCcmConfigValidationIssueCode TIME_GRANULARITY_INVALID = new AWSCcmConfigValidationIssueCode("TIME_GRANULARITY_INVALID");
+  public static final AWSCcmConfigValidationIssueCode FILE_FORMAT_INVALID = new AWSCcmConfigValidationIssueCode("FILE_FORMAT_INVALID");
+  public static final AWSCcmConfigValidationIssueCode INCLUDE_RESOURCES_DISABLED = new AWSCcmConfigValidationIssueCode("INCLUDE_RESOURCES_DISABLED");
+  public static final AWSCcmConfigValidationIssueCode REFRESH_CADENCE_INVALID = new AWSCcmConfigValidationIssueCode("REFRESH_CADENCE_INVALID");
+  public static final AWSCcmConfigValidationIssueCode OVERWRITE_MODE_INVALID = new AWSCcmConfigValidationIssueCode("OVERWRITE_MODE_INVALID");
+  public static final AWSCcmConfigValidationIssueCode QUERY_STATEMENT_INVALID = new AWSCcmConfigValidationIssueCode("QUERY_STATEMENT_INVALID");
+
 
   AWSCcmConfigValidationIssueCode(String value) {
     super(value, allowedValues);
   }
 
-  public static class AWSCcmConfigValidationIssueCodeSerializer
-      extends StdSerializer<AWSCcmConfigValidationIssueCode> {
-    public AWSCcmConfigValidationIssueCodeSerializer(Class<AWSCcmConfigValidationIssueCode> t) {
-      super(t);
-    }
+  public static class AWSCcmConfigValidationIssueCodeSerializer extends StdSerializer<AWSCcmConfigValidationIssueCode> {
+      public AWSCcmConfigValidationIssueCodeSerializer(Class<AWSCcmConfigValidationIssueCode> t) {
+          super(t);
+      }
 
-    public AWSCcmConfigValidationIssueCodeSerializer() {
-      this(null);
-    }
+      public AWSCcmConfigValidationIssueCodeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        AWSCcmConfigValidationIssueCode value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(AWSCcmConfigValidationIssueCode value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

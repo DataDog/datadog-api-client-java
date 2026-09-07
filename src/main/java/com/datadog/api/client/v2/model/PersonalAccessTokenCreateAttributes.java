@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,23 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes used to create an access token. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes used to create an access token.</p>
+ */
 @JsonPropertyOrder({
   PersonalAccessTokenCreateAttributes.JSON_PROPERTY_EXPIRES_AT,
   PersonalAccessTokenCreateAttributes.JSON_PROPERTY_NAME,
   PersonalAccessTokenCreateAttributes.JSON_PROPERTY_SCOPES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PersonalAccessTokenCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   private OffsetDateTime expiresAt;
 
@@ -43,88 +56,82 @@ public class PersonalAccessTokenCreateAttributes {
 
   @JsonCreator
   public PersonalAccessTokenCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EXPIRES_AT) OffsetDateTime expiresAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SCOPES) List<String> scopes) {
-    this.expiresAt = expiresAt;
-    this.name = name;
-    this.scopes = scopes;
+            @JsonProperty(required=true, value=JSON_PROPERTY_EXPIRES_AT)OffsetDateTime expiresAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SCOPES)List<String> scopes) {
+        this.expiresAt = expiresAt;
+        this.name = name;
+        this.scopes = scopes;
   }
-
   public PersonalAccessTokenCreateAttributes expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
   /**
-   * Expiration date of the access token. Must be at least 24 hours in the future.
-   *
+   * <p>Expiration date of the access token. Must be at least 24 hours in the future.</p>
    * @return expiresAt
-   */
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getExpiresAt() {
-    return expiresAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getExpiresAt() {
+        return expiresAt;
+      }
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
-
   public PersonalAccessTokenCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the access token.
-   *
+   * <p>Name of the access token.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public PersonalAccessTokenCreateAttributes scopes(List<String> scopes) {
     this.scopes = scopes;
     return this;
   }
-
   public PersonalAccessTokenCreateAttributes addScopesItem(String scopesItem) {
     this.scopes.add(scopesItem);
     return this;
   }
 
   /**
-   * Array of scopes to grant the access token.
-   *
+   * <p>Array of scopes to grant the access token.</p>
    * @return scopes
-   */
-  @JsonProperty(JSON_PROPERTY_SCOPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getScopes() {
-    return scopes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SCOPES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getScopes() {
+        return scopes;
+      }
   public void setScopes(List<String> scopes) {
     this.scopes = scopes;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -133,7 +140,7 @@ public class PersonalAccessTokenCreateAttributes {
   @JsonAnySetter
   public PersonalAccessTokenCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -157,12 +164,14 @@ public class PersonalAccessTokenCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PersonalAccessTokenCreateAttributes object is equal to o. */
+  /**
+   * Return true if this PersonalAccessTokenCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,18 +180,14 @@ public class PersonalAccessTokenCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PersonalAccessTokenCreateAttributes personalAccessTokenCreateAttributes =
-        (PersonalAccessTokenCreateAttributes) o;
-    return Objects.equals(this.expiresAt, personalAccessTokenCreateAttributes.expiresAt)
-        && Objects.equals(this.name, personalAccessTokenCreateAttributes.name)
-        && Objects.equals(this.scopes, personalAccessTokenCreateAttributes.scopes)
-        && Objects.equals(
-            this.additionalProperties, personalAccessTokenCreateAttributes.additionalProperties);
+    PersonalAccessTokenCreateAttributes personalAccessTokenCreateAttributes = (PersonalAccessTokenCreateAttributes) o;
+    return Objects.equals(this.expiresAt, personalAccessTokenCreateAttributes.expiresAt) && Objects.equals(this.name, personalAccessTokenCreateAttributes.name) && Objects.equals(this.scopes, personalAccessTokenCreateAttributes.scopes) && Objects.equals(this.additionalProperties, personalAccessTokenCreateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(expiresAt, name, scopes, additionalProperties);
+    return Objects.hash(expiresAt,name,scopes, additionalProperties);
   }
 
   @Override
@@ -200,7 +205,8 @@ public class PersonalAccessTokenCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

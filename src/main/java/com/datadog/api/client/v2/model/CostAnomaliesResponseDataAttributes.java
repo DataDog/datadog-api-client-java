@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Cost anomaly results and aggregated totals for the queried window. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Cost anomaly results and aggregated totals for the queried window.</p>
+ */
 @JsonPropertyOrder({
   CostAnomaliesResponseDataAttributes.JSON_PROPERTY_ANOMALIES,
   CostAnomaliesResponseDataAttributes.JSON_PROPERTY_AVG_DAILY_ANOMALOUS_COST,
@@ -27,10 +41,10 @@ import java.util.Objects;
   CostAnomaliesResponseDataAttributes.JSON_PROPERTY_TOTAL_ANOMALOUS_COST,
   CostAnomaliesResponseDataAttributes.JSON_PROPERTY_TOTAL_COUNT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CostAnomaliesResponseDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANOMALIES = "anomalies";
   private List<CostAnomaly> anomalies = new ArrayList<>();
 
@@ -50,24 +64,20 @@ public class CostAnomaliesResponseDataAttributes {
 
   @JsonCreator
   public CostAnomaliesResponseDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ANOMALIES) List<CostAnomaly> anomalies,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AVG_DAILY_ANOMALOUS_COST)
-          Double avgDailyAnomalousCost,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_ACTUAL_COST)
-          Double totalActualCost,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_ANOMALOUS_COST)
-          Double totalAnomalousCost,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Long totalCount) {
-    this.anomalies = anomalies;
-    for (CostAnomaly item : anomalies) {
-      this.unparsed |= item.unparsed;
-    }
-    this.avgDailyAnomalousCost = avgDailyAnomalousCost;
-    this.totalActualCost = totalActualCost;
-    this.totalAnomalousCost = totalAnomalousCost;
-    this.totalCount = totalCount;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ANOMALIES)List<CostAnomaly> anomalies,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AVG_DAILY_ANOMALOUS_COST)Double avgDailyAnomalousCost,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL_ACTUAL_COST)Double totalActualCost,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL_ANOMALOUS_COST)Double totalAnomalousCost,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL_COUNT)Long totalCount) {
+        this.anomalies = anomalies;
+        for (CostAnomaly item : anomalies) {
+          this.unparsed |= item.unparsed;
+        }
+        this.avgDailyAnomalousCost = avgDailyAnomalousCost;
+        this.totalActualCost = totalActualCost;
+        this.totalAnomalousCost = totalAnomalousCost;
+        this.totalCount = totalCount;
   }
-
   public CostAnomaliesResponseDataAttributes anomalies(List<CostAnomaly> anomalies) {
     this.anomalies = anomalies;
     for (CostAnomaly item : anomalies) {
@@ -75,7 +85,6 @@ public class CostAnomaliesResponseDataAttributes {
     }
     return this;
   }
-
   public CostAnomaliesResponseDataAttributes addAnomaliesItem(CostAnomaly anomaliesItem) {
     this.anomalies.add(anomaliesItem);
     this.unparsed |= anomaliesItem.unparsed;
@@ -83,16 +92,15 @@ public class CostAnomaliesResponseDataAttributes {
   }
 
   /**
-   * The list of cost anomalies that match the request.
-   *
+   * <p>The list of cost anomalies that match the request.</p>
    * @return anomalies
-   */
-  @JsonProperty(JSON_PROPERTY_ANOMALIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CostAnomaly> getAnomalies() {
-    return anomalies;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ANOMALIES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<CostAnomaly> getAnomalies() {
+        return anomalies;
+      }
   public void setAnomalies(List<CostAnomaly> anomalies) {
     this.anomalies = anomalies;
     if (anomalies != null) {
@@ -101,96 +109,89 @@ public class CostAnomaliesResponseDataAttributes {
       }
     }
   }
-
   public CostAnomaliesResponseDataAttributes avgDailyAnomalousCost(Double avgDailyAnomalousCost) {
     this.avgDailyAnomalousCost = avgDailyAnomalousCost;
     return this;
   }
 
   /**
-   * Average daily anomalous cost change across the queried window.
-   *
+   * <p>Average daily anomalous cost change across the queried window.</p>
    * @return avgDailyAnomalousCost
-   */
-  @JsonProperty(JSON_PROPERTY_AVG_DAILY_ANOMALOUS_COST)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getAvgDailyAnomalousCost() {
-    return avgDailyAnomalousCost;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AVG_DAILY_ANOMALOUS_COST)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getAvgDailyAnomalousCost() {
+        return avgDailyAnomalousCost;
+      }
   public void setAvgDailyAnomalousCost(Double avgDailyAnomalousCost) {
     this.avgDailyAnomalousCost = avgDailyAnomalousCost;
   }
-
   public CostAnomaliesResponseDataAttributes totalActualCost(Double totalActualCost) {
     this.totalActualCost = totalActualCost;
     return this;
   }
 
   /**
-   * Total actual cost spent across the queried window for the matching providers.
-   *
+   * <p>Total actual cost spent across the queried window for the matching providers.</p>
    * @return totalActualCost
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL_ACTUAL_COST)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getTotalActualCost() {
-    return totalActualCost;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOTAL_ACTUAL_COST)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getTotalActualCost() {
+        return totalActualCost;
+      }
   public void setTotalActualCost(Double totalActualCost) {
     this.totalActualCost = totalActualCost;
   }
-
   public CostAnomaliesResponseDataAttributes totalAnomalousCost(Double totalAnomalousCost) {
     this.totalAnomalousCost = totalAnomalousCost;
     return this;
   }
 
   /**
-   * Sum of the anomalous cost change across all returned anomalies.
-   *
+   * <p>Sum of the anomalous cost change across all returned anomalies.</p>
    * @return totalAnomalousCost
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL_ANOMALOUS_COST)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getTotalAnomalousCost() {
-    return totalAnomalousCost;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOTAL_ANOMALOUS_COST)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getTotalAnomalousCost() {
+        return totalAnomalousCost;
+      }
   public void setTotalAnomalousCost(Double totalAnomalousCost) {
     this.totalAnomalousCost = totalAnomalousCost;
   }
-
   public CostAnomaliesResponseDataAttributes totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
 
   /**
-   * Total number of anomalies that match the request.
-   *
+   * <p>Total number of anomalies that match the request.</p>
    * @return totalCount
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTotalCount() {
-    return totalCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getTotalCount() {
+        return totalCount;
+      }
   public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -199,7 +200,7 @@ public class CostAnomaliesResponseDataAttributes {
   @JsonAnySetter
   public CostAnomaliesResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -223,12 +224,14 @@ public class CostAnomaliesResponseDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CostAnomaliesResponseDataAttributes object is equal to o. */
+  /**
+   * Return true if this CostAnomaliesResponseDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -237,28 +240,14 @@ public class CostAnomaliesResponseDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CostAnomaliesResponseDataAttributes costAnomaliesResponseDataAttributes =
-        (CostAnomaliesResponseDataAttributes) o;
-    return Objects.equals(this.anomalies, costAnomaliesResponseDataAttributes.anomalies)
-        && Objects.equals(
-            this.avgDailyAnomalousCost, costAnomaliesResponseDataAttributes.avgDailyAnomalousCost)
-        && Objects.equals(this.totalActualCost, costAnomaliesResponseDataAttributes.totalActualCost)
-        && Objects.equals(
-            this.totalAnomalousCost, costAnomaliesResponseDataAttributes.totalAnomalousCost)
-        && Objects.equals(this.totalCount, costAnomaliesResponseDataAttributes.totalCount)
-        && Objects.equals(
-            this.additionalProperties, costAnomaliesResponseDataAttributes.additionalProperties);
+    CostAnomaliesResponseDataAttributes costAnomaliesResponseDataAttributes = (CostAnomaliesResponseDataAttributes) o;
+    return Objects.equals(this.anomalies, costAnomaliesResponseDataAttributes.anomalies) && Objects.equals(this.avgDailyAnomalousCost, costAnomaliesResponseDataAttributes.avgDailyAnomalousCost) && Objects.equals(this.totalActualCost, costAnomaliesResponseDataAttributes.totalActualCost) && Objects.equals(this.totalAnomalousCost, costAnomaliesResponseDataAttributes.totalAnomalousCost) && Objects.equals(this.totalCount, costAnomaliesResponseDataAttributes.totalCount) && Objects.equals(this.additionalProperties, costAnomaliesResponseDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        anomalies,
-        avgDailyAnomalousCost,
-        totalActualCost,
-        totalAnomalousCost,
-        totalCount,
-        additionalProperties);
+    return Objects.hash(anomalies,avgDailyAnomalousCost,totalActualCost,totalAnomalousCost,totalCount, additionalProperties);
   }
 
   @Override
@@ -266,9 +255,7 @@ public class CostAnomaliesResponseDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CostAnomaliesResponseDataAttributes {\n");
     sb.append("    anomalies: ").append(toIndentedString(anomalies)).append("\n");
-    sb.append("    avgDailyAnomalousCost: ")
-        .append(toIndentedString(avgDailyAnomalousCost))
-        .append("\n");
+    sb.append("    avgDailyAnomalousCost: ").append(toIndentedString(avgDailyAnomalousCost)).append("\n");
     sb.append("    totalActualCost: ").append(toIndentedString(totalActualCost)).append("\n");
     sb.append("    totalAnomalousCost: ").append(toIndentedString(totalAnomalousCost)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
@@ -280,7 +267,8 @@ public class CostAnomaliesResponseDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

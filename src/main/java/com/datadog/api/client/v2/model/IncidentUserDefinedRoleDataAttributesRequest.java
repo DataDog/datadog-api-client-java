@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating an incident user-defined role. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating an incident user-defined role.</p>
+ */
 @JsonPropertyOrder({
   IncidentUserDefinedRoleDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,
   IncidentUserDefinedRoleDataAttributesRequest.JSON_PROPERTY_NAME,
   IncidentUserDefinedRoleDataAttributesRequest.JSON_PROPERTY_POLICY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentUserDefinedRoleDataAttributesRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
 
@@ -41,61 +56,53 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
 
   @JsonCreator
   public IncidentUserDefinedRoleDataAttributesRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
   public IncidentUserDefinedRoleDataAttributesRequest description(String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
 
   /**
-   * A description of the user-defined role.
-   *
+   * <p>A description of the user-defined role.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDescription() {
-    return description.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getDescription() {
+        return description.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
   }
-
   public void setDescription(String description) {
     this.description = JsonNullable.<String>of(description);
   }
-
   public IncidentUserDefinedRoleDataAttributesRequest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the user-defined role.
-   *
+   * <p>The name of the user-defined role.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public IncidentUserDefinedRoleDataAttributesRequest policy(IncidentUserDefinedRolePolicy policy) {
     this.policy = policy;
     this.unparsed |= policy.unparsed;
@@ -103,17 +110,16 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
   }
 
   /**
-   * Policy configuration for a user-defined role.
-   *
+   * <p>Policy configuration for a user-defined role.</p>
    * @return policy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentUserDefinedRolePolicy getPolicy() {
-    return policy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_POLICY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IncidentUserDefinedRolePolicy getPolicy() {
+        return policy;
+      }
   public void setPolicy(IncidentUserDefinedRolePolicy policy) {
     this.policy = policy;
     if (policy != null) {
@@ -122,24 +128,24 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return IncidentUserDefinedRoleDataAttributesRequest
    */
   @JsonAnySetter
-  public IncidentUserDefinedRoleDataAttributesRequest putAdditionalProperty(
-      String key, Object value) {
+  public IncidentUserDefinedRoleDataAttributesRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -163,12 +169,14 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentUserDefinedRoleDataAttributesRequest object is equal to o. */
+  /**
+   * Return true if this IncidentUserDefinedRoleDataAttributesRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -177,20 +185,14 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentUserDefinedRoleDataAttributesRequest incidentUserDefinedRoleDataAttributesRequest =
-        (IncidentUserDefinedRoleDataAttributesRequest) o;
-    return Objects.equals(
-            this.description, incidentUserDefinedRoleDataAttributesRequest.description)
-        && Objects.equals(this.name, incidentUserDefinedRoleDataAttributesRequest.name)
-        && Objects.equals(this.policy, incidentUserDefinedRoleDataAttributesRequest.policy)
-        && Objects.equals(
-            this.additionalProperties,
-            incidentUserDefinedRoleDataAttributesRequest.additionalProperties);
+    IncidentUserDefinedRoleDataAttributesRequest incidentUserDefinedRoleDataAttributesRequest = (IncidentUserDefinedRoleDataAttributesRequest) o;
+    return Objects.equals(this.description, incidentUserDefinedRoleDataAttributesRequest.description) && Objects.equals(this.name, incidentUserDefinedRoleDataAttributesRequest.name) && Objects.equals(this.policy, incidentUserDefinedRoleDataAttributesRequest.policy) && Objects.equals(this.additionalProperties, incidentUserDefinedRoleDataAttributesRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, policy, additionalProperties);
+    return Objects.hash(description,name,policy, additionalProperties);
   }
 
   @Override
@@ -208,7 +210,8 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

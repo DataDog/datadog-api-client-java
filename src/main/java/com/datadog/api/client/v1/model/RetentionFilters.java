@@ -6,21 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Filters for retention queries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Filters for retention queries.</p>
+ */
 @JsonPropertyOrder({
   RetentionFilters.JSON_PROPERTY_AUDIENCE_FILTERS,
   RetentionFilters.JSON_PROPERTY_STRING_FILTER
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionFilters {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUDIENCE_FILTERS = "audience_filters";
   private ProductAnalyticsAudienceFilters audienceFilters;
 
@@ -34,46 +55,45 @@ public class RetentionFilters {
   }
 
   /**
-   * Product Analytics/RUM audience filters.
-   *
+   * <p>Product Analytics/RUM audience filters.</p>
    * @return audienceFilters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIENCE_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProductAnalyticsAudienceFilters getAudienceFilters() {
-    return audienceFilters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUDIENCE_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProductAnalyticsAudienceFilters getAudienceFilters() {
+        return audienceFilters;
+      }
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
     if (audienceFilters != null) {
       this.unparsed |= audienceFilters.unparsed;
     }
   }
-
   public RetentionFilters stringFilter(String stringFilter) {
     this.stringFilter = stringFilter;
     return this;
   }
 
   /**
-   * String filter.
-   *
+   * <p>String filter.</p>
    * @return stringFilter
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STRING_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStringFilter() {
-    return stringFilter;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STRING_FILTER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getStringFilter() {
+        return stringFilter;
+      }
   public void setStringFilter(String stringFilter) {
     this.stringFilter = stringFilter;
   }
 
-  /** Return true if this RetentionFilters object is equal to o. */
+  /**
+   * Return true if this RetentionFilters object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,13 +103,13 @@ public class RetentionFilters {
       return false;
     }
     RetentionFilters retentionFilters = (RetentionFilters) o;
-    return Objects.equals(this.audienceFilters, retentionFilters.audienceFilters)
-        && Objects.equals(this.stringFilter, retentionFilters.stringFilter);
+    return Objects.equals(this.audienceFilters, retentionFilters.audienceFilters) && Objects.equals(this.stringFilter, retentionFilters.stringFilter);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(audienceFilters, stringFilter);
+    return Objects.hash(audienceFilters,stringFilter);
   }
 
   @Override
@@ -103,7 +123,8 @@ public class RetentionFilters {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

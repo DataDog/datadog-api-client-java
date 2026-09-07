@@ -6,51 +6,74 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Type of dashboard sharing. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Type of dashboard sharing.</p>
+ */
 @JsonSerialize(using = SharedDashboardShareType.SharedDashboardShareTypeSerializer.class)
 public class SharedDashboardShareType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("open", "invite", "embed", "secure-embed"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("open", "invite", "embed", "secure-embed"));
 
   public static final SharedDashboardShareType OPEN = new SharedDashboardShareType("open");
   public static final SharedDashboardShareType INVITE = new SharedDashboardShareType("invite");
   public static final SharedDashboardShareType EMBED = new SharedDashboardShareType("embed");
-  public static final SharedDashboardShareType SECURE_EMBED =
-      new SharedDashboardShareType("secure-embed");
+  public static final SharedDashboardShareType SECURE_EMBED = new SharedDashboardShareType("secure-embed");
+
 
   SharedDashboardShareType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SharedDashboardShareTypeSerializer
-      extends StdSerializer<SharedDashboardShareType> {
-    public SharedDashboardShareTypeSerializer(Class<SharedDashboardShareType> t) {
-      super(t);
-    }
+  public static class SharedDashboardShareTypeSerializer extends StdSerializer<SharedDashboardShareType> {
+      public SharedDashboardShareTypeSerializer(Class<SharedDashboardShareType> t) {
+          super(t);
+      }
 
-    public SharedDashboardShareTypeSerializer() {
-      this(null);
-    }
+      public SharedDashboardShareTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SharedDashboardShareType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SharedDashboardShareType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

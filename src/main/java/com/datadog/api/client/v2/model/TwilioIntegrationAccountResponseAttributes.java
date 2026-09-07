@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a Twilio integration account returned in responses. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of a Twilio integration account returned in responses.</p>
+ */
 @JsonPropertyOrder({
   TwilioIntegrationAccountResponseAttributes.JSON_PROPERTY_AUTHENTICATION,
   TwilioIntegrationAccountResponseAttributes.JSON_PROPERTY_DATAFLOWS,
   TwilioIntegrationAccountResponseAttributes.JSON_PROPERTY_NAME,
   TwilioIntegrationAccountResponseAttributes.JSON_PROPERTY_SETTINGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TwilioIntegrationAccountResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
   private TwilioIntegrationAccountAuthenticationResponse authentication;
 
@@ -44,104 +60,92 @@ public class TwilioIntegrationAccountResponseAttributes {
 
   @JsonCreator
   public TwilioIntegrationAccountResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SETTINGS)
-          TwilioIntegrationAccountSettingsResponse settings) {
-    this.name = name;
-    this.settings = settings;
-    this.unparsed |= settings.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SETTINGS)TwilioIntegrationAccountSettingsResponse settings) {
+        this.name = name;
+        this.settings = settings;
+        this.unparsed |= settings.unparsed;
   }
-
-  public TwilioIntegrationAccountResponseAttributes authentication(
-      TwilioIntegrationAccountAuthenticationResponse authentication) {
+  public TwilioIntegrationAccountResponseAttributes authentication(TwilioIntegrationAccountAuthenticationResponse authentication) {
     this.authentication = authentication;
     this.unparsed |= authentication.unparsed;
     return this;
   }
 
   /**
-   * Authentication configured on the Twilio integration account.
-   *
+   * <p>Authentication configured on the Twilio integration account.</p>
    * @return authentication
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TwilioIntegrationAccountAuthenticationResponse getAuthentication() {
-    return authentication;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TwilioIntegrationAccountAuthenticationResponse getAuthentication() {
+        return authentication;
+      }
   public void setAuthentication(TwilioIntegrationAccountAuthenticationResponse authentication) {
     this.authentication = authentication;
     if (authentication != null) {
       this.unparsed |= authentication.unparsed;
     }
   }
-
-  public TwilioIntegrationAccountResponseAttributes dataflows(
-      TwilioIntegrationDataflowsResponse dataflows) {
+  public TwilioIntegrationAccountResponseAttributes dataflows(TwilioIntegrationDataflowsResponse dataflows) {
     this.dataflows = dataflows;
     this.unparsed |= dataflows.unparsed;
     return this;
   }
 
   /**
-   * Dataflows configured on the Twilio integration account, keyed by dataflow id.
-   *
+   * <p>Dataflows configured on the Twilio integration account, keyed by dataflow id.</p>
    * @return dataflows
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATAFLOWS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TwilioIntegrationDataflowsResponse getDataflows() {
-    return dataflows;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATAFLOWS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TwilioIntegrationDataflowsResponse getDataflows() {
+        return dataflows;
+      }
   public void setDataflows(TwilioIntegrationDataflowsResponse dataflows) {
     this.dataflows = dataflows;
     if (dataflows != null) {
       this.unparsed |= dataflows.unparsed;
     }
   }
-
   public TwilioIntegrationAccountResponseAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Human-readable name of the Twilio integration account.
-   *
+   * <p>Human-readable name of the Twilio integration account.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
-  public TwilioIntegrationAccountResponseAttributes settings(
-      TwilioIntegrationAccountSettingsResponse settings) {
+  public TwilioIntegrationAccountResponseAttributes settings(TwilioIntegrationAccountSettingsResponse settings) {
     this.settings = settings;
     this.unparsed |= settings.unparsed;
     return this;
   }
 
   /**
-   * Settings configured on the Twilio integration account.
-   *
+   * <p>Settings configured on the Twilio integration account.</p>
    * @return settings
-   */
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TwilioIntegrationAccountSettingsResponse getSettings() {
-    return settings;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SETTINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public TwilioIntegrationAccountSettingsResponse getSettings() {
+        return settings;
+      }
   public void setSettings(TwilioIntegrationAccountSettingsResponse settings) {
     this.settings = settings;
     if (settings != null) {
@@ -150,24 +154,24 @@ public class TwilioIntegrationAccountResponseAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return TwilioIntegrationAccountResponseAttributes
    */
   @JsonAnySetter
-  public TwilioIntegrationAccountResponseAttributes putAdditionalProperty(
-      String key, Object value) {
+  public TwilioIntegrationAccountResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -191,12 +195,14 @@ public class TwilioIntegrationAccountResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TwilioIntegrationAccountResponseAttributes object is equal to o. */
+  /**
+   * Return true if this TwilioIntegrationAccountResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,21 +211,14 @@ public class TwilioIntegrationAccountResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TwilioIntegrationAccountResponseAttributes twilioIntegrationAccountResponseAttributes =
-        (TwilioIntegrationAccountResponseAttributes) o;
-    return Objects.equals(
-            this.authentication, twilioIntegrationAccountResponseAttributes.authentication)
-        && Objects.equals(this.dataflows, twilioIntegrationAccountResponseAttributes.dataflows)
-        && Objects.equals(this.name, twilioIntegrationAccountResponseAttributes.name)
-        && Objects.equals(this.settings, twilioIntegrationAccountResponseAttributes.settings)
-        && Objects.equals(
-            this.additionalProperties,
-            twilioIntegrationAccountResponseAttributes.additionalProperties);
+    TwilioIntegrationAccountResponseAttributes twilioIntegrationAccountResponseAttributes = (TwilioIntegrationAccountResponseAttributes) o;
+    return Objects.equals(this.authentication, twilioIntegrationAccountResponseAttributes.authentication) && Objects.equals(this.dataflows, twilioIntegrationAccountResponseAttributes.dataflows) && Objects.equals(this.name, twilioIntegrationAccountResponseAttributes.name) && Objects.equals(this.settings, twilioIntegrationAccountResponseAttributes.settings) && Objects.equals(this.additionalProperties, twilioIntegrationAccountResponseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication, dataflows, name, settings, additionalProperties);
+    return Objects.hash(authentication,dataflows,name,settings, additionalProperties);
   }
 
   @Override
@@ -238,7 +237,8 @@ public class TwilioIntegrationAccountResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

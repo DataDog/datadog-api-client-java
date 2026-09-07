@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response object containing the list of services matching the requested name. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response object containing the list of services matching the requested name.</p>
+ */
 @JsonPropertyOrder({
   ApplicationSecurityServicesResponse.JSON_PROPERTY_DATA,
   ApplicationSecurityServicesResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationSecurityServicesResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<ApplicationSecurityServiceResource> data = new ArrayList<>();
 
@@ -38,18 +52,15 @@ public class ApplicationSecurityServicesResponse {
 
   @JsonCreator
   public ApplicationSecurityServicesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<ApplicationSecurityServiceResource> data,
-      @JsonProperty(required = true, value = JSON_PROPERTY_META)
-          ApplicationSecurityServicesMetadata meta) {
-    this.data = data;
-    for (ApplicationSecurityServiceResource item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<ApplicationSecurityServiceResource> data,
+            @JsonProperty(required=true, value=JSON_PROPERTY_META)ApplicationSecurityServicesMetadata meta) {
+        this.data = data;
+        for (ApplicationSecurityServiceResource item : data) {
+          this.unparsed |= item.unparsed;
+        }
+        this.meta = meta;
+        this.unparsed |= meta.unparsed;
   }
-
   public ApplicationSecurityServicesResponse data(List<ApplicationSecurityServiceResource> data) {
     this.data = data;
     for (ApplicationSecurityServiceResource item : data) {
@@ -57,25 +68,22 @@ public class ApplicationSecurityServicesResponse {
     }
     return this;
   }
-
-  public ApplicationSecurityServicesResponse addDataItem(
-      ApplicationSecurityServiceResource dataItem) {
+  public ApplicationSecurityServicesResponse addDataItem(ApplicationSecurityServiceResource dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * The list of services matching the requested name.
-   *
+   * <p>The list of services matching the requested name.</p>
    * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ApplicationSecurityServiceResource> getData() {
-    return data;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<ApplicationSecurityServiceResource> getData() {
+        return data;
+      }
   public void setData(List<ApplicationSecurityServiceResource> data) {
     this.data = data;
     if (data != null) {
@@ -84,7 +92,6 @@ public class ApplicationSecurityServicesResponse {
       }
     }
   }
-
   public ApplicationSecurityServicesResponse meta(ApplicationSecurityServicesMetadata meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -92,16 +99,15 @@ public class ApplicationSecurityServicesResponse {
   }
 
   /**
-   * Metadata returned alongside the list of services.
-   *
+   * <p>Metadata returned alongside the list of services.</p>
    * @return meta
-   */
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ApplicationSecurityServicesMetadata getMeta() {
-    return meta;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ApplicationSecurityServicesMetadata getMeta() {
+        return meta;
+      }
   public void setMeta(ApplicationSecurityServicesMetadata meta) {
     this.meta = meta;
     if (meta != null) {
@@ -110,14 +116,15 @@ public class ApplicationSecurityServicesResponse {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -126,7 +133,7 @@ public class ApplicationSecurityServicesResponse {
   @JsonAnySetter
   public ApplicationSecurityServicesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -150,12 +157,14 @@ public class ApplicationSecurityServicesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ApplicationSecurityServicesResponse object is equal to o. */
+  /**
+   * Return true if this ApplicationSecurityServicesResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -164,17 +173,14 @@ public class ApplicationSecurityServicesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationSecurityServicesResponse applicationSecurityServicesResponse =
-        (ApplicationSecurityServicesResponse) o;
-    return Objects.equals(this.data, applicationSecurityServicesResponse.data)
-        && Objects.equals(this.meta, applicationSecurityServicesResponse.meta)
-        && Objects.equals(
-            this.additionalProperties, applicationSecurityServicesResponse.additionalProperties);
+    ApplicationSecurityServicesResponse applicationSecurityServicesResponse = (ApplicationSecurityServicesResponse) o;
+    return Objects.equals(this.data, applicationSecurityServicesResponse.data) && Objects.equals(this.meta, applicationSecurityServicesResponse.meta) && Objects.equals(this.additionalProperties, applicationSecurityServicesResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data,meta, additionalProperties);
   }
 
   @Override
@@ -191,7 +197,8 @@ public class ApplicationSecurityServicesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

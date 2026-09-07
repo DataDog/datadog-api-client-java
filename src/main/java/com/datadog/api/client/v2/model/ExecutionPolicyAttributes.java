@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An execution policy. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An execution policy.</p>
+ */
 @JsonPropertyOrder({
   ExecutionPolicyAttributes.JSON_PROPERTY_ACTION_PATTERN,
   ExecutionPolicyAttributes.JSON_PROPERTY_CREATED_AT,
@@ -33,10 +46,10 @@ import java.util.Objects;
   ExecutionPolicyAttributes.JSON_PROPERTY_UPDATED_BY,
   ExecutionPolicyAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ExecutionPolicyAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION_PATTERN = "action_pattern";
   private ExecutionPolicyActionPattern actionPattern;
 
@@ -71,33 +84,30 @@ public class ExecutionPolicyAttributes {
 
   @JsonCreator
   public ExecutionPolicyAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACTION_PATTERN)
-          ExecutionPolicyActionPattern actionPattern,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_EFFECT) ExecutionPolicyEffect effect,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGETS)
-          List<ExecutionPolicyTarget> targets,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_BY) String updatedBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Integer version) {
-    this.actionPattern = actionPattern;
-    this.unparsed |= actionPattern.unparsed;
-    this.createdAt = createdAt;
-    this.createdBy = createdBy;
-    this.effect = effect;
-    this.unparsed |= !effect.isValid();
-    this.name = name;
-    this.targets = targets;
-    for (ExecutionPolicyTarget item : targets) {
-      this.unparsed |= item.unparsed;
-    }
-    this.updatedAt = updatedAt;
-    this.updatedBy = updatedBy;
-    this.version = version;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACTION_PATTERN)ExecutionPolicyActionPattern actionPattern,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_BY)String createdBy,
+            @JsonProperty(required=true, value=JSON_PROPERTY_EFFECT)ExecutionPolicyEffect effect,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGETS)List<ExecutionPolicyTarget> targets,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_AT)OffsetDateTime updatedAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_BY)String updatedBy,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VERSION)Integer version) {
+        this.actionPattern = actionPattern;
+        this.unparsed |= actionPattern.unparsed;
+        this.createdAt = createdAt;
+        this.createdBy = createdBy;
+        this.effect = effect;
+        this.unparsed |= !effect.isValid();
+        this.name = name;
+        this.targets = targets;
+        for (ExecutionPolicyTarget item : targets) {
+          this.unparsed |= item.unparsed;
+        }
+        this.updatedAt = updatedAt;
+        this.updatedBy = updatedBy;
+        this.version = version;
   }
-
   public ExecutionPolicyAttributes actionPattern(ExecutionPolicyActionPattern actionPattern) {
     this.actionPattern = actionPattern;
     this.unparsed |= actionPattern.unparsed;
@@ -105,63 +115,57 @@ public class ExecutionPolicyAttributes {
   }
 
   /**
-   * The set of actions this policy applies to.
-   *
+   * <p>The set of actions this policy applies to.</p>
    * @return actionPattern
-   */
-  @JsonProperty(JSON_PROPERTY_ACTION_PATTERN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ExecutionPolicyActionPattern getActionPattern() {
-    return actionPattern;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ACTION_PATTERN)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ExecutionPolicyActionPattern getActionPattern() {
+        return actionPattern;
+      }
   public void setActionPattern(ExecutionPolicyActionPattern actionPattern) {
     this.actionPattern = actionPattern;
     if (actionPattern != null) {
       this.unparsed |= actionPattern.unparsed;
     }
   }
-
   public ExecutionPolicyAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The date and time the execution policy was created.
-   *
+   * <p>The date and time the execution policy was created.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public ExecutionPolicyAttributes createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
 
   /**
-   * The ID of the user who created the execution policy.
-   *
+   * <p>The ID of the user who created the execution policy.</p>
    * @return createdBy
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getCreatedBy() {
+        return createdBy;
+      }
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
   }
-
   public ExecutionPolicyAttributes effect(ExecutionPolicyEffect effect) {
     this.effect = effect;
     this.unparsed |= !effect.isValid();
@@ -169,43 +173,39 @@ public class ExecutionPolicyAttributes {
   }
 
   /**
-   * Whether the policy allows or denies matching actions.
-   *
+   * <p>Whether the policy allows or denies matching actions.</p>
    * @return effect
-   */
-  @JsonProperty(JSON_PROPERTY_EFFECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ExecutionPolicyEffect getEffect() {
-    return effect;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_EFFECT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ExecutionPolicyEffect getEffect() {
+        return effect;
+      }
   public void setEffect(ExecutionPolicyEffect effect) {
     if (!effect.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.effect = effect;
   }
-
   public ExecutionPolicyAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the execution policy.
-   *
+   * <p>The name of the execution policy.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public ExecutionPolicyAttributes scope(ExecutionPolicyScope scope) {
     this.scope = scope;
     this.unparsed |= scope.unparsed;
@@ -213,26 +213,24 @@ public class ExecutionPolicyAttributes {
   }
 
   /**
-   * Restricts where the policy applies. At most one of <code>kubernetes</code>, <code>scripts
-   * </code>, or <code>remote_action_rshell</code> can be set. An empty object means the policy has
-   * no scope restriction.
-   *
+   * <p>Restricts where the policy applies. At most one of <code>kubernetes</code>, <code>scripts</code>,
+   * or <code>remote_action_rshell</code> can be set. An empty object means the policy has
+   * no scope restriction.</p>
    * @return scope
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ExecutionPolicyScope getScope() {
-    return scope;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCOPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ExecutionPolicyScope getScope() {
+        return scope;
+      }
   public void setScope(ExecutionPolicyScope scope) {
     this.scope = scope;
     if (scope != null) {
       this.unparsed |= scope.unparsed;
     }
   }
-
   public ExecutionPolicyAttributes targets(List<ExecutionPolicyTarget> targets) {
     this.targets = targets;
     for (ExecutionPolicyTarget item : targets) {
@@ -240,7 +238,6 @@ public class ExecutionPolicyAttributes {
     }
     return this;
   }
-
   public ExecutionPolicyAttributes addTargetsItem(ExecutionPolicyTarget targetsItem) {
     this.targets.add(targetsItem);
     this.unparsed |= targetsItem.unparsed;
@@ -248,16 +245,15 @@ public class ExecutionPolicyAttributes {
   }
 
   /**
-   * The targets this policy applies to.
-   *
+   * <p>The targets this policy applies to.</p>
    * @return targets
-   */
-  @JsonProperty(JSON_PROPERTY_TARGETS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ExecutionPolicyTarget> getTargets() {
-    return targets;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGETS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<ExecutionPolicyTarget> getTargets() {
+        return targets;
+      }
   public void setTargets(List<ExecutionPolicyTarget> targets) {
     this.targets = targets;
     if (targets != null) {
@@ -266,76 +262,72 @@ public class ExecutionPolicyAttributes {
       }
     }
   }
-
   public ExecutionPolicyAttributes updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * The date and time the execution policy was last updated.
-   *
+   * <p>The date and time the execution policy was last updated.</p>
    * @return updatedAt
-   */
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+      }
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
-
   public ExecutionPolicyAttributes updatedBy(String updatedBy) {
     this.updatedBy = updatedBy;
     return this;
   }
 
   /**
-   * The ID of the user who last updated the execution policy.
-   *
+   * <p>The ID of the user who last updated the execution policy.</p>
    * @return updatedBy
-   */
-  @JsonProperty(JSON_PROPERTY_UPDATED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUpdatedBy() {
-    return updatedBy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPDATED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getUpdatedBy() {
+        return updatedBy;
+      }
   public void setUpdatedBy(String updatedBy) {
     this.updatedBy = updatedBy;
   }
-
   public ExecutionPolicyAttributes version(Integer version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version of the execution policy. Incremented on every update. maximum: 2147483647
-   *
+   * <p>The version of the execution policy. Incremented on every update.</p>
+   * maximum: 2147483647
    * @return version
-   */
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getVersion() {
-    return version;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getVersion() {
+        return version;
+      }
   public void setVersion(Integer version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -344,7 +336,7 @@ public class ExecutionPolicyAttributes {
   @JsonAnySetter
   public ExecutionPolicyAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -368,12 +360,14 @@ public class ExecutionPolicyAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ExecutionPolicyAttributes object is equal to o. */
+  /**
+   * Return true if this ExecutionPolicyAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -383,34 +377,13 @@ public class ExecutionPolicyAttributes {
       return false;
     }
     ExecutionPolicyAttributes executionPolicyAttributes = (ExecutionPolicyAttributes) o;
-    return Objects.equals(this.actionPattern, executionPolicyAttributes.actionPattern)
-        && Objects.equals(this.createdAt, executionPolicyAttributes.createdAt)
-        && Objects.equals(this.createdBy, executionPolicyAttributes.createdBy)
-        && Objects.equals(this.effect, executionPolicyAttributes.effect)
-        && Objects.equals(this.name, executionPolicyAttributes.name)
-        && Objects.equals(this.scope, executionPolicyAttributes.scope)
-        && Objects.equals(this.targets, executionPolicyAttributes.targets)
-        && Objects.equals(this.updatedAt, executionPolicyAttributes.updatedAt)
-        && Objects.equals(this.updatedBy, executionPolicyAttributes.updatedBy)
-        && Objects.equals(this.version, executionPolicyAttributes.version)
-        && Objects.equals(
-            this.additionalProperties, executionPolicyAttributes.additionalProperties);
+    return Objects.equals(this.actionPattern, executionPolicyAttributes.actionPattern) && Objects.equals(this.createdAt, executionPolicyAttributes.createdAt) && Objects.equals(this.createdBy, executionPolicyAttributes.createdBy) && Objects.equals(this.effect, executionPolicyAttributes.effect) && Objects.equals(this.name, executionPolicyAttributes.name) && Objects.equals(this.scope, executionPolicyAttributes.scope) && Objects.equals(this.targets, executionPolicyAttributes.targets) && Objects.equals(this.updatedAt, executionPolicyAttributes.updatedAt) && Objects.equals(this.updatedBy, executionPolicyAttributes.updatedBy) && Objects.equals(this.version, executionPolicyAttributes.version) && Objects.equals(this.additionalProperties, executionPolicyAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        actionPattern,
-        createdAt,
-        createdBy,
-        effect,
-        name,
-        scope,
-        targets,
-        updatedAt,
-        updatedBy,
-        version,
-        additionalProperties);
+    return Objects.hash(actionPattern,createdAt,createdBy,effect,name,scope,targets,updatedAt,updatedBy,version, additionalProperties);
   }
 
   @Override
@@ -435,7 +408,8 @@ public class ExecutionPolicyAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

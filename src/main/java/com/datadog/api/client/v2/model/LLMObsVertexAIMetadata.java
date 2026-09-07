@@ -6,28 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Vertex AI-specific metadata for an integration account or inference request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Vertex AI-specific metadata for an integration account or inference request.</p>
+ */
 @JsonPropertyOrder({
   LLMObsVertexAIMetadata.JSON_PROPERTY_LOCATION,
   LLMObsVertexAIMetadata.JSON_PROPERTY_PROJECT,
   LLMObsVertexAIMetadata.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsVertexAIMetadata {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOCATION = "location";
   private String location;
 
@@ -43,47 +58,42 @@ public class LLMObsVertexAIMetadata {
   }
 
   /**
-   * The Vertex AI region.
-   *
+   * <p>The Vertex AI region.</p>
    * @return location
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLocation() {
-    return location;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOCATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getLocation() {
+        return location;
+      }
   public void setLocation(String location) {
     this.location = location;
   }
-
   public LLMObsVertexAIMetadata project(String project) {
     this.project = project;
     return this;
   }
 
   /**
-   * The Google Cloud project ID.
-   *
+   * <p>The Google Cloud project ID.</p>
    * @return project
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProject() {
-    return project;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROJECT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getProject() {
+        return project;
+      }
   public void setProject(String project) {
     this.project = project;
   }
-
   public LLMObsVertexAIMetadata projectIds(List<String> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
-
   public LLMObsVertexAIMetadata addProjectIdsItem(String projectIdsItem) {
     if (this.projectIds == null) {
       this.projectIds = new ArrayList<>();
@@ -93,30 +103,30 @@ public class LLMObsVertexAIMetadata {
   }
 
   /**
-   * List of Google Cloud project IDs available to the service account.
-   *
+   * <p>List of Google Cloud project IDs available to the service account.</p>
    * @return projectIds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getProjectIds() {
-    return projectIds;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getProjectIds() {
+        return projectIds;
+      }
   public void setProjectIds(List<String> projectIds) {
     this.projectIds = projectIds;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -125,7 +135,7 @@ public class LLMObsVertexAIMetadata {
   @JsonAnySetter
   public LLMObsVertexAIMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -149,12 +159,14 @@ public class LLMObsVertexAIMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsVertexAIMetadata object is equal to o. */
+  /**
+   * Return true if this LLMObsVertexAIMetadata object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -164,15 +176,13 @@ public class LLMObsVertexAIMetadata {
       return false;
     }
     LLMObsVertexAIMetadata llmObsVertexAiMetadata = (LLMObsVertexAIMetadata) o;
-    return Objects.equals(this.location, llmObsVertexAiMetadata.location)
-        && Objects.equals(this.project, llmObsVertexAiMetadata.project)
-        && Objects.equals(this.projectIds, llmObsVertexAiMetadata.projectIds)
-        && Objects.equals(this.additionalProperties, llmObsVertexAiMetadata.additionalProperties);
+    return Objects.equals(this.location, llmObsVertexAiMetadata.location) && Objects.equals(this.project, llmObsVertexAiMetadata.project) && Objects.equals(this.projectIds, llmObsVertexAiMetadata.projectIds) && Objects.equals(this.additionalProperties, llmObsVertexAiMetadata.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, project, projectIds, additionalProperties);
+    return Objects.hash(location,project,projectIds, additionalProperties);
   }
 
   @Override
@@ -190,7 +200,8 @@ public class LLMObsVertexAIMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

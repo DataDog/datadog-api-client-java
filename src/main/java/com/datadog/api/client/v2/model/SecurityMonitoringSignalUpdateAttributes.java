@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for updating the triage state or assignee of a security signal. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for updating the triage state or assignee of a security signal.</p>
+ */
 @JsonPropertyOrder({
   SecurityMonitoringSignalUpdateAttributes.JSON_PROPERTY_ARCHIVE_COMMENT,
   SecurityMonitoringSignalUpdateAttributes.JSON_PROPERTY_ARCHIVE_REASON,
@@ -24,10 +41,10 @@ import java.util.Objects;
   SecurityMonitoringSignalUpdateAttributes.JSON_PROPERTY_STATE,
   SecurityMonitoringSignalUpdateAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVE_COMMENT = "archive_comment";
   private String archiveComment;
 
@@ -49,47 +66,42 @@ public class SecurityMonitoringSignalUpdateAttributes {
   }
 
   /**
-   * Optional comment to display on archived signals.
-   *
+   * <p>Optional comment to display on archived signals.</p>
    * @return archiveComment
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARCHIVE_COMMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getArchiveComment() {
-    return archiveComment;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ARCHIVE_COMMENT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getArchiveComment() {
+        return archiveComment;
+      }
   public void setArchiveComment(String archiveComment) {
     this.archiveComment = archiveComment;
   }
-
-  public SecurityMonitoringSignalUpdateAttributes archiveReason(
-      SecurityMonitoringSignalArchiveReason archiveReason) {
+  public SecurityMonitoringSignalUpdateAttributes archiveReason(SecurityMonitoringSignalArchiveReason archiveReason) {
     this.archiveReason = archiveReason;
     this.unparsed |= !archiveReason.isValid();
     return this;
   }
 
   /**
-   * Reason a signal is archived.
-   *
+   * <p>Reason a signal is archived.</p>
    * @return archiveReason
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARCHIVE_REASON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringSignalArchiveReason getArchiveReason() {
-    return archiveReason;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ARCHIVE_REASON)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SecurityMonitoringSignalArchiveReason getArchiveReason() {
+        return archiveReason;
+      }
   public void setArchiveReason(SecurityMonitoringSignalArchiveReason archiveReason) {
     if (!archiveReason.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.archiveReason = archiveReason;
   }
-
   public SecurityMonitoringSignalUpdateAttributes assignee(SecurityMonitoringTriageUser assignee) {
     this.assignee = assignee;
     this.unparsed |= assignee.unparsed;
@@ -97,24 +109,22 @@ public class SecurityMonitoringSignalUpdateAttributes {
   }
 
   /**
-   * Object representing a given user entity.
-   *
+   * <p>Object representing a given user entity.</p>
    * @return assignee
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSIGNEE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringTriageUser getAssignee() {
-    return assignee;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASSIGNEE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SecurityMonitoringTriageUser getAssignee() {
+        return assignee;
+      }
   public void setAssignee(SecurityMonitoringTriageUser assignee) {
     this.assignee = assignee;
     if (assignee != null) {
       this.unparsed |= assignee.unparsed;
     }
   }
-
   public SecurityMonitoringSignalUpdateAttributes state(SecurityMonitoringSignalState state) {
     this.state = state;
     this.unparsed |= !state.isValid();
@@ -122,54 +132,52 @@ public class SecurityMonitoringSignalUpdateAttributes {
   }
 
   /**
-   * The new triage state of the signal.
-   *
+   * <p>The new triage state of the signal.</p>
    * @return state
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringSignalState getState() {
-    return state;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SecurityMonitoringSignalState getState() {
+        return state;
+      }
   public void setState(SecurityMonitoringSignalState state) {
     if (!state.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.state = state;
   }
-
   public SecurityMonitoringSignalUpdateAttributes version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * Version of the updated signal. If server side version is higher, update will be rejected.
-   *
+   * <p>Version of the updated signal. If server side version is higher, update will be rejected.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getVersion() {
+        return version;
+      }
   public void setVersion(Long version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -178,7 +186,7 @@ public class SecurityMonitoringSignalUpdateAttributes {
   @JsonAnySetter
   public SecurityMonitoringSignalUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -202,12 +210,14 @@ public class SecurityMonitoringSignalUpdateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringSignalUpdateAttributes object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringSignalUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -216,24 +226,14 @@ public class SecurityMonitoringSignalUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalUpdateAttributes securityMonitoringSignalUpdateAttributes =
-        (SecurityMonitoringSignalUpdateAttributes) o;
-    return Objects.equals(
-            this.archiveComment, securityMonitoringSignalUpdateAttributes.archiveComment)
-        && Objects.equals(
-            this.archiveReason, securityMonitoringSignalUpdateAttributes.archiveReason)
-        && Objects.equals(this.assignee, securityMonitoringSignalUpdateAttributes.assignee)
-        && Objects.equals(this.state, securityMonitoringSignalUpdateAttributes.state)
-        && Objects.equals(this.version, securityMonitoringSignalUpdateAttributes.version)
-        && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringSignalUpdateAttributes.additionalProperties);
+    SecurityMonitoringSignalUpdateAttributes securityMonitoringSignalUpdateAttributes = (SecurityMonitoringSignalUpdateAttributes) o;
+    return Objects.equals(this.archiveComment, securityMonitoringSignalUpdateAttributes.archiveComment) && Objects.equals(this.archiveReason, securityMonitoringSignalUpdateAttributes.archiveReason) && Objects.equals(this.assignee, securityMonitoringSignalUpdateAttributes.assignee) && Objects.equals(this.state, securityMonitoringSignalUpdateAttributes.state) && Objects.equals(this.version, securityMonitoringSignalUpdateAttributes.version) && Objects.equals(this.additionalProperties, securityMonitoringSignalUpdateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        archiveComment, archiveReason, assignee, state, version, additionalProperties);
+    return Objects.hash(archiveComment,archiveReason,assignee,state,version, additionalProperties);
   }
 
   @Override
@@ -253,7 +253,8 @@ public class SecurityMonitoringSignalUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

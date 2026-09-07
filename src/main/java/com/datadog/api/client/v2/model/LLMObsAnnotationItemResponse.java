@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A single annotation on an interaction, as returned by the API. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A single annotation on an interaction, as returned by the API.</p>
+ */
 @JsonPropertyOrder({
   LLMObsAnnotationItemResponse.JSON_PROPERTY_CREATED_AT,
   LLMObsAnnotationItemResponse.JSON_PROPERTY_CREATED_BY,
@@ -30,10 +43,10 @@ import java.util.Objects;
   LLMObsAnnotationItemResponse.JSON_PROPERTY_MODIFIED_AT,
   LLMObsAnnotationItemResponse.JSON_PROPERTY_MODIFIED_BY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotationItemResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -59,134 +72,120 @@ public class LLMObsAnnotationItemResponse {
 
   @JsonCreator
   public LLMObsAnnotationItemResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INTERACTION_ID) String interactionId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LABEL_VALUES)
-          List<LLMObsAnnotationLabelValueResponse> labelValues,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_BY) String modifiedBy) {
-    this.createdAt = createdAt;
-    this.createdBy = createdBy;
-    this.id = id;
-    this.interactionId = interactionId;
-    this.labelValues = labelValues;
-    for (LLMObsAnnotationLabelValueResponse item : labelValues) {
-      this.unparsed |= item.unparsed;
-    }
-    this.modifiedAt = modifiedAt;
-    this.modifiedBy = modifiedBy;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_BY)String createdBy,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INTERACTION_ID)String interactionId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_LABEL_VALUES)List<LLMObsAnnotationLabelValueResponse> labelValues,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MODIFIED_AT)OffsetDateTime modifiedAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MODIFIED_BY)String modifiedBy) {
+        this.createdAt = createdAt;
+        this.createdBy = createdBy;
+        this.id = id;
+        this.interactionId = interactionId;
+        this.labelValues = labelValues;
+        for (LLMObsAnnotationLabelValueResponse item : labelValues) {
+          this.unparsed |= item.unparsed;
+        }
+        this.modifiedAt = modifiedAt;
+        this.modifiedBy = modifiedBy;
   }
-
   public LLMObsAnnotationItemResponse createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp when the annotation was created.
-   *
+   * <p>Timestamp when the annotation was created.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public LLMObsAnnotationItemResponse createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
 
   /**
-   * Identifier of the user who created the annotation.
-   *
+   * <p>Identifier of the user who created the annotation.</p>
    * @return createdBy
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getCreatedBy() {
+        return createdBy;
+      }
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
   }
-
   public LLMObsAnnotationItemResponse id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique identifier of the annotation.
-   *
+   * <p>Unique identifier of the annotation.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public LLMObsAnnotationItemResponse interactionId(String interactionId) {
     this.interactionId = interactionId;
     return this;
   }
 
   /**
-   * Identifier of the interaction this annotation belongs to.
-   *
+   * <p>Identifier of the interaction this annotation belongs to.</p>
    * @return interactionId
-   */
-  @JsonProperty(JSON_PROPERTY_INTERACTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getInteractionId() {
-    return interactionId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INTERACTION_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getInteractionId() {
+        return interactionId;
+      }
   public void setInteractionId(String interactionId) {
     this.interactionId = interactionId;
   }
-
-  public LLMObsAnnotationItemResponse labelValues(
-      List<LLMObsAnnotationLabelValueResponse> labelValues) {
+  public LLMObsAnnotationItemResponse labelValues(List<LLMObsAnnotationLabelValueResponse> labelValues) {
     this.labelValues = labelValues;
     for (LLMObsAnnotationLabelValueResponse item : labelValues) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public LLMObsAnnotationItemResponse addLabelValuesItem(
-      LLMObsAnnotationLabelValueResponse labelValuesItem) {
+  public LLMObsAnnotationItemResponse addLabelValuesItem(LLMObsAnnotationLabelValueResponse labelValuesItem) {
     this.labelValues.add(labelValuesItem);
     this.unparsed |= labelValuesItem.unparsed;
     return this;
   }
 
   /**
-   * Label values for this annotation. Each entry references a label schema by ID and provides the
-   * corresponding value.
-   *
+   * <p>Label values for this annotation. Each entry references a label schema by ID
+   * and provides the corresponding value.</p>
    * @return labelValues
-   */
-  @JsonProperty(JSON_PROPERTY_LABEL_VALUES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<LLMObsAnnotationLabelValueResponse> getLabelValues() {
-    return labelValues;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LABEL_VALUES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<LLMObsAnnotationLabelValueResponse> getLabelValues() {
+        return labelValues;
+      }
   public void setLabelValues(List<LLMObsAnnotationLabelValueResponse> labelValues) {
     this.labelValues = labelValues;
     if (labelValues != null) {
@@ -195,56 +194,53 @@ public class LLMObsAnnotationItemResponse {
       }
     }
   }
-
   public LLMObsAnnotationItemResponse modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * Timestamp when the annotation was last modified.
-   *
+   * <p>Timestamp when the annotation was last modified.</p>
    * @return modifiedAt
-   */
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public LLMObsAnnotationItemResponse modifiedBy(String modifiedBy) {
     this.modifiedBy = modifiedBy;
     return this;
   }
 
   /**
-   * Identifier of the user who last modified the annotation.
-   *
+   * <p>Identifier of the user who last modified the annotation.</p>
    * @return modifiedBy
-   */
-  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getModifiedBy() {
-    return modifiedBy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getModifiedBy() {
+        return modifiedBy;
+      }
   public void setModifiedBy(String modifiedBy) {
     this.modifiedBy = modifiedBy;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -253,7 +249,7 @@ public class LLMObsAnnotationItemResponse {
   @JsonAnySetter
   public LLMObsAnnotationItemResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -277,12 +273,14 @@ public class LLMObsAnnotationItemResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsAnnotationItemResponse object is equal to o. */
+  /**
+   * Return true if this LLMObsAnnotationItemResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -292,28 +290,13 @@ public class LLMObsAnnotationItemResponse {
       return false;
     }
     LLMObsAnnotationItemResponse llmObsAnnotationItemResponse = (LLMObsAnnotationItemResponse) o;
-    return Objects.equals(this.createdAt, llmObsAnnotationItemResponse.createdAt)
-        && Objects.equals(this.createdBy, llmObsAnnotationItemResponse.createdBy)
-        && Objects.equals(this.id, llmObsAnnotationItemResponse.id)
-        && Objects.equals(this.interactionId, llmObsAnnotationItemResponse.interactionId)
-        && Objects.equals(this.labelValues, llmObsAnnotationItemResponse.labelValues)
-        && Objects.equals(this.modifiedAt, llmObsAnnotationItemResponse.modifiedAt)
-        && Objects.equals(this.modifiedBy, llmObsAnnotationItemResponse.modifiedBy)
-        && Objects.equals(
-            this.additionalProperties, llmObsAnnotationItemResponse.additionalProperties);
+    return Objects.equals(this.createdAt, llmObsAnnotationItemResponse.createdAt) && Objects.equals(this.createdBy, llmObsAnnotationItemResponse.createdBy) && Objects.equals(this.id, llmObsAnnotationItemResponse.id) && Objects.equals(this.interactionId, llmObsAnnotationItemResponse.interactionId) && Objects.equals(this.labelValues, llmObsAnnotationItemResponse.labelValues) && Objects.equals(this.modifiedAt, llmObsAnnotationItemResponse.modifiedAt) && Objects.equals(this.modifiedBy, llmObsAnnotationItemResponse.modifiedBy) && Objects.equals(this.additionalProperties, llmObsAnnotationItemResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        createdBy,
-        id,
-        interactionId,
-        labelValues,
-        modifiedAt,
-        modifiedBy,
-        additionalProperties);
+    return Objects.hash(createdAt,createdBy,id,interactionId,labelValues,modifiedAt,modifiedBy, additionalProperties);
   }
 
   @Override
@@ -335,7 +318,8 @@ public class LLMObsAnnotationItemResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

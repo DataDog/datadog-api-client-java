@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Configuration for a Slack emoji reaction trigger. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Configuration for a Slack emoji reaction trigger.</p>
+ */
 @JsonPropertyOrder({
   SlackReactionConfig.JSON_PROPERTY_REACTION_EMOJI,
   SlackReactionConfig.JSON_PROPERTY_TEAM_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackReactionConfig {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_REACTION_EMOJI = "reactionEmoji";
   private String reactionEmoji;
 
@@ -36,61 +52,58 @@ public class SlackReactionConfig {
 
   @JsonCreator
   public SlackReactionConfig(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REACTION_EMOJI) String reactionEmoji,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TEAM_ID) String teamId) {
-    this.reactionEmoji = reactionEmoji;
-    this.teamId = teamId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_REACTION_EMOJI)String reactionEmoji,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TEAM_ID)String teamId) {
+        this.reactionEmoji = reactionEmoji;
+        this.teamId = teamId;
   }
-
   public SlackReactionConfig reactionEmoji(String reactionEmoji) {
     this.reactionEmoji = reactionEmoji;
     return this;
   }
 
   /**
-   * The Slack emoji reaction name.
-   *
+   * <p>The Slack emoji reaction name.</p>
    * @return reactionEmoji
-   */
-  @JsonProperty(JSON_PROPERTY_REACTION_EMOJI)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getReactionEmoji() {
-    return reactionEmoji;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REACTION_EMOJI)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getReactionEmoji() {
+        return reactionEmoji;
+      }
   public void setReactionEmoji(String reactionEmoji) {
     this.reactionEmoji = reactionEmoji;
   }
-
   public SlackReactionConfig teamId(String teamId) {
     this.teamId = teamId;
     return this;
   }
 
   /**
-   * The Slack workspace ID.
-   *
+   * <p>The Slack workspace ID.</p>
    * @return teamId
-   */
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTeamId() {
-    return teamId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TEAM_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTeamId() {
+        return teamId;
+      }
   public void setTeamId(String teamId) {
     this.teamId = teamId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -99,7 +112,7 @@ public class SlackReactionConfig {
   @JsonAnySetter
   public SlackReactionConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -123,12 +136,14 @@ public class SlackReactionConfig {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SlackReactionConfig object is equal to o. */
+  /**
+   * Return true if this SlackReactionConfig object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,14 +153,13 @@ public class SlackReactionConfig {
       return false;
     }
     SlackReactionConfig slackReactionConfig = (SlackReactionConfig) o;
-    return Objects.equals(this.reactionEmoji, slackReactionConfig.reactionEmoji)
-        && Objects.equals(this.teamId, slackReactionConfig.teamId)
-        && Objects.equals(this.additionalProperties, slackReactionConfig.additionalProperties);
+    return Objects.equals(this.reactionEmoji, slackReactionConfig.reactionEmoji) && Objects.equals(this.teamId, slackReactionConfig.teamId) && Objects.equals(this.additionalProperties, slackReactionConfig.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(reactionEmoji, teamId, additionalProperties);
+    return Objects.hash(reactionEmoji,teamId, additionalProperties);
   }
 
   @Override
@@ -162,7 +176,8 @@ public class SlackReactionConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

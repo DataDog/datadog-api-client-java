@@ -1,29 +1,35 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.GetInvestigationResponse;
-import com.datadog.api.client.v2.model.ListInvestigationsResponse;
-import com.datadog.api.client.v2.model.ListInvestigationsResponseData;
-import com.datadog.api.client.v2.model.TriggerInvestigationRequest;
-import com.datadog.api.client.v2.model.TriggerInvestigationResponse;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.ListInvestigationsResponse;
+import com.datadog.api.client.v2.model.TriggerInvestigationResponse;
+import com.datadog.api.client.v2.model.TriggerInvestigationRequest;
+import com.datadog.api.client.v2.model.GetInvestigationResponse;
+import com.datadog.api.client.v2.model.ListInvestigationsResponseData;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class BitsAiApi {
   private ApiClient apiClient;
-
   public BitsAiApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -51,42 +57,41 @@ public class BitsAiApi {
   }
 
   /**
-   * Get a Bits AI investigation.
-   *
-   * <p>See {@link #getInvestigationWithHttpInfo}.
-   *
-   * @param id The ID of the investigation. (required)
-   * @return GetInvestigationResponse
-   * @throws ApiException if fails to make API call
-   */
-  public GetInvestigationResponse getInvestigation(String id) throws ApiException {
+ * Get a Bits AI investigation.
+ *
+ * See {@link #getInvestigationWithHttpInfo}.
+ *
+ * @param id The ID of the investigation. (required)
+ * @return GetInvestigationResponse
+ * @throws ApiException if fails to make API call
+ */
+  public GetInvestigationResponse  getInvestigation(String id) throws ApiException {
     return getInvestigationWithHttpInfo(id).getData();
   }
 
   /**
-   * Get a Bits AI investigation.
-   *
-   * <p>See {@link #getInvestigationWithHttpInfoAsync}.
-   *
-   * @param id The ID of the investigation. (required)
-   * @return CompletableFuture&lt;GetInvestigationResponse&gt;
-   */
-  public CompletableFuture<GetInvestigationResponse> getInvestigationAsync(String id) {
-    return getInvestigationWithHttpInfoAsync(id)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get a Bits AI investigation.
+ *
+ * See {@link #getInvestigationWithHttpInfoAsync}.
+ *
+ * @param id The ID of the investigation. (required)
+ * @return CompletableFuture&lt;GetInvestigationResponse&gt;
+ */
+  public CompletableFuture<GetInvestigationResponse>getInvestigationAsync(String id) {
+    return getInvestigationWithHttpInfoAsync(id).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get a specific Bits AI investigation by ID.
+   * <p>Get a specific Bits AI investigation by ID.</p>
    *
    * @param id The ID of the investigation. (required)
    * @return ApiResponse&lt;GetInvestigationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -95,8 +100,7 @@ public class BitsAiApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<GetInvestigationResponse> getInvestigationWithHttpInfo(String id)
-      throws ApiException {
+  public ApiResponse<GetInvestigationResponse> getInvestigationWithHttpInfo(String id) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getInvestigation";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -108,101 +112,68 @@ public class BitsAiApi {
 
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'id' when calling getInvestigation");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getInvestigation");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/bits-ai/investigations/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+    String localVarPath = "/api/v2/bits-ai/investigations/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.BitsAiApi.getInvestigation",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<GetInvestigationResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.BitsAiApi.getInvestigation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<GetInvestigationResponse>() {});
   }
 
   /**
    * Get a Bits AI investigation.
    *
-   * <p>See {@link #getInvestigationWithHttpInfo}.
+   * See {@link #getInvestigationWithHttpInfo}.
    *
    * @param id The ID of the investigation. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;GetInvestigationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<GetInvestigationResponse>> getInvestigationWithHttpInfoAsync(
-      String id) {
+  public CompletableFuture<ApiResponse<GetInvestigationResponse>> getInvestigationWithHttpInfoAsync(String id) {
     // Check if unstable operation is enabled
     String operationId = "getInvestigation";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<GetInvestigationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
     if (id == null) {
-      CompletableFuture<ApiResponse<GetInvestigationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'id' when calling getInvestigation"));
-      return result;
+        CompletableFuture<ApiResponse<GetInvestigationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'id' when calling getInvestigation"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/bits-ai/investigations/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+    String localVarPath = "/api/v2/bits-ai/investigations/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.BitsAiApi.getInvestigation",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.BitsAiApi.getInvestigation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<GetInvestigationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<GetInvestigationResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<GetInvestigationResponse>() {});
   }
 
-  /** Manage optional parameters to listInvestigations. */
+  /**
+   * Manage optional parameters to listInvestigations.
+   */
   public static class ListInvestigationsOptionalParameters {
     private Long pageOffset;
     private Long pageLimit;
@@ -210,7 +181,6 @@ public class BitsAiApi {
 
     /**
      * Set pageOffset.
-     *
      * @param pageOffset Offset for pagination. (optional)
      * @return ListInvestigationsOptionalParameters
      */
@@ -221,7 +191,6 @@ public class BitsAiApi {
 
     /**
      * Set pageLimit.
-     *
      * @param pageLimit Maximum number of investigations to return. (optional, default to 25)
      * @return ListInvestigationsOptionalParameters
      */
@@ -232,7 +201,6 @@ public class BitsAiApi {
 
     /**
      * Set filterMonitorId.
-     *
      * @param filterMonitorId Filter investigations by monitor ID. (optional)
      * @return ListInvestigationsOptionalParameters
      */
@@ -243,125 +211,110 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
-   *
-   * <p>See {@link #listInvestigationsWithHttpInfo}.
-   *
-   * @return ListInvestigationsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ListInvestigationsResponse listInvestigations() throws ApiException {
+ * List Bits AI investigations.
+ *
+ * See {@link #listInvestigationsWithHttpInfo}.
+ *
+ * @return ListInvestigationsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ListInvestigationsResponse listInvestigations () throws ApiException {
     return listInvestigationsWithHttpInfo(new ListInvestigationsOptionalParameters()).getData();
   }
 
   /**
-   * List Bits AI investigations.
-   *
-   * <p>See {@link #listInvestigationsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;ListInvestigationsResponse&gt;
-   */
-  public CompletableFuture<ListInvestigationsResponse> listInvestigationsAsync() {
-    return listInvestigationsWithHttpInfoAsync(new ListInvestigationsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List Bits AI investigations.
+ *
+ * See {@link #listInvestigationsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;ListInvestigationsResponse&gt;
+ */
+  public CompletableFuture<ListInvestigationsResponse>listInvestigationsAsync() {
+    return listInvestigationsWithHttpInfoAsync(new ListInvestigationsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List Bits AI investigations.
-   *
-   * <p>See {@link #listInvestigationsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ListInvestigationsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ListInvestigationsResponse listInvestigations(
-      ListInvestigationsOptionalParameters parameters) throws ApiException {
+ * List Bits AI investigations.
+ *
+ * See {@link #listInvestigationsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return ListInvestigationsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ListInvestigationsResponse listInvestigations(ListInvestigationsOptionalParameters parameters) throws ApiException {
     return listInvestigationsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * List Bits AI investigations.
-   *
-   * <p>See {@link #listInvestigationsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ListInvestigationsResponse&gt;
-   */
-  public CompletableFuture<ListInvestigationsResponse> listInvestigationsAsync(
-      ListInvestigationsOptionalParameters parameters) {
-    return listInvestigationsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List Bits AI investigations.
+ *
+ * See {@link #listInvestigationsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;ListInvestigationsResponse&gt;
+ */
+  public CompletableFuture<ListInvestigationsResponse>listInvestigationsAsync(ListInvestigationsOptionalParameters parameters) {
+    return listInvestigationsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List Bits AI investigations.
-   *
-   * <p>See {@link #listInvestigationsWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;ListInvestigationsResponseData&gt;
-   */
+ * List Bits AI investigations.
+ *
+ * See {@link #listInvestigationsWithHttpInfo}.
+ *
+ * @return PaginationIterable&lt;ListInvestigationsResponseData&gt;
+ */
   public PaginationIterable<ListInvestigationsResponseData> listInvestigationsWithPagination() {
     ListInvestigationsOptionalParameters parameters = new ListInvestigationsOptionalParameters();
     return listInvestigationsWithPagination(parameters);
   }
 
   /**
-   * List Bits AI investigations.
-   *
-   * <p>See {@link #listInvestigationsWithHttpInfo}.
-   *
-   * @return ListInvestigationsResponse
-   */
-  public PaginationIterable<ListInvestigationsResponseData> listInvestigationsWithPagination(
-      ListInvestigationsOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "";
-    String valueSetterPath = "pageOffset";
-    Boolean valueSetterParamOptional = true;
-    Long limit;
+ * List Bits AI investigations.
+ *
+ * See {@link #listInvestigationsWithHttpInfo}.
+ *
+ * @return ListInvestigationsResponse
+ */
+  public PaginationIterable<ListInvestigationsResponseData> listInvestigationsWithPagination(ListInvestigationsOptionalParameters parameters) {
+  String resultsPath = "getData";
+  String valueGetterPath = "";
+  String valueSetterPath = "pageOffset";
+  Boolean valueSetterParamOptional = true;
+  Long limit;
 
-    if (parameters.pageLimit == null) {
+  
+  if (parameters.pageLimit == null) {
       limit = 25l;
       parameters.pageLimit(limit);
-    } else {
+  } else {
       limit = parameters.pageLimit;
-    }
+  }
+  
 
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("optionalParams", parameters);
 
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listInvestigations",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            true,
-            false,
-            limit,
-            args,
-            0);
+  PaginationIterable iterator = new PaginationIterable(this, "listInvestigations", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, true, false, limit, args, 0);
 
-    return iterator;
+  return iterator;
   }
 
+
   /**
-   * List all Bits AI investigations for the organization.
+   * <p>List all Bits AI investigations for the organization.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListInvestigationsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -369,8 +322,7 @@ public class BitsAiApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ListInvestigationsResponse> listInvestigationsWithHttpInfo(
-      ListInvestigationsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<ListInvestigationsResponse> listInvestigationsWithHttpInfo(ListInvestigationsOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "listInvestigations";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -385,52 +337,34 @@ public class BitsAiApi {
     // create path and map variables
     String localVarPath = "/api/v2/bits-ai/investigations";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[monitor_id]", filterMonitorId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[monitor_id]", filterMonitorId));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.BitsAiApi.listInvestigations",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ListInvestigationsResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.BitsAiApi.listInvestigations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListInvestigationsResponse>() {});
   }
 
   /**
    * List Bits AI investigations.
    *
-   * <p>See {@link #listInvestigationsWithHttpInfo}.
+   * See {@link #listInvestigationsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ListInvestigationsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ListInvestigationsResponse>>
-      listInvestigationsWithHttpInfoAsync(ListInvestigationsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<ListInvestigationsResponse>> listInvestigationsWithHttpInfoAsync(ListInvestigationsOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "listInvestigations";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<ListInvestigationsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
@@ -440,80 +374,61 @@ public class BitsAiApi {
     // create path and map variables
     String localVarPath = "/api/v2/bits-ai/investigations";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[monitor_id]", filterMonitorId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[monitor_id]", filterMonitorId));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.BitsAiApi.listInvestigations",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.BitsAiApi.listInvestigations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ListInvestigationsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ListInvestigationsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ListInvestigationsResponse>() {});
   }
 
   /**
-   * Trigger a Bits AI investigation.
-   *
-   * <p>See {@link #triggerInvestigationWithHttpInfo}.
-   *
-   * @param body Trigger investigation request body. (required)
-   * @return TriggerInvestigationResponse
-   * @throws ApiException if fails to make API call
-   */
-  public TriggerInvestigationResponse triggerInvestigation(TriggerInvestigationRequest body)
-      throws ApiException {
+ * Trigger a Bits AI investigation.
+ *
+ * See {@link #triggerInvestigationWithHttpInfo}.
+ *
+ * @param body Trigger investigation request body. (required)
+ * @return TriggerInvestigationResponse
+ * @throws ApiException if fails to make API call
+ */
+  public TriggerInvestigationResponse  triggerInvestigation(TriggerInvestigationRequest body) throws ApiException {
     return triggerInvestigationWithHttpInfo(body).getData();
   }
 
   /**
-   * Trigger a Bits AI investigation.
-   *
-   * <p>See {@link #triggerInvestigationWithHttpInfoAsync}.
-   *
-   * @param body Trigger investigation request body. (required)
-   * @return CompletableFuture&lt;TriggerInvestigationResponse&gt;
-   */
-  public CompletableFuture<TriggerInvestigationResponse> triggerInvestigationAsync(
-      TriggerInvestigationRequest body) {
-    return triggerInvestigationWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Trigger a Bits AI investigation.
+ *
+ * See {@link #triggerInvestigationWithHttpInfoAsync}.
+ *
+ * @param body Trigger investigation request body. (required)
+ * @return CompletableFuture&lt;TriggerInvestigationResponse&gt;
+ */
+  public CompletableFuture<TriggerInvestigationResponse>triggerInvestigationAsync(TriggerInvestigationRequest body) {
+    return triggerInvestigationWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Trigger a new Bits AI investigation based on a monitor alert.
+   * <p>Trigger a new Bits AI investigation based on a monitor alert.</p>
    *
    * @param body Trigger investigation request body. (required)
    * @return ApiResponse&lt;TriggerInvestigationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -521,8 +436,7 @@ public class BitsAiApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TriggerInvestigationResponse> triggerInvestigationWithHttpInfo(
-      TriggerInvestigationRequest body) throws ApiException {
+  public ApiResponse<TriggerInvestigationResponse> triggerInvestigationWithHttpInfo(TriggerInvestigationRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "triggerInvestigation";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -534,96 +448,60 @@ public class BitsAiApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling triggerInvestigation");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling triggerInvestigation");
     }
     // create path and map variables
     String localVarPath = "/api/v2/bits-ai/investigations";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.BitsAiApi.triggerInvestigation",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<TriggerInvestigationResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.BitsAiApi.triggerInvestigation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TriggerInvestigationResponse>() {});
   }
 
   /**
    * Trigger a Bits AI investigation.
    *
-   * <p>See {@link #triggerInvestigationWithHttpInfo}.
+   * See {@link #triggerInvestigationWithHttpInfo}.
    *
    * @param body Trigger investigation request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TriggerInvestigationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TriggerInvestigationResponse>>
-      triggerInvestigationWithHttpInfoAsync(TriggerInvestigationRequest body) {
+  public CompletableFuture<ApiResponse<TriggerInvestigationResponse>> triggerInvestigationWithHttpInfoAsync(TriggerInvestigationRequest body) {
     // Check if unstable operation is enabled
     String operationId = "triggerInvestigation";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<TriggerInvestigationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      CompletableFuture<ApiResponse<TriggerInvestigationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<TriggerInvestigationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling triggerInvestigation"));
-      return result;
+        CompletableFuture<ApiResponse<TriggerInvestigationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling triggerInvestigation"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/bits-ai/investigations";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.BitsAiApi.triggerInvestigation",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.BitsAiApi.triggerInvestigation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TriggerInvestigationResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<TriggerInvestigationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<TriggerInvestigationResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TriggerInvestigationResponse>() {});
   }
 }

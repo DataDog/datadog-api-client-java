@@ -6,59 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * The type of the resource. The value should always be <code>entra_id_azure_app_registrations
- * </code>.
+   * <p>The type of the resource. The value should always be <code>entra_id_azure_app_registrations</code>.</p>
  */
-@JsonSerialize(
-    using =
-        SecurityMonitoringEntraIdAzureAppRegistrationsResourceType
-            .SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer.class)
+@JsonSerialize(using = SecurityMonitoringEntraIdAzureAppRegistrationsResourceType.SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer.class)
 public class SecurityMonitoringEntraIdAzureAppRegistrationsResourceType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("entra_id_azure_app_registrations"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("entra_id_azure_app_registrations"));
 
-  public static final SecurityMonitoringEntraIdAzureAppRegistrationsResourceType
-      ENTRA_ID_AZURE_APP_REGISTRATIONS =
-          new SecurityMonitoringEntraIdAzureAppRegistrationsResourceType(
-              "entra_id_azure_app_registrations");
+  public static final SecurityMonitoringEntraIdAzureAppRegistrationsResourceType ENTRA_ID_AZURE_APP_REGISTRATIONS = new SecurityMonitoringEntraIdAzureAppRegistrationsResourceType("entra_id_azure_app_registrations");
+
 
   SecurityMonitoringEntraIdAzureAppRegistrationsResourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer
-      extends StdSerializer<SecurityMonitoringEntraIdAzureAppRegistrationsResourceType> {
-    public SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer(
-        Class<SecurityMonitoringEntraIdAzureAppRegistrationsResourceType> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer extends StdSerializer<SecurityMonitoringEntraIdAzureAppRegistrationsResourceType> {
+      public SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer(Class<SecurityMonitoringEntraIdAzureAppRegistrationsResourceType> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringEntraIdAzureAppRegistrationsResourceTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringEntraIdAzureAppRegistrationsResourceType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringEntraIdAzureAppRegistrationsResourceType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

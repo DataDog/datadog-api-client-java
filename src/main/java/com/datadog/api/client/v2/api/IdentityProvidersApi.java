@@ -1,30 +1,36 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.IdentityProviderResponse;
-import com.datadog.api.client.v2.model.IdentityProviderUpdateRequest;
-import com.datadog.api.client.v2.model.IdentityProvidersResponse;
-import com.datadog.api.client.v2.model.QuerySortOrder;
-import com.datadog.api.client.v2.model.User;
-import com.datadog.api.client.v2.model.UsersResponse;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.IdentityProvidersResponse;
+import com.datadog.api.client.v2.model.IdentityProviderResponse;
+import com.datadog.api.client.v2.model.IdentityProviderUpdateRequest;
+import com.datadog.api.client.v2.model.UsersResponse;
+import com.datadog.api.client.v2.model.QuerySortOrder;
+import com.datadog.api.client.v2.model.User;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IdentityProvidersApi {
   private ApiClient apiClient;
-
   public IdentityProvidersApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -52,39 +58,38 @@ public class IdentityProvidersApi {
   }
 
   /**
-   * List identity providers.
-   *
-   * <p>See {@link #listIdentityProvidersWithHttpInfo}.
-   *
-   * @return IdentityProvidersResponse
-   * @throws ApiException if fails to make API call
-   */
-  public IdentityProvidersResponse listIdentityProviders() throws ApiException {
+ * List identity providers.
+ *
+ * See {@link #listIdentityProvidersWithHttpInfo}.
+ *
+ * @return IdentityProvidersResponse
+ * @throws ApiException if fails to make API call
+ */
+  public IdentityProvidersResponse  listIdentityProviders() throws ApiException {
     return listIdentityProvidersWithHttpInfo().getData();
   }
 
   /**
-   * List identity providers.
-   *
-   * <p>See {@link #listIdentityProvidersWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;IdentityProvidersResponse&gt;
-   */
-  public CompletableFuture<IdentityProvidersResponse> listIdentityProvidersAsync() {
-    return listIdentityProvidersWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List identity providers.
+ *
+ * See {@link #listIdentityProvidersWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;IdentityProvidersResponse&gt;
+ */
+  public CompletableFuture<IdentityProvidersResponse>listIdentityProvidersAsync() {
+    return listIdentityProvidersWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all identity providers available for the current organization.
+   * <p>Get all identity providers available for the current organization.</p>
    *
    * @return ApiResponse&lt;IdentityProvidersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -92,77 +97,49 @@ public class IdentityProvidersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<IdentityProvidersResponse> listIdentityProvidersWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<IdentityProvidersResponse> listIdentityProvidersWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/identity_providers";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.IdentityProvidersApi.listIdentityProviders",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<IdentityProvidersResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.IdentityProvidersApi.listIdentityProviders", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<IdentityProvidersResponse>() {});
   }
 
   /**
    * List identity providers.
    *
-   * <p>See {@link #listIdentityProvidersWithHttpInfo}.
+   * See {@link #listIdentityProvidersWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;IdentityProvidersResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<IdentityProvidersResponse>>
-      listIdentityProvidersWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<IdentityProvidersResponse>> listIdentityProvidersWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/identity_providers";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.IdentityProvidersApi.listIdentityProviders",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.IdentityProvidersApi.listIdentityProviders", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<IdentityProvidersResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<IdentityProvidersResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<IdentityProvidersResponse>() {});
   }
 
-  /** Manage optional parameters to listIdentityProviderUsers. */
+  /**
+   * Manage optional parameters to listIdentityProviderUsers.
+   */
   public static class ListIdentityProviderUsersOptionalParameters {
     private Long pageSize;
     private Long pageNumber;
@@ -173,9 +150,7 @@ public class IdentityProvidersApi {
 
     /**
      * Set pageSize.
-     *
-     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
-     *     (optional, default to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100. (optional, default to 10)
      * @return ListIdentityProviderUsersOptionalParameters
      */
     public ListIdentityProviderUsersOptionalParameters pageSize(Long pageSize) {
@@ -185,7 +160,6 @@ public class IdentityProvidersApi {
 
     /**
      * Set pageNumber.
-     *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListIdentityProviderUsersOptionalParameters
      */
@@ -196,9 +170,7 @@ public class IdentityProvidersApi {
 
     /**
      * Set sort.
-     *
-     * @param sort User attribute to order results by. Options include <code>email</code> and <code>
-     *     name</code>. (optional, default to "email")
+     * @param sort User attribute to order results by. Options include <code>email</code> and <code>name</code>. (optional, default to "email")
      * @return ListIdentityProviderUsersOptionalParameters
      */
     public ListIdentityProviderUsersOptionalParameters sort(String sort) {
@@ -208,9 +180,7 @@ public class IdentityProvidersApi {
 
     /**
      * Set sortDir.
-     *
-     * @param sortDir Direction of sort. Options: <code>asc</code>, <code>desc</code>. (optional,
-     *     default to "desc")
+     * @param sortDir Direction of sort. Options: <code>asc</code>, <code>desc</code>. (optional, default to "desc")
      * @return ListIdentityProviderUsersOptionalParameters
      */
     public ListIdentityProviderUsersOptionalParameters sortDir(QuerySortOrder sortDir) {
@@ -220,7 +190,6 @@ public class IdentityProvidersApi {
 
     /**
      * Set filter.
-     *
      * @param filter Filter users by the given string. Defaults to no filtering. (optional)
      * @return ListIdentityProviderUsersOptionalParameters
      */
@@ -231,10 +200,7 @@ public class IdentityProvidersApi {
 
     /**
      * Set filterStatus.
-     *
-     * @param filterStatus Filter on status attribute. Comma-separated list, with possible values
-     *     <code>Active</code>, <code>Pending</code>, and <code>Disabled</code>. Defaults to no
-     *     filtering. (optional)
+     * @param filterStatus Filter on status attribute. Comma-separated list, with possible values <code>Active</code>, <code>Pending</code>, and <code>Disabled</code>. Defaults to no filtering. (optional)
      * @return ListIdentityProviderUsersOptionalParameters
      */
     public ListIdentityProviderUsersOptionalParameters filterStatus(String filterStatus) {
@@ -244,139 +210,120 @@ public class IdentityProvidersApi {
   }
 
   /**
-   * List users with an identity provider override.
-   *
-   * <p>See {@link #listIdentityProviderUsersWithHttpInfo}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @return UsersResponse
-   * @throws ApiException if fails to make API call
-   */
-  public UsersResponse listIdentityProviderUsers(String idpId) throws ApiException {
-    return listIdentityProviderUsersWithHttpInfo(
-            idpId, new ListIdentityProviderUsersOptionalParameters())
-        .getData();
+ * List users with an identity provider override.
+ *
+ * See {@link #listIdentityProviderUsersWithHttpInfo}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @return UsersResponse
+ * @throws ApiException if fails to make API call
+ */
+  public UsersResponse listIdentityProviderUsers (String idpId) throws ApiException {
+    return listIdentityProviderUsersWithHttpInfo( idpId, new ListIdentityProviderUsersOptionalParameters()).getData();
   }
 
   /**
-   * List users with an identity provider override.
-   *
-   * <p>See {@link #listIdentityProviderUsersWithHttpInfoAsync}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @return CompletableFuture&lt;UsersResponse&gt;
-   */
-  public CompletableFuture<UsersResponse> listIdentityProviderUsersAsync(String idpId) {
-    return listIdentityProviderUsersWithHttpInfoAsync(
-            idpId, new ListIdentityProviderUsersOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List users with an identity provider override.
+ *
+ * See {@link #listIdentityProviderUsersWithHttpInfoAsync}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @return CompletableFuture&lt;UsersResponse&gt;
+ */
+  public CompletableFuture<UsersResponse>listIdentityProviderUsersAsync(String idpId) {
+    return listIdentityProviderUsersWithHttpInfoAsync(idpId, new ListIdentityProviderUsersOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List users with an identity provider override.
-   *
-   * <p>See {@link #listIdentityProviderUsersWithHttpInfo}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @param parameters Optional parameters for the request.
-   * @return UsersResponse
-   * @throws ApiException if fails to make API call
-   */
-  public UsersResponse listIdentityProviderUsers(
-      String idpId, ListIdentityProviderUsersOptionalParameters parameters) throws ApiException {
+ * List users with an identity provider override.
+ *
+ * See {@link #listIdentityProviderUsersWithHttpInfo}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @param parameters Optional parameters for the request.
+ * @return UsersResponse
+ * @throws ApiException if fails to make API call
+ */
+  public UsersResponse listIdentityProviderUsers(String idpId, ListIdentityProviderUsersOptionalParameters parameters) throws ApiException {
     return listIdentityProviderUsersWithHttpInfo(idpId, parameters).getData();
   }
 
   /**
-   * List users with an identity provider override.
-   *
-   * <p>See {@link #listIdentityProviderUsersWithHttpInfoAsync}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;UsersResponse&gt;
-   */
-  public CompletableFuture<UsersResponse> listIdentityProviderUsersAsync(
-      String idpId, ListIdentityProviderUsersOptionalParameters parameters) {
-    return listIdentityProviderUsersWithHttpInfoAsync(idpId, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List users with an identity provider override.
+ *
+ * See {@link #listIdentityProviderUsersWithHttpInfoAsync}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;UsersResponse&gt;
+ */
+  public CompletableFuture<UsersResponse>listIdentityProviderUsersAsync( String idpId, ListIdentityProviderUsersOptionalParameters parameters) {
+    return listIdentityProviderUsersWithHttpInfoAsync(idpId, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List users with an identity provider override.
-   *
-   * <p>See {@link #listIdentityProviderUsersWithHttpInfo}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @return PaginationIterable&lt;User&gt;
-   */
+ * List users with an identity provider override.
+ *
+ * See {@link #listIdentityProviderUsersWithHttpInfo}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @return PaginationIterable&lt;User&gt;
+ */
   public PaginationIterable<User> listIdentityProviderUsersWithPagination(String idpId) {
-    ListIdentityProviderUsersOptionalParameters parameters =
-        new ListIdentityProviderUsersOptionalParameters();
+    ListIdentityProviderUsersOptionalParameters parameters = new ListIdentityProviderUsersOptionalParameters();
     return listIdentityProviderUsersWithPagination(idpId, parameters);
   }
 
   /**
-   * List users with an identity provider override.
-   *
-   * <p>See {@link #listIdentityProviderUsersWithHttpInfo}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @return UsersResponse
-   */
-  public PaginationIterable<User> listIdentityProviderUsersWithPagination(
-      String idpId, ListIdentityProviderUsersOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "";
-    String valueSetterPath = "pageNumber";
-    Boolean valueSetterParamOptional = true;
-    parameters.pageNumber(0l);
-    Long limit;
+ * List users with an identity provider override.
+ *
+ * See {@link #listIdentityProviderUsersWithHttpInfo}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @return UsersResponse
+ */
+  public PaginationIterable<User> listIdentityProviderUsersWithPagination(String idpId, ListIdentityProviderUsersOptionalParameters parameters) {
+  String resultsPath = "getData";
+  String valueGetterPath = "";
+  String valueSetterPath = "pageNumber";
+  Boolean valueSetterParamOptional = true;
+  parameters.pageNumber(0l);
+  Long limit;
 
-    if (parameters.pageSize == null) {
+  
+  if (parameters.pageSize == null) {
       limit = 10l;
       parameters.pageSize(limit);
-    } else {
+  } else {
       limit = parameters.pageSize;
-    }
+  }
+  
 
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("idpId", idpId);
-    args.put("optionalParams", parameters);
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("idpId", idpId);
+  args.put("optionalParams", parameters);
 
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listIdentityProviderUsers",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            false,
-            false,
-            limit,
-            args,
-            0);
+  PaginationIterable iterator = new PaginationIterable(this, "listIdentityProviderUsers", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, false, false, limit, args, 0);
 
-    return iterator;
+  return iterator;
   }
 
+
   /**
-   * Get all users in the organization whose login method has been overridden to use the specified
-   * identity provider.
+   * <p>Get all users in the organization whose login method has been overridden
+   * to use the specified identity provider.</p>
    *
    * @param idpId The ID of the identity provider. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -386,14 +333,12 @@ public class IdentityProvidersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<UsersResponse> listIdentityProviderUsersWithHttpInfo(
-      String idpId, ListIdentityProviderUsersOptionalParameters parameters) throws ApiException {
+  public ApiResponse<UsersResponse> listIdentityProviderUsersWithHttpInfo(String idpId, ListIdentityProviderUsersOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'idpId' is set
     if (idpId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'idpId' when calling listIdentityProviderUsers");
+      throw new ApiException(400, "Missing the required parameter 'idpId' when calling listIdentityProviderUsers");
     }
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -402,10 +347,10 @@ public class IdentityProvidersApi {
     String filter = parameters.filter;
     String filterStatus = parameters.filterStatus;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/identity_providers/{idp_id}/users"
-            .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
+    String localVarPath = "/api/v2/identity_providers/{idp_id}/users"
+      .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -416,47 +361,27 @@ public class IdentityProvidersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.IdentityProvidersApi.listIdentityProviderUsers",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<UsersResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.IdentityProvidersApi.listIdentityProviderUsers", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<UsersResponse>() {});
   }
 
   /**
    * List users with an identity provider override.
    *
-   * <p>See {@link #listIdentityProviderUsersWithHttpInfo}.
+   * See {@link #listIdentityProviderUsersWithHttpInfo}.
    *
    * @param idpId The ID of the identity provider. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsersResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<UsersResponse>> listIdentityProviderUsersWithHttpInfoAsync(
-      String idpId, ListIdentityProviderUsersOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<UsersResponse>> listIdentityProviderUsersWithHttpInfoAsync(String idpId, ListIdentityProviderUsersOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'idpId' is set
     if (idpId == null) {
-      CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'idpId' when calling listIdentityProviderUsers"));
-      return result;
+        CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'idpId' when calling listIdentityProviderUsers"));
+        return result;
     }
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -465,10 +390,10 @@ public class IdentityProvidersApi {
     String filter = parameters.filter;
     String filterStatus = parameters.filterStatus;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/identity_providers/{idp_id}/users"
-            .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
+    String localVarPath = "/api/v2/identity_providers/{idp_id}/users"
+      .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -481,73 +406,54 @@ public class IdentityProvidersApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.IdentityProvidersApi.listIdentityProviderUsers",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.IdentityProvidersApi.listIdentityProviderUsers", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<UsersResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<UsersResponse>() {});
   }
 
   /**
-   * Update an identity provider.
-   *
-   * <p>See {@link #updateIdentityProviderWithHttpInfo}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @param body (required)
-   * @return IdentityProviderResponse
-   * @throws ApiException if fails to make API call
-   */
-  public IdentityProviderResponse updateIdentityProvider(
-      String idpId, IdentityProviderUpdateRequest body) throws ApiException {
+ * Update an identity provider.
+ *
+ * See {@link #updateIdentityProviderWithHttpInfo}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @param body  (required)
+ * @return IdentityProviderResponse
+ * @throws ApiException if fails to make API call
+ */
+  public IdentityProviderResponse  updateIdentityProvider(String idpId, IdentityProviderUpdateRequest body) throws ApiException {
     return updateIdentityProviderWithHttpInfo(idpId, body).getData();
   }
 
   /**
-   * Update an identity provider.
-   *
-   * <p>See {@link #updateIdentityProviderWithHttpInfoAsync}.
-   *
-   * @param idpId The ID of the identity provider. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;IdentityProviderResponse&gt;
-   */
-  public CompletableFuture<IdentityProviderResponse> updateIdentityProviderAsync(
-      String idpId, IdentityProviderUpdateRequest body) {
-    return updateIdentityProviderWithHttpInfoAsync(idpId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update an identity provider.
+ *
+ * See {@link #updateIdentityProviderWithHttpInfoAsync}.
+ *
+ * @param idpId The ID of the identity provider. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;IdentityProviderResponse&gt;
+ */
+  public CompletableFuture<IdentityProviderResponse>updateIdentityProviderAsync(String idpId, IdentityProviderUpdateRequest body) {
+    return updateIdentityProviderWithHttpInfoAsync(idpId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Enable or disable an identity provider for the current organization.
+   * <p>Enable or disable an identity provider for the current organization.</p>
    *
    * @param idpId The ID of the identity provider. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;IdentityProviderResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -557,109 +463,71 @@ public class IdentityProvidersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<IdentityProviderResponse> updateIdentityProviderWithHttpInfo(
-      String idpId, IdentityProviderUpdateRequest body) throws ApiException {
+  public ApiResponse<IdentityProviderResponse> updateIdentityProviderWithHttpInfo(String idpId, IdentityProviderUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'idpId' is set
     if (idpId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'idpId' when calling updateIdentityProvider");
+      throw new ApiException(400, "Missing the required parameter 'idpId' when calling updateIdentityProvider");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateIdentityProvider");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateIdentityProvider");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/identity_providers/{idp_id}"
-            .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
+    String localVarPath = "/api/v2/identity_providers/{idp_id}"
+      .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.IdentityProvidersApi.updateIdentityProvider",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<IdentityProviderResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.IdentityProvidersApi.updateIdentityProvider", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<IdentityProviderResponse>() {});
   }
 
   /**
    * Update an identity provider.
    *
-   * <p>See {@link #updateIdentityProviderWithHttpInfo}.
+   * See {@link #updateIdentityProviderWithHttpInfo}.
    *
    * @param idpId The ID of the identity provider. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IdentityProviderResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<IdentityProviderResponse>>
-      updateIdentityProviderWithHttpInfoAsync(String idpId, IdentityProviderUpdateRequest body) {
+  public CompletableFuture<ApiResponse<IdentityProviderResponse>> updateIdentityProviderWithHttpInfoAsync(String idpId, IdentityProviderUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'idpId' is set
     if (idpId == null) {
-      CompletableFuture<ApiResponse<IdentityProviderResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'idpId' when calling updateIdentityProvider"));
-      return result;
+        CompletableFuture<ApiResponse<IdentityProviderResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'idpId' when calling updateIdentityProvider"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<IdentityProviderResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateIdentityProvider"));
-      return result;
+        CompletableFuture<ApiResponse<IdentityProviderResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateIdentityProvider"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/identity_providers/{idp_id}"
-            .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
+    String localVarPath = "/api/v2/identity_providers/{idp_id}"
+      .replaceAll("\\{" + "idp_id" + "\\}", apiClient.escapeString(idpId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.IdentityProvidersApi.updateIdentityProvider",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.IdentityProvidersApi.updateIdentityProvider", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<IdentityProviderResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<IdentityProviderResponse>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<IdentityProviderResponse>() {});
   }
 }
