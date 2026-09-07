@@ -6,34 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes to get a list of deployments.</p>
- */
+/** Attributes to get a list of deployments. */
 @JsonPropertyOrder({
   DORAListDeploymentsRequestAttributes.JSON_PROPERTY_FROM,
   DORAListDeploymentsRequestAttributes.JSON_PROPERTY_LIMIT,
@@ -41,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   DORAListDeploymentsRequestAttributes.JSON_PROPERTY_SORT,
   DORAListDeploymentsRequestAttributes.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORAListDeploymentsRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
   private OffsetDateTime from;
 
@@ -66,107 +50,114 @@ public class DORAListDeploymentsRequestAttributes {
   }
 
   /**
-   * <p>Minimum timestamp for requested events.</p>
+   * Minimum timestamp for requested events.
+   *
    * @return from
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FROM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getFrom() {
-        return from;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getFrom() {
+    return from;
+  }
+
   public void setFrom(OffsetDateTime from) {
     this.from = from;
   }
+
   public DORAListDeploymentsRequestAttributes limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>Maximum number of events in the response.</p>
-   * maximum: 1000
+   * Maximum number of events in the response. maximum: 1000
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLimit() {
+    return limit;
+  }
+
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
+
   public DORAListDeploymentsRequestAttributes query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>Search query with event platform syntax.</p>
+   * Search query with event platform syntax.
+   *
    * @return query
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public DORAListDeploymentsRequestAttributes sort(String sort) {
     this.sort = sort;
     return this;
   }
 
   /**
-   * <p>Sort order (prefixed with <code>-</code> for descending).</p>
+   * Sort order (prefixed with <code>-</code> for descending).
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSort() {
+    return sort;
+  }
+
   public void setSort(String sort) {
     this.sort = sort;
   }
+
   public DORAListDeploymentsRequestAttributes to(OffsetDateTime to) {
     this.to = to;
     return this;
   }
 
   /**
-   * <p>Maximum timestamp for requested events.</p>
+   * Maximum timestamp for requested events.
+   *
    * @return to
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TO)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getTo() {
-        return to;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTo() {
+    return to;
+  }
+
   public void setTo(OffsetDateTime to) {
     this.to = to;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -175,7 +166,7 @@ public class DORAListDeploymentsRequestAttributes {
   @JsonAnySetter
   public DORAListDeploymentsRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -199,14 +190,12 @@ public class DORAListDeploymentsRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DORAListDeploymentsRequestAttributes object is equal to o.
-   */
+  /** Return true if this DORAListDeploymentsRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -215,14 +204,20 @@ public class DORAListDeploymentsRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestAttributes doraListDeploymentsRequestAttributes = (DORAListDeploymentsRequestAttributes) o;
-    return Objects.equals(this.from, doraListDeploymentsRequestAttributes.from) && Objects.equals(this.limit, doraListDeploymentsRequestAttributes.limit) && Objects.equals(this.query, doraListDeploymentsRequestAttributes.query) && Objects.equals(this.sort, doraListDeploymentsRequestAttributes.sort) && Objects.equals(this.to, doraListDeploymentsRequestAttributes.to) && Objects.equals(this.additionalProperties, doraListDeploymentsRequestAttributes.additionalProperties);
+    DORAListDeploymentsRequestAttributes doraListDeploymentsRequestAttributes =
+        (DORAListDeploymentsRequestAttributes) o;
+    return Objects.equals(this.from, doraListDeploymentsRequestAttributes.from)
+        && Objects.equals(this.limit, doraListDeploymentsRequestAttributes.limit)
+        && Objects.equals(this.query, doraListDeploymentsRequestAttributes.query)
+        && Objects.equals(this.sort, doraListDeploymentsRequestAttributes.sort)
+        && Objects.equals(this.to, doraListDeploymentsRequestAttributes.to)
+        && Objects.equals(
+            this.additionalProperties, doraListDeploymentsRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(from,limit,query,sort,to, additionalProperties);
+    return Objects.hash(from, limit, query, sort, to, additionalProperties);
   }
 
   @Override
@@ -242,8 +237,7 @@ public class DORAListDeploymentsRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

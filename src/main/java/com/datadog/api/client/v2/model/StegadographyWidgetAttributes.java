@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a watermarked widget recovered from an image.</p>
- */
+/** Attributes of a watermarked widget recovered from an image. */
 @JsonPropertyOrder({
   StegadographyWidgetAttributes.JSON_PROPERTY_LOCATIONX,
   StegadographyWidgetAttributes.JSON_PROPERTY_LOCATIONY,
   StegadographyWidgetAttributes.JSON_PROPERTY_RAW_DATA,
   StegadographyWidgetAttributes.JSON_PROPERTY_WATERMARK
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class StegadographyWidgetAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOCATIONX = "locationx";
   private Long locationx;
 
@@ -60,98 +44,105 @@ public class StegadographyWidgetAttributes {
 
   @JsonCreator
   public StegadographyWidgetAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_LOCATIONX)Long locationx,
-            @JsonProperty(required=true, value=JSON_PROPERTY_LOCATIONY)Long locationy,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RAW_DATA)String rawData,
-            @JsonProperty(required=true, value=JSON_PROPERTY_WATERMARK)String watermark) {
-        this.locationx = locationx;
-        this.locationy = locationy;
-        this.rawData = rawData;
-        this.watermark = watermark;
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOCATIONX) Long locationx,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOCATIONY) Long locationy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RAW_DATA) String rawData,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WATERMARK) String watermark) {
+    this.locationx = locationx;
+    this.locationy = locationy;
+    this.rawData = rawData;
+    this.watermark = watermark;
   }
+
   public StegadographyWidgetAttributes locationx(Long locationx) {
     this.locationx = locationx;
     return this;
   }
 
   /**
-   * <p>Horizontal pixel coordinate where the watermark was found in the image.</p>
+   * Horizontal pixel coordinate where the watermark was found in the image.
+   *
    * @return locationx
-  **/
-      @JsonProperty(JSON_PROPERTY_LOCATIONX)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getLocationx() {
-        return locationx;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LOCATIONX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getLocationx() {
+    return locationx;
+  }
+
   public void setLocationx(Long locationx) {
     this.locationx = locationx;
   }
+
   public StegadographyWidgetAttributes locationy(Long locationy) {
     this.locationy = locationy;
     return this;
   }
 
   /**
-   * <p>Vertical pixel coordinate where the watermark was found in the image.</p>
+   * Vertical pixel coordinate where the watermark was found in the image.
+   *
    * @return locationy
-  **/
-      @JsonProperty(JSON_PROPERTY_LOCATIONY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getLocationy() {
-        return locationy;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LOCATIONY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getLocationy() {
+    return locationy;
+  }
+
   public void setLocationy(Long locationy) {
     this.locationy = locationy;
   }
+
   public StegadographyWidgetAttributes rawData(String rawData) {
     this.rawData = rawData;
     return this;
   }
 
   /**
-   * <p>JSON-encoded string representing the widget state.</p>
+   * JSON-encoded string representing the widget state.
+   *
    * @return rawData
-  **/
-      @JsonProperty(JSON_PROPERTY_RAW_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getRawData() {
-        return rawData;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RAW_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getRawData() {
+    return rawData;
+  }
+
   public void setRawData(String rawData) {
     this.rawData = rawData;
   }
+
   public StegadographyWidgetAttributes watermark(String watermark) {
     this.watermark = watermark;
     return this;
   }
 
   /**
-   * <p>Hex-encoded watermark string identifying the widget.</p>
+   * Hex-encoded watermark string identifying the widget.
+   *
    * @return watermark
-  **/
-      @JsonProperty(JSON_PROPERTY_WATERMARK)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getWatermark() {
-        return watermark;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_WATERMARK)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getWatermark() {
+    return watermark;
+  }
+
   public void setWatermark(String watermark) {
     this.watermark = watermark;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -160,7 +151,7 @@ public class StegadographyWidgetAttributes {
   @JsonAnySetter
   public StegadographyWidgetAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -184,14 +175,12 @@ public class StegadographyWidgetAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this StegadographyWidgetAttributes object is equal to o.
-   */
+  /** Return true if this StegadographyWidgetAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,13 +190,17 @@ public class StegadographyWidgetAttributes {
       return false;
     }
     StegadographyWidgetAttributes stegadographyWidgetAttributes = (StegadographyWidgetAttributes) o;
-    return Objects.equals(this.locationx, stegadographyWidgetAttributes.locationx) && Objects.equals(this.locationy, stegadographyWidgetAttributes.locationy) && Objects.equals(this.rawData, stegadographyWidgetAttributes.rawData) && Objects.equals(this.watermark, stegadographyWidgetAttributes.watermark) && Objects.equals(this.additionalProperties, stegadographyWidgetAttributes.additionalProperties);
+    return Objects.equals(this.locationx, stegadographyWidgetAttributes.locationx)
+        && Objects.equals(this.locationy, stegadographyWidgetAttributes.locationy)
+        && Objects.equals(this.rawData, stegadographyWidgetAttributes.rawData)
+        && Objects.equals(this.watermark, stegadographyWidgetAttributes.watermark)
+        && Objects.equals(
+            this.additionalProperties, stegadographyWidgetAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationx,locationy,rawData,watermark, additionalProperties);
+    return Objects.hash(locationx, locationy, rawData, watermark, additionalProperties);
   }
 
   @Override
@@ -226,8 +219,7 @@ public class StegadographyWidgetAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

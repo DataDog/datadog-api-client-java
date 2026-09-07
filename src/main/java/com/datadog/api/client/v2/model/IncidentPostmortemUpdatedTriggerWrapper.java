@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Schema for an incident postmortem updated trigger.</p>
- */
+/** Schema for an incident postmortem updated trigger. */
 @JsonPropertyOrder({
   IncidentPostmortemUpdatedTriggerWrapper.JSON_PROPERTY_INCIDENT_POSTMORTEM_UPDATED_TRIGGER,
   IncidentPostmortemUpdatedTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentPostmortemUpdatedTriggerWrapper {
-  @JsonIgnore
-  public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INCIDENT_POSTMORTEM_UPDATED_TRIGGER = "incidentPostmortemUpdatedTrigger";
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INCIDENT_POSTMORTEM_UPDATED_TRIGGER =
+      "incidentPostmortemUpdatedTrigger";
   private IncidentPostmortemUpdatedTrigger incidentPostmortemUpdatedTrigger;
 
   public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
@@ -52,36 +39,43 @@ public class IncidentPostmortemUpdatedTriggerWrapper {
 
   @JsonCreator
   public IncidentPostmortemUpdatedTriggerWrapper(
-            @JsonProperty(required=true, value=JSON_PROPERTY_INCIDENT_POSTMORTEM_UPDATED_TRIGGER)IncidentPostmortemUpdatedTrigger incidentPostmortemUpdatedTrigger) {
-        this.incidentPostmortemUpdatedTrigger = incidentPostmortemUpdatedTrigger;
-        this.unparsed |= incidentPostmortemUpdatedTrigger.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_POSTMORTEM_UPDATED_TRIGGER)
+          IncidentPostmortemUpdatedTrigger incidentPostmortemUpdatedTrigger) {
+    this.incidentPostmortemUpdatedTrigger = incidentPostmortemUpdatedTrigger;
+    this.unparsed |= incidentPostmortemUpdatedTrigger.unparsed;
   }
-  public IncidentPostmortemUpdatedTriggerWrapper incidentPostmortemUpdatedTrigger(IncidentPostmortemUpdatedTrigger incidentPostmortemUpdatedTrigger) {
+
+  public IncidentPostmortemUpdatedTriggerWrapper incidentPostmortemUpdatedTrigger(
+      IncidentPostmortemUpdatedTrigger incidentPostmortemUpdatedTrigger) {
     this.incidentPostmortemUpdatedTrigger = incidentPostmortemUpdatedTrigger;
     this.unparsed |= incidentPostmortemUpdatedTrigger.unparsed;
     return this;
   }
 
   /**
-   * <p>Trigger a workflow when a postmortem is updated for an incident.</p>
+   * Trigger a workflow when a postmortem is updated for an incident.
+   *
    * @return incidentPostmortemUpdatedTrigger
-  **/
-      @JsonProperty(JSON_PROPERTY_INCIDENT_POSTMORTEM_UPDATED_TRIGGER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentPostmortemUpdatedTrigger getIncidentPostmortemUpdatedTrigger() {
-        return incidentPostmortemUpdatedTrigger;
-      }
-  public void setIncidentPostmortemUpdatedTrigger(IncidentPostmortemUpdatedTrigger incidentPostmortemUpdatedTrigger) {
+   */
+  @JsonProperty(JSON_PROPERTY_INCIDENT_POSTMORTEM_UPDATED_TRIGGER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentPostmortemUpdatedTrigger getIncidentPostmortemUpdatedTrigger() {
+    return incidentPostmortemUpdatedTrigger;
+  }
+
+  public void setIncidentPostmortemUpdatedTrigger(
+      IncidentPostmortemUpdatedTrigger incidentPostmortemUpdatedTrigger) {
     this.incidentPostmortemUpdatedTrigger = incidentPostmortemUpdatedTrigger;
     if (incidentPostmortemUpdatedTrigger != null) {
       this.unparsed |= incidentPostmortemUpdatedTrigger.unparsed;
     }
   }
+
   public IncidentPostmortemUpdatedTriggerWrapper startStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
     return this;
   }
+
   public IncidentPostmortemUpdatedTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
     if (this.startStepNames == null) {
       this.startStepNames = new ArrayList<>();
@@ -91,30 +85,30 @@ public class IncidentPostmortemUpdatedTriggerWrapper {
   }
 
   /**
-   * <p>Names of existing workflow steps that run first after a trigger fires.</p>
+   * Names of existing workflow steps that run first after a trigger fires.
+   *
    * @return startStepNames
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getStartStepNames() {
-        return startStepNames;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getStartStepNames() {
+    return startStepNames;
+  }
+
   public void setStartStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -123,7 +117,7 @@ public class IncidentPostmortemUpdatedTriggerWrapper {
   @JsonAnySetter
   public IncidentPostmortemUpdatedTriggerWrapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -147,14 +141,12 @@ public class IncidentPostmortemUpdatedTriggerWrapper {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this IncidentPostmortemUpdatedTriggerWrapper object is equal to o.
-   */
+  /** Return true if this IncidentPostmortemUpdatedTriggerWrapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -163,21 +155,30 @@ public class IncidentPostmortemUpdatedTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentPostmortemUpdatedTriggerWrapper incidentPostmortemUpdatedTriggerWrapper = (IncidentPostmortemUpdatedTriggerWrapper) o;
-    return Objects.equals(this.incidentPostmortemUpdatedTrigger, incidentPostmortemUpdatedTriggerWrapper.incidentPostmortemUpdatedTrigger) && Objects.equals(this.startStepNames, incidentPostmortemUpdatedTriggerWrapper.startStepNames) && Objects.equals(this.additionalProperties, incidentPostmortemUpdatedTriggerWrapper.additionalProperties);
+    IncidentPostmortemUpdatedTriggerWrapper incidentPostmortemUpdatedTriggerWrapper =
+        (IncidentPostmortemUpdatedTriggerWrapper) o;
+    return Objects.equals(
+            this.incidentPostmortemUpdatedTrigger,
+            incidentPostmortemUpdatedTriggerWrapper.incidentPostmortemUpdatedTrigger)
+        && Objects.equals(
+            this.startStepNames, incidentPostmortemUpdatedTriggerWrapper.startStepNames)
+        && Objects.equals(
+            this.additionalProperties,
+            incidentPostmortemUpdatedTriggerWrapper.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentPostmortemUpdatedTrigger,startStepNames, additionalProperties);
+    return Objects.hash(incidentPostmortemUpdatedTrigger, startStepNames, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentPostmortemUpdatedTriggerWrapper {\n");
-    sb.append("    incidentPostmortemUpdatedTrigger: ").append(toIndentedString(incidentPostmortemUpdatedTrigger)).append("\n");
+    sb.append("    incidentPostmortemUpdatedTrigger: ")
+        .append(toIndentedString(incidentPostmortemUpdatedTrigger))
+        .append("\n");
     sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -187,8 +188,7 @@ public class IncidentPostmortemUpdatedTriggerWrapper {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

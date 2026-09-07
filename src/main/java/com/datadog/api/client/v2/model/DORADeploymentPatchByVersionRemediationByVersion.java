@@ -6,42 +6,25 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>Remediation details identified by the version of the remediation deployment, matched against the same service and environment as the failed deployment.</p>
+ * Remediation details identified by the version of the remediation deployment, matched against the
+ * same service and environment as the failed deployment.
  */
 @JsonPropertyOrder({
   DORADeploymentPatchByVersionRemediationByVersion.JSON_PROPERTY_TYPE,
   DORADeploymentPatchByVersionRemediationByVersion.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORADeploymentPatchByVersionRemediationByVersion {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
   private DORADeploymentPatchRemediationType type;
 
@@ -52,56 +35,61 @@ public class DORADeploymentPatchByVersionRemediationByVersion {
 
   @JsonCreator
   public DORADeploymentPatchByVersionRemediationByVersion(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)DORADeploymentPatchRemediationType type,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VERSION)String version) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        this.version = version;
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          DORADeploymentPatchRemediationType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) String version) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.version = version;
   }
-  public DORADeploymentPatchByVersionRemediationByVersion type(DORADeploymentPatchRemediationType type) {
+
+  public DORADeploymentPatchByVersionRemediationByVersion type(
+      DORADeploymentPatchRemediationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * <p>The type of remediation action taken. Required when the failed deployment must be linked to a remediation deployment.</p>
+   * The type of remediation action taken. Required when the failed deployment must be linked to a
+   * remediation deployment.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public DORADeploymentPatchRemediationType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public DORADeploymentPatchRemediationType getType() {
+    return type;
+  }
+
   public void setType(DORADeploymentPatchRemediationType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public DORADeploymentPatchByVersionRemediationByVersion version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>The version of the remediation deployment.</p>
+   * The version of the remediation deployment.
+   *
    * @return version
-  **/
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getVersion() {
-        return version;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getVersion() {
+    return version;
+  }
+
   public void setVersion(String version) {
     this.version = version;
   }
 
-  /**
-   * Return true if this DORADeploymentPatchByVersionRemediationByVersion object is equal to o.
-   */
+  /** Return true if this DORADeploymentPatchByVersionRemediationByVersion object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,14 +98,16 @@ public class DORADeploymentPatchByVersionRemediationByVersion {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORADeploymentPatchByVersionRemediationByVersion doraDeploymentPatchByVersionRemediationByVersion = (DORADeploymentPatchByVersionRemediationByVersion) o;
-    return Objects.equals(this.type, doraDeploymentPatchByVersionRemediationByVersion.type) && Objects.equals(this.version, doraDeploymentPatchByVersionRemediationByVersion.version);
+    DORADeploymentPatchByVersionRemediationByVersion
+        doraDeploymentPatchByVersionRemediationByVersion =
+            (DORADeploymentPatchByVersionRemediationByVersion) o;
+    return Objects.equals(this.type, doraDeploymentPatchByVersionRemediationByVersion.type)
+        && Objects.equals(this.version, doraDeploymentPatchByVersionRemediationByVersion.version);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(type,version);
+    return Objects.hash(type, version);
   }
 
   @Override
@@ -131,8 +121,7 @@ public class DORADeploymentPatchByVersionRemediationByVersion {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

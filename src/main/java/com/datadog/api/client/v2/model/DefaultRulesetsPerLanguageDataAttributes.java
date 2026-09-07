@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,22 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The attributes of the default rulesets per language response, containing the list of default ruleset names.</p>
+ * The attributes of the default rulesets per language response, containing the list of default
+ * ruleset names.
  */
-@JsonPropertyOrder({
-  DefaultRulesetsPerLanguageDataAttributes.JSON_PROPERTY_RULESETS
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@JsonPropertyOrder({DefaultRulesetsPerLanguageDataAttributes.JSON_PROPERTY_RULESETS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DefaultRulesetsPerLanguageDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RULESETS = "rulesets";
   private List<String> rulesets = new ArrayList<>();
 
@@ -48,42 +35,44 @@ public class DefaultRulesetsPerLanguageDataAttributes {
 
   @JsonCreator
   public DefaultRulesetsPerLanguageDataAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULESETS)List<String> rulesets) {
-        this.rulesets = rulesets;
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULESETS) List<String> rulesets) {
+    this.rulesets = rulesets;
   }
+
   public DefaultRulesetsPerLanguageDataAttributes rulesets(List<String> rulesets) {
     this.rulesets = rulesets;
     return this;
   }
+
   public DefaultRulesetsPerLanguageDataAttributes addRulesetsItem(String rulesetsItem) {
     this.rulesets.add(rulesetsItem);
     return this;
   }
 
   /**
-   * <p>The list of default ruleset names for the specified programming language.</p>
+   * The list of default ruleset names for the specified programming language.
+   *
    * @return rulesets
-  **/
-      @JsonProperty(JSON_PROPERTY_RULESETS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getRulesets() {
-        return rulesets;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULESETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getRulesets() {
+    return rulesets;
+  }
+
   public void setRulesets(List<String> rulesets) {
     this.rulesets = rulesets;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -92,7 +81,7 @@ public class DefaultRulesetsPerLanguageDataAttributes {
   @JsonAnySetter
   public DefaultRulesetsPerLanguageDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -116,14 +105,12 @@ public class DefaultRulesetsPerLanguageDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DefaultRulesetsPerLanguageDataAttributes object is equal to o.
-   */
+  /** Return true if this DefaultRulesetsPerLanguageDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,10 +119,13 @@ public class DefaultRulesetsPerLanguageDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DefaultRulesetsPerLanguageDataAttributes defaultRulesetsPerLanguageDataAttributes = (DefaultRulesetsPerLanguageDataAttributes) o;
-    return Objects.equals(this.rulesets, defaultRulesetsPerLanguageDataAttributes.rulesets) && Objects.equals(this.additionalProperties, defaultRulesetsPerLanguageDataAttributes.additionalProperties);
+    DefaultRulesetsPerLanguageDataAttributes defaultRulesetsPerLanguageDataAttributes =
+        (DefaultRulesetsPerLanguageDataAttributes) o;
+    return Objects.equals(this.rulesets, defaultRulesetsPerLanguageDataAttributes.rulesets)
+        && Objects.equals(
+            this.additionalProperties,
+            defaultRulesetsPerLanguageDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -155,8 +145,7 @@ public class DefaultRulesetsPerLanguageDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

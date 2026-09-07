@@ -6,41 +6,22 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>X Axis controls for the heat map widget.</p>
- */
-@JsonPropertyOrder({
-  HeatMapWidgetXAxis.JSON_PROPERTY_NUM_BUCKETS
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** X Axis controls for the heat map widget. */
+@JsonPropertyOrder({HeatMapWidgetXAxis.JSON_PROPERTY_NUM_BUCKETS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HeatMapWidgetXAxis {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NUM_BUCKETS = "num_buckets";
   private Long numBuckets;
 
@@ -50,32 +31,31 @@ public class HeatMapWidgetXAxis {
   }
 
   /**
-   * <p>Number of time buckets to target, also known as the resolution
-   * of the time bins. This is only applicable for distribution of
-   * points (group distributions use the roll-up modifier).</p>
+   * Number of time buckets to target, also known as the resolution of the time bins. This is only
+   * applicable for distribution of points (group distributions use the roll-up modifier).
+   *
    * @return numBuckets
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NUM_BUCKETS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getNumBuckets() {
-        return numBuckets;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUM_BUCKETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNumBuckets() {
+    return numBuckets;
+  }
+
   public void setNumBuckets(Long numBuckets) {
     this.numBuckets = numBuckets;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -84,7 +64,7 @@ public class HeatMapWidgetXAxis {
   @JsonAnySetter
   public HeatMapWidgetXAxis putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -108,14 +88,12 @@ public class HeatMapWidgetXAxis {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this HeatMapWidgetXAxis object is equal to o.
-   */
+  /** Return true if this HeatMapWidgetXAxis object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,9 +103,9 @@ public class HeatMapWidgetXAxis {
       return false;
     }
     HeatMapWidgetXAxis heatMapWidgetXAxis = (HeatMapWidgetXAxis) o;
-    return Objects.equals(this.numBuckets, heatMapWidgetXAxis.numBuckets) && Objects.equals(this.additionalProperties, heatMapWidgetXAxis.additionalProperties);
+    return Objects.equals(this.numBuckets, heatMapWidgetXAxis.numBuckets)
+        && Objects.equals(this.additionalProperties, heatMapWidgetXAxis.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -147,8 +125,7 @@ public class HeatMapWidgetXAxis {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

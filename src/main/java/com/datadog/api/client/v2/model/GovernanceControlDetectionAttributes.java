@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes of a governance control detection.</p>
- */
+/** The attributes of a governance control detection. */
 @JsonPropertyOrder({
   GovernanceControlDetectionAttributes.JSON_PROPERTY_ASSIGNED_TEAM,
   GovernanceControlDetectionAttributes.JSON_PROPERTY_ASSIGNED_TO,
@@ -52,10 +37,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   GovernanceControlDetectionAttributes.JSON_PROPERTY_RESOURCE_TYPE,
   GovernanceControlDetectionAttributes.JSON_PROPERTY_STATE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GovernanceControlDetectionAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSIGNED_TEAM = "assigned_team";
   private String assignedTeam;
 
@@ -108,312 +93,348 @@ public class GovernanceControlDetectionAttributes {
 
   @JsonCreator
   public GovernanceControlDetectionAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ASSIGNMENT_SOURCE)GovernanceControlDetectionAssignmentSource assignmentSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONTROL_ID)String controlId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DETECTION_TYPE)String detectionType,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DISPLAY_NAME)String displayName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PRIORITY)Long priority,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_ID)String resourceId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_TYPE)String resourceType,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STATE)GovernanceControlDetectionState state) {
-        this.assignmentSource = assignmentSource;
-        this.unparsed |= !assignmentSource.isValid();
-        this.controlId = controlId;
-        this.createdAt = createdAt;
-        this.detectionType = detectionType;
-        this.displayName = displayName;
-        this.priority = priority;
-        this.resourceId = resourceId;
-        this.resourceType = resourceType;
-        this.state = state;
-        this.unparsed |= !state.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ASSIGNMENT_SOURCE)
+          GovernanceControlDetectionAssignmentSource assignmentSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONTROL_ID) String controlId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_TYPE) String detectionType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAY_NAME) String displayName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PRIORITY) Long priority,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_ID) String resourceId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATE)
+          GovernanceControlDetectionState state) {
+    this.assignmentSource = assignmentSource;
+    this.unparsed |= !assignmentSource.isValid();
+    this.controlId = controlId;
+    this.createdAt = createdAt;
+    this.detectionType = detectionType;
+    this.displayName = displayName;
+    this.priority = priority;
+    this.resourceId = resourceId;
+    this.resourceType = resourceType;
+    this.state = state;
+    this.unparsed |= !state.isValid();
   }
+
   public GovernanceControlDetectionAttributes assignedTeam(String assignedTeam) {
     this.assignedTeam = assignedTeam;
     return this;
   }
 
   /**
-   * <p>The identifier of the team the detection is assigned to, if any.</p>
+   * The identifier of the team the detection is assigned to, if any.
+   *
    * @return assignedTeam
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSIGNED_TEAM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAssignedTeam() {
-        return assignedTeam;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAssignedTeam() {
+    return assignedTeam;
+  }
+
   public void setAssignedTeam(String assignedTeam) {
     this.assignedTeam = assignedTeam;
   }
+
   public GovernanceControlDetectionAttributes assignedTo(String assignedTo) {
     this.assignedTo = assignedTo;
     return this;
   }
 
   /**
-   * <p>The identifier of the user the detection is assigned to, if any.</p>
+   * The identifier of the user the detection is assigned to, if any.
+   *
    * @return assignedTo
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSIGNED_TO)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAssignedTo() {
-        return assignedTo;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAssignedTo() {
+    return assignedTo;
+  }
+
   public void setAssignedTo(String assignedTo) {
     this.assignedTo = assignedTo;
   }
-  public GovernanceControlDetectionAttributes assignmentSource(GovernanceControlDetectionAssignmentSource assignmentSource) {
+
+  public GovernanceControlDetectionAttributes assignmentSource(
+      GovernanceControlDetectionAssignmentSource assignmentSource) {
     this.assignmentSource = assignmentSource;
     this.unparsed |= !assignmentSource.isValid();
     return this;
   }
 
   /**
-   * <p>How the detection's current assignment was determined. Possible values are <code>auto_resolved</code>, <code>manual</code>, <code>reassigned</code>, and <code>cleared</code>.</p>
+   * How the detection's current assignment was determined. Possible values are <code>auto_resolved
+   * </code>, <code>manual</code>, <code>reassigned</code>, and <code>cleared</code>.
+   *
    * @return assignmentSource
-  **/
-      @JsonProperty(JSON_PROPERTY_ASSIGNMENT_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public GovernanceControlDetectionAssignmentSource getAssignmentSource() {
-        return assignmentSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ASSIGNMENT_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GovernanceControlDetectionAssignmentSource getAssignmentSource() {
+    return assignmentSource;
+  }
+
   public void setAssignmentSource(GovernanceControlDetectionAssignmentSource assignmentSource) {
     if (!assignmentSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.assignmentSource = assignmentSource;
   }
+
   public GovernanceControlDetectionAttributes controlId(String controlId) {
     this.controlId = controlId;
     return this;
   }
 
   /**
-   * <p>DEPRECATED: mirrors <code>detection_type</code> for backward compatibility; use <code>detection_type</code>
-   * instead.</p>
+   * DEPRECATED: mirrors <code>detection_type</code> for backward compatibility; use <code>
+   * detection_type</code> instead.
+   *
    * @return controlId
    * @deprecated
-  **/
-      @Deprecated
-      @JsonProperty(JSON_PROPERTY_CONTROL_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getControlId() {
-        return controlId;
-      }
+   */
+  @Deprecated
+  @JsonProperty(JSON_PROPERTY_CONTROL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getControlId() {
+    return controlId;
+  }
+
   @Deprecated
   public void setControlId(String controlId) {
     this.controlId = controlId;
   }
+
   public GovernanceControlDetectionAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>The date and time when the detection was created.</p>
+   * The date and time when the detection was created.
+   *
    * @return createdAt
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
   public GovernanceControlDetectionAttributes detectionType(String detectionType) {
     this.detectionType = detectionType;
     return this;
   }
 
   /**
-   * <p>The type of detection, which determines what condition was detected.</p>
+   * The type of detection, which determines what condition was detected.
+   *
    * @return detectionType
-  **/
-      @JsonProperty(JSON_PROPERTY_DETECTION_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDetectionType() {
-        return detectionType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DETECTION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDetectionType() {
+    return detectionType;
+  }
+
   public void setDetectionType(String detectionType) {
     this.detectionType = detectionType;
   }
+
   public GovernanceControlDetectionAttributes displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
   /**
-   * <p>The human-readable name of the detected resource.</p>
+   * The human-readable name of the detected resource.
+   *
    * @return displayName
-  **/
-      @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDisplayName() {
-        return displayName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
+
   public GovernanceControlDetectionAttributes exceptionAt(OffsetDateTime exceptionAt) {
     this.exceptionAt = exceptionAt;
     return this;
   }
 
   /**
-   * <p>The date and time when the detection was marked as an exception, if applicable.</p>
+   * The date and time when the detection was marked as an exception, if applicable.
+   *
    * @return exceptionAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXCEPTION_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getExceptionAt() {
-        return exceptionAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCEPTION_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getExceptionAt() {
+    return exceptionAt;
+  }
+
   public void setExceptionAt(OffsetDateTime exceptionAt) {
     this.exceptionAt = exceptionAt;
   }
+
   public GovernanceControlDetectionAttributes exceptionBy(String exceptionBy) {
     this.exceptionBy = exceptionBy;
     return this;
   }
 
   /**
-   * <p>The identifier of the user who marked the detection as an exception, if applicable.</p>
+   * The identifier of the user who marked the detection as an exception, if applicable.
+   *
    * @return exceptionBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXCEPTION_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getExceptionBy() {
-        return exceptionBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCEPTION_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getExceptionBy() {
+    return exceptionBy;
+  }
+
   public void setExceptionBy(String exceptionBy) {
     this.exceptionBy = exceptionBy;
   }
+
   public GovernanceControlDetectionAttributes metadata(Object metadata) {
     this.metadata = metadata;
     return this;
   }
 
   /**
-   * <p>Free-form metadata associated with the detection.</p>
+   * Free-form metadata associated with the detection.
+   *
    * @return metadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getMetadata() {
-        return metadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getMetadata() {
+    return metadata;
+  }
+
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
   }
+
   public GovernanceControlDetectionAttributes mitigateAfter(OffsetDateTime mitigateAfter) {
     this.mitigateAfter = mitigateAfter;
     return this;
   }
 
   /**
-   * <p>The date and time after which the detection is scheduled to be mitigated, if applicable.</p>
+   * The date and time after which the detection is scheduled to be mitigated, if applicable.
+   *
    * @return mitigateAfter
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MITIGATE_AFTER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getMitigateAfter() {
-        return mitigateAfter;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MITIGATE_AFTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getMitigateAfter() {
+    return mitigateAfter;
+  }
+
   public void setMitigateAfter(OffsetDateTime mitigateAfter) {
     this.mitigateAfter = mitigateAfter;
   }
+
   public GovernanceControlDetectionAttributes mitigatedAt(OffsetDateTime mitigatedAt) {
     this.mitigatedAt = mitigatedAt;
     return this;
   }
 
   /**
-   * <p>The date and time when the detection was mitigated, if applicable.</p>
+   * The date and time when the detection was mitigated, if applicable.
+   *
    * @return mitigatedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MITIGATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getMitigatedAt() {
-        return mitigatedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MITIGATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getMitigatedAt() {
+    return mitigatedAt;
+  }
+
   public void setMitigatedAt(OffsetDateTime mitigatedAt) {
     this.mitigatedAt = mitigatedAt;
   }
+
   public GovernanceControlDetectionAttributes priority(Long priority) {
     this.priority = priority;
     return this;
   }
 
   /**
-   * <p>The priority of the detection, if set.</p>
+   * The priority of the detection, if set.
+   *
    * @return priority
-  **/
-      @JsonProperty(JSON_PROPERTY_PRIORITY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getPriority() {
-        return priority;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getPriority() {
+    return priority;
+  }
+
   public void setPriority(Long priority) {
     this.priority = priority;
   }
+
   public GovernanceControlDetectionAttributes resourceId(String resourceId) {
     this.resourceId = resourceId;
     return this;
   }
 
   /**
-   * <p>The identifier of the resource the detection applies to.</p>
+   * The identifier of the resource the detection applies to.
+   *
    * @return resourceId
-  **/
-      @JsonProperty(JSON_PROPERTY_RESOURCE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getResourceId() {
-        return resourceId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESOURCE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getResourceId() {
+    return resourceId;
+  }
+
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
   }
+
   public GovernanceControlDetectionAttributes resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
 
   /**
-   * <p>The type of resource the detection applies to, for example <code>api_key</code> or <code>dashboard</code>.</p>
+   * The type of resource the detection applies to, for example <code>api_key</code> or <code>
+   * dashboard</code>.
+   *
    * @return resourceType
-  **/
-      @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getResourceType() {
-        return resourceType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getResourceType() {
+    return resourceType;
+  }
+
   public void setResourceType(String resourceType) {
     this.resourceType = resourceType;
   }
+
   public GovernanceControlDetectionAttributes state(GovernanceControlDetectionState state) {
     this.state = state;
     this.unparsed |= !state.isValid();
@@ -421,32 +442,34 @@ public class GovernanceControlDetectionAttributes {
   }
 
   /**
-   * <p>The current state of the detection. Possible values are <code>active</code>, <code>exception</code>, <code>mitigated</code>, <code>inactive</code>, <code>obsolete</code>, <code>resolved_externally</code>, and <code>mitigation_in_progress</code>.</p>
+   * The current state of the detection. Possible values are <code>active</code>, <code>exception
+   * </code>, <code>mitigated</code>, <code>inactive</code>, <code>obsolete</code>, <code>
+   * resolved_externally</code>, and <code>mitigation_in_progress</code>.
+   *
    * @return state
-  **/
-      @JsonProperty(JSON_PROPERTY_STATE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public GovernanceControlDetectionState getState() {
-        return state;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GovernanceControlDetectionState getState() {
+    return state;
+  }
+
   public void setState(GovernanceControlDetectionState state) {
     if (!state.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.state = state;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -455,7 +478,7 @@ public class GovernanceControlDetectionAttributes {
   @JsonAnySetter
   public GovernanceControlDetectionAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -479,14 +502,12 @@ public class GovernanceControlDetectionAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GovernanceControlDetectionAttributes object is equal to o.
-   */
+  /** Return true if this GovernanceControlDetectionAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -495,14 +516,49 @@ public class GovernanceControlDetectionAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GovernanceControlDetectionAttributes governanceControlDetectionAttributes = (GovernanceControlDetectionAttributes) o;
-    return Objects.equals(this.assignedTeam, governanceControlDetectionAttributes.assignedTeam) && Objects.equals(this.assignedTo, governanceControlDetectionAttributes.assignedTo) && Objects.equals(this.assignmentSource, governanceControlDetectionAttributes.assignmentSource) && Objects.equals(this.controlId, governanceControlDetectionAttributes.controlId) && Objects.equals(this.createdAt, governanceControlDetectionAttributes.createdAt) && Objects.equals(this.detectionType, governanceControlDetectionAttributes.detectionType) && Objects.equals(this.displayName, governanceControlDetectionAttributes.displayName) && Objects.equals(this.exceptionAt, governanceControlDetectionAttributes.exceptionAt) && Objects.equals(this.exceptionBy, governanceControlDetectionAttributes.exceptionBy) && Objects.equals(this.metadata, governanceControlDetectionAttributes.metadata) && Objects.equals(this.mitigateAfter, governanceControlDetectionAttributes.mitigateAfter) && Objects.equals(this.mitigatedAt, governanceControlDetectionAttributes.mitigatedAt) && Objects.equals(this.priority, governanceControlDetectionAttributes.priority) && Objects.equals(this.resourceId, governanceControlDetectionAttributes.resourceId) && Objects.equals(this.resourceType, governanceControlDetectionAttributes.resourceType) && Objects.equals(this.state, governanceControlDetectionAttributes.state) && Objects.equals(this.additionalProperties, governanceControlDetectionAttributes.additionalProperties);
+    GovernanceControlDetectionAttributes governanceControlDetectionAttributes =
+        (GovernanceControlDetectionAttributes) o;
+    return Objects.equals(this.assignedTeam, governanceControlDetectionAttributes.assignedTeam)
+        && Objects.equals(this.assignedTo, governanceControlDetectionAttributes.assignedTo)
+        && Objects.equals(
+            this.assignmentSource, governanceControlDetectionAttributes.assignmentSource)
+        && Objects.equals(this.controlId, governanceControlDetectionAttributes.controlId)
+        && Objects.equals(this.createdAt, governanceControlDetectionAttributes.createdAt)
+        && Objects.equals(this.detectionType, governanceControlDetectionAttributes.detectionType)
+        && Objects.equals(this.displayName, governanceControlDetectionAttributes.displayName)
+        && Objects.equals(this.exceptionAt, governanceControlDetectionAttributes.exceptionAt)
+        && Objects.equals(this.exceptionBy, governanceControlDetectionAttributes.exceptionBy)
+        && Objects.equals(this.metadata, governanceControlDetectionAttributes.metadata)
+        && Objects.equals(this.mitigateAfter, governanceControlDetectionAttributes.mitigateAfter)
+        && Objects.equals(this.mitigatedAt, governanceControlDetectionAttributes.mitigatedAt)
+        && Objects.equals(this.priority, governanceControlDetectionAttributes.priority)
+        && Objects.equals(this.resourceId, governanceControlDetectionAttributes.resourceId)
+        && Objects.equals(this.resourceType, governanceControlDetectionAttributes.resourceType)
+        && Objects.equals(this.state, governanceControlDetectionAttributes.state)
+        && Objects.equals(
+            this.additionalProperties, governanceControlDetectionAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignedTeam,assignedTo,assignmentSource,controlId,createdAt,detectionType,displayName,exceptionAt,exceptionBy,metadata,mitigateAfter,mitigatedAt,priority,resourceId,resourceType,state, additionalProperties);
+    return Objects.hash(
+        assignedTeam,
+        assignedTo,
+        assignmentSource,
+        controlId,
+        createdAt,
+        detectionType,
+        displayName,
+        exceptionAt,
+        exceptionBy,
+        metadata,
+        mitigateAfter,
+        mitigatedAt,
+        priority,
+        resourceId,
+        resourceType,
+        state,
+        additionalProperties);
   }
 
   @Override
@@ -533,8 +589,7 @@ public class GovernanceControlDetectionAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

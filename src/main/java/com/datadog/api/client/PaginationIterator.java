@@ -42,7 +42,8 @@ public class PaginationIterator<T> implements Iterator<T> {
     throw new RuntimeException("Unable to find request method " + this.iterable.requestName);
   }
 
-  private void setNextPageValue(Object response) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+  private void setNextPageValue(Object response)
+      throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
     Object value = response;
 
     Object temp;

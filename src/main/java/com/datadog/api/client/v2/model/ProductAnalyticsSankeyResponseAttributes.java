@@ -6,42 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a Sankey response, containing the nodes and the links between them.</p>
- */
+/** Attributes of a Sankey response, containing the nodes and the links between them. */
 @JsonPropertyOrder({
   ProductAnalyticsSankeyResponseAttributes.JSON_PROPERTY_LINKS,
   ProductAnalyticsSankeyResponseAttributes.JSON_PROPERTY_NODES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsSankeyResponseAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LINKS = "links";
   private List<ProductAnalyticsSankeyLink> links = null;
 
@@ -51,13 +36,15 @@ public class ProductAnalyticsSankeyResponseAttributes {
   public ProductAnalyticsSankeyResponseAttributes links(List<ProductAnalyticsSankeyLink> links) {
     this.links = links;
     if (links != null) {
-    for (ProductAnalyticsSankeyLink item : links) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ProductAnalyticsSankeyLink item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ProductAnalyticsSankeyResponseAttributes addLinksItem(ProductAnalyticsSankeyLink linksItem) {
+
+  public ProductAnalyticsSankeyResponseAttributes addLinksItem(
+      ProductAnalyticsSankeyLink linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -67,16 +54,17 @@ public class ProductAnalyticsSankeyResponseAttributes {
   }
 
   /**
-   * <p>The links of the diagram, one per pair of connected nodes.</p>
+   * The links of the diagram, one per pair of connected nodes.
+   *
    * @return links
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ProductAnalyticsSankeyLink> getLinks() {
-        return links;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ProductAnalyticsSankeyLink> getLinks() {
+    return links;
+  }
+
   public void setLinks(List<ProductAnalyticsSankeyLink> links) {
     this.links = links;
     if (links != null) {
@@ -85,16 +73,19 @@ public class ProductAnalyticsSankeyResponseAttributes {
       }
     }
   }
+
   public ProductAnalyticsSankeyResponseAttributes nodes(List<ProductAnalyticsSankeyNode> nodes) {
     this.nodes = nodes;
     if (nodes != null) {
-    for (ProductAnalyticsSankeyNode item : nodes) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ProductAnalyticsSankeyNode item : nodes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ProductAnalyticsSankeyResponseAttributes addNodesItem(ProductAnalyticsSankeyNode nodesItem) {
+
+  public ProductAnalyticsSankeyResponseAttributes addNodesItem(
+      ProductAnalyticsSankeyNode nodesItem) {
     if (this.nodes == null) {
       this.nodes = new ArrayList<>();
     }
@@ -104,16 +95,17 @@ public class ProductAnalyticsSankeyResponseAttributes {
   }
 
   /**
-   * <p>The nodes of the diagram, one per facet value and column.</p>
+   * The nodes of the diagram, one per facet value and column.
+   *
    * @return nodes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NODES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ProductAnalyticsSankeyNode> getNodes() {
-        return nodes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NODES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ProductAnalyticsSankeyNode> getNodes() {
+    return nodes;
+  }
+
   public void setNodes(List<ProductAnalyticsSankeyNode> nodes) {
     this.nodes = nodes;
     if (nodes != null) {
@@ -124,15 +116,14 @@ public class ProductAnalyticsSankeyResponseAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -141,7 +132,7 @@ public class ProductAnalyticsSankeyResponseAttributes {
   @JsonAnySetter
   public ProductAnalyticsSankeyResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -165,14 +156,12 @@ public class ProductAnalyticsSankeyResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ProductAnalyticsSankeyResponseAttributes object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsSankeyResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,14 +170,18 @@ public class ProductAnalyticsSankeyResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsSankeyResponseAttributes productAnalyticsSankeyResponseAttributes = (ProductAnalyticsSankeyResponseAttributes) o;
-    return Objects.equals(this.links, productAnalyticsSankeyResponseAttributes.links) && Objects.equals(this.nodes, productAnalyticsSankeyResponseAttributes.nodes) && Objects.equals(this.additionalProperties, productAnalyticsSankeyResponseAttributes.additionalProperties);
+    ProductAnalyticsSankeyResponseAttributes productAnalyticsSankeyResponseAttributes =
+        (ProductAnalyticsSankeyResponseAttributes) o;
+    return Objects.equals(this.links, productAnalyticsSankeyResponseAttributes.links)
+        && Objects.equals(this.nodes, productAnalyticsSankeyResponseAttributes.nodes)
+        && Objects.equals(
+            this.additionalProperties,
+            productAnalyticsSankeyResponseAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(links,nodes, additionalProperties);
+    return Objects.hash(links, nodes, additionalProperties);
   }
 
   @Override
@@ -205,8 +198,7 @@ public class ProductAnalyticsSankeyResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

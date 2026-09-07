@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The result of applying a single static analysis rule to the analyzed source code.</p>
- */
+/** The result of applying a single static analysis rule to the analyzed source code. */
 @JsonPropertyOrder({
   AnalysisRuleResponse.JSON_PROPERTY_ERRORS,
   AnalysisRuleResponse.JSON_PROPERTY_EXECUTION_ERROR,
@@ -42,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   AnalysisRuleResponse.JSON_PROPERTY_OUTPUT,
   AnalysisRuleResponse.JSON_PROPERTY_VIOLATIONS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AnalysisRuleResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = new ArrayList<>();
 
@@ -68,121 +54,132 @@ public class AnalysisRuleResponse {
 
   @JsonCreator
   public AnalysisRuleResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ERRORS)List<String> errors,
-            @JsonProperty(required=true, value=JSON_PROPERTY_EXECUTION_ERROR)String executionError,
-            @JsonProperty(required=true, value=JSON_PROPERTY_EXECUTION_TIME_MS)Long executionTimeMs,
-            @JsonProperty(required=true, value=JSON_PROPERTY_IDENTIFIER)String identifier,
-            @JsonProperty(required=true, value=JSON_PROPERTY_OUTPUT)String output,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VIOLATIONS)List<AnalysisViolation> violations) {
-        this.errors = errors;
-        this.executionError = executionError;
-        if (executionError != null) {
-        }
-        this.executionTimeMs = executionTimeMs;
-        this.identifier = identifier;
-        this.output = output;
-        this.violations = violations;
-        for (AnalysisViolation item : violations) {
-          this.unparsed |= item.unparsed;
-        }
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<String> errors,
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXECUTION_ERROR) String executionError,
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXECUTION_TIME_MS) Long executionTimeMs,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IDENTIFIER) String identifier,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OUTPUT) String output,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VIOLATIONS)
+          List<AnalysisViolation> violations) {
+    this.errors = errors;
+    this.executionError = executionError;
+    if (executionError != null) {}
+    this.executionTimeMs = executionTimeMs;
+    this.identifier = identifier;
+    this.output = output;
+    this.violations = violations;
+    for (AnalysisViolation item : violations) {
+      this.unparsed |= item.unparsed;
+    }
   }
+
   public AnalysisRuleResponse errors(List<String> errors) {
     this.errors = errors;
     return this;
   }
+
   public AnalysisRuleResponse addErrorsItem(String errorsItem) {
     this.errors.add(errorsItem);
     return this;
   }
 
   /**
-   * <p>A list of error messages encountered while executing the rule.</p>
+   * A list of error messages encountered while executing the rule.
+   *
    * @return errors
-  **/
-      @JsonProperty(JSON_PROPERTY_ERRORS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getErrors() {
-        return errors;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getErrors() {
+    return errors;
+  }
+
   public void setErrors(List<String> errors) {
     this.errors = errors;
   }
+
   public AnalysisRuleResponse executionError(String executionError) {
     this.executionError = executionError;
-        if (executionError != null) {
-    }
+    if (executionError != null) {}
     return this;
   }
 
   /**
-   * <p>An error message if the rule execution failed, or null if execution succeeded.</p>
+   * An error message if the rule execution failed, or null if execution succeeded.
+   *
    * @return executionError
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXECUTION_ERROR)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getExecutionError() {
-        return executionError;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXECUTION_ERROR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getExecutionError() {
+    return executionError;
+  }
+
   public void setExecutionError(String executionError) {
     this.executionError = executionError;
   }
+
   public AnalysisRuleResponse executionTimeMs(Long executionTimeMs) {
     this.executionTimeMs = executionTimeMs;
     return this;
   }
 
   /**
-   * <p>The time taken to execute the rule, in milliseconds.</p>
+   * The time taken to execute the rule, in milliseconds.
+   *
    * @return executionTimeMs
-  **/
-      @JsonProperty(JSON_PROPERTY_EXECUTION_TIME_MS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getExecutionTimeMs() {
-        return executionTimeMs;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EXECUTION_TIME_MS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getExecutionTimeMs() {
+    return executionTimeMs;
+  }
+
   public void setExecutionTimeMs(Long executionTimeMs) {
     this.executionTimeMs = executionTimeMs;
   }
+
   public AnalysisRuleResponse identifier(String identifier) {
     this.identifier = identifier;
     return this;
   }
 
   /**
-   * <p>The identifier of the rule that produced this response.</p>
+   * The identifier of the rule that produced this response.
+   *
    * @return identifier
-  **/
-      @JsonProperty(JSON_PROPERTY_IDENTIFIER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getIdentifier() {
-        return identifier;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getIdentifier() {
+    return identifier;
+  }
+
   public void setIdentifier(String identifier) {
     this.identifier = identifier;
   }
+
   public AnalysisRuleResponse output(String output) {
     this.output = output;
     return this;
   }
 
   /**
-   * <p>The raw output produced by the rule engine during execution.</p>
+   * The raw output produced by the rule engine during execution.
+   *
    * @return output
-  **/
-      @JsonProperty(JSON_PROPERTY_OUTPUT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getOutput() {
-        return output;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OUTPUT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getOutput() {
+    return output;
+  }
+
   public void setOutput(String output) {
     this.output = output;
   }
+
   public AnalysisRuleResponse violations(List<AnalysisViolation> violations) {
     this.violations = violations;
     for (AnalysisViolation item : violations) {
@@ -190,6 +187,7 @@ public class AnalysisRuleResponse {
     }
     return this;
   }
+
   public AnalysisRuleResponse addViolationsItem(AnalysisViolation violationsItem) {
     this.violations.add(violationsItem);
     this.unparsed |= violationsItem.unparsed;
@@ -197,15 +195,16 @@ public class AnalysisRuleResponse {
   }
 
   /**
-   * <p>The list of violations found by this rule.</p>
+   * The list of violations found by this rule.
+   *
    * @return violations
-  **/
-      @JsonProperty(JSON_PROPERTY_VIOLATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<AnalysisViolation> getViolations() {
-        return violations;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VIOLATIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<AnalysisViolation> getViolations() {
+    return violations;
+  }
+
   public void setViolations(List<AnalysisViolation> violations) {
     this.violations = violations;
     if (violations != null) {
@@ -216,15 +215,14 @@ public class AnalysisRuleResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -233,7 +231,7 @@ public class AnalysisRuleResponse {
   @JsonAnySetter
   public AnalysisRuleResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -257,14 +255,12 @@ public class AnalysisRuleResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this AnalysisRuleResponse object is equal to o.
-   */
+  /** Return true if this AnalysisRuleResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -274,13 +270,25 @@ public class AnalysisRuleResponse {
       return false;
     }
     AnalysisRuleResponse analysisRuleResponse = (AnalysisRuleResponse) o;
-    return Objects.equals(this.errors, analysisRuleResponse.errors) && Objects.equals(this.executionError, analysisRuleResponse.executionError) && Objects.equals(this.executionTimeMs, analysisRuleResponse.executionTimeMs) && Objects.equals(this.identifier, analysisRuleResponse.identifier) && Objects.equals(this.output, analysisRuleResponse.output) && Objects.equals(this.violations, analysisRuleResponse.violations) && Objects.equals(this.additionalProperties, analysisRuleResponse.additionalProperties);
+    return Objects.equals(this.errors, analysisRuleResponse.errors)
+        && Objects.equals(this.executionError, analysisRuleResponse.executionError)
+        && Objects.equals(this.executionTimeMs, analysisRuleResponse.executionTimeMs)
+        && Objects.equals(this.identifier, analysisRuleResponse.identifier)
+        && Objects.equals(this.output, analysisRuleResponse.output)
+        && Objects.equals(this.violations, analysisRuleResponse.violations)
+        && Objects.equals(this.additionalProperties, analysisRuleResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors,executionError,executionTimeMs,identifier,output,violations, additionalProperties);
+    return Objects.hash(
+        errors,
+        executionError,
+        executionTimeMs,
+        identifier,
+        output,
+        violations,
+        additionalProperties);
   }
 
   @Override
@@ -301,8 +309,7 @@ public class AnalysisRuleResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

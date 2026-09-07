@@ -6,71 +6,54 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The type of the resource. The value should always be <code>activate_entra_id_request</code>.</p>
- */
-@JsonSerialize(using = SecurityMonitoringIntegrationActivateResourceType.SecurityMonitoringIntegrationActivateResourceTypeSerializer.class)
+/** The type of the resource. The value should always be <code>activate_entra_id_request</code>. */
+@JsonSerialize(
+    using =
+        SecurityMonitoringIntegrationActivateResourceType
+            .SecurityMonitoringIntegrationActivateResourceTypeSerializer.class)
 public class SecurityMonitoringIntegrationActivateResourceType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("activate_entra_id_request"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("activate_entra_id_request"));
 
-  public static final SecurityMonitoringIntegrationActivateResourceType ACTIVATE_ENTRA_ID_REQUEST = new SecurityMonitoringIntegrationActivateResourceType("activate_entra_id_request");
-
+  public static final SecurityMonitoringIntegrationActivateResourceType ACTIVATE_ENTRA_ID_REQUEST =
+      new SecurityMonitoringIntegrationActivateResourceType("activate_entra_id_request");
 
   SecurityMonitoringIntegrationActivateResourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringIntegrationActivateResourceTypeSerializer extends StdSerializer<SecurityMonitoringIntegrationActivateResourceType> {
-      public SecurityMonitoringIntegrationActivateResourceTypeSerializer(Class<SecurityMonitoringIntegrationActivateResourceType> t) {
-          super(t);
-      }
+  public static class SecurityMonitoringIntegrationActivateResourceTypeSerializer
+      extends StdSerializer<SecurityMonitoringIntegrationActivateResourceType> {
+    public SecurityMonitoringIntegrationActivateResourceTypeSerializer(
+        Class<SecurityMonitoringIntegrationActivateResourceType> t) {
+      super(t);
+    }
 
-      public SecurityMonitoringIntegrationActivateResourceTypeSerializer() {
-          this(null);
-      }
+    public SecurityMonitoringIntegrationActivateResourceTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SecurityMonitoringIntegrationActivateResourceType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SecurityMonitoringIntegrationActivateResourceType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

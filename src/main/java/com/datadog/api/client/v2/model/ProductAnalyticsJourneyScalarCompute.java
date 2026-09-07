@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Defines the metric computed over the journey for a scalar query.</p>
- */
+/** Defines the metric computed over the journey for a scalar query. */
 @JsonPropertyOrder({
   ProductAnalyticsJourneyScalarCompute.JSON_PROPERTY_AGGREGATION,
   ProductAnalyticsJourneyScalarCompute.JSON_PROPERTY_METRIC,
   ProductAnalyticsJourneyScalarCompute.JSON_PROPERTY_TARGET
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsJourneyScalarCompute {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private String aggregation;
 
@@ -56,49 +40,56 @@ public class ProductAnalyticsJourneyScalarCompute {
 
   @JsonCreator
   public ProductAnalyticsJourneyScalarCompute(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)String aggregation) {
-        this.aggregation = aggregation;
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) String aggregation) {
+    this.aggregation = aggregation;
   }
+
   public ProductAnalyticsJourneyScalarCompute aggregation(String aggregation) {
     this.aggregation = aggregation;
     return this;
   }
 
   /**
-   * <p>Aggregation function: <code>count</code>, <code>cardinality</code>, <code>avg</code>, <code>median</code>, <code>min</code>, <code>max</code>, <code>sum</code>,
-   * or a percentile of the form <code>pc&lt;N&gt;</code> such as <code>pc95</code>. Defaults to <code>cardinality</code>.</p>
+   * Aggregation function: <code>count</code>, <code>cardinality</code>, <code>avg</code>, <code>
+   * median</code>, <code>min</code>, <code>max</code>, <code>sum</code>, or a percentile of the
+   * form <code>pc&lt;N&gt;</code> such as <code>pc95</code>. Defaults to <code>cardinality</code>.
+   *
    * @return aggregation
-  **/
-      @JsonProperty(JSON_PROPERTY_AGGREGATION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAggregation() {
-        return aggregation;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAggregation() {
+    return aggregation;
+  }
+
   public void setAggregation(String aggregation) {
     this.aggregation = aggregation;
   }
+
   public ProductAnalyticsJourneyScalarCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * <p>Metric to aggregate on. Use a facet path such as <code>@view.time_spent</code>, or one of the
-   * journey metrics <code>__dd.conversion</code>, <code>__dd.conversion_rate</code>, <code>__dd.time_to_convert</code>,
-   * or <code>__dd.dropoff_rate</code>. Defaults to <code>__dd.conversion</code>.</p>
+   * Metric to aggregate on. Use a facet path such as <code>@view.time_spent</code>, or one of the
+   * journey metrics <code>__dd.conversion</code>, <code>__dd.conversion_rate</code>, <code>
+   * __dd.time_to_convert</code>, or <code>__dd.dropoff_rate</code>. Defaults to <code>
+   * __dd.conversion</code>.
+   *
    * @return metric
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRIC)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMetric() {
-        return metric;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
+
   public void setMetric(String metric) {
     this.metric = metric;
   }
+
   public ProductAnalyticsJourneyScalarCompute target(ProductAnalyticsJourneyTarget target) {
     this.target = target;
     this.unparsed |= target.unparsed;
@@ -106,18 +97,18 @@ public class ProductAnalyticsJourneyScalarCompute {
   }
 
   /**
-   * <p>A reference to a step, or a range of steps, in the journey.
-   * Use a <code>node</code> target to name a single step, or a <code>path</code> target to name the range
-   * between two steps.</p>
+   * A reference to a step, or a range of steps, in the journey. Use a <code>node</code> target to
+   * name a single step, or a <code>path</code> target to name the range between two steps.
+   *
    * @return target
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TARGET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProductAnalyticsJourneyTarget getTarget() {
-        return target;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProductAnalyticsJourneyTarget getTarget() {
+    return target;
+  }
+
   public void setTarget(ProductAnalyticsJourneyTarget target) {
     this.target = target;
     if (target != null) {
@@ -126,15 +117,14 @@ public class ProductAnalyticsJourneyScalarCompute {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -143,7 +133,7 @@ public class ProductAnalyticsJourneyScalarCompute {
   @JsonAnySetter
   public ProductAnalyticsJourneyScalarCompute putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -167,14 +157,12 @@ public class ProductAnalyticsJourneyScalarCompute {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ProductAnalyticsJourneyScalarCompute object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsJourneyScalarCompute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -183,14 +171,18 @@ public class ProductAnalyticsJourneyScalarCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsJourneyScalarCompute productAnalyticsJourneyScalarCompute = (ProductAnalyticsJourneyScalarCompute) o;
-    return Objects.equals(this.aggregation, productAnalyticsJourneyScalarCompute.aggregation) && Objects.equals(this.metric, productAnalyticsJourneyScalarCompute.metric) && Objects.equals(this.target, productAnalyticsJourneyScalarCompute.target) && Objects.equals(this.additionalProperties, productAnalyticsJourneyScalarCompute.additionalProperties);
+    ProductAnalyticsJourneyScalarCompute productAnalyticsJourneyScalarCompute =
+        (ProductAnalyticsJourneyScalarCompute) o;
+    return Objects.equals(this.aggregation, productAnalyticsJourneyScalarCompute.aggregation)
+        && Objects.equals(this.metric, productAnalyticsJourneyScalarCompute.metric)
+        && Objects.equals(this.target, productAnalyticsJourneyScalarCompute.target)
+        && Objects.equals(
+            this.additionalProperties, productAnalyticsJourneyScalarCompute.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation,metric,target, additionalProperties);
+    return Objects.hash(aggregation, metric, target, additionalProperties);
   }
 
   @Override
@@ -208,8 +200,7 @@ public class ProductAnalyticsJourneyScalarCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

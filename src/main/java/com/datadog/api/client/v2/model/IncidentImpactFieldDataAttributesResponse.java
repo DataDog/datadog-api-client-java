@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of an impact field in a response.</p>
- */
+/** Attributes of an impact field in a response. */
 @JsonPropertyOrder({
   IncidentImpactFieldDataAttributesResponse.JSON_PROPERTY_DISPLAY_NAME,
   IncidentImpactFieldDataAttributesResponse.JSON_PROPERTY_FIELD_CHOICES,
@@ -41,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   IncidentImpactFieldDataAttributesResponse.JSON_PROPERTY_NAME,
   IncidentImpactFieldDataAttributesResponse.JSON_PROPERTY_TAG_KEY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentImpactFieldDataAttributesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
   private String displayName;
 
@@ -64,42 +51,49 @@ public class IncidentImpactFieldDataAttributesResponse {
 
   @JsonCreator
   public IncidentImpactFieldDataAttributesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DISPLAY_NAME)String displayName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_FIELD_TYPE)IncidentImpactFieldValueType fieldType,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
-        this.displayName = displayName;
-        this.fieldType = fieldType;
-        this.unparsed |= !fieldType.isValid();
-        this.name = name;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAY_NAME) String displayName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_FIELD_TYPE)
+          IncidentImpactFieldValueType fieldType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.displayName = displayName;
+    this.fieldType = fieldType;
+    this.unparsed |= !fieldType.isValid();
+    this.name = name;
   }
+
   public IncidentImpactFieldDataAttributesResponse displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
   /**
-   * <p>The display name of the impact field.</p>
+   * The display name of the impact field.
+   *
    * @return displayName
-  **/
-      @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDisplayName() {
-        return displayName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
-  public IncidentImpactFieldDataAttributesResponse fieldChoices(List<IncidentImpactFieldChoice> fieldChoices) {
+
+  public IncidentImpactFieldDataAttributesResponse fieldChoices(
+      List<IncidentImpactFieldChoice> fieldChoices) {
     this.fieldChoices = fieldChoices;
     if (fieldChoices != null) {
-    for (IncidentImpactFieldChoice item : fieldChoices) {
-      this.unparsed |= item.unparsed;
-    }
+      for (IncidentImpactFieldChoice item : fieldChoices) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public IncidentImpactFieldDataAttributesResponse addFieldChoicesItem(IncidentImpactFieldChoice fieldChoicesItem) {
+
+  public IncidentImpactFieldDataAttributesResponse addFieldChoicesItem(
+      IncidentImpactFieldChoice fieldChoicesItem) {
     if (this.fieldChoices == null) {
       this.fieldChoices = new ArrayList<>();
     }
@@ -109,16 +103,17 @@ public class IncidentImpactFieldDataAttributesResponse {
   }
 
   /**
-   * <p>The choices for dropdown or multiselect fields.</p>
+   * The choices for dropdown or multiselect fields.
+   *
    * @return fieldChoices
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELD_CHOICES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentImpactFieldChoice> getFieldChoices() {
-        return fieldChoices;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELD_CHOICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentImpactFieldChoice> getFieldChoices() {
+    return fieldChoices;
+  }
+
   public void setFieldChoices(List<IncidentImpactFieldChoice> fieldChoices) {
     this.fieldChoices = fieldChoices;
     if (fieldChoices != null) {
@@ -127,83 +122,92 @@ public class IncidentImpactFieldDataAttributesResponse {
       }
     }
   }
-  public IncidentImpactFieldDataAttributesResponse fieldType(IncidentImpactFieldValueType fieldType) {
+
+  public IncidentImpactFieldDataAttributesResponse fieldType(
+      IncidentImpactFieldValueType fieldType) {
     this.fieldType = fieldType;
     this.unparsed |= !fieldType.isValid();
     return this;
   }
 
   /**
-   * <p>The type of an impact field.</p>
+   * The type of an impact field.
+   *
    * @return fieldType
-  **/
-      @JsonProperty(JSON_PROPERTY_FIELD_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentImpactFieldValueType getFieldType() {
-        return fieldType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FIELD_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentImpactFieldValueType getFieldType() {
+    return fieldType;
+  }
+
   public void setFieldType(IncidentImpactFieldValueType fieldType) {
     if (!fieldType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.fieldType = fieldType;
   }
+
   public IncidentImpactFieldDataAttributesResponse name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The normalized name of the impact field.</p>
+   * The normalized name of the impact field.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public IncidentImpactFieldDataAttributesResponse tagKey(String tagKey) {
     this.tagKey = JsonNullable.<String>of(tagKey);
     return this;
   }
 
   /**
-   * <p>The tag key associated with the field.</p>
+   * The tag key associated with the field.
+   *
    * @return tagKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getTagKey() {
-        return tagKey.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getTagKey() {
+    return tagKey.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TAG_KEY)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getTagKey_JsonNullable() {
     return tagKey;
   }
-  @JsonProperty(JSON_PROPERTY_TAG_KEY)public void setTagKey_JsonNullable(JsonNullable<String> tagKey) {
+
+  @JsonProperty(JSON_PROPERTY_TAG_KEY)
+  public void setTagKey_JsonNullable(JsonNullable<String> tagKey) {
     this.tagKey = tagKey;
   }
+
   public void setTagKey(String tagKey) {
     this.tagKey = JsonNullable.<String>of(tagKey);
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -212,7 +216,7 @@ public class IncidentImpactFieldDataAttributesResponse {
   @JsonAnySetter
   public IncidentImpactFieldDataAttributesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -236,14 +240,12 @@ public class IncidentImpactFieldDataAttributesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this IncidentImpactFieldDataAttributesResponse object is equal to o.
-   */
+  /** Return true if this IncidentImpactFieldDataAttributesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -252,14 +254,21 @@ public class IncidentImpactFieldDataAttributesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentImpactFieldDataAttributesResponse incidentImpactFieldDataAttributesResponse = (IncidentImpactFieldDataAttributesResponse) o;
-    return Objects.equals(this.displayName, incidentImpactFieldDataAttributesResponse.displayName) && Objects.equals(this.fieldChoices, incidentImpactFieldDataAttributesResponse.fieldChoices) && Objects.equals(this.fieldType, incidentImpactFieldDataAttributesResponse.fieldType) && Objects.equals(this.name, incidentImpactFieldDataAttributesResponse.name) && Objects.equals(this.tagKey, incidentImpactFieldDataAttributesResponse.tagKey) && Objects.equals(this.additionalProperties, incidentImpactFieldDataAttributesResponse.additionalProperties);
+    IncidentImpactFieldDataAttributesResponse incidentImpactFieldDataAttributesResponse =
+        (IncidentImpactFieldDataAttributesResponse) o;
+    return Objects.equals(this.displayName, incidentImpactFieldDataAttributesResponse.displayName)
+        && Objects.equals(this.fieldChoices, incidentImpactFieldDataAttributesResponse.fieldChoices)
+        && Objects.equals(this.fieldType, incidentImpactFieldDataAttributesResponse.fieldType)
+        && Objects.equals(this.name, incidentImpactFieldDataAttributesResponse.name)
+        && Objects.equals(this.tagKey, incidentImpactFieldDataAttributesResponse.tagKey)
+        && Objects.equals(
+            this.additionalProperties,
+            incidentImpactFieldDataAttributesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName,fieldChoices,fieldType,name,tagKey, additionalProperties);
+    return Objects.hash(displayName, fieldChoices, fieldType, name, tagKey, additionalProperties);
   }
 
   @Override
@@ -279,8 +288,7 @@ public class IncidentImpactFieldDataAttributesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

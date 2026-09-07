@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a due date rule returned by the API.</p>
- */
+/** Attributes of a due date rule returned by the API. */
 @JsonPropertyOrder({
   DueDateRuleAttributesResponse.JSON_PROPERTY_ACTION,
   DueDateRuleAttributesResponse.JSON_PROPERTY_CREATED_AT,
@@ -44,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   DueDateRuleAttributesResponse.JSON_PROPERTY_NAME,
   DueDateRuleAttributesResponse.JSON_PROPERTY_RULE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DueDateRuleAttributesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private DueDateRuleAction action;
 
@@ -76,27 +60,30 @@ public class DueDateRuleAttributesResponse {
 
   @JsonCreator
   public DueDateRuleAttributesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ACTION)DueDateRuleAction action,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)Long createdAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_BY)AutomationRuleCreatedBy createdBy,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ENABLED)Boolean enabled,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MODIFIED_AT)Long modifiedAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MODIFIED_BY)AutomationRuleModifiedBy modifiedBy,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULE)AutomationRuleScope rule) {
-        this.action = action;
-        this.unparsed |= action.unparsed;
-        this.createdAt = createdAt;
-        this.createdBy = createdBy;
-        this.unparsed |= createdBy.unparsed;
-        this.enabled = enabled;
-        this.modifiedAt = modifiedAt;
-        this.modifiedBy = modifiedBy;
-        this.unparsed |= modifiedBy.unparsed;
-        this.name = name;
-        this.rule = rule;
-        this.unparsed |= rule.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACTION) DueDateRuleAction action,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) Long createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY)
+          AutomationRuleCreatedBy createdBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) Long modifiedAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_BY)
+          AutomationRuleModifiedBy modifiedBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE) AutomationRuleScope rule) {
+    this.action = action;
+    this.unparsed |= action.unparsed;
+    this.createdAt = createdAt;
+    this.createdBy = createdBy;
+    this.unparsed |= createdBy.unparsed;
+    this.enabled = enabled;
+    this.modifiedAt = modifiedAt;
+    this.modifiedBy = modifiedBy;
+    this.unparsed |= modifiedBy.unparsed;
+    this.name = name;
+    this.rule = rule;
+    this.unparsed |= rule.unparsed;
   }
+
   public DueDateRuleAttributesResponse action(DueDateRuleAction action) {
     this.action = action;
     this.unparsed |= action.unparsed;
@@ -104,39 +91,43 @@ public class DueDateRuleAttributesResponse {
   }
 
   /**
-   * <p>The action to take when the due date rule matches a finding.</p>
+   * The action to take when the due date rule matches a finding.
+   *
    * @return action
-  **/
-      @JsonProperty(JSON_PROPERTY_ACTION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public DueDateRuleAction getAction() {
-        return action;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public DueDateRuleAction getAction() {
+    return action;
+  }
+
   public void setAction(DueDateRuleAction action) {
     this.action = action;
     if (action != null) {
       this.unparsed |= action.unparsed;
     }
   }
+
   public DueDateRuleAttributesResponse createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>The Unix timestamp in milliseconds when the rule was created.</p>
+   * The Unix timestamp in milliseconds when the rule was created.
+   *
    * @return createdAt
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(Long createdAt) {
     this.createdAt = createdAt;
   }
+
   public DueDateRuleAttributesResponse createdBy(AutomationRuleCreatedBy createdBy) {
     this.createdBy = createdBy;
     this.unparsed |= createdBy.unparsed;
@@ -144,57 +135,63 @@ public class DueDateRuleAttributesResponse {
   }
 
   /**
-   * <p>The user or Datadog system who created the rule.</p>
+   * The user or Datadog system who created the rule.
+   *
    * @return createdBy
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AutomationRuleCreatedBy getCreatedBy() {
-        return createdBy;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AutomationRuleCreatedBy getCreatedBy() {
+    return createdBy;
+  }
+
   public void setCreatedBy(AutomationRuleCreatedBy createdBy) {
     this.createdBy = createdBy;
     if (createdBy != null) {
       this.unparsed |= createdBy.unparsed;
     }
   }
+
   public DueDateRuleAttributesResponse enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * <p>Whether the due date rule is enabled.</p>
+   * Whether the due date rule is enabled.
+   *
    * @return enabled
-  **/
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
+
   public DueDateRuleAttributesResponse modifiedAt(Long modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * <p>The Unix timestamp in milliseconds when the rule was last modified.</p>
+   * The Unix timestamp in milliseconds when the rule was last modified.
+   *
    * @return modifiedAt
-  **/
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getModifiedAt() {
+    return modifiedAt;
+  }
+
   public void setModifiedAt(Long modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
+
   public DueDateRuleAttributesResponse modifiedBy(AutomationRuleModifiedBy modifiedBy) {
     this.modifiedBy = modifiedBy;
     this.unparsed |= modifiedBy.unparsed;
@@ -202,39 +199,43 @@ public class DueDateRuleAttributesResponse {
   }
 
   /**
-   * <p>The user or Datadog system who last modified the rule.</p>
+   * The user or Datadog system who last modified the rule.
+   *
    * @return modifiedBy
-  **/
-      @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AutomationRuleModifiedBy getModifiedBy() {
-        return modifiedBy;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AutomationRuleModifiedBy getModifiedBy() {
+    return modifiedBy;
+  }
+
   public void setModifiedBy(AutomationRuleModifiedBy modifiedBy) {
     this.modifiedBy = modifiedBy;
     if (modifiedBy != null) {
       this.unparsed |= modifiedBy.unparsed;
     }
   }
+
   public DueDateRuleAttributesResponse name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the due date rule.</p>
+   * The name of the due date rule.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public DueDateRuleAttributesResponse rule(AutomationRuleScope rule) {
     this.rule = rule;
     this.unparsed |= rule.unparsed;
@@ -242,15 +243,16 @@ public class DueDateRuleAttributesResponse {
   }
 
   /**
-   * <p>Defines the scope of findings to which the automation rule applies.</p>
+   * Defines the scope of findings to which the automation rule applies.
+   *
    * @return rule
-  **/
-      @JsonProperty(JSON_PROPERTY_RULE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AutomationRuleScope getRule() {
-        return rule;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AutomationRuleScope getRule() {
+    return rule;
+  }
+
   public void setRule(AutomationRuleScope rule) {
     this.rule = rule;
     if (rule != null) {
@@ -259,15 +261,14 @@ public class DueDateRuleAttributesResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -276,7 +277,7 @@ public class DueDateRuleAttributesResponse {
   @JsonAnySetter
   public DueDateRuleAttributesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -300,14 +301,12 @@ public class DueDateRuleAttributesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DueDateRuleAttributesResponse object is equal to o.
-   */
+  /** Return true if this DueDateRuleAttributesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -317,13 +316,30 @@ public class DueDateRuleAttributesResponse {
       return false;
     }
     DueDateRuleAttributesResponse dueDateRuleAttributesResponse = (DueDateRuleAttributesResponse) o;
-    return Objects.equals(this.action, dueDateRuleAttributesResponse.action) && Objects.equals(this.createdAt, dueDateRuleAttributesResponse.createdAt) && Objects.equals(this.createdBy, dueDateRuleAttributesResponse.createdBy) && Objects.equals(this.enabled, dueDateRuleAttributesResponse.enabled) && Objects.equals(this.modifiedAt, dueDateRuleAttributesResponse.modifiedAt) && Objects.equals(this.modifiedBy, dueDateRuleAttributesResponse.modifiedBy) && Objects.equals(this.name, dueDateRuleAttributesResponse.name) && Objects.equals(this.rule, dueDateRuleAttributesResponse.rule) && Objects.equals(this.additionalProperties, dueDateRuleAttributesResponse.additionalProperties);
+    return Objects.equals(this.action, dueDateRuleAttributesResponse.action)
+        && Objects.equals(this.createdAt, dueDateRuleAttributesResponse.createdAt)
+        && Objects.equals(this.createdBy, dueDateRuleAttributesResponse.createdBy)
+        && Objects.equals(this.enabled, dueDateRuleAttributesResponse.enabled)
+        && Objects.equals(this.modifiedAt, dueDateRuleAttributesResponse.modifiedAt)
+        && Objects.equals(this.modifiedBy, dueDateRuleAttributesResponse.modifiedBy)
+        && Objects.equals(this.name, dueDateRuleAttributesResponse.name)
+        && Objects.equals(this.rule, dueDateRuleAttributesResponse.rule)
+        && Objects.equals(
+            this.additionalProperties, dueDateRuleAttributesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(action,createdAt,createdBy,enabled,modifiedAt,modifiedBy,name,rule, additionalProperties);
+    return Objects.hash(
+        action,
+        createdAt,
+        createdBy,
+        enabled,
+        modifiedAt,
+        modifiedBy,
+        name,
+        rule,
+        additionalProperties);
   }
 
   @Override
@@ -346,8 +362,7 @@ public class DueDateRuleAttributesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

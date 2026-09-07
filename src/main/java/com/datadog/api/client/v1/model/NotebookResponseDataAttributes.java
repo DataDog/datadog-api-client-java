@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes of a notebook.</p>
- */
+/** The attributes of a notebook. */
 @JsonPropertyOrder({
   NotebookResponseDataAttributes.JSON_PROPERTY_AUTHOR,
   NotebookResponseDataAttributes.JSON_PROPERTY_CELLS,
@@ -45,10 +33,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   NotebookResponseDataAttributes.JSON_PROPERTY_TEMPLATE_VARIABLES,
   NotebookResponseDataAttributes.JSON_PROPERTY_TIME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookResponseDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private NotebookAuthor author;
 
@@ -71,7 +59,8 @@ public class NotebookResponseDataAttributes {
   private NotebookStatus status = NotebookStatus.PUBLISHED;
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
-  private JsonNullable<List<NotebookTemplateVariable>> templateVariables = JsonNullable.<List<NotebookTemplateVariable>>undefined();
+  private JsonNullable<List<NotebookTemplateVariable>> templateVariables =
+      JsonNullable.<List<NotebookTemplateVariable>>undefined();
 
   public static final String JSON_PROPERTY_TIME = "time";
   private NotebookGlobalTime time;
@@ -80,17 +69,18 @@ public class NotebookResponseDataAttributes {
 
   @JsonCreator
   public NotebookResponseDataAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CELLS)List<NotebookCellResponse> cells,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TIME)NotebookGlobalTime time) {
-        this.cells = cells;
-        for (NotebookCellResponse item : cells) {
-          this.unparsed |= item.unparsed;
-        }
-        this.name = name;
-        this.time = time;
-        this.unparsed |= time.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CELLS) List<NotebookCellResponse> cells,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) NotebookGlobalTime time) {
+    this.cells = cells;
+    for (NotebookCellResponse item : cells) {
+      this.unparsed |= item.unparsed;
+    }
+    this.name = name;
+    this.time = time;
+    this.unparsed |= time.unparsed;
   }
+
   public NotebookResponseDataAttributes author(NotebookAuthor author) {
     this.author = author;
     this.unparsed |= author.unparsed;
@@ -98,22 +88,24 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>Attributes of user object returned by the API.</p>
+   * Attributes of user object returned by the API.
+   *
    * @return author
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUTHOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public NotebookAuthor getAuthor() {
-        return author;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookAuthor getAuthor() {
+    return author;
+  }
+
   public void setAuthor(NotebookAuthor author) {
     this.author = author;
     if (author != null) {
       this.unparsed |= author.unparsed;
     }
   }
+
   public NotebookResponseDataAttributes cells(List<NotebookCellResponse> cells) {
     this.cells = cells;
     for (NotebookCellResponse item : cells) {
@@ -121,6 +113,7 @@ public class NotebookResponseDataAttributes {
     }
     return this;
   }
+
   public NotebookResponseDataAttributes addCellsItem(NotebookCellResponse cellsItem) {
     this.cells.add(cellsItem);
     this.unparsed |= cellsItem.unparsed;
@@ -128,15 +121,16 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>List of cells to display in the notebook.</p>
+   * List of cells to display in the notebook.
+   *
    * @return cells
-  **/
-      @JsonProperty(JSON_PROPERTY_CELLS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<NotebookCellResponse> getCells() {
-        return cells;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CELLS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<NotebookCellResponse> getCells() {
+    return cells;
+  }
+
   public void setCells(List<NotebookCellResponse> cells) {
     this.cells = cells;
     if (cells != null) {
@@ -147,16 +141,17 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>UTC time stamp for when the notebook was created.</p>
+   * UTC time stamp for when the notebook was created.
+   *
    * @return created
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getCreated() {
-        return created;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
   public NotebookResponseDataAttributes metadata(NotebookMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
@@ -164,16 +159,17 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>Metadata associated with the notebook.</p>
+   * Metadata associated with the notebook.
+   *
    * @return metadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public NotebookMetadata getMetadata() {
-        return metadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookMetadata getMetadata() {
+    return metadata;
+  }
+
   public void setMetadata(NotebookMetadata metadata) {
     this.metadata = metadata;
     if (metadata != null) {
@@ -182,34 +178,37 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>UTC time stamp for when the notebook was last modified.</p>
+   * UTC time stamp for when the notebook was last modified.
+   *
    * @return modified
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODIFIED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getModified() {
-        return modified;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModified() {
+    return modified;
+  }
+
   public NotebookResponseDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the notebook.</p>
+   * The name of the notebook.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public NotebookResponseDataAttributes status(NotebookStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -217,27 +216,32 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>Publication status of the notebook. For now, always "published".</p>
+   * Publication status of the notebook. For now, always "published".
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public NotebookStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(NotebookStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
-  public NotebookResponseDataAttributes templateVariables(List<NotebookTemplateVariable> templateVariables) {
+
+  public NotebookResponseDataAttributes templateVariables(
+      List<NotebookTemplateVariable> templateVariables) {
     this.templateVariables = JsonNullable.<List<NotebookTemplateVariable>>of(templateVariables);
     return this;
   }
-  public NotebookResponseDataAttributes addTemplateVariablesItem(NotebookTemplateVariable templateVariablesItem) {
+
+  public NotebookResponseDataAttributes addTemplateVariablesItem(
+      NotebookTemplateVariable templateVariablesItem) {
     if (this.templateVariables == null || !this.templateVariables.isPresent()) {
       this.templateVariables = JsonNullable.<List<NotebookTemplateVariable>>of(new ArrayList<>());
     }
@@ -250,26 +254,32 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>List of template variables for this notebook.</p>
+   * List of template variables for this notebook.
+   *
    * @return templateVariables
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<NotebookTemplateVariable> getTemplateVariables() {
-        return templateVariables.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<NotebookTemplateVariable> getTemplateVariables() {
+    return templateVariables.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<NotebookTemplateVariable>> getTemplateVariables_JsonNullable() {
     return templateVariables;
   }
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)public void setTemplateVariables_JsonNullable(JsonNullable<List<NotebookTemplateVariable>> templateVariables) {
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+  public void setTemplateVariables_JsonNullable(
+      JsonNullable<List<NotebookTemplateVariable>> templateVariables) {
     this.templateVariables = templateVariables;
   }
+
   public void setTemplateVariables(List<NotebookTemplateVariable> templateVariables) {
     this.templateVariables = JsonNullable.<List<NotebookTemplateVariable>>of(templateVariables);
   }
+
   public NotebookResponseDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -277,15 +287,16 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * <p>Notebook global timeframe.</p>
+   * Notebook global timeframe.
+   *
    * @return time
-  **/
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public NotebookGlobalTime getTime() {
-        return time;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public NotebookGlobalTime getTime() {
+    return time;
+  }
+
   public void setTime(NotebookGlobalTime time) {
     this.time = time;
     if (time != null) {
@@ -294,15 +305,14 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -311,7 +321,7 @@ public class NotebookResponseDataAttributes {
   @JsonAnySetter
   public NotebookResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -335,14 +345,12 @@ public class NotebookResponseDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this NotebookResponseDataAttributes object is equal to o.
-   */
+  /** Return true if this NotebookResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -351,14 +359,34 @@ public class NotebookResponseDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookResponseDataAttributes notebookResponseDataAttributes = (NotebookResponseDataAttributes) o;
-    return Objects.equals(this.author, notebookResponseDataAttributes.author) && Objects.equals(this.cells, notebookResponseDataAttributes.cells) && Objects.equals(this.created, notebookResponseDataAttributes.created) && Objects.equals(this.metadata, notebookResponseDataAttributes.metadata) && Objects.equals(this.modified, notebookResponseDataAttributes.modified) && Objects.equals(this.name, notebookResponseDataAttributes.name) && Objects.equals(this.status, notebookResponseDataAttributes.status) && Objects.equals(this.templateVariables, notebookResponseDataAttributes.templateVariables) && Objects.equals(this.time, notebookResponseDataAttributes.time) && Objects.equals(this.additionalProperties, notebookResponseDataAttributes.additionalProperties);
+    NotebookResponseDataAttributes notebookResponseDataAttributes =
+        (NotebookResponseDataAttributes) o;
+    return Objects.equals(this.author, notebookResponseDataAttributes.author)
+        && Objects.equals(this.cells, notebookResponseDataAttributes.cells)
+        && Objects.equals(this.created, notebookResponseDataAttributes.created)
+        && Objects.equals(this.metadata, notebookResponseDataAttributes.metadata)
+        && Objects.equals(this.modified, notebookResponseDataAttributes.modified)
+        && Objects.equals(this.name, notebookResponseDataAttributes.name)
+        && Objects.equals(this.status, notebookResponseDataAttributes.status)
+        && Objects.equals(this.templateVariables, notebookResponseDataAttributes.templateVariables)
+        && Objects.equals(this.time, notebookResponseDataAttributes.time)
+        && Objects.equals(
+            this.additionalProperties, notebookResponseDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(author,cells,created,metadata,modified,name,status,templateVariables,time, additionalProperties);
+    return Objects.hash(
+        author,
+        cells,
+        created,
+        metadata,
+        modified,
+        name,
+        status,
+        templateVariables,
+        time,
+        additionalProperties);
   }
 
   @Override
@@ -382,8 +410,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

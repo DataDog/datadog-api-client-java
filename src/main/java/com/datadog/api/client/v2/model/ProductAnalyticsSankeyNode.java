@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A node of the Sankey diagram, representing one facet value in one column.</p>
- */
+/** A node of the Sankey diagram, representing one facet value in one column. */
 @JsonPropertyOrder({
   ProductAnalyticsSankeyNode.JSON_PROPERTY_AGGREGATED_NODES,
   ProductAnalyticsSankeyNode.JSON_PROPERTY_COLUMN,
@@ -45,10 +30,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ProductAnalyticsSankeyNode.JSON_PROPERTY_TYPE,
   ProductAnalyticsSankeyNode.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsSankeyNode {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATED_NODES = "aggregated_nodes";
   private List<ProductAnalyticsSankeyAggregatedNode> aggregatedNodes = null;
 
@@ -76,16 +61,19 @@ public class ProductAnalyticsSankeyNode {
   public static final String JSON_PROPERTY_VALUE = "value";
   private Long value;
 
-  public ProductAnalyticsSankeyNode aggregatedNodes(List<ProductAnalyticsSankeyAggregatedNode> aggregatedNodes) {
+  public ProductAnalyticsSankeyNode aggregatedNodes(
+      List<ProductAnalyticsSankeyAggregatedNode> aggregatedNodes) {
     this.aggregatedNodes = aggregatedNodes;
     if (aggregatedNodes != null) {
-    for (ProductAnalyticsSankeyAggregatedNode item : aggregatedNodes) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ProductAnalyticsSankeyAggregatedNode item : aggregatedNodes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public ProductAnalyticsSankeyNode addAggregatedNodesItem(ProductAnalyticsSankeyAggregatedNode aggregatedNodesItem) {
+
+  public ProductAnalyticsSankeyNode addAggregatedNodesItem(
+      ProductAnalyticsSankeyAggregatedNode aggregatedNodesItem) {
     if (this.aggregatedNodes == null) {
       this.aggregatedNodes = new ArrayList<>();
     }
@@ -95,16 +83,17 @@ public class ProductAnalyticsSankeyNode {
   }
 
   /**
-   * <p>The nodes rolled up into this one, when the node is an aggregate.</p>
+   * The nodes rolled up into this one, when the node is an aggregate.
+   *
    * @return aggregatedNodes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AGGREGATED_NODES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ProductAnalyticsSankeyAggregatedNode> getAggregatedNodes() {
-        return aggregatedNodes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGGREGATED_NODES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ProductAnalyticsSankeyAggregatedNode> getAggregatedNodes() {
+    return aggregatedNodes;
+  }
+
   public void setAggregatedNodes(List<ProductAnalyticsSankeyAggregatedNode> aggregatedNodes) {
     this.aggregatedNodes = aggregatedNodes;
     if (aggregatedNodes != null) {
@@ -113,120 +102,133 @@ public class ProductAnalyticsSankeyNode {
       }
     }
   }
+
   public ProductAnalyticsSankeyNode column(Long column) {
     this.column = column;
     return this;
   }
 
   /**
-   * <p>Zero-based index of the column the node sits in.</p>
+   * Zero-based index of the column the node sits in.
+   *
    * @return column
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COLUMN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getColumn() {
-        return column;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLUMN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getColumn() {
+    return column;
+  }
+
   public void setColumn(Long column) {
     this.column = column;
   }
+
   public ProductAnalyticsSankeyNode dropoffValue(Long dropoffValue) {
     this.dropoffValue = dropoffValue;
     return this;
   }
 
   /**
-   * <p>Number of sessions that ended at the node.</p>
+   * Number of sessions that ended at the node.
+   *
    * @return dropoffValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DROPOFF_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getDropoffValue() {
-        return dropoffValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DROPOFF_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDropoffValue() {
+    return dropoffValue;
+  }
+
   public void setDropoffValue(Long dropoffValue) {
     this.dropoffValue = dropoffValue;
   }
+
   public ProductAnalyticsSankeyNode id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Unique identifier for the node.</p>
+   * Unique identifier for the node.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public ProductAnalyticsSankeyNode incomingValue(Long incomingValue) {
     this.incomingValue = incomingValue;
     return this;
   }
 
   /**
-   * <p>Number of sessions entering the node.</p>
+   * Number of sessions entering the node.
+   *
    * @return incomingValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCOMING_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getIncomingValue() {
-        return incomingValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCOMING_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIncomingValue() {
+    return incomingValue;
+  }
+
   public void setIncomingValue(Long incomingValue) {
     this.incomingValue = incomingValue;
   }
+
   public ProductAnalyticsSankeyNode name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The facet value the node represents.</p>
+   * The facet value the node represents.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public ProductAnalyticsSankeyNode outgoingValue(Long outgoingValue) {
     this.outgoingValue = outgoingValue;
     return this;
   }
 
   /**
-   * <p>Number of sessions leaving the node.</p>
+   * Number of sessions leaving the node.
+   *
    * @return outgoingValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OUTGOING_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getOutgoingValue() {
-        return outgoingValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OUTGOING_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOutgoingValue() {
+    return outgoingValue;
+  }
+
   public void setOutgoingValue(Long outgoingValue) {
     this.outgoingValue = outgoingValue;
   }
+
   public ProductAnalyticsSankeyNode type(ProductAnalyticsSankeyNodeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -234,53 +236,56 @@ public class ProductAnalyticsSankeyNode {
   }
 
   /**
-   * <p>The kind of node. <code>regular</code> is a single facet value, <code>other</code> rolls up the values that did not
-   * fit within <code>entries_per_step</code>, and <code>dropoff</code> collects the sessions that ended at this column.</p>
+   * The kind of node. <code>regular</code> is a single facet value, <code>other</code> rolls up the
+   * values that did not fit within <code>entries_per_step</code>, and <code>dropoff</code> collects
+   * the sessions that ended at this column.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProductAnalyticsSankeyNodeType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProductAnalyticsSankeyNodeType getType() {
+    return type;
+  }
+
   public void setType(ProductAnalyticsSankeyNodeType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public ProductAnalyticsSankeyNode value(Long value) {
     this.value = value;
     return this;
   }
 
   /**
-   * <p>Number of sessions passing through the node.</p>
+   * Number of sessions passing through the node.
+   *
    * @return value
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getValue() {
-        return value;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getValue() {
+    return value;
+  }
+
   public void setValue(Long value) {
     this.value = value;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -289,7 +294,7 @@ public class ProductAnalyticsSankeyNode {
   @JsonAnySetter
   public ProductAnalyticsSankeyNode putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -313,14 +318,12 @@ public class ProductAnalyticsSankeyNode {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ProductAnalyticsSankeyNode object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsSankeyNode object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -330,13 +333,32 @@ public class ProductAnalyticsSankeyNode {
       return false;
     }
     ProductAnalyticsSankeyNode productAnalyticsSankeyNode = (ProductAnalyticsSankeyNode) o;
-    return Objects.equals(this.aggregatedNodes, productAnalyticsSankeyNode.aggregatedNodes) && Objects.equals(this.column, productAnalyticsSankeyNode.column) && Objects.equals(this.dropoffValue, productAnalyticsSankeyNode.dropoffValue) && Objects.equals(this.id, productAnalyticsSankeyNode.id) && Objects.equals(this.incomingValue, productAnalyticsSankeyNode.incomingValue) && Objects.equals(this.name, productAnalyticsSankeyNode.name) && Objects.equals(this.outgoingValue, productAnalyticsSankeyNode.outgoingValue) && Objects.equals(this.type, productAnalyticsSankeyNode.type) && Objects.equals(this.value, productAnalyticsSankeyNode.value) && Objects.equals(this.additionalProperties, productAnalyticsSankeyNode.additionalProperties);
+    return Objects.equals(this.aggregatedNodes, productAnalyticsSankeyNode.aggregatedNodes)
+        && Objects.equals(this.column, productAnalyticsSankeyNode.column)
+        && Objects.equals(this.dropoffValue, productAnalyticsSankeyNode.dropoffValue)
+        && Objects.equals(this.id, productAnalyticsSankeyNode.id)
+        && Objects.equals(this.incomingValue, productAnalyticsSankeyNode.incomingValue)
+        && Objects.equals(this.name, productAnalyticsSankeyNode.name)
+        && Objects.equals(this.outgoingValue, productAnalyticsSankeyNode.outgoingValue)
+        && Objects.equals(this.type, productAnalyticsSankeyNode.type)
+        && Objects.equals(this.value, productAnalyticsSankeyNode.value)
+        && Objects.equals(
+            this.additionalProperties, productAnalyticsSankeyNode.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedNodes,column,dropoffValue,id,incomingValue,name,outgoingValue,type,value, additionalProperties);
+    return Objects.hash(
+        aggregatedNodes,
+        column,
+        dropoffValue,
+        id,
+        incomingValue,
+        name,
+        outgoingValue,
+        type,
+        value,
+        additionalProperties);
   }
 
   @Override
@@ -360,8 +382,7 @@ public class ProductAnalyticsSankeyNode {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

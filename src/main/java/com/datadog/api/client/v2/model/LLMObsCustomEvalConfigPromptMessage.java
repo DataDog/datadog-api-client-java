@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A message in the prompt template for a custom LLM judge evaluator.</p>
- */
+/** A message in the prompt template for a custom LLM judge evaluator. */
 @JsonPropertyOrder({
   LLMObsCustomEvalConfigPromptMessage.JSON_PROPERTY_CONTENT,
   LLMObsCustomEvalConfigPromptMessage.JSON_PROPERTY_CONTENTS,
   LLMObsCustomEvalConfigPromptMessage.JSON_PROPERTY_ROLE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsCustomEvalConfigPromptMessage {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTENT = "content";
   private String content;
 
@@ -56,38 +42,44 @@ public class LLMObsCustomEvalConfigPromptMessage {
 
   @JsonCreator
   public LLMObsCustomEvalConfigPromptMessage(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ROLE)String role) {
-        this.role = role;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ROLE) String role) {
+    this.role = role;
   }
+
   public LLMObsCustomEvalConfigPromptMessage content(String content) {
     this.content = content;
     return this;
   }
 
   /**
-   * <p>Text content of the message.</p>
+   * Text content of the message.
+   *
    * @return content
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONTENT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getContent() {
-        return content;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getContent() {
+    return content;
+  }
+
   public void setContent(String content) {
     this.content = content;
   }
-  public LLMObsCustomEvalConfigPromptMessage contents(List<LLMObsCustomEvalConfigPromptContent> contents) {
+
+  public LLMObsCustomEvalConfigPromptMessage contents(
+      List<LLMObsCustomEvalConfigPromptContent> contents) {
     this.contents = contents;
     if (contents != null) {
-    for (LLMObsCustomEvalConfigPromptContent item : contents) {
-      this.unparsed |= item.unparsed;
-    }
+      for (LLMObsCustomEvalConfigPromptContent item : contents) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public LLMObsCustomEvalConfigPromptMessage addContentsItem(LLMObsCustomEvalConfigPromptContent contentsItem) {
+
+  public LLMObsCustomEvalConfigPromptMessage addContentsItem(
+      LLMObsCustomEvalConfigPromptContent contentsItem) {
     if (this.contents == null) {
       this.contents = new ArrayList<>();
     }
@@ -97,16 +89,17 @@ public class LLMObsCustomEvalConfigPromptMessage {
   }
 
   /**
-   * <p>Multi-part content blocks for the message.</p>
+   * Multi-part content blocks for the message.
+   *
    * @return contents
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONTENTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LLMObsCustomEvalConfigPromptContent> getContents() {
-        return contents;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LLMObsCustomEvalConfigPromptContent> getContents() {
+    return contents;
+  }
+
   public void setContents(List<LLMObsCustomEvalConfigPromptContent> contents) {
     this.contents = contents;
     if (contents != null) {
@@ -115,35 +108,36 @@ public class LLMObsCustomEvalConfigPromptMessage {
       }
     }
   }
+
   public LLMObsCustomEvalConfigPromptMessage role(String role) {
     this.role = role;
     return this;
   }
 
   /**
-   * <p>Role of the message author.</p>
+   * Role of the message author.
+   *
    * @return role
-  **/
-      @JsonProperty(JSON_PROPERTY_ROLE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getRole() {
-        return role;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getRole() {
+    return role;
+  }
+
   public void setRole(String role) {
     this.role = role;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -152,7 +146,7 @@ public class LLMObsCustomEvalConfigPromptMessage {
   @JsonAnySetter
   public LLMObsCustomEvalConfigPromptMessage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -176,14 +170,12 @@ public class LLMObsCustomEvalConfigPromptMessage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsCustomEvalConfigPromptMessage object is equal to o.
-   */
+  /** Return true if this LLMObsCustomEvalConfigPromptMessage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -192,14 +184,18 @@ public class LLMObsCustomEvalConfigPromptMessage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsCustomEvalConfigPromptMessage llmObsCustomEvalConfigPromptMessage = (LLMObsCustomEvalConfigPromptMessage) o;
-    return Objects.equals(this.content, llmObsCustomEvalConfigPromptMessage.content) && Objects.equals(this.contents, llmObsCustomEvalConfigPromptMessage.contents) && Objects.equals(this.role, llmObsCustomEvalConfigPromptMessage.role) && Objects.equals(this.additionalProperties, llmObsCustomEvalConfigPromptMessage.additionalProperties);
+    LLMObsCustomEvalConfigPromptMessage llmObsCustomEvalConfigPromptMessage =
+        (LLMObsCustomEvalConfigPromptMessage) o;
+    return Objects.equals(this.content, llmObsCustomEvalConfigPromptMessage.content)
+        && Objects.equals(this.contents, llmObsCustomEvalConfigPromptMessage.contents)
+        && Objects.equals(this.role, llmObsCustomEvalConfigPromptMessage.role)
+        && Objects.equals(
+            this.additionalProperties, llmObsCustomEvalConfigPromptMessage.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(content,contents,role, additionalProperties);
+    return Objects.hash(content, contents, role, additionalProperties);
   }
 
   @Override
@@ -217,8 +213,7 @@ public class LLMObsCustomEvalConfigPromptMessage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

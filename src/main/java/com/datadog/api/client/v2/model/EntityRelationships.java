@@ -6,34 +6,17 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Entity relationships.</p>
- */
+/** Entity relationships. */
 @JsonPropertyOrder({
   EntityRelationships.JSON_PROPERTY_INCIDENTS,
   EntityRelationships.JSON_PROPERTY_ONCALL,
@@ -41,10 +24,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   EntityRelationships.JSON_PROPERTY_RELATED_ENTITIES,
   EntityRelationships.JSON_PROPERTY_SCHEMA
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityRelationships {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INCIDENTS = "incidents";
   private EntityToIncidents incidents;
 
@@ -67,22 +50,24 @@ public class EntityRelationships {
   }
 
   /**
-   * <p>Entity to incidents relationship.</p>
+   * Entity to incidents relationship.
+   *
    * @return incidents
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCIDENTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EntityToIncidents getIncidents() {
-        return incidents;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EntityToIncidents getIncidents() {
+    return incidents;
+  }
+
   public void setIncidents(EntityToIncidents incidents) {
     this.incidents = incidents;
     if (incidents != null) {
       this.unparsed |= incidents.unparsed;
     }
   }
+
   public EntityRelationships oncall(EntityToOncalls oncall) {
     this.oncall = oncall;
     this.unparsed |= oncall.unparsed;
@@ -90,22 +75,24 @@ public class EntityRelationships {
   }
 
   /**
-   * <p>Entity to oncalls relationship.</p>
+   * Entity to oncalls relationship.
+   *
    * @return oncall
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ONCALL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EntityToOncalls getOncall() {
-        return oncall;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ONCALL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EntityToOncalls getOncall() {
+    return oncall;
+  }
+
   public void setOncall(EntityToOncalls oncall) {
     this.oncall = oncall;
     if (oncall != null) {
       this.unparsed |= oncall.unparsed;
     }
   }
+
   public EntityRelationships rawSchema(EntityToRawSchema rawSchema) {
     this.rawSchema = rawSchema;
     this.unparsed |= rawSchema.unparsed;
@@ -113,22 +100,24 @@ public class EntityRelationships {
   }
 
   /**
-   * <p>Entity to raw schema relationship.</p>
+   * Entity to raw schema relationship.
+   *
    * @return rawSchema
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RAW_SCHEMA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EntityToRawSchema getRawSchema() {
-        return rawSchema;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RAW_SCHEMA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EntityToRawSchema getRawSchema() {
+    return rawSchema;
+  }
+
   public void setRawSchema(EntityToRawSchema rawSchema) {
     this.rawSchema = rawSchema;
     if (rawSchema != null) {
       this.unparsed |= rawSchema.unparsed;
     }
   }
+
   public EntityRelationships relatedEntities(EntityToRelatedEntities relatedEntities) {
     this.relatedEntities = relatedEntities;
     this.unparsed |= relatedEntities.unparsed;
@@ -136,22 +125,24 @@ public class EntityRelationships {
   }
 
   /**
-   * <p>Entity to related entities relationship.</p>
+   * Entity to related entities relationship.
+   *
    * @return relatedEntities
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RELATED_ENTITIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EntityToRelatedEntities getRelatedEntities() {
-        return relatedEntities;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATED_ENTITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EntityToRelatedEntities getRelatedEntities() {
+    return relatedEntities;
+  }
+
   public void setRelatedEntities(EntityToRelatedEntities relatedEntities) {
     this.relatedEntities = relatedEntities;
     if (relatedEntities != null) {
       this.unparsed |= relatedEntities.unparsed;
     }
   }
+
   public EntityRelationships schema(EntityToSchema schema) {
     this.schema = schema;
     this.unparsed |= schema.unparsed;
@@ -159,16 +150,17 @@ public class EntityRelationships {
   }
 
   /**
-   * <p>Entity to detail schema relationship.</p>
+   * Entity to detail schema relationship.
+   *
    * @return schema
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCHEMA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EntityToSchema getSchema() {
-        return schema;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEMA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EntityToSchema getSchema() {
+    return schema;
+  }
+
   public void setSchema(EntityToSchema schema) {
     this.schema = schema;
     if (schema != null) {
@@ -177,15 +169,14 @@ public class EntityRelationships {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -194,7 +185,7 @@ public class EntityRelationships {
   @JsonAnySetter
   public EntityRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -218,14 +209,12 @@ public class EntityRelationships {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this EntityRelationships object is equal to o.
-   */
+  /** Return true if this EntityRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -235,13 +224,18 @@ public class EntityRelationships {
       return false;
     }
     EntityRelationships entityRelationships = (EntityRelationships) o;
-    return Objects.equals(this.incidents, entityRelationships.incidents) && Objects.equals(this.oncall, entityRelationships.oncall) && Objects.equals(this.rawSchema, entityRelationships.rawSchema) && Objects.equals(this.relatedEntities, entityRelationships.relatedEntities) && Objects.equals(this.schema, entityRelationships.schema) && Objects.equals(this.additionalProperties, entityRelationships.additionalProperties);
+    return Objects.equals(this.incidents, entityRelationships.incidents)
+        && Objects.equals(this.oncall, entityRelationships.oncall)
+        && Objects.equals(this.rawSchema, entityRelationships.rawSchema)
+        && Objects.equals(this.relatedEntities, entityRelationships.relatedEntities)
+        && Objects.equals(this.schema, entityRelationships.schema)
+        && Objects.equals(this.additionalProperties, entityRelationships.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidents,oncall,rawSchema,relatedEntities,schema, additionalProperties);
+    return Objects.hash(
+        incidents, oncall, rawSchema, relatedEntities, schema, additionalProperties);
   }
 
   @Override
@@ -261,8 +255,7 @@ public class EntityRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

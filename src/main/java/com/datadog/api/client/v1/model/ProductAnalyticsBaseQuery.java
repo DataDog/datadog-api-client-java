@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Product Analytics event query.</p>
- */
+/** Product Analytics event query. */
 @JsonPropertyOrder({
   ProductAnalyticsBaseQuery.JSON_PROPERTY_DATA_SOURCE,
   ProductAnalyticsBaseQuery.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsBaseQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ProductAnalyticsEventDataSource dataSource;
 
@@ -52,13 +32,16 @@ public class ProductAnalyticsBaseQuery {
 
   @JsonCreator
   public ProductAnalyticsBaseQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)ProductAnalyticsEventDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH)ProductAnalyticsEventQuerySearch search) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.search = search;
-        this.unparsed |= search.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          ProductAnalyticsEventDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH)
+          ProductAnalyticsEventQuerySearch search) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.search = search;
+    this.unparsed |= search.unparsed;
   }
+
   public ProductAnalyticsBaseQuery dataSource(ProductAnalyticsEventDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -66,21 +49,23 @@ public class ProductAnalyticsBaseQuery {
   }
 
   /**
-   * <p>Data source for Product Analytics event queries.</p>
+   * Data source for Product Analytics event queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsEventDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsEventDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(ProductAnalyticsEventDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public ProductAnalyticsBaseQuery search(ProductAnalyticsEventQuerySearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -88,15 +73,16 @@ public class ProductAnalyticsBaseQuery {
   }
 
   /**
-   * <p>Search configuration for Product Analytics event query.</p>
+   * Search configuration for Product Analytics event query.
+   *
    * @return search
-  **/
-      @JsonProperty(JSON_PROPERTY_SEARCH)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsEventQuerySearch getSearch() {
-        return search;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SEARCH)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsEventQuerySearch getSearch() {
+    return search;
+  }
+
   public void setSearch(ProductAnalyticsEventQuerySearch search) {
     this.search = search;
     if (search != null) {
@@ -104,9 +90,7 @@ public class ProductAnalyticsBaseQuery {
     }
   }
 
-  /**
-   * Return true if this ProductAnalyticsBaseQuery object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsBaseQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,13 +100,13 @@ public class ProductAnalyticsBaseQuery {
       return false;
     }
     ProductAnalyticsBaseQuery productAnalyticsBaseQuery = (ProductAnalyticsBaseQuery) o;
-    return Objects.equals(this.dataSource, productAnalyticsBaseQuery.dataSource) && Objects.equals(this.search, productAnalyticsBaseQuery.search);
+    return Objects.equals(this.dataSource, productAnalyticsBaseQuery.dataSource)
+        && Objects.equals(this.search, productAnalyticsBaseQuery.search);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource,search);
+    return Objects.hash(dataSource, search);
   }
 
   @Override
@@ -136,8 +120,7 @@ public class ProductAnalyticsBaseQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

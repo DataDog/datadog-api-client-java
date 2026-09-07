@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A monthly entry of a custom budget forecast.</p>
- */
+/** A monthly entry of a custom budget forecast. */
 @JsonPropertyOrder({
   CustomForecastEntry.JSON_PROPERTY_AMOUNT,
   CustomForecastEntry.JSON_PROPERTY_MONTH,
   CustomForecastEntry.JSON_PROPERTY_TAG_FILTERS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CustomForecastEntry {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Double amount;
 
@@ -56,52 +42,58 @@ public class CustomForecastEntry {
 
   @JsonCreator
   public CustomForecastEntry(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AMOUNT)Double amount,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MONTH)Long month,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TAG_FILTERS)List<CustomForecastEntryTagFilter> tagFilters) {
-        this.amount = amount;
-        this.month = month;
-        this.tagFilters = tagFilters;
-        for (CustomForecastEntryTagFilter item : tagFilters) {
-          this.unparsed |= item.unparsed;
-        }
+      @JsonProperty(required = true, value = JSON_PROPERTY_AMOUNT) Double amount,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MONTH) Long month,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAG_FILTERS)
+          List<CustomForecastEntryTagFilter> tagFilters) {
+    this.amount = amount;
+    this.month = month;
+    this.tagFilters = tagFilters;
+    for (CustomForecastEntryTagFilter item : tagFilters) {
+      this.unparsed |= item.unparsed;
+    }
   }
+
   public CustomForecastEntry amount(Double amount) {
     this.amount = amount;
     return this;
   }
 
   /**
-   * <p>Forecast amount for the month.</p>
+   * Forecast amount for the month.
+   *
    * @return amount
-  **/
-      @JsonProperty(JSON_PROPERTY_AMOUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Double getAmount() {
-        return amount;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getAmount() {
+    return amount;
+  }
+
   public void setAmount(Double amount) {
     this.amount = amount;
   }
+
   public CustomForecastEntry month(Long month) {
     this.month = month;
     return this;
   }
 
   /**
-   * <p>Month the custom forecast entry applies to, in <code>YYYYMM</code> format.</p>
+   * Month the custom forecast entry applies to, in <code>YYYYMM</code> format.
+   *
    * @return month
-  **/
-      @JsonProperty(JSON_PROPERTY_MONTH)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getMonth() {
-        return month;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MONTH)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getMonth() {
+    return month;
+  }
+
   public void setMonth(Long month) {
     this.month = month;
   }
+
   public CustomForecastEntry tagFilters(List<CustomForecastEntryTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
     for (CustomForecastEntryTagFilter item : tagFilters) {
@@ -109,6 +101,7 @@ public class CustomForecastEntry {
     }
     return this;
   }
+
   public CustomForecastEntry addTagFiltersItem(CustomForecastEntryTagFilter tagFiltersItem) {
     this.tagFilters.add(tagFiltersItem);
     this.unparsed |= tagFiltersItem.unparsed;
@@ -116,15 +109,16 @@ public class CustomForecastEntry {
   }
 
   /**
-   * <p>Tag filters that scope this custom forecast entry to specific resources.</p>
+   * Tag filters that scope this custom forecast entry to specific resources.
+   *
    * @return tagFilters
-  **/
-      @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<CustomForecastEntryTagFilter> getTagFilters() {
-        return tagFilters;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<CustomForecastEntryTagFilter> getTagFilters() {
+    return tagFilters;
+  }
+
   public void setTagFilters(List<CustomForecastEntryTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
     if (tagFilters != null) {
@@ -135,15 +129,14 @@ public class CustomForecastEntry {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -152,7 +145,7 @@ public class CustomForecastEntry {
   @JsonAnySetter
   public CustomForecastEntry putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -176,14 +169,12 @@ public class CustomForecastEntry {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CustomForecastEntry object is equal to o.
-   */
+  /** Return true if this CustomForecastEntry object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -193,13 +184,15 @@ public class CustomForecastEntry {
       return false;
     }
     CustomForecastEntry customForecastEntry = (CustomForecastEntry) o;
-    return Objects.equals(this.amount, customForecastEntry.amount) && Objects.equals(this.month, customForecastEntry.month) && Objects.equals(this.tagFilters, customForecastEntry.tagFilters) && Objects.equals(this.additionalProperties, customForecastEntry.additionalProperties);
+    return Objects.equals(this.amount, customForecastEntry.amount)
+        && Objects.equals(this.month, customForecastEntry.month)
+        && Objects.equals(this.tagFilters, customForecastEntry.tagFilters)
+        && Objects.equals(this.additionalProperties, customForecastEntry.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount,month,tagFilters, additionalProperties);
+    return Objects.hash(amount, month, tagFilters, additionalProperties);
   }
 
   @Override
@@ -217,8 +210,7 @@ public class CustomForecastEntry {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

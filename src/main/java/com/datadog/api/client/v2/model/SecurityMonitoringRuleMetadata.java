@@ -6,42 +6,28 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Metadata associated with the rule.</p>
- */
+/** Metadata associated with the rule. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleMetadata.JSON_PROPERTY_ENTITIES,
   SecurityMonitoringRuleMetadata.JSON_PROPERTY_SOURCES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENTITIES = "entities";
   private JsonNullable<List<Object>> entities = JsonNullable.<List<Object>>undefined();
 
@@ -52,6 +38,7 @@ public class SecurityMonitoringRuleMetadata {
     this.entities = JsonNullable.<List<Object>>of(entities);
     return this;
   }
+
   public SecurityMonitoringRuleMetadata addEntitiesItem(Object entitiesItem) {
     if (this.entities == null || !this.entities.isPresent()) {
       this.entities = JsonNullable.<List<Object>>of(new ArrayList<>());
@@ -65,30 +52,36 @@ public class SecurityMonitoringRuleMetadata {
   }
 
   /**
-   * <p>Entities associated with the rule, or null when metadata is not requested.</p>
+   * Entities associated with the rule, or null when metadata is not requested.
+   *
    * @return entities
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<Object> getEntities() {
-        return entities.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<Object> getEntities() {
+    return entities.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ENTITIES)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<Object>> getEntities_JsonNullable() {
     return entities;
   }
-  @JsonProperty(JSON_PROPERTY_ENTITIES)public void setEntities_JsonNullable(JsonNullable<List<Object>> entities) {
+
+  @JsonProperty(JSON_PROPERTY_ENTITIES)
+  public void setEntities_JsonNullable(JsonNullable<List<Object>> entities) {
     this.entities = entities;
   }
+
   public void setEntities(List<Object> entities) {
     this.entities = JsonNullable.<List<Object>>of(entities);
   }
+
   public SecurityMonitoringRuleMetadata sources(List<String> sources) {
     this.sources = JsonNullable.<List<String>>of(sources);
     return this;
   }
+
   public SecurityMonitoringRuleMetadata addSourcesItem(String sourcesItem) {
     if (this.sources == null || !this.sources.isPresent()) {
       this.sources = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -102,37 +95,40 @@ public class SecurityMonitoringRuleMetadata {
   }
 
   /**
-   * <p>Sources associated with the rule, or null when metadata is not requested.</p>
+   * Sources associated with the rule, or null when metadata is not requested.
+   *
    * @return sources
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<String> getSources() {
-        return sources.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getSources() {
+    return sources.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getSources_JsonNullable() {
     return sources;
   }
-  @JsonProperty(JSON_PROPERTY_SOURCES)public void setSources_JsonNullable(JsonNullable<List<String>> sources) {
+
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  public void setSources_JsonNullable(JsonNullable<List<String>> sources) {
     this.sources = sources;
   }
+
   public void setSources(List<String> sources) {
     this.sources = JsonNullable.<List<String>>of(sources);
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -141,7 +137,7 @@ public class SecurityMonitoringRuleMetadata {
   @JsonAnySetter
   public SecurityMonitoringRuleMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -165,14 +161,12 @@ public class SecurityMonitoringRuleMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SecurityMonitoringRuleMetadata object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringRuleMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,14 +175,17 @@ public class SecurityMonitoringRuleMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleMetadata securityMonitoringRuleMetadata = (SecurityMonitoringRuleMetadata) o;
-    return Objects.equals(this.entities, securityMonitoringRuleMetadata.entities) && Objects.equals(this.sources, securityMonitoringRuleMetadata.sources) && Objects.equals(this.additionalProperties, securityMonitoringRuleMetadata.additionalProperties);
+    SecurityMonitoringRuleMetadata securityMonitoringRuleMetadata =
+        (SecurityMonitoringRuleMetadata) o;
+    return Objects.equals(this.entities, securityMonitoringRuleMetadata.entities)
+        && Objects.equals(this.sources, securityMonitoringRuleMetadata.sources)
+        && Objects.equals(
+            this.additionalProperties, securityMonitoringRuleMetadata.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(entities,sources, additionalProperties);
+    return Objects.hash(entities, sources, additionalProperties);
   }
 
   @Override
@@ -205,8 +202,7 @@ public class SecurityMonitoringRuleMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

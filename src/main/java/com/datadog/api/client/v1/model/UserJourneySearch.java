@@ -6,34 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>User journey search configuration.</p>
- */
+/** User journey search configuration. */
 @JsonPropertyOrder({
   UserJourneySearch.JSON_PROPERTY_EXPRESSION,
   UserJourneySearch.JSON_PROPERTY_FILTERS,
@@ -41,10 +23,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UserJourneySearch.JSON_PROPERTY_NODE_OBJECTS,
   UserJourneySearch.JSON_PROPERTY_STEP_ALIASES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserJourneySearch {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
   private String expression;
 
@@ -55,7 +37,8 @@ public class UserJourneySearch {
   private UserJourneyJoinKeys joinKeys;
 
   public static final String JSON_PROPERTY_NODE_OBJECTS = "node_objects";
-  private Map<String, ProductAnalyticsBaseQuery> nodeObjects = new HashMap<String, ProductAnalyticsBaseQuery>();
+  private Map<String, ProductAnalyticsBaseQuery> nodeObjects =
+      new HashMap<String, ProductAnalyticsBaseQuery>();
 
   public static final String JSON_PROPERTY_STEP_ALIASES = "step_aliases";
   private Map<String, String> stepAliases = null;
@@ -64,29 +47,33 @@ public class UserJourneySearch {
 
   @JsonCreator
   public UserJourneySearch(
-            @JsonProperty(required=true, value=JSON_PROPERTY_EXPRESSION)String expression,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NODE_OBJECTS)Map<String, ProductAnalyticsBaseQuery> nodeObjects) {
-        this.expression = expression;
-        this.nodeObjects = nodeObjects;
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXPRESSION) String expression,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NODE_OBJECTS)
+          Map<String, ProductAnalyticsBaseQuery> nodeObjects) {
+    this.expression = expression;
+    this.nodeObjects = nodeObjects;
   }
+
   public UserJourneySearch expression(String expression) {
     this.expression = expression;
     return this;
   }
 
   /**
-   * <p>Expression string.</p>
+   * Expression string.
+   *
    * @return expression
-  **/
-      @JsonProperty(JSON_PROPERTY_EXPRESSION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getExpression() {
-        return expression;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getExpression() {
+    return expression;
+  }
+
   public void setExpression(String expression) {
     this.expression = expression;
   }
+
   public UserJourneySearch filters(UserJourneySearchFilters filters) {
     this.filters = filters;
     this.unparsed |= filters.unparsed;
@@ -94,22 +81,24 @@ public class UserJourneySearch {
   }
 
   /**
-   * <p>Filters for user journey search.</p>
+   * Filters for user journey search.
+   *
    * @return filters
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILTERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UserJourneySearchFilters getFilters() {
-        return filters;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UserJourneySearchFilters getFilters() {
+    return filters;
+  }
+
   public void setFilters(UserJourneySearchFilters filters) {
     this.filters = filters;
     if (filters != null) {
       this.unparsed |= filters.unparsed;
     }
   }
+
   public UserJourneySearch joinKeys(UserJourneyJoinKeys joinKeys) {
     this.joinKeys = joinKeys;
     this.unparsed |= joinKeys.unparsed;
@@ -117,48 +106,55 @@ public class UserJourneySearch {
   }
 
   /**
-   * <p>Join keys for user journey queries.</p>
+   * Join keys for user journey queries.
+   *
    * @return joinKeys
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_JOIN_KEYS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UserJourneyJoinKeys getJoinKeys() {
-        return joinKeys;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_JOIN_KEYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UserJourneyJoinKeys getJoinKeys() {
+    return joinKeys;
+  }
+
   public void setJoinKeys(UserJourneyJoinKeys joinKeys) {
     this.joinKeys = joinKeys;
     if (joinKeys != null) {
       this.unparsed |= joinKeys.unparsed;
     }
   }
+
   public UserJourneySearch nodeObjects(Map<String, ProductAnalyticsBaseQuery> nodeObjects) {
     this.nodeObjects = nodeObjects;
     return this;
   }
-  public UserJourneySearch putNodeObjectsItem(String key, ProductAnalyticsBaseQuery nodeObjectsItem) {
+
+  public UserJourneySearch putNodeObjectsItem(
+      String key, ProductAnalyticsBaseQuery nodeObjectsItem) {
     this.nodeObjects.put(key, nodeObjectsItem);
     return this;
   }
 
   /**
-   * <p>Node objects mapping.</p>
+   * Node objects mapping.
+   *
    * @return nodeObjects
-  **/
-      @JsonProperty(JSON_PROPERTY_NODE_OBJECTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Map<String, ProductAnalyticsBaseQuery> getNodeObjects() {
-        return nodeObjects;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NODE_OBJECTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, ProductAnalyticsBaseQuery> getNodeObjects() {
+    return nodeObjects;
+  }
+
   public void setNodeObjects(Map<String, ProductAnalyticsBaseQuery> nodeObjects) {
     this.nodeObjects = nodeObjects;
   }
+
   public UserJourneySearch stepAliases(Map<String, String> stepAliases) {
     this.stepAliases = stepAliases;
     return this;
   }
+
   public UserJourneySearch putStepAliasesItem(String key, String stepAliasesItem) {
     if (this.stepAliases == null) {
       this.stepAliases = new HashMap<>();
@@ -168,23 +164,22 @@ public class UserJourneySearch {
   }
 
   /**
-   * <p>Step aliases mapping.</p>
+   * Step aliases mapping.
+   *
    * @return stepAliases
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STEP_ALIASES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getStepAliases() {
-        return stepAliases;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STEP_ALIASES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getStepAliases() {
+    return stepAliases;
+  }
+
   public void setStepAliases(Map<String, String> stepAliases) {
     this.stepAliases = stepAliases;
   }
 
-  /**
-   * Return true if this UserJourneySearch object is equal to o.
-   */
+  /** Return true if this UserJourneySearch object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -194,13 +189,16 @@ public class UserJourneySearch {
       return false;
     }
     UserJourneySearch userJourneySearch = (UserJourneySearch) o;
-    return Objects.equals(this.expression, userJourneySearch.expression) && Objects.equals(this.filters, userJourneySearch.filters) && Objects.equals(this.joinKeys, userJourneySearch.joinKeys) && Objects.equals(this.nodeObjects, userJourneySearch.nodeObjects) && Objects.equals(this.stepAliases, userJourneySearch.stepAliases);
+    return Objects.equals(this.expression, userJourneySearch.expression)
+        && Objects.equals(this.filters, userJourneySearch.filters)
+        && Objects.equals(this.joinKeys, userJourneySearch.joinKeys)
+        && Objects.equals(this.nodeObjects, userJourneySearch.nodeObjects)
+        && Objects.equals(this.stepAliases, userJourneySearch.stepAliases);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(expression,filters,joinKeys,nodeObjects,stepAliases);
+    return Objects.hash(expression, filters, joinKeys, nodeObjects, stepAliases);
   }
 
   @Override
@@ -217,8 +215,7 @@ public class UserJourneySearch {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

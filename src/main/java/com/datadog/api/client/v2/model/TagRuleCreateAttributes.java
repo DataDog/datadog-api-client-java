@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes that can be supplied when creating a tag rule.</p>
- */
+/** Attributes that can be supplied when creating a tag rule. */
 @JsonPropertyOrder({
   TagRuleCreateAttributes.JSON_PROPERTY_ENABLED,
   TagRuleCreateAttributes.JSON_PROPERTY_NAME,
@@ -45,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   TagRuleCreateAttributes.JSON_PROPERTY_TAG_KEY,
   TagRuleCreateAttributes.JSON_PROPERTY_TAG_VALUE_PATTERNS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TagRuleCreateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -80,96 +66,108 @@ public class TagRuleCreateAttributes {
 
   @JsonCreator
   public TagRuleCreateAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULE_TYPE)TagRuleCreateType ruleType,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SCOPE)String scope,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCE)TagRuleSource source,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TAG_KEY)String tagKey,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TAG_VALUE_PATTERNS)List<String> tagValuePatterns) {
-        this.name = name;
-        this.ruleType = ruleType;
-        this.unparsed |= !ruleType.isValid();
-        this.scope = scope;
-        this.source = source;
-        this.unparsed |= !source.isValid();
-        this.tagKey = tagKey;
-        this.tagValuePatterns = tagValuePatterns;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE_TYPE) TagRuleCreateType ruleType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SCOPE) String scope,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) TagRuleSource source,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAG_KEY) String tagKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAG_VALUE_PATTERNS)
+          List<String> tagValuePatterns) {
+    this.name = name;
+    this.ruleType = ruleType;
+    this.unparsed |= !ruleType.isValid();
+    this.scope = scope;
+    this.source = source;
+    this.unparsed |= !source.isValid();
+    this.tagKey = tagKey;
+    this.tagValuePatterns = tagValuePatterns;
   }
+
   public TagRuleCreateAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * <p>Whether the rule is currently enforced. Defaults to <code>true</code> for newly created rules.</p>
+   * Whether the rule is currently enforced. Defaults to <code>true</code> for newly created rules.
+   *
    * @return enabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
+
   public TagRuleCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Human-readable name for the tag rule.</p>
+   * Human-readable name for the tag rule.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public TagRuleCreateAttributes negated(Boolean negated) {
     this.negated = negated;
     return this;
   }
 
   /**
-   * <p>When <code>true</code>, the rule matches tag values that do NOT match any of the supplied patterns. Defaults to <code>false</code>.</p>
+   * When <code>true</code>, the rule matches tag values that do NOT match any of the supplied
+   * patterns. Defaults to <code>false</code>.
+   *
    * @return negated
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NEGATED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getNegated() {
-        return negated;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NEGATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getNegated() {
+    return negated;
+  }
+
   public void setNegated(Boolean negated) {
     this.negated = negated;
   }
+
   public TagRuleCreateAttributes required(Boolean required) {
     this.required = required;
     return this;
   }
 
   /**
-   * <p>When <code>true</code>, telemetry without this tag is treated as a violation. Defaults to <code>false</code>.</p>
+   * When <code>true</code>, telemetry without this tag is treated as a violation. Defaults to
+   * <code>false</code>.
+   *
    * @return required
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REQUIRED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getRequired() {
-        return required;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRequired() {
+    return required;
+  }
+
   public void setRequired(Boolean required) {
     this.required = required;
   }
+
   public TagRuleCreateAttributes ruleType(TagRuleCreateType ruleType) {
     this.ruleType = ruleType;
     this.unparsed |= !ruleType.isValid();
@@ -177,41 +175,45 @@ public class TagRuleCreateAttributes {
   }
 
   /**
-   * <p>The rule type allowed when creating a tag rule. Only <code>surfacing</code> is accepted at
-   * creation time.</p>
+   * The rule type allowed when creating a tag rule. Only <code>surfacing</code> is accepted at
+   * creation time.
+   *
    * @return ruleType
-  **/
-      @JsonProperty(JSON_PROPERTY_RULE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public TagRuleCreateType getRuleType() {
-        return ruleType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TagRuleCreateType getRuleType() {
+    return ruleType;
+  }
+
   public void setRuleType(TagRuleCreateType ruleType) {
     if (!ruleType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.ruleType = ruleType;
   }
+
   public TagRuleCreateAttributes scope(String scope) {
     this.scope = scope;
     return this;
   }
 
   /**
-   * <p>The scope the rule applies within. Typically an environment, team, or
-   * organization-level identifier used to limit where the rule is enforced.</p>
+   * The scope the rule applies within. Typically an environment, team, or organization-level
+   * identifier used to limit where the rule is enforced.
+   *
    * @return scope
-  **/
-      @JsonProperty(JSON_PROPERTY_SCOPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getScope() {
-        return scope;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getScope() {
+    return scope;
+  }
+
   public void setScope(String scope) {
     this.scope = scope;
   }
+
   public TagRuleCreateAttributes source(TagRuleSource source) {
     this.source = source;
     this.unparsed |= !source.isValid();
@@ -219,73 +221,78 @@ public class TagRuleCreateAttributes {
   }
 
   /**
-   * <p>The telemetry source that a tag rule applies to.</p>
+   * The telemetry source that a tag rule applies to.
+   *
    * @return source
-  **/
-      @JsonProperty(JSON_PROPERTY_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public TagRuleSource getSource() {
-        return source;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TagRuleSource getSource() {
+    return source;
+  }
+
   public void setSource(TagRuleSource source) {
     if (!source.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.source = source;
   }
+
   public TagRuleCreateAttributes tagKey(String tagKey) {
     this.tagKey = tagKey;
     return this;
   }
 
   /**
-   * <p>The tag key that the rule governs (for example, <code>service</code>).</p>
+   * The tag key that the rule governs (for example, <code>service</code>).
+   *
    * @return tagKey
-  **/
-      @JsonProperty(JSON_PROPERTY_TAG_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getTagKey() {
-        return tagKey;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TAG_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTagKey() {
+    return tagKey;
+  }
+
   public void setTagKey(String tagKey) {
     this.tagKey = tagKey;
   }
+
   public TagRuleCreateAttributes tagValuePatterns(List<String> tagValuePatterns) {
     this.tagValuePatterns = tagValuePatterns;
     return this;
   }
+
   public TagRuleCreateAttributes addTagValuePatternsItem(String tagValuePatternsItem) {
     this.tagValuePatterns.add(tagValuePatternsItem);
     return this;
   }
 
   /**
-   * <p>One or more patterns that valid values for the tag key must match. At least one
-   * pattern is required.</p>
+   * One or more patterns that valid values for the tag key must match. At least one pattern is
+   * required.
+   *
    * @return tagValuePatterns
-  **/
-      @JsonProperty(JSON_PROPERTY_TAG_VALUE_PATTERNS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getTagValuePatterns() {
-        return tagValuePatterns;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TAG_VALUE_PATTERNS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getTagValuePatterns() {
+    return tagValuePatterns;
+  }
+
   public void setTagValuePatterns(List<String> tagValuePatterns) {
     this.tagValuePatterns = tagValuePatterns;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -294,7 +301,7 @@ public class TagRuleCreateAttributes {
   @JsonAnySetter
   public TagRuleCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -318,14 +325,12 @@ public class TagRuleCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TagRuleCreateAttributes object is equal to o.
-   */
+  /** Return true if this TagRuleCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -335,13 +340,31 @@ public class TagRuleCreateAttributes {
       return false;
     }
     TagRuleCreateAttributes tagRuleCreateAttributes = (TagRuleCreateAttributes) o;
-    return Objects.equals(this.enabled, tagRuleCreateAttributes.enabled) && Objects.equals(this.name, tagRuleCreateAttributes.name) && Objects.equals(this.negated, tagRuleCreateAttributes.negated) && Objects.equals(this.required, tagRuleCreateAttributes.required) && Objects.equals(this.ruleType, tagRuleCreateAttributes.ruleType) && Objects.equals(this.scope, tagRuleCreateAttributes.scope) && Objects.equals(this.source, tagRuleCreateAttributes.source) && Objects.equals(this.tagKey, tagRuleCreateAttributes.tagKey) && Objects.equals(this.tagValuePatterns, tagRuleCreateAttributes.tagValuePatterns) && Objects.equals(this.additionalProperties, tagRuleCreateAttributes.additionalProperties);
+    return Objects.equals(this.enabled, tagRuleCreateAttributes.enabled)
+        && Objects.equals(this.name, tagRuleCreateAttributes.name)
+        && Objects.equals(this.negated, tagRuleCreateAttributes.negated)
+        && Objects.equals(this.required, tagRuleCreateAttributes.required)
+        && Objects.equals(this.ruleType, tagRuleCreateAttributes.ruleType)
+        && Objects.equals(this.scope, tagRuleCreateAttributes.scope)
+        && Objects.equals(this.source, tagRuleCreateAttributes.source)
+        && Objects.equals(this.tagKey, tagRuleCreateAttributes.tagKey)
+        && Objects.equals(this.tagValuePatterns, tagRuleCreateAttributes.tagValuePatterns)
+        && Objects.equals(this.additionalProperties, tagRuleCreateAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled,name,negated,required,ruleType,scope,source,tagKey,tagValuePatterns, additionalProperties);
+    return Objects.hash(
+        enabled,
+        name,
+        negated,
+        required,
+        ruleType,
+        scope,
+        source,
+        tagKey,
+        tagValuePatterns,
+        additionalProperties);
   }
 
   @Override
@@ -365,8 +388,7 @@ public class TagRuleCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

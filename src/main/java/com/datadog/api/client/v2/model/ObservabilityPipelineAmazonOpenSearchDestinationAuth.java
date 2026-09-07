@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Authentication settings for the Amazon OpenSearch destination.
-   * The <code>strategy</code> field determines whether basic or AWS-based authentication is used.</p>
+ * Authentication settings for the Amazon OpenSearch destination. The <code>strategy</code> field
+ * determines whether basic or AWS-based authentication is used.
  */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_ASSUME_ROLE,
@@ -42,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_SESSION_NAME,
   ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_STRATEGY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSUME_ROLE = "assume_role";
   private String assumeRole;
 
@@ -65,128 +51,140 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
 
   @JsonCreator
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth(
-            @JsonProperty(required=true, value=JSON_PROPERTY_STRATEGY)ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
-        this.strategy = strategy;
-        this.unparsed |= !strategy.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_STRATEGY)
+          ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
+    this.strategy = strategy;
+    this.unparsed |= !strategy.isValid();
   }
+
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth assumeRole(String assumeRole) {
     this.assumeRole = assumeRole;
     return this;
   }
 
   /**
-   * <p>The ARN of the role to assume (used with <code>aws</code> strategy).</p>
+   * The ARN of the role to assume (used with <code>aws</code> strategy).
+   *
    * @return assumeRole
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSUME_ROLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAssumeRole() {
-        return assumeRole;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSUME_ROLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAssumeRole() {
+    return assumeRole;
+  }
+
   public void setAssumeRole(String assumeRole) {
     this.assumeRole = assumeRole;
   }
+
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth awsRegion(String awsRegion) {
     this.awsRegion = awsRegion;
     return this;
   }
 
   /**
-   * <p>AWS region</p>
+   * AWS region
+   *
    * @return awsRegion
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AWS_REGION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAwsRegion() {
-        return awsRegion;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AWS_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAwsRegion() {
+    return awsRegion;
+  }
+
   public void setAwsRegion(String awsRegion) {
     this.awsRegion = awsRegion;
   }
+
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
 
   /**
-   * <p>External ID for the assumed role (used with <code>aws</code> strategy).</p>
+   * External ID for the assumed role (used with <code>aws</code> strategy).
+   *
    * @return externalId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getExternalId() {
-        return externalId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getExternalId() {
+    return externalId;
+  }
+
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
+
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth sessionName(String sessionName) {
     this.sessionName = sessionName;
     return this;
   }
 
   /**
-   * <p>Session name for the assumed role (used with <code>aws</code> strategy).</p>
+   * Session name for the assumed role (used with <code>aws</code> strategy).
+   *
    * @return sessionName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SESSION_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSessionName() {
-        return sessionName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SESSION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSessionName() {
+    return sessionName;
+  }
+
   public void setSessionName(String sessionName) {
     this.sessionName = sessionName;
   }
-  public ObservabilityPipelineAmazonOpenSearchDestinationAuth strategy(ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
+
+  public ObservabilityPipelineAmazonOpenSearchDestinationAuth strategy(
+      ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
     this.strategy = strategy;
     this.unparsed |= !strategy.isValid();
     return this;
   }
 
   /**
-   * <p>The authentication strategy to use.</p>
+   * The authentication strategy to use.
+   *
    * @return strategy
-  **/
-      @JsonProperty(JSON_PROPERTY_STRATEGY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy getStrategy() {
-        return strategy;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STRATEGY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy getStrategy() {
+    return strategy;
+  }
+
   public void setStrategy(ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
     if (!strategy.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.strategy = strategy;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineAmazonOpenSearchDestinationAuth
    */
   @JsonAnySetter
-  public ObservabilityPipelineAmazonOpenSearchDestinationAuth putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineAmazonOpenSearchDestinationAuth putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -210,7 +208,7 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -226,14 +224,28 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineAmazonOpenSearchDestinationAuth observabilityPipelineAmazonOpenSearchDestinationAuth = (ObservabilityPipelineAmazonOpenSearchDestinationAuth) o;
-    return Objects.equals(this.assumeRole, observabilityPipelineAmazonOpenSearchDestinationAuth.assumeRole) && Objects.equals(this.awsRegion, observabilityPipelineAmazonOpenSearchDestinationAuth.awsRegion) && Objects.equals(this.externalId, observabilityPipelineAmazonOpenSearchDestinationAuth.externalId) && Objects.equals(this.sessionName, observabilityPipelineAmazonOpenSearchDestinationAuth.sessionName) && Objects.equals(this.strategy, observabilityPipelineAmazonOpenSearchDestinationAuth.strategy) && Objects.equals(this.additionalProperties, observabilityPipelineAmazonOpenSearchDestinationAuth.additionalProperties);
+    ObservabilityPipelineAmazonOpenSearchDestinationAuth
+        observabilityPipelineAmazonOpenSearchDestinationAuth =
+            (ObservabilityPipelineAmazonOpenSearchDestinationAuth) o;
+    return Objects.equals(
+            this.assumeRole, observabilityPipelineAmazonOpenSearchDestinationAuth.assumeRole)
+        && Objects.equals(
+            this.awsRegion, observabilityPipelineAmazonOpenSearchDestinationAuth.awsRegion)
+        && Objects.equals(
+            this.externalId, observabilityPipelineAmazonOpenSearchDestinationAuth.externalId)
+        && Objects.equals(
+            this.sessionName, observabilityPipelineAmazonOpenSearchDestinationAuth.sessionName)
+        && Objects.equals(
+            this.strategy, observabilityPipelineAmazonOpenSearchDestinationAuth.strategy)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineAmazonOpenSearchDestinationAuth.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(assumeRole,awsRegion,externalId,sessionName,strategy, additionalProperties);
+    return Objects.hash(
+        assumeRole, awsRegion, externalId, sessionName, strategy, additionalProperties);
   }
 
   @Override
@@ -253,8 +265,7 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

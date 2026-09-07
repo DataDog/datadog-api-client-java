@@ -6,74 +6,54 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
-   * <p>Visual dimension for the host map widget. Used both by infrastructure-backed formulas and by DDSQL projection columns; <code>group</code> is only meaningful for DDSQL projection columns, where repeated entries define the grouping hierarchy.</p>
+ * Visual dimension for the host map widget. Used both by infrastructure-backed formulas and by
+ * DDSQL projection columns; <code>group</code> is only meaningful for DDSQL projection columns,
+ * where repeated entries define the grouping hierarchy.
  */
 @JsonSerialize(using = HostMapWidgetDimension.HostMapWidgetDimensionSerializer.class)
 public class HostMapWidgetDimension extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("node", "fill", "size", "group"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("node", "fill", "size", "group"));
 
   public static final HostMapWidgetDimension NODE = new HostMapWidgetDimension("node");
   public static final HostMapWidgetDimension FILL = new HostMapWidgetDimension("fill");
   public static final HostMapWidgetDimension SIZE = new HostMapWidgetDimension("size");
   public static final HostMapWidgetDimension GROUP = new HostMapWidgetDimension("group");
 
-
   HostMapWidgetDimension(String value) {
     super(value, allowedValues);
   }
 
-  public static class HostMapWidgetDimensionSerializer extends StdSerializer<HostMapWidgetDimension> {
-      public HostMapWidgetDimensionSerializer(Class<HostMapWidgetDimension> t) {
-          super(t);
-      }
+  public static class HostMapWidgetDimensionSerializer
+      extends StdSerializer<HostMapWidgetDimension> {
+    public HostMapWidgetDimensionSerializer(Class<HostMapWidgetDimension> t) {
+      super(t);
+    }
 
-      public HostMapWidgetDimensionSerializer() {
-          this(null);
-      }
+    public HostMapWidgetDimensionSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(HostMapWidgetDimension value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        HostMapWidgetDimension value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

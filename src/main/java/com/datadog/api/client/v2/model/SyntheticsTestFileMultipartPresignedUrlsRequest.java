@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Request body for getting presigned URLs for a multipart file upload.</p>
- */
+/** Request body for getting presigned URLs for a multipart file upload. */
 @JsonPropertyOrder({
   SyntheticsTestFileMultipartPresignedUrlsRequest.JSON_PROPERTY_BUCKET_KEY_PREFIX,
   SyntheticsTestFileMultipartPresignedUrlsRequest.JSON_PROPERTY_PARTS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestFileMultipartPresignedUrlsRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKET_KEY_PREFIX = "bucketKeyPrefix";
   private SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix bucketKeyPrefix;
 
@@ -52,60 +38,71 @@ public class SyntheticsTestFileMultipartPresignedUrlsRequest {
 
   @JsonCreator
   public SyntheticsTestFileMultipartPresignedUrlsRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_BUCKET_KEY_PREFIX)SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix bucketKeyPrefix,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PARTS)List<SyntheticsTestFileMultipartPresignedUrlsPart> parts) {
-        this.bucketKeyPrefix = bucketKeyPrefix;
-        this.unparsed |= !bucketKeyPrefix.isValid();
-        this.parts = parts;
-        for (SyntheticsTestFileMultipartPresignedUrlsPart item : parts) {
-          this.unparsed |= item.unparsed;
-        }
+      @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET_KEY_PREFIX)
+          SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix bucketKeyPrefix,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PARTS)
+          List<SyntheticsTestFileMultipartPresignedUrlsPart> parts) {
+    this.bucketKeyPrefix = bucketKeyPrefix;
+    this.unparsed |= !bucketKeyPrefix.isValid();
+    this.parts = parts;
+    for (SyntheticsTestFileMultipartPresignedUrlsPart item : parts) {
+      this.unparsed |= item.unparsed;
+    }
   }
-  public SyntheticsTestFileMultipartPresignedUrlsRequest bucketKeyPrefix(SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix bucketKeyPrefix) {
+
+  public SyntheticsTestFileMultipartPresignedUrlsRequest bucketKeyPrefix(
+      SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix bucketKeyPrefix) {
     this.bucketKeyPrefix = bucketKeyPrefix;
     this.unparsed |= !bucketKeyPrefix.isValid();
     return this;
   }
 
   /**
-   * <p>The bucket key prefix indicating the type of file upload.</p>
+   * The bucket key prefix indicating the type of file upload.
+   *
    * @return bucketKeyPrefix
-  **/
-      @JsonProperty(JSON_PROPERTY_BUCKET_KEY_PREFIX)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix getBucketKeyPrefix() {
-        return bucketKeyPrefix;
-      }
-  public void setBucketKeyPrefix(SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix bucketKeyPrefix) {
+   */
+  @JsonProperty(JSON_PROPERTY_BUCKET_KEY_PREFIX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix getBucketKeyPrefix() {
+    return bucketKeyPrefix;
+  }
+
+  public void setBucketKeyPrefix(
+      SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix bucketKeyPrefix) {
     if (!bucketKeyPrefix.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.bucketKeyPrefix = bucketKeyPrefix;
   }
-  public SyntheticsTestFileMultipartPresignedUrlsRequest parts(List<SyntheticsTestFileMultipartPresignedUrlsPart> parts) {
+
+  public SyntheticsTestFileMultipartPresignedUrlsRequest parts(
+      List<SyntheticsTestFileMultipartPresignedUrlsPart> parts) {
     this.parts = parts;
     for (SyntheticsTestFileMultipartPresignedUrlsPart item : parts) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public SyntheticsTestFileMultipartPresignedUrlsRequest addPartsItem(SyntheticsTestFileMultipartPresignedUrlsPart partsItem) {
+
+  public SyntheticsTestFileMultipartPresignedUrlsRequest addPartsItem(
+      SyntheticsTestFileMultipartPresignedUrlsPart partsItem) {
     this.parts.add(partsItem);
     this.unparsed |= partsItem.unparsed;
     return this;
   }
 
   /**
-   * <p>Array of part descriptors for the multipart upload.</p>
+   * Array of part descriptors for the multipart upload.
+   *
    * @return parts
-  **/
-      @JsonProperty(JSON_PROPERTY_PARTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<SyntheticsTestFileMultipartPresignedUrlsPart> getParts() {
-        return parts;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PARTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SyntheticsTestFileMultipartPresignedUrlsPart> getParts() {
+    return parts;
+  }
+
   public void setParts(List<SyntheticsTestFileMultipartPresignedUrlsPart> parts) {
     this.parts = parts;
     if (parts != null) {
@@ -116,24 +113,24 @@ public class SyntheticsTestFileMultipartPresignedUrlsRequest {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SyntheticsTestFileMultipartPresignedUrlsRequest
    */
   @JsonAnySetter
-  public SyntheticsTestFileMultipartPresignedUrlsRequest putAdditionalProperty(String key, Object value) {
+  public SyntheticsTestFileMultipartPresignedUrlsRequest putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -157,14 +154,12 @@ public class SyntheticsTestFileMultipartPresignedUrlsRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsTestFileMultipartPresignedUrlsRequest object is equal to o.
-   */
+  /** Return true if this SyntheticsTestFileMultipartPresignedUrlsRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -173,14 +168,20 @@ public class SyntheticsTestFileMultipartPresignedUrlsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestFileMultipartPresignedUrlsRequest syntheticsTestFileMultipartPresignedUrlsRequest = (SyntheticsTestFileMultipartPresignedUrlsRequest) o;
-    return Objects.equals(this.bucketKeyPrefix, syntheticsTestFileMultipartPresignedUrlsRequest.bucketKeyPrefix) && Objects.equals(this.parts, syntheticsTestFileMultipartPresignedUrlsRequest.parts) && Objects.equals(this.additionalProperties, syntheticsTestFileMultipartPresignedUrlsRequest.additionalProperties);
+    SyntheticsTestFileMultipartPresignedUrlsRequest
+        syntheticsTestFileMultipartPresignedUrlsRequest =
+            (SyntheticsTestFileMultipartPresignedUrlsRequest) o;
+    return Objects.equals(
+            this.bucketKeyPrefix, syntheticsTestFileMultipartPresignedUrlsRequest.bucketKeyPrefix)
+        && Objects.equals(this.parts, syntheticsTestFileMultipartPresignedUrlsRequest.parts)
+        && Objects.equals(
+            this.additionalProperties,
+            syntheticsTestFileMultipartPresignedUrlsRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketKeyPrefix,parts, additionalProperties);
+    return Objects.hash(bucketKeyPrefix, parts, additionalProperties);
   }
 
   @Override
@@ -197,8 +198,7 @@ public class SyntheticsTestFileMultipartPresignedUrlsRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

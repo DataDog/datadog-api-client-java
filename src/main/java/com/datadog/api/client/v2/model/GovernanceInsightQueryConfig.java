@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Query execution context for running insight queries directly.</p>
- */
+/** Query execution context for running insight queries directly. */
 @JsonPropertyOrder({
   GovernanceInsightQueryConfig.JSON_PROPERTY_CHART_TYPE,
   GovernanceInsightQueryConfig.JSON_PROPERTY_COMPARISON_SHIFT,
@@ -41,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   GovernanceInsightQueryConfig.JSON_PROPERTY_DIRECTIONALITY,
   GovernanceInsightQueryConfig.JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GovernanceInsightQueryConfig {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHART_TYPE = "chart_type";
   private String chartType;
 
@@ -57,126 +41,139 @@ public class GovernanceInsightQueryConfig {
   public static final String JSON_PROPERTY_DIRECTIONALITY = "directionality";
   private GovernanceInsightDirectionality directionality;
 
-  public static final String JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS = "effective_time_window_days";
+  public static final String JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS =
+      "effective_time_window_days";
   private Long effectiveTimeWindowDays;
 
   public GovernanceInsightQueryConfig() {}
 
   @JsonCreator
   public GovernanceInsightQueryConfig(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COMPARISON_SHIFT)String comparisonShift,
-            @JsonProperty(required=true, value=JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS)Long effectiveTimeWindowDays) {
-        this.comparisonShift = comparisonShift;
-        this.effectiveTimeWindowDays = effectiveTimeWindowDays;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPARISON_SHIFT) String comparisonShift,
+      @JsonProperty(required = true, value = JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS)
+          Long effectiveTimeWindowDays) {
+    this.comparisonShift = comparisonShift;
+    this.effectiveTimeWindowDays = effectiveTimeWindowDays;
   }
+
   public GovernanceInsightQueryConfig chartType(String chartType) {
     this.chartType = chartType;
     return this;
   }
 
   /**
-   * <p>The chart type used to render the insight.</p>
+   * The chart type used to render the insight.
+   *
    * @return chartType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHART_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getChartType() {
-        return chartType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHART_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getChartType() {
+    return chartType;
+  }
+
   public void setChartType(String chartType) {
     this.chartType = chartType;
   }
+
   public GovernanceInsightQueryConfig comparisonShift(String comparisonShift) {
     this.comparisonShift = comparisonShift;
     return this;
   }
 
   /**
-   * <p>The window used for the previous value comparison; for example, <code>week</code> or <code>month</code>.</p>
+   * The window used for the previous value comparison; for example, <code>week</code> or <code>
+   * month</code>.
+   *
    * @return comparisonShift
-  **/
-      @JsonProperty(JSON_PROPERTY_COMPARISON_SHIFT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getComparisonShift() {
-        return comparisonShift;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COMPARISON_SHIFT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getComparisonShift() {
+    return comparisonShift;
+  }
+
   public void setComparisonShift(String comparisonShift) {
     this.comparisonShift = comparisonShift;
   }
+
   public GovernanceInsightQueryConfig defaultValue(Long defaultValue) {
     this.defaultValue = defaultValue;
     return this;
   }
 
   /**
-   * <p>The default value to display when no data is available.</p>
+   * The default value to display when no data is available.
+   *
    * @return defaultValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEFAULT_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getDefaultValue() {
-        return defaultValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDefaultValue() {
+    return defaultValue;
+  }
+
   public void setDefaultValue(Long defaultValue) {
     this.defaultValue = defaultValue;
   }
-  public GovernanceInsightQueryConfig directionality(GovernanceInsightDirectionality directionality) {
+
+  public GovernanceInsightQueryConfig directionality(
+      GovernanceInsightDirectionality directionality) {
     this.directionality = directionality;
     this.unparsed |= !directionality.isValid();
     return this;
   }
 
   /**
-   * <p>Whether an increase in the insight's value is good, bad, or neutral.</p>
+   * Whether an increase in the insight's value is good, bad, or neutral.
+   *
    * @return directionality
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DIRECTIONALITY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public GovernanceInsightDirectionality getDirectionality() {
-        return directionality;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DIRECTIONALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GovernanceInsightDirectionality getDirectionality() {
+    return directionality;
+  }
+
   public void setDirectionality(GovernanceInsightDirectionality directionality) {
     if (!directionality.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.directionality = directionality;
   }
+
   public GovernanceInsightQueryConfig effectiveTimeWindowDays(Long effectiveTimeWindowDays) {
     this.effectiveTimeWindowDays = effectiveTimeWindowDays;
     return this;
   }
 
   /**
-   * <p>The number of days the insight value is computed over.</p>
+   * The number of days the insight value is computed over.
+   *
    * @return effectiveTimeWindowDays
-  **/
-      @JsonProperty(JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getEffectiveTimeWindowDays() {
-        return effectiveTimeWindowDays;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getEffectiveTimeWindowDays() {
+    return effectiveTimeWindowDays;
+  }
+
   public void setEffectiveTimeWindowDays(Long effectiveTimeWindowDays) {
     this.effectiveTimeWindowDays = effectiveTimeWindowDays;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -185,7 +182,7 @@ public class GovernanceInsightQueryConfig {
   @JsonAnySetter
   public GovernanceInsightQueryConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -209,14 +206,12 @@ public class GovernanceInsightQueryConfig {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GovernanceInsightQueryConfig object is equal to o.
-   */
+  /** Return true if this GovernanceInsightQueryConfig object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -226,13 +221,25 @@ public class GovernanceInsightQueryConfig {
       return false;
     }
     GovernanceInsightQueryConfig governanceInsightQueryConfig = (GovernanceInsightQueryConfig) o;
-    return Objects.equals(this.chartType, governanceInsightQueryConfig.chartType) && Objects.equals(this.comparisonShift, governanceInsightQueryConfig.comparisonShift) && Objects.equals(this.defaultValue, governanceInsightQueryConfig.defaultValue) && Objects.equals(this.directionality, governanceInsightQueryConfig.directionality) && Objects.equals(this.effectiveTimeWindowDays, governanceInsightQueryConfig.effectiveTimeWindowDays) && Objects.equals(this.additionalProperties, governanceInsightQueryConfig.additionalProperties);
+    return Objects.equals(this.chartType, governanceInsightQueryConfig.chartType)
+        && Objects.equals(this.comparisonShift, governanceInsightQueryConfig.comparisonShift)
+        && Objects.equals(this.defaultValue, governanceInsightQueryConfig.defaultValue)
+        && Objects.equals(this.directionality, governanceInsightQueryConfig.directionality)
+        && Objects.equals(
+            this.effectiveTimeWindowDays, governanceInsightQueryConfig.effectiveTimeWindowDays)
+        && Objects.equals(
+            this.additionalProperties, governanceInsightQueryConfig.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(chartType,comparisonShift,defaultValue,directionality,effectiveTimeWindowDays, additionalProperties);
+    return Objects.hash(
+        chartType,
+        comparisonShift,
+        defaultValue,
+        directionality,
+        effectiveTimeWindowDays,
+        additionalProperties);
   }
 
   @Override
@@ -243,7 +250,9 @@ public class GovernanceInsightQueryConfig {
     sb.append("    comparisonShift: ").append(toIndentedString(comparisonShift)).append("\n");
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    directionality: ").append(toIndentedString(directionality)).append("\n");
-    sb.append("    effectiveTimeWindowDays: ").append(toIndentedString(effectiveTimeWindowDays)).append("\n");
+    sb.append("    effectiveTimeWindowDays: ")
+        .append(toIndentedString(effectiveTimeWindowDays))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -252,8 +261,7 @@ public class GovernanceInsightQueryConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

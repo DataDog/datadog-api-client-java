@@ -1,44 +1,35 @@
-
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.PaginationIterable;
-
-import jakarta.ws.rs.core.GenericType;
+import com.datadog.api.client.v2.model.RumExclusionFilterCreateRequest;
+import com.datadog.api.client.v2.model.RumExclusionFilterResponse;
+import com.datadog.api.client.v2.model.RumExclusionFilterUpdateRequest;
+import com.datadog.api.client.v2.model.RumExclusionFiltersResponse;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFilterID;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFilterResponse;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFilterUpdateRequest;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFiltersResponse;
+import com.datadog.api.client.v2.model.RumRetentionFilterCreateRequest;
+import com.datadog.api.client.v2.model.RumRetentionFilterResponse;
+import com.datadog.api.client.v2.model.RumRetentionFilterUpdateRequest;
+import com.datadog.api.client.v2.model.RumRetentionFiltersOrderRequest;
+import com.datadog.api.client.v2.model.RumRetentionFiltersOrderResponse;
+import com.datadog.api.client.v2.model.RumRetentionFiltersResponse;
 import jakarta.ws.rs.client.Invocation;
-
-import java.io.File;
-import java.util.Arrays;
+import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
-import java.time.OffsetDateTime;
-import java.util.UUID;
-import com.datadog.api.client.v2.model.RumRetentionFiltersOrderResponse;
-import com.datadog.api.client.v2.model.RumRetentionFiltersOrderRequest;
-import com.datadog.api.client.v2.model.RumRetentionFiltersResponse;
-import com.datadog.api.client.v2.model.RumRetentionFilterResponse;
-import com.datadog.api.client.v2.model.RumRetentionFilterCreateRequest;
-import com.datadog.api.client.v2.model.RumExclusionFiltersResponse;
-import com.datadog.api.client.v2.model.RumExclusionFilterResponse;
-import com.datadog.api.client.v2.model.RumExclusionFilterCreateRequest;
-import com.datadog.api.client.v2.model.RumExclusionFilterUpdateRequest;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFiltersResponse;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterResponse;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterID;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterUpdateRequest;
-import com.datadog.api.client.v2.model.RumRetentionFilterUpdateRequest;
 
-
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RumRetentionFiltersApi {
   private ApiClient apiClient;
+
   public RumRetentionFiltersApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -66,45 +57,48 @@ public class RumRetentionFiltersApi {
   }
 
   /**
- * Create a RUM exclusion filter.
- *
- * See {@link #createExclusionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param body The definition of the new RUM exclusion filter. (required)
- * @return RumExclusionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumExclusionFilterResponse  createExclusionFilter(String appId, RumExclusionFilterCreateRequest body) throws ApiException {
+   * Create a RUM exclusion filter.
+   *
+   * <p>See {@link #createExclusionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param body The definition of the new RUM exclusion filter. (required)
+   * @return RumExclusionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumExclusionFilterResponse createExclusionFilter(
+      String appId, RumExclusionFilterCreateRequest body) throws ApiException {
     return createExclusionFilterWithHttpInfo(appId, body).getData();
   }
 
   /**
- * Create a RUM exclusion filter.
- *
- * See {@link #createExclusionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param body The definition of the new RUM exclusion filter. (required)
- * @return CompletableFuture&lt;RumExclusionFilterResponse&gt;
- */
-  public CompletableFuture<RumExclusionFilterResponse>createExclusionFilterAsync(String appId, RumExclusionFilterCreateRequest body) {
-    return createExclusionFilterWithHttpInfoAsync(appId, body).thenApply(response -> {
-        return response.getData();
-    });
+   * Create a RUM exclusion filter.
+   *
+   * <p>See {@link #createExclusionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param body The definition of the new RUM exclusion filter. (required)
+   * @return CompletableFuture&lt;RumExclusionFilterResponse&gt;
+   */
+  public CompletableFuture<RumExclusionFilterResponse> createExclusionFilterAsync(
+      String appId, RumExclusionFilterCreateRequest body) {
+    return createExclusionFilterWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Create an exclusion filter for a RUM application.
-   * Returns the created exclusion filter when the request is successful.</p>
+   * Create an exclusion filter for a RUM application. Returns the created exclusion filter when the
+   * request is successful.
    *
    * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM exclusion filter. (required)
    * @return ApiResponse&lt;RumExclusionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -113,7 +107,8 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumExclusionFilterResponse> createExclusionFilterWithHttpInfo(String appId, RumExclusionFilterCreateRequest body) throws ApiException {
+  public ApiResponse<RumExclusionFilterResponse> createExclusionFilterWithHttpInfo(
+      String appId, RumExclusionFilterCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -125,118 +120,159 @@ public class RumRetentionFiltersApi {
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling createExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling createExclusionFilter");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createExclusionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.createExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.createExclusionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFilterResponse>() {});
   }
 
   /**
    * Create a RUM exclusion filter.
    *
-   * See {@link #createExclusionFilterWithHttpInfo}.
+   * <p>See {@link #createExclusionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM exclusion filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumExclusionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumExclusionFilterResponse>> createExclusionFilterWithHttpInfoAsync(String appId, RumExclusionFilterCreateRequest body) {
+  public CompletableFuture<ApiResponse<RumExclusionFilterResponse>>
+      createExclusionFilterWithHttpInfoAsync(String appId, RumExclusionFilterCreateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling createExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling createExclusionFilter"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createExclusionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.createExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.createExclusionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFilterResponse>() {});
   }
 
   /**
- * Create a RUM retention filter.
- *
- * See {@link #createRetentionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param body The definition of the new RUM retention filter. (required)
- * @return RumRetentionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumRetentionFilterResponse  createRetentionFilter(String appId, RumRetentionFilterCreateRequest body) throws ApiException {
+   * Create a RUM retention filter.
+   *
+   * <p>See {@link #createRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param body The definition of the new RUM retention filter. (required)
+   * @return RumRetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumRetentionFilterResponse createRetentionFilter(
+      String appId, RumRetentionFilterCreateRequest body) throws ApiException {
     return createRetentionFilterWithHttpInfo(appId, body).getData();
   }
 
   /**
- * Create a RUM retention filter.
- *
- * See {@link #createRetentionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param body The definition of the new RUM retention filter. (required)
- * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
- */
-  public CompletableFuture<RumRetentionFilterResponse>createRetentionFilterAsync(String appId, RumRetentionFilterCreateRequest body) {
-    return createRetentionFilterWithHttpInfoAsync(appId, body).thenApply(response -> {
-        return response.getData();
-    });
+   * Create a RUM retention filter.
+   *
+   * <p>See {@link #createRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param body The definition of the new RUM retention filter. (required)
+   * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RumRetentionFilterResponse> createRetentionFilterAsync(
+      String appId, RumRetentionFilterCreateRequest body) {
+    return createRetentionFilterWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Create a RUM retention filter for a RUM application.
-   * Returns RUM retention filter objects from the request body when the request is successful.</p>
+   * Create a RUM retention filter for a RUM application. Returns RUM retention filter objects from
+   * the request body when the request is successful.
    *
    * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM retention filter. (required)
    * @return ApiResponse&lt;RumRetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -245,114 +281,153 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRetentionFilterResponse> createRetentionFilterWithHttpInfo(String appId, RumRetentionFilterCreateRequest body) throws ApiException {
+  public ApiResponse<RumRetentionFilterResponse> createRetentionFilterWithHttpInfo(
+      String appId, RumRetentionFilterCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling createRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling createRetentionFilter");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createRetentionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.createRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.createRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFilterResponse>() {});
   }
 
   /**
    * Create a RUM retention filter.
    *
-   * See {@link #createRetentionFilterWithHttpInfo}.
+   * <p>See {@link #createRetentionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRetentionFilterResponse>> createRetentionFilterWithHttpInfoAsync(String appId, RumRetentionFilterCreateRequest body) {
+  public CompletableFuture<ApiResponse<RumRetentionFilterResponse>>
+      createRetentionFilterWithHttpInfoAsync(String appId, RumRetentionFilterCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling createRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling createRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createRetentionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.createRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.createRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFilterResponse>() {});
   }
 
   /**
- * Delete a RUM exclusion filter.
- *
- * See {@link #deleteExclusionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param efId Exclusion filter ID. (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  deleteExclusionFilter(String appId, String efId) throws ApiException {
+   * Delete a RUM exclusion filter.
+   *
+   * <p>See {@link #deleteExclusionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param efId Exclusion filter ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteExclusionFilter(String appId, String efId) throws ApiException {
     deleteExclusionFilterWithHttpInfo(appId, efId);
   }
 
   /**
- * Delete a RUM exclusion filter.
- *
- * See {@link #deleteExclusionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param efId Exclusion filter ID. (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>deleteExclusionFilterAsync(String appId, String efId) {
-    return deleteExclusionFilterWithHttpInfoAsync(appId, efId).thenApply(response -> {
-        return response.getData();
-    });
+   * Delete a RUM exclusion filter.
+   *
+   * <p>See {@link #deleteExclusionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param efId Exclusion filter ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteExclusionFilterAsync(String appId, String efId) {
+    return deleteExclusionFilterWithHttpInfoAsync(appId, efId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Delete an exclusion filter for a RUM application.
-   * The built-in Error Tracking exclusion filter (<code>error_tracking_exclusion_filter</code>) cannot be deleted;
-   * attempting to do so returns a <code>405 Method Not Allowed</code> response.</p>
+   * Delete an exclusion filter for a RUM application. The built-in Error Tracking exclusion filter
+   * (<code>error_tracking_exclusion_filter</code>) cannot be deleted; attempting to do so returns a
+   * <code>405 Method Not Allowed</code> response.
    *
    * @param appId RUM application ID. (required)
    * @param efId Exclusion filter ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -362,7 +437,8 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteExclusionFilterWithHttpInfo(String appId, String efId) throws ApiException {
+  public ApiResponse<Void> deleteExclusionFilterWithHttpInfo(String appId, String efId)
+      throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -374,118 +450,157 @@ public class RumRetentionFiltersApi {
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling deleteExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling deleteExclusionFilter");
     }
 
     // verify the required parameter 'efId' is set
     if (efId == null) {
-      throw new ApiException(400, "Missing the required parameter 'efId' when calling deleteExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'efId' when calling deleteExclusionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.deleteExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.deleteExclusionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Delete a RUM exclusion filter.
    *
-   * See {@link #deleteExclusionFilterWithHttpInfo}.
+   * <p>See {@link #deleteExclusionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param efId Exclusion filter ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteExclusionFilterWithHttpInfoAsync(String appId, String efId) {
+  public CompletableFuture<ApiResponse<Void>> deleteExclusionFilterWithHttpInfoAsync(
+      String appId, String efId) {
     // Check if unstable operation is enabled
     String operationId = "deleteExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling deleteExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling deleteExclusionFilter"));
+      return result;
     }
 
     // verify the required parameter 'efId' is set
     if (efId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'efId' when calling deleteExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'efId' when calling deleteExclusionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.deleteExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.deleteExclusionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
- * Delete a RUM retention filter.
- *
- * See {@link #deleteRetentionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param rfId Retention filter ID. (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  deleteRetentionFilter(String appId, String rfId) throws ApiException {
+   * Delete a RUM retention filter.
+   *
+   * <p>See {@link #deleteRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param rfId Retention filter ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteRetentionFilter(String appId, String rfId) throws ApiException {
     deleteRetentionFilterWithHttpInfo(appId, rfId);
   }
 
   /**
- * Delete a RUM retention filter.
- *
- * See {@link #deleteRetentionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param rfId Retention filter ID. (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>deleteRetentionFilterAsync(String appId, String rfId) {
-    return deleteRetentionFilterWithHttpInfoAsync(appId, rfId).thenApply(response -> {
-        return response.getData();
-    });
+   * Delete a RUM retention filter.
+   *
+   * <p>See {@link #deleteRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param rfId Retention filter ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteRetentionFilterAsync(String appId, String rfId) {
+    return deleteRetentionFilterWithHttpInfoAsync(appId, rfId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Delete a RUM retention filter for a RUM application.</p>
+   * Delete a RUM retention filter for a RUM application.
    *
    * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -494,115 +609,156 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteRetentionFilterWithHttpInfo(String appId, String rfId) throws ApiException {
+  public ApiResponse<Void> deleteRetentionFilterWithHttpInfo(String appId, String rfId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling deleteRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling deleteRetentionFilter");
     }
 
     // verify the required parameter 'rfId' is set
     if (rfId == null) {
-      throw new ApiException(400, "Missing the required parameter 'rfId' when calling deleteRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'rfId' when calling deleteRetentionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.deleteRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.deleteRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Delete a RUM retention filter.
    *
-   * See {@link #deleteRetentionFilterWithHttpInfo}.
+   * <p>See {@link #deleteRetentionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteRetentionFilterWithHttpInfoAsync(String appId, String rfId) {
+  public CompletableFuture<ApiResponse<Void>> deleteRetentionFilterWithHttpInfoAsync(
+      String appId, String rfId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling deleteRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling deleteRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'rfId' is set
     if (rfId == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'rfId' when calling deleteRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rfId' when calling deleteRetentionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.deleteRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.deleteRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
- * Get a RUM exclusion filter.
- *
- * See {@link #getExclusionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param efId Exclusion filter ID. (required)
- * @return RumExclusionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumExclusionFilterResponse  getExclusionFilter(String appId, String efId) throws ApiException {
+   * Get a RUM exclusion filter.
+   *
+   * <p>See {@link #getExclusionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param efId Exclusion filter ID. (required)
+   * @return RumExclusionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumExclusionFilterResponse getExclusionFilter(String appId, String efId)
+      throws ApiException {
     return getExclusionFilterWithHttpInfo(appId, efId).getData();
   }
 
   /**
- * Get a RUM exclusion filter.
- *
- * See {@link #getExclusionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param efId Exclusion filter ID. (required)
- * @return CompletableFuture&lt;RumExclusionFilterResponse&gt;
- */
-  public CompletableFuture<RumExclusionFilterResponse>getExclusionFilterAsync(String appId, String efId) {
-    return getExclusionFilterWithHttpInfoAsync(appId, efId).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a RUM exclusion filter.
+   *
+   * <p>See {@link #getExclusionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param efId Exclusion filter ID. (required)
+   * @return CompletableFuture&lt;RumExclusionFilterResponse&gt;
+   */
+  public CompletableFuture<RumExclusionFilterResponse> getExclusionFilterAsync(
+      String appId, String efId) {
+    return getExclusionFilterWithHttpInfoAsync(appId, efId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Get a single exclusion filter for a RUM application.</p>
+   * Get a single exclusion filter for a RUM application.
    *
    * @param appId RUM application ID. (required)
    * @param efId Exclusion filter ID. (required)
    * @return ApiResponse&lt;RumExclusionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -611,7 +767,8 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumExclusionFilterResponse> getExclusionFilterWithHttpInfo(String appId, String efId) throws ApiException {
+  public ApiResponse<RumExclusionFilterResponse> getExclusionFilterWithHttpInfo(
+      String appId, String efId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -623,119 +780,160 @@ public class RumRetentionFiltersApi {
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling getExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling getExclusionFilter");
     }
 
     // verify the required parameter 'efId' is set
     if (efId == null) {
-      throw new ApiException(400, "Missing the required parameter 'efId' when calling getExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'efId' when calling getExclusionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.getExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.getExclusionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFilterResponse>() {});
   }
 
   /**
    * Get a RUM exclusion filter.
    *
-   * See {@link #getExclusionFilterWithHttpInfo}.
+   * <p>See {@link #getExclusionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param efId Exclusion filter ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumExclusionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumExclusionFilterResponse>> getExclusionFilterWithHttpInfoAsync(String appId, String efId) {
+  public CompletableFuture<ApiResponse<RumExclusionFilterResponse>>
+      getExclusionFilterWithHttpInfoAsync(String appId, String efId) {
     // Check if unstable operation is enabled
     String operationId = "getExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling getExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling getExclusionFilter"));
+      return result;
     }
 
     // verify the required parameter 'efId' is set
     if (efId == null) {
-        CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'efId' when calling getExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'efId' when calling getExclusionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.getExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.getExclusionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFilterResponse>() {});
   }
 
   /**
- * Get a permanent RUM retention filter.
- *
- * See {@link #getPermanentRetentionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
- * @return RumPermanentRetentionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumPermanentRetentionFilterResponse  getPermanentRetentionFilter(String appId, RumPermanentRetentionFilterID permanentRfId) throws ApiException {
+   * Get a permanent RUM retention filter.
+   *
+   * <p>See {@link #getPermanentRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @return RumPermanentRetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumPermanentRetentionFilterResponse getPermanentRetentionFilter(
+      String appId, RumPermanentRetentionFilterID permanentRfId) throws ApiException {
     return getPermanentRetentionFilterWithHttpInfo(appId, permanentRfId).getData();
   }
 
   /**
- * Get a permanent RUM retention filter.
- *
- * See {@link #getPermanentRetentionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
- * @return CompletableFuture&lt;RumPermanentRetentionFilterResponse&gt;
- */
-  public CompletableFuture<RumPermanentRetentionFilterResponse>getPermanentRetentionFilterAsync(String appId, RumPermanentRetentionFilterID permanentRfId) {
-    return getPermanentRetentionFilterWithHttpInfoAsync(appId, permanentRfId).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a permanent RUM retention filter.
+   *
+   * <p>See {@link #getPermanentRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @return CompletableFuture&lt;RumPermanentRetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RumPermanentRetentionFilterResponse> getPermanentRetentionFilterAsync(
+      String appId, RumPermanentRetentionFilterID permanentRfId) {
+    return getPermanentRetentionFilterWithHttpInfoAsync(appId, permanentRfId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Get a permanent RUM retention filter for a RUM application by its identifier.</p>
+   * Get a permanent RUM retention filter for a RUM application by its identifier.
    *
    * @param appId RUM application ID. (required)
    * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
    * @return ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -744,115 +942,169 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumPermanentRetentionFilterResponse> getPermanentRetentionFilterWithHttpInfo(String appId, RumPermanentRetentionFilterID permanentRfId) throws ApiException {
+  public ApiResponse<RumPermanentRetentionFilterResponse> getPermanentRetentionFilterWithHttpInfo(
+      String appId, RumPermanentRetentionFilterID permanentRfId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling getPermanentRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling getPermanentRetentionFilter");
     }
 
     // verify the required parameter 'permanentRfId' is set
     if (permanentRfId == null) {
-      throw new ApiException(400, "Missing the required parameter 'permanentRfId' when calling getPermanentRetentionFilter");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'permanentRfId' when calling"
+              + " getPermanentRetentionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "permanent_rf_id" + "\\}", apiClient.escapeString(permanentRfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.getPermanentRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumPermanentRetentionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.getPermanentRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
   }
 
   /**
    * Get a permanent RUM retention filter.
    *
-   * See {@link #getPermanentRetentionFilterWithHttpInfo}.
+   * <p>See {@link #getPermanentRetentionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> getPermanentRetentionFilterWithHttpInfoAsync(String appId, RumPermanentRetentionFilterID permanentRfId) {
+  public CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>>
+      getPermanentRetentionFilterWithHttpInfoAsync(
+          String appId, RumPermanentRetentionFilterID permanentRfId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling getPermanentRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appId' when calling getPermanentRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'permanentRfId' is set
     if (permanentRfId == null) {
-        CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'permanentRfId' when calling getPermanentRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'permanentRfId' when calling"
+                  + " getPermanentRetentionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "permanent_rf_id" + "\\}", apiClient.escapeString(permanentRfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.getPermanentRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.getPermanentRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumPermanentRetentionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
   }
 
   /**
- * Get a RUM retention filter.
- *
- * See {@link #getRetentionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param rfId Retention filter ID. (required)
- * @return RumRetentionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumRetentionFilterResponse  getRetentionFilter(String appId, String rfId) throws ApiException {
+   * Get a RUM retention filter.
+   *
+   * <p>See {@link #getRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param rfId Retention filter ID. (required)
+   * @return RumRetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumRetentionFilterResponse getRetentionFilter(String appId, String rfId)
+      throws ApiException {
     return getRetentionFilterWithHttpInfo(appId, rfId).getData();
   }
 
   /**
- * Get a RUM retention filter.
- *
- * See {@link #getRetentionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param rfId Retention filter ID. (required)
- * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
- */
-  public CompletableFuture<RumRetentionFilterResponse>getRetentionFilterAsync(String appId, String rfId) {
-    return getRetentionFilterWithHttpInfoAsync(appId, rfId).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a RUM retention filter.
+   *
+   * <p>See {@link #getRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param rfId Retention filter ID. (required)
+   * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RumRetentionFilterResponse> getRetentionFilterAsync(
+      String appId, String rfId) {
+    return getRetentionFilterWithHttpInfoAsync(appId, rfId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Get a RUM retention filter for a RUM application.</p>
+   * Get a RUM retention filter for a RUM application.
    *
    * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return ApiResponse&lt;RumRetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -861,113 +1113,152 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRetentionFilterResponse> getRetentionFilterWithHttpInfo(String appId, String rfId) throws ApiException {
+  public ApiResponse<RumRetentionFilterResponse> getRetentionFilterWithHttpInfo(
+      String appId, String rfId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling getRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling getRetentionFilter");
     }
 
     // verify the required parameter 'rfId' is set
     if (rfId == null) {
-      throw new ApiException(400, "Missing the required parameter 'rfId' when calling getRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'rfId' when calling getRetentionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.getRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.getRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFilterResponse>() {});
   }
 
   /**
    * Get a RUM retention filter.
    *
-   * See {@link #getRetentionFilterWithHttpInfo}.
+   * <p>See {@link #getRetentionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRetentionFilterResponse>> getRetentionFilterWithHttpInfoAsync(String appId, String rfId) {
+  public CompletableFuture<ApiResponse<RumRetentionFilterResponse>>
+      getRetentionFilterWithHttpInfoAsync(String appId, String rfId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling getRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling getRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'rfId' is set
     if (rfId == null) {
-        CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'rfId' when calling getRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rfId' when calling getRetentionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.getRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.getRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFilterResponse>() {});
   }
 
   /**
- * Get all RUM exclusion filters.
- *
- * See {@link #listExclusionFiltersWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @return RumExclusionFiltersResponse
- * @throws ApiException if fails to make API call
- */
-  public RumExclusionFiltersResponse  listExclusionFilters(String appId) throws ApiException {
+   * Get all RUM exclusion filters.
+   *
+   * <p>See {@link #listExclusionFiltersWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return RumExclusionFiltersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumExclusionFiltersResponse listExclusionFilters(String appId) throws ApiException {
     return listExclusionFiltersWithHttpInfo(appId).getData();
   }
 
   /**
- * Get all RUM exclusion filters.
- *
- * See {@link #listExclusionFiltersWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @return CompletableFuture&lt;RumExclusionFiltersResponse&gt;
- */
-  public CompletableFuture<RumExclusionFiltersResponse>listExclusionFiltersAsync(String appId) {
-    return listExclusionFiltersWithHttpInfoAsync(appId).thenApply(response -> {
-        return response.getData();
-    });
+   * Get all RUM exclusion filters.
+   *
+   * <p>See {@link #listExclusionFiltersWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return CompletableFuture&lt;RumExclusionFiltersResponse&gt;
+   */
+  public CompletableFuture<RumExclusionFiltersResponse> listExclusionFiltersAsync(String appId) {
+    return listExclusionFiltersWithHttpInfoAsync(appId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Get the list of exclusion filters for a RUM application.
-   * The built-in Error Tracking exclusion filter (<code>error_tracking_exclusion_filter</code>) is always returned first.</p>
+   * Get the list of exclusion filters for a RUM application. The built-in Error Tracking exclusion
+   * filter (<code>error_tracking_exclusion_filter</code>) is always returned first.
    *
    * @param appId RUM application ID. (required)
    * @return ApiResponse&lt;RumExclusionFiltersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -975,7 +1266,8 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumExclusionFiltersResponse> listExclusionFiltersWithHttpInfo(String appId) throws ApiException {
+  public ApiResponse<RumExclusionFiltersResponse> listExclusionFiltersWithHttpInfo(String appId)
+      throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "listExclusionFilters";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -987,201 +1279,144 @@ public class RumRetentionFiltersApi {
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling listExclusionFilters");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling listExclusionFilters");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.listExclusionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFiltersResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.listExclusionFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFiltersResponse>() {});
   }
 
   /**
    * Get all RUM exclusion filters.
    *
-   * See {@link #listExclusionFiltersWithHttpInfo}.
+   * <p>See {@link #listExclusionFiltersWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumExclusionFiltersResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> listExclusionFiltersWithHttpInfoAsync(String appId) {
+  public CompletableFuture<ApiResponse<RumExclusionFiltersResponse>>
+      listExclusionFiltersWithHttpInfoAsync(String appId) {
     // Check if unstable operation is enabled
     String operationId = "listExclusionFilters";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling listExclusionFilters"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling listExclusionFilters"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.listExclusionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.listExclusionFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFiltersResponse>() {});
-  }
-
-  /**
- * Get all permanent RUM retention filters.
- *
- * See {@link #listPermanentRetentionFiltersWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @return RumPermanentRetentionFiltersResponse
- * @throws ApiException if fails to make API call
- */
-  public RumPermanentRetentionFiltersResponse  listPermanentRetentionFilters(String appId) throws ApiException {
-    return listPermanentRetentionFiltersWithHttpInfo(appId).getData();
-  }
-
-  /**
- * Get all permanent RUM retention filters.
- *
- * See {@link #listPermanentRetentionFiltersWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @return CompletableFuture&lt;RumPermanentRetentionFiltersResponse&gt;
- */
-  public CompletableFuture<RumPermanentRetentionFiltersResponse>listPermanentRetentionFiltersAsync(String appId) {
-    return listPermanentRetentionFiltersWithHttpInfoAsync(appId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Get the list of permanent RUM retention filters for a RUM application.
-   * Permanent retention filters are predefined filters that cannot be created or deleted.
-   * For each filter, the <code>editability</code> block indicates which cross-product fields can be updated.</p>
-   *
-   * @param appId RUM application ID. (required)
-   * @return ApiResponse&lt;RumPermanentRetentionFiltersResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   * <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<RumPermanentRetentionFiltersResponse> listPermanentRetentionFiltersWithHttpInfo(String appId) throws ApiException {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'appId' is set
-    if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling listPermanentRetentionFilters");
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.listPermanentRetentionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumPermanentRetentionFiltersResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFiltersResponse>() {});
   }
 
   /**
    * Get all permanent RUM retention filters.
    *
-   * See {@link #listPermanentRetentionFiltersWithHttpInfo}.
+   * <p>See {@link #listPermanentRetentionFiltersWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumPermanentRetentionFiltersResponse&gt;&gt;
+   * @return RumPermanentRetentionFiltersResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>> listPermanentRetentionFiltersWithHttpInfoAsync(String appId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'appId' is set
-    if (appId == null) {
-        CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling listPermanentRetentionFilters"));
-        return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
-
-    
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.listPermanentRetentionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumPermanentRetentionFiltersResponse>() {});
+  public RumPermanentRetentionFiltersResponse listPermanentRetentionFilters(String appId)
+      throws ApiException {
+    return listPermanentRetentionFiltersWithHttpInfo(appId).getData();
   }
 
   /**
- * Get all RUM retention filters.
- *
- * See {@link #listRetentionFiltersWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @return RumRetentionFiltersResponse
- * @throws ApiException if fails to make API call
- */
-  public RumRetentionFiltersResponse  listRetentionFilters(String appId) throws ApiException {
-    return listRetentionFiltersWithHttpInfo(appId).getData();
-  }
-
-  /**
- * Get all RUM retention filters.
- *
- * See {@link #listRetentionFiltersWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @return CompletableFuture&lt;RumRetentionFiltersResponse&gt;
- */
-  public CompletableFuture<RumRetentionFiltersResponse>listRetentionFiltersAsync(String appId) {
-    return listRetentionFiltersWithHttpInfoAsync(appId).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Get the list of RUM retention filters for a RUM application.</p>
+   * Get all permanent RUM retention filters.
+   *
+   * <p>See {@link #listPermanentRetentionFiltersWithHttpInfoAsync}.
    *
    * @param appId RUM application ID. (required)
-   * @return ApiResponse&lt;RumRetentionFiltersResponse&gt;
+   * @return CompletableFuture&lt;RumPermanentRetentionFiltersResponse&gt;
+   */
+  public CompletableFuture<RumPermanentRetentionFiltersResponse> listPermanentRetentionFiltersAsync(
+      String appId) {
+    return listPermanentRetentionFiltersWithHttpInfoAsync(appId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of permanent RUM retention filters for a RUM application. Permanent retention
+   * filters are predefined filters that cannot be created or deleted. For each filter, the <code>
+   * editability</code> block indicates which cross-product fields can be updated.
+   *
+   * @param appId RUM application ID. (required)
+   * @return ApiResponse&lt;RumPermanentRetentionFiltersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1189,101 +1424,278 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRetentionFiltersResponse> listRetentionFiltersWithHttpInfo(String appId) throws ApiException {
+  public ApiResponse<RumPermanentRetentionFiltersResponse>
+      listPermanentRetentionFiltersWithHttpInfo(String appId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling listRetentionFilters");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling listPermanentRetentionFilters");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.listPermanentRetentionFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFiltersResponse>() {});
+  }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.listRetentionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFiltersResponse>() {});
+  /**
+   * Get all permanent RUM retention filters.
+   *
+   * <p>See {@link #listPermanentRetentionFiltersWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RumPermanentRetentionFiltersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>>
+      listPermanentRetentionFiltersWithHttpInfoAsync(String appId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appId' when calling listPermanentRetentionFilters"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.listPermanentRetentionFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFiltersResponse>() {});
   }
 
   /**
    * Get all RUM retention filters.
    *
-   * See {@link #listRetentionFiltersWithHttpInfo}.
+   * <p>See {@link #listRetentionFiltersWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFiltersResponse&gt;&gt;
+   * @return RumRetentionFiltersResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<ApiResponse<RumRetentionFiltersResponse>> listRetentionFiltersWithHttpInfoAsync(String appId) {
+  public RumRetentionFiltersResponse listRetentionFilters(String appId) throws ApiException {
+    return listRetentionFiltersWithHttpInfo(appId).getData();
+  }
+
+  /**
+   * Get all RUM retention filters.
+   *
+   * <p>See {@link #listRetentionFiltersWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return CompletableFuture&lt;RumRetentionFiltersResponse&gt;
+   */
+  public CompletableFuture<RumRetentionFiltersResponse> listRetentionFiltersAsync(String appId) {
+    return listRetentionFiltersWithHttpInfoAsync(appId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of RUM retention filters for a RUM application.
+   *
+   * @param appId RUM application ID. (required)
+   * @return ApiResponse&lt;RumRetentionFiltersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RumRetentionFiltersResponse> listRetentionFiltersWithHttpInfo(String appId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumRetentionFiltersResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling listRetentionFilters"));
-        return result;
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling listRetentionFilters");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder;
-    try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.listRetentionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRetentionFiltersResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFiltersResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.listRetentionFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFiltersResponse>() {});
   }
 
   /**
- * Order RUM retention filters.
- *
- * See {@link #orderRetentionFiltersWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param body New definition of the RUM retention filter. (required)
- * @return RumRetentionFiltersOrderResponse
- * @throws ApiException if fails to make API call
- */
-  public RumRetentionFiltersOrderResponse  orderRetentionFilters(String appId, RumRetentionFiltersOrderRequest body) throws ApiException {
+   * Get all RUM retention filters.
+   *
+   * <p>See {@link #listRetentionFiltersWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFiltersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RumRetentionFiltersResponse>>
+      listRetentionFiltersWithHttpInfoAsync(String appId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<RumRetentionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling listRetentionFilters"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.listRetentionFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RumRetentionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFiltersResponse>() {});
+  }
+
+  /**
+   * Order RUM retention filters.
+   *
+   * <p>See {@link #orderRetentionFiltersWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param body New definition of the RUM retention filter. (required)
+   * @return RumRetentionFiltersOrderResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumRetentionFiltersOrderResponse orderRetentionFilters(
+      String appId, RumRetentionFiltersOrderRequest body) throws ApiException {
     return orderRetentionFiltersWithHttpInfo(appId, body).getData();
   }
 
   /**
- * Order RUM retention filters.
- *
- * See {@link #orderRetentionFiltersWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param body New definition of the RUM retention filter. (required)
- * @return CompletableFuture&lt;RumRetentionFiltersOrderResponse&gt;
- */
-  public CompletableFuture<RumRetentionFiltersOrderResponse>orderRetentionFiltersAsync(String appId, RumRetentionFiltersOrderRequest body) {
-    return orderRetentionFiltersWithHttpInfoAsync(appId, body).thenApply(response -> {
-        return response.getData();
-    });
+   * Order RUM retention filters.
+   *
+   * <p>See {@link #orderRetentionFiltersWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param body New definition of the RUM retention filter. (required)
+   * @return CompletableFuture&lt;RumRetentionFiltersOrderResponse&gt;
+   */
+  public CompletableFuture<RumRetentionFiltersOrderResponse> orderRetentionFiltersAsync(
+      String appId, RumRetentionFiltersOrderRequest body) {
+    return orderRetentionFiltersWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Order RUM retention filters for a RUM application.
-   * Returns RUM retention filter objects without attributes from the request body when the request is successful.</p>
+   * Order RUM retention filters for a RUM application. Returns RUM retention filter objects without
+   * attributes from the request body when the request is successful.
    *
    * @param appId RUM application ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return ApiResponse&lt;RumRetentionFiltersOrderResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Ordered </td><td>  -  </td></tr>
@@ -1292,111 +1704,155 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRetentionFiltersOrderResponse> orderRetentionFiltersWithHttpInfo(String appId, RumRetentionFiltersOrderRequest body) throws ApiException {
+  public ApiResponse<RumRetentionFiltersOrderResponse> orderRetentionFiltersWithHttpInfo(
+      String appId, RumRetentionFiltersOrderRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling orderRetentionFilters");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling orderRetentionFilters");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling orderRetentionFilters");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling orderRetentionFilters");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/relationships/retention_filters"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/relationships/retention_filters"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.orderRetentionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFiltersOrderResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.orderRetentionFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFiltersOrderResponse>() {});
   }
 
   /**
    * Order RUM retention filters.
    *
-   * See {@link #orderRetentionFiltersWithHttpInfo}.
+   * <p>See {@link #orderRetentionFiltersWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFiltersOrderResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>> orderRetentionFiltersWithHttpInfoAsync(String appId, RumRetentionFiltersOrderRequest body) {
+  public CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>>
+      orderRetentionFiltersWithHttpInfoAsync(String appId, RumRetentionFiltersOrderRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling orderRetentionFilters"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling orderRetentionFilters"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling orderRetentionFilters"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling orderRetentionFilters"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/relationships/retention_filters"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/relationships/retention_filters"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.orderRetentionFilters", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.orderRetentionFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RumRetentionFiltersOrderResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFiltersOrderResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFiltersOrderResponse>() {});
   }
 
   /**
- * Update a RUM exclusion filter.
- *
- * See {@link #updateExclusionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param efId Exclusion filter ID. (required)
- * @param body New definition of the RUM exclusion filter. (required)
- * @return RumExclusionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumExclusionFilterResponse  updateExclusionFilter(String appId, String efId, RumExclusionFilterUpdateRequest body) throws ApiException {
+   * Update a RUM exclusion filter.
+   *
+   * <p>See {@link #updateExclusionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param efId Exclusion filter ID. (required)
+   * @param body New definition of the RUM exclusion filter. (required)
+   * @return RumExclusionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumExclusionFilterResponse updateExclusionFilter(
+      String appId, String efId, RumExclusionFilterUpdateRequest body) throws ApiException {
     return updateExclusionFilterWithHttpInfo(appId, efId, body).getData();
   }
 
   /**
- * Update a RUM exclusion filter.
- *
- * See {@link #updateExclusionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param efId Exclusion filter ID. (required)
- * @param body New definition of the RUM exclusion filter. (required)
- * @return CompletableFuture&lt;RumExclusionFilterResponse&gt;
- */
-  public CompletableFuture<RumExclusionFilterResponse>updateExclusionFilterAsync(String appId, String efId, RumExclusionFilterUpdateRequest body) {
-    return updateExclusionFilterWithHttpInfoAsync(appId, efId, body).thenApply(response -> {
-        return response.getData();
-    });
+   * Update a RUM exclusion filter.
+   *
+   * <p>See {@link #updateExclusionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param efId Exclusion filter ID. (required)
+   * @param body New definition of the RUM exclusion filter. (required)
+   * @return CompletableFuture&lt;RumExclusionFilterResponse&gt;
+   */
+  public CompletableFuture<RumExclusionFilterResponse> updateExclusionFilterAsync(
+      String appId, String efId, RumExclusionFilterUpdateRequest body) {
+    return updateExclusionFilterWithHttpInfoAsync(appId, efId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Update an exclusion filter for a RUM application.
-   * For the built-in Error Tracking exclusion filter (<code>error_tracking_exclusion_filter</code>), only <code>enabled</code> can be
+   * Update an exclusion filter for a RUM application. For the built-in Error Tracking exclusion
+   * filter (<code>error_tracking_exclusion_filter</code>), only <code>enabled</code> can be
    * updated; <code>name</code>, <code>event_type</code>, and <code>query</code> must be omitted.
-   * Returns the updated exclusion filter when the request is successful.</p>
+   * Returns the updated exclusion filter when the request is successful.
    *
    * @param appId RUM application ID. (required)
    * @param efId Exclusion filter ID. (required)
@@ -1404,7 +1860,7 @@ public class RumRetentionFiltersApi {
    * @return ApiResponse&lt;RumExclusionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
@@ -1415,7 +1871,8 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumExclusionFilterResponse> updateExclusionFilterWithHttpInfo(String appId, String efId, RumExclusionFilterUpdateRequest body) throws ApiException {
+  public ApiResponse<RumExclusionFilterResponse> updateExclusionFilterWithHttpInfo(
+      String appId, String efId, RumExclusionFilterUpdateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "updateExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1427,129 +1884,179 @@ public class RumRetentionFiltersApi {
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling updateExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling updateExclusionFilter");
     }
 
     // verify the required parameter 'efId' is set
     if (efId == null) {
-      throw new ApiException(400, "Missing the required parameter 'efId' when calling updateExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'efId' when calling updateExclusionFilter");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateExclusionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateExclusionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.updateExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.updateExclusionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFilterResponse>() {});
   }
 
   /**
    * Update a RUM exclusion filter.
    *
-   * See {@link #updateExclusionFilterWithHttpInfo}.
+   * <p>See {@link #updateExclusionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param efId Exclusion filter ID. (required)
    * @param body New definition of the RUM exclusion filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumExclusionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumExclusionFilterResponse>> updateExclusionFilterWithHttpInfoAsync(String appId, String efId, RumExclusionFilterUpdateRequest body) {
+  public CompletableFuture<ApiResponse<RumExclusionFilterResponse>>
+      updateExclusionFilterWithHttpInfoAsync(
+          String appId, String efId, RumExclusionFilterUpdateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "updateExclusionFilter";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling updateExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling updateExclusionFilter"));
+      return result;
     }
 
     // verify the required parameter 'efId' is set
     if (efId == null) {
-        CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'efId' when calling updateExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'efId' when calling updateExclusionFilter"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateExclusionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateExclusionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "ef_id" + "\\}", apiClient.escapeString(efId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.updateExclusionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.updateExclusionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumExclusionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumExclusionFilterResponse>() {});
   }
 
   /**
- * Update a permanent RUM retention filter.
- *
- * See {@link #updatePermanentRetentionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
- * @param body New configuration of the permanent RUM retention filter. (required)
- * @return RumPermanentRetentionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumPermanentRetentionFilterResponse  updatePermanentRetentionFilter(String appId, RumPermanentRetentionFilterID permanentRfId, RumPermanentRetentionFilterUpdateRequest body) throws ApiException {
+   * Update a permanent RUM retention filter.
+   *
+   * <p>See {@link #updatePermanentRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @param body New configuration of the permanent RUM retention filter. (required)
+   * @return RumPermanentRetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumPermanentRetentionFilterResponse updatePermanentRetentionFilter(
+      String appId,
+      RumPermanentRetentionFilterID permanentRfId,
+      RumPermanentRetentionFilterUpdateRequest body)
+      throws ApiException {
     return updatePermanentRetentionFilterWithHttpInfo(appId, permanentRfId, body).getData();
   }
 
   /**
- * Update a permanent RUM retention filter.
- *
- * See {@link #updatePermanentRetentionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
- * @param body New configuration of the permanent RUM retention filter. (required)
- * @return CompletableFuture&lt;RumPermanentRetentionFilterResponse&gt;
- */
-  public CompletableFuture<RumPermanentRetentionFilterResponse>updatePermanentRetentionFilterAsync(String appId, RumPermanentRetentionFilterID permanentRfId, RumPermanentRetentionFilterUpdateRequest body) {
-    return updatePermanentRetentionFilterWithHttpInfoAsync(appId, permanentRfId, body).thenApply(response -> {
-        return response.getData();
-    });
+   * Update a permanent RUM retention filter.
+   *
+   * <p>See {@link #updatePermanentRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @param body New configuration of the permanent RUM retention filter. (required)
+   * @return CompletableFuture&lt;RumPermanentRetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RumPermanentRetentionFilterResponse> updatePermanentRetentionFilterAsync(
+      String appId,
+      RumPermanentRetentionFilterID permanentRfId,
+      RumPermanentRetentionFilterUpdateRequest body) {
+    return updatePermanentRetentionFilterWithHttpInfoAsync(appId, permanentRfId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Update the cross-product sampling configuration of a permanent RUM retention filter for a RUM application.
-   * Only fields marked as editable in the <code>editability</code> block of the filter can be updated.
-   * Updating a non-editable field returns a <code>400</code> response.</p>
+   * Update the cross-product sampling configuration of a permanent RUM retention filter for a RUM
+   * application. Only fields marked as editable in the <code>editability</code> block of the filter
+   * can be updated. Updating a non-editable field returns a <code>400</code> response.
    *
    * @param appId RUM application ID. (required)
    * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
@@ -1557,7 +2064,7 @@ public class RumRetentionFiltersApi {
    * @return ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
@@ -1567,124 +2074,191 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumPermanentRetentionFilterResponse> updatePermanentRetentionFilterWithHttpInfo(String appId, RumPermanentRetentionFilterID permanentRfId, RumPermanentRetentionFilterUpdateRequest body) throws ApiException {
+  public ApiResponse<RumPermanentRetentionFilterResponse>
+      updatePermanentRetentionFilterWithHttpInfo(
+          String appId,
+          RumPermanentRetentionFilterID permanentRfId,
+          RumPermanentRetentionFilterUpdateRequest body)
+          throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling updatePermanentRetentionFilter");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'appId' when calling updatePermanentRetentionFilter");
     }
 
     // verify the required parameter 'permanentRfId' is set
     if (permanentRfId == null) {
-      throw new ApiException(400, "Missing the required parameter 'permanentRfId' when calling updatePermanentRetentionFilter");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'permanentRfId' when calling"
+              + " updatePermanentRetentionFilter");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updatePermanentRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updatePermanentRetentionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "permanent_rf_id" + "\\}", apiClient.escapeString(permanentRfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.updatePermanentRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumPermanentRetentionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.updatePermanentRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
   }
 
   /**
    * Update a permanent RUM retention filter.
    *
-   * See {@link #updatePermanentRetentionFilterWithHttpInfo}.
+   * <p>See {@link #updatePermanentRetentionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
    * @param body New configuration of the permanent RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> updatePermanentRetentionFilterWithHttpInfoAsync(String appId, RumPermanentRetentionFilterID permanentRfId, RumPermanentRetentionFilterUpdateRequest body) {
+  public CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>>
+      updatePermanentRetentionFilterWithHttpInfoAsync(
+          String appId,
+          RumPermanentRetentionFilterID permanentRfId,
+          RumPermanentRetentionFilterUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling updatePermanentRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appId' when calling"
+                  + " updatePermanentRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'permanentRfId' is set
     if (permanentRfId == null) {
-        CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'permanentRfId' when calling updatePermanentRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'permanentRfId' when calling"
+                  + " updatePermanentRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updatePermanentRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updatePermanentRetentionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "permanent_rf_id" + "\\}", apiClient.escapeString(permanentRfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.updatePermanentRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.updatePermanentRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumPermanentRetentionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
   }
 
   /**
- * Update a RUM retention filter.
- *
- * See {@link #updateRetentionFilterWithHttpInfo}.
- *
- * @param appId RUM application ID. (required)
- * @param rfId Retention filter ID. (required)
- * @param body New definition of the RUM retention filter. (required)
- * @return RumRetentionFilterResponse
- * @throws ApiException if fails to make API call
- */
-  public RumRetentionFilterResponse  updateRetentionFilter(String appId, String rfId, RumRetentionFilterUpdateRequest body) throws ApiException {
+   * Update a RUM retention filter.
+   *
+   * <p>See {@link #updateRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param rfId Retention filter ID. (required)
+   * @param body New definition of the RUM retention filter. (required)
+   * @return RumRetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumRetentionFilterResponse updateRetentionFilter(
+      String appId, String rfId, RumRetentionFilterUpdateRequest body) throws ApiException {
     return updateRetentionFilterWithHttpInfo(appId, rfId, body).getData();
   }
 
   /**
- * Update a RUM retention filter.
- *
- * See {@link #updateRetentionFilterWithHttpInfoAsync}.
- *
- * @param appId RUM application ID. (required)
- * @param rfId Retention filter ID. (required)
- * @param body New definition of the RUM retention filter. (required)
- * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
- */
-  public CompletableFuture<RumRetentionFilterResponse>updateRetentionFilterAsync(String appId, String rfId, RumRetentionFilterUpdateRequest body) {
-    return updateRetentionFilterWithHttpInfoAsync(appId, rfId, body).thenApply(response -> {
-        return response.getData();
-    });
+   * Update a RUM retention filter.
+   *
+   * <p>See {@link #updateRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param rfId Retention filter ID. (required)
+   * @param body New definition of the RUM retention filter. (required)
+   * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RumRetentionFilterResponse> updateRetentionFilterAsync(
+      String appId, String rfId, RumRetentionFilterUpdateRequest body) {
+    return updateRetentionFilterWithHttpInfoAsync(appId, rfId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Update a RUM retention filter for a RUM application.
-   * Returns RUM retention filter objects from the request body when the request is successful.</p>
+   * Update a RUM retention filter for a RUM application. Returns RUM retention filter objects from
+   * the request body when the request is successful.
    *
    * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
@@ -1692,7 +2266,7 @@ public class RumRetentionFiltersApi {
    * @return ApiResponse&lt;RumRetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
@@ -1702,86 +2276,128 @@ public class RumRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRetentionFilterResponse> updateRetentionFilterWithHttpInfo(String appId, String rfId, RumRetentionFilterUpdateRequest body) throws ApiException {
+  public ApiResponse<RumRetentionFilterResponse> updateRetentionFilterWithHttpInfo(
+      String appId, String rfId, RumRetentionFilterUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling updateRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling updateRetentionFilter");
     }
 
     // verify the required parameter 'rfId' is set
     if (rfId == null) {
-      throw new ApiException(400, "Missing the required parameter 'rfId' when calling updateRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'rfId' when calling updateRetentionFilter");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateRetentionFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateRetentionFilter");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.updateRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFilterResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.updateRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFilterResponse>() {});
   }
 
   /**
    * Update a RUM retention filter.
    *
-   * See {@link #updateRetentionFilterWithHttpInfo}.
+   * <p>See {@link #updateRetentionFilterWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFilterResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRetentionFilterResponse>> updateRetentionFilterWithHttpInfoAsync(String appId, String rfId, RumRetentionFilterUpdateRequest body) {
+  public CompletableFuture<ApiResponse<RumRetentionFilterResponse>>
+      updateRetentionFilterWithHttpInfoAsync(
+          String appId, String rfId, RumRetentionFilterUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-        CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'appId' when calling updateRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling updateRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'rfId' is set
     if (rfId == null) {
-        CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'rfId' when calling updateRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rfId' when calling updateRetentionFilter"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateRetentionFilter"));
-        return result;
+      CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateRetentionFilter"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-      .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
-      .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll("\\{" + "rf_id" + "\\}", apiClient.escapeString(rfId.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.RumRetentionFiltersApi.updateRetentionFilter", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.updateRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RumRetentionFilterResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<RumRetentionFilterResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumRetentionFilterResponse>() {});
   }
 }

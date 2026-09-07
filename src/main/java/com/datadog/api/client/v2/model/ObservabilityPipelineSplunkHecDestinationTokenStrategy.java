@@ -6,72 +6,60 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
-   * <p>Controls how the Splunk HEC token is supplied. Use <code>custom</code> to provide a token with <code>token_key</code>, or <code>from_source</code> to forward the token received from an upstream Splunk HEC source.</p>
+ * Controls how the Splunk HEC token is supplied. Use <code>custom</code> to provide a token with
+ * <code>token_key</code>, or <code>from_source</code> to forward the token received from an
+ * upstream Splunk HEC source.
  */
-@JsonSerialize(using = ObservabilityPipelineSplunkHecDestinationTokenStrategy.ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer.class)
+@JsonSerialize(
+    using =
+        ObservabilityPipelineSplunkHecDestinationTokenStrategy
+            .ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer.class)
 public class ObservabilityPipelineSplunkHecDestinationTokenStrategy extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("custom", "from_source"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("custom", "from_source"));
 
-  public static final ObservabilityPipelineSplunkHecDestinationTokenStrategy CUSTOM = new ObservabilityPipelineSplunkHecDestinationTokenStrategy("custom");
-  public static final ObservabilityPipelineSplunkHecDestinationTokenStrategy FROM_SOURCE = new ObservabilityPipelineSplunkHecDestinationTokenStrategy("from_source");
-
+  public static final ObservabilityPipelineSplunkHecDestinationTokenStrategy CUSTOM =
+      new ObservabilityPipelineSplunkHecDestinationTokenStrategy("custom");
+  public static final ObservabilityPipelineSplunkHecDestinationTokenStrategy FROM_SOURCE =
+      new ObservabilityPipelineSplunkHecDestinationTokenStrategy("from_source");
 
   ObservabilityPipelineSplunkHecDestinationTokenStrategy(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer extends StdSerializer<ObservabilityPipelineSplunkHecDestinationTokenStrategy> {
-      public ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer(Class<ObservabilityPipelineSplunkHecDestinationTokenStrategy> t) {
-          super(t);
-      }
+  public static class ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer
+      extends StdSerializer<ObservabilityPipelineSplunkHecDestinationTokenStrategy> {
+    public ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer(
+        Class<ObservabilityPipelineSplunkHecDestinationTokenStrategy> t) {
+      super(t);
+    }
 
-      public ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer() {
-          this(null);
-      }
+    public ObservabilityPipelineSplunkHecDestinationTokenStrategySerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ObservabilityPipelineSplunkHecDestinationTokenStrategy value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ObservabilityPipelineSplunkHecDestinationTokenStrategy value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

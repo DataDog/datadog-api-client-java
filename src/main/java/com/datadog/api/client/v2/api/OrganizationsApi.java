@@ -1,42 +1,36 @@
-
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Pair;
 import com.datadog.api.client.PaginationIterable;
-
-import jakarta.ws.rs.core.GenericType;
-import jakarta.ws.rs.client.Invocation;
-
-import java.io.File;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.LinkedHashMap;
-import java.util.concurrent.CompletableFuture;
-import java.time.OffsetDateTime;
-import java.util.UUID;
+import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.GlobalOrgData;
 import com.datadog.api.client.v2.model.GlobalOrgsResponse;
-import com.datadog.api.client.v2.model.MaxSessionDurationUpdateRequest;
 import com.datadog.api.client.v2.model.ManagedOrgsResponse;
-import com.datadog.api.client.v2.model.OrgSAMLPreferencesUpdateRequest;
-import com.datadog.api.client.v2.model.OrgConfigListResponse;
+import com.datadog.api.client.v2.model.MaxSessionDurationUpdateRequest;
 import com.datadog.api.client.v2.model.OrgConfigGetResponse;
+import com.datadog.api.client.v2.model.OrgConfigListResponse;
 import com.datadog.api.client.v2.model.OrgConfigWriteRequest;
-import com.datadog.api.client.v2.model.SAMLConfigurationsResponse;
-import com.datadog.api.client.v2.model.IdPMetadataFormData;
+import com.datadog.api.client.v2.model.OrgSAMLPreferencesUpdateRequest;
 import com.datadog.api.client.v2.model.SAMLConfigurationResponse;
 import com.datadog.api.client.v2.model.SAMLConfigurationUpdateRequest;
-import com.datadog.api.client.v2.model.GlobalOrgData;
+import com.datadog.api.client.v2.model.SAMLConfigurationsResponse;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
-
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationsApi {
   private ApiClient apiClient;
+
   public OrganizationsApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -64,41 +58,42 @@ public class OrganizationsApi {
   }
 
   /**
- * Get a specific Org Config value.
- *
- * See {@link #getOrgConfigWithHttpInfo}.
- *
- * @param orgConfigName The name of an Org Config. (required)
- * @return OrgConfigGetResponse
- * @throws ApiException if fails to make API call
- */
-  public OrgConfigGetResponse  getOrgConfig(String orgConfigName) throws ApiException {
+   * Get a specific Org Config value.
+   *
+   * <p>See {@link #getOrgConfigWithHttpInfo}.
+   *
+   * @param orgConfigName The name of an Org Config. (required)
+   * @return OrgConfigGetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgConfigGetResponse getOrgConfig(String orgConfigName) throws ApiException {
     return getOrgConfigWithHttpInfo(orgConfigName).getData();
   }
 
   /**
- * Get a specific Org Config value.
- *
- * See {@link #getOrgConfigWithHttpInfoAsync}.
- *
- * @param orgConfigName The name of an Org Config. (required)
- * @return CompletableFuture&lt;OrgConfigGetResponse&gt;
- */
-  public CompletableFuture<OrgConfigGetResponse>getOrgConfigAsync(String orgConfigName) {
-    return getOrgConfigWithHttpInfoAsync(orgConfigName).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a specific Org Config value.
+   *
+   * <p>See {@link #getOrgConfigWithHttpInfoAsync}.
+   *
+   * @param orgConfigName The name of an Org Config. (required)
+   * @return CompletableFuture&lt;OrgConfigGetResponse&gt;
+   */
+  public CompletableFuture<OrgConfigGetResponse> getOrgConfigAsync(String orgConfigName) {
+    return getOrgConfigWithHttpInfoAsync(orgConfigName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Return the name, description, and value of a specific Org Config.</p>
+   * Return the name, description, and value of a specific Org Config.
    *
    * @param orgConfigName The name of an Org Config. (required)
    * @return ApiResponse&lt;OrgConfigGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -109,97 +104,138 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<OrgConfigGetResponse> getOrgConfigWithHttpInfo(String orgConfigName) throws ApiException {
+  public ApiResponse<OrgConfigGetResponse> getOrgConfigWithHttpInfo(String orgConfigName)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'orgConfigName' is set
     if (orgConfigName == null) {
-      throw new ApiException(400, "Missing the required parameter 'orgConfigName' when calling getOrgConfig");
+      throw new ApiException(
+          400, "Missing the required parameter 'orgConfigName' when calling getOrgConfig");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/org_configs/{org_config_name}"
-      .replaceAll("\\{" + "org_config_name" + "\\}", apiClient.escapeString(orgConfigName.toString()));
+    String localVarPath =
+        "/api/v2/org_configs/{org_config_name}"
+            .replaceAll(
+                "\\{" + "org_config_name" + "\\}",
+                apiClient.escapeString(orgConfigName.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.getOrgConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<OrgConfigGetResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.getOrgConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgConfigGetResponse>() {});
   }
 
   /**
    * Get a specific Org Config value.
    *
-   * See {@link #getOrgConfigWithHttpInfo}.
+   * <p>See {@link #getOrgConfigWithHttpInfo}.
    *
    * @param orgConfigName The name of an Org Config. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;OrgConfigGetResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<OrgConfigGetResponse>> getOrgConfigWithHttpInfoAsync(String orgConfigName) {
+  public CompletableFuture<ApiResponse<OrgConfigGetResponse>> getOrgConfigWithHttpInfoAsync(
+      String orgConfigName) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'orgConfigName' is set
     if (orgConfigName == null) {
-        CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'orgConfigName' when calling getOrgConfig"));
-        return result;
+      CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'orgConfigName' when calling getOrgConfig"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/org_configs/{org_config_name}"
-      .replaceAll("\\{" + "org_config_name" + "\\}", apiClient.escapeString(orgConfigName.toString()));
+    String localVarPath =
+        "/api/v2/org_configs/{org_config_name}"
+            .replaceAll(
+                "\\{" + "org_config_name" + "\\}",
+                apiClient.escapeString(orgConfigName.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.getOrgConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.getOrgConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<OrgConfigGetResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgConfigGetResponse>() {});
   }
 
   /**
- * Get a SAML configuration.
- *
- * See {@link #getSAMLConfigurationWithHttpInfo}.
- *
- * @param samlConfigUuid The UUID of the SAML configuration. (required)
- * @return SAMLConfigurationResponse
- * @throws ApiException if fails to make API call
- */
-  public SAMLConfigurationResponse  getSAMLConfiguration(String samlConfigUuid) throws ApiException {
+   * Get a SAML configuration.
+   *
+   * <p>See {@link #getSAMLConfigurationWithHttpInfo}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @return SAMLConfigurationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SAMLConfigurationResponse getSAMLConfiguration(String samlConfigUuid) throws ApiException {
     return getSAMLConfigurationWithHttpInfo(samlConfigUuid).getData();
   }
 
   /**
- * Get a SAML configuration.
- *
- * See {@link #getSAMLConfigurationWithHttpInfoAsync}.
- *
- * @param samlConfigUuid The UUID of the SAML configuration. (required)
- * @return CompletableFuture&lt;SAMLConfigurationResponse&gt;
- */
-  public CompletableFuture<SAMLConfigurationResponse>getSAMLConfigurationAsync(String samlConfigUuid) {
-    return getSAMLConfigurationWithHttpInfoAsync(samlConfigUuid).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a SAML configuration.
+   *
+   * <p>See {@link #getSAMLConfigurationWithHttpInfoAsync}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @return CompletableFuture&lt;SAMLConfigurationResponse&gt;
+   */
+  public CompletableFuture<SAMLConfigurationResponse> getSAMLConfigurationAsync(
+      String samlConfigUuid) {
+    return getSAMLConfigurationWithHttpInfoAsync(samlConfigUuid)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Get a single SAML configuration for the current organization by its UUID.</p>
+   * Get a single SAML configuration for the current organization by its UUID.
    *
    * @param samlConfigUuid The UUID of the SAML configuration. (required)
    * @return ApiResponse&lt;SAMLConfigurationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -208,70 +244,109 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SAMLConfigurationResponse> getSAMLConfigurationWithHttpInfo(String samlConfigUuid) throws ApiException {
+  public ApiResponse<SAMLConfigurationResponse> getSAMLConfigurationWithHttpInfo(
+      String samlConfigUuid) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'samlConfigUuid' is set
     if (samlConfigUuid == null) {
-      throw new ApiException(400, "Missing the required parameter 'samlConfigUuid' when calling getSAMLConfiguration");
+      throw new ApiException(
+          400, "Missing the required parameter 'samlConfigUuid' when calling getSAMLConfiguration");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/saml_configurations/{saml_config_uuid}"
-      .replaceAll("\\{" + "saml_config_uuid" + "\\}", apiClient.escapeString(samlConfigUuid.toString()));
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.getSAMLConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SAMLConfigurationResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.getSAMLConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
   }
 
   /**
    * Get a SAML configuration.
    *
-   * See {@link #getSAMLConfigurationWithHttpInfo}.
+   * <p>See {@link #getSAMLConfigurationWithHttpInfo}.
    *
    * @param samlConfigUuid The UUID of the SAML configuration. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SAMLConfigurationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SAMLConfigurationResponse>> getSAMLConfigurationWithHttpInfoAsync(String samlConfigUuid) {
+  public CompletableFuture<ApiResponse<SAMLConfigurationResponse>>
+      getSAMLConfigurationWithHttpInfoAsync(String samlConfigUuid) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'samlConfigUuid' is set
     if (samlConfigUuid == null) {
-        CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'samlConfigUuid' when calling getSAMLConfiguration"));
-        return result;
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'samlConfigUuid' when calling getSAMLConfiguration"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/saml_configurations/{saml_config_uuid}"
-      .replaceAll("\\{" + "saml_config_uuid" + "\\}", apiClient.escapeString(samlConfigUuid.toString()));
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.getSAMLConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.getSAMLConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SAMLConfigurationResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
   }
 
-  /**
-   * Manage optional parameters to listGlobalOrgs.
-   */
+  /** Manage optional parameters to listGlobalOrgs. */
   public static class ListGlobalOrgsOptionalParameters {
     private Integer pageLimit;
     private String pageCursor;
 
     /**
      * Set pageLimit.
+     *
      * @param pageLimit Maximum number of results returned. (optional, default to 100)
      * @return ListGlobalOrgsOptionalParameters
      */
@@ -282,7 +357,9 @@ public class OrganizationsApi {
 
     /**
      * Set pageCursor.
-     * @param pageCursor String to query the next page of results. This key is provided with each valid response from the API in <code>meta.page.next_cursor</code>. (optional)
+     *
+     * @param pageCursor String to query the next page of results. This key is provided with each
+     *     valid response from the API in <code>meta.page.next_cursor</code>. (optional)
      * @return ListGlobalOrgsOptionalParameters
      */
     public ListGlobalOrgsOptionalParameters pageCursor(String pageCursor) {
@@ -292,118 +369,134 @@ public class OrganizationsApi {
   }
 
   /**
- * List global orgs.
- *
- * See {@link #listGlobalOrgsWithHttpInfo}.
- *
- * @param userHandle The handle of the authenticated user. (required)
- * @return GlobalOrgsResponse
- * @throws ApiException if fails to make API call
- */
-  public GlobalOrgsResponse listGlobalOrgs (String userHandle) throws ApiException {
-    return listGlobalOrgsWithHttpInfo( userHandle, new ListGlobalOrgsOptionalParameters()).getData();
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return GlobalOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GlobalOrgsResponse listGlobalOrgs(String userHandle) throws ApiException {
+    return listGlobalOrgsWithHttpInfo(userHandle, new ListGlobalOrgsOptionalParameters()).getData();
   }
 
   /**
- * List global orgs.
- *
- * See {@link #listGlobalOrgsWithHttpInfoAsync}.
- *
- * @param userHandle The handle of the authenticated user. (required)
- * @return CompletableFuture&lt;GlobalOrgsResponse&gt;
- */
-  public CompletableFuture<GlobalOrgsResponse>listGlobalOrgsAsync(String userHandle) {
-    return listGlobalOrgsWithHttpInfoAsync(userHandle, new ListGlobalOrgsOptionalParameters()).thenApply(response -> {
-        return response.getData();
-    });
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfoAsync}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return CompletableFuture&lt;GlobalOrgsResponse&gt;
+   */
+  public CompletableFuture<GlobalOrgsResponse> listGlobalOrgsAsync(String userHandle) {
+    return listGlobalOrgsWithHttpInfoAsync(userHandle, new ListGlobalOrgsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * List global orgs.
- *
- * See {@link #listGlobalOrgsWithHttpInfo}.
- *
- * @param userHandle The handle of the authenticated user. (required)
- * @param parameters Optional parameters for the request.
- * @return GlobalOrgsResponse
- * @throws ApiException if fails to make API call
- */
-  public GlobalOrgsResponse listGlobalOrgs(String userHandle, ListGlobalOrgsOptionalParameters parameters) throws ApiException {
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @param parameters Optional parameters for the request.
+   * @return GlobalOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GlobalOrgsResponse listGlobalOrgs(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) throws ApiException {
     return listGlobalOrgsWithHttpInfo(userHandle, parameters).getData();
   }
 
   /**
- * List global orgs.
- *
- * See {@link #listGlobalOrgsWithHttpInfoAsync}.
- *
- * @param userHandle The handle of the authenticated user. (required)
- * @param parameters Optional parameters for the request.
- * @return CompletableFuture&lt;GlobalOrgsResponse&gt;
- */
-  public CompletableFuture<GlobalOrgsResponse>listGlobalOrgsAsync( String userHandle, ListGlobalOrgsOptionalParameters parameters) {
-    return listGlobalOrgsWithHttpInfoAsync(userHandle, parameters).thenApply(response -> {
-        return response.getData();
-    });
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfoAsync}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GlobalOrgsResponse&gt;
+   */
+  public CompletableFuture<GlobalOrgsResponse> listGlobalOrgsAsync(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) {
+    return listGlobalOrgsWithHttpInfoAsync(userHandle, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * List global orgs.
- *
- * See {@link #listGlobalOrgsWithHttpInfo}.
- *
- * @param userHandle The handle of the authenticated user. (required)
- * @return PaginationIterable&lt;GlobalOrgData&gt;
- */
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return PaginationIterable&lt;GlobalOrgData&gt;
+   */
   public PaginationIterable<GlobalOrgData> listGlobalOrgsWithPagination(String userHandle) {
     ListGlobalOrgsOptionalParameters parameters = new ListGlobalOrgsOptionalParameters();
     return listGlobalOrgsWithPagination(userHandle, parameters);
   }
 
   /**
- * List global orgs.
- *
- * See {@link #listGlobalOrgsWithHttpInfo}.
- *
- * @param userHandle The handle of the authenticated user. (required)
- * @return GlobalOrgsResponse
- */
-  public PaginationIterable<GlobalOrgData> listGlobalOrgsWithPagination(String userHandle, ListGlobalOrgsOptionalParameters parameters) {
-  String resultsPath = "getData";
-  String valueGetterPath = "getMeta.getPage.getNextCursor";
-  String valueSetterPath = "pageCursor";
-  Boolean valueSetterParamOptional = true;
-  Integer limit;
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return GlobalOrgsResponse
+   */
+  public PaginationIterable<GlobalOrgData> listGlobalOrgsWithPagination(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getNextCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
 
-  
-  if (parameters.pageLimit == null) {
+    if (parameters.pageLimit == null) {
       limit = 100;
       parameters.pageLimit(limit);
-  } else {
+    } else {
       limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("userHandle", userHandle);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listGlobalOrgs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            true,
+            limit,
+            args,
+            0);
+
+    return iterator;
   }
-  
-
-  
-  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-  args.put("userHandle", userHandle);
-  args.put("optionalParams", parameters);
-
-  PaginationIterable iterator = new PaginationIterable(this, "listGlobalOrgs", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, true, true, limit, args, 0);
-
-  return iterator;
-  }
-
 
   /**
-   * <p>Returns organizations across regions for the authenticated user. The <code>user_handle</code> query parameter must match the authenticated user's handle.</p>
+   * Returns organizations across regions for the authenticated user. The <code>user_handle</code>
+   * query parameter must match the authenticated user's handle.
    *
    * @param userHandle The handle of the authenticated user. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;GlobalOrgsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -413,19 +506,20 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<GlobalOrgsResponse> listGlobalOrgsWithHttpInfo(String userHandle, ListGlobalOrgsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<GlobalOrgsResponse> listGlobalOrgsWithHttpInfo(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'userHandle' is set
     if (userHandle == null) {
-      throw new ApiException(400, "Missing the required parameter 'userHandle' when calling listGlobalOrgs");
+      throw new ApiException(
+          400, "Missing the required parameter 'userHandle' when calling listGlobalOrgs");
     }
     Integer pageLimit = parameters.pageLimit;
     String pageCursor = parameters.pageCursor;
     // create path and map variables
     String localVarPath = "/api/v2/global_orgs";
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -433,34 +527,52 @@ public class OrganizationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.listGlobalOrgs", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<GlobalOrgsResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.listGlobalOrgs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalOrgsResponse>() {});
   }
 
   /**
    * List global orgs.
    *
-   * See {@link #listGlobalOrgsWithHttpInfo}.
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
    *
    * @param userHandle The handle of the authenticated user. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;GlobalOrgsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<GlobalOrgsResponse>> listGlobalOrgsWithHttpInfoAsync(String userHandle, ListGlobalOrgsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<GlobalOrgsResponse>> listGlobalOrgsWithHttpInfoAsync(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'userHandle' is set
     if (userHandle == null) {
-        CompletableFuture<ApiResponse<GlobalOrgsResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'userHandle' when calling listGlobalOrgs"));
-        return result;
+      CompletableFuture<ApiResponse<GlobalOrgsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userHandle' when calling listGlobalOrgs"));
+      return result;
     }
     Integer pageLimit = parameters.pageLimit;
     String pageCursor = parameters.pageCursor;
     // create path and map variables
     String localVarPath = "/api/v2/global_orgs";
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -470,48 +582,65 @@ public class OrganizationsApi {
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.listGlobalOrgs", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.listGlobalOrgs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<GlobalOrgsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<GlobalOrgsResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalOrgsResponse>() {});
   }
 
   /**
- * List Org Configs.
- *
- * See {@link #listOrgConfigsWithHttpInfo}.
- *
- * @return OrgConfigListResponse
- * @throws ApiException if fails to make API call
- */
-  public OrgConfigListResponse  listOrgConfigs() throws ApiException {
+   * List Org Configs.
+   *
+   * <p>See {@link #listOrgConfigsWithHttpInfo}.
+   *
+   * @return OrgConfigListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgConfigListResponse listOrgConfigs() throws ApiException {
     return listOrgConfigsWithHttpInfo().getData();
   }
 
   /**
- * List Org Configs.
- *
- * See {@link #listOrgConfigsWithHttpInfoAsync}.
- *
- * @return CompletableFuture&lt;OrgConfigListResponse&gt;
- */
-  public CompletableFuture<OrgConfigListResponse>listOrgConfigsAsync() {
-    return listOrgConfigsWithHttpInfoAsync().thenApply(response -> {
-        return response.getData();
-    });
+   * List Org Configs.
+   *
+   * <p>See {@link #listOrgConfigsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OrgConfigListResponse&gt;
+   */
+  public CompletableFuture<OrgConfigListResponse> listOrgConfigsAsync() {
+    return listOrgConfigsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Returns all Org Configs (name, description, and value).</p>
+   * Returns all Org Configs (name, description, and value).
    *
    * @return ApiResponse&lt;OrgConfigListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -526,18 +655,32 @@ public class OrganizationsApi {
     // create path and map variables
     String localVarPath = "/api/v2/org_configs";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.listOrgConfigs", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<OrgConfigListResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.listOrgConfigs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgConfigListResponse>() {});
   }
 
   /**
    * List Org Configs.
    *
-   * See {@link #listOrgConfigsWithHttpInfo}.
+   * <p>See {@link #listOrgConfigsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;OrgConfigListResponse&gt;&gt;
    */
@@ -546,29 +689,42 @@ public class OrganizationsApi {
     // create path and map variables
     String localVarPath = "/api/v2/org_configs";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.listOrgConfigs", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.listOrgConfigs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgConfigListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<OrgConfigListResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgConfigListResponse>() {});
   }
 
-  /**
-   * Manage optional parameters to listOrgs.
-   */
+  /** Manage optional parameters to listOrgs. */
   public static class ListOrgsOptionalParameters {
     private String filterName;
 
     /**
      * Set filterName.
+     *
      * @param filterName Filter managed organizations by name. (optional)
      * @return ListOrgsOptionalParameters
      */
@@ -579,66 +735,70 @@ public class OrganizationsApi {
   }
 
   /**
- * List your managed organizations.
- *
- * See {@link #listOrgsWithHttpInfo}.
- *
- * @return ManagedOrgsResponse
- * @throws ApiException if fails to make API call
- */
-  public ManagedOrgsResponse listOrgs () throws ApiException {
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
+   *
+   * @return ManagedOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ManagedOrgsResponse listOrgs() throws ApiException {
     return listOrgsWithHttpInfo(new ListOrgsOptionalParameters()).getData();
   }
 
   /**
- * List your managed organizations.
- *
- * See {@link #listOrgsWithHttpInfoAsync}.
- *
- * @return CompletableFuture&lt;ManagedOrgsResponse&gt;
- */
-  public CompletableFuture<ManagedOrgsResponse>listOrgsAsync() {
-    return listOrgsWithHttpInfoAsync(new ListOrgsOptionalParameters()).thenApply(response -> {
-        return response.getData();
-    });
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ManagedOrgsResponse&gt;
+   */
+  public CompletableFuture<ManagedOrgsResponse> listOrgsAsync() {
+    return listOrgsWithHttpInfoAsync(new ListOrgsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * List your managed organizations.
- *
- * See {@link #listOrgsWithHttpInfo}.
- *
- * @param parameters Optional parameters for the request.
- * @return ManagedOrgsResponse
- * @throws ApiException if fails to make API call
- */
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ManagedOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
   public ManagedOrgsResponse listOrgs(ListOrgsOptionalParameters parameters) throws ApiException {
     return listOrgsWithHttpInfo(parameters).getData();
   }
 
   /**
- * List your managed organizations.
- *
- * See {@link #listOrgsWithHttpInfoAsync}.
- *
- * @param parameters Optional parameters for the request.
- * @return CompletableFuture&lt;ManagedOrgsResponse&gt;
- */
-  public CompletableFuture<ManagedOrgsResponse>listOrgsAsync(ListOrgsOptionalParameters parameters) {
-    return listOrgsWithHttpInfoAsync(parameters).thenApply(response -> {
-        return response.getData();
-    });
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ManagedOrgsResponse&gt;
+   */
+  public CompletableFuture<ManagedOrgsResponse> listOrgsAsync(
+      ListOrgsOptionalParameters parameters) {
+    return listOrgsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Returns the current organization and its managed organizations in JSON:API format.</p>
+   * Returns the current organization and its managed organizations in JSON:API format.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ManagedOrgsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -647,37 +807,53 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ManagedOrgsResponse> listOrgsWithHttpInfo(ListOrgsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<ManagedOrgsResponse> listOrgsWithHttpInfo(
+      ListOrgsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterName = parameters.filterName;
     // create path and map variables
     String localVarPath = "/api/v2/org";
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.listOrgs", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ManagedOrgsResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.listOrgs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ManagedOrgsResponse>() {});
   }
 
   /**
    * List your managed organizations.
    *
-   * See {@link #listOrgsWithHttpInfo}.
+   * <p>See {@link #listOrgsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ManagedOrgsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ManagedOrgsResponse>> listOrgsWithHttpInfoAsync(ListOrgsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<ManagedOrgsResponse>> listOrgsWithHttpInfoAsync(
+      ListOrgsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterName = parameters.filterName;
     // create path and map variables
     String localVarPath = "/api/v2/org";
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -685,48 +861,66 @@ public class OrganizationsApi {
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.listOrgs", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.listOrgs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ManagedOrgsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ManagedOrgsResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ManagedOrgsResponse>() {});
   }
 
   /**
- * List SAML configurations.
- *
- * See {@link #listSAMLConfigurationsWithHttpInfo}.
- *
- * @return SAMLConfigurationsResponse
- * @throws ApiException if fails to make API call
- */
-  public SAMLConfigurationsResponse  listSAMLConfigurations() throws ApiException {
+   * List SAML configurations.
+   *
+   * <p>See {@link #listSAMLConfigurationsWithHttpInfo}.
+   *
+   * @return SAMLConfigurationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SAMLConfigurationsResponse listSAMLConfigurations() throws ApiException {
     return listSAMLConfigurationsWithHttpInfo().getData();
   }
 
   /**
- * List SAML configurations.
- *
- * See {@link #listSAMLConfigurationsWithHttpInfoAsync}.
- *
- * @return CompletableFuture&lt;SAMLConfigurationsResponse&gt;
- */
-  public CompletableFuture<SAMLConfigurationsResponse>listSAMLConfigurationsAsync() {
-    return listSAMLConfigurationsWithHttpInfoAsync().thenApply(response -> {
-        return response.getData();
-    });
+   * List SAML configurations.
+   *
+   * <p>See {@link #listSAMLConfigurationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SAMLConfigurationsResponse&gt;
+   */
+  public CompletableFuture<SAMLConfigurationsResponse> listSAMLConfigurationsAsync() {
+    return listSAMLConfigurationsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Get the list of SAML configurations for the current organization. An organization has at most one SAML configuration.</p>
+   * Get the list of SAML configurations for the current organization. An organization has at most
+   * one SAML configuration.
    *
    * @return ApiResponse&lt;SAMLConfigurationsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -734,82 +928,115 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SAMLConfigurationsResponse> listSAMLConfigurationsWithHttpInfo() throws ApiException {
+  public ApiResponse<SAMLConfigurationsResponse> listSAMLConfigurationsWithHttpInfo()
+      throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/saml_configurations";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.listSAMLConfigurations", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SAMLConfigurationsResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.listSAMLConfigurations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationsResponse>() {});
   }
 
   /**
    * List SAML configurations.
    *
-   * See {@link #listSAMLConfigurationsWithHttpInfo}.
+   * <p>See {@link #listSAMLConfigurationsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;SAMLConfigurationsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SAMLConfigurationsResponse>> listSAMLConfigurationsWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<SAMLConfigurationsResponse>>
+      listSAMLConfigurationsWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/saml_configurations";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.listSAMLConfigurations", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.listSAMLConfigurations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SAMLConfigurationsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SAMLConfigurationsResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationsResponse>() {});
   }
 
   /**
- * Update the maximum session duration.
- *
- * See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfo}.
- *
- * @param body  (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  updateLoginOrgConfigsMaxSessionDuration(MaxSessionDurationUpdateRequest body) throws ApiException {
+   * Update the maximum session duration.
+   *
+   * <p>See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateLoginOrgConfigsMaxSessionDuration(MaxSessionDurationUpdateRequest body)
+      throws ApiException {
     updateLoginOrgConfigsMaxSessionDurationWithHttpInfo(body);
   }
 
   /**
- * Update the maximum session duration.
- *
- * See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync}.
- *
- * @param body  (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>updateLoginOrgConfigsMaxSessionDurationAsync(MaxSessionDurationUpdateRequest body) {
-    return updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync(body).thenApply(response -> {
-        return response.getData();
-    });
+   * Update the maximum session duration.
+   *
+   * <p>See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateLoginOrgConfigsMaxSessionDurationAsync(
+      MaxSessionDurationUpdateRequest body) {
+    return updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Update the maximum session duration for the current organization.
-   * The duration is specified in seconds.</p>
+   * Update the maximum session duration for the current organization. The duration is specified in
+   * seconds.
    *
-   * @param body  (required)
+   * @param body (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -819,98 +1046,139 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> updateLoginOrgConfigsMaxSessionDurationWithHttpInfo(MaxSessionDurationUpdateRequest body) throws ApiException {
+  public ApiResponse<Void> updateLoginOrgConfigsMaxSessionDurationWithHttpInfo(
+      MaxSessionDurationUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateLoginOrgConfigsMaxSessionDuration");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateLoginOrgConfigsMaxSessionDuration");
     }
     // create path and map variables
     String localVarPath = "/api/v2/login/org_configs/max_session_duration";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.updateLoginOrgConfigsMaxSessionDuration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
-    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.updateLoginOrgConfigsMaxSessionDuration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Update the maximum session duration.
    *
-   * See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfo}.
+   * <p>See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfo}.
    *
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync(MaxSessionDurationUpdateRequest body) {
+  public CompletableFuture<ApiResponse<Void>>
+      updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync(
+          MaxSessionDurationUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateLoginOrgConfigsMaxSessionDuration"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateLoginOrgConfigsMaxSessionDuration"));
+      return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/login/org_configs/max_session_duration";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.updateLoginOrgConfigsMaxSessionDuration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.updateLoginOrgConfigsMaxSessionDuration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
- * Update a specific Org Config.
- *
- * See {@link #updateOrgConfigWithHttpInfo}.
- *
- * @param orgConfigName The name of an Org Config. (required)
- * @param body  (required)
- * @return OrgConfigGetResponse
- * @throws ApiException if fails to make API call
- */
-  public OrgConfigGetResponse  updateOrgConfig(String orgConfigName, OrgConfigWriteRequest body) throws ApiException {
+   * Update a specific Org Config.
+   *
+   * <p>See {@link #updateOrgConfigWithHttpInfo}.
+   *
+   * @param orgConfigName The name of an Org Config. (required)
+   * @param body (required)
+   * @return OrgConfigGetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgConfigGetResponse updateOrgConfig(String orgConfigName, OrgConfigWriteRequest body)
+      throws ApiException {
     return updateOrgConfigWithHttpInfo(orgConfigName, body).getData();
   }
 
   /**
- * Update a specific Org Config.
- *
- * See {@link #updateOrgConfigWithHttpInfoAsync}.
- *
- * @param orgConfigName The name of an Org Config. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;OrgConfigGetResponse&gt;
- */
-  public CompletableFuture<OrgConfigGetResponse>updateOrgConfigAsync(String orgConfigName, OrgConfigWriteRequest body) {
-    return updateOrgConfigWithHttpInfoAsync(orgConfigName, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Update the value of a specific Org Config.</p>
+   * Update a specific Org Config.
+   *
+   * <p>See {@link #updateOrgConfigWithHttpInfoAsync}.
    *
    * @param orgConfigName The name of an Org Config. (required)
-   * @param body  (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;OrgConfigGetResponse&gt;
+   */
+  public CompletableFuture<OrgConfigGetResponse> updateOrgConfigAsync(
+      String orgConfigName, OrgConfigWriteRequest body) {
+    return updateOrgConfigWithHttpInfoAsync(orgConfigName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the value of a specific Org Config.
+   *
+   * @param orgConfigName The name of an Org Config. (required)
+   * @param body (required)
    * @return ApiResponse&lt;OrgConfigGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -921,111 +1189,157 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<OrgConfigGetResponse> updateOrgConfigWithHttpInfo(String orgConfigName, OrgConfigWriteRequest body) throws ApiException {
+  public ApiResponse<OrgConfigGetResponse> updateOrgConfigWithHttpInfo(
+      String orgConfigName, OrgConfigWriteRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'orgConfigName' is set
     if (orgConfigName == null) {
-      throw new ApiException(400, "Missing the required parameter 'orgConfigName' when calling updateOrgConfig");
+      throw new ApiException(
+          400, "Missing the required parameter 'orgConfigName' when calling updateOrgConfig");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateOrgConfig");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateOrgConfig");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/org_configs/{org_config_name}"
-      .replaceAll("\\{" + "org_config_name" + "\\}", apiClient.escapeString(orgConfigName.toString()));
+    String localVarPath =
+        "/api/v2/org_configs/{org_config_name}"
+            .replaceAll(
+                "\\{" + "org_config_name" + "\\}",
+                apiClient.escapeString(orgConfigName.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.updateOrgConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<OrgConfigGetResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.updateOrgConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgConfigGetResponse>() {});
   }
 
   /**
    * Update a specific Org Config.
    *
-   * See {@link #updateOrgConfigWithHttpInfo}.
+   * <p>See {@link #updateOrgConfigWithHttpInfo}.
    *
    * @param orgConfigName The name of an Org Config. (required)
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;OrgConfigGetResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<OrgConfigGetResponse>> updateOrgConfigWithHttpInfoAsync(String orgConfigName, OrgConfigWriteRequest body) {
+  public CompletableFuture<ApiResponse<OrgConfigGetResponse>> updateOrgConfigWithHttpInfoAsync(
+      String orgConfigName, OrgConfigWriteRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'orgConfigName' is set
     if (orgConfigName == null) {
-        CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'orgConfigName' when calling updateOrgConfig"));
-        return result;
+      CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'orgConfigName' when calling updateOrgConfig"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateOrgConfig"));
-        return result;
+      CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateOrgConfig"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/org_configs/{org_config_name}"
-      .replaceAll("\\{" + "org_config_name" + "\\}", apiClient.escapeString(orgConfigName.toString()));
+    String localVarPath =
+        "/api/v2/org_configs/{org_config_name}"
+            .replaceAll(
+                "\\{" + "org_config_name" + "\\}",
+                apiClient.escapeString(orgConfigName.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.updateOrgConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.updateOrgConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<OrgConfigGetResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgConfigGetResponse>() {});
   }
 
   /**
- * Update organization SAML preferences.
- *
- * See {@link #updateOrgSamlConfigurationsWithHttpInfo}.
- *
- * @param body  (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  updateOrgSamlConfigurations(OrgSAMLPreferencesUpdateRequest body) throws ApiException {
+   * Update organization SAML preferences.
+   *
+   * <p>See {@link #updateOrgSamlConfigurationsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateOrgSamlConfigurations(OrgSAMLPreferencesUpdateRequest body)
+      throws ApiException {
     updateOrgSamlConfigurationsWithHttpInfo(body);
   }
 
   /**
- * Update organization SAML preferences.
- *
- * See {@link #updateOrgSamlConfigurationsWithHttpInfoAsync}.
- *
- * @param body  (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>updateOrgSamlConfigurationsAsync(OrgSAMLPreferencesUpdateRequest body) {
-    return updateOrgSamlConfigurationsWithHttpInfoAsync(body).thenApply(response -> {
-        return response.getData();
-    });
+   * Update organization SAML preferences.
+   *
+   * <p>See {@link #updateOrgSamlConfigurationsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateOrgSamlConfigurationsAsync(
+      OrgSAMLPreferencesUpdateRequest body) {
+    return updateOrgSamlConfigurationsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Update the SAML preferences for the current organization.</p>
-   * <p>Use this endpoint to set the just-in-time (JIT) provisioning domains and the default role
-   * assigned to just-in-time provisioned users.</p>
+   * Update the SAML preferences for the current organization.
    *
-   * @param body  (required)
+   * <p>Use this endpoint to set the just-in-time (JIT) provisioning domains and the default role
+   * assigned to just-in-time provisioned users.
+   *
+   * @param body (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -1035,7 +1349,8 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> updateOrgSamlConfigurationsWithHttpInfo(OrgSAMLPreferencesUpdateRequest body) throws ApiException {
+  public ApiResponse<Void> updateOrgSamlConfigurationsWithHttpInfo(
+      OrgSAMLPreferencesUpdateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "updateOrgSamlConfigurations";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1047,105 +1362,143 @@ public class OrganizationsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateOrgSamlConfigurations");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateOrgSamlConfigurations");
     }
     // create path and map variables
     String localVarPath = "/api/v2/org/saml_configurations";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.updateOrgSamlConfigurations", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.updateOrgSamlConfigurations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Update organization SAML preferences.
    *
-   * See {@link #updateOrgSamlConfigurationsWithHttpInfo}.
+   * <p>See {@link #updateOrgSamlConfigurationsWithHttpInfo}.
    *
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> updateOrgSamlConfigurationsWithHttpInfoAsync(OrgSAMLPreferencesUpdateRequest body) {
+  public CompletableFuture<ApiResponse<Void>> updateOrgSamlConfigurationsWithHttpInfoAsync(
+      OrgSAMLPreferencesUpdateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "updateOrgSamlConfigurations";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateOrgSamlConfigurations"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateOrgSamlConfigurations"));
+      return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/org/saml_configurations";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.updateOrgSamlConfigurations", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.updateOrgSamlConfigurations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
- * Update a SAML configuration.
- *
- * See {@link #updateSAMLConfigurationWithHttpInfo}.
- *
- * @param samlConfigUuid The UUID of the SAML configuration. (required)
- * @param body  (required)
- * @return SAMLConfigurationResponse
- * @throws ApiException if fails to make API call
- */
-  public SAMLConfigurationResponse  updateSAMLConfiguration(String samlConfigUuid, SAMLConfigurationUpdateRequest body) throws ApiException {
+   * Update a SAML configuration.
+   *
+   * <p>See {@link #updateSAMLConfigurationWithHttpInfo}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @param body (required)
+   * @return SAMLConfigurationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SAMLConfigurationResponse updateSAMLConfiguration(
+      String samlConfigUuid, SAMLConfigurationUpdateRequest body) throws ApiException {
     return updateSAMLConfigurationWithHttpInfo(samlConfigUuid, body).getData();
   }
 
   /**
- * Update a SAML configuration.
- *
- * See {@link #updateSAMLConfigurationWithHttpInfoAsync}.
- *
- * @param samlConfigUuid The UUID of the SAML configuration. (required)
- * @param body  (required)
- * @return CompletableFuture&lt;SAMLConfigurationResponse&gt;
- */
-  public CompletableFuture<SAMLConfigurationResponse>updateSAMLConfigurationAsync(String samlConfigUuid, SAMLConfigurationUpdateRequest body) {
-    return updateSAMLConfigurationWithHttpInfoAsync(samlConfigUuid, body).thenApply(response -> {
-        return response.getData();
-    });
-  }
-
-
-  /**
-   * <p>Update a single SAML configuration for the current organization.</p>
-   * <p>Use this endpoint to enable or disable identity-provider-initiated login, set the
-   * just-in-time provisioning domains, and set the default role assigned to
-   * just-in-time provisioned users. A default role is required to enable just-in-time provisioning.</p>
+   * Update a SAML configuration.
+   *
+   * <p>See {@link #updateSAMLConfigurationWithHttpInfoAsync}.
    *
    * @param samlConfigUuid The UUID of the SAML configuration. (required)
-   * @param body  (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SAMLConfigurationResponse&gt;
+   */
+  public CompletableFuture<SAMLConfigurationResponse> updateSAMLConfigurationAsync(
+      String samlConfigUuid, SAMLConfigurationUpdateRequest body) {
+    return updateSAMLConfigurationWithHttpInfoAsync(samlConfigUuid, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a single SAML configuration for the current organization.
+   *
+   * <p>Use this endpoint to enable or disable identity-provider-initiated login, set the
+   * just-in-time provisioning domains, and set the default role assigned to just-in-time
+   * provisioned users. A default role is required to enable just-in-time provisioning.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @param body (required)
    * @return ApiResponse&lt;SAMLConfigurationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1156,82 +1509,127 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SAMLConfigurationResponse> updateSAMLConfigurationWithHttpInfo(String samlConfigUuid, SAMLConfigurationUpdateRequest body) throws ApiException {
+  public ApiResponse<SAMLConfigurationResponse> updateSAMLConfigurationWithHttpInfo(
+      String samlConfigUuid, SAMLConfigurationUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'samlConfigUuid' is set
     if (samlConfigUuid == null) {
-      throw new ApiException(400, "Missing the required parameter 'samlConfigUuid' when calling updateSAMLConfiguration");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'samlConfigUuid' when calling updateSAMLConfiguration");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateSAMLConfiguration");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateSAMLConfiguration");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/saml_configurations/{saml_config_uuid}"
-      .replaceAll("\\{" + "saml_config_uuid" + "\\}", apiClient.escapeString(samlConfigUuid.toString()));
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.updateSAMLConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SAMLConfigurationResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.updateSAMLConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
   }
 
   /**
    * Update a SAML configuration.
    *
-   * See {@link #updateSAMLConfigurationWithHttpInfo}.
+   * <p>See {@link #updateSAMLConfigurationWithHttpInfo}.
    *
    * @param samlConfigUuid The UUID of the SAML configuration. (required)
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SAMLConfigurationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SAMLConfigurationResponse>> updateSAMLConfigurationWithHttpInfoAsync(String samlConfigUuid, SAMLConfigurationUpdateRequest body) {
+  public CompletableFuture<ApiResponse<SAMLConfigurationResponse>>
+      updateSAMLConfigurationWithHttpInfoAsync(
+          String samlConfigUuid, SAMLConfigurationUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'samlConfigUuid' is set
     if (samlConfigUuid == null) {
-        CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'samlConfigUuid' when calling updateSAMLConfiguration"));
-        return result;
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'samlConfigUuid' when calling"
+                  + " updateSAMLConfiguration"));
+      return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateSAMLConfiguration"));
-        return result;
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateSAMLConfiguration"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/saml_configurations/{saml_config_uuid}"
-      .replaceAll("\\{" + "saml_config_uuid" + "\\}", apiClient.escapeString(samlConfigUuid.toString()));
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.updateSAMLConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.updateSAMLConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SAMLConfigurationResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
   }
 
-  /**
-   * Manage optional parameters to uploadIdPMetadata.
-   */
+  /** Manage optional parameters to uploadIdPMetadata. */
   public static class UploadIdPMetadataOptionalParameters {
     private File idpFile;
 
     /**
      * Set idpFile.
+     *
      * @param idpFile The IdP metadata XML file (optional)
      * @return UploadIdPMetadataOptionalParameters
      */
@@ -1242,65 +1640,71 @@ public class OrganizationsApi {
   }
 
   /**
- * Upload IdP metadata.
- *
- * See {@link #uploadIdPMetadataWithHttpInfo}.
- *
- * @throws ApiException if fails to make API call
- */
-  public void uploadIdPMetadata () throws ApiException {
-     uploadIdPMetadataWithHttpInfo(new UploadIdPMetadataOptionalParameters());
+   * Upload IdP metadata.
+   *
+   * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
+   *
+   * @throws ApiException if fails to make API call
+   */
+  public void uploadIdPMetadata() throws ApiException {
+    uploadIdPMetadataWithHttpInfo(new UploadIdPMetadataOptionalParameters());
   }
 
   /**
- * Upload IdP metadata.
- *
- * See {@link #uploadIdPMetadataWithHttpInfoAsync}.
- *
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>uploadIdPMetadataAsync() {
-    return uploadIdPMetadataWithHttpInfoAsync(new UploadIdPMetadataOptionalParameters()).thenApply(response -> {
-        return response.getData();
-    });
+   * Upload IdP metadata.
+   *
+   * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> uploadIdPMetadataAsync() {
+    return uploadIdPMetadataWithHttpInfoAsync(new UploadIdPMetadataOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * Upload IdP metadata.
- *
- * See {@link #uploadIdPMetadataWithHttpInfo}.
- *
- * @param parameters Optional parameters for the request.
- * @throws ApiException if fails to make API call
- */
-  public  void uploadIdPMetadata(UploadIdPMetadataOptionalParameters parameters) throws ApiException {
-     uploadIdPMetadataWithHttpInfo(parameters);
+   * Upload IdP metadata.
+   *
+   * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @throws ApiException if fails to make API call
+   */
+  public void uploadIdPMetadata(UploadIdPMetadataOptionalParameters parameters)
+      throws ApiException {
+    uploadIdPMetadataWithHttpInfo(parameters);
   }
 
   /**
- * Upload IdP metadata.
- *
- * See {@link #uploadIdPMetadataWithHttpInfoAsync}.
- *
- * @param parameters Optional parameters for the request.
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>uploadIdPMetadataAsync(UploadIdPMetadataOptionalParameters parameters) {
-    return uploadIdPMetadataWithHttpInfoAsync(parameters).thenApply(response -> {
-        return response.getData();
-    });
+   * Upload IdP metadata.
+   *
+   * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> uploadIdPMetadataAsync(
+      UploadIdPMetadataOptionalParameters parameters) {
+    return uploadIdPMetadataWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Endpoint for uploading IdP metadata for SAML setup.</p>
-   * <p>Use this endpoint to upload or replace IdP metadata for SAML login configuration.</p>
+   * Endpoint for uploading IdP metadata for SAML setup.
+   *
+   * <p>Use this endpoint to upload or replace IdP metadata for SAML login configuration.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1309,51 +1713,86 @@ public class OrganizationsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> uploadIdPMetadataWithHttpInfo(UploadIdPMetadataOptionalParameters parameters) throws ApiException {
+  public ApiResponse<Void> uploadIdPMetadataWithHttpInfo(
+      UploadIdPMetadataOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     File idpFile = parameters.idpFile;
     // create path and map variables
     String localVarPath = "/api/v2/saml_configurations/idp_metadata";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-      if (idpFile != null) { localVarFormParams.put("idp_file", idpFile); }
+    if (idpFile != null) {
+      localVarFormParams.put("idp_file", idpFile);
+    }
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.OrganizationsApi.uploadIdPMetadata", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"multipart/form-data" }, localVarPostBody,localVarFormParams , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.uploadIdPMetadata",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"multipart/form-data"},
+        localVarPostBody,
+        localVarFormParams,
+        false,
+        null);
   }
 
   /**
    * Upload IdP metadata.
    *
-   * See {@link #uploadIdPMetadataWithHttpInfo}.
+   * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> uploadIdPMetadataWithHttpInfoAsync(UploadIdPMetadataOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Void>> uploadIdPMetadataWithHttpInfoAsync(
+      UploadIdPMetadataOptionalParameters parameters) {
     Object localVarPostBody = null;
     File idpFile = parameters.idpFile;
     // create path and map variables
     String localVarPath = "/api/v2/saml_configurations/idp_metadata";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-      if (idpFile != null) { localVarFormParams.put("idp_file", idpFile); }
-    
+    if (idpFile != null) {
+      localVarFormParams.put("idp_file", idpFile);
+    }
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.OrganizationsApi.uploadIdPMetadata", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.uploadIdPMetadata",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"multipart/form-data" }, localVarPostBody,localVarFormParams , false, null);
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"multipart/form-data"},
+        localVarPostBody,
+        localVarFormParams,
+        false,
+        null);
   }
 }

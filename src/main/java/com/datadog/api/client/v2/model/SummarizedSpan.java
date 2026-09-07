@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A node in the pruned trace tree.</p>
- */
+/** A node in the pruned trace tree. */
 @JsonPropertyOrder({
   SummarizedSpan.JSON_PROPERTY_CHILDREN,
   SummarizedSpan.JSON_PROPERTY_DURATION_SECONDS,
@@ -50,10 +37,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SummarizedSpan.JSON_PROPERTY_SPAN_KIND,
   SummarizedSpan.JSON_PROPERTY_START_TIME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SummarizedSpan {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHILDREN = "children";
   private List<SummarizedSpan> children = new ArrayList<>();
 
@@ -100,39 +87,41 @@ public class SummarizedSpan {
 
   @JsonCreator
   public SummarizedSpan(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CHILDREN)List<SummarizedSpan> children,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DURATION_SECONDS)Double durationSeconds,
-            @JsonProperty(required=true, value=JSON_PROPERTY_END_TIME)OffsetDateTime endTime,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ERROR)APMSpanErrorFlag error,
-            @JsonProperty(required=true, value=JSON_PROPERTY_HIDDEN_CHILD_SPANS_COUNT)Integer hiddenChildSpansCount,
-            @JsonProperty(required=true, value=JSON_PROPERTY_META)Map<String, String> meta,
-            @JsonProperty(required=true, value=JSON_PROPERTY_METRICS)Map<String, Double> metrics,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PARENT_ID)Long parentId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE)String resource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE)String service,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SPAN_ID)Long spanId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SPAN_KIND)String spanKind,
-            @JsonProperty(required=true, value=JSON_PROPERTY_START_TIME)OffsetDateTime startTime) {
-        this.children = children;
-        for (SummarizedSpan item : children) {
-          this.unparsed |= item.unparsed;
-        }
-        this.durationSeconds = durationSeconds;
-        this.endTime = endTime;
-        this.error = error;
-        this.unparsed |= !error.isValid();
-        this.hiddenChildSpansCount = hiddenChildSpansCount;
-        this.meta = meta;
-        this.metrics = metrics;
-        this.name = name;
-        this.parentId = parentId;
-        this.resource = resource;
-        this.service = service;
-        this.spanId = spanId;
-        this.spanKind = spanKind;
-        this.startTime = startTime;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHILDREN) List<SummarizedSpan> children,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DURATION_SECONDS) Double durationSeconds,
+      @JsonProperty(required = true, value = JSON_PROPERTY_END_TIME) OffsetDateTime endTime,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERROR) APMSpanErrorFlag error,
+      @JsonProperty(required = true, value = JSON_PROPERTY_HIDDEN_CHILD_SPANS_COUNT)
+          Integer hiddenChildSpansCount,
+      @JsonProperty(required = true, value = JSON_PROPERTY_META) Map<String, String> meta,
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRICS) Map<String, Double> metrics,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PARENT_ID) Long parentId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE) String resource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SPAN_ID) Long spanId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SPAN_KIND) String spanKind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_START_TIME) OffsetDateTime startTime) {
+    this.children = children;
+    for (SummarizedSpan item : children) {
+      this.unparsed |= item.unparsed;
+    }
+    this.durationSeconds = durationSeconds;
+    this.endTime = endTime;
+    this.error = error;
+    this.unparsed |= !error.isValid();
+    this.hiddenChildSpansCount = hiddenChildSpansCount;
+    this.meta = meta;
+    this.metrics = metrics;
+    this.name = name;
+    this.parentId = parentId;
+    this.resource = resource;
+    this.service = service;
+    this.spanId = spanId;
+    this.spanKind = spanKind;
+    this.startTime = startTime;
   }
+
   public SummarizedSpan children(List<SummarizedSpan> children) {
     this.children = children;
     for (SummarizedSpan item : children) {
@@ -140,6 +129,7 @@ public class SummarizedSpan {
     }
     return this;
   }
+
   public SummarizedSpan addChildrenItem(SummarizedSpan childrenItem) {
     this.children.add(childrenItem);
     this.unparsed |= childrenItem.unparsed;
@@ -147,15 +137,16 @@ public class SummarizedSpan {
   }
 
   /**
-   * <p>The child spans of this node in the pruned tree.</p>
+   * The child spans of this node in the pruned tree.
+   *
    * @return children
-  **/
-      @JsonProperty(JSON_PROPERTY_CHILDREN)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<SummarizedSpan> getChildren() {
-        return children;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CHILDREN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SummarizedSpan> getChildren() {
+    return children;
+  }
+
   public void setChildren(List<SummarizedSpan> children) {
     this.children = children;
     if (children != null) {
@@ -164,42 +155,47 @@ public class SummarizedSpan {
       }
     }
   }
+
   public SummarizedSpan durationSeconds(Double durationSeconds) {
     this.durationSeconds = durationSeconds;
     return this;
   }
 
   /**
-   * <p>The duration of the span, in seconds.</p>
+   * The duration of the span, in seconds.
+   *
    * @return durationSeconds
-  **/
-      @JsonProperty(JSON_PROPERTY_DURATION_SECONDS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Double getDurationSeconds() {
-        return durationSeconds;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DURATION_SECONDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getDurationSeconds() {
+    return durationSeconds;
+  }
+
   public void setDurationSeconds(Double durationSeconds) {
     this.durationSeconds = durationSeconds;
   }
+
   public SummarizedSpan endTime(OffsetDateTime endTime) {
     this.endTime = endTime;
     return this;
   }
 
   /**
-   * <p>The end time of the span, in RFC3339 format.</p>
+   * The end time of the span, in RFC3339 format.
+   *
    * @return endTime
-  **/
-      @JsonProperty(JSON_PROPERTY_END_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getEndTime() {
-        return endTime;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_END_TIME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getEndTime() {
+    return endTime;
+  }
+
   public void setEndTime(OffsetDateTime endTime) {
     this.endTime = endTime;
   }
+
   public SummarizedSpan error(APMSpanErrorFlag error) {
     this.error = error;
     this.unparsed |= !error.isValid();
@@ -207,222 +203,244 @@ public class SummarizedSpan {
   }
 
   /**
-   * <p>Error flag for a span. <code>1</code> when the span is in error, <code>0</code> otherwise.</p>
+   * Error flag for a span. <code>1</code> when the span is in error, <code>0</code> otherwise.
+   *
    * @return error
-  **/
-      @JsonProperty(JSON_PROPERTY_ERROR)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public APMSpanErrorFlag getError() {
-        return error;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public APMSpanErrorFlag getError() {
+    return error;
+  }
+
   public void setError(APMSpanErrorFlag error) {
     if (!error.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.error = error;
   }
+
   public SummarizedSpan hiddenChildSpansCount(Integer hiddenChildSpansCount) {
     this.hiddenChildSpansCount = hiddenChildSpansCount;
     return this;
   }
 
   /**
-   * <p>The number of child spans that were pruned from this node when summarizing the trace.</p>
-   * maximum: 2147483647
+   * The number of child spans that were pruned from this node when summarizing the trace. maximum:
+   * 2147483647
+   *
    * @return hiddenChildSpansCount
-  **/
-      @JsonProperty(JSON_PROPERTY_HIDDEN_CHILD_SPANS_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Integer getHiddenChildSpansCount() {
-        return hiddenChildSpansCount;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_HIDDEN_CHILD_SPANS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getHiddenChildSpansCount() {
+    return hiddenChildSpansCount;
+  }
+
   public void setHiddenChildSpansCount(Integer hiddenChildSpansCount) {
     this.hiddenChildSpansCount = hiddenChildSpansCount;
   }
+
   public SummarizedSpan meta(Map<String, String> meta) {
     this.meta = meta;
     return this;
   }
+
   public SummarizedSpan putMetaItem(String key, String metaItem) {
     this.meta.put(key, metaItem);
     return this;
   }
 
   /**
-   * <p>String-valued tags attached to the span.</p>
+   * String-valued tags attached to the span.
+   *
    * @return meta
-  **/
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Map<String, String> getMeta() {
-        return meta;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, String> getMeta() {
+    return meta;
+  }
+
   public void setMeta(Map<String, String> meta) {
     this.meta = meta;
   }
+
   public SummarizedSpan metrics(Map<String, Double> metrics) {
     this.metrics = metrics;
     return this;
   }
+
   public SummarizedSpan putMetricsItem(String key, Double metricsItem) {
     this.metrics.put(key, metricsItem);
     return this;
   }
 
   /**
-   * <p>Numeric metrics attached to the span.</p>
+   * Numeric metrics attached to the span.
+   *
    * @return metrics
-  **/
-      @JsonProperty(JSON_PROPERTY_METRICS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Map<String, Double> getMetrics() {
-        return metrics;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_METRICS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Double> getMetrics() {
+    return metrics;
+  }
+
   public void setMetrics(Map<String, Double> metrics) {
     this.metrics = metrics;
   }
+
   public SummarizedSpan name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The operation name of the span.</p>
+   * The operation name of the span.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SummarizedSpan parentId(Long parentId) {
     this.parentId = parentId;
     return this;
   }
 
   /**
-   * <p>The ID of the parent span, or <code>0</code> when the span is the trace root.</p>
+   * The ID of the parent span, or <code>0</code> when the span is the trace root.
+   *
    * @return parentId
-  **/
-      @JsonProperty(JSON_PROPERTY_PARENT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getParentId() {
-        return parentId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getParentId() {
+    return parentId;
+  }
+
   public void setParentId(Long parentId) {
     this.parentId = parentId;
   }
+
   public SummarizedSpan resource(String resource) {
     this.resource = resource;
     return this;
   }
 
   /**
-   * <p>The resource that the span describes.</p>
+   * The resource that the span describes.
+   *
    * @return resource
-  **/
-      @JsonProperty(JSON_PROPERTY_RESOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getResource() {
-        return resource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getResource() {
+    return resource;
+  }
+
   public void setResource(String resource) {
     this.resource = resource;
   }
+
   public SummarizedSpan service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>The name of the service that emitted the span.</p>
+   * The name of the service that emitted the span.
+   *
    * @return service
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getService() {
-        return service;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public SummarizedSpan spanId(Long spanId) {
     this.spanId = spanId;
     return this;
   }
 
   /**
-   * <p>The span ID, as an unsigned 64-bit integer.</p>
+   * The span ID, as an unsigned 64-bit integer.
+   *
    * @return spanId
-  **/
-      @JsonProperty(JSON_PROPERTY_SPAN_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getSpanId() {
-        return spanId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SPAN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getSpanId() {
+    return spanId;
+  }
+
   public void setSpanId(Long spanId) {
     this.spanId = spanId;
   }
+
   public SummarizedSpan spanKind(String spanKind) {
     this.spanKind = spanKind;
     return this;
   }
 
   /**
-   * <p>The OpenTelemetry span kind, for example <code>INTERNAL</code>, <code>SERVER</code>, <code>CLIENT</code>,
-   * <code>PRODUCER</code>, or <code>CONSUMER</code>.</p>
+   * The OpenTelemetry span kind, for example <code>INTERNAL</code>, <code>SERVER</code>, <code>
+   * CLIENT</code>, <code>PRODUCER</code>, or <code>CONSUMER</code>.
+   *
    * @return spanKind
-  **/
-      @JsonProperty(JSON_PROPERTY_SPAN_KIND)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getSpanKind() {
-        return spanKind;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SPAN_KIND)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getSpanKind() {
+    return spanKind;
+  }
+
   public void setSpanKind(String spanKind) {
     this.spanKind = spanKind;
   }
+
   public SummarizedSpan startTime(OffsetDateTime startTime) {
     this.startTime = startTime;
     return this;
   }
 
   /**
-   * <p>The start time of the span, in RFC3339 format.</p>
+   * The start time of the span, in RFC3339 format.
+   *
    * @return startTime
-  **/
-      @JsonProperty(JSON_PROPERTY_START_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getStartTime() {
-        return startTime;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_START_TIME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getStartTime() {
+    return startTime;
+  }
+
   public void setStartTime(OffsetDateTime startTime) {
     this.startTime = startTime;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -431,7 +449,7 @@ public class SummarizedSpan {
   @JsonAnySetter
   public SummarizedSpan putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -455,14 +473,12 @@ public class SummarizedSpan {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SummarizedSpan object is equal to o.
-   */
+  /** Return true if this SummarizedSpan object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -472,13 +488,41 @@ public class SummarizedSpan {
       return false;
     }
     SummarizedSpan summarizedSpan = (SummarizedSpan) o;
-    return Objects.equals(this.children, summarizedSpan.children) && Objects.equals(this.durationSeconds, summarizedSpan.durationSeconds) && Objects.equals(this.endTime, summarizedSpan.endTime) && Objects.equals(this.error, summarizedSpan.error) && Objects.equals(this.hiddenChildSpansCount, summarizedSpan.hiddenChildSpansCount) && Objects.equals(this.meta, summarizedSpan.meta) && Objects.equals(this.metrics, summarizedSpan.metrics) && Objects.equals(this.name, summarizedSpan.name) && Objects.equals(this.parentId, summarizedSpan.parentId) && Objects.equals(this.resource, summarizedSpan.resource) && Objects.equals(this.service, summarizedSpan.service) && Objects.equals(this.spanId, summarizedSpan.spanId) && Objects.equals(this.spanKind, summarizedSpan.spanKind) && Objects.equals(this.startTime, summarizedSpan.startTime) && Objects.equals(this.additionalProperties, summarizedSpan.additionalProperties);
+    return Objects.equals(this.children, summarizedSpan.children)
+        && Objects.equals(this.durationSeconds, summarizedSpan.durationSeconds)
+        && Objects.equals(this.endTime, summarizedSpan.endTime)
+        && Objects.equals(this.error, summarizedSpan.error)
+        && Objects.equals(this.hiddenChildSpansCount, summarizedSpan.hiddenChildSpansCount)
+        && Objects.equals(this.meta, summarizedSpan.meta)
+        && Objects.equals(this.metrics, summarizedSpan.metrics)
+        && Objects.equals(this.name, summarizedSpan.name)
+        && Objects.equals(this.parentId, summarizedSpan.parentId)
+        && Objects.equals(this.resource, summarizedSpan.resource)
+        && Objects.equals(this.service, summarizedSpan.service)
+        && Objects.equals(this.spanId, summarizedSpan.spanId)
+        && Objects.equals(this.spanKind, summarizedSpan.spanKind)
+        && Objects.equals(this.startTime, summarizedSpan.startTime)
+        && Objects.equals(this.additionalProperties, summarizedSpan.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(children,durationSeconds,endTime,error,hiddenChildSpansCount,meta,metrics,name,parentId,resource,service,spanId,spanKind,startTime, additionalProperties);
+    return Objects.hash(
+        children,
+        durationSeconds,
+        endTime,
+        error,
+        hiddenChildSpansCount,
+        meta,
+        metrics,
+        name,
+        parentId,
+        resource,
+        service,
+        spanId,
+        spanKind,
+        startTime,
+        additionalProperties);
   }
 
   @Override
@@ -489,7 +533,9 @@ public class SummarizedSpan {
     sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    hiddenChildSpansCount: ").append(toIndentedString(hiddenChildSpansCount)).append("\n");
+    sb.append("    hiddenChildSpansCount: ")
+        .append(toIndentedString(hiddenChildSpansCount))
+        .append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -507,8 +553,7 @@ public class SummarizedSpan {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

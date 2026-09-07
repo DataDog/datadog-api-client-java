@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Guardrail trigger details for a progressive rollout.</p>
- */
+/** Guardrail trigger details for a progressive rollout. */
 @JsonPropertyOrder({
   AllocationExposureGuardrailTrigger.JSON_PROPERTY_ALLOCATION_EXPOSURE_SCHEDULE_ID,
   AllocationExposureGuardrailTrigger.JSON_PROPERTY_CREATED_AT,
@@ -43,11 +29,12 @@ import com.datadog.api.client.JsonTimeSerializer;
   AllocationExposureGuardrailTrigger.JSON_PROPERTY_TRIGGERED_ACTION,
   AllocationExposureGuardrailTrigger.JSON_PROPERTY_UPDATED_AT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AllocationExposureGuardrailTrigger {
-  @JsonIgnore
-  public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ALLOCATION_EXPOSURE_SCHEDULE_ID = "allocation_exposure_schedule_id";
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALLOCATION_EXPOSURE_SCHEDULE_ID =
+      "allocation_exposure_schedule_id";
   private UUID allocationExposureScheduleId;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
@@ -72,158 +59,174 @@ public class AllocationExposureGuardrailTrigger {
 
   @JsonCreator
   public AllocationExposureGuardrailTrigger(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ALLOCATION_EXPOSURE_SCHEDULE_ID)UUID allocationExposureScheduleId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_FLAGGING_VARIANT_ID)UUID flaggingVariantId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)UUID id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC_ID)String metricId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TRIGGERED_ACTION)String triggeredAction,
-            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_AT)OffsetDateTime updatedAt) {
-        this.allocationExposureScheduleId = allocationExposureScheduleId;
-        this.createdAt = createdAt;
-        this.flaggingVariantId = flaggingVariantId;
-        this.id = id;
-        this.metricId = metricId;
-        this.triggeredAction = triggeredAction;
-        this.updatedAt = updatedAt;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ALLOCATION_EXPOSURE_SCHEDULE_ID)
+          UUID allocationExposureScheduleId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_FLAGGING_VARIANT_ID)
+          UUID flaggingVariantId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC_ID) String metricId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TRIGGERED_ACTION) String triggeredAction,
+      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt) {
+    this.allocationExposureScheduleId = allocationExposureScheduleId;
+    this.createdAt = createdAt;
+    this.flaggingVariantId = flaggingVariantId;
+    this.id = id;
+    this.metricId = metricId;
+    this.triggeredAction = triggeredAction;
+    this.updatedAt = updatedAt;
   }
-  public AllocationExposureGuardrailTrigger allocationExposureScheduleId(UUID allocationExposureScheduleId) {
+
+  public AllocationExposureGuardrailTrigger allocationExposureScheduleId(
+      UUID allocationExposureScheduleId) {
     this.allocationExposureScheduleId = allocationExposureScheduleId;
     return this;
   }
 
   /**
-   * <p>The progressive rollout ID this trigger belongs to.</p>
+   * The progressive rollout ID this trigger belongs to.
+   *
    * @return allocationExposureScheduleId
-  **/
-      @JsonProperty(JSON_PROPERTY_ALLOCATION_EXPOSURE_SCHEDULE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public UUID getAllocationExposureScheduleId() {
-        return allocationExposureScheduleId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ALLOCATION_EXPOSURE_SCHEDULE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getAllocationExposureScheduleId() {
+    return allocationExposureScheduleId;
+  }
+
   public void setAllocationExposureScheduleId(UUID allocationExposureScheduleId) {
     this.allocationExposureScheduleId = allocationExposureScheduleId;
   }
+
   public AllocationExposureGuardrailTrigger createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when this trigger was created.</p>
+   * The timestamp when this trigger was created.
+   *
    * @return createdAt
-  **/
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
   public AllocationExposureGuardrailTrigger flaggingVariantId(UUID flaggingVariantId) {
     this.flaggingVariantId = flaggingVariantId;
     return this;
   }
 
   /**
-   * <p>The variant ID that triggered this event.</p>
+   * The variant ID that triggered this event.
+   *
    * @return flaggingVariantId
-  **/
-      @JsonProperty(JSON_PROPERTY_FLAGGING_VARIANT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public UUID getFlaggingVariantId() {
-        return flaggingVariantId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FLAGGING_VARIANT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getFlaggingVariantId() {
+    return flaggingVariantId;
+  }
+
   public void setFlaggingVariantId(UUID flaggingVariantId) {
     this.flaggingVariantId = flaggingVariantId;
   }
+
   public AllocationExposureGuardrailTrigger id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unique identifier of the guardrail trigger.</p>
+   * The unique identifier of the guardrail trigger.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public UUID getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getId() {
+    return id;
+  }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public AllocationExposureGuardrailTrigger metricId(String metricId) {
     this.metricId = metricId;
     return this;
   }
 
   /**
-   * <p>The metric ID associated with the trigger.</p>
+   * The metric ID associated with the trigger.
+   *
    * @return metricId
-  **/
-      @JsonProperty(JSON_PROPERTY_METRIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMetricId() {
-        return metricId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_METRIC_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMetricId() {
+    return metricId;
+  }
+
   public void setMetricId(String metricId) {
     this.metricId = metricId;
   }
+
   public AllocationExposureGuardrailTrigger triggeredAction(String triggeredAction) {
     this.triggeredAction = triggeredAction;
     return this;
   }
 
   /**
-   * <p>The action that was triggered.</p>
+   * The action that was triggered.
+   *
    * @return triggeredAction
-  **/
-      @JsonProperty(JSON_PROPERTY_TRIGGERED_ACTION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getTriggeredAction() {
-        return triggeredAction;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TRIGGERED_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTriggeredAction() {
+    return triggeredAction;
+  }
+
   public void setTriggeredAction(String triggeredAction) {
     this.triggeredAction = triggeredAction;
   }
+
   public AllocationExposureGuardrailTrigger updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when this trigger was last updated.</p>
+   * The timestamp when this trigger was last updated.
+   *
    * @return updatedAt
-  **/
-      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getUpdatedAt() {
-        return updatedAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -232,7 +235,7 @@ public class AllocationExposureGuardrailTrigger {
   @JsonAnySetter
   public AllocationExposureGuardrailTrigger putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -256,14 +259,12 @@ public class AllocationExposureGuardrailTrigger {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this AllocationExposureGuardrailTrigger object is equal to o.
-   */
+  /** Return true if this AllocationExposureGuardrailTrigger object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -272,21 +273,42 @@ public class AllocationExposureGuardrailTrigger {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AllocationExposureGuardrailTrigger allocationExposureGuardrailTrigger = (AllocationExposureGuardrailTrigger) o;
-    return Objects.equals(this.allocationExposureScheduleId, allocationExposureGuardrailTrigger.allocationExposureScheduleId) && Objects.equals(this.createdAt, allocationExposureGuardrailTrigger.createdAt) && Objects.equals(this.flaggingVariantId, allocationExposureGuardrailTrigger.flaggingVariantId) && Objects.equals(this.id, allocationExposureGuardrailTrigger.id) && Objects.equals(this.metricId, allocationExposureGuardrailTrigger.metricId) && Objects.equals(this.triggeredAction, allocationExposureGuardrailTrigger.triggeredAction) && Objects.equals(this.updatedAt, allocationExposureGuardrailTrigger.updatedAt) && Objects.equals(this.additionalProperties, allocationExposureGuardrailTrigger.additionalProperties);
+    AllocationExposureGuardrailTrigger allocationExposureGuardrailTrigger =
+        (AllocationExposureGuardrailTrigger) o;
+    return Objects.equals(
+            this.allocationExposureScheduleId,
+            allocationExposureGuardrailTrigger.allocationExposureScheduleId)
+        && Objects.equals(this.createdAt, allocationExposureGuardrailTrigger.createdAt)
+        && Objects.equals(
+            this.flaggingVariantId, allocationExposureGuardrailTrigger.flaggingVariantId)
+        && Objects.equals(this.id, allocationExposureGuardrailTrigger.id)
+        && Objects.equals(this.metricId, allocationExposureGuardrailTrigger.metricId)
+        && Objects.equals(this.triggeredAction, allocationExposureGuardrailTrigger.triggeredAction)
+        && Objects.equals(this.updatedAt, allocationExposureGuardrailTrigger.updatedAt)
+        && Objects.equals(
+            this.additionalProperties, allocationExposureGuardrailTrigger.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationExposureScheduleId,createdAt,flaggingVariantId,id,metricId,triggeredAction,updatedAt, additionalProperties);
+    return Objects.hash(
+        allocationExposureScheduleId,
+        createdAt,
+        flaggingVariantId,
+        id,
+        metricId,
+        triggeredAction,
+        updatedAt,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AllocationExposureGuardrailTrigger {\n");
-    sb.append("    allocationExposureScheduleId: ").append(toIndentedString(allocationExposureScheduleId)).append("\n");
+    sb.append("    allocationExposureScheduleId: ")
+        .append(toIndentedString(allocationExposureScheduleId))
+        .append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    flaggingVariantId: ").append(toIndentedString(flaggingVariantId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -301,8 +323,7 @@ public class AllocationExposureGuardrailTrigger {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

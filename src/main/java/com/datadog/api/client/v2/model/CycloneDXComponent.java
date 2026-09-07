@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A software component identified during scanning.</p>
- */
+/** A software component identified during scanning. */
 @JsonPropertyOrder({
   CycloneDXComponent.JSON_PROPERTY_BOM_REF,
   CycloneDXComponent.JSON_PROPERTY_NAME,
@@ -41,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   CycloneDXComponent.JSON_PROPERTY_TYPE,
   CycloneDXComponent.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CycloneDXComponent {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BOM_REF = "bom-ref";
   private String bomRef;
 
@@ -64,71 +48,79 @@ public class CycloneDXComponent {
 
   @JsonCreator
   public CycloneDXComponent(
-            @JsonProperty(required=true, value=JSON_PROPERTY_BOM_REF)String bomRef,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)CycloneDXComponentType type,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VERSION)String version) {
-        this.bomRef = bomRef;
-        this.name = name;
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        this.version = version;
+      @JsonProperty(required = true, value = JSON_PROPERTY_BOM_REF) String bomRef,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CycloneDXComponentType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) String version) {
+    this.bomRef = bomRef;
+    this.name = name;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.version = version;
   }
+
   public CycloneDXComponent bomRef(String bomRef) {
     this.bomRef = bomRef;
     return this;
   }
 
   /**
-   * <p>A unique reference identifier used to link vulnerabilities to this component.</p>
+   * A unique reference identifier used to link vulnerabilities to this component.
+   *
    * @return bomRef
-  **/
-      @JsonProperty(JSON_PROPERTY_BOM_REF)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getBomRef() {
-        return bomRef;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_BOM_REF)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getBomRef() {
+    return bomRef;
+  }
+
   public void setBomRef(String bomRef) {
     this.bomRef = bomRef;
   }
+
   public CycloneDXComponent name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public CycloneDXComponent purl(String purl) {
     this.purl = purl;
     return this;
   }
 
   /**
-   * <p>The Package URL (PURL) of the component. Required when <code>type</code> is <code>library</code>.</p>
+   * The Package URL (PURL) of the component. Required when <code>type</code> is <code>library
+   * </code>.
+   *
    * @return purl
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PURL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPurl() {
-        return purl;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PURL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPurl() {
+    return purl;
+  }
+
   public void setPurl(String purl) {
     this.purl = purl;
   }
+
   public CycloneDXComponent type(CycloneDXComponentType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -136,50 +128,52 @@ public class CycloneDXComponent {
   }
 
   /**
-   * <p>The type of the scanned component.</p>
+   * The type of the scanned component.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public CycloneDXComponentType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CycloneDXComponentType getType() {
+    return type;
+  }
+
   public void setType(CycloneDXComponentType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public CycloneDXComponent version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>The version of the component.</p>
+   * The version of the component.
+   *
    * @return version
-  **/
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getVersion() {
-        return version;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getVersion() {
+    return version;
+  }
+
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -188,7 +182,7 @@ public class CycloneDXComponent {
   @JsonAnySetter
   public CycloneDXComponent putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -212,14 +206,12 @@ public class CycloneDXComponent {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CycloneDXComponent object is equal to o.
-   */
+  /** Return true if this CycloneDXComponent object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -229,13 +221,17 @@ public class CycloneDXComponent {
       return false;
     }
     CycloneDXComponent cycloneDxComponent = (CycloneDXComponent) o;
-    return Objects.equals(this.bomRef, cycloneDxComponent.bomRef) && Objects.equals(this.name, cycloneDxComponent.name) && Objects.equals(this.purl, cycloneDxComponent.purl) && Objects.equals(this.type, cycloneDxComponent.type) && Objects.equals(this.version, cycloneDxComponent.version) && Objects.equals(this.additionalProperties, cycloneDxComponent.additionalProperties);
+    return Objects.equals(this.bomRef, cycloneDxComponent.bomRef)
+        && Objects.equals(this.name, cycloneDxComponent.name)
+        && Objects.equals(this.purl, cycloneDxComponent.purl)
+        && Objects.equals(this.type, cycloneDxComponent.type)
+        && Objects.equals(this.version, cycloneDxComponent.version)
+        && Objects.equals(this.additionalProperties, cycloneDxComponent.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(bomRef,name,purl,type,version, additionalProperties);
+    return Objects.hash(bomRef, name, purl, type, version, additionalProperties);
   }
 
   @Override
@@ -255,8 +251,7 @@ public class CycloneDXComponent {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

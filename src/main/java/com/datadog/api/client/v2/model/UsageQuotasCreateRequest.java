@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,22 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>A JSON:API bulk request containing an array of usage quota resources rather than a single resource.</p>
+ * A JSON:API bulk request containing an array of usage quota resources rather than a single
+ * resource.
  */
-@JsonPropertyOrder({
-  UsageQuotasCreateRequest.JSON_PROPERTY_DATA
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@JsonPropertyOrder({UsageQuotasCreateRequest.JSON_PROPERTY_DATA})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageQuotasCreateRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<UsageQuotaCreateData> data = new ArrayList<>();
 
@@ -48,12 +35,13 @@ public class UsageQuotasCreateRequest {
 
   @JsonCreator
   public UsageQuotasCreateRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<UsageQuotaCreateData> data) {
-        this.data = data;
-        for (UsageQuotaCreateData item : data) {
-          this.unparsed |= item.unparsed;
-        }
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<UsageQuotaCreateData> data) {
+    this.data = data;
+    for (UsageQuotaCreateData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
+
   public UsageQuotasCreateRequest data(List<UsageQuotaCreateData> data) {
     this.data = data;
     for (UsageQuotaCreateData item : data) {
@@ -61,6 +49,7 @@ public class UsageQuotasCreateRequest {
     }
     return this;
   }
+
   public UsageQuotasCreateRequest addDataItem(UsageQuotaCreateData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -68,15 +57,16 @@ public class UsageQuotasCreateRequest {
   }
 
   /**
-   * <p>A bulk list of usage quota resources to create or update by scope.</p>
+   * A bulk list of usage quota resources to create or update by scope.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<UsageQuotaCreateData> getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<UsageQuotaCreateData> getData() {
+    return data;
+  }
+
   public void setData(List<UsageQuotaCreateData> data) {
     this.data = data;
     if (data != null) {
@@ -87,15 +77,14 @@ public class UsageQuotasCreateRequest {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -104,7 +93,7 @@ public class UsageQuotasCreateRequest {
   @JsonAnySetter
   public UsageQuotasCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -128,14 +117,12 @@ public class UsageQuotasCreateRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UsageQuotasCreateRequest object is equal to o.
-   */
+  /** Return true if this UsageQuotasCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,9 +132,9 @@ public class UsageQuotasCreateRequest {
       return false;
     }
     UsageQuotasCreateRequest usageQuotasCreateRequest = (UsageQuotasCreateRequest) o;
-    return Objects.equals(this.data, usageQuotasCreateRequest.data) && Objects.equals(this.additionalProperties, usageQuotasCreateRequest.additionalProperties);
+    return Objects.equals(this.data, usageQuotasCreateRequest.data)
+        && Objects.equals(this.additionalProperties, usageQuotasCreateRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -167,8 +154,7 @@ public class UsageQuotasCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

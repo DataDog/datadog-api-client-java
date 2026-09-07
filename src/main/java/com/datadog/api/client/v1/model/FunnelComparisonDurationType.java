@@ -6,75 +6,62 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Type of comparison duration.</p>
- */
+/** Type of comparison duration. */
 @JsonSerialize(using = FunnelComparisonDurationType.FunnelComparisonDurationTypeSerializer.class)
 public class FunnelComparisonDurationType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("previous_timeframe", "custom_timeframe", "previous_day", "previous_week", "previous_month"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "previous_timeframe",
+              "custom_timeframe",
+              "previous_day",
+              "previous_week",
+              "previous_month"));
 
-  public static final FunnelComparisonDurationType PREVIOUS_TIMEFRAME = new FunnelComparisonDurationType("previous_timeframe");
-  public static final FunnelComparisonDurationType CUSTOM_TIMEFRAME = new FunnelComparisonDurationType("custom_timeframe");
-  public static final FunnelComparisonDurationType PREVIOUS_DAY = new FunnelComparisonDurationType("previous_day");
-  public static final FunnelComparisonDurationType PREVIOUS_WEEK = new FunnelComparisonDurationType("previous_week");
-  public static final FunnelComparisonDurationType PREVIOUS_MONTH = new FunnelComparisonDurationType("previous_month");
-
+  public static final FunnelComparisonDurationType PREVIOUS_TIMEFRAME =
+      new FunnelComparisonDurationType("previous_timeframe");
+  public static final FunnelComparisonDurationType CUSTOM_TIMEFRAME =
+      new FunnelComparisonDurationType("custom_timeframe");
+  public static final FunnelComparisonDurationType PREVIOUS_DAY =
+      new FunnelComparisonDurationType("previous_day");
+  public static final FunnelComparisonDurationType PREVIOUS_WEEK =
+      new FunnelComparisonDurationType("previous_week");
+  public static final FunnelComparisonDurationType PREVIOUS_MONTH =
+      new FunnelComparisonDurationType("previous_month");
 
   FunnelComparisonDurationType(String value) {
     super(value, allowedValues);
   }
 
-  public static class FunnelComparisonDurationTypeSerializer extends StdSerializer<FunnelComparisonDurationType> {
-      public FunnelComparisonDurationTypeSerializer(Class<FunnelComparisonDurationType> t) {
-          super(t);
-      }
+  public static class FunnelComparisonDurationTypeSerializer
+      extends StdSerializer<FunnelComparisonDurationType> {
+    public FunnelComparisonDurationTypeSerializer(Class<FunnelComparisonDurationType> t) {
+      super(t);
+    }
 
-      public FunnelComparisonDurationTypeSerializer() {
-          this(null);
-      }
+    public FunnelComparisonDurationTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(FunnelComparisonDurationType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        FunnelComparisonDurationType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

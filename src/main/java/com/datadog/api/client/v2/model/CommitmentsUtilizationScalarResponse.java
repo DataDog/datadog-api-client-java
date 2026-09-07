@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response containing scalar utilization metrics for cloud commitment programs.</p>
- */
+/** Response containing scalar utilization metrics for cloud commitment programs. */
 @JsonPropertyOrder({
   CommitmentsUtilizationScalarResponse.JSON_PROPERTY_COLUMNS,
   CommitmentsUtilizationScalarResponse.JSON_PROPERTY_PRODUCT_BREAKDOWN
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsUtilizationScalarResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<CommitmentsScalarColumn> columns = new ArrayList<>();
 
@@ -52,12 +38,14 @@ public class CommitmentsUtilizationScalarResponse {
 
   @JsonCreator
   public CommitmentsUtilizationScalarResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COLUMNS)List<CommitmentsScalarColumn> columns) {
-        this.columns = columns;
-        for (CommitmentsScalarColumn item : columns) {
-          this.unparsed |= item.unparsed;
-        }
+      @JsonProperty(required = true, value = JSON_PROPERTY_COLUMNS)
+          List<CommitmentsScalarColumn> columns) {
+    this.columns = columns;
+    for (CommitmentsScalarColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
   }
+
   public CommitmentsUtilizationScalarResponse columns(List<CommitmentsScalarColumn> columns) {
     this.columns = columns;
     for (CommitmentsScalarColumn item : columns) {
@@ -65,6 +53,7 @@ public class CommitmentsUtilizationScalarResponse {
     }
     return this;
   }
+
   public CommitmentsUtilizationScalarResponse addColumnsItem(CommitmentsScalarColumn columnsItem) {
     this.columns.add(columnsItem);
     this.unparsed |= columnsItem.unparsed;
@@ -72,15 +61,16 @@ public class CommitmentsUtilizationScalarResponse {
   }
 
   /**
-   * <p>Array of scalar columns in the response.</p>
+   * Array of scalar columns in the response.
+   *
    * @return columns
-  **/
-      @JsonProperty(JSON_PROPERTY_COLUMNS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<CommitmentsScalarColumn> getColumns() {
-        return columns;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COLUMNS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<CommitmentsScalarColumn> getColumns() {
+    return columns;
+  }
+
   public void setColumns(List<CommitmentsScalarColumn> columns) {
     this.columns = columns;
     if (columns != null) {
@@ -89,16 +79,20 @@ public class CommitmentsUtilizationScalarResponse {
       }
     }
   }
-  public CommitmentsUtilizationScalarResponse productBreakdown(List<CommitmentsUtilizationScalarProductBreakdownEntry> productBreakdown) {
+
+  public CommitmentsUtilizationScalarResponse productBreakdown(
+      List<CommitmentsUtilizationScalarProductBreakdownEntry> productBreakdown) {
     this.productBreakdown = productBreakdown;
     if (productBreakdown != null) {
-    for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
-      this.unparsed |= item.unparsed;
-    }
+      for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public CommitmentsUtilizationScalarResponse addProductBreakdownItem(CommitmentsUtilizationScalarProductBreakdownEntry productBreakdownItem) {
+
+  public CommitmentsUtilizationScalarResponse addProductBreakdownItem(
+      CommitmentsUtilizationScalarProductBreakdownEntry productBreakdownItem) {
     if (this.productBreakdown == null) {
       this.productBreakdown = new ArrayList<>();
     }
@@ -108,17 +102,19 @@ public class CommitmentsUtilizationScalarResponse {
   }
 
   /**
-   * <p>Array of per-product utilization breakdown entries.</p>
+   * Array of per-product utilization breakdown entries.
+   *
    * @return productBreakdown
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRODUCT_BREAKDOWN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<CommitmentsUtilizationScalarProductBreakdownEntry> getProductBreakdown() {
-        return productBreakdown;
-      }
-  public void setProductBreakdown(List<CommitmentsUtilizationScalarProductBreakdownEntry> productBreakdown) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_BREAKDOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CommitmentsUtilizationScalarProductBreakdownEntry> getProductBreakdown() {
+    return productBreakdown;
+  }
+
+  public void setProductBreakdown(
+      List<CommitmentsUtilizationScalarProductBreakdownEntry> productBreakdown) {
     this.productBreakdown = productBreakdown;
     if (productBreakdown != null) {
       for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
@@ -128,15 +124,14 @@ public class CommitmentsUtilizationScalarResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -145,7 +140,7 @@ public class CommitmentsUtilizationScalarResponse {
   @JsonAnySetter
   public CommitmentsUtilizationScalarResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -169,14 +164,12 @@ public class CommitmentsUtilizationScalarResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CommitmentsUtilizationScalarResponse object is equal to o.
-   */
+  /** Return true if this CommitmentsUtilizationScalarResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -185,14 +178,18 @@ public class CommitmentsUtilizationScalarResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CommitmentsUtilizationScalarResponse commitmentsUtilizationScalarResponse = (CommitmentsUtilizationScalarResponse) o;
-    return Objects.equals(this.columns, commitmentsUtilizationScalarResponse.columns) && Objects.equals(this.productBreakdown, commitmentsUtilizationScalarResponse.productBreakdown) && Objects.equals(this.additionalProperties, commitmentsUtilizationScalarResponse.additionalProperties);
+    CommitmentsUtilizationScalarResponse commitmentsUtilizationScalarResponse =
+        (CommitmentsUtilizationScalarResponse) o;
+    return Objects.equals(this.columns, commitmentsUtilizationScalarResponse.columns)
+        && Objects.equals(
+            this.productBreakdown, commitmentsUtilizationScalarResponse.productBreakdown)
+        && Objects.equals(
+            this.additionalProperties, commitmentsUtilizationScalarResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns,productBreakdown, additionalProperties);
+    return Objects.hash(columns, productBreakdown, additionalProperties);
   }
 
   @Override
@@ -209,8 +206,7 @@ public class CommitmentsUtilizationScalarResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

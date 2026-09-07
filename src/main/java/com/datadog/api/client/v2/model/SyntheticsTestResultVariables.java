@@ -6,42 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Variables captured during a test step.</p>
- */
+/** Variables captured during a test step. */
 @JsonPropertyOrder({
   SyntheticsTestResultVariables.JSON_PROPERTY_CONFIG,
   SyntheticsTestResultVariables.JSON_PROPERTY_EXTRACTED
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestResultVariables {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private List<SyntheticsTestResultVariable> config = null;
 
@@ -51,12 +36,13 @@ public class SyntheticsTestResultVariables {
   public SyntheticsTestResultVariables config(List<SyntheticsTestResultVariable> config) {
     this.config = config;
     if (config != null) {
-    for (SyntheticsTestResultVariable item : config) {
-      this.unparsed |= item.unparsed;
-    }
+      for (SyntheticsTestResultVariable item : config) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public SyntheticsTestResultVariables addConfigItem(SyntheticsTestResultVariable configItem) {
     if (this.config == null) {
       this.config = new ArrayList<>();
@@ -67,16 +53,17 @@ public class SyntheticsTestResultVariables {
   }
 
   /**
-   * <p>Variables defined in the test configuration.</p>
+   * Variables defined in the test configuration.
+   *
    * @return config
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsTestResultVariable> getConfig() {
-        return config;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsTestResultVariable> getConfig() {
+    return config;
+  }
+
   public void setConfig(List<SyntheticsTestResultVariable> config) {
     this.config = config;
     if (config != null) {
@@ -85,16 +72,19 @@ public class SyntheticsTestResultVariables {
       }
     }
   }
+
   public SyntheticsTestResultVariables extracted(List<SyntheticsTestResultVariable> extracted) {
     this.extracted = extracted;
     if (extracted != null) {
-    for (SyntheticsTestResultVariable item : extracted) {
-      this.unparsed |= item.unparsed;
-    }
+      for (SyntheticsTestResultVariable item : extracted) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public SyntheticsTestResultVariables addExtractedItem(SyntheticsTestResultVariable extractedItem) {
+
+  public SyntheticsTestResultVariables addExtractedItem(
+      SyntheticsTestResultVariable extractedItem) {
     if (this.extracted == null) {
       this.extracted = new ArrayList<>();
     }
@@ -104,16 +94,17 @@ public class SyntheticsTestResultVariables {
   }
 
   /**
-   * <p>Variables extracted during the test execution.</p>
+   * Variables extracted during the test execution.
+   *
    * @return extracted
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXTRACTED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsTestResultVariable> getExtracted() {
-        return extracted;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTRACTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsTestResultVariable> getExtracted() {
+    return extracted;
+  }
+
   public void setExtracted(List<SyntheticsTestResultVariable> extracted) {
     this.extracted = extracted;
     if (extracted != null) {
@@ -124,15 +115,14 @@ public class SyntheticsTestResultVariables {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -141,7 +131,7 @@ public class SyntheticsTestResultVariables {
   @JsonAnySetter
   public SyntheticsTestResultVariables putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -165,14 +155,12 @@ public class SyntheticsTestResultVariables {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsTestResultVariables object is equal to o.
-   */
+  /** Return true if this SyntheticsTestResultVariables object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -182,13 +170,15 @@ public class SyntheticsTestResultVariables {
       return false;
     }
     SyntheticsTestResultVariables syntheticsTestResultVariables = (SyntheticsTestResultVariables) o;
-    return Objects.equals(this.config, syntheticsTestResultVariables.config) && Objects.equals(this.extracted, syntheticsTestResultVariables.extracted) && Objects.equals(this.additionalProperties, syntheticsTestResultVariables.additionalProperties);
+    return Objects.equals(this.config, syntheticsTestResultVariables.config)
+        && Objects.equals(this.extracted, syntheticsTestResultVariables.extracted)
+        && Objects.equals(
+            this.additionalProperties, syntheticsTestResultVariables.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(config,extracted, additionalProperties);
+    return Objects.hash(config, extracted, additionalProperties);
   }
 
   @Override
@@ -205,8 +195,7 @@ public class SyntheticsTestResultVariables {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Time restrictions during which the routing rule is active. Outside of these hours, the rule does not match and routing continues to subsequent rules. This is mutually exclusive with the action-level <code>support_hours</code> field.</p>
+ * Time restrictions during which the routing rule is active. Outside of these hours, the rule does
+ * not match and routing continues to subsequent rules. This is mutually exclusive with the
+ * action-level <code>support_hours</code> field.
  */
 @JsonPropertyOrder({
   TimeRestrictions.JSON_PROPERTY_RESTRICTIONS,
   TimeRestrictions.JSON_PROPERTY_TIME_ZONE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeRestrictions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RESTRICTIONS = "restrictions";
   private List<TimeRestriction> restrictions = new ArrayList<>();
 
@@ -52,14 +42,16 @@ public class TimeRestrictions {
 
   @JsonCreator
   public TimeRestrictions(
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESTRICTIONS)List<TimeRestriction> restrictions,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TIME_ZONE)String timeZone) {
-        this.restrictions = restrictions;
-        for (TimeRestriction item : restrictions) {
-          this.unparsed |= item.unparsed;
-        }
-        this.timeZone = timeZone;
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESTRICTIONS)
+          List<TimeRestriction> restrictions,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIME_ZONE) String timeZone) {
+    this.restrictions = restrictions;
+    for (TimeRestriction item : restrictions) {
+      this.unparsed |= item.unparsed;
+    }
+    this.timeZone = timeZone;
   }
+
   public TimeRestrictions restrictions(List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
     for (TimeRestriction item : restrictions) {
@@ -67,6 +59,7 @@ public class TimeRestrictions {
     }
     return this;
   }
+
   public TimeRestrictions addRestrictionsItem(TimeRestriction restrictionsItem) {
     this.restrictions.add(restrictionsItem);
     this.unparsed |= restrictionsItem.unparsed;
@@ -74,15 +67,16 @@ public class TimeRestrictions {
   }
 
   /**
-   * <p>Defines the list of time-based restrictions.</p>
+   * Defines the list of time-based restrictions.
+   *
    * @return restrictions
-  **/
-      @JsonProperty(JSON_PROPERTY_RESTRICTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<TimeRestriction> getRestrictions() {
-        return restrictions;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESTRICTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<TimeRestriction> getRestrictions() {
+    return restrictions;
+  }
+
   public void setRestrictions(List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
     if (restrictions != null) {
@@ -91,35 +85,36 @@ public class TimeRestrictions {
       }
     }
   }
+
   public TimeRestrictions timeZone(String timeZone) {
     this.timeZone = timeZone;
     return this;
   }
 
   /**
-   * <p>Specifies the time zone applicable to the restrictions.</p>
+   * Specifies the time zone applicable to the restrictions.
+   *
    * @return timeZone
-  **/
-      @JsonProperty(JSON_PROPERTY_TIME_ZONE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getTimeZone() {
-        return timeZone;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTimeZone() {
+    return timeZone;
+  }
+
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -128,7 +123,7 @@ public class TimeRestrictions {
   @JsonAnySetter
   public TimeRestrictions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -152,14 +147,12 @@ public class TimeRestrictions {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TimeRestrictions object is equal to o.
-   */
+  /** Return true if this TimeRestrictions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,13 +162,14 @@ public class TimeRestrictions {
       return false;
     }
     TimeRestrictions timeRestrictions = (TimeRestrictions) o;
-    return Objects.equals(this.restrictions, timeRestrictions.restrictions) && Objects.equals(this.timeZone, timeRestrictions.timeZone) && Objects.equals(this.additionalProperties, timeRestrictions.additionalProperties);
+    return Objects.equals(this.restrictions, timeRestrictions.restrictions)
+        && Objects.equals(this.timeZone, timeRestrictions.timeZone)
+        && Objects.equals(this.additionalProperties, timeRestrictions.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(restrictions,timeZone, additionalProperties);
+    return Objects.hash(restrictions, timeZone, additionalProperties);
   }
 
   @Override
@@ -192,8 +186,7 @@ public class TimeRestrictions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

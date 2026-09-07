@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A column definition for reference table queries.</p>
- */
+/** A column definition for reference table queries. */
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionReferenceTableColumn.JSON_PROPERTY_ALIAS,
   MonitorFormulaAndFunctionReferenceTableColumn.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionReferenceTableColumn {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
@@ -52,50 +32,52 @@ public class MonitorFormulaAndFunctionReferenceTableColumn {
 
   @JsonCreator
   public MonitorFormulaAndFunctionReferenceTableColumn(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
-        this.name = name;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
   }
+
   public MonitorFormulaAndFunctionReferenceTableColumn alias(String alias) {
     this.alias = alias;
     return this;
   }
 
   /**
-   * <p>Optional alias for the column.</p>
+   * Optional alias for the column.
+   *
    * @return alias
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ALIAS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAlias() {
-        return alias;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAlias() {
+    return alias;
+  }
+
   public void setAlias(String alias) {
     this.alias = alias;
   }
+
   public MonitorFormulaAndFunctionReferenceTableColumn name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the column.</p>
+   * Name of the column.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
 
-  /**
-   * Return true if this MonitorFormulaAndFunctionReferenceTableColumn object is equal to o.
-   */
+  /** Return true if this MonitorFormulaAndFunctionReferenceTableColumn object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,14 +86,15 @@ public class MonitorFormulaAndFunctionReferenceTableColumn {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionReferenceTableColumn monitorFormulaAndFunctionReferenceTableColumn = (MonitorFormulaAndFunctionReferenceTableColumn) o;
-    return Objects.equals(this.alias, monitorFormulaAndFunctionReferenceTableColumn.alias) && Objects.equals(this.name, monitorFormulaAndFunctionReferenceTableColumn.name);
+    MonitorFormulaAndFunctionReferenceTableColumn monitorFormulaAndFunctionReferenceTableColumn =
+        (MonitorFormulaAndFunctionReferenceTableColumn) o;
+    return Objects.equals(this.alias, monitorFormulaAndFunctionReferenceTableColumn.alias)
+        && Objects.equals(this.name, monitorFormulaAndFunctionReferenceTableColumn.name);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias,name);
+    return Objects.hash(alias, name);
   }
 
   @Override
@@ -125,8 +108,7 @@ public class MonitorFormulaAndFunctionReferenceTableColumn {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

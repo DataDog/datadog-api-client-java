@@ -6,34 +6,20 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the role.</p>
- */
+/** Attributes of the role. */
 @JsonPropertyOrder({
   RoleAttributes.JSON_PROPERTY_CREATED_AT,
   RoleAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -41,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   RoleAttributes.JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM,
   RoleAttributes.JSON_PROPERTY_USER_COUNT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -60,53 +46,56 @@ public class RoleAttributes {
   public static final String JSON_PROPERTY_USER_COUNT = "user_count";
   private Long userCount;
 
-
   /**
-   * <p>Creation time of the role.</p>
+   * Creation time of the role.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
 
   /**
-   * <p>Time of last role modification.</p>
+   * Time of last role modification.
+   *
    * @return modifiedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
   public RoleAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the role. The name is neither unique nor a stable identifier of the role.</p>
+   * The name of the role. The name is neither unique nor a stable identifier of the role.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public RoleAttributes receivesPermissionsFrom(List<String> receivesPermissionsFrom) {
     this.receivesPermissionsFrom = receivesPermissionsFrom;
     return this;
   }
+
   public RoleAttributes addReceivesPermissionsFromItem(String receivesPermissionsFromItem) {
     if (this.receivesPermissionsFrom == null) {
       this.receivesPermissionsFrom = new ArrayList<>();
@@ -116,44 +105,45 @@ public class RoleAttributes {
   }
 
   /**
-   * <p>The managed role from which this role automatically inherits new permissions.
-   * Specify one of the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role".
-   * If empty or not specified, the role does not automatically inherit permissions from any managed role.</p>
+   * The managed role from which this role automatically inherits new permissions. Specify one of
+   * the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role". If
+   * empty or not specified, the role does not automatically inherit permissions from any managed
+   * role.
+   *
    * @return receivesPermissionsFrom
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getReceivesPermissionsFrom() {
-        return receivesPermissionsFrom;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getReceivesPermissionsFrom() {
+    return receivesPermissionsFrom;
+  }
+
   public void setReceivesPermissionsFrom(List<String> receivesPermissionsFrom) {
     this.receivesPermissionsFrom = receivesPermissionsFrom;
   }
 
   /**
-   * <p>Number of users with that role.</p>
+   * Number of users with that role.
+   *
    * @return userCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_USER_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getUserCount() {
-        return userCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUserCount() {
+    return userCount;
+  }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -162,7 +152,7 @@ public class RoleAttributes {
   @JsonAnySetter
   public RoleAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -186,14 +176,12 @@ public class RoleAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this RoleAttributes object is equal to o.
-   */
+  /** Return true if this RoleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -203,13 +191,18 @@ public class RoleAttributes {
       return false;
     }
     RoleAttributes roleAttributes = (RoleAttributes) o;
-    return Objects.equals(this.createdAt, roleAttributes.createdAt) && Objects.equals(this.modifiedAt, roleAttributes.modifiedAt) && Objects.equals(this.name, roleAttributes.name) && Objects.equals(this.receivesPermissionsFrom, roleAttributes.receivesPermissionsFrom) && Objects.equals(this.userCount, roleAttributes.userCount) && Objects.equals(this.additionalProperties, roleAttributes.additionalProperties);
+    return Objects.equals(this.createdAt, roleAttributes.createdAt)
+        && Objects.equals(this.modifiedAt, roleAttributes.modifiedAt)
+        && Objects.equals(this.name, roleAttributes.name)
+        && Objects.equals(this.receivesPermissionsFrom, roleAttributes.receivesPermissionsFrom)
+        && Objects.equals(this.userCount, roleAttributes.userCount)
+        && Objects.equals(this.additionalProperties, roleAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt,modifiedAt,name,receivesPermissionsFrom,userCount, additionalProperties);
+    return Objects.hash(
+        createdAt, modifiedAt, name, receivesPermissionsFrom, userCount, additionalProperties);
   }
 
   @Override
@@ -219,7 +212,9 @@ public class RoleAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    receivesPermissionsFrom: ").append(toIndentedString(receivesPermissionsFrom)).append("\n");
+    sb.append("    receivesPermissionsFrom: ")
+        .append(toIndentedString(receivesPermissionsFrom))
+        .append("\n");
     sb.append("    userCount: ").append(toIndentedString(userCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -229,8 +224,7 @@ public class RoleAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

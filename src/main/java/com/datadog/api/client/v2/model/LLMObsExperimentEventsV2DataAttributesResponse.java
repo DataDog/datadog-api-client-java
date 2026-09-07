@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of an experiment events response.</p>
- */
+/** Attributes of an experiment events response. */
 @JsonPropertyOrder({
   LLMObsExperimentEventsV2DataAttributesResponse.JSON_PROPERTY_SPANS,
   LLMObsExperimentEventsV2DataAttributesResponse.JSON_PROPERTY_SUMMARY_METRICS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentEventsV2DataAttributesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_SPANS = "spans";
   private List<LLMObsExperimentSpanWithEvals> spans = new ArrayList<>();
 
@@ -52,40 +38,47 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
 
   @JsonCreator
   public LLMObsExperimentEventsV2DataAttributesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_SPANS)List<LLMObsExperimentSpanWithEvals> spans,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SUMMARY_METRICS)List<LLMObsExperimentEvalMetricEvent> summaryMetrics) {
-        this.spans = spans;
-        for (LLMObsExperimentSpanWithEvals item : spans) {
-          this.unparsed |= item.unparsed;
-        }
-        this.summaryMetrics = summaryMetrics;
-        for (LLMObsExperimentEvalMetricEvent item : summaryMetrics) {
-          this.unparsed |= item.unparsed;
-        }
+      @JsonProperty(required = true, value = JSON_PROPERTY_SPANS)
+          List<LLMObsExperimentSpanWithEvals> spans,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SUMMARY_METRICS)
+          List<LLMObsExperimentEvalMetricEvent> summaryMetrics) {
+    this.spans = spans;
+    for (LLMObsExperimentSpanWithEvals item : spans) {
+      this.unparsed |= item.unparsed;
+    }
+    this.summaryMetrics = summaryMetrics;
+    for (LLMObsExperimentEvalMetricEvent item : summaryMetrics) {
+      this.unparsed |= item.unparsed;
+    }
   }
-  public LLMObsExperimentEventsV2DataAttributesResponse spans(List<LLMObsExperimentSpanWithEvals> spans) {
+
+  public LLMObsExperimentEventsV2DataAttributesResponse spans(
+      List<LLMObsExperimentSpanWithEvals> spans) {
     this.spans = spans;
     for (LLMObsExperimentSpanWithEvals item : spans) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public LLMObsExperimentEventsV2DataAttributesResponse addSpansItem(LLMObsExperimentSpanWithEvals spansItem) {
+
+  public LLMObsExperimentEventsV2DataAttributesResponse addSpansItem(
+      LLMObsExperimentSpanWithEvals spansItem) {
     this.spans.add(spansItem);
     this.unparsed |= spansItem.unparsed;
     return this;
   }
 
   /**
-   * <p>Experiment spans, each enriched with their associated evaluation metrics.</p>
+   * Experiment spans, each enriched with their associated evaluation metrics.
+   *
    * @return spans
-  **/
-      @JsonProperty(JSON_PROPERTY_SPANS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<LLMObsExperimentSpanWithEvals> getSpans() {
-        return spans;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SPANS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsExperimentSpanWithEvals> getSpans() {
+    return spans;
+  }
+
   public void setSpans(List<LLMObsExperimentSpanWithEvals> spans) {
     this.spans = spans;
     if (spans != null) {
@@ -94,29 +87,34 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
       }
     }
   }
-  public LLMObsExperimentEventsV2DataAttributesResponse summaryMetrics(List<LLMObsExperimentEvalMetricEvent> summaryMetrics) {
+
+  public LLMObsExperimentEventsV2DataAttributesResponse summaryMetrics(
+      List<LLMObsExperimentEvalMetricEvent> summaryMetrics) {
     this.summaryMetrics = summaryMetrics;
     for (LLMObsExperimentEvalMetricEvent item : summaryMetrics) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public LLMObsExperimentEventsV2DataAttributesResponse addSummaryMetricsItem(LLMObsExperimentEvalMetricEvent summaryMetricsItem) {
+
+  public LLMObsExperimentEventsV2DataAttributesResponse addSummaryMetricsItem(
+      LLMObsExperimentEvalMetricEvent summaryMetricsItem) {
     this.summaryMetrics.add(summaryMetricsItem);
     this.unparsed |= summaryMetricsItem.unparsed;
     return this;
   }
 
   /**
-   * <p>Experiment-level summary evaluation metrics (not tied to individual spans).</p>
+   * Experiment-level summary evaluation metrics (not tied to individual spans).
+   *
    * @return summaryMetrics
-  **/
-      @JsonProperty(JSON_PROPERTY_SUMMARY_METRICS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<LLMObsExperimentEvalMetricEvent> getSummaryMetrics() {
-        return summaryMetrics;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SUMMARY_METRICS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsExperimentEvalMetricEvent> getSummaryMetrics() {
+    return summaryMetrics;
+  }
+
   public void setSummaryMetrics(List<LLMObsExperimentEvalMetricEvent> summaryMetrics) {
     this.summaryMetrics = summaryMetrics;
     if (summaryMetrics != null) {
@@ -127,24 +125,24 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsExperimentEventsV2DataAttributesResponse
    */
   @JsonAnySetter
-  public LLMObsExperimentEventsV2DataAttributesResponse putAdditionalProperty(String key, Object value) {
+  public LLMObsExperimentEventsV2DataAttributesResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -168,14 +166,12 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsExperimentEventsV2DataAttributesResponse object is equal to o.
-   */
+  /** Return true if this LLMObsExperimentEventsV2DataAttributesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,14 +180,19 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsExperimentEventsV2DataAttributesResponse llmObsExperimentEventsV2DataAttributesResponse = (LLMObsExperimentEventsV2DataAttributesResponse) o;
-    return Objects.equals(this.spans, llmObsExperimentEventsV2DataAttributesResponse.spans) && Objects.equals(this.summaryMetrics, llmObsExperimentEventsV2DataAttributesResponse.summaryMetrics) && Objects.equals(this.additionalProperties, llmObsExperimentEventsV2DataAttributesResponse.additionalProperties);
+    LLMObsExperimentEventsV2DataAttributesResponse llmObsExperimentEventsV2DataAttributesResponse =
+        (LLMObsExperimentEventsV2DataAttributesResponse) o;
+    return Objects.equals(this.spans, llmObsExperimentEventsV2DataAttributesResponse.spans)
+        && Objects.equals(
+            this.summaryMetrics, llmObsExperimentEventsV2DataAttributesResponse.summaryMetrics)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsExperimentEventsV2DataAttributesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(spans,summaryMetrics, additionalProperties);
+    return Objects.hash(spans, summaryMetrics, additionalProperties);
   }
 
   @Override
@@ -208,8 +209,7 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

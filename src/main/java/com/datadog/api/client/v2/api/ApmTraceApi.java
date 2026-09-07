@@ -1,32 +1,24 @@
-
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.PaginationIterable;
-
-import jakarta.ws.rs.core.GenericType;
+import com.datadog.api.client.v2.model.PrunedTraceResponse;
+import com.datadog.api.client.v2.model.TraceResponse;
 import jakarta.ws.rs.client.Invocation;
-
-import java.io.File;
-import java.util.Arrays;
+import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
-import java.time.OffsetDateTime;
-import java.util.UUID;
-import com.datadog.api.client.v2.model.PrunedTraceResponse;
-import com.datadog.api.client.v2.model.TraceResponse;
 
-
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmTraceApi {
   private ApiClient apiClient;
+
   public ApmTraceApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -53,9 +45,7 @@ public class ApmTraceApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Manage optional parameters to getPrunedTraceByID.
-   */
+  /** Manage optional parameters to getPrunedTraceByID. */
   public static class GetPrunedTraceByIDOptionalParameters {
     private Long expandSpanId;
     private Integer timeHint;
@@ -67,7 +57,9 @@ public class ApmTraceApi {
 
     /**
      * Set expandSpanId.
-     * @param expandSpanId Span ID to expand and preserve in the pruned tree even when its branch would normally be summarized. (optional)
+     *
+     * @param expandSpanId Span ID to expand and preserve in the pruned tree even when its branch
+     *     would normally be summarized. (optional)
      * @return GetPrunedTraceByIDOptionalParameters
      */
     public GetPrunedTraceByIDOptionalParameters expandSpanId(Long expandSpanId) {
@@ -77,7 +69,9 @@ public class ApmTraceApi {
 
     /**
      * Set timeHint.
-     * @param timeHint Optional Unix time hint, in seconds, used to optimize the lookup of the trace in long-term storage. (optional)
+     *
+     * @param timeHint Optional Unix time hint, in seconds, used to optimize the lookup of the trace
+     *     in long-term storage. (optional)
      * @return GetPrunedTraceByIDOptionalParameters
      */
     public GetPrunedTraceByIDOptionalParameters timeHint(Integer timeHint) {
@@ -87,7 +81,9 @@ public class ApmTraceApi {
 
     /**
      * Set forceSource.
-     * @param forceSource Force the trace to be loaded from a specific source. When unset, the API picks the source automatically. (optional)
+     *
+     * @param forceSource Force the trace to be loaded from a specific source. When unset, the API
+     *     picks the source automatically. (optional)
      * @return GetPrunedTraceByIDOptionalParameters
      */
     public GetPrunedTraceByIDOptionalParameters forceSource(String forceSource) {
@@ -97,7 +93,9 @@ public class ApmTraceApi {
 
     /**
      * Set includePath.
-     * @param includePath Restrict the pruned tree to spans matching the given <code>key:value</code> pairs. Values may be passed as repeated query parameters. (optional)
+     *
+     * @param includePath Restrict the pruned tree to spans matching the given <code>key:value
+     *     </code> pairs. Values may be passed as repeated query parameters. (optional)
      * @return GetPrunedTraceByIDOptionalParameters
      */
     public GetPrunedTraceByIDOptionalParameters includePath(List<String> includePath) {
@@ -107,7 +105,9 @@ public class ApmTraceApi {
 
     /**
      * Set tagInclude.
-     * @param tagInclude Regex patterns of tag keys whose values must be included in the pruned spans. Values may be passed as repeated query parameters. (optional)
+     *
+     * @param tagInclude Regex patterns of tag keys whose values must be included in the pruned
+     *     spans. Values may be passed as repeated query parameters. (optional)
      * @return GetPrunedTraceByIDOptionalParameters
      */
     public GetPrunedTraceByIDOptionalParameters tagInclude(List<String> tagInclude) {
@@ -117,7 +117,9 @@ public class ApmTraceApi {
 
     /**
      * Set tagExclude.
-     * @param tagExclude Regex patterns of tag keys whose values must be excluded from the pruned spans. Values may be passed as repeated query parameters. (optional)
+     *
+     * @param tagExclude Regex patterns of tag keys whose values must be excluded from the pruned
+     *     spans. Values may be passed as repeated query parameters. (optional)
      * @return GetPrunedTraceByIDOptionalParameters
      */
     public GetPrunedTraceByIDOptionalParameters tagExclude(List<String> tagExclude) {
@@ -127,84 +129,98 @@ public class ApmTraceApi {
 
     /**
      * Set onlyServiceEntrySpans.
-     * @param onlyServiceEntrySpans When set to <code>true</code>, only service entry spans are included in the pruned tree. (optional)
+     *
+     * @param onlyServiceEntrySpans When set to <code>true</code>, only service entry spans are
+     *     included in the pruned tree. (optional)
      * @return GetPrunedTraceByIDOptionalParameters
      */
-    public GetPrunedTraceByIDOptionalParameters onlyServiceEntrySpans(Boolean onlyServiceEntrySpans) {
+    public GetPrunedTraceByIDOptionalParameters onlyServiceEntrySpans(
+        Boolean onlyServiceEntrySpans) {
       this.onlyServiceEntrySpans = onlyServiceEntrySpans;
       return this;
     }
   }
 
   /**
- * Get a pruned trace by ID.
- *
- * See {@link #getPrunedTraceByIDWithHttpInfo}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @return PrunedTraceResponse
- * @throws ApiException if fails to make API call
- */
-  public PrunedTraceResponse getPrunedTraceByID (String traceId) throws ApiException {
-    return getPrunedTraceByIDWithHttpInfo( traceId, new GetPrunedTraceByIDOptionalParameters()).getData();
+   * Get a pruned trace by ID.
+   *
+   * <p>See {@link #getPrunedTraceByIDWithHttpInfo}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @return PrunedTraceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PrunedTraceResponse getPrunedTraceByID(String traceId) throws ApiException {
+    return getPrunedTraceByIDWithHttpInfo(traceId, new GetPrunedTraceByIDOptionalParameters())
+        .getData();
   }
 
   /**
- * Get a pruned trace by ID.
- *
- * See {@link #getPrunedTraceByIDWithHttpInfoAsync}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @return CompletableFuture&lt;PrunedTraceResponse&gt;
- */
-  public CompletableFuture<PrunedTraceResponse>getPrunedTraceByIDAsync(String traceId) {
-    return getPrunedTraceByIDWithHttpInfoAsync(traceId, new GetPrunedTraceByIDOptionalParameters()).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a pruned trace by ID.
+   *
+   * <p>See {@link #getPrunedTraceByIDWithHttpInfoAsync}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @return CompletableFuture&lt;PrunedTraceResponse&gt;
+   */
+  public CompletableFuture<PrunedTraceResponse> getPrunedTraceByIDAsync(String traceId) {
+    return getPrunedTraceByIDWithHttpInfoAsync(traceId, new GetPrunedTraceByIDOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * Get a pruned trace by ID.
- *
- * See {@link #getPrunedTraceByIDWithHttpInfo}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @param parameters Optional parameters for the request.
- * @return PrunedTraceResponse
- * @throws ApiException if fails to make API call
- */
-  public PrunedTraceResponse getPrunedTraceByID(String traceId, GetPrunedTraceByIDOptionalParameters parameters) throws ApiException {
+   * Get a pruned trace by ID.
+   *
+   * <p>See {@link #getPrunedTraceByIDWithHttpInfo}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param parameters Optional parameters for the request.
+   * @return PrunedTraceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PrunedTraceResponse getPrunedTraceByID(
+      String traceId, GetPrunedTraceByIDOptionalParameters parameters) throws ApiException {
     return getPrunedTraceByIDWithHttpInfo(traceId, parameters).getData();
   }
 
   /**
- * Get a pruned trace by ID.
- *
- * See {@link #getPrunedTraceByIDWithHttpInfoAsync}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @param parameters Optional parameters for the request.
- * @return CompletableFuture&lt;PrunedTraceResponse&gt;
- */
-  public CompletableFuture<PrunedTraceResponse>getPrunedTraceByIDAsync( String traceId, GetPrunedTraceByIDOptionalParameters parameters) {
-    return getPrunedTraceByIDWithHttpInfoAsync(traceId, parameters).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a pruned trace by ID.
+   *
+   * <p>See {@link #getPrunedTraceByIDWithHttpInfoAsync}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;PrunedTraceResponse&gt;
+   */
+  public CompletableFuture<PrunedTraceResponse> getPrunedTraceByIDAsync(
+      String traceId, GetPrunedTraceByIDOptionalParameters parameters) {
+    return getPrunedTraceByIDWithHttpInfoAsync(traceId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Retrieve a pruned, hierarchical view of an APM trace by its trace ID.
-   * The trace is summarized as a tree of spans rooted at the trace root and reduced in size
-   * to keep rendering large traces in the UI practical.
-   * This endpoint is rate limited to <code>60</code> requests per minute per organization.</p>
+   * Retrieve a pruned, hierarchical view of an APM trace by its trace ID. The trace is summarized
+   * as a tree of spans rooted at the trace root and reduced in size to keep rendering large traces
+   * in the UI practical. This endpoint is rate limited to <code>60</code> requests per minute per
+   * organization.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;PrunedTraceResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -214,7 +230,8 @@ public class ApmTraceApi {
    *       <tr><td> 504 </td><td> Gateway Timeout </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PrunedTraceResponse> getPrunedTraceByIDWithHttpInfo(String traceId, GetPrunedTraceByIDOptionalParameters parameters) throws ApiException {
+  public ApiResponse<PrunedTraceResponse> getPrunedTraceByIDWithHttpInfo(
+      String traceId, GetPrunedTraceByIDOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getPrunedTraceByID";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -226,7 +243,8 @@ public class ApmTraceApi {
 
     // verify the required parameter 'traceId' is set
     if (traceId == null) {
-      throw new ApiException(400, "Missing the required parameter 'traceId' when calling getPrunedTraceByID");
+      throw new ApiException(
+          400, "Missing the required parameter 'traceId' when calling getPrunedTraceByID");
     }
     Long expandSpanId = parameters.expandSpanId;
     Integer timeHint = parameters.timeHint;
@@ -236,10 +254,10 @@ public class ApmTraceApi {
     List<String> tagExclude = parameters.tagExclude;
     Boolean onlyServiceEntrySpans = parameters.onlyServiceEntrySpans;
     // create path and map variables
-    String localVarPath = "/api/v2/pruned_trace/{trace_id}"
-      .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
+    String localVarPath =
+        "/api/v2/pruned_trace/{trace_id}"
+            .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -249,38 +267,60 @@ public class ApmTraceApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include_path", includePath));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tag_include", tagInclude));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tag_exclude", tagExclude));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "only_service_entry_spans", onlyServiceEntrySpans));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "only_service_entry_spans", onlyServiceEntrySpans));
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.ApmTraceApi.getPrunedTraceByID", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<PrunedTraceResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApmTraceApi.getPrunedTraceByID",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PrunedTraceResponse>() {});
   }
 
   /**
    * Get a pruned trace by ID.
    *
-   * See {@link #getPrunedTraceByIDWithHttpInfo}.
+   * <p>See {@link #getPrunedTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;PrunedTraceResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<PrunedTraceResponse>> getPrunedTraceByIDWithHttpInfoAsync(String traceId, GetPrunedTraceByIDOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<PrunedTraceResponse>> getPrunedTraceByIDWithHttpInfoAsync(
+      String traceId, GetPrunedTraceByIDOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "getPrunedTraceByID";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<PrunedTraceResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'traceId' is set
     if (traceId == null) {
-        CompletableFuture<ApiResponse<PrunedTraceResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'traceId' when calling getPrunedTraceByID"));
-        return result;
+      CompletableFuture<ApiResponse<PrunedTraceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'traceId' when calling getPrunedTraceByID"));
+      return result;
     }
     Long expandSpanId = parameters.expandSpanId;
     Integer timeHint = parameters.timeHint;
@@ -290,10 +330,10 @@ public class ApmTraceApi {
     List<String> tagExclude = parameters.tagExclude;
     Boolean onlyServiceEntrySpans = parameters.onlyServiceEntrySpans;
     // create path and map variables
-    String localVarPath = "/api/v2/pruned_trace/{trace_id}"
-      .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
+    String localVarPath =
+        "/api/v2/pruned_trace/{trace_id}"
+            .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -303,28 +343,46 @@ public class ApmTraceApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include_path", includePath));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tag_include", tagInclude));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tag_exclude", tagExclude));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "only_service_entry_spans", onlyServiceEntrySpans));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "only_service_entry_spans", onlyServiceEntrySpans));
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.ApmTraceApi.getPrunedTraceByID", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+      builder =
+          apiClient.createBuilder(
+              "v2.ApmTraceApi.getPrunedTraceByID",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<PrunedTraceResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<PrunedTraceResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PrunedTraceResponse>() {});
   }
 
-  /**
-   * Manage optional parameters to getTraceByID.
-   */
+  /** Manage optional parameters to getTraceByID. */
   public static class GetTraceByIDOptionalParameters {
     private List<String> includeFields;
 
     /**
      * Set includeFields.
-     * @param includeFields List of span fields to include in the response. When omitted, every available field is returned. Values may be passed as repeated query parameters or as a single comma-separated value. (optional)
+     *
+     * @param includeFields List of span fields to include in the response. When omitted, every
+     *     available field is returned. Values may be passed as repeated query parameters or as a
+     *     single comma-separated value. (optional)
      * @return GetTraceByIDOptionalParameters
      */
     public GetTraceByIDOptionalParameters includeFields(List<String> includeFields) {
@@ -334,73 +392,83 @@ public class ApmTraceApi {
   }
 
   /**
- * Get a trace by ID.
- *
- * See {@link #getTraceByIDWithHttpInfo}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @return TraceResponse
- * @throws ApiException if fails to make API call
- */
-  public TraceResponse getTraceByID (String traceId) throws ApiException {
-    return getTraceByIDWithHttpInfo( traceId, new GetTraceByIDOptionalParameters()).getData();
+   * Get a trace by ID.
+   *
+   * <p>See {@link #getTraceByIDWithHttpInfo}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @return TraceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TraceResponse getTraceByID(String traceId) throws ApiException {
+    return getTraceByIDWithHttpInfo(traceId, new GetTraceByIDOptionalParameters()).getData();
   }
 
   /**
- * Get a trace by ID.
- *
- * See {@link #getTraceByIDWithHttpInfoAsync}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @return CompletableFuture&lt;TraceResponse&gt;
- */
-  public CompletableFuture<TraceResponse>getTraceByIDAsync(String traceId) {
-    return getTraceByIDWithHttpInfoAsync(traceId, new GetTraceByIDOptionalParameters()).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a trace by ID.
+   *
+   * <p>See {@link #getTraceByIDWithHttpInfoAsync}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @return CompletableFuture&lt;TraceResponse&gt;
+   */
+  public CompletableFuture<TraceResponse> getTraceByIDAsync(String traceId) {
+    return getTraceByIDWithHttpInfoAsync(traceId, new GetTraceByIDOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
- * Get a trace by ID.
- *
- * See {@link #getTraceByIDWithHttpInfo}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @param parameters Optional parameters for the request.
- * @return TraceResponse
- * @throws ApiException if fails to make API call
- */
-  public TraceResponse getTraceByID(String traceId, GetTraceByIDOptionalParameters parameters) throws ApiException {
+   * Get a trace by ID.
+   *
+   * <p>See {@link #getTraceByIDWithHttpInfo}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param parameters Optional parameters for the request.
+   * @return TraceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TraceResponse getTraceByID(String traceId, GetTraceByIDOptionalParameters parameters)
+      throws ApiException {
     return getTraceByIDWithHttpInfo(traceId, parameters).getData();
   }
 
   /**
- * Get a trace by ID.
- *
- * See {@link #getTraceByIDWithHttpInfoAsync}.
- *
- * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
- * @param parameters Optional parameters for the request.
- * @return CompletableFuture&lt;TraceResponse&gt;
- */
-  public CompletableFuture<TraceResponse>getTraceByIDAsync( String traceId, GetTraceByIDOptionalParameters parameters) {
-    return getTraceByIDWithHttpInfoAsync(traceId, parameters).thenApply(response -> {
-        return response.getData();
-    });
+   * Get a trace by ID.
+   *
+   * <p>See {@link #getTraceByIDWithHttpInfoAsync}.
+   *
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TraceResponse&gt;
+   */
+  public CompletableFuture<TraceResponse> getTraceByIDAsync(
+      String traceId, GetTraceByIDOptionalParameters parameters) {
+    return getTraceByIDWithHttpInfoAsync(traceId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Retrieve a full APM trace by its trace ID, including every span in the trace.
-   * Traces are returned from live storage when available and fall back to longer-term storage.
-   * This endpoint is rate limited to <code>60</code> requests per minute per organization.</p>
+   * Retrieve a full APM trace by its trace ID, including every span in the trace. Traces are
+   * returned from live storage when available and fall back to longer-term storage. This endpoint
+   * is rate limited to <code>60</code> requests per minute per organization.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TraceResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -410,7 +478,8 @@ public class ApmTraceApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TraceResponse> getTraceByIDWithHttpInfo(String traceId, GetTraceByIDOptionalParameters parameters) throws ApiException {
+  public ApiResponse<TraceResponse> getTraceByIDWithHttpInfo(
+      String traceId, GetTraceByIDOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getTraceByID";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -422,69 +491,109 @@ public class ApmTraceApi {
 
     // verify the required parameter 'traceId' is set
     if (traceId == null) {
-      throw new ApiException(400, "Missing the required parameter 'traceId' when calling getTraceByID");
+      throw new ApiException(
+          400, "Missing the required parameter 'traceId' when calling getTraceByID");
     }
     List<String> includeFields = parameters.includeFields;
     // create path and map variables
-    String localVarPath = "/api/v2/trace/{trace_id}"
-      .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
+    String localVarPath =
+        "/api/v2/trace/{trace_id}"
+            .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include_fields", includeFields));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "include_fields", includeFields));
 
-    Invocation.Builder builder = apiClient.createBuilder("v2.ApmTraceApi.getTraceByID", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
-    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TraceResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApmTraceApi.getTraceByID",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TraceResponse>() {});
   }
 
   /**
    * Get a trace by ID.
    *
-   * See {@link #getTraceByIDWithHttpInfo}.
+   * <p>See {@link #getTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
+   *     ID) or a decimal string of up to 39 digits. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;TraceResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TraceResponse>> getTraceByIDWithHttpInfoAsync(String traceId, GetTraceByIDOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<TraceResponse>> getTraceByIDWithHttpInfoAsync(
+      String traceId, GetTraceByIDOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "getTraceByID";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<TraceResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'traceId' is set
     if (traceId == null) {
-        CompletableFuture<ApiResponse<TraceResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'traceId' when calling getTraceByID"));
-        return result;
+      CompletableFuture<ApiResponse<TraceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'traceId' when calling getTraceByID"));
+      return result;
     }
     List<String> includeFields = parameters.includeFields;
     // create path and map variables
-    String localVarPath = "/api/v2/trace/{trace_id}"
-      .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
+    String localVarPath =
+        "/api/v2/trace/{trace_id}"
+            .replaceAll("\\{" + "trace_id" + "\\}", apiClient.escapeString(traceId.toString()));
 
-    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include_fields", includeFields));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "include_fields", includeFields));
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.ApmTraceApi.getTraceByID", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+      builder =
+          apiClient.createBuilder(
+              "v2.ApmTraceApi.getTraceByID",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<TraceResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TraceResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TraceResponse>() {});
   }
 }

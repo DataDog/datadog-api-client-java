@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Network Path test result capturing the path between source and destination.</p>
- */
+/** Network Path test result capturing the path between source and destination. */
 @JsonPropertyOrder({
   SyntheticsTestResultNetpath.JSON_PROPERTY_DESTINATION,
   SyntheticsTestResultNetpath.JSON_PROPERTY_HOPS,
@@ -44,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsTestResultNetpath.JSON_PROPERTY_TAGS,
   SyntheticsTestResultNetpath.JSON_PROPERTY_TIMESTAMP
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestResultNetpath {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private SyntheticsTestResultNetpathDestination destination;
 
@@ -72,38 +57,42 @@ public class SyntheticsTestResultNetpath {
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private Long timestamp;
 
-  public SyntheticsTestResultNetpath destination(SyntheticsTestResultNetpathDestination destination) {
+  public SyntheticsTestResultNetpath destination(
+      SyntheticsTestResultNetpathDestination destination) {
     this.destination = destination;
     this.unparsed |= destination.unparsed;
     return this;
   }
 
   /**
-   * <p>Destination endpoint of a network path measurement.</p>
+   * Destination endpoint of a network path measurement.
+   *
    * @return destination
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESTINATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestResultNetpathDestination getDestination() {
-        return destination;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESTINATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestResultNetpathDestination getDestination() {
+    return destination;
+  }
+
   public void setDestination(SyntheticsTestResultNetpathDestination destination) {
     this.destination = destination;
     if (destination != null) {
       this.unparsed |= destination.unparsed;
     }
   }
+
   public SyntheticsTestResultNetpath hops(List<SyntheticsTestResultNetpathHop> hops) {
     this.hops = hops;
     if (hops != null) {
-    for (SyntheticsTestResultNetpathHop item : hops) {
-      this.unparsed |= item.unparsed;
-    }
+      for (SyntheticsTestResultNetpathHop item : hops) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public SyntheticsTestResultNetpath addHopsItem(SyntheticsTestResultNetpathHop hopsItem) {
     if (this.hops == null) {
       this.hops = new ArrayList<>();
@@ -114,16 +103,17 @@ public class SyntheticsTestResultNetpath {
   }
 
   /**
-   * <p>Hops along the network path.</p>
+   * Hops along the network path.
+   *
    * @return hops
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOPS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsTestResultNetpathHop> getHops() {
-        return hops;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsTestResultNetpathHop> getHops() {
+    return hops;
+  }
+
   public void setHops(List<SyntheticsTestResultNetpathHop> hops) {
     this.hops = hops;
     if (hops != null) {
@@ -132,63 +122,71 @@ public class SyntheticsTestResultNetpath {
       }
     }
   }
+
   public SyntheticsTestResultNetpath origin(String origin) {
     this.origin = origin;
     return this;
   }
 
   /**
-   * <p>Origin of the network path (for example, probe source).</p>
+   * Origin of the network path (for example, probe source).
+   *
    * @return origin
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORIGIN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrigin() {
-        return origin;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrigin() {
+    return origin;
+  }
+
   public void setOrigin(String origin) {
     this.origin = origin;
   }
+
   public SyntheticsTestResultNetpath pathtraceId(String pathtraceId) {
     this.pathtraceId = pathtraceId;
     return this;
   }
 
   /**
-   * <p>Identifier of the path trace.</p>
+   * Identifier of the path trace.
+   *
    * @return pathtraceId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PATHTRACE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPathtraceId() {
-        return pathtraceId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PATHTRACE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPathtraceId() {
+    return pathtraceId;
+  }
+
   public void setPathtraceId(String pathtraceId) {
     this.pathtraceId = pathtraceId;
   }
+
   public SyntheticsTestResultNetpath protocol(String protocol) {
     this.protocol = protocol;
     return this;
   }
 
   /**
-   * <p>Protocol used for the path trace (for example, <code>tcp</code>, <code>udp</code>, <code>icmp</code>).</p>
+   * Protocol used for the path trace (for example, <code>tcp</code>, <code>udp</code>, <code>icmp
+   * </code>).
+   *
    * @return protocol
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROTOCOL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getProtocol() {
-        return protocol;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROTOCOL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProtocol() {
+    return protocol;
+  }
+
   public void setProtocol(String protocol) {
     this.protocol = protocol;
   }
+
   public SyntheticsTestResultNetpath source(SyntheticsTestResultNetpathEndpoint source) {
     this.source = source;
     this.unparsed |= source.unparsed;
@@ -196,26 +194,29 @@ public class SyntheticsTestResultNetpath {
   }
 
   /**
-   * <p>Source endpoint of a network path measurement.</p>
+   * Source endpoint of a network path measurement.
+   *
    * @return source
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestResultNetpathEndpoint getSource() {
-        return source;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestResultNetpathEndpoint getSource() {
+    return source;
+  }
+
   public void setSource(SyntheticsTestResultNetpathEndpoint source) {
     this.source = source;
     if (source != null) {
       this.unparsed |= source.unparsed;
     }
   }
+
   public SyntheticsTestResultNetpath tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public SyntheticsTestResultNetpath addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -225,49 +226,51 @@ public class SyntheticsTestResultNetpath {
   }
 
   /**
-   * <p>Tags associated with the network path measurement.</p>
+   * Tags associated with the network path measurement.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public SyntheticsTestResultNetpath timestamp(Long timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
   /**
-   * <p>Unix timestamp (ms) of the network path measurement.</p>
+   * Unix timestamp (ms) of the network path measurement.
+   *
    * @return timestamp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTimestamp() {
-        return timestamp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTimestamp() {
+    return timestamp;
+  }
+
   public void setTimestamp(Long timestamp) {
     this.timestamp = timestamp;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -276,7 +279,7 @@ public class SyntheticsTestResultNetpath {
   @JsonAnySetter
   public SyntheticsTestResultNetpath putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -300,14 +303,12 @@ public class SyntheticsTestResultNetpath {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsTestResultNetpath object is equal to o.
-   */
+  /** Return true if this SyntheticsTestResultNetpath object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -317,13 +318,30 @@ public class SyntheticsTestResultNetpath {
       return false;
     }
     SyntheticsTestResultNetpath syntheticsTestResultNetpath = (SyntheticsTestResultNetpath) o;
-    return Objects.equals(this.destination, syntheticsTestResultNetpath.destination) && Objects.equals(this.hops, syntheticsTestResultNetpath.hops) && Objects.equals(this.origin, syntheticsTestResultNetpath.origin) && Objects.equals(this.pathtraceId, syntheticsTestResultNetpath.pathtraceId) && Objects.equals(this.protocol, syntheticsTestResultNetpath.protocol) && Objects.equals(this.source, syntheticsTestResultNetpath.source) && Objects.equals(this.tags, syntheticsTestResultNetpath.tags) && Objects.equals(this.timestamp, syntheticsTestResultNetpath.timestamp) && Objects.equals(this.additionalProperties, syntheticsTestResultNetpath.additionalProperties);
+    return Objects.equals(this.destination, syntheticsTestResultNetpath.destination)
+        && Objects.equals(this.hops, syntheticsTestResultNetpath.hops)
+        && Objects.equals(this.origin, syntheticsTestResultNetpath.origin)
+        && Objects.equals(this.pathtraceId, syntheticsTestResultNetpath.pathtraceId)
+        && Objects.equals(this.protocol, syntheticsTestResultNetpath.protocol)
+        && Objects.equals(this.source, syntheticsTestResultNetpath.source)
+        && Objects.equals(this.tags, syntheticsTestResultNetpath.tags)
+        && Objects.equals(this.timestamp, syntheticsTestResultNetpath.timestamp)
+        && Objects.equals(
+            this.additionalProperties, syntheticsTestResultNetpath.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination,hops,origin,pathtraceId,protocol,source,tags,timestamp, additionalProperties);
+    return Objects.hash(
+        destination,
+        hops,
+        origin,
+        pathtraceId,
+        protocol,
+        source,
+        tags,
+        timestamp,
+        additionalProperties);
   }
 
   @Override
@@ -346,8 +364,7 @@ public class SyntheticsTestResultNetpath {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

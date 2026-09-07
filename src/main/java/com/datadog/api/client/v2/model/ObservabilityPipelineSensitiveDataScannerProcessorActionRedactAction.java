@@ -6,75 +6,62 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
-   * <p>Action type that completely replaces the matched sensitive data with a fixed replacement string to remove all visibility.</p>
+ * Action type that completely replaces the matched sensitive data with a fixed replacement string
+ * to remove all visibility.
  */
-@JsonSerialize(using = ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction.ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer.class)
-public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction extends ModelEnum<String> {
+@JsonSerialize(
+    using =
+        ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction
+            .ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer.class)
+public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction
+    extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("redact"));
 
-  public static final ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction REDACT = new ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction("redact");
-
+  public static final ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction REDACT =
+      new ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction("redact");
 
   ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer extends StdSerializer<ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction> {
-      public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer(Class<ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction> t) {
-          super(t);
-      }
+  public static class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer
+      extends StdSerializer<ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction> {
+    public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer(
+        Class<ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction> t) {
+      super(t);
+    }
 
-      public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer() {
-          this(null);
-      }
+    public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactActionSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator
-  public static ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction fromValue(String value) {
+  public static ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction fromValue(
+      String value) {
     return new ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction(value);
   }
 }

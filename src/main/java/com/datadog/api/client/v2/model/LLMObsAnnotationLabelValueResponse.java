@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,18 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>A single label value entry in an annotation response.
-   * In addition to the submitted fields, the server populates <code>type</code> and
-   * <code>name_when_saved</code> to mirror the schema state at the time the annotation
-   * was created — these help clients display values correctly when the schema
-   * has since changed.</p>
+ * A single label value entry in an annotation response. In addition to the submitted fields, the
+ * server populates <code>type</code> and <code>name_when_saved</code> to mirror the schema state at
+ * the time the annotation was created — these help clients display values correctly when the schema
+ * has since changed.
  */
 @JsonPropertyOrder({
   LLMObsAnnotationLabelValueResponse.JSON_PROPERTY_ASSESSMENT,
@@ -46,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsAnnotationLabelValueResponse.JSON_PROPERTY_TYPE,
   LLMObsAnnotationLabelValueResponse.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotationLabelValueResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSESSMENT = "assessment";
   private LLMObsAnnotationAssessment assessment;
 
@@ -72,12 +57,14 @@ public class LLMObsAnnotationLabelValueResponse {
 
   @JsonCreator
   public LLMObsAnnotationLabelValueResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_LABEL_SCHEMA_ID)String labelSchemaId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VALUE)LLMObsAnnotationLabelValueValue value) {
-        this.labelSchemaId = labelSchemaId;
-        this.value = value;
-        this.unparsed |= value.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_LABEL_SCHEMA_ID) String labelSchemaId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE)
+          LLMObsAnnotationLabelValueValue value) {
+    this.labelSchemaId = labelSchemaId;
+    this.value = value;
+    this.unparsed |= value.unparsed;
   }
+
   public LLMObsAnnotationLabelValueResponse assessment(LLMObsAnnotationAssessment assessment) {
     this.assessment = assessment;
     this.unparsed |= !assessment.isValid();
@@ -85,78 +72,86 @@ public class LLMObsAnnotationLabelValueResponse {
   }
 
   /**
-   * <p>Assessment result for a label value.</p>
+   * Assessment result for a label value.
+   *
    * @return assessment
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSESSMENT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsAnnotationAssessment getAssessment() {
-        return assessment;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSESSMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsAnnotationAssessment getAssessment() {
+    return assessment;
+  }
+
   public void setAssessment(LLMObsAnnotationAssessment assessment) {
     if (!assessment.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.assessment = assessment;
   }
+
   public LLMObsAnnotationLabelValueResponse labelSchemaId(String labelSchemaId) {
     this.labelSchemaId = labelSchemaId;
     return this;
   }
 
   /**
-   * <p>ID of the label schema this value corresponds to.</p>
+   * ID of the label schema this value corresponds to.
+   *
    * @return labelSchemaId
-  **/
-      @JsonProperty(JSON_PROPERTY_LABEL_SCHEMA_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getLabelSchemaId() {
-        return labelSchemaId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LABEL_SCHEMA_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getLabelSchemaId() {
+    return labelSchemaId;
+  }
+
   public void setLabelSchemaId(String labelSchemaId) {
     this.labelSchemaId = labelSchemaId;
   }
+
   public LLMObsAnnotationLabelValueResponse nameWhenSaved(String nameWhenSaved) {
     this.nameWhenSaved = nameWhenSaved;
     return this;
   }
 
   /**
-   * <p>Name of the label schema at the time the annotation was created.</p>
+   * Name of the label schema at the time the annotation was created.
+   *
    * @return nameWhenSaved
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME_WHEN_SAVED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getNameWhenSaved() {
-        return nameWhenSaved;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME_WHEN_SAVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNameWhenSaved() {
+    return nameWhenSaved;
+  }
+
   public void setNameWhenSaved(String nameWhenSaved) {
     this.nameWhenSaved = nameWhenSaved;
   }
+
   public LLMObsAnnotationLabelValueResponse reasoning(String reasoning) {
     this.reasoning = reasoning;
     return this;
   }
 
   /**
-   * <p>Free text reasoning for this label value.</p>
+   * Free text reasoning for this label value.
+   *
    * @return reasoning
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REASONING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getReasoning() {
-        return reasoning;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REASONING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getReasoning() {
+    return reasoning;
+  }
+
   public void setReasoning(String reasoning) {
     this.reasoning = reasoning;
   }
+
   public LLMObsAnnotationLabelValueResponse type(LLMObsLabelSchemaType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -164,22 +159,24 @@ public class LLMObsAnnotationLabelValueResponse {
   }
 
   /**
-   * <p>Type of a label in an annotation queue label schema.</p>
+   * Type of a label in an annotation queue label schema.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LLMObsLabelSchemaType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsLabelSchemaType getType() {
+    return type;
+  }
+
   public void setType(LLMObsLabelSchemaType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public LLMObsAnnotationLabelValueResponse value(LLMObsAnnotationLabelValueValue value) {
     this.value = value;
     this.unparsed |= value.unparsed;
@@ -187,15 +184,16 @@ public class LLMObsAnnotationLabelValueResponse {
   }
 
   /**
-   * <p>The value for this label. Must comply with the label schema type constraints.</p>
+   * The value for this label. Must comply with the label schema type constraints.
+   *
    * @return value
-  **/
-      @JsonProperty(JSON_PROPERTY_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LLMObsAnnotationLabelValueValue getValue() {
-        return value;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LLMObsAnnotationLabelValueValue getValue() {
+    return value;
+  }
+
   public void setValue(LLMObsAnnotationLabelValueValue value) {
     this.value = value;
     if (value != null) {
@@ -204,15 +202,14 @@ public class LLMObsAnnotationLabelValueResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -221,7 +218,7 @@ public class LLMObsAnnotationLabelValueResponse {
   @JsonAnySetter
   public LLMObsAnnotationLabelValueResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -245,14 +242,12 @@ public class LLMObsAnnotationLabelValueResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsAnnotationLabelValueResponse object is equal to o.
-   */
+  /** Return true if this LLMObsAnnotationLabelValueResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -261,14 +256,22 @@ public class LLMObsAnnotationLabelValueResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsAnnotationLabelValueResponse llmObsAnnotationLabelValueResponse = (LLMObsAnnotationLabelValueResponse) o;
-    return Objects.equals(this.assessment, llmObsAnnotationLabelValueResponse.assessment) && Objects.equals(this.labelSchemaId, llmObsAnnotationLabelValueResponse.labelSchemaId) && Objects.equals(this.nameWhenSaved, llmObsAnnotationLabelValueResponse.nameWhenSaved) && Objects.equals(this.reasoning, llmObsAnnotationLabelValueResponse.reasoning) && Objects.equals(this.type, llmObsAnnotationLabelValueResponse.type) && Objects.equals(this.value, llmObsAnnotationLabelValueResponse.value) && Objects.equals(this.additionalProperties, llmObsAnnotationLabelValueResponse.additionalProperties);
+    LLMObsAnnotationLabelValueResponse llmObsAnnotationLabelValueResponse =
+        (LLMObsAnnotationLabelValueResponse) o;
+    return Objects.equals(this.assessment, llmObsAnnotationLabelValueResponse.assessment)
+        && Objects.equals(this.labelSchemaId, llmObsAnnotationLabelValueResponse.labelSchemaId)
+        && Objects.equals(this.nameWhenSaved, llmObsAnnotationLabelValueResponse.nameWhenSaved)
+        && Objects.equals(this.reasoning, llmObsAnnotationLabelValueResponse.reasoning)
+        && Objects.equals(this.type, llmObsAnnotationLabelValueResponse.type)
+        && Objects.equals(this.value, llmObsAnnotationLabelValueResponse.value)
+        && Objects.equals(
+            this.additionalProperties, llmObsAnnotationLabelValueResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(assessment,labelSchemaId,nameWhenSaved,reasoning,type,value, additionalProperties);
+    return Objects.hash(
+        assessment, labelSchemaId, nameWhenSaved, reasoning, type, value, additionalProperties);
   }
 
   @Override
@@ -289,8 +292,7 @@ public class LLMObsAnnotationLabelValueResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

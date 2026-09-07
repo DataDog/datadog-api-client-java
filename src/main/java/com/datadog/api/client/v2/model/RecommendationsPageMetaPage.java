@@ -6,44 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Pagination metadata for a page of cost recommendations.</p>
- */
+/** Pagination metadata for a page of cost recommendations. */
 @JsonPropertyOrder({
   RecommendationsPageMetaPage.JSON_PROPERTY_FILTER,
   RecommendationsPageMetaPage.JSON_PROPERTY_NEXT_PAGE_TOKEN,
   RecommendationsPageMetaPage.JSON_PROPERTY_PAGE_SIZE,
   RecommendationsPageMetaPage.JSON_PROPERTY_PAGE_TOKEN
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RecommendationsPageMetaPage {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private String filter;
 
@@ -62,89 +45,93 @@ public class RecommendationsPageMetaPage {
   }
 
   /**
-   * <p>The filter expression that was applied to produce this page.</p>
+   * The filter expression that was applied to produce this page.
+   *
    * @return filter
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILTER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFilter() {
-        return filter;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFilter() {
+    return filter;
+  }
+
   public void setFilter(String filter) {
     this.filter = filter;
   }
+
   public RecommendationsPageMetaPage nextPageToken(String nextPageToken) {
     this.nextPageToken = nextPageToken;
     return this;
   }
 
   /**
-   * <p>Opaque token used to fetch the next page; absent on the last page.</p>
+   * Opaque token used to fetch the next page; absent on the last page.
+   *
    * @return nextPageToken
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NEXT_PAGE_TOKEN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getNextPageToken() {
-        return nextPageToken;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NEXT_PAGE_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNextPageToken() {
+    return nextPageToken;
+  }
+
   public void setNextPageToken(String nextPageToken) {
     this.nextPageToken = nextPageToken;
   }
+
   public RecommendationsPageMetaPage pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
 
   /**
-   * <p>Number of items returned in this page (1–10000).</p>
-   * minimum: 1
-   * maximum: 10000
+   * Number of items returned in this page (1–10000). minimum: 1 maximum: 10000
+   *
    * @return pageSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getPageSize() {
-        return pageSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
+
   public RecommendationsPageMetaPage pageToken(String pageToken) {
     this.pageToken = pageToken;
     return this;
   }
 
   /**
-   * <p>Pagination token echoed back from the request.</p>
+   * Pagination token echoed back from the request.
+   *
    * @return pageToken
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE_TOKEN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPageToken() {
-        return pageToken;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPageToken() {
+    return pageToken;
+  }
+
   public void setPageToken(String pageToken) {
     this.pageToken = pageToken;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -153,7 +140,7 @@ public class RecommendationsPageMetaPage {
   @JsonAnySetter
   public RecommendationsPageMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -177,14 +164,12 @@ public class RecommendationsPageMetaPage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this RecommendationsPageMetaPage object is equal to o.
-   */
+  /** Return true if this RecommendationsPageMetaPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -194,13 +179,17 @@ public class RecommendationsPageMetaPage {
       return false;
     }
     RecommendationsPageMetaPage recommendationsPageMetaPage = (RecommendationsPageMetaPage) o;
-    return Objects.equals(this.filter, recommendationsPageMetaPage.filter) && Objects.equals(this.nextPageToken, recommendationsPageMetaPage.nextPageToken) && Objects.equals(this.pageSize, recommendationsPageMetaPage.pageSize) && Objects.equals(this.pageToken, recommendationsPageMetaPage.pageToken) && Objects.equals(this.additionalProperties, recommendationsPageMetaPage.additionalProperties);
+    return Objects.equals(this.filter, recommendationsPageMetaPage.filter)
+        && Objects.equals(this.nextPageToken, recommendationsPageMetaPage.nextPageToken)
+        && Objects.equals(this.pageSize, recommendationsPageMetaPage.pageSize)
+        && Objects.equals(this.pageToken, recommendationsPageMetaPage.pageToken)
+        && Objects.equals(
+            this.additionalProperties, recommendationsPageMetaPage.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter,nextPageToken,pageSize,pageToken, additionalProperties);
+    return Objects.hash(filter, nextPageToken, pageSize, pageToken, additionalProperties);
   }
 
   @Override
@@ -219,8 +208,7 @@ public class RecommendationsPageMetaPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Channel attributes.</p>
- */
+/** Channel attributes. */
 @JsonPropertyOrder({
   MicrosoftTeamsChannelInfoResponseAttributes.JSON_PROPERTY_IS_PRIMARY,
   MicrosoftTeamsChannelInfoResponseAttributes.JSON_PROPERTY_TEAM_ID,
   MicrosoftTeamsChannelInfoResponseAttributes.JSON_PROPERTY_TENANT_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MicrosoftTeamsChannelInfoResponseAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_PRIMARY = "is_primary";
   private Boolean isPrimary;
 
@@ -58,77 +41,82 @@ public class MicrosoftTeamsChannelInfoResponseAttributes {
   }
 
   /**
-   * <p>Indicates if this is the primary channel.</p>
+   * Indicates if this is the primary channel.
+   *
    * @return isPrimary
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsPrimary() {
-        return isPrimary;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsPrimary() {
+    return isPrimary;
+  }
+
   public void setIsPrimary(Boolean isPrimary) {
     this.isPrimary = isPrimary;
   }
+
   public MicrosoftTeamsChannelInfoResponseAttributes teamId(String teamId) {
     this.teamId = teamId;
     return this;
   }
 
   /**
-   * <p>Team id.</p>
+   * Team id.
+   *
    * @return teamId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEAM_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTeamId() {
-        return teamId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTeamId() {
+    return teamId;
+  }
+
   public void setTeamId(String teamId) {
     this.teamId = teamId;
   }
+
   public MicrosoftTeamsChannelInfoResponseAttributes tenantId(String tenantId) {
     this.tenantId = tenantId;
     return this;
   }
 
   /**
-   * <p>Tenant id.</p>
+   * Tenant id.
+   *
    * @return tenantId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TENANT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTenantId() {
-        return tenantId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TENANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTenantId() {
+    return tenantId;
+  }
+
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return MicrosoftTeamsChannelInfoResponseAttributes
    */
   @JsonAnySetter
-  public MicrosoftTeamsChannelInfoResponseAttributes putAdditionalProperty(String key, Object value) {
+  public MicrosoftTeamsChannelInfoResponseAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -152,14 +140,12 @@ public class MicrosoftTeamsChannelInfoResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this MicrosoftTeamsChannelInfoResponseAttributes object is equal to o.
-   */
+  /** Return true if this MicrosoftTeamsChannelInfoResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -168,14 +154,19 @@ public class MicrosoftTeamsChannelInfoResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MicrosoftTeamsChannelInfoResponseAttributes microsoftTeamsChannelInfoResponseAttributes = (MicrosoftTeamsChannelInfoResponseAttributes) o;
-    return Objects.equals(this.isPrimary, microsoftTeamsChannelInfoResponseAttributes.isPrimary) && Objects.equals(this.teamId, microsoftTeamsChannelInfoResponseAttributes.teamId) && Objects.equals(this.tenantId, microsoftTeamsChannelInfoResponseAttributes.tenantId) && Objects.equals(this.additionalProperties, microsoftTeamsChannelInfoResponseAttributes.additionalProperties);
+    MicrosoftTeamsChannelInfoResponseAttributes microsoftTeamsChannelInfoResponseAttributes =
+        (MicrosoftTeamsChannelInfoResponseAttributes) o;
+    return Objects.equals(this.isPrimary, microsoftTeamsChannelInfoResponseAttributes.isPrimary)
+        && Objects.equals(this.teamId, microsoftTeamsChannelInfoResponseAttributes.teamId)
+        && Objects.equals(this.tenantId, microsoftTeamsChannelInfoResponseAttributes.tenantId)
+        && Objects.equals(
+            this.additionalProperties,
+            microsoftTeamsChannelInfoResponseAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(isPrimary,teamId,tenantId, additionalProperties);
+    return Objects.hash(isPrimary, teamId, tenantId, additionalProperties);
   }
 
   @Override
@@ -193,8 +184,7 @@ public class MicrosoftTeamsChannelInfoResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

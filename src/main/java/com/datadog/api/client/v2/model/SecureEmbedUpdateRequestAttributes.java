@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for updating a secure embed shared dashboard. All fields are optional.</p>
- */
+/** Attributes for updating a secure embed shared dashboard. All fields are optional. */
 @JsonPropertyOrder({
   SecureEmbedUpdateRequestAttributes.JSON_PROPERTY_GLOBAL_TIME,
   SecureEmbedUpdateRequestAttributes.JSON_PROPERTY_GLOBAL_TIME_SELECTABLE,
@@ -42,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SecureEmbedUpdateRequestAttributes.JSON_PROPERTY_TITLE,
   SecureEmbedUpdateRequestAttributes.JSON_PROPERTY_VIEWING_PREFERENCES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecureEmbedUpdateRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GLOBAL_TIME = "global_time";
   private SecureEmbedGlobalTime globalTime;
 
@@ -71,51 +56,58 @@ public class SecureEmbedUpdateRequestAttributes {
   }
 
   /**
-   * <p>Default time range configuration for the secure embed.</p>
+   * Default time range configuration for the secure embed.
+   *
    * @return globalTime
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GLOBAL_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecureEmbedGlobalTime getGlobalTime() {
-        return globalTime;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GLOBAL_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecureEmbedGlobalTime getGlobalTime() {
+    return globalTime;
+  }
+
   public void setGlobalTime(SecureEmbedGlobalTime globalTime) {
     this.globalTime = globalTime;
     if (globalTime != null) {
       this.unparsed |= globalTime.unparsed;
     }
   }
+
   public SecureEmbedUpdateRequestAttributes globalTimeSelectable(Boolean globalTimeSelectable) {
     this.globalTimeSelectable = globalTimeSelectable;
     return this;
   }
 
   /**
-   * <p>Updated time selectability.</p>
+   * Updated time selectability.
+   *
    * @return globalTimeSelectable
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GLOBAL_TIME_SELECTABLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getGlobalTimeSelectable() {
-        return globalTimeSelectable;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GLOBAL_TIME_SELECTABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getGlobalTimeSelectable() {
+    return globalTimeSelectable;
+  }
+
   public void setGlobalTimeSelectable(Boolean globalTimeSelectable) {
     this.globalTimeSelectable = globalTimeSelectable;
   }
-  public SecureEmbedUpdateRequestAttributes selectableTemplateVars(List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
+
+  public SecureEmbedUpdateRequestAttributes selectableTemplateVars(
+      List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
     this.selectableTemplateVars = selectableTemplateVars;
     if (selectableTemplateVars != null) {
-    for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
-      this.unparsed |= item.unparsed;
-    }
+      for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
-  public SecureEmbedUpdateRequestAttributes addSelectableTemplateVarsItem(SecureEmbedSelectableTemplateVariable selectableTemplateVarsItem) {
+
+  public SecureEmbedUpdateRequestAttributes addSelectableTemplateVarsItem(
+      SecureEmbedSelectableTemplateVariable selectableTemplateVarsItem) {
     if (this.selectableTemplateVars == null) {
       this.selectableTemplateVars = new ArrayList<>();
     }
@@ -125,17 +117,19 @@ public class SecureEmbedUpdateRequestAttributes {
   }
 
   /**
-   * <p>Updated template variables.</p>
+   * Updated template variables.
+   *
    * @return selectableTemplateVars
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SELECTABLE_TEMPLATE_VARS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SecureEmbedSelectableTemplateVariable> getSelectableTemplateVars() {
-        return selectableTemplateVars;
-      }
-  public void setSelectableTemplateVars(List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SELECTABLE_TEMPLATE_VARS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecureEmbedSelectableTemplateVariable> getSelectableTemplateVars() {
+    return selectableTemplateVars;
+  }
+
+  public void setSelectableTemplateVars(
+      List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
     this.selectableTemplateVars = selectableTemplateVars;
     if (selectableTemplateVars != null) {
       for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
@@ -143,6 +137,7 @@ public class SecureEmbedUpdateRequestAttributes {
       }
     }
   }
+
   public SecureEmbedUpdateRequestAttributes status(SecureEmbedStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -150,58 +145,65 @@ public class SecureEmbedUpdateRequestAttributes {
   }
 
   /**
-   * <p>The status of the secure embed share. Active means the shared dashboard is available. Paused means it is not.</p>
+   * The status of the secure embed share. Active means the shared dashboard is available. Paused
+   * means it is not.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecureEmbedStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecureEmbedStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(SecureEmbedStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public SecureEmbedUpdateRequestAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Updated title.</p>
+   * Updated title.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
-  public SecureEmbedUpdateRequestAttributes viewingPreferences(SecureEmbedViewingPreferences viewingPreferences) {
+
+  public SecureEmbedUpdateRequestAttributes viewingPreferences(
+      SecureEmbedViewingPreferences viewingPreferences) {
     this.viewingPreferences = viewingPreferences;
     this.unparsed |= viewingPreferences.unparsed;
     return this;
   }
 
   /**
-   * <p>Display settings for the secure embed shared dashboard.</p>
+   * Display settings for the secure embed shared dashboard.
+   *
    * @return viewingPreferences
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VIEWING_PREFERENCES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecureEmbedViewingPreferences getViewingPreferences() {
-        return viewingPreferences;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VIEWING_PREFERENCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecureEmbedViewingPreferences getViewingPreferences() {
+    return viewingPreferences;
+  }
+
   public void setViewingPreferences(SecureEmbedViewingPreferences viewingPreferences) {
     this.viewingPreferences = viewingPreferences;
     if (viewingPreferences != null) {
@@ -210,15 +212,14 @@ public class SecureEmbedUpdateRequestAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -227,7 +228,7 @@ public class SecureEmbedUpdateRequestAttributes {
   @JsonAnySetter
   public SecureEmbedUpdateRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -251,14 +252,12 @@ public class SecureEmbedUpdateRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SecureEmbedUpdateRequestAttributes object is equal to o.
-   */
+  /** Return true if this SecureEmbedUpdateRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -267,14 +266,31 @@ public class SecureEmbedUpdateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecureEmbedUpdateRequestAttributes secureEmbedUpdateRequestAttributes = (SecureEmbedUpdateRequestAttributes) o;
-    return Objects.equals(this.globalTime, secureEmbedUpdateRequestAttributes.globalTime) && Objects.equals(this.globalTimeSelectable, secureEmbedUpdateRequestAttributes.globalTimeSelectable) && Objects.equals(this.selectableTemplateVars, secureEmbedUpdateRequestAttributes.selectableTemplateVars) && Objects.equals(this.status, secureEmbedUpdateRequestAttributes.status) && Objects.equals(this.title, secureEmbedUpdateRequestAttributes.title) && Objects.equals(this.viewingPreferences, secureEmbedUpdateRequestAttributes.viewingPreferences) && Objects.equals(this.additionalProperties, secureEmbedUpdateRequestAttributes.additionalProperties);
+    SecureEmbedUpdateRequestAttributes secureEmbedUpdateRequestAttributes =
+        (SecureEmbedUpdateRequestAttributes) o;
+    return Objects.equals(this.globalTime, secureEmbedUpdateRequestAttributes.globalTime)
+        && Objects.equals(
+            this.globalTimeSelectable, secureEmbedUpdateRequestAttributes.globalTimeSelectable)
+        && Objects.equals(
+            this.selectableTemplateVars, secureEmbedUpdateRequestAttributes.selectableTemplateVars)
+        && Objects.equals(this.status, secureEmbedUpdateRequestAttributes.status)
+        && Objects.equals(this.title, secureEmbedUpdateRequestAttributes.title)
+        && Objects.equals(
+            this.viewingPreferences, secureEmbedUpdateRequestAttributes.viewingPreferences)
+        && Objects.equals(
+            this.additionalProperties, secureEmbedUpdateRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(globalTime,globalTimeSelectable,selectableTemplateVars,status,title,viewingPreferences, additionalProperties);
+    return Objects.hash(
+        globalTime,
+        globalTimeSelectable,
+        selectableTemplateVars,
+        status,
+        title,
+        viewingPreferences,
+        additionalProperties);
   }
 
   @Override
@@ -282,8 +298,12 @@ public class SecureEmbedUpdateRequestAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecureEmbedUpdateRequestAttributes {\n");
     sb.append("    globalTime: ").append(toIndentedString(globalTime)).append("\n");
-    sb.append("    globalTimeSelectable: ").append(toIndentedString(globalTimeSelectable)).append("\n");
-    sb.append("    selectableTemplateVars: ").append(toIndentedString(selectableTemplateVars)).append("\n");
+    sb.append("    globalTimeSelectable: ")
+        .append(toIndentedString(globalTimeSelectable))
+        .append("\n");
+    sb.append("    selectableTemplateVars: ")
+        .append(toIndentedString(selectableTemplateVars))
+        .append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    viewingPreferences: ").append(toIndentedString(viewingPreferences)).append("\n");
@@ -295,8 +315,7 @@ public class SecureEmbedUpdateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

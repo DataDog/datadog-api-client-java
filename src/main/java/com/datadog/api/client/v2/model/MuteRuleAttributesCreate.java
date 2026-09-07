@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for creating or updating a mute rule.</p>
- */
+/** Attributes for creating or updating a mute rule. */
 @JsonPropertyOrder({
   MuteRuleAttributesCreate.JSON_PROPERTY_ACTION,
   MuteRuleAttributesCreate.JSON_PROPERTY_ENABLED,
   MuteRuleAttributesCreate.JSON_PROPERTY_NAME,
   MuteRuleAttributesCreate.JSON_PROPERTY_RULE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MuteRuleAttributesCreate {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private MuteRuleAction action;
 
@@ -60,15 +44,16 @@ public class MuteRuleAttributesCreate {
 
   @JsonCreator
   public MuteRuleAttributesCreate(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ACTION)MuteRuleAction action,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULE)AutomationRuleScope rule) {
-        this.action = action;
-        this.unparsed |= action.unparsed;
-        this.name = name;
-        this.rule = rule;
-        this.unparsed |= rule.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACTION) MuteRuleAction action,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE) AutomationRuleScope rule) {
+    this.action = action;
+    this.unparsed |= action.unparsed;
+    this.name = name;
+    this.rule = rule;
+    this.unparsed |= rule.unparsed;
   }
+
   public MuteRuleAttributesCreate action(MuteRuleAction action) {
     this.action = action;
     this.unparsed |= action.unparsed;
@@ -76,58 +61,64 @@ public class MuteRuleAttributesCreate {
   }
 
   /**
-   * <p>The action to take when the mute rule matches a finding.</p>
+   * The action to take when the mute rule matches a finding.
+   *
    * @return action
-  **/
-      @JsonProperty(JSON_PROPERTY_ACTION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public MuteRuleAction getAction() {
-        return action;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MuteRuleAction getAction() {
+    return action;
+  }
+
   public void setAction(MuteRuleAction action) {
     this.action = action;
     if (action != null) {
       this.unparsed |= action.unparsed;
     }
   }
+
   public MuteRuleAttributesCreate enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * <p>Whether the mute rule is enabled.</p>
+   * Whether the mute rule is enabled.
+   *
    * @return enabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
+
   public MuteRuleAttributesCreate name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the mute rule.</p>
+   * The name of the mute rule.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public MuteRuleAttributesCreate rule(AutomationRuleScope rule) {
     this.rule = rule;
     this.unparsed |= rule.unparsed;
@@ -135,15 +126,16 @@ public class MuteRuleAttributesCreate {
   }
 
   /**
-   * <p>Defines the scope of findings to which the automation rule applies.</p>
+   * Defines the scope of findings to which the automation rule applies.
+   *
    * @return rule
-  **/
-      @JsonProperty(JSON_PROPERTY_RULE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AutomationRuleScope getRule() {
-        return rule;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AutomationRuleScope getRule() {
+    return rule;
+  }
+
   public void setRule(AutomationRuleScope rule) {
     this.rule = rule;
     if (rule != null) {
@@ -152,15 +144,14 @@ public class MuteRuleAttributesCreate {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -169,7 +160,7 @@ public class MuteRuleAttributesCreate {
   @JsonAnySetter
   public MuteRuleAttributesCreate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -193,14 +184,12 @@ public class MuteRuleAttributesCreate {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this MuteRuleAttributesCreate object is equal to o.
-   */
+  /** Return true if this MuteRuleAttributesCreate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -210,13 +199,16 @@ public class MuteRuleAttributesCreate {
       return false;
     }
     MuteRuleAttributesCreate muteRuleAttributesCreate = (MuteRuleAttributesCreate) o;
-    return Objects.equals(this.action, muteRuleAttributesCreate.action) && Objects.equals(this.enabled, muteRuleAttributesCreate.enabled) && Objects.equals(this.name, muteRuleAttributesCreate.name) && Objects.equals(this.rule, muteRuleAttributesCreate.rule) && Objects.equals(this.additionalProperties, muteRuleAttributesCreate.additionalProperties);
+    return Objects.equals(this.action, muteRuleAttributesCreate.action)
+        && Objects.equals(this.enabled, muteRuleAttributesCreate.enabled)
+        && Objects.equals(this.name, muteRuleAttributesCreate.name)
+        && Objects.equals(this.rule, muteRuleAttributesCreate.rule)
+        && Objects.equals(this.additionalProperties, muteRuleAttributesCreate.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(action,enabled,name,rule, additionalProperties);
+    return Objects.hash(action, enabled, name, rule, additionalProperties);
   }
 
   @Override
@@ -235,8 +227,7 @@ public class MuteRuleAttributesCreate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

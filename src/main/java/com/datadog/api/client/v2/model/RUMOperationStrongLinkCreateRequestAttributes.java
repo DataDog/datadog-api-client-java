@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for creating a RUM operation strong link.</p>
- */
+/** Attributes for creating a RUM operation strong link. */
 @JsonPropertyOrder({
   RUMOperationStrongLinkCreateRequestAttributes.JSON_PROPERTY_APPLICATION_ID,
   RUMOperationStrongLinkCreateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -43,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   RUMOperationStrongLinkCreateRequestAttributes.JSON_PROPERTY_STATUS,
   RUMOperationStrongLinkCreateRequestAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMOperationStrongLinkCreateRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
   private UUID applicationId;
 
@@ -72,112 +60,126 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
 
   @JsonCreator
   public RUMOperationStrongLinkCreateRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FEATURE_ID)String featureId) {
-        this.featureId = featureId;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FEATURE_ID) String featureId) {
+    this.featureId = featureId;
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes applicationId(UUID applicationId) {
     this.applicationId = applicationId;
     return this;
   }
 
   /**
-   * <p>The RUM application ID used when creating a stub operation from <code>operation_name</code>.</p>
+   * The RUM application ID used when creating a stub operation from <code>operation_name</code>.
+   *
    * @return applicationId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UUID getApplicationId() {
-        return applicationId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getApplicationId() {
+    return applicationId;
+  }
+
   public void setApplicationId(UUID applicationId) {
     this.applicationId = applicationId;
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes description(String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
 
   /**
-   * <p>A description of the strong link.</p>
+   * A description of the strong link.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getDescription() {
-        return description.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDescription() {
+    return description.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)public void setDescription_JsonNullable(JsonNullable<String> description) {
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
   }
+
   public void setDescription(String description) {
     this.description = JsonNullable.<String>of(description);
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes featureId(String featureId) {
     this.featureId = featureId;
     return this;
   }
 
   /**
-   * <p>The unique identifier of the feature to link.</p>
+   * The unique identifier of the feature to link.
+   *
    * @return featureId
-  **/
-      @JsonProperty(JSON_PROPERTY_FEATURE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getFeatureId() {
-        return featureId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FEATURE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getFeatureId() {
+    return featureId;
+  }
+
   public void setFeatureId(String featureId) {
     this.featureId = featureId;
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes operationId(String operationId) {
     this.operationId = operationId;
     return this;
   }
 
   /**
-   * <p>The unique identifier of the RUM operation to link. Either <code>operation_id</code> or
-   * <code>operation_name</code> is required.</p>
+   * The unique identifier of the RUM operation to link. Either <code>operation_id</code> or <code>
+   * operation_name</code> is required.
+   *
    * @return operationId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPERATION_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOperationId() {
-        return operationId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPERATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOperationId() {
+    return operationId;
+  }
+
   public void setOperationId(String operationId) {
     this.operationId = operationId;
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes operationName(String operationName) {
     this.operationName = operationName;
     return this;
   }
 
   /**
-   * <p>The name of the RUM operation to link. Either <code>operation_id</code> or <code>operation_name</code> is
-   * required. If no operation with this name exists, a stub operation is created.</p>
+   * The name of the RUM operation to link. Either <code>operation_id</code> or <code>operation_name
+   * </code> is required. If no operation with this name exists, a stub operation is created.
+   *
    * @return operationName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOperationName() {
-        return operationName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOperationName() {
+    return operationName;
+  }
+
   public void setOperationName(String operationName) {
     this.operationName = operationName;
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes status(RUMOperationStrongLinkStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -185,26 +187,29 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
   }
 
   /**
-   * <p>The status of a RUM operation strong link.</p>
+   * The status of a RUM operation strong link.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public RUMOperationStrongLinkStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMOperationStrongLinkStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(RUMOperationStrongLinkStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public RUMOperationStrongLinkCreateRequestAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -214,39 +219,40 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
   }
 
   /**
-   * <p>A list of tags associated with the strong link.</p>
+   * A list of tags associated with the strong link.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return RUMOperationStrongLinkCreateRequestAttributes
    */
   @JsonAnySetter
-  public RUMOperationStrongLinkCreateRequestAttributes putAdditionalProperty(String key, Object value) {
+  public RUMOperationStrongLinkCreateRequestAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -270,14 +276,12 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this RUMOperationStrongLinkCreateRequestAttributes object is equal to o.
-   */
+  /** Return true if this RUMOperationStrongLinkCreateRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -286,14 +290,35 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMOperationStrongLinkCreateRequestAttributes rumOperationStrongLinkCreateRequestAttributes = (RUMOperationStrongLinkCreateRequestAttributes) o;
-    return Objects.equals(this.applicationId, rumOperationStrongLinkCreateRequestAttributes.applicationId) && Objects.equals(this.description, rumOperationStrongLinkCreateRequestAttributes.description) && Objects.equals(this.featureId, rumOperationStrongLinkCreateRequestAttributes.featureId) && Objects.equals(this.operationId, rumOperationStrongLinkCreateRequestAttributes.operationId) && Objects.equals(this.operationName, rumOperationStrongLinkCreateRequestAttributes.operationName) && Objects.equals(this.status, rumOperationStrongLinkCreateRequestAttributes.status) && Objects.equals(this.tags, rumOperationStrongLinkCreateRequestAttributes.tags) && Objects.equals(this.additionalProperties, rumOperationStrongLinkCreateRequestAttributes.additionalProperties);
+    RUMOperationStrongLinkCreateRequestAttributes rumOperationStrongLinkCreateRequestAttributes =
+        (RUMOperationStrongLinkCreateRequestAttributes) o;
+    return Objects.equals(
+            this.applicationId, rumOperationStrongLinkCreateRequestAttributes.applicationId)
+        && Objects.equals(
+            this.description, rumOperationStrongLinkCreateRequestAttributes.description)
+        && Objects.equals(this.featureId, rumOperationStrongLinkCreateRequestAttributes.featureId)
+        && Objects.equals(
+            this.operationId, rumOperationStrongLinkCreateRequestAttributes.operationId)
+        && Objects.equals(
+            this.operationName, rumOperationStrongLinkCreateRequestAttributes.operationName)
+        && Objects.equals(this.status, rumOperationStrongLinkCreateRequestAttributes.status)
+        && Objects.equals(this.tags, rumOperationStrongLinkCreateRequestAttributes.tags)
+        && Objects.equals(
+            this.additionalProperties,
+            rumOperationStrongLinkCreateRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId,description,featureId,operationId,operationName,status,tags, additionalProperties);
+    return Objects.hash(
+        applicationId,
+        description,
+        featureId,
+        operationId,
+        operationName,
+        status,
+        tags,
+        additionalProperties);
   }
 
   @Override
@@ -315,8 +340,7 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

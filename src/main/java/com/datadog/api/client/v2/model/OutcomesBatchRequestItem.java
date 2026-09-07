@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Scorecard outcome for a specific rule, for a given service within a batched update.</p>
- */
+/** Scorecard outcome for a specific rule, for a given service within a batched update. */
 @JsonPropertyOrder({
   OutcomesBatchRequestItem.JSON_PROPERTY_REMARKS,
   OutcomesBatchRequestItem.JSON_PROPERTY_RULE_ID,
   OutcomesBatchRequestItem.JSON_PROPERTY_SERVICE_NAME,
   OutcomesBatchRequestItem.JSON_PROPERTY_STATE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OutcomesBatchRequestItem {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_REMARKS = "remarks";
   private String remarks;
 
@@ -60,69 +44,76 @@ public class OutcomesBatchRequestItem {
 
   @JsonCreator
   public OutcomesBatchRequestItem(
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULE_ID)String ruleId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE_NAME)String serviceName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STATE)State state) {
-        this.ruleId = ruleId;
-        this.serviceName = serviceName;
-        this.state = state;
-        this.unparsed |= !state.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE_ID) String ruleId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_NAME) String serviceName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATE) State state) {
+    this.ruleId = ruleId;
+    this.serviceName = serviceName;
+    this.state = state;
+    this.unparsed |= !state.isValid();
   }
+
   public OutcomesBatchRequestItem remarks(String remarks) {
     this.remarks = remarks;
     return this;
   }
 
   /**
-   * <p>Any remarks regarding the scorecard rule's evaluation, and supports HTML hyperlinks.</p>
+   * Any remarks regarding the scorecard rule's evaluation, and supports HTML hyperlinks.
+   *
    * @return remarks
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REMARKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRemarks() {
-        return remarks;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMARKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRemarks() {
+    return remarks;
+  }
+
   public void setRemarks(String remarks) {
     this.remarks = remarks;
   }
+
   public OutcomesBatchRequestItem ruleId(String ruleId) {
     this.ruleId = ruleId;
     return this;
   }
 
   /**
-   * <p>The unique ID for a scorecard rule.</p>
+   * The unique ID for a scorecard rule.
+   *
    * @return ruleId
-  **/
-      @JsonProperty(JSON_PROPERTY_RULE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getRuleId() {
-        return ruleId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getRuleId() {
+    return ruleId;
+  }
+
   public void setRuleId(String ruleId) {
     this.ruleId = ruleId;
   }
+
   public OutcomesBatchRequestItem serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
   }
 
   /**
-   * <p>The unique name for a service in the catalog.</p>
+   * The unique name for a service in the catalog.
+   *
    * @return serviceName
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getServiceName() {
-        return serviceName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getServiceName() {
+    return serviceName;
+  }
+
   public void setServiceName(String serviceName) {
     this.serviceName = serviceName;
   }
+
   public OutcomesBatchRequestItem state(State state) {
     this.state = state;
     this.unparsed |= !state.isValid();
@@ -130,32 +121,32 @@ public class OutcomesBatchRequestItem {
   }
 
   /**
-   * <p>The state of the rule evaluation.</p>
+   * The state of the rule evaluation.
+   *
    * @return state
-  **/
-      @JsonProperty(JSON_PROPERTY_STATE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public State getState() {
-        return state;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public State getState() {
+    return state;
+  }
+
   public void setState(State state) {
     if (!state.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.state = state;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -164,7 +155,7 @@ public class OutcomesBatchRequestItem {
   @JsonAnySetter
   public OutcomesBatchRequestItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -188,14 +179,12 @@ public class OutcomesBatchRequestItem {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this OutcomesBatchRequestItem object is equal to o.
-   */
+  /** Return true if this OutcomesBatchRequestItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,13 +194,16 @@ public class OutcomesBatchRequestItem {
       return false;
     }
     OutcomesBatchRequestItem outcomesBatchRequestItem = (OutcomesBatchRequestItem) o;
-    return Objects.equals(this.remarks, outcomesBatchRequestItem.remarks) && Objects.equals(this.ruleId, outcomesBatchRequestItem.ruleId) && Objects.equals(this.serviceName, outcomesBatchRequestItem.serviceName) && Objects.equals(this.state, outcomesBatchRequestItem.state) && Objects.equals(this.additionalProperties, outcomesBatchRequestItem.additionalProperties);
+    return Objects.equals(this.remarks, outcomesBatchRequestItem.remarks)
+        && Objects.equals(this.ruleId, outcomesBatchRequestItem.ruleId)
+        && Objects.equals(this.serviceName, outcomesBatchRequestItem.serviceName)
+        && Objects.equals(this.state, outcomesBatchRequestItem.state)
+        && Objects.equals(this.additionalProperties, outcomesBatchRequestItem.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(remarks,ruleId,serviceName,state, additionalProperties);
+    return Objects.hash(remarks, ruleId, serviceName, state, additionalProperties);
   }
 
   @Override
@@ -230,8 +222,7 @@ public class OutcomesBatchRequestItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

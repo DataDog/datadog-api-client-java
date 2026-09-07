@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Unit metadata for a numeric metric.</p>
- */
+/** Unit metadata for a numeric metric. */
 @JsonPropertyOrder({
   CommitmentsUnit.JSON_PROPERTY_FAMILY,
   CommitmentsUnit.JSON_PROPERTY_ID,
@@ -42,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   CommitmentsUnit.JSON_PROPERTY_SCALE_FACTOR,
   CommitmentsUnit.JSON_PROPERTY_SHORT_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsUnit {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";
   private String family;
 
@@ -68,138 +52,149 @@ public class CommitmentsUnit {
 
   @JsonCreator
   public CommitmentsUnit(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FAMILY)String family,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)Long id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PLURAL)String plural,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SCALE_FACTOR)Double scaleFactor,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SHORT_NAME)String shortName) {
-        this.family = family;
-        this.id = id;
-        this.name = name;
-        this.plural = plural;
-        this.scaleFactor = scaleFactor;
-        this.shortName = shortName;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FAMILY) String family,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) Long id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PLURAL) String plural,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SCALE_FACTOR) Double scaleFactor,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SHORT_NAME) String shortName) {
+    this.family = family;
+    this.id = id;
+    this.name = name;
+    this.plural = plural;
+    this.scaleFactor = scaleFactor;
+    this.shortName = shortName;
   }
+
   public CommitmentsUnit family(String family) {
     this.family = family;
     return this;
   }
 
   /**
-   * <p>The unit family (for example, percentage or money).</p>
+   * The unit family (for example, percentage or money).
+   *
    * @return family
-  **/
-      @JsonProperty(JSON_PROPERTY_FAMILY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getFamily() {
-        return family;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getFamily() {
+    return family;
+  }
+
   public void setFamily(String family) {
     this.family = family;
   }
+
   public CommitmentsUnit id(Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unit identifier.</p>
+   * The unit identifier.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getId() {
+    return id;
+  }
+
   public void setId(Long id) {
     this.id = id;
   }
+
   public CommitmentsUnit name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The unit name (for example, percent or dollar).</p>
+   * The unit name (for example, percent or dollar).
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public CommitmentsUnit plural(String plural) {
     this.plural = plural;
     return this;
   }
 
   /**
-   * <p>The plural form of the unit name.</p>
+   * The plural form of the unit name.
+   *
    * @return plural
-  **/
-      @JsonProperty(JSON_PROPERTY_PLURAL)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getPlural() {
-        return plural;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PLURAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPlural() {
+    return plural;
+  }
+
   public void setPlural(String plural) {
     this.plural = plural;
   }
+
   public CommitmentsUnit scaleFactor(Double scaleFactor) {
     this.scaleFactor = scaleFactor;
     return this;
   }
 
   /**
-   * <p>The scale factor for the unit.</p>
+   * The scale factor for the unit.
+   *
    * @return scaleFactor
-  **/
-      @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Double getScaleFactor() {
-        return scaleFactor;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getScaleFactor() {
+    return scaleFactor;
+  }
+
   public void setScaleFactor(Double scaleFactor) {
     this.scaleFactor = scaleFactor;
   }
+
   public CommitmentsUnit shortName(String shortName) {
     this.shortName = shortName;
     return this;
   }
 
   /**
-   * <p>The abbreviated unit name (for example, % or $).</p>
+   * The abbreviated unit name (for example, % or $).
+   *
    * @return shortName
-  **/
-      @JsonProperty(JSON_PROPERTY_SHORT_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getShortName() {
-        return shortName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getShortName() {
+    return shortName;
+  }
+
   public void setShortName(String shortName) {
     this.shortName = shortName;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -208,7 +203,7 @@ public class CommitmentsUnit {
   @JsonAnySetter
   public CommitmentsUnit putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -232,14 +227,12 @@ public class CommitmentsUnit {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CommitmentsUnit object is equal to o.
-   */
+  /** Return true if this CommitmentsUnit object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -249,13 +242,18 @@ public class CommitmentsUnit {
       return false;
     }
     CommitmentsUnit commitmentsUnit = (CommitmentsUnit) o;
-    return Objects.equals(this.family, commitmentsUnit.family) && Objects.equals(this.id, commitmentsUnit.id) && Objects.equals(this.name, commitmentsUnit.name) && Objects.equals(this.plural, commitmentsUnit.plural) && Objects.equals(this.scaleFactor, commitmentsUnit.scaleFactor) && Objects.equals(this.shortName, commitmentsUnit.shortName) && Objects.equals(this.additionalProperties, commitmentsUnit.additionalProperties);
+    return Objects.equals(this.family, commitmentsUnit.family)
+        && Objects.equals(this.id, commitmentsUnit.id)
+        && Objects.equals(this.name, commitmentsUnit.name)
+        && Objects.equals(this.plural, commitmentsUnit.plural)
+        && Objects.equals(this.scaleFactor, commitmentsUnit.scaleFactor)
+        && Objects.equals(this.shortName, commitmentsUnit.shortName)
+        && Objects.equals(this.additionalProperties, commitmentsUnit.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(family,id,name,plural,scaleFactor,shortName, additionalProperties);
+    return Objects.hash(family, id, name, plural, scaleFactor, shortName, additionalProperties);
   }
 
   @Override
@@ -276,8 +274,7 @@ public class CommitmentsUnit {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

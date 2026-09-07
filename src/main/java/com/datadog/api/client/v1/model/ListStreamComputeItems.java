@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>List of facets and aggregations which to compute.</p>
- */
+/** List of facets and aggregations which to compute. */
 @JsonPropertyOrder({
   ListStreamComputeItems.JSON_PROPERTY_AGGREGATION,
   ListStreamComputeItems.JSON_PROPERTY_FACET
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamComputeItems {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private ListStreamComputeAggregation aggregation;
 
@@ -52,10 +36,12 @@ public class ListStreamComputeItems {
 
   @JsonCreator
   public ListStreamComputeItems(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)ListStreamComputeAggregation aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
+          ListStreamComputeAggregation aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
   }
+
   public ListStreamComputeItems aggregation(ListStreamComputeAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
@@ -63,51 +49,53 @@ public class ListStreamComputeItems {
   }
 
   /**
-   * <p>Aggregation value.</p>
+   * Aggregation value.
+   *
    * @return aggregation
-  **/
-      @JsonProperty(JSON_PROPERTY_AGGREGATION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ListStreamComputeAggregation getAggregation() {
-        return aggregation;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ListStreamComputeAggregation getAggregation() {
+    return aggregation;
+  }
+
   public void setAggregation(ListStreamComputeAggregation aggregation) {
     if (!aggregation.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
+
   public ListStreamComputeItems facet(String facet) {
     this.facet = facet;
     return this;
   }
 
   /**
-   * <p>Facet name.</p>
+   * Facet name.
+   *
    * @return facet
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FACET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFacet() {
-        return facet;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FACET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFacet() {
+    return facet;
+  }
+
   public void setFacet(String facet) {
     this.facet = facet;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -116,7 +104,7 @@ public class ListStreamComputeItems {
   @JsonAnySetter
   public ListStreamComputeItems putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -140,14 +128,12 @@ public class ListStreamComputeItems {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ListStreamComputeItems object is equal to o.
-   */
+  /** Return true if this ListStreamComputeItems object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,13 +143,14 @@ public class ListStreamComputeItems {
       return false;
     }
     ListStreamComputeItems listStreamComputeItems = (ListStreamComputeItems) o;
-    return Objects.equals(this.aggregation, listStreamComputeItems.aggregation) && Objects.equals(this.facet, listStreamComputeItems.facet) && Objects.equals(this.additionalProperties, listStreamComputeItems.additionalProperties);
+    return Objects.equals(this.aggregation, listStreamComputeItems.aggregation)
+        && Objects.equals(this.facet, listStreamComputeItems.facet)
+        && Objects.equals(this.additionalProperties, listStreamComputeItems.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation,facet, additionalProperties);
+    return Objects.hash(aggregation, facet, additionalProperties);
   }
 
   @Override
@@ -180,8 +167,7 @@ public class ListStreamComputeItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

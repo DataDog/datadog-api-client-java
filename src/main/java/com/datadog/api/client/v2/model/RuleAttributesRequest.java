@@ -6,33 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.</p>
+ * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at,
+ * custom) are excluded.
  */
 @JsonPropertyOrder({
   RuleAttributesRequest.JSON_PROPERTY_DESCRIPTION,
@@ -43,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   RuleAttributesRequest.JSON_PROPERTY_SCOPE_QUERY,
   RuleAttributesRequest.JSON_PROPERTY_SCORECARD_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RuleAttributesRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -74,146 +60,156 @@ public class RuleAttributesRequest {
   }
 
   /**
-   * <p>Explanation of the rule.</p>
+   * Explanation of the rule.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDescription() {
-        return description;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public RuleAttributesRequest enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * <p>If enabled, the rule is calculated as part of the score.</p>
+   * If enabled, the rule is calculated as part of the score.
+   *
    * @return enabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
+
   public RuleAttributesRequest level(Integer level) {
     this.level = level;
     return this;
   }
 
   /**
-   * <p>The maturity level of the rule (1, 2, or 3).</p>
-   * minimum: 1
-   * maximum: 3
+   * The maturity level of the rule (1, 2, or 3). minimum: 1 maximum: 3
+   *
    * @return level
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LEVEL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getLevel() {
-        return level;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLevel() {
+    return level;
+  }
+
   public void setLevel(Integer level) {
     this.level = level;
   }
+
   public RuleAttributesRequest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the rule.</p>
+   * Name of the rule.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public RuleAttributesRequest owner(String owner) {
     this.owner = owner;
     return this;
   }
 
   /**
-   * <p>Owner of the rule.</p>
+   * Owner of the rule.
+   *
    * @return owner
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OWNER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOwner() {
-        return owner;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OWNER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOwner() {
+    return owner;
+  }
+
   public void setOwner(String owner) {
     this.owner = owner;
   }
+
   public RuleAttributesRequest scopeQuery(String scopeQuery) {
     this.scopeQuery = scopeQuery;
     return this;
   }
 
   /**
-   * <p>A query to filter which entities this rule applies to.</p>
+   * A query to filter which entities this rule applies to.
+   *
    * @return scopeQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCOPE_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getScopeQuery() {
-        return scopeQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPE_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getScopeQuery() {
+    return scopeQuery;
+  }
+
   public void setScopeQuery(String scopeQuery) {
     this.scopeQuery = scopeQuery;
   }
+
   public RuleAttributesRequest scorecardName(String scorecardName) {
     this.scorecardName = scorecardName;
     return this;
   }
 
   /**
-   * <p>The scorecard name to which this rule must belong.</p>
+   * The scorecard name to which this rule must belong.
+   *
    * @return scorecardName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCORECARD_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getScorecardName() {
-        return scorecardName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCORECARD_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getScorecardName() {
+    return scorecardName;
+  }
+
   public void setScorecardName(String scorecardName) {
     this.scorecardName = scorecardName;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -222,7 +218,7 @@ public class RuleAttributesRequest {
   @JsonAnySetter
   public RuleAttributesRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -246,14 +242,12 @@ public class RuleAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this RuleAttributesRequest object is equal to o.
-   */
+  /** Return true if this RuleAttributesRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -263,13 +257,20 @@ public class RuleAttributesRequest {
       return false;
     }
     RuleAttributesRequest ruleAttributesRequest = (RuleAttributesRequest) o;
-    return Objects.equals(this.description, ruleAttributesRequest.description) && Objects.equals(this.enabled, ruleAttributesRequest.enabled) && Objects.equals(this.level, ruleAttributesRequest.level) && Objects.equals(this.name, ruleAttributesRequest.name) && Objects.equals(this.owner, ruleAttributesRequest.owner) && Objects.equals(this.scopeQuery, ruleAttributesRequest.scopeQuery) && Objects.equals(this.scorecardName, ruleAttributesRequest.scorecardName) && Objects.equals(this.additionalProperties, ruleAttributesRequest.additionalProperties);
+    return Objects.equals(this.description, ruleAttributesRequest.description)
+        && Objects.equals(this.enabled, ruleAttributesRequest.enabled)
+        && Objects.equals(this.level, ruleAttributesRequest.level)
+        && Objects.equals(this.name, ruleAttributesRequest.name)
+        && Objects.equals(this.owner, ruleAttributesRequest.owner)
+        && Objects.equals(this.scopeQuery, ruleAttributesRequest.scopeQuery)
+        && Objects.equals(this.scorecardName, ruleAttributesRequest.scorecardName)
+        && Objects.equals(this.additionalProperties, ruleAttributesRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(description,enabled,level,name,owner,scopeQuery,scorecardName, additionalProperties);
+    return Objects.hash(
+        description, enabled, level, name, owner, scopeQuery, scorecardName, additionalProperties);
   }
 
   @Override
@@ -291,8 +292,7 @@ public class RuleAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

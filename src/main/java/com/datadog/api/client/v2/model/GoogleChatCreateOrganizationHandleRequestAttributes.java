@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Organization handle attributes for a create request.</p>
- */
+/** Organization handle attributes for a create request. */
 @JsonPropertyOrder({
   GoogleChatCreateOrganizationHandleRequestAttributes.JSON_PROPERTY_NAME,
   GoogleChatCreateOrganizationHandleRequestAttributes.JSON_PROPERTY_SPACE_RESOURCE_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GoogleChatCreateOrganizationHandleRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -52,67 +36,73 @@ public class GoogleChatCreateOrganizationHandleRequestAttributes {
 
   @JsonCreator
   public GoogleChatCreateOrganizationHandleRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SPACE_RESOURCE_NAME)String spaceResourceName) {
-        this.name = name;
-        this.spaceResourceName = spaceResourceName;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SPACE_RESOURCE_NAME)
+          String spaceResourceName) {
+    this.name = name;
+    this.spaceResourceName = spaceResourceName;
   }
+
   public GoogleChatCreateOrganizationHandleRequestAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Organization handle name.</p>
+   * Organization handle name.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
-  public GoogleChatCreateOrganizationHandleRequestAttributes spaceResourceName(String spaceResourceName) {
+
+  public GoogleChatCreateOrganizationHandleRequestAttributes spaceResourceName(
+      String spaceResourceName) {
     this.spaceResourceName = spaceResourceName;
     return this;
   }
 
   /**
-   * <p>Google space resource name.</p>
+   * Google space resource name.
+   *
    * @return spaceResourceName
-  **/
-      @JsonProperty(JSON_PROPERTY_SPACE_RESOURCE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getSpaceResourceName() {
-        return spaceResourceName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SPACE_RESOURCE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getSpaceResourceName() {
+    return spaceResourceName;
+  }
+
   public void setSpaceResourceName(String spaceResourceName) {
     this.spaceResourceName = spaceResourceName;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return GoogleChatCreateOrganizationHandleRequestAttributes
    */
   @JsonAnySetter
-  public GoogleChatCreateOrganizationHandleRequestAttributes putAdditionalProperty(String key, Object value) {
+  public GoogleChatCreateOrganizationHandleRequestAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -136,7 +126,7 @@ public class GoogleChatCreateOrganizationHandleRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -152,14 +142,21 @@ public class GoogleChatCreateOrganizationHandleRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GoogleChatCreateOrganizationHandleRequestAttributes googleChatCreateOrganizationHandleRequestAttributes = (GoogleChatCreateOrganizationHandleRequestAttributes) o;
-    return Objects.equals(this.name, googleChatCreateOrganizationHandleRequestAttributes.name) && Objects.equals(this.spaceResourceName, googleChatCreateOrganizationHandleRequestAttributes.spaceResourceName) && Objects.equals(this.additionalProperties, googleChatCreateOrganizationHandleRequestAttributes.additionalProperties);
+    GoogleChatCreateOrganizationHandleRequestAttributes
+        googleChatCreateOrganizationHandleRequestAttributes =
+            (GoogleChatCreateOrganizationHandleRequestAttributes) o;
+    return Objects.equals(this.name, googleChatCreateOrganizationHandleRequestAttributes.name)
+        && Objects.equals(
+            this.spaceResourceName,
+            googleChatCreateOrganizationHandleRequestAttributes.spaceResourceName)
+        && Objects.equals(
+            this.additionalProperties,
+            googleChatCreateOrganizationHandleRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(name,spaceResourceName, additionalProperties);
+    return Objects.hash(name, spaceResourceName, additionalProperties);
   }
 
   @Override
@@ -176,8 +173,7 @@ public class GoogleChatCreateOrganizationHandleRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

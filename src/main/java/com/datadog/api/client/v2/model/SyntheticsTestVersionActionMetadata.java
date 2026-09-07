@@ -6,44 +6,30 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing metadata about a change action.</p>
- */
+/** Object containing metadata about a change action. */
 @JsonPropertyOrder({
   SyntheticsTestVersionActionMetadata.JSON_PROPERTY_AFTER_VALUE,
   SyntheticsTestVersionActionMetadata.JSON_PROPERTY_BEFORE_VALUE,
   SyntheticsTestVersionActionMetadata.JSON_PROPERTY_DIFF_PATCHES,
   SyntheticsTestVersionActionMetadata.JSON_PROPERTY_PROPERTY_PATH
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestVersionActionMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AFTER_VALUE = "after_value";
   private Object afterValue = null;
 
@@ -51,7 +37,8 @@ public class SyntheticsTestVersionActionMetadata {
   private Object beforeValue = null;
 
   public static final String JSON_PROPERTY_DIFF_PATCHES = "diff_patches";
-  private JsonNullable<List<SyntheticsTestVersionDiffPatches>> diffPatches = JsonNullable.<List<SyntheticsTestVersionDiffPatches>>undefined();
+  private JsonNullable<List<SyntheticsTestVersionDiffPatches>> diffPatches =
+      JsonNullable.<List<SyntheticsTestVersionDiffPatches>>undefined();
 
   public static final String JSON_PROPERTY_PROPERTY_PATH = "property_path";
   private String propertyPath;
@@ -62,43 +49,50 @@ public class SyntheticsTestVersionActionMetadata {
   }
 
   /**
-   * <p>The value of the property after the change.</p>
+   * The value of the property after the change.
+   *
    * @return afterValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AFTER_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getAfterValue() {
-        return afterValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AFTER_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getAfterValue() {
+    return afterValue;
+  }
+
   public void setAfterValue(Object afterValue) {
     this.afterValue = afterValue;
   }
+
   public SyntheticsTestVersionActionMetadata beforeValue(Object beforeValue) {
     this.beforeValue = beforeValue;
     return this;
   }
 
   /**
-   * <p>The value of the property before the change.</p>
+   * The value of the property before the change.
+   *
    * @return beforeValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BEFORE_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getBeforeValue() {
-        return beforeValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BEFORE_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getBeforeValue() {
+    return beforeValue;
+  }
+
   public void setBeforeValue(Object beforeValue) {
     this.beforeValue = beforeValue;
   }
-  public SyntheticsTestVersionActionMetadata diffPatches(List<SyntheticsTestVersionDiffPatches> diffPatches) {
+
+  public SyntheticsTestVersionActionMetadata diffPatches(
+      List<SyntheticsTestVersionDiffPatches> diffPatches) {
     this.diffPatches = JsonNullable.<List<SyntheticsTestVersionDiffPatches>>of(diffPatches);
     return this;
   }
-  public SyntheticsTestVersionActionMetadata addDiffPatchesItem(SyntheticsTestVersionDiffPatches diffPatchesItem) {
+
+  public SyntheticsTestVersionActionMetadata addDiffPatchesItem(
+      SyntheticsTestVersionDiffPatches diffPatchesItem) {
     if (this.diffPatches == null || !this.diffPatches.isPresent()) {
       this.diffPatches = JsonNullable.<List<SyntheticsTestVersionDiffPatches>>of(new ArrayList<>());
     }
@@ -111,56 +105,62 @@ public class SyntheticsTestVersionActionMetadata {
   }
 
   /**
-   * <p>List of diff patches for text changes.</p>
+   * List of diff patches for text changes.
+   *
    * @return diffPatches
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<SyntheticsTestVersionDiffPatches> getDiffPatches() {
-        return diffPatches.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<SyntheticsTestVersionDiffPatches> getDiffPatches() {
+    return diffPatches.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DIFF_PATCHES)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<SyntheticsTestVersionDiffPatches>> getDiffPatches_JsonNullable() {
     return diffPatches;
   }
-  @JsonProperty(JSON_PROPERTY_DIFF_PATCHES)public void setDiffPatches_JsonNullable(JsonNullable<List<SyntheticsTestVersionDiffPatches>> diffPatches) {
+
+  @JsonProperty(JSON_PROPERTY_DIFF_PATCHES)
+  public void setDiffPatches_JsonNullable(
+      JsonNullable<List<SyntheticsTestVersionDiffPatches>> diffPatches) {
     this.diffPatches = diffPatches;
   }
+
   public void setDiffPatches(List<SyntheticsTestVersionDiffPatches> diffPatches) {
     this.diffPatches = JsonNullable.<List<SyntheticsTestVersionDiffPatches>>of(diffPatches);
   }
+
   public SyntheticsTestVersionActionMetadata propertyPath(String propertyPath) {
     this.propertyPath = propertyPath;
     return this;
   }
 
   /**
-   * <p>The dot-separated path of the property that was changed.</p>
+   * The dot-separated path of the property that was changed.
+   *
    * @return propertyPath
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROPERTY_PATH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPropertyPath() {
-        return propertyPath;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROPERTY_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPropertyPath() {
+    return propertyPath;
+  }
+
   public void setPropertyPath(String propertyPath) {
     this.propertyPath = propertyPath;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -169,7 +169,7 @@ public class SyntheticsTestVersionActionMetadata {
   @JsonAnySetter
   public SyntheticsTestVersionActionMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -193,14 +193,12 @@ public class SyntheticsTestVersionActionMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsTestVersionActionMetadata object is equal to o.
-   */
+  /** Return true if this SyntheticsTestVersionActionMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -209,14 +207,19 @@ public class SyntheticsTestVersionActionMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestVersionActionMetadata syntheticsTestVersionActionMetadata = (SyntheticsTestVersionActionMetadata) o;
-    return Objects.equals(this.afterValue, syntheticsTestVersionActionMetadata.afterValue) && Objects.equals(this.beforeValue, syntheticsTestVersionActionMetadata.beforeValue) && Objects.equals(this.diffPatches, syntheticsTestVersionActionMetadata.diffPatches) && Objects.equals(this.propertyPath, syntheticsTestVersionActionMetadata.propertyPath) && Objects.equals(this.additionalProperties, syntheticsTestVersionActionMetadata.additionalProperties);
+    SyntheticsTestVersionActionMetadata syntheticsTestVersionActionMetadata =
+        (SyntheticsTestVersionActionMetadata) o;
+    return Objects.equals(this.afterValue, syntheticsTestVersionActionMetadata.afterValue)
+        && Objects.equals(this.beforeValue, syntheticsTestVersionActionMetadata.beforeValue)
+        && Objects.equals(this.diffPatches, syntheticsTestVersionActionMetadata.diffPatches)
+        && Objects.equals(this.propertyPath, syntheticsTestVersionActionMetadata.propertyPath)
+        && Objects.equals(
+            this.additionalProperties, syntheticsTestVersionActionMetadata.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterValue,beforeValue,diffPatches,propertyPath, additionalProperties);
+    return Objects.hash(afterValue, beforeValue, diffPatches, propertyPath, additionalProperties);
   }
 
   @Override
@@ -235,8 +238,7 @@ public class SyntheticsTestVersionActionMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

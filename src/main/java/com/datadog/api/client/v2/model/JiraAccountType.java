@@ -6,71 +6,45 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Type identifier for Jira account resources</p>
- */
+/** Type identifier for Jira account resources */
 @JsonSerialize(using = JiraAccountType.JiraAccountTypeSerializer.class)
 public class JiraAccountType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("jira-account"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("jira-account"));
 
   public static final JiraAccountType JIRA_ACCOUNT = new JiraAccountType("jira-account");
-
 
   JiraAccountType(String value) {
     super(value, allowedValues);
   }
 
   public static class JiraAccountTypeSerializer extends StdSerializer<JiraAccountType> {
-      public JiraAccountTypeSerializer(Class<JiraAccountType> t) {
-          super(t);
-      }
+    public JiraAccountTypeSerializer(Class<JiraAccountType> t) {
+      super(t);
+    }
 
-      public JiraAccountTypeSerializer() {
-          this(null);
-      }
+    public JiraAccountTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(JiraAccountType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(JiraAccountType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

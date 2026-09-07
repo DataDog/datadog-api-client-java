@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A list of severity modifier rules with pagination metadata.</p>
- */
+/** A list of severity modifier rules with pagination metadata. */
 @JsonPropertyOrder({
   SeverityModifierRulesResponse.JSON_PROPERTY_DATA,
   SeverityModifierRulesResponse.JSON_PROPERTY_LINKS,
   SeverityModifierRulesResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SeverityModifierRulesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<SeverityModifierRuleDataResponse> data = new ArrayList<>();
 
@@ -56,18 +42,21 @@ public class SeverityModifierRulesResponse {
 
   @JsonCreator
   public SeverityModifierRulesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<SeverityModifierRuleDataResponse> data,
-            @JsonProperty(required=true, value=JSON_PROPERTY_LINKS)SecurityAutomationRulesLinks links,
-            @JsonProperty(required=true, value=JSON_PROPERTY_META)SecurityAutomationRulesMeta meta) {
-        this.data = data;
-        for (SeverityModifierRuleDataResponse item : data) {
-          this.unparsed |= item.unparsed;
-        }
-        this.links = links;
-        this.unparsed |= links.unparsed;
-        this.meta = meta;
-        this.unparsed |= meta.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<SeverityModifierRuleDataResponse> data,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LINKS)
+          SecurityAutomationRulesLinks links,
+      @JsonProperty(required = true, value = JSON_PROPERTY_META) SecurityAutomationRulesMeta meta) {
+    this.data = data;
+    for (SeverityModifierRuleDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
   }
+
   public SeverityModifierRulesResponse data(List<SeverityModifierRuleDataResponse> data) {
     this.data = data;
     for (SeverityModifierRuleDataResponse item : data) {
@@ -75,6 +64,7 @@ public class SeverityModifierRulesResponse {
     }
     return this;
   }
+
   public SeverityModifierRulesResponse addDataItem(SeverityModifierRuleDataResponse dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -82,15 +72,16 @@ public class SeverityModifierRulesResponse {
   }
 
   /**
-   * <p>A list of severity modifier rule data objects.</p>
+   * A list of severity modifier rule data objects.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<SeverityModifierRuleDataResponse> getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SeverityModifierRuleDataResponse> getData() {
+    return data;
+  }
+
   public void setData(List<SeverityModifierRuleDataResponse> data) {
     this.data = data;
     if (data != null) {
@@ -99,6 +90,7 @@ public class SeverityModifierRulesResponse {
       }
     }
   }
+
   public SeverityModifierRulesResponse links(SecurityAutomationRulesLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
@@ -106,21 +98,23 @@ public class SeverityModifierRulesResponse {
   }
 
   /**
-   * <p>Pagination links for the list of automation rules.</p>
+   * Pagination links for the list of automation rules.
+   *
    * @return links
-  **/
-      @JsonProperty(JSON_PROPERTY_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SecurityAutomationRulesLinks getLinks() {
-        return links;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityAutomationRulesLinks getLinks() {
+    return links;
+  }
+
   public void setLinks(SecurityAutomationRulesLinks links) {
     this.links = links;
     if (links != null) {
       this.unparsed |= links.unparsed;
     }
   }
+
   public SeverityModifierRulesResponse meta(SecurityAutomationRulesMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -128,15 +122,16 @@ public class SeverityModifierRulesResponse {
   }
 
   /**
-   * <p>Metadata for the list of automation rules.</p>
+   * Metadata for the list of automation rules.
+   *
    * @return meta
-  **/
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SecurityAutomationRulesMeta getMeta() {
-        return meta;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityAutomationRulesMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(SecurityAutomationRulesMeta meta) {
     this.meta = meta;
     if (meta != null) {
@@ -145,15 +140,14 @@ public class SeverityModifierRulesResponse {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -162,7 +156,7 @@ public class SeverityModifierRulesResponse {
   @JsonAnySetter
   public SeverityModifierRulesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -186,14 +180,12 @@ public class SeverityModifierRulesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SeverityModifierRulesResponse object is equal to o.
-   */
+  /** Return true if this SeverityModifierRulesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -203,13 +195,16 @@ public class SeverityModifierRulesResponse {
       return false;
     }
     SeverityModifierRulesResponse severityModifierRulesResponse = (SeverityModifierRulesResponse) o;
-    return Objects.equals(this.data, severityModifierRulesResponse.data) && Objects.equals(this.links, severityModifierRulesResponse.links) && Objects.equals(this.meta, severityModifierRulesResponse.meta) && Objects.equals(this.additionalProperties, severityModifierRulesResponse.additionalProperties);
+    return Objects.equals(this.data, severityModifierRulesResponse.data)
+        && Objects.equals(this.links, severityModifierRulesResponse.links)
+        && Objects.equals(this.meta, severityModifierRulesResponse.meta)
+        && Objects.equals(
+            this.additionalProperties, severityModifierRulesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,links,meta, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
@@ -227,8 +222,7 @@ public class SeverityModifierRulesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,44 +6,24 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Calendar interval definition.</p>
- */
+/** Calendar interval definition. */
 @JsonPropertyOrder({
   CalendarInterval.JSON_PROPERTY_ALIGNMENT,
   CalendarInterval.JSON_PROPERTY_QUANTITY,
   CalendarInterval.JSON_PROPERTY_TIMEZONE,
   CalendarInterval.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CalendarInterval {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIGNMENT = "alignment";
   private String alignment;
 
@@ -60,67 +40,78 @@ public class CalendarInterval {
 
   @JsonCreator
   public CalendarInterval(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)CalendarIntervalType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CalendarIntervalType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public CalendarInterval alignment(String alignment) {
     this.alignment = alignment;
     return this;
   }
 
   /**
-   * <p>Alignment of the interval. Valid values depend on the interval type. For <code>day</code>, use hours (for example, <code>1am</code>, <code>2pm</code>, or <code>14</code>). For <code>week</code>, use day names (for example, <code>monday</code>). For <code>month</code>, use day-of-month ordinals (for example, <code>1st</code>, <code>15th</code>). For <code>year</code> or <code>quarter</code>, use month names (for example, <code>january</code>).</p>
+   * Alignment of the interval. Valid values depend on the interval type. For <code>day</code>, use
+   * hours (for example, <code>1am</code>, <code>2pm</code>, or <code>14</code>). For <code>week
+   * </code>, use day names (for example, <code>monday</code>). For <code>month</code>, use
+   * day-of-month ordinals (for example, <code>1st</code>, <code>15th</code>). For <code>year</code>
+   * or <code>quarter</code>, use month names (for example, <code>january</code>).
+   *
    * @return alignment
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ALIGNMENT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAlignment() {
-        return alignment;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALIGNMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAlignment() {
+    return alignment;
+  }
+
   public void setAlignment(String alignment) {
     this.alignment = alignment;
   }
+
   public CalendarInterval quantity(Long quantity) {
     this.quantity = quantity;
     return this;
   }
 
   /**
-   * <p>Quantity of the interval.</p>
+   * Quantity of the interval.
+   *
    * @return quantity
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUANTITY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getQuantity() {
-        return quantity;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUANTITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getQuantity() {
+    return quantity;
+  }
+
   public void setQuantity(Long quantity) {
     this.quantity = quantity;
   }
+
   public CalendarInterval timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
 
   /**
-   * <p>Timezone for the interval.</p>
+   * Timezone for the interval.
+   *
    * @return timezone
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMEZONE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTimezone() {
-        return timezone;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimezone() {
+    return timezone;
+  }
+
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
+
   public CalendarInterval type(CalendarIntervalType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -128,25 +119,24 @@ public class CalendarInterval {
   }
 
   /**
-   * <p>Type of calendar interval.</p>
+   * Type of calendar interval.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public CalendarIntervalType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CalendarIntervalType getType() {
+    return type;
+  }
+
   public void setType(CalendarIntervalType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this CalendarInterval object is equal to o.
-   */
+  /** Return true if this CalendarInterval object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,13 +146,15 @@ public class CalendarInterval {
       return false;
     }
     CalendarInterval calendarInterval = (CalendarInterval) o;
-    return Objects.equals(this.alignment, calendarInterval.alignment) && Objects.equals(this.quantity, calendarInterval.quantity) && Objects.equals(this.timezone, calendarInterval.timezone) && Objects.equals(this.type, calendarInterval.type);
+    return Objects.equals(this.alignment, calendarInterval.alignment)
+        && Objects.equals(this.quantity, calendarInterval.quantity)
+        && Objects.equals(this.timezone, calendarInterval.timezone)
+        && Objects.equals(this.type, calendarInterval.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(alignment,quantity,timezone,type);
+    return Objects.hash(alignment, quantity, timezone, type);
   }
 
   @Override
@@ -178,8 +170,7 @@ public class CalendarInterval {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A usage query used to compute an insight value.</p>
- */
+/** A usage query used to compute an insight value. */
 @JsonPropertyOrder({
   GovernanceInsightUsageQuery.JSON_PROPERTY_QUERY,
   GovernanceInsightUsageQuery.JSON_PROPERTY_REDUCER
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GovernanceInsightUsageQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -52,58 +36,61 @@ public class GovernanceInsightUsageQuery {
 
   @JsonCreator
   public GovernanceInsightUsageQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query,
-            @JsonProperty(required=true, value=JSON_PROPERTY_REDUCER)String reducer) {
-        this.query = query;
-        this.reducer = reducer;
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REDUCER) String reducer) {
+    this.query = query;
+    this.reducer = reducer;
   }
+
   public GovernanceInsightUsageQuery query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>The usage query string.</p>
+   * The usage query string.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public GovernanceInsightUsageQuery reducer(String reducer) {
     this.reducer = reducer;
     return this;
   }
 
   /**
-   * <p>How the query result series is reduced to a single value.</p>
+   * How the query result series is reduced to a single value.
+   *
    * @return reducer
-  **/
-      @JsonProperty(JSON_PROPERTY_REDUCER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getReducer() {
-        return reducer;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REDUCER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getReducer() {
+    return reducer;
+  }
+
   public void setReducer(String reducer) {
     this.reducer = reducer;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -112,7 +99,7 @@ public class GovernanceInsightUsageQuery {
   @JsonAnySetter
   public GovernanceInsightUsageQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -136,14 +123,12 @@ public class GovernanceInsightUsageQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GovernanceInsightUsageQuery object is equal to o.
-   */
+  /** Return true if this GovernanceInsightUsageQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,13 +138,15 @@ public class GovernanceInsightUsageQuery {
       return false;
     }
     GovernanceInsightUsageQuery governanceInsightUsageQuery = (GovernanceInsightUsageQuery) o;
-    return Objects.equals(this.query, governanceInsightUsageQuery.query) && Objects.equals(this.reducer, governanceInsightUsageQuery.reducer) && Objects.equals(this.additionalProperties, governanceInsightUsageQuery.additionalProperties);
+    return Objects.equals(this.query, governanceInsightUsageQuery.query)
+        && Objects.equals(this.reducer, governanceInsightUsageQuery.reducer)
+        && Objects.equals(
+            this.additionalProperties, governanceInsightUsageQuery.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(query,reducer, additionalProperties);
+    return Objects.hash(query, reducer, additionalProperties);
   }
 
   @Override
@@ -176,8 +163,7 @@ public class GovernanceInsightUsageQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

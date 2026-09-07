@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The analytics query definition containing a base query, compute rule, and optional grouping.</p>
- */
+/** The analytics query definition containing a base query, compute rule, and optional grouping. */
 @JsonPropertyOrder({
   ProductAnalyticsAnalyticsQuery.JSON_PROPERTY_AUDIENCE_FILTERS,
   ProductAnalyticsAnalyticsQuery.JSON_PROPERTY_COMPUTE,
@@ -41,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ProductAnalyticsAnalyticsQuery.JSON_PROPERTY_INDEXES,
   ProductAnalyticsAnalyticsQuery.JSON_PROPERTY_QUERY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsAnalyticsQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUDIENCE_FILTERS = "audience_filters";
   private ProductAnalyticsAudienceFilters audienceFilters;
 
@@ -64,36 +50,40 @@ public class ProductAnalyticsAnalyticsQuery {
 
   @JsonCreator
   public ProductAnalyticsAnalyticsQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTE)ProductAnalyticsCompute compute,
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)ProductAnalyticsBaseQuery query) {
-        this.compute = compute;
-        this.unparsed |= compute.unparsed;
-        this.query = query;
-        this.unparsed |= query.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE) ProductAnalyticsCompute compute,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) ProductAnalyticsBaseQuery query) {
+    this.compute = compute;
+    this.unparsed |= compute.unparsed;
+    this.query = query;
+    this.unparsed |= query.unparsed;
   }
-  public ProductAnalyticsAnalyticsQuery audienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
+
+  public ProductAnalyticsAnalyticsQuery audienceFilters(
+      ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
     this.unparsed |= audienceFilters.unparsed;
     return this;
   }
 
   /**
-   * <p>Audience filter definitions for targeting specific user segments.</p>
+   * Audience filter definitions for targeting specific user segments.
+   *
    * @return audienceFilters
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUDIENCE_FILTERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProductAnalyticsAudienceFilters getAudienceFilters() {
-        return audienceFilters;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUDIENCE_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProductAnalyticsAudienceFilters getAudienceFilters() {
+    return audienceFilters;
+  }
+
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
     if (audienceFilters != null) {
       this.unparsed |= audienceFilters.unparsed;
     }
   }
+
   public ProductAnalyticsAnalyticsQuery compute(ProductAnalyticsCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
@@ -101,30 +91,33 @@ public class ProductAnalyticsAnalyticsQuery {
   }
 
   /**
-   * <p>A compute rule for aggregating data.</p>
+   * A compute rule for aggregating data.
+   *
    * @return compute
-  **/
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsCompute getCompute() {
-        return compute;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsCompute getCompute() {
+    return compute;
+  }
+
   public void setCompute(ProductAnalyticsCompute compute) {
     this.compute = compute;
     if (compute != null) {
       this.unparsed |= compute.unparsed;
     }
   }
+
   public ProductAnalyticsAnalyticsQuery groupBy(List<ProductAnalyticsGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
-    for (ProductAnalyticsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ProductAnalyticsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public ProductAnalyticsAnalyticsQuery addGroupByItem(ProductAnalyticsGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -135,16 +128,17 @@ public class ProductAnalyticsAnalyticsQuery {
   }
 
   /**
-   * <p>Group-by rules for segmenting results.</p>
+   * Group-by rules for segmenting results.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ProductAnalyticsGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ProductAnalyticsGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<ProductAnalyticsGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
@@ -153,10 +147,12 @@ public class ProductAnalyticsAnalyticsQuery {
       }
     }
   }
+
   public ProductAnalyticsAnalyticsQuery indexes(List<String> indexes) {
     this.indexes = indexes;
     return this;
   }
+
   public ProductAnalyticsAnalyticsQuery addIndexesItem(String indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
@@ -166,23 +162,24 @@ public class ProductAnalyticsAnalyticsQuery {
   }
 
   /**
-   * <p>Deprecated. Index selection is a rollout detail and will be removed.
-   * Do not set this field.</p>
+   * Deprecated. Index selection is a rollout detail and will be removed. Do not set this field.
+   *
    * @return indexes
    * @deprecated
-  **/
-      @Deprecated
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INDEXES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getIndexes() {
-        return indexes;
-      }
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
+
   @Deprecated
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
+
   public ProductAnalyticsAnalyticsQuery query(ProductAnalyticsBaseQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -190,17 +187,18 @@ public class ProductAnalyticsAnalyticsQuery {
   }
 
   /**
-   * <p>A query definition discriminated by the <code>data_source</code> field.
-   * Use <code>product_analytics</code> for standard event queries, or
-   * <code>product_analytics_occurrence</code> for occurrence-filtered queries.</p>
+   * A query definition discriminated by the <code>data_source</code> field. Use <code>
+   * product_analytics</code> for standard event queries, or <code>product_analytics_occurrence
+   * </code> for occurrence-filtered queries.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsBaseQuery getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsBaseQuery getQuery() {
+    return query;
+  }
+
   public void setQuery(ProductAnalyticsBaseQuery query) {
     this.query = query;
     if (query != null) {
@@ -209,15 +207,14 @@ public class ProductAnalyticsAnalyticsQuery {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -226,7 +223,7 @@ public class ProductAnalyticsAnalyticsQuery {
   @JsonAnySetter
   public ProductAnalyticsAnalyticsQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -250,14 +247,12 @@ public class ProductAnalyticsAnalyticsQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ProductAnalyticsAnalyticsQuery object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsAnalyticsQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -266,14 +261,20 @@ public class ProductAnalyticsAnalyticsQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsAnalyticsQuery productAnalyticsAnalyticsQuery = (ProductAnalyticsAnalyticsQuery) o;
-    return Objects.equals(this.audienceFilters, productAnalyticsAnalyticsQuery.audienceFilters) && Objects.equals(this.compute, productAnalyticsAnalyticsQuery.compute) && Objects.equals(this.groupBy, productAnalyticsAnalyticsQuery.groupBy) && Objects.equals(this.indexes, productAnalyticsAnalyticsQuery.indexes) && Objects.equals(this.query, productAnalyticsAnalyticsQuery.query) && Objects.equals(this.additionalProperties, productAnalyticsAnalyticsQuery.additionalProperties);
+    ProductAnalyticsAnalyticsQuery productAnalyticsAnalyticsQuery =
+        (ProductAnalyticsAnalyticsQuery) o;
+    return Objects.equals(this.audienceFilters, productAnalyticsAnalyticsQuery.audienceFilters)
+        && Objects.equals(this.compute, productAnalyticsAnalyticsQuery.compute)
+        && Objects.equals(this.groupBy, productAnalyticsAnalyticsQuery.groupBy)
+        && Objects.equals(this.indexes, productAnalyticsAnalyticsQuery.indexes)
+        && Objects.equals(this.query, productAnalyticsAnalyticsQuery.query)
+        && Objects.equals(
+            this.additionalProperties, productAnalyticsAnalyticsQuery.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(audienceFilters,compute,groupBy,indexes,query, additionalProperties);
+    return Objects.hash(audienceFilters, compute, groupBy, indexes, query, additionalProperties);
   }
 
   @Override
@@ -293,8 +294,7 @@ public class ProductAnalyticsAnalyticsQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,43 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Time interval for return criteria.</p>
- */
+/** Time interval for return criteria. */
 @JsonPropertyOrder({
   RetentionReturnCriteriaTimeInterval.JSON_PROPERTY_TYPE,
   RetentionReturnCriteriaTimeInterval.JSON_PROPERTY_UNIT,
   RetentionReturnCriteriaTimeInterval.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionReturnCriteriaTimeInterval {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
   private RetentionReturnCriteriaTimeIntervalType type;
 
@@ -56,15 +36,18 @@ public class RetentionReturnCriteriaTimeInterval {
 
   @JsonCreator
   public RetentionReturnCriteriaTimeInterval(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)RetentionReturnCriteriaTimeIntervalType type,
-            @JsonProperty(required=true, value=JSON_PROPERTY_UNIT)RetentionReturnCriteriaTimeIntervalUnit unit,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VALUE)Double value) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        this.unit = unit;
-        this.unparsed |= !unit.isValid();
-        this.value = value;
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          RetentionReturnCriteriaTimeIntervalType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_UNIT)
+          RetentionReturnCriteriaTimeIntervalUnit unit,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) Double value) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.unit = unit;
+    this.unparsed |= !unit.isValid();
+    this.value = value;
   }
+
   public RetentionReturnCriteriaTimeInterval type(RetentionReturnCriteriaTimeIntervalType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -72,21 +55,23 @@ public class RetentionReturnCriteriaTimeInterval {
   }
 
   /**
-   * <p>Type of time interval for return criteria.</p>
+   * Type of time interval for return criteria.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionReturnCriteriaTimeIntervalType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionReturnCriteriaTimeIntervalType getType() {
+    return type;
+  }
+
   public void setType(RetentionReturnCriteriaTimeIntervalType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public RetentionReturnCriteriaTimeInterval unit(RetentionReturnCriteriaTimeIntervalUnit unit) {
     this.unit = unit;
     this.unparsed |= !unit.isValid();
@@ -94,43 +79,44 @@ public class RetentionReturnCriteriaTimeInterval {
   }
 
   /**
-   * <p>Unit of time for retention return criteria interval.</p>
+   * Unit of time for retention return criteria interval.
+   *
    * @return unit
-  **/
-      @JsonProperty(JSON_PROPERTY_UNIT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RetentionReturnCriteriaTimeIntervalUnit getUnit() {
-        return unit;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RetentionReturnCriteriaTimeIntervalUnit getUnit() {
+    return unit;
+  }
+
   public void setUnit(RetentionReturnCriteriaTimeIntervalUnit unit) {
     if (!unit.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.unit = unit;
   }
+
   public RetentionReturnCriteriaTimeInterval value(Double value) {
     this.value = value;
     return this;
   }
 
   /**
-   * <p>Value of the time interval.</p>
+   * Value of the time interval.
+   *
    * @return value
-  **/
-      @JsonProperty(JSON_PROPERTY_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Double getValue() {
-        return value;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getValue() {
+    return value;
+  }
+
   public void setValue(Double value) {
     this.value = value;
   }
 
-  /**
-   * Return true if this RetentionReturnCriteriaTimeInterval object is equal to o.
-   */
+  /** Return true if this RetentionReturnCriteriaTimeInterval object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -139,14 +125,16 @@ public class RetentionReturnCriteriaTimeInterval {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RetentionReturnCriteriaTimeInterval retentionReturnCriteriaTimeInterval = (RetentionReturnCriteriaTimeInterval) o;
-    return Objects.equals(this.type, retentionReturnCriteriaTimeInterval.type) && Objects.equals(this.unit, retentionReturnCriteriaTimeInterval.unit) && Objects.equals(this.value, retentionReturnCriteriaTimeInterval.value);
+    RetentionReturnCriteriaTimeInterval retentionReturnCriteriaTimeInterval =
+        (RetentionReturnCriteriaTimeInterval) o;
+    return Objects.equals(this.type, retentionReturnCriteriaTimeInterval.type)
+        && Objects.equals(this.unit, retentionReturnCriteriaTimeInterval.unit)
+        && Objects.equals(this.value, retentionReturnCriteriaTimeInterval.value);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(type,unit,value);
+    return Objects.hash(type, unit, value);
   }
 
   @Override
@@ -161,8 +149,7 @@ public class RetentionReturnCriteriaTimeInterval {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

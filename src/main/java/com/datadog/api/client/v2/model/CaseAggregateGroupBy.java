@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Configuration for grouping aggregated results by one or more case fields.</p>
- */
+/** Configuration for grouping aggregated results by one or more case fields. */
 @JsonPropertyOrder({
   CaseAggregateGroupBy.JSON_PROPERTY_GROUPS,
   CaseAggregateGroupBy.JSON_PROPERTY_LIMIT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CaseAggregateGroupBy {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUPS = "groups";
   private List<String> groups = new ArrayList<>();
 
@@ -52,63 +38,66 @@ public class CaseAggregateGroupBy {
 
   @JsonCreator
   public CaseAggregateGroupBy(
-            @JsonProperty(required=true, value=JSON_PROPERTY_GROUPS)List<String> groups,
-            @JsonProperty(required=true, value=JSON_PROPERTY_LIMIT)Integer limit) {
-        this.groups = groups;
-        this.limit = limit;
+      @JsonProperty(required = true, value = JSON_PROPERTY_GROUPS) List<String> groups,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT) Integer limit) {
+    this.groups = groups;
+    this.limit = limit;
   }
+
   public CaseAggregateGroupBy groups(List<String> groups) {
     this.groups = groups;
     return this;
   }
+
   public CaseAggregateGroupBy addGroupsItem(String groupsItem) {
     this.groups.add(groupsItem);
     return this;
   }
 
   /**
-   * <p>Fields to group by.</p>
+   * Fields to group by.
+   *
    * @return groups
-  **/
-      @JsonProperty(JSON_PROPERTY_GROUPS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getGroups() {
-        return groups;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getGroups() {
+    return groups;
+  }
+
   public void setGroups(List<String> groups) {
     this.groups = groups;
   }
+
   public CaseAggregateGroupBy limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>Maximum number of groups to return.</p>
-   * maximum: 1000
+   * Maximum number of groups to return. maximum: 1000
+   *
    * @return limit
-  **/
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Integer getLimit() {
-        return limit;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getLimit() {
+    return limit;
+  }
+
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -117,7 +106,7 @@ public class CaseAggregateGroupBy {
   @JsonAnySetter
   public CaseAggregateGroupBy putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -141,14 +130,12 @@ public class CaseAggregateGroupBy {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CaseAggregateGroupBy object is equal to o.
-   */
+  /** Return true if this CaseAggregateGroupBy object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,13 +145,14 @@ public class CaseAggregateGroupBy {
       return false;
     }
     CaseAggregateGroupBy caseAggregateGroupBy = (CaseAggregateGroupBy) o;
-    return Objects.equals(this.groups, caseAggregateGroupBy.groups) && Objects.equals(this.limit, caseAggregateGroupBy.limit) && Objects.equals(this.additionalProperties, caseAggregateGroupBy.additionalProperties);
+    return Objects.equals(this.groups, caseAggregateGroupBy.groups)
+        && Objects.equals(this.limit, caseAggregateGroupBy.limit)
+        && Objects.equals(this.additionalProperties, caseAggregateGroupBy.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(groups,limit, additionalProperties);
+    return Objects.hash(groups, limit, additionalProperties);
   }
 
   @Override
@@ -181,8 +169,7 @@ public class CaseAggregateGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

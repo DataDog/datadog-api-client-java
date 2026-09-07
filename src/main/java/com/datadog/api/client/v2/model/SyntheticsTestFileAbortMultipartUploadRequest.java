@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Request body for aborting a multipart file upload.</p>
- */
+/** Request body for aborting a multipart file upload. */
 @JsonPropertyOrder({
   SyntheticsTestFileAbortMultipartUploadRequest.JSON_PROPERTY_KEY,
   SyntheticsTestFileAbortMultipartUploadRequest.JSON_PROPERTY_UPLOAD_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestFileAbortMultipartUploadRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
 
@@ -52,67 +36,71 @@ public class SyntheticsTestFileAbortMultipartUploadRequest {
 
   @JsonCreator
   public SyntheticsTestFileAbortMultipartUploadRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_KEY)String key,
-            @JsonProperty(required=true, value=JSON_PROPERTY_UPLOAD_ID)String uploadId) {
-        this.key = key;
-        this.uploadId = uploadId;
+      @JsonProperty(required = true, value = JSON_PROPERTY_KEY) String key,
+      @JsonProperty(required = true, value = JSON_PROPERTY_UPLOAD_ID) String uploadId) {
+    this.key = key;
+    this.uploadId = uploadId;
   }
+
   public SyntheticsTestFileAbortMultipartUploadRequest key(String key) {
     this.key = key;
     return this;
   }
 
   /**
-   * <p>The full storage path of the file whose upload should be aborted.</p>
+   * The full storage path of the file whose upload should be aborted.
+   *
    * @return key
-  **/
-      @JsonProperty(JSON_PROPERTY_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getKey() {
-        return key;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getKey() {
+    return key;
+  }
+
   public void setKey(String key) {
     this.key = key;
   }
+
   public SyntheticsTestFileAbortMultipartUploadRequest uploadId(String uploadId) {
     this.uploadId = uploadId;
     return this;
   }
 
   /**
-   * <p>The upload ID of the multipart upload to abort.</p>
+   * The upload ID of the multipart upload to abort.
+   *
    * @return uploadId
-  **/
-      @JsonProperty(JSON_PROPERTY_UPLOAD_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getUploadId() {
-        return uploadId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_UPLOAD_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getUploadId() {
+    return uploadId;
+  }
+
   public void setUploadId(String uploadId) {
     this.uploadId = uploadId;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SyntheticsTestFileAbortMultipartUploadRequest
    */
   @JsonAnySetter
-  public SyntheticsTestFileAbortMultipartUploadRequest putAdditionalProperty(String key, Object value) {
+  public SyntheticsTestFileAbortMultipartUploadRequest putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -136,14 +124,12 @@ public class SyntheticsTestFileAbortMultipartUploadRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsTestFileAbortMultipartUploadRequest object is equal to o.
-   */
+  /** Return true if this SyntheticsTestFileAbortMultipartUploadRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,14 +138,18 @@ public class SyntheticsTestFileAbortMultipartUploadRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestFileAbortMultipartUploadRequest syntheticsTestFileAbortMultipartUploadRequest = (SyntheticsTestFileAbortMultipartUploadRequest) o;
-    return Objects.equals(this.key, syntheticsTestFileAbortMultipartUploadRequest.key) && Objects.equals(this.uploadId, syntheticsTestFileAbortMultipartUploadRequest.uploadId) && Objects.equals(this.additionalProperties, syntheticsTestFileAbortMultipartUploadRequest.additionalProperties);
+    SyntheticsTestFileAbortMultipartUploadRequest syntheticsTestFileAbortMultipartUploadRequest =
+        (SyntheticsTestFileAbortMultipartUploadRequest) o;
+    return Objects.equals(this.key, syntheticsTestFileAbortMultipartUploadRequest.key)
+        && Objects.equals(this.uploadId, syntheticsTestFileAbortMultipartUploadRequest.uploadId)
+        && Objects.equals(
+            this.additionalProperties,
+            syntheticsTestFileAbortMultipartUploadRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(key,uploadId, additionalProperties);
+    return Objects.hash(key, uploadId, additionalProperties);
   }
 
   @Override
@@ -176,8 +166,7 @@ public class SyntheticsTestFileAbortMultipartUploadRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

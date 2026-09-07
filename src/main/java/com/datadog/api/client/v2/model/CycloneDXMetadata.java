@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Metadata about the BOM, including the scanned asset and the scanner tool.</p>
- */
+/** Metadata about the BOM, including the scanned asset and the scanner tool. */
 @JsonPropertyOrder({
   CycloneDXMetadata.JSON_PROPERTY_COMPONENT,
   CycloneDXMetadata.JSON_PROPERTY_TOOLS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CycloneDXMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPONENT = "component";
   private CycloneDXMetadataComponent component;
 
@@ -52,13 +36,15 @@ public class CycloneDXMetadata {
 
   @JsonCreator
   public CycloneDXMetadata(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COMPONENT)CycloneDXMetadataComponent component,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TOOLS)CycloneDXMetadataTools tools) {
-        this.component = component;
-        this.unparsed |= component.unparsed;
-        this.tools = tools;
-        this.unparsed |= tools.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENT)
+          CycloneDXMetadataComponent component,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOOLS) CycloneDXMetadataTools tools) {
+    this.component = component;
+    this.unparsed |= component.unparsed;
+    this.tools = tools;
+    this.unparsed |= tools.unparsed;
   }
+
   public CycloneDXMetadata component(CycloneDXMetadataComponent component) {
     this.component = component;
     this.unparsed |= component.unparsed;
@@ -66,21 +52,23 @@ public class CycloneDXMetadata {
   }
 
   /**
-   * <p>The asset that was scanned (for example, a host or container image).</p>
+   * The asset that was scanned (for example, a host or container image).
+   *
    * @return component
-  **/
-      @JsonProperty(JSON_PROPERTY_COMPONENT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public CycloneDXMetadataComponent getComponent() {
-        return component;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COMPONENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CycloneDXMetadataComponent getComponent() {
+    return component;
+  }
+
   public void setComponent(CycloneDXMetadataComponent component) {
     this.component = component;
     if (component != null) {
       this.unparsed |= component.unparsed;
     }
   }
+
   public CycloneDXMetadata tools(CycloneDXMetadataTools tools) {
     this.tools = tools;
     this.unparsed |= tools.unparsed;
@@ -88,15 +76,16 @@ public class CycloneDXMetadata {
   }
 
   /**
-   * <p>Information about the scanner tool that produced this BOM.</p>
+   * Information about the scanner tool that produced this BOM.
+   *
    * @return tools
-  **/
-      @JsonProperty(JSON_PROPERTY_TOOLS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public CycloneDXMetadataTools getTools() {
-        return tools;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TOOLS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CycloneDXMetadataTools getTools() {
+    return tools;
+  }
+
   public void setTools(CycloneDXMetadataTools tools) {
     this.tools = tools;
     if (tools != null) {
@@ -105,15 +94,14 @@ public class CycloneDXMetadata {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -122,7 +110,7 @@ public class CycloneDXMetadata {
   @JsonAnySetter
   public CycloneDXMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -146,14 +134,12 @@ public class CycloneDXMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CycloneDXMetadata object is equal to o.
-   */
+  /** Return true if this CycloneDXMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -163,13 +149,14 @@ public class CycloneDXMetadata {
       return false;
     }
     CycloneDXMetadata cycloneDxMetadata = (CycloneDXMetadata) o;
-    return Objects.equals(this.component, cycloneDxMetadata.component) && Objects.equals(this.tools, cycloneDxMetadata.tools) && Objects.equals(this.additionalProperties, cycloneDxMetadata.additionalProperties);
+    return Objects.equals(this.component, cycloneDxMetadata.component)
+        && Objects.equals(this.tools, cycloneDxMetadata.tools)
+        && Objects.equals(this.additionalProperties, cycloneDxMetadata.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(component,tools, additionalProperties);
+    return Objects.hash(component, tools, additionalProperties);
   }
 
   @Override
@@ -186,8 +173,7 @@ public class CycloneDXMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

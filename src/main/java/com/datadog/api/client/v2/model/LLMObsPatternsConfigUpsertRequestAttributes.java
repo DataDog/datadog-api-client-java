@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for creating or updating an Agent Observability patterns configuration.</p>
- */
+/** Attributes for creating or updating an Agent Observability patterns configuration. */
 @JsonPropertyOrder({
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_ACCOUNT_ID,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_CONFIG_ID,
@@ -47,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_SCOPE,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_TEMPLATE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsPatternsConfigUpsertRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -88,243 +72,264 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
 
   @JsonCreator
   public LLMObsPatternsConfigUpsertRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_EVP_QUERY)String evpQuery,
-            @JsonProperty(required=true, value=JSON_PROPERTY_HIERARCHY_DEPTH)Integer hierarchyDepth,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NUM_RECORDS)Integer numRecords,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SAMPLING_RATIO)Double samplingRatio) {
-        this.evpQuery = evpQuery;
-        this.hierarchyDepth = hierarchyDepth;
-        this.name = name;
-        this.numRecords = numRecords;
-        this.samplingRatio = samplingRatio;
+      @JsonProperty(required = true, value = JSON_PROPERTY_EVP_QUERY) String evpQuery,
+      @JsonProperty(required = true, value = JSON_PROPERTY_HIERARCHY_DEPTH) Integer hierarchyDepth,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NUM_RECORDS) Integer numRecords,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SAMPLING_RATIO) Double samplingRatio) {
+    this.evpQuery = evpQuery;
+    this.hierarchyDepth = hierarchyDepth;
+    this.name = name;
+    this.numRecords = numRecords;
+    this.samplingRatio = samplingRatio;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
   /**
-   * <p>Integration account ID for a bring-your-own-model configuration.</p>
+   * Integration account ID for a bring-your-own-model configuration.
+   *
    * @return accountId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAccountId() {
-        return accountId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountId() {
+    return accountId;
+  }
+
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes configId(String configId) {
     this.configId = configId;
     return this;
   }
 
   /**
-   * <p>The ID of an existing configuration to update. If omitted, a new configuration is created.</p>
+   * The ID of an existing configuration to update. If omitted, a new configuration is created.
+   *
    * @return configId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONFIG_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getConfigId() {
-        return configId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getConfigId() {
+    return configId;
+  }
+
   public void setConfigId(String configId) {
     this.configId = configId;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes evpQuery(String evpQuery) {
     this.evpQuery = evpQuery;
     return this;
   }
 
   /**
-   * <p>Query that selects the spans the patterns run analyzes.</p>
+   * Query that selects the spans the patterns run analyzes.
+   *
    * @return evpQuery
-  **/
-      @JsonProperty(JSON_PROPERTY_EVP_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEvpQuery() {
-        return evpQuery;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EVP_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEvpQuery() {
+    return evpQuery;
+  }
+
   public void setEvpQuery(String evpQuery) {
     this.evpQuery = evpQuery;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes hierarchyDepth(Integer hierarchyDepth) {
     this.hierarchyDepth = hierarchyDepth;
     return this;
   }
 
   /**
-   * <p>Depth of the topic hierarchy to generate.</p>
-   * maximum: 2147483647
+   * Depth of the topic hierarchy to generate. maximum: 2147483647
+   *
    * @return hierarchyDepth
-  **/
-      @JsonProperty(JSON_PROPERTY_HIERARCHY_DEPTH)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Integer getHierarchyDepth() {
-        return hierarchyDepth;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_HIERARCHY_DEPTH)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getHierarchyDepth() {
+    return hierarchyDepth;
+  }
+
   public void setHierarchyDepth(Integer hierarchyDepth) {
     this.hierarchyDepth = hierarchyDepth;
   }
-  public LLMObsPatternsConfigUpsertRequestAttributes integrationProvider(String integrationProvider) {
+
+  public LLMObsPatternsConfigUpsertRequestAttributes integrationProvider(
+      String integrationProvider) {
     this.integrationProvider = integrationProvider;
     return this;
   }
 
   /**
-   * <p>Integration provider for a bring-your-own-model configuration.</p>
+   * Integration provider for a bring-your-own-model configuration.
+   *
    * @return integrationProvider
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTEGRATION_PROVIDER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getIntegrationProvider() {
-        return integrationProvider;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_PROVIDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIntegrationProvider() {
+    return integrationProvider;
+  }
+
   public void setIntegrationProvider(String integrationProvider) {
     this.integrationProvider = integrationProvider;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes modelName(String modelName) {
     this.modelName = modelName;
     return this;
   }
 
   /**
-   * <p>Model name for a bring-your-own-model configuration.</p>
+   * Model name for a bring-your-own-model configuration.
+   *
    * @return modelName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODEL_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getModelName() {
-        return modelName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODEL_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getModelName() {
+    return modelName;
+  }
+
   public void setModelName(String modelName) {
     this.modelName = modelName;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the configuration.</p>
+   * Name of the configuration.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes numRecords(Integer numRecords) {
     this.numRecords = numRecords;
     return this;
   }
 
   /**
-   * <p>Maximum number of records to process for the run.</p>
-   * maximum: 2147483647
+   * Maximum number of records to process for the run. maximum: 2147483647
+   *
    * @return numRecords
-  **/
-      @JsonProperty(JSON_PROPERTY_NUM_RECORDS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Integer getNumRecords() {
-        return numRecords;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NUM_RECORDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getNumRecords() {
+    return numRecords;
+  }
+
   public void setNumRecords(Integer numRecords) {
     this.numRecords = numRecords;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes samplingRatio(Double samplingRatio) {
     this.samplingRatio = samplingRatio;
     return this;
   }
 
   /**
-   * <p>Fraction of matching spans to sample for the run.</p>
+   * Fraction of matching spans to sample for the run.
+   *
    * @return samplingRatio
-  **/
-      @JsonProperty(JSON_PROPERTY_SAMPLING_RATIO)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Double getSamplingRatio() {
-        return samplingRatio;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SAMPLING_RATIO)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getSamplingRatio() {
+    return samplingRatio;
+  }
+
   public void setSamplingRatio(Double samplingRatio) {
     this.samplingRatio = samplingRatio;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes scope(String scope) {
     this.scope = scope;
     return this;
   }
 
   /**
-   * <p>Scope of the configuration.</p>
+   * Scope of the configuration.
+   *
    * @return scope
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCOPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getScope() {
-        return scope;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getScope() {
+    return scope;
+  }
+
   public void setScope(String scope) {
     this.scope = scope;
   }
+
   public LLMObsPatternsConfigUpsertRequestAttributes template(String template) {
     this.template = template;
     return this;
   }
 
   /**
-   * <p>Template used to guide topic generation.</p>
+   * Template used to guide topic generation.
+   *
    * @return template
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEMPLATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTemplate() {
-        return template;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTemplate() {
+    return template;
+  }
+
   public void setTemplate(String template) {
     this.template = template;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsPatternsConfigUpsertRequestAttributes
    */
   @JsonAnySetter
-  public LLMObsPatternsConfigUpsertRequestAttributes putAdditionalProperty(String key, Object value) {
+  public LLMObsPatternsConfigUpsertRequestAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -348,14 +353,12 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsPatternsConfigUpsertRequestAttributes object is equal to o.
-   */
+  /** Return true if this LLMObsPatternsConfigUpsertRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -364,14 +367,43 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsPatternsConfigUpsertRequestAttributes llmObsPatternsConfigUpsertRequestAttributes = (LLMObsPatternsConfigUpsertRequestAttributes) o;
-    return Objects.equals(this.accountId, llmObsPatternsConfigUpsertRequestAttributes.accountId) && Objects.equals(this.configId, llmObsPatternsConfigUpsertRequestAttributes.configId) && Objects.equals(this.evpQuery, llmObsPatternsConfigUpsertRequestAttributes.evpQuery) && Objects.equals(this.hierarchyDepth, llmObsPatternsConfigUpsertRequestAttributes.hierarchyDepth) && Objects.equals(this.integrationProvider, llmObsPatternsConfigUpsertRequestAttributes.integrationProvider) && Objects.equals(this.modelName, llmObsPatternsConfigUpsertRequestAttributes.modelName) && Objects.equals(this.name, llmObsPatternsConfigUpsertRequestAttributes.name) && Objects.equals(this.numRecords, llmObsPatternsConfigUpsertRequestAttributes.numRecords) && Objects.equals(this.samplingRatio, llmObsPatternsConfigUpsertRequestAttributes.samplingRatio) && Objects.equals(this.scope, llmObsPatternsConfigUpsertRequestAttributes.scope) && Objects.equals(this.template, llmObsPatternsConfigUpsertRequestAttributes.template) && Objects.equals(this.additionalProperties, llmObsPatternsConfigUpsertRequestAttributes.additionalProperties);
+    LLMObsPatternsConfigUpsertRequestAttributes llmObsPatternsConfigUpsertRequestAttributes =
+        (LLMObsPatternsConfigUpsertRequestAttributes) o;
+    return Objects.equals(this.accountId, llmObsPatternsConfigUpsertRequestAttributes.accountId)
+        && Objects.equals(this.configId, llmObsPatternsConfigUpsertRequestAttributes.configId)
+        && Objects.equals(this.evpQuery, llmObsPatternsConfigUpsertRequestAttributes.evpQuery)
+        && Objects.equals(
+            this.hierarchyDepth, llmObsPatternsConfigUpsertRequestAttributes.hierarchyDepth)
+        && Objects.equals(
+            this.integrationProvider,
+            llmObsPatternsConfigUpsertRequestAttributes.integrationProvider)
+        && Objects.equals(this.modelName, llmObsPatternsConfigUpsertRequestAttributes.modelName)
+        && Objects.equals(this.name, llmObsPatternsConfigUpsertRequestAttributes.name)
+        && Objects.equals(this.numRecords, llmObsPatternsConfigUpsertRequestAttributes.numRecords)
+        && Objects.equals(
+            this.samplingRatio, llmObsPatternsConfigUpsertRequestAttributes.samplingRatio)
+        && Objects.equals(this.scope, llmObsPatternsConfigUpsertRequestAttributes.scope)
+        && Objects.equals(this.template, llmObsPatternsConfigUpsertRequestAttributes.template)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsPatternsConfigUpsertRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId,configId,evpQuery,hierarchyDepth,integrationProvider,modelName,name,numRecords,samplingRatio,scope,template, additionalProperties);
+    return Objects.hash(
+        accountId,
+        configId,
+        evpQuery,
+        hierarchyDepth,
+        integrationProvider,
+        modelName,
+        name,
+        numRecords,
+        samplingRatio,
+        scope,
+        template,
+        additionalProperties);
   }
 
   @Override
@@ -382,7 +414,9 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
     sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
     sb.append("    evpQuery: ").append(toIndentedString(evpQuery)).append("\n");
     sb.append("    hierarchyDepth: ").append(toIndentedString(hierarchyDepth)).append("\n");
-    sb.append("    integrationProvider: ").append(toIndentedString(integrationProvider)).append("\n");
+    sb.append("    integrationProvider: ")
+        .append(toIndentedString(integrationProvider))
+        .append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    numRecords: ").append(toIndentedString(numRecords)).append("\n");
@@ -397,8 +431,7 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,74 +6,61 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The type of security monitoring resource to export to Terraform.</p>
- */
-@JsonSerialize(using = SecurityMonitoringTerraformResourceType.SecurityMonitoringTerraformResourceTypeSerializer.class)
+/** The type of security monitoring resource to export to Terraform. */
+@JsonSerialize(
+    using =
+        SecurityMonitoringTerraformResourceType.SecurityMonitoringTerraformResourceTypeSerializer
+            .class)
 public class SecurityMonitoringTerraformResourceType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("suppressions", "critical_assets", "security_filters", "rules"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("suppressions", "critical_assets", "security_filters", "rules"));
 
-  public static final SecurityMonitoringTerraformResourceType SUPPRESSIONS = new SecurityMonitoringTerraformResourceType("suppressions");
-  public static final SecurityMonitoringTerraformResourceType CRITICAL_ASSETS = new SecurityMonitoringTerraformResourceType("critical_assets");
-  public static final SecurityMonitoringTerraformResourceType SECURITY_FILTERS = new SecurityMonitoringTerraformResourceType("security_filters");
-  public static final SecurityMonitoringTerraformResourceType RULES = new SecurityMonitoringTerraformResourceType("rules");
-
+  public static final SecurityMonitoringTerraformResourceType SUPPRESSIONS =
+      new SecurityMonitoringTerraformResourceType("suppressions");
+  public static final SecurityMonitoringTerraformResourceType CRITICAL_ASSETS =
+      new SecurityMonitoringTerraformResourceType("critical_assets");
+  public static final SecurityMonitoringTerraformResourceType SECURITY_FILTERS =
+      new SecurityMonitoringTerraformResourceType("security_filters");
+  public static final SecurityMonitoringTerraformResourceType RULES =
+      new SecurityMonitoringTerraformResourceType("rules");
 
   SecurityMonitoringTerraformResourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringTerraformResourceTypeSerializer extends StdSerializer<SecurityMonitoringTerraformResourceType> {
-      public SecurityMonitoringTerraformResourceTypeSerializer(Class<SecurityMonitoringTerraformResourceType> t) {
-          super(t);
-      }
+  public static class SecurityMonitoringTerraformResourceTypeSerializer
+      extends StdSerializer<SecurityMonitoringTerraformResourceType> {
+    public SecurityMonitoringTerraformResourceTypeSerializer(
+        Class<SecurityMonitoringTerraformResourceType> t) {
+      super(t);
+    }
 
-      public SecurityMonitoringTerraformResourceTypeSerializer() {
-          this(null);
-      }
+    public SecurityMonitoringTerraformResourceTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SecurityMonitoringTerraformResourceType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SecurityMonitoringTerraformResourceType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

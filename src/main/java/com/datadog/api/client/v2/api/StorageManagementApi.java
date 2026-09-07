@@ -1,32 +1,23 @@
-
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.PaginationIterable;
-
-import jakarta.ws.rs.core.GenericType;
-import jakarta.ws.rs.client.Invocation;
-
-import java.io.File;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.LinkedHashMap;
-import java.util.concurrent.CompletableFuture;
-import java.time.OffsetDateTime;
-import java.util.UUID;
 import com.datadog.api.client.v2.model.CloudInventorySyncConfigResponse;
 import com.datadog.api.client.v2.model.UpsertCloudInventorySyncConfigRequest;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
-
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class StorageManagementApi {
   private ApiClient apiClient;
+
   public StorageManagementApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -54,40 +45,42 @@ public class StorageManagementApi {
   }
 
   /**
- * Delete a Storage Management configuration.
- *
- * See {@link #deleteSyncConfigWithHttpInfo}.
- *
- * @param id Unique identifier of the Storage Management configuration. (required)
- * @throws ApiException if fails to make API call
- */
-  public  void  deleteSyncConfig(String id) throws ApiException {
+   * Delete a Storage Management configuration.
+   *
+   * <p>See {@link #deleteSyncConfigWithHttpInfo}.
+   *
+   * @param id Unique identifier of the Storage Management configuration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSyncConfig(String id) throws ApiException {
     deleteSyncConfigWithHttpInfo(id);
   }
 
   /**
- * Delete a Storage Management configuration.
- *
- * See {@link #deleteSyncConfigWithHttpInfoAsync}.
- *
- * @param id Unique identifier of the Storage Management configuration. (required)
- * @return CompletableFuture
- */
-  public CompletableFuture<Void>deleteSyncConfigAsync(String id) {
-    return deleteSyncConfigWithHttpInfoAsync(id).thenApply(response -> {
-        return response.getData();
-    });
+   * Delete a Storage Management configuration.
+   *
+   * <p>See {@link #deleteSyncConfigWithHttpInfoAsync}.
+   *
+   * @param id Unique identifier of the Storage Management configuration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSyncConfigAsync(String id) {
+    return deleteSyncConfigWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Delete a Storage Management configuration by its unique identifier. Deleting a configuration stops inventory file synchronization for the associated cloud account.</p>
+   * Delete a Storage Management configuration by its unique identifier. Deleting a configuration
+   * stops inventory file synchronization for the associated cloud account.
    *
    * @param id Unique identifier of the Storage Management configuration. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -101,24 +94,40 @@ public class StorageManagementApi {
 
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSyncConfig");
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deleteSyncConfig");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloudinventoryservice/syncconfigs/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+    String localVarPath =
+        "/api/v2/cloudinventoryservice/syncconfigs/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.StorageManagementApi.deleteSyncConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StorageManagementApi.deleteSyncConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
    * Delete a Storage Management configuration.
    *
-   * See {@link #deleteSyncConfigWithHttpInfo}.
+   * <p>See {@link #deleteSyncConfigWithHttpInfo}.
    *
    * @param id Unique identifier of the Storage Management configuration. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
@@ -128,65 +137,89 @@ public class StorageManagementApi {
 
     // verify the required parameter 'id' is set
     if (id == null) {
-        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'id' when calling deleteSyncConfig"));
-        return result;
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling deleteSyncConfig"));
+      return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloudinventoryservice/syncconfigs/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+    String localVarPath =
+        "/api/v2/cloudinventoryservice/syncconfigs/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.StorageManagementApi.deleteSyncConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.StorageManagementApi.deleteSyncConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
- * Enable Storage Management for a bucket.
- *
- * See {@link #upsertSyncConfigWithHttpInfo}.
- *
- * @param body  (required)
- * @return CloudInventorySyncConfigResponse
- * @throws ApiException if fails to make API call
- */
-  public CloudInventorySyncConfigResponse  upsertSyncConfig(UpsertCloudInventorySyncConfigRequest body) throws ApiException {
+   * Enable Storage Management for a bucket.
+   *
+   * <p>See {@link #upsertSyncConfigWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CloudInventorySyncConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CloudInventorySyncConfigResponse upsertSyncConfig(
+      UpsertCloudInventorySyncConfigRequest body) throws ApiException {
     return upsertSyncConfigWithHttpInfo(body).getData();
   }
 
   /**
- * Enable Storage Management for a bucket.
- *
- * See {@link #upsertSyncConfigWithHttpInfoAsync}.
- *
- * @param body  (required)
- * @return CompletableFuture&lt;CloudInventorySyncConfigResponse&gt;
- */
-  public CompletableFuture<CloudInventorySyncConfigResponse>upsertSyncConfigAsync(UpsertCloudInventorySyncConfigRequest body) {
-    return upsertSyncConfigWithHttpInfoAsync(body).thenApply(response -> {
-        return response.getData();
-    });
+   * Enable Storage Management for a bucket.
+   *
+   * <p>See {@link #upsertSyncConfigWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;CloudInventorySyncConfigResponse&gt;
+   */
+  public CompletableFuture<CloudInventorySyncConfigResponse> upsertSyncConfigAsync(
+      UpsertCloudInventorySyncConfigRequest body) {
+    return upsertSyncConfigWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
-
   /**
-   * <p>Enable Storage Management for an S3 bucket, GCS bucket, or Azure container by registering the destination that holds its inventory reports. Set <code>data.id</code> to the cloud provider (<code>aws</code>, <code>gcp</code>, or <code>azure</code>) and provide the matching settings under data.attributes. Calling this endpoint with the same provider replaces the existing configuration.</p>
+   * Enable Storage Management for an S3 bucket, GCS bucket, or Azure container by registering the
+   * destination that holds its inventory reports. Set <code>data.id</code> to the cloud provider (
+   * <code>aws</code>, <code>gcp</code>, or <code>azure</code>) and provide the matching settings
+   * under data.attributes. Calling this endpoint with the same provider replaces the existing
+   * configuration.
    *
-   * @param body  (required)
+   * @param body (required)
    * @return ApiResponse&lt;CloudInventorySyncConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   * <table border="1">
+   *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -195,56 +228,91 @@ public class StorageManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CloudInventorySyncConfigResponse> upsertSyncConfigWithHttpInfo(UpsertCloudInventorySyncConfigRequest body) throws ApiException {
+  public ApiResponse<CloudInventorySyncConfigResponse> upsertSyncConfigWithHttpInfo(
+      UpsertCloudInventorySyncConfigRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling upsertSyncConfig");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling upsertSyncConfig");
     }
     // create path and map variables
     String localVarPath = "/api/v2/cloudinventoryservice/syncconfigs";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-
-    Invocation.Builder builder = apiClient.createBuilder("v2.StorageManagementApi.upsertSyncConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
-    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CloudInventorySyncConfigResponse>() {});
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StorageManagementApi.upsertSyncConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudInventorySyncConfigResponse>() {});
   }
 
   /**
    * Enable Storage Management for a bucket.
    *
-   * See {@link #upsertSyncConfigWithHttpInfo}.
+   * <p>See {@link #upsertSyncConfigWithHttpInfo}.
    *
-   * @param body  (required)
+   * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CloudInventorySyncConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>> upsertSyncConfigWithHttpInfoAsync(UpsertCloudInventorySyncConfigRequest body) {
+  public CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>>
+      upsertSyncConfigWithHttpInfoAsync(UpsertCloudInventorySyncConfigRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-        CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>> result = new CompletableFuture<>();
-        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling upsertSyncConfig"));
-        return result;
+      CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling upsertSyncConfig"));
+      return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/cloudinventoryservice/syncconfigs";
 
-    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("v2.StorageManagementApi.upsertSyncConfig", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+      builder =
+          apiClient.createBuilder(
+              "v2.StorageManagementApi.upsertSyncConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CloudInventorySyncConfigResponse>() {});
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudInventorySyncConfigResponse>() {});
   }
 }

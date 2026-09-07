@@ -6,43 +6,29 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Settings for the cloud provider specified in <code>data.id</code>. Include only the matching provider object (<code>aws</code>, <code>gcp</code>, or <code>azure</code>).</p>
+ * Settings for the cloud provider specified in <code>data.id</code>. Include only the matching
+ * provider object (<code>aws</code>, <code>gcp</code>, or <code>azure</code>).
  */
 @JsonPropertyOrder({
   UpsertCloudInventorySyncConfigRequestAttributes.JSON_PROPERTY_AWS,
   UpsertCloudInventorySyncConfigRequestAttributes.JSON_PROPERTY_AZURE,
   UpsertCloudInventorySyncConfigRequestAttributes.JSON_PROPERTY_GCP
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UpsertCloudInventorySyncConfigRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AWS = "aws";
   private CloudInventorySyncConfigAWSRequestAttributes aws;
 
@@ -52,69 +38,77 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
   public static final String JSON_PROPERTY_GCP = "gcp";
   private CloudInventorySyncConfigGCPRequestAttributes gcp;
 
-  public UpsertCloudInventorySyncConfigRequestAttributes aws(CloudInventorySyncConfigAWSRequestAttributes aws) {
+  public UpsertCloudInventorySyncConfigRequestAttributes aws(
+      CloudInventorySyncConfigAWSRequestAttributes aws) {
     this.aws = aws;
     this.unparsed |= aws.unparsed;
     return this;
   }
 
   /**
-   * <p>AWS settings for the S3 bucket Storage Management reads inventory reports from.</p>
+   * AWS settings for the S3 bucket Storage Management reads inventory reports from.
+   *
    * @return aws
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AWS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CloudInventorySyncConfigAWSRequestAttributes getAws() {
-        return aws;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AWS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudInventorySyncConfigAWSRequestAttributes getAws() {
+    return aws;
+  }
+
   public void setAws(CloudInventorySyncConfigAWSRequestAttributes aws) {
     this.aws = aws;
     if (aws != null) {
       this.unparsed |= aws.unparsed;
     }
   }
-  public UpsertCloudInventorySyncConfigRequestAttributes azure(CloudInventorySyncConfigAzureRequestAttributes azure) {
+
+  public UpsertCloudInventorySyncConfigRequestAttributes azure(
+      CloudInventorySyncConfigAzureRequestAttributes azure) {
     this.azure = azure;
     this.unparsed |= azure.unparsed;
     return this;
   }
 
   /**
-   * <p>Azure settings for the storage account and container with inventory data.</p>
+   * Azure settings for the storage account and container with inventory data.
+   *
    * @return azure
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AZURE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CloudInventorySyncConfigAzureRequestAttributes getAzure() {
-        return azure;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AZURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudInventorySyncConfigAzureRequestAttributes getAzure() {
+    return azure;
+  }
+
   public void setAzure(CloudInventorySyncConfigAzureRequestAttributes azure) {
     this.azure = azure;
     if (azure != null) {
       this.unparsed |= azure.unparsed;
     }
   }
-  public UpsertCloudInventorySyncConfigRequestAttributes gcp(CloudInventorySyncConfigGCPRequestAttributes gcp) {
+
+  public UpsertCloudInventorySyncConfigRequestAttributes gcp(
+      CloudInventorySyncConfigGCPRequestAttributes gcp) {
     this.gcp = gcp;
     this.unparsed |= gcp.unparsed;
     return this;
   }
 
   /**
-   * <p>GCP settings for buckets involved in inventory reporting.</p>
+   * GCP settings for buckets involved in inventory reporting.
+   *
    * @return gcp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GCP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CloudInventorySyncConfigGCPRequestAttributes getGcp() {
-        return gcp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GCP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudInventorySyncConfigGCPRequestAttributes getGcp() {
+    return gcp;
+  }
+
   public void setGcp(CloudInventorySyncConfigGCPRequestAttributes gcp) {
     this.gcp = gcp;
     if (gcp != null) {
@@ -123,24 +117,24 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return UpsertCloudInventorySyncConfigRequestAttributes
    */
   @JsonAnySetter
-  public UpsertCloudInventorySyncConfigRequestAttributes putAdditionalProperty(String key, Object value) {
+  public UpsertCloudInventorySyncConfigRequestAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -164,14 +158,12 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UpsertCloudInventorySyncConfigRequestAttributes object is equal to o.
-   */
+  /** Return true if this UpsertCloudInventorySyncConfigRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -180,14 +172,20 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpsertCloudInventorySyncConfigRequestAttributes upsertCloudInventorySyncConfigRequestAttributes = (UpsertCloudInventorySyncConfigRequestAttributes) o;
-    return Objects.equals(this.aws, upsertCloudInventorySyncConfigRequestAttributes.aws) && Objects.equals(this.azure, upsertCloudInventorySyncConfigRequestAttributes.azure) && Objects.equals(this.gcp, upsertCloudInventorySyncConfigRequestAttributes.gcp) && Objects.equals(this.additionalProperties, upsertCloudInventorySyncConfigRequestAttributes.additionalProperties);
+    UpsertCloudInventorySyncConfigRequestAttributes
+        upsertCloudInventorySyncConfigRequestAttributes =
+            (UpsertCloudInventorySyncConfigRequestAttributes) o;
+    return Objects.equals(this.aws, upsertCloudInventorySyncConfigRequestAttributes.aws)
+        && Objects.equals(this.azure, upsertCloudInventorySyncConfigRequestAttributes.azure)
+        && Objects.equals(this.gcp, upsertCloudInventorySyncConfigRequestAttributes.gcp)
+        && Objects.equals(
+            this.additionalProperties,
+            upsertCloudInventorySyncConfigRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aws,azure,gcp, additionalProperties);
+    return Objects.hash(aws, azure, gcp, additionalProperties);
   }
 
   @Override
@@ -205,8 +203,7 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,50 +6,39 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>A data source that is powered by the Events Platform.</p>
- */
+/** A data source that is powered by the Events Platform. */
 @JsonSerialize(using = EventsDataSource.EventsDataSourceSerializer.class)
 public class EventsDataSource extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("logs", "spans", "network", "rum", "security_signals", "profiles", "audit", "events", "ci_tests", "ci_pipelines", "incident_analytics", "product_analytics", "on_call_events", "dora"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "logs",
+              "spans",
+              "network",
+              "rum",
+              "security_signals",
+              "profiles",
+              "audit",
+              "events",
+              "ci_tests",
+              "ci_pipelines",
+              "incident_analytics",
+              "product_analytics",
+              "on_call_events",
+              "dora"));
 
   public static final EventsDataSource LOGS = new EventsDataSource("logs");
   public static final EventsDataSource SPANS = new EventsDataSource("spans");
@@ -61,29 +50,31 @@ public class EventsDataSource extends ModelEnum<String> {
   public static final EventsDataSource EVENTS = new EventsDataSource("events");
   public static final EventsDataSource CI_TESTS = new EventsDataSource("ci_tests");
   public static final EventsDataSource CI_PIPELINES = new EventsDataSource("ci_pipelines");
-  public static final EventsDataSource INCIDENT_ANALYTICS = new EventsDataSource("incident_analytics");
-  public static final EventsDataSource PRODUCT_ANALYTICS = new EventsDataSource("product_analytics");
+  public static final EventsDataSource INCIDENT_ANALYTICS =
+      new EventsDataSource("incident_analytics");
+  public static final EventsDataSource PRODUCT_ANALYTICS =
+      new EventsDataSource("product_analytics");
   public static final EventsDataSource ON_CALL_EVENTS = new EventsDataSource("on_call_events");
   public static final EventsDataSource DORA = new EventsDataSource("dora");
-
 
   EventsDataSource(String value) {
     super(value, allowedValues);
   }
 
   public static class EventsDataSourceSerializer extends StdSerializer<EventsDataSource> {
-      public EventsDataSourceSerializer(Class<EventsDataSource> t) {
-          super(t);
-      }
+    public EventsDataSourceSerializer(Class<EventsDataSource> t) {
+      super(t);
+    }
 
-      public EventsDataSourceSerializer() {
-          this(null);
-      }
+    public EventsDataSourceSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(EventsDataSource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(EventsDataSource value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

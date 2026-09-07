@@ -6,34 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>User journey funnel query definition.</p>
- */
+/** User journey funnel query definition. */
 @JsonPropertyOrder({
   ProductAnalyticsFunnelQuery.JSON_PROPERTY_COMPUTE,
   ProductAnalyticsFunnelQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -41,10 +23,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ProductAnalyticsFunnelQuery.JSON_PROPERTY_SEARCH,
   ProductAnalyticsFunnelQuery.JSON_PROPERTY_SUBQUERY_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsFunnelQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private ProductAnalyticsFunnelCompute compute;
 
@@ -64,13 +46,15 @@ public class ProductAnalyticsFunnelQuery {
 
   @JsonCreator
   public ProductAnalyticsFunnelQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)ProductAnalyticsFunnelDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH)UserJourneySearch search) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.search = search;
-        this.unparsed |= search.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          ProductAnalyticsFunnelDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) UserJourneySearch search) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.search = search;
+    this.unparsed |= search.unparsed;
   }
+
   public ProductAnalyticsFunnelQuery compute(ProductAnalyticsFunnelCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
@@ -78,22 +62,24 @@ public class ProductAnalyticsFunnelQuery {
   }
 
   /**
-   * <p>Compute configuration for user journey funnel.</p>
+   * Compute configuration for user journey funnel.
+   *
    * @return compute
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProductAnalyticsFunnelCompute getCompute() {
-        return compute;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProductAnalyticsFunnelCompute getCompute() {
+    return compute;
+  }
+
   public void setCompute(ProductAnalyticsFunnelCompute compute) {
     this.compute = compute;
     if (compute != null) {
       this.unparsed |= compute.unparsed;
     }
   }
+
   public ProductAnalyticsFunnelQuery dataSource(ProductAnalyticsFunnelDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -101,30 +87,33 @@ public class ProductAnalyticsFunnelQuery {
   }
 
   /**
-   * <p>Data source for user journey funnel queries.</p>
+   * Data source for user journey funnel queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsFunnelDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsFunnelDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(ProductAnalyticsFunnelDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public ProductAnalyticsFunnelQuery groupBy(List<ProductAnalyticsFunnelGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
-    for (ProductAnalyticsFunnelGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
-    }
+      for (ProductAnalyticsFunnelGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
+
   public ProductAnalyticsFunnelQuery addGroupByItem(ProductAnalyticsFunnelGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -135,16 +124,17 @@ public class ProductAnalyticsFunnelQuery {
   }
 
   /**
-   * <p>Group by configuration.</p>
+   * Group by configuration.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ProductAnalyticsFunnelGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ProductAnalyticsFunnelGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<ProductAnalyticsFunnelGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
@@ -153,6 +143,7 @@ public class ProductAnalyticsFunnelQuery {
       }
     }
   }
+
   public ProductAnalyticsFunnelQuery search(UserJourneySearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -160,44 +151,45 @@ public class ProductAnalyticsFunnelQuery {
   }
 
   /**
-   * <p>User journey search configuration.</p>
+   * User journey search configuration.
+   *
    * @return search
-  **/
-      @JsonProperty(JSON_PROPERTY_SEARCH)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public UserJourneySearch getSearch() {
-        return search;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SEARCH)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UserJourneySearch getSearch() {
+    return search;
+  }
+
   public void setSearch(UserJourneySearch search) {
     this.search = search;
     if (search != null) {
       this.unparsed |= search.unparsed;
     }
   }
+
   public ProductAnalyticsFunnelQuery subqueryId(String subqueryId) {
     this.subqueryId = subqueryId;
     return this;
   }
 
   /**
-   * <p>Subquery ID.</p>
+   * Subquery ID.
+   *
    * @return subqueryId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SUBQUERY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSubqueryId() {
-        return subqueryId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBQUERY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubqueryId() {
+    return subqueryId;
+  }
+
   public void setSubqueryId(String subqueryId) {
     this.subqueryId = subqueryId;
   }
 
-  /**
-   * Return true if this ProductAnalyticsFunnelQuery object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsFunnelQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -207,13 +199,16 @@ public class ProductAnalyticsFunnelQuery {
       return false;
     }
     ProductAnalyticsFunnelQuery productAnalyticsFunnelQuery = (ProductAnalyticsFunnelQuery) o;
-    return Objects.equals(this.compute, productAnalyticsFunnelQuery.compute) && Objects.equals(this.dataSource, productAnalyticsFunnelQuery.dataSource) && Objects.equals(this.groupBy, productAnalyticsFunnelQuery.groupBy) && Objects.equals(this.search, productAnalyticsFunnelQuery.search) && Objects.equals(this.subqueryId, productAnalyticsFunnelQuery.subqueryId);
+    return Objects.equals(this.compute, productAnalyticsFunnelQuery.compute)
+        && Objects.equals(this.dataSource, productAnalyticsFunnelQuery.dataSource)
+        && Objects.equals(this.groupBy, productAnalyticsFunnelQuery.groupBy)
+        && Objects.equals(this.search, productAnalyticsFunnelQuery.search)
+        && Objects.equals(this.subqueryId, productAnalyticsFunnelQuery.subqueryId);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute,dataSource,groupBy,search,subqueryId);
+    return Objects.hash(compute, dataSource, groupBy, search, subqueryId);
   }
 
   @Override
@@ -230,8 +225,7 @@ public class ProductAnalyticsFunnelQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

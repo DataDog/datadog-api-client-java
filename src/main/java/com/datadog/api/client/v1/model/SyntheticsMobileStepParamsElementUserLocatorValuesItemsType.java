@@ -6,79 +6,70 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Type of a user locator.</p>
- */
-@JsonSerialize(using = SyntheticsMobileStepParamsElementUserLocatorValuesItemsType.SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer.class)
+/** Type of a user locator. */
+@JsonSerialize(
+    using =
+        SyntheticsMobileStepParamsElementUserLocatorValuesItemsType
+            .SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer.class)
 public class SyntheticsMobileStepParamsElementUserLocatorValuesItemsType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("accessibility-id", "id", "ios-predicate-string", "ios-class-chain", "xpath"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "accessibility-id", "id", "ios-predicate-string", "ios-class-chain", "xpath"));
 
-  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType ACCESSIBILITY_ID = new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("accessibility-id");
-  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType ID = new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("id");
-  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType IOS_PREDICATE_STRING = new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("ios-predicate-string");
-  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType IOS_CLASS_CHAIN = new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("ios-class-chain");
-  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType XPATH = new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("xpath");
-
+  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType ACCESSIBILITY_ID =
+      new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("accessibility-id");
+  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType ID =
+      new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("id");
+  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType
+      IOS_PREDICATE_STRING =
+          new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("ios-predicate-string");
+  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType IOS_CLASS_CHAIN =
+      new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("ios-class-chain");
+  public static final SyntheticsMobileStepParamsElementUserLocatorValuesItemsType XPATH =
+      new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType("xpath");
 
   SyntheticsMobileStepParamsElementUserLocatorValuesItemsType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer extends StdSerializer<SyntheticsMobileStepParamsElementUserLocatorValuesItemsType> {
-      public SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer(Class<SyntheticsMobileStepParamsElementUserLocatorValuesItemsType> t) {
-          super(t);
-      }
+  public static class SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer
+      extends StdSerializer<SyntheticsMobileStepParamsElementUserLocatorValuesItemsType> {
+    public SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer(
+        Class<SyntheticsMobileStepParamsElementUserLocatorValuesItemsType> t) {
+      super(t);
+    }
 
-      public SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer() {
-          this(null);
-      }
+    public SyntheticsMobileStepParamsElementUserLocatorValuesItemsTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SyntheticsMobileStepParamsElementUserLocatorValuesItemsType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SyntheticsMobileStepParamsElementUserLocatorValuesItemsType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator
-  public static SyntheticsMobileStepParamsElementUserLocatorValuesItemsType fromValue(String value) {
+  public static SyntheticsMobileStepParamsElementUserLocatorValuesItemsType fromValue(
+      String value) {
     return new SyntheticsMobileStepParamsElementUserLocatorValuesItemsType(value);
   }
 }

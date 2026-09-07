@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes of an Okta entity context sync configuration to create.</p>
- */
+/** The attributes of an Okta entity context sync configuration to create. */
 @JsonPropertyOrder({
   SecurityMonitoringOktaIntegrationConfigCreateAttributes.JSON_PROPERTY_DOMAIN,
   SecurityMonitoringOktaIntegrationConfigCreateAttributes.JSON_PROPERTY_INTEGRATION_TYPE,
@@ -41,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SecurityMonitoringOktaIntegrationConfigCreateAttributes.JSON_PROPERTY_SECRETS,
   SecurityMonitoringOktaIntegrationConfigCreateAttributes.JSON_PROPERTY_SETTINGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringOktaIntegrationConfigCreateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAIN = "domain";
   private String domain;
 
@@ -64,102 +48,118 @@ public class SecurityMonitoringOktaIntegrationConfigCreateAttributes {
 
   @JsonCreator
   public SecurityMonitoringOktaIntegrationConfigCreateAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DOMAIN)String domain,
-            @JsonProperty(required=true, value=JSON_PROPERTY_INTEGRATION_TYPE)SecurityMonitoringIntegrationTypeOkta integrationType,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SECRETS)SecurityMonitoringIntegrationConfigOktaSecrets secrets) {
-        this.domain = domain;
-        this.integrationType = integrationType;
-        this.unparsed |= !integrationType.isValid();
-        this.name = name;
-        this.secrets = secrets;
-        this.unparsed |= secrets.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION_TYPE)
+          SecurityMonitoringIntegrationTypeOkta integrationType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SECRETS)
+          SecurityMonitoringIntegrationConfigOktaSecrets secrets) {
+    this.domain = domain;
+    this.integrationType = integrationType;
+    this.unparsed |= !integrationType.isValid();
+    this.name = name;
+    this.secrets = secrets;
+    this.unparsed |= secrets.unparsed;
   }
+
   public SecurityMonitoringOktaIntegrationConfigCreateAttributes domain(String domain) {
     this.domain = domain;
     return this;
   }
 
   /**
-   * <p>The domain associated with the external entity source.</p>
+   * The domain associated with the external entity source.
+   *
    * @return domain
-  **/
-      @JsonProperty(JSON_PROPERTY_DOMAIN)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDomain() {
-        return domain;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DOMAIN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDomain() {
+    return domain;
+  }
+
   public void setDomain(String domain) {
     this.domain = domain;
   }
-  public SecurityMonitoringOktaIntegrationConfigCreateAttributes integrationType(SecurityMonitoringIntegrationTypeOkta integrationType) {
+
+  public SecurityMonitoringOktaIntegrationConfigCreateAttributes integrationType(
+      SecurityMonitoringIntegrationTypeOkta integrationType) {
     this.integrationType = integrationType;
     this.unparsed |= !integrationType.isValid();
     return this;
   }
 
   /**
-   * <p>The source type for an Okta entity context sync.</p>
+   * The source type for an Okta entity context sync.
+   *
    * @return integrationType
-  **/
-      @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SecurityMonitoringIntegrationTypeOkta getIntegrationType() {
-        return integrationType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityMonitoringIntegrationTypeOkta getIntegrationType() {
+    return integrationType;
+  }
+
   public void setIntegrationType(SecurityMonitoringIntegrationTypeOkta integrationType) {
     if (!integrationType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.integrationType = integrationType;
   }
+
   public SecurityMonitoringOktaIntegrationConfigCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The display name for the entity context sync configuration.</p>
+   * The display name for the entity context sync configuration.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
-  public SecurityMonitoringOktaIntegrationConfigCreateAttributes secrets(SecurityMonitoringIntegrationConfigOktaSecrets secrets) {
+
+  public SecurityMonitoringOktaIntegrationConfigCreateAttributes secrets(
+      SecurityMonitoringIntegrationConfigOktaSecrets secrets) {
     this.secrets = secrets;
     this.unparsed |= secrets.unparsed;
     return this;
   }
 
   /**
-   * <p>Credentials for an Okta entity context sync.</p>
+   * Credentials for an Okta entity context sync.
+   *
    * @return secrets
-  **/
-      @JsonProperty(JSON_PROPERTY_SECRETS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SecurityMonitoringIntegrationConfigOktaSecrets getSecrets() {
-        return secrets;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SECRETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityMonitoringIntegrationConfigOktaSecrets getSecrets() {
+    return secrets;
+  }
+
   public void setSecrets(SecurityMonitoringIntegrationConfigOktaSecrets secrets) {
     this.secrets = secrets;
     if (secrets != null) {
       this.unparsed |= secrets.unparsed;
     }
   }
-  public SecurityMonitoringOktaIntegrationConfigCreateAttributes settings(Map<String, Object> settings) {
+
+  public SecurityMonitoringOktaIntegrationConfigCreateAttributes settings(
+      Map<String, Object> settings) {
     this.settings = settings;
     return this;
   }
-  public SecurityMonitoringOktaIntegrationConfigCreateAttributes putSettingsItem(String key, Object settingsItem) {
+
+  public SecurityMonitoringOktaIntegrationConfigCreateAttributes putSettingsItem(
+      String key, Object settingsItem) {
     if (this.settings == null) {
       this.settings = new HashMap<>();
     }
@@ -168,39 +168,41 @@ public class SecurityMonitoringOktaIntegrationConfigCreateAttributes {
   }
 
   /**
-   * <p>Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the source type.</p>
+   * Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the
+   * source type.
+   *
    * @return settings
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SETTINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getSettings() {
-        return settings;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getSettings() {
+    return settings;
+  }
+
   public void setSettings(Map<String, Object> settings) {
     this.settings = settings;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SecurityMonitoringOktaIntegrationConfigCreateAttributes
    */
   @JsonAnySetter
-  public SecurityMonitoringOktaIntegrationConfigCreateAttributes putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringOktaIntegrationConfigCreateAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -224,13 +226,14 @@ public class SecurityMonitoringOktaIntegrationConfigCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this SecurityMonitoringOktaIntegrationConfigCreateAttributes object is equal to o.
+   * Return true if this SecurityMonitoringOktaIntegrationConfigCreateAttributes object is equal to
+   * o.
    */
   @Override
   public boolean equals(Object o) {
@@ -240,14 +243,27 @@ public class SecurityMonitoringOktaIntegrationConfigCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringOktaIntegrationConfigCreateAttributes securityMonitoringOktaIntegrationConfigCreateAttributes = (SecurityMonitoringOktaIntegrationConfigCreateAttributes) o;
-    return Objects.equals(this.domain, securityMonitoringOktaIntegrationConfigCreateAttributes.domain) && Objects.equals(this.integrationType, securityMonitoringOktaIntegrationConfigCreateAttributes.integrationType) && Objects.equals(this.name, securityMonitoringOktaIntegrationConfigCreateAttributes.name) && Objects.equals(this.secrets, securityMonitoringOktaIntegrationConfigCreateAttributes.secrets) && Objects.equals(this.settings, securityMonitoringOktaIntegrationConfigCreateAttributes.settings) && Objects.equals(this.additionalProperties, securityMonitoringOktaIntegrationConfigCreateAttributes.additionalProperties);
+    SecurityMonitoringOktaIntegrationConfigCreateAttributes
+        securityMonitoringOktaIntegrationConfigCreateAttributes =
+            (SecurityMonitoringOktaIntegrationConfigCreateAttributes) o;
+    return Objects.equals(
+            this.domain, securityMonitoringOktaIntegrationConfigCreateAttributes.domain)
+        && Objects.equals(
+            this.integrationType,
+            securityMonitoringOktaIntegrationConfigCreateAttributes.integrationType)
+        && Objects.equals(this.name, securityMonitoringOktaIntegrationConfigCreateAttributes.name)
+        && Objects.equals(
+            this.secrets, securityMonitoringOktaIntegrationConfigCreateAttributes.secrets)
+        && Objects.equals(
+            this.settings, securityMonitoringOktaIntegrationConfigCreateAttributes.settings)
+        && Objects.equals(
+            this.additionalProperties,
+            securityMonitoringOktaIntegrationConfigCreateAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain,integrationType,name,secrets,settings, additionalProperties);
+    return Objects.hash(domain, integrationType, name, secrets, settings, additionalProperties);
   }
 
   @Override
@@ -267,8 +283,7 @@ public class SecurityMonitoringOktaIntegrationConfigCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

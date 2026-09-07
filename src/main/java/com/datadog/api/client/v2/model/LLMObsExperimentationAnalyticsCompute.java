@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A single metric computation definition.</p>
- */
+/** A single metric computation definition. */
 @JsonPropertyOrder({
   LLMObsExperimentationAnalyticsCompute.JSON_PROPERTY_METRIC,
   LLMObsExperimentationAnalyticsCompute.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentationAnalyticsCompute {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
 
@@ -52,57 +36,60 @@ public class LLMObsExperimentationAnalyticsCompute {
 
   @JsonCreator
   public LLMObsExperimentationAnalyticsCompute(
-            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC)String metric) {
-        this.metric = metric;
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric) {
+    this.metric = metric;
   }
+
   public LLMObsExperimentationAnalyticsCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * <p>Name of the metric to compute.</p>
+   * Name of the metric to compute.
+   *
    * @return metric
-  **/
-      @JsonProperty(JSON_PROPERTY_METRIC)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMetric() {
-        return metric;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMetric() {
+    return metric;
+  }
+
   public void setMetric(String metric) {
     this.metric = metric;
   }
+
   public LLMObsExperimentationAnalyticsCompute name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Optional alias for this computation in the response.</p>
+   * Optional alias for this computation in the response.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -111,7 +98,7 @@ public class LLMObsExperimentationAnalyticsCompute {
   @JsonAnySetter
   public LLMObsExperimentationAnalyticsCompute putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -135,14 +122,12 @@ public class LLMObsExperimentationAnalyticsCompute {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsExperimentationAnalyticsCompute object is equal to o.
-   */
+  /** Return true if this LLMObsExperimentationAnalyticsCompute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -151,14 +136,17 @@ public class LLMObsExperimentationAnalyticsCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsExperimentationAnalyticsCompute llmObsExperimentationAnalyticsCompute = (LLMObsExperimentationAnalyticsCompute) o;
-    return Objects.equals(this.metric, llmObsExperimentationAnalyticsCompute.metric) && Objects.equals(this.name, llmObsExperimentationAnalyticsCompute.name) && Objects.equals(this.additionalProperties, llmObsExperimentationAnalyticsCompute.additionalProperties);
+    LLMObsExperimentationAnalyticsCompute llmObsExperimentationAnalyticsCompute =
+        (LLMObsExperimentationAnalyticsCompute) o;
+    return Objects.equals(this.metric, llmObsExperimentationAnalyticsCompute.metric)
+        && Objects.equals(this.name, llmObsExperimentationAnalyticsCompute.name)
+        && Objects.equals(
+            this.additionalProperties, llmObsExperimentationAnalyticsCompute.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(metric,name, additionalProperties);
+    return Objects.hash(metric, name, additionalProperties);
   }
 
   @Override
@@ -175,8 +163,7 @@ public class LLMObsExperimentationAnalyticsCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a Cloud Cost Management tag key.</p>
- */
+/** Attributes of a Cloud Cost Management tag key. */
 @JsonPropertyOrder({
   CostTagKeyAttributes.JSON_PROPERTY_DETAILS,
   CostTagKeyAttributes.JSON_PROPERTY_SOURCES,
   CostTagKeyAttributes.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CostTagKeyAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETAILS = "details";
   private CostTagKeyDetails details;
 
@@ -56,11 +42,12 @@ public class CostTagKeyAttributes {
 
   @JsonCreator
   public CostTagKeyAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCES)List<String> sources,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VALUE)String value) {
-        this.sources = sources;
-        this.value = value;
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+    this.sources = sources;
+    this.value = value;
   }
+
   public CostTagKeyAttributes details(CostTagKeyDetails details) {
     this.details = details;
     this.unparsed |= details.unparsed;
@@ -68,73 +55,79 @@ public class CostTagKeyAttributes {
   }
 
   /**
-   * <p>Additional details for a Cloud Cost Management tag key, including its description and example tag values.</p>
+   * Additional details for a Cloud Cost Management tag key, including its description and example
+   * tag values.
+   *
    * @return details
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DETAILS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CostTagKeyDetails getDetails() {
-        return details;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CostTagKeyDetails getDetails() {
+    return details;
+  }
+
   public void setDetails(CostTagKeyDetails details) {
     this.details = details;
     if (details != null) {
       this.unparsed |= details.unparsed;
     }
   }
+
   public CostTagKeyAttributes sources(List<String> sources) {
     this.sources = sources;
     return this;
   }
+
   public CostTagKeyAttributes addSourcesItem(String sourcesItem) {
     this.sources.add(sourcesItem);
     return this;
   }
 
   /**
-   * <p>List of sources that define this tag key.</p>
+   * List of sources that define this tag key.
+   *
    * @return sources
-  **/
-      @JsonProperty(JSON_PROPERTY_SOURCES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getSources() {
-        return sources;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getSources() {
+    return sources;
+  }
+
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
+
   public CostTagKeyAttributes value(String value) {
     this.value = value;
     return this;
   }
 
   /**
-   * <p>The tag key name.</p>
+   * The tag key name.
+   *
    * @return value
-  **/
-      @JsonProperty(JSON_PROPERTY_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getValue() {
-        return value;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getValue() {
+    return value;
+  }
+
   public void setValue(String value) {
     this.value = value;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -143,7 +136,7 @@ public class CostTagKeyAttributes {
   @JsonAnySetter
   public CostTagKeyAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -167,14 +160,12 @@ public class CostTagKeyAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CostTagKeyAttributes object is equal to o.
-   */
+  /** Return true if this CostTagKeyAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,13 +175,15 @@ public class CostTagKeyAttributes {
       return false;
     }
     CostTagKeyAttributes costTagKeyAttributes = (CostTagKeyAttributes) o;
-    return Objects.equals(this.details, costTagKeyAttributes.details) && Objects.equals(this.sources, costTagKeyAttributes.sources) && Objects.equals(this.value, costTagKeyAttributes.value) && Objects.equals(this.additionalProperties, costTagKeyAttributes.additionalProperties);
+    return Objects.equals(this.details, costTagKeyAttributes.details)
+        && Objects.equals(this.sources, costTagKeyAttributes.sources)
+        && Objects.equals(this.value, costTagKeyAttributes.value)
+        && Objects.equals(this.additionalProperties, costTagKeyAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(details,sources,value, additionalProperties);
+    return Objects.hash(details, sources, value, additionalProperties);
   }
 
   @Override
@@ -208,8 +201,7 @@ public class CostTagKeyAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
