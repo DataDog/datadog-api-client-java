@@ -8288,7 +8288,9 @@ public class CloudCostManagementApi {
    *
    * @return OCIConfigsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public OCIConfigsResponse listCostOCIConfigs() throws ApiException {
     return listCostOCIConfigsWithHttpInfo().getData();
   }
@@ -8299,7 +8301,9 @@ public class CloudCostManagementApi {
    * <p>See {@link #listCostOCIConfigsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;OCIConfigsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<OCIConfigsResponse> listCostOCIConfigsAsync() {
     return listCostOCIConfigsWithHttpInfoAsync()
         .thenApply(
@@ -8309,7 +8313,10 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * List the OCI configs.
+   * <strong>Note</strong>: This endpoint is deprecated. View OCI accounts in Cloud Cost Settings in
+   * the Datadog web application instead.
+   *
+   * <p>List the OCI configs.
    *
    * @return ApiResponse&lt;OCIConfigsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -8321,7 +8328,10 @@ public class CloudCostManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<OCIConfigsResponse> listCostOCIConfigsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
@@ -8355,7 +8365,9 @@ public class CloudCostManagementApi {
    * <p>See {@link #listCostOCIConfigsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;OCIConfigsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<OCIConfigsResponse>> listCostOCIConfigsWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
