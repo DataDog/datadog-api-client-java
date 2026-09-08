@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.MuteRuleReorderItem;
 import com.datadog.api.client.v2.model.MuteRuleReorderRequest;
+import com.datadog.api.client.v2.model.MuteRuleReorderResponse;
 import com.datadog.api.client.v2.model.MuteRuleType;
 import java.util.Collections;
 import java.util.UUID;
@@ -33,7 +34,7 @@ public class Example {
                         .type(MuteRuleType.MUTE_RULES)));
 
     try {
-      MuteRuleReorderRequest result = apiInstance.reorderSecurityFindingsAutomationMuteRules(body);
+      MuteRuleReorderResponse result = apiInstance.reorderSecurityFindingsAutomationMuteRules(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

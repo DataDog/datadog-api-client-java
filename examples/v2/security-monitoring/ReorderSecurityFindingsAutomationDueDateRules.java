@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.DueDateRuleReorderItem;
 import com.datadog.api.client.v2.model.DueDateRuleReorderRequest;
+import com.datadog.api.client.v2.model.DueDateRuleReorderResponse;
 import com.datadog.api.client.v2.model.DueDateRuleType;
 import java.util.Collections;
 import java.util.UUID;
@@ -33,7 +34,7 @@ public class Example {
                         .type(DueDateRuleType.DUE_DATE_RULES)));
 
     try {
-      DueDateRuleReorderRequest result =
+      DueDateRuleReorderResponse result =
           apiInstance.reorderSecurityFindingsAutomationDueDateRules(body);
       System.out.println(result);
     } catch (ApiException e) {

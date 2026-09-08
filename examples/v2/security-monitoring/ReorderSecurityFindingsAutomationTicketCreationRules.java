@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.TicketCreationRuleReorderItem;
 import com.datadog.api.client.v2.model.TicketCreationRuleReorderRequest;
+import com.datadog.api.client.v2.model.TicketCreationRuleReorderResponse;
 import com.datadog.api.client.v2.model.TicketCreationRuleType;
 import java.util.Collections;
 import java.util.UUID;
@@ -34,7 +35,7 @@ public class Example {
                         .type(TicketCreationRuleType.TICKET_CREATION_RULES)));
 
     try {
-      TicketCreationRuleReorderRequest result =
+      TicketCreationRuleReorderResponse result =
           apiInstance.reorderSecurityFindingsAutomationTicketCreationRules(body);
       System.out.println(result);
     } catch (ApiException e) {
