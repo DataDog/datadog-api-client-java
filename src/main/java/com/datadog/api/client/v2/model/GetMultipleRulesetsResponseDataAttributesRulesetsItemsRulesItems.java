@@ -33,10 +33,10 @@ import java.util.Objects;
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_CREATED_BY,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_CVE,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_CWE,
-  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_DATA,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_DESCRIPTION,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_DOCUMENTATION_URL,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_ENTITY_CHECKED,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_ID,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_IS_PUBLISHED,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_IS_TESTING,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_LANGUAGE,
@@ -57,7 +57,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARGUMENTS = "arguments";
   private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
-      arguments = null;
+      arguments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
@@ -80,9 +80,6 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   public static final String JSON_PROPERTY_CWE = "cwe";
   private String cwe;
 
-  public static final String JSON_PROPERTY_DATA = "data";
-  private GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -91,6 +88,9 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
 
   public static final String JSON_PROPERTY_ENTITY_CHECKED = "entity_checked";
   private String entityChecked;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_IS_PUBLISHED = "is_published";
   private Boolean isPublished;
@@ -124,7 +124,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
 
   public static final String JSON_PROPERTY_TESTS = "tests";
   private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests =
-      null;
+      new ArrayList<>();
 
   public static final String JSON_PROPERTY_TREE_SITTER_QUERY = "tree_sitter_query";
   private String treeSitterQuery;
@@ -136,21 +136,66 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
 
   @JsonCreator
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ARGUMENTS)
+          List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
+              arguments,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY) String category,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHECKSUM) String checksum,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CODE) String code,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_PUBLISHED) Boolean isPublished,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_TESTING) Boolean isTesting,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LANGUAGE) String language,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAST_UPDATED_AT)
+          OffsetDateTime lastUpdatedAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAST_UPDATED_BY) String lastUpdatedBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SEVERITY) String severity,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SHORT_DESCRIPTION)
+          String shortDescription,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SHOULD_USE_AI_FIX)
+          Boolean shouldUseAiFix,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TESTS)
+          List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
+    this.arguments = arguments;
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item :
+        arguments) {
+      this.unparsed |= item.unparsed;
+    }
+    this.category = category;
+    this.checksum = checksum;
+    this.code = code;
+    this.createdAt = createdAt;
+    this.createdBy = createdBy;
+    this.description = description;
+    this.id = id;
+    this.isPublished = isPublished;
+    this.isTesting = isTesting;
+    this.language = language;
+    this.lastUpdatedAt = lastUpdatedAt;
+    this.lastUpdatedBy = lastUpdatedBy;
+    this.name = name;
+    this.severity = severity;
+    this.shortDescription = shortDescription;
+    this.shouldUseAiFix = shouldUseAiFix;
+    this.tests = tests;
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems item : tests) {
+      this.unparsed |= item.unparsed;
+    }
+    this.type = type;
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems arguments(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
           arguments) {
     this.arguments = arguments;
-    if (arguments != null) {
-      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item :
-          arguments) {
-        this.unparsed |= item.unparsed;
-      }
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item :
+        arguments) {
+      this.unparsed |= item.unparsed;
     }
     return this;
   }
@@ -158,9 +203,6 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems addArgumentsItem(
       GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems
           argumentsItem) {
-    if (this.arguments == null) {
-      this.arguments = new ArrayList<>();
-    }
     this.arguments.add(argumentsItem);
     this.unparsed |= argumentsItem.unparsed;
     return this;
@@ -171,9 +213,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return arguments
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARGUMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
       getArguments() {
     return arguments;
@@ -203,9 +244,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return category
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCategory() {
     return category;
   }
@@ -225,9 +265,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return checksum
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECKSUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getChecksum() {
     return checksum;
   }
@@ -246,9 +285,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return code
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCode() {
     return code;
   }
@@ -268,9 +306,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return createdAt
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -290,9 +327,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return createdBy
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCreatedBy() {
     return createdBy;
   }
@@ -343,31 +379,6 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
     this.cwe = cwe;
   }
 
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems data(
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
-
-  /**
-   * The resource identifier and type for a static analysis rule.
-   *
-   * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData getData() {
-    return data;
-  }
-
-  public void setData(GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
-    }
-  }
-
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems description(
       String description) {
     this.description = description;
@@ -379,9 +390,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return description
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
     return description;
   }
@@ -434,6 +444,26 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
     this.entityChecked = entityChecked;
   }
 
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The unique identifier of the rule, which is the same as its name.
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems isPublished(
       Boolean isPublished) {
     this.isPublished = isPublished;
@@ -445,9 +475,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return isPublished
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_PUBLISHED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getIsPublished() {
     return isPublished;
   }
@@ -467,9 +496,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return isTesting
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_TESTING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getIsTesting() {
     return isTesting;
   }
@@ -489,9 +517,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return language
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLanguage() {
     return language;
   }
@@ -511,9 +538,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return lastUpdatedAt
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getLastUpdatedAt() {
     return lastUpdatedAt;
   }
@@ -533,9 +559,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return lastUpdatedBy
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLastUpdatedBy() {
     return lastUpdatedBy;
   }
@@ -554,9 +579,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return name
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -597,9 +621,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return severity
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEVERITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSeverity() {
     return severity;
   }
@@ -619,9 +642,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return shortDescription
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHORT_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getShortDescription() {
     return shortDescription;
   }
@@ -641,9 +663,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return shouldUseAiFix
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOULD_USE_AI_FIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getShouldUseAiFix() {
     return shouldUseAiFix;
   }
@@ -655,20 +676,14 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems tests(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests) {
     this.tests = tests;
-    if (tests != null) {
-      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems item :
-          tests) {
-        this.unparsed |= item.unparsed;
-      }
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems item : tests) {
+      this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems addTestsItem(
       GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems testsItem) {
-    if (this.tests == null) {
-      this.tests = new ArrayList<>();
-    }
     this.tests.add(testsItem);
     this.unparsed |= testsItem.unparsed;
     return this;
@@ -679,9 +694,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return tests
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TESTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems>
       getTests() {
     return tests;
@@ -730,9 +744,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getType() {
     return type;
   }
@@ -825,8 +838,6 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
         && Objects.equals(
             this.cwe, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.cwe)
         && Objects.equals(
-            this.data, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.data)
-        && Objects.equals(
             this.description,
             getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.description)
         && Objects.equals(
@@ -835,6 +846,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
         && Objects.equals(
             this.entityChecked,
             getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.entityChecked)
+        && Objects.equals(
+            this.id, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.id)
         && Objects.equals(
             this.isPublished,
             getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.isPublished)
@@ -886,10 +899,10 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
         createdBy,
         cve,
         cwe,
-        data,
         description,
         documentationUrl,
         entityChecked,
+        id,
         isPublished,
         isTesting,
         language,
@@ -918,10 +931,10 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    cve: ").append(toIndentedString(cve)).append("\n");
     sb.append("    cwe: ").append(toIndentedString(cwe)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    documentationUrl: ").append(toIndentedString(documentationUrl)).append("\n");
     sb.append("    entityChecked: ").append(toIndentedString(entityChecked)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isPublished: ").append(toIndentedString(isPublished)).append("\n");
     sb.append("    isTesting: ").append(toIndentedString(isTesting)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");

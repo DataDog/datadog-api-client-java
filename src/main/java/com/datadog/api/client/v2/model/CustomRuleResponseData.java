@@ -28,7 +28,7 @@ import java.util.Objects;
 public class CustomRuleResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CustomRule attributes;
+  private CustomRuleAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -40,7 +40,8 @@ public class CustomRuleResponseData {
 
   @JsonCreator
   public CustomRuleResponseData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) CustomRule attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          CustomRuleAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CustomRuleDataType type) {
     this.attributes = attributes;
@@ -50,24 +51,25 @@ public class CustomRuleResponseData {
     this.unparsed |= !type.isValid();
   }
 
-  public CustomRuleResponseData attributes(CustomRule attributes) {
+  public CustomRuleResponseData attributes(CustomRuleAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * A custom static analysis rule within a ruleset.
+   * Attributes of a custom static analysis rule, including its most recent revision and revision
+   * history.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CustomRule getAttributes() {
+  public CustomRuleAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(CustomRule attributes) {
+  public void setAttributes(CustomRuleAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;

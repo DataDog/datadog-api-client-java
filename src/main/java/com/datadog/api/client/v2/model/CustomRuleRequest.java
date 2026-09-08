@@ -17,13 +17,40 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Request body for creating or updating a custom rule. */
-@JsonPropertyOrder({CustomRuleRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  CustomRuleRequest.JSON_PROPERTY__AUTHENTICATION_TOKEN,
+  CustomRuleRequest.JSON_PROPERTY_DATA
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CustomRuleRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY__AUTHENTICATION_TOKEN = "_authentication_token";
+  private String AuthenticationToken;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private CustomRuleRequestData data;
+
+  public CustomRuleRequest AuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
+    return this;
+  }
+
+  /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   *
+   * @return AuthenticationToken
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY__AUTHENTICATION_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAuthenticationToken() {
+    return AuthenticationToken;
+  }
+
+  public void setAuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
+  }
 
   public CustomRuleRequest data(CustomRuleRequestData data) {
     this.data = data;
@@ -106,19 +133,23 @@ public class CustomRuleRequest {
       return false;
     }
     CustomRuleRequest customRuleRequest = (CustomRuleRequest) o;
-    return Objects.equals(this.data, customRuleRequest.data)
+    return Objects.equals(this.AuthenticationToken, customRuleRequest.AuthenticationToken)
+        && Objects.equals(this.data, customRuleRequest.data)
         && Objects.equals(this.additionalProperties, customRuleRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(AuthenticationToken, data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomRuleRequest {\n");
+    sb.append("    AuthenticationToken: ")
+        .append(toIndentedString(AuthenticationToken))
+        .append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

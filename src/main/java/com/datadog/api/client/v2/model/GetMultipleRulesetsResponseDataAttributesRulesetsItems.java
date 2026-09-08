@@ -21,8 +21,8 @@ import java.util.Objects;
 
 /** A ruleset returned in the response, containing its metadata and associated rules. */
 @JsonPropertyOrder({
-  GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_DATA,
   GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_DESCRIPTION,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_ID,
   GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_NAME,
   GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_RULES,
   GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_SHORT_DESCRIPTION
@@ -31,17 +31,18 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private GetMultipleRulesetsResponseDataAttributesRulesetsItemsData data;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_RULES = "rules";
-  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules = null;
+  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules =
+      new ArrayList<>();
 
   public static final String JSON_PROPERTY_SHORT_DESCRIPTION = "short_description";
   private String shortDescription;
@@ -50,35 +51,21 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
 
   @JsonCreator
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          GetMultipleRulesetsResponseDataAttributesRulesetsItemsData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItems data(
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
-
-  /**
-   * The resource identifier and type for a ruleset.
-   *
-   * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsData getData() {
-    return data;
-  }
-
-  public void setData(GetMultipleRulesetsResponseDataAttributesRulesetsItemsData data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
+          List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SHORT_DESCRIPTION)
+          String shortDescription) {
+    this.description = description;
+    this.id = id;
+    this.name = name;
+    this.rules = rules;
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
+      this.unparsed |= item.unparsed;
     }
+    this.shortDescription = shortDescription;
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems description(String description) {
@@ -91,15 +78,34 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
    *
    * @return description
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItems id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The unique identifier of the ruleset, which is the same as its name.
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems name(String name) {
@@ -112,9 +118,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
    *
    * @return name
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -126,19 +131,14 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems rules(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules) {
     this.rules = rules;
-    if (rules != null) {
-      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
-        this.unparsed |= item.unparsed;
-      }
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
+      this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems addRulesItem(
       GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems rulesItem) {
-    if (this.rules == null) {
-      this.rules = new ArrayList<>();
-    }
     this.rules.add(rulesItem);
     this.unparsed |= rulesItem.unparsed;
     return this;
@@ -149,9 +149,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
    *
    * @return rules
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RULES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> getRules() {
     return rules;
   }
@@ -177,9 +176,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
    *
    * @return shortDescription
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHORT_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getShortDescription() {
     return shortDescription;
   }
@@ -250,9 +248,9 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
     GetMultipleRulesetsResponseDataAttributesRulesetsItems
         getMultipleRulesetsResponseDataAttributesRulesetsItems =
             (GetMultipleRulesetsResponseDataAttributesRulesetsItems) o;
-    return Objects.equals(this.data, getMultipleRulesetsResponseDataAttributesRulesetsItems.data)
-        && Objects.equals(
+    return Objects.equals(
             this.description, getMultipleRulesetsResponseDataAttributesRulesetsItems.description)
+        && Objects.equals(this.id, getMultipleRulesetsResponseDataAttributesRulesetsItems.id)
         && Objects.equals(this.name, getMultipleRulesetsResponseDataAttributesRulesetsItems.name)
         && Objects.equals(this.rules, getMultipleRulesetsResponseDataAttributesRulesetsItems.rules)
         && Objects.equals(
@@ -265,15 +263,15 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, description, name, rules, shortDescription, additionalProperties);
+    return Objects.hash(description, id, name, rules, shortDescription, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetMultipleRulesetsResponseDataAttributesRulesetsItems {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    shortDescription: ").append(toIndentedString(shortDescription)).append("\n");

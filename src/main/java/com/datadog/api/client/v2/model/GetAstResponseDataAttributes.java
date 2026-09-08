@@ -18,45 +18,45 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The attributes of the get-AST response, containing the parsed abstract syntax tree. */
-@JsonPropertyOrder({GetAstResponseDataAttributes.JSON_PROPERTY_AST})
+@JsonPropertyOrder({GetAstResponseDataAttributes.JSON_PROPERTY_RESULT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetAstResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AST = "ast";
-  private Map<String, Object> ast = new HashMap<String, Object>();
+  public static final String JSON_PROPERTY_RESULT = "result";
+  private AstNode result;
 
   public GetAstResponseDataAttributes() {}
 
   @JsonCreator
   public GetAstResponseDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AST) Map<String, Object> ast) {
-    this.ast = ast;
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESULT) AstNode result) {
+    this.result = result;
+    this.unparsed |= result.unparsed;
   }
 
-  public GetAstResponseDataAttributes ast(Map<String, Object> ast) {
-    this.ast = ast;
-    return this;
-  }
-
-  public GetAstResponseDataAttributes putAstItem(String key, Object astItem) {
-    this.ast.put(key, astItem);
+  public GetAstResponseDataAttributes result(AstNode result) {
+    this.result = result;
+    this.unparsed |= result.unparsed;
     return this;
   }
 
   /**
-   * The parsed abstract syntax tree as a JSON object.
+   * A node in the abstract syntax tree of the parsed source code.
    *
-   * @return ast
+   * @return result
    */
-  @JsonProperty(JSON_PROPERTY_AST)
+  @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Map<String, Object> getAst() {
-    return ast;
+  public AstNode getResult() {
+    return result;
   }
 
-  public void setAst(Map<String, Object> ast) {
-    this.ast = ast;
+  public void setResult(AstNode result) {
+    this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   /**
@@ -115,21 +115,21 @@ public class GetAstResponseDataAttributes {
       return false;
     }
     GetAstResponseDataAttributes getAstResponseDataAttributes = (GetAstResponseDataAttributes) o;
-    return Objects.equals(this.ast, getAstResponseDataAttributes.ast)
+    return Objects.equals(this.result, getAstResponseDataAttributes.result)
         && Objects.equals(
             this.additionalProperties, getAstResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ast, additionalProperties);
+    return Objects.hash(result, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAstResponseDataAttributes {\n");
-    sb.append("    ast: ").append(toIndentedString(ast)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

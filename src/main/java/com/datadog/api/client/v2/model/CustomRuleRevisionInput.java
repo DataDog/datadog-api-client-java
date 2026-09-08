@@ -6,51 +6,53 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a custom rule revision, including code, metadata, and test cases. */
+/**
+ * A revision of a custom static analysis rule as embedded in a rule supplied by a create or update
+ * request. Nested revisions are sent flat, without a <code>data</code>/<code>type</code>/<code>
+ * attributes</code> envelope. <code>id</code>, <code>version_id</code>, <code>checksum</code>,
+ * <code>created_at</code> and <code>created_by</code> are server-assigned and read-only; they are
+ * declared so that a ruleset previously read back can be supplied unchanged.
+ */
 @JsonPropertyOrder({
-  CustomRuleRevisionAttributes.JSON_PROPERTY_ARGUMENTS,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CATEGORY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CHECKSUM,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CODE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CREATED_AT,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CREATED_BY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CREATION_MESSAGE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CVE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CWE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_DESCRIPTION,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_DOCUMENTATION_URL,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_IS_PUBLISHED,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_IS_TESTING,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_LANGUAGE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_SEVERITY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_SHORT_DESCRIPTION,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_SHOULD_USE_AI_FIX,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_TAGS,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_TESTS,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_TREE_SITTER_QUERY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_VERSION_ID
+  CustomRuleRevisionInput.JSON_PROPERTY_ARGUMENTS,
+  CustomRuleRevisionInput.JSON_PROPERTY_CATEGORY,
+  CustomRuleRevisionInput.JSON_PROPERTY_CHECKSUM,
+  CustomRuleRevisionInput.JSON_PROPERTY_CODE,
+  CustomRuleRevisionInput.JSON_PROPERTY_CREATED_AT,
+  CustomRuleRevisionInput.JSON_PROPERTY_CREATED_BY,
+  CustomRuleRevisionInput.JSON_PROPERTY_CREATION_MESSAGE,
+  CustomRuleRevisionInput.JSON_PROPERTY_CVE,
+  CustomRuleRevisionInput.JSON_PROPERTY_CWE,
+  CustomRuleRevisionInput.JSON_PROPERTY_DESCRIPTION,
+  CustomRuleRevisionInput.JSON_PROPERTY_DOCUMENTATION_URL,
+  CustomRuleRevisionInput.JSON_PROPERTY_ID,
+  CustomRuleRevisionInput.JSON_PROPERTY_IS_PUBLISHED,
+  CustomRuleRevisionInput.JSON_PROPERTY_IS_TESTING,
+  CustomRuleRevisionInput.JSON_PROPERTY_LANGUAGE,
+  CustomRuleRevisionInput.JSON_PROPERTY_SEVERITY,
+  CustomRuleRevisionInput.JSON_PROPERTY_SHORT_DESCRIPTION,
+  CustomRuleRevisionInput.JSON_PROPERTY_SHOULD_USE_AI_FIX,
+  CustomRuleRevisionInput.JSON_PROPERTY_TAGS,
+  CustomRuleRevisionInput.JSON_PROPERTY_TESTS,
+  CustomRuleRevisionInput.JSON_PROPERTY_TREE_SITTER_QUERY,
+  CustomRuleRevisionInput.JSON_PROPERTY_VERSION_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CustomRuleRevisionAttributes {
+public class CustomRuleRevisionInput {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARGUMENTS = "arguments";
-  private List<Argument> arguments = new ArrayList<>();
+  private JsonNullable<List<Argument>> arguments = JsonNullable.<List<Argument>>undefined();
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private CustomRuleRevisionAttributesCategory category;
@@ -82,6 +84,9 @@ public class CustomRuleRevisionAttributes {
   public static final String JSON_PROPERTY_DOCUMENTATION_URL = "documentation_url";
   private JsonNullable<String> documentationUrl = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
   public static final String JSON_PROPERTY_IS_PUBLISHED = "is_published";
   private Boolean isPublished;
 
@@ -101,10 +106,11 @@ public class CustomRuleRevisionAttributes {
   private Boolean shouldUseAiFix;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = new ArrayList<>();
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TESTS = "tests";
-  private List<CustomRuleRevisionTest> tests = new ArrayList<>();
+  private JsonNullable<List<CustomRuleRevisionTest>> tests =
+      JsonNullable.<List<CustomRuleRevisionTest>>undefined();
 
   public static final String JSON_PROPERTY_TREE_SITTER_QUERY = "tree_sitter_query";
   private String treeSitterQuery;
@@ -112,79 +118,20 @@ public class CustomRuleRevisionAttributes {
   public static final String JSON_PROPERTY_VERSION_ID = "version_id";
   private Long versionId;
 
-  public CustomRuleRevisionAttributes() {}
-
-  @JsonCreator
-  public CustomRuleRevisionAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ARGUMENTS) List<Argument> arguments,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY)
-          CustomRuleRevisionAttributesCategory category,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CHECKSUM) String checksum,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CODE) String code,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATION_MESSAGE) String creationMessage,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_PUBLISHED) Boolean isPublished,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_TESTING) Boolean isTesting,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LANGUAGE) Language language,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEVERITY)
-          CustomRuleRevisionAttributesSeverity severity,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SHORT_DESCRIPTION)
-          String shortDescription,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SHOULD_USE_AI_FIX)
-          Boolean shouldUseAiFix,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TESTS)
-          List<CustomRuleRevisionTest> tests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TREE_SITTER_QUERY)
-          String treeSitterQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION_ID) Long versionId) {
-    this.arguments = arguments;
-    if (arguments != null) {
-      for (Argument item : arguments) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    this.category = category;
-    this.unparsed |= !category.isValid();
-    this.checksum = checksum;
-    this.code = code;
-    this.createdAt = createdAt;
-    this.createdBy = createdBy;
-    this.creationMessage = creationMessage;
-    this.description = description;
-    this.isPublished = isPublished;
-    this.isTesting = isTesting;
-    this.language = language;
-    this.unparsed |= !language.isValid();
-    this.severity = severity;
-    this.unparsed |= !severity.isValid();
-    this.shortDescription = shortDescription;
-    this.shouldUseAiFix = shouldUseAiFix;
-    this.tags = tags;
-    if (tags != null) {}
-    this.tests = tests;
-    if (tests != null) {
-      for (CustomRuleRevisionTest item : tests) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    this.treeSitterQuery = treeSitterQuery;
-    this.versionId = versionId;
-  }
-
-  public CustomRuleRevisionAttributes arguments(List<Argument> arguments) {
-    this.arguments = arguments;
-    for (Argument item : arguments) {
-      this.unparsed |= item.unparsed;
-    }
+  public CustomRuleRevisionInput arguments(List<Argument> arguments) {
+    this.arguments = JsonNullable.<List<Argument>>of(arguments);
     return this;
   }
 
-  public CustomRuleRevisionAttributes addArgumentsItem(Argument argumentsItem) {
-    this.arguments.add(argumentsItem);
-    this.unparsed |= argumentsItem.unparsed;
+  public CustomRuleRevisionInput addArgumentsItem(Argument argumentsItem) {
+    if (this.arguments == null || !this.arguments.isPresent()) {
+      this.arguments = JsonNullable.<List<Argument>>of(new ArrayList<>());
+    }
+    try {
+      this.arguments.get().add(argumentsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -194,22 +141,27 @@ public class CustomRuleRevisionAttributes {
    * @return arguments
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARGUMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
   public List<Argument> getArguments() {
+    return arguments.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ARGUMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<Argument>> getArguments_JsonNullable() {
     return arguments;
   }
 
-  public void setArguments(List<Argument> arguments) {
+  @JsonProperty(JSON_PROPERTY_ARGUMENTS)
+  public void setArguments_JsonNullable(JsonNullable<List<Argument>> arguments) {
     this.arguments = arguments;
-    if (arguments != null) {
-      for (Argument item : arguments) {
-        this.unparsed |= item.unparsed;
-      }
-    }
   }
 
-  public CustomRuleRevisionAttributes category(CustomRuleRevisionAttributesCategory category) {
+  public void setArguments(List<Argument> arguments) {
+    this.arguments = JsonNullable.<List<Argument>>of(arguments);
+  }
+
+  public CustomRuleRevisionInput category(CustomRuleRevisionAttributesCategory category) {
     this.category = category;
     this.unparsed |= !category.isValid();
     return this;
@@ -220,8 +172,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return category
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CustomRuleRevisionAttributesCategory getCategory() {
     return category;
   }
@@ -233,27 +186,19 @@ public class CustomRuleRevisionAttributes {
     this.category = category;
   }
 
-  public CustomRuleRevisionAttributes checksum(String checksum) {
-    this.checksum = checksum;
-    return this;
-  }
-
   /**
    * Code checksum
    *
    * @return checksum
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECKSUM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getChecksum() {
     return checksum;
   }
 
-  public void setChecksum(String checksum) {
-    this.checksum = checksum;
-  }
-
-  public CustomRuleRevisionAttributes code(String code) {
+  public CustomRuleRevisionInput code(String code) {
     this.code = code;
     return this;
   }
@@ -263,8 +208,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return code
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
     return code;
   }
@@ -273,29 +219,16 @@ public class CustomRuleRevisionAttributes {
     this.code = code;
   }
 
-  public CustomRuleRevisionAttributes createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
   /**
    * Creation timestamp
    *
    * @return createdAt
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public CustomRuleRevisionAttributes createdBy(String createdBy) {
-    this.createdBy = createdBy;
-    return this;
   }
 
   /**
@@ -303,17 +236,14 @@ public class CustomRuleRevisionAttributes {
    *
    * @return createdBy
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedBy() {
     return createdBy;
   }
 
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public CustomRuleRevisionAttributes creationMessage(String creationMessage) {
+  public CustomRuleRevisionInput creationMessage(String creationMessage) {
     this.creationMessage = creationMessage;
     return this;
   }
@@ -323,8 +253,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return creationMessage
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATION_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreationMessage() {
     return creationMessage;
   }
@@ -333,7 +264,7 @@ public class CustomRuleRevisionAttributes {
     this.creationMessage = creationMessage;
   }
 
-  public CustomRuleRevisionAttributes cve(String cve) {
+  public CustomRuleRevisionInput cve(String cve) {
     this.cve = JsonNullable.<String>of(cve);
     return this;
   }
@@ -364,7 +295,7 @@ public class CustomRuleRevisionAttributes {
     this.cve = JsonNullable.<String>of(cve);
   }
 
-  public CustomRuleRevisionAttributes cwe(String cwe) {
+  public CustomRuleRevisionInput cwe(String cwe) {
     this.cwe = JsonNullable.<String>of(cwe);
     return this;
   }
@@ -395,18 +326,19 @@ public class CustomRuleRevisionAttributes {
     this.cwe = JsonNullable.<String>of(cwe);
   }
 
-  public CustomRuleRevisionAttributes description(String description) {
+  public CustomRuleRevisionInput description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Full description
+   * Base64-encoded full description
    *
    * @return description
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
@@ -415,7 +347,7 @@ public class CustomRuleRevisionAttributes {
     this.description = description;
   }
 
-  public CustomRuleRevisionAttributes documentationUrl(String documentationUrl) {
+  public CustomRuleRevisionInput documentationUrl(String documentationUrl) {
     this.documentationUrl = JsonNullable.<String>of(documentationUrl);
     return this;
   }
@@ -446,18 +378,31 @@ public class CustomRuleRevisionAttributes {
     this.documentationUrl = JsonNullable.<String>of(documentationUrl);
   }
 
-  public CustomRuleRevisionAttributes isPublished(Boolean isPublished) {
+  /**
+   * Revision identifier
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public CustomRuleRevisionInput isPublished(Boolean isPublished) {
     this.isPublished = isPublished;
     return this;
   }
 
   /**
-   * Whether the revision is published
+   * Whether the revision should be published
    *
    * @return isPublished
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_PUBLISHED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsPublished() {
     return isPublished;
   }
@@ -466,7 +411,7 @@ public class CustomRuleRevisionAttributes {
     this.isPublished = isPublished;
   }
 
-  public CustomRuleRevisionAttributes isTesting(Boolean isTesting) {
+  public CustomRuleRevisionInput isTesting(Boolean isTesting) {
     this.isTesting = isTesting;
     return this;
   }
@@ -476,8 +421,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return isTesting
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_TESTING)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsTesting() {
     return isTesting;
   }
@@ -486,7 +432,7 @@ public class CustomRuleRevisionAttributes {
     this.isTesting = isTesting;
   }
 
-  public CustomRuleRevisionAttributes language(Language language) {
+  public CustomRuleRevisionInput language(Language language) {
     this.language = language;
     this.unparsed |= !language.isValid();
     return this;
@@ -497,8 +443,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return language
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Language getLanguage() {
     return language;
   }
@@ -510,7 +457,7 @@ public class CustomRuleRevisionAttributes {
     this.language = language;
   }
 
-  public CustomRuleRevisionAttributes severity(CustomRuleRevisionAttributesSeverity severity) {
+  public CustomRuleRevisionInput severity(CustomRuleRevisionAttributesSeverity severity) {
     this.severity = severity;
     this.unparsed |= !severity.isValid();
     return this;
@@ -521,8 +468,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return severity
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEVERITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CustomRuleRevisionAttributesSeverity getSeverity() {
     return severity;
   }
@@ -534,18 +482,19 @@ public class CustomRuleRevisionAttributes {
     this.severity = severity;
   }
 
-  public CustomRuleRevisionAttributes shortDescription(String shortDescription) {
+  public CustomRuleRevisionInput shortDescription(String shortDescription) {
     this.shortDescription = shortDescription;
     return this;
   }
 
   /**
-   * Short description
+   * Base64-encoded short description
    *
    * @return shortDescription
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHORT_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShortDescription() {
     return shortDescription;
   }
@@ -554,7 +503,7 @@ public class CustomRuleRevisionAttributes {
     this.shortDescription = shortDescription;
   }
 
-  public CustomRuleRevisionAttributes shouldUseAiFix(Boolean shouldUseAiFix) {
+  public CustomRuleRevisionInput shouldUseAiFix(Boolean shouldUseAiFix) {
     this.shouldUseAiFix = shouldUseAiFix;
     return this;
   }
@@ -564,8 +513,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return shouldUseAiFix
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOULD_USE_AI_FIX)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShouldUseAiFix() {
     return shouldUseAiFix;
   }
@@ -574,13 +524,20 @@ public class CustomRuleRevisionAttributes {
     this.shouldUseAiFix = shouldUseAiFix;
   }
 
-  public CustomRuleRevisionAttributes tags(List<String> tags) {
-    this.tags = tags;
+  public CustomRuleRevisionInput tags(List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
     return this;
   }
 
-  public CustomRuleRevisionAttributes addTagsItem(String tagsItem) {
-    this.tags.add(tagsItem);
+  public CustomRuleRevisionInput addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -590,27 +547,40 @@ public class CustomRuleRevisionAttributes {
    * @return tags
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
   public List<String> getTags() {
+    return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getTags_JsonNullable() {
     return tags;
   }
 
-  public void setTags(List<String> tags) {
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
     this.tags = tags;
   }
 
-  public CustomRuleRevisionAttributes tests(List<CustomRuleRevisionTest> tests) {
-    this.tests = tests;
-    for (CustomRuleRevisionTest item : tests) {
-      this.unparsed |= item.unparsed;
-    }
+  public void setTags(List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+  public CustomRuleRevisionInput tests(List<CustomRuleRevisionTest> tests) {
+    this.tests = JsonNullable.<List<CustomRuleRevisionTest>>of(tests);
     return this;
   }
 
-  public CustomRuleRevisionAttributes addTestsItem(CustomRuleRevisionTest testsItem) {
-    this.tests.add(testsItem);
-    this.unparsed |= testsItem.unparsed;
+  public CustomRuleRevisionInput addTestsItem(CustomRuleRevisionTest testsItem) {
+    if (this.tests == null || !this.tests.isPresent()) {
+      this.tests = JsonNullable.<List<CustomRuleRevisionTest>>of(new ArrayList<>());
+    }
+    try {
+      this.tests.get().add(testsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -620,22 +590,27 @@ public class CustomRuleRevisionAttributes {
    * @return tests
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TESTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
   public List<CustomRuleRevisionTest> getTests() {
+    return tests.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TESTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<CustomRuleRevisionTest>> getTests_JsonNullable() {
     return tests;
   }
 
-  public void setTests(List<CustomRuleRevisionTest> tests) {
+  @JsonProperty(JSON_PROPERTY_TESTS)
+  public void setTests_JsonNullable(JsonNullable<List<CustomRuleRevisionTest>> tests) {
     this.tests = tests;
-    if (tests != null) {
-      for (CustomRuleRevisionTest item : tests) {
-        this.unparsed |= item.unparsed;
-      }
-    }
   }
 
-  public CustomRuleRevisionAttributes treeSitterQuery(String treeSitterQuery) {
+  public void setTests(List<CustomRuleRevisionTest> tests) {
+    this.tests = JsonNullable.<List<CustomRuleRevisionTest>>of(tests);
+  }
+
+  public CustomRuleRevisionInput treeSitterQuery(String treeSitterQuery) {
     this.treeSitterQuery = treeSitterQuery;
     return this;
   }
@@ -645,8 +620,9 @@ public class CustomRuleRevisionAttributes {
    *
    * @return treeSitterQuery
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TREE_SITTER_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTreeSitterQuery() {
     return treeSitterQuery;
   }
@@ -655,73 +631,19 @@ public class CustomRuleRevisionAttributes {
     this.treeSitterQuery = treeSitterQuery;
   }
 
-  public CustomRuleRevisionAttributes versionId(Long versionId) {
-    this.versionId = versionId;
-    return this;
-  }
-
   /**
    * Monotonically increasing version number of the revision.
    *
    * @return versionId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersionId() {
     return versionId;
   }
 
-  public void setVersionId(Long versionId) {
-    this.versionId = versionId;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return CustomRuleRevisionAttributes
-   */
-  @JsonAnySetter
-  public CustomRuleRevisionAttributes putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /** Return true if this CustomRuleRevisionAttributes object is equal to o. */
+  /** Return true if this CustomRuleRevisionInput object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -730,30 +652,29 @@ public class CustomRuleRevisionAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomRuleRevisionAttributes customRuleRevisionAttributes = (CustomRuleRevisionAttributes) o;
-    return Objects.equals(this.arguments, customRuleRevisionAttributes.arguments)
-        && Objects.equals(this.category, customRuleRevisionAttributes.category)
-        && Objects.equals(this.checksum, customRuleRevisionAttributes.checksum)
-        && Objects.equals(this.code, customRuleRevisionAttributes.code)
-        && Objects.equals(this.createdAt, customRuleRevisionAttributes.createdAt)
-        && Objects.equals(this.createdBy, customRuleRevisionAttributes.createdBy)
-        && Objects.equals(this.creationMessage, customRuleRevisionAttributes.creationMessage)
-        && Objects.equals(this.cve, customRuleRevisionAttributes.cve)
-        && Objects.equals(this.cwe, customRuleRevisionAttributes.cwe)
-        && Objects.equals(this.description, customRuleRevisionAttributes.description)
-        && Objects.equals(this.documentationUrl, customRuleRevisionAttributes.documentationUrl)
-        && Objects.equals(this.isPublished, customRuleRevisionAttributes.isPublished)
-        && Objects.equals(this.isTesting, customRuleRevisionAttributes.isTesting)
-        && Objects.equals(this.language, customRuleRevisionAttributes.language)
-        && Objects.equals(this.severity, customRuleRevisionAttributes.severity)
-        && Objects.equals(this.shortDescription, customRuleRevisionAttributes.shortDescription)
-        && Objects.equals(this.shouldUseAiFix, customRuleRevisionAttributes.shouldUseAiFix)
-        && Objects.equals(this.tags, customRuleRevisionAttributes.tags)
-        && Objects.equals(this.tests, customRuleRevisionAttributes.tests)
-        && Objects.equals(this.treeSitterQuery, customRuleRevisionAttributes.treeSitterQuery)
-        && Objects.equals(this.versionId, customRuleRevisionAttributes.versionId)
-        && Objects.equals(
-            this.additionalProperties, customRuleRevisionAttributes.additionalProperties);
+    CustomRuleRevisionInput customRuleRevisionInput = (CustomRuleRevisionInput) o;
+    return Objects.equals(this.arguments, customRuleRevisionInput.arguments)
+        && Objects.equals(this.category, customRuleRevisionInput.category)
+        && Objects.equals(this.checksum, customRuleRevisionInput.checksum)
+        && Objects.equals(this.code, customRuleRevisionInput.code)
+        && Objects.equals(this.createdAt, customRuleRevisionInput.createdAt)
+        && Objects.equals(this.createdBy, customRuleRevisionInput.createdBy)
+        && Objects.equals(this.creationMessage, customRuleRevisionInput.creationMessage)
+        && Objects.equals(this.cve, customRuleRevisionInput.cve)
+        && Objects.equals(this.cwe, customRuleRevisionInput.cwe)
+        && Objects.equals(this.description, customRuleRevisionInput.description)
+        && Objects.equals(this.documentationUrl, customRuleRevisionInput.documentationUrl)
+        && Objects.equals(this.id, customRuleRevisionInput.id)
+        && Objects.equals(this.isPublished, customRuleRevisionInput.isPublished)
+        && Objects.equals(this.isTesting, customRuleRevisionInput.isTesting)
+        && Objects.equals(this.language, customRuleRevisionInput.language)
+        && Objects.equals(this.severity, customRuleRevisionInput.severity)
+        && Objects.equals(this.shortDescription, customRuleRevisionInput.shortDescription)
+        && Objects.equals(this.shouldUseAiFix, customRuleRevisionInput.shouldUseAiFix)
+        && Objects.equals(this.tags, customRuleRevisionInput.tags)
+        && Objects.equals(this.tests, customRuleRevisionInput.tests)
+        && Objects.equals(this.treeSitterQuery, customRuleRevisionInput.treeSitterQuery)
+        && Objects.equals(this.versionId, customRuleRevisionInput.versionId);
   }
 
   @Override
@@ -770,6 +691,7 @@ public class CustomRuleRevisionAttributes {
         cwe,
         description,
         documentationUrl,
+        id,
         isPublished,
         isTesting,
         language,
@@ -779,14 +701,13 @@ public class CustomRuleRevisionAttributes {
         tags,
         tests,
         treeSitterQuery,
-        versionId,
-        additionalProperties);
+        versionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomRuleRevisionAttributes {\n");
+    sb.append("class CustomRuleRevisionInput {\n");
     sb.append("    arguments: ").append(toIndentedString(arguments)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    checksum: ").append(toIndentedString(checksum)).append("\n");
@@ -798,6 +719,7 @@ public class CustomRuleRevisionAttributes {
     sb.append("    cwe: ").append(toIndentedString(cwe)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    documentationUrl: ").append(toIndentedString(documentationUrl)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isPublished: ").append(toIndentedString(isPublished)).append("\n");
     sb.append("    isTesting: ").append(toIndentedString(isTesting)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
@@ -808,9 +730,6 @@ public class CustomRuleRevisionAttributes {
     sb.append("    tests: ").append(toIndentedString(tests)).append("\n");
     sb.append("    treeSitterQuery: ").append(toIndentedString(treeSitterQuery)).append("\n");
     sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
     sb.append('}');
     return sb.toString();
   }

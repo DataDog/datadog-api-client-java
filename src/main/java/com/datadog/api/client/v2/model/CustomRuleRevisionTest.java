@@ -54,7 +54,7 @@ public class CustomRuleRevisionTest {
   }
 
   /**
-   * Expected violation count
+   * Expected violation count minimum: 0 maximum: 65535
    *
    * @return annotationCount
    */

@@ -19,35 +19,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a custom rule revision, including code, metadata, and test cases. */
+/** A revision of a custom static analysis rule as embedded in a rule or ruleset response. */
 @JsonPropertyOrder({
-  CustomRuleRevisionAttributes.JSON_PROPERTY_ARGUMENTS,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CATEGORY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CHECKSUM,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CODE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CREATED_AT,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CREATED_BY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CREATION_MESSAGE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CVE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_CWE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_DESCRIPTION,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_DOCUMENTATION_URL,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_IS_PUBLISHED,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_IS_TESTING,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_LANGUAGE,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_SEVERITY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_SHORT_DESCRIPTION,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_SHOULD_USE_AI_FIX,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_TAGS,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_TESTS,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_TREE_SITTER_QUERY,
-  CustomRuleRevisionAttributes.JSON_PROPERTY_VERSION_ID
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_ARGUMENTS,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CATEGORY,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CHECKSUM,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CODE,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CREATED_AT,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CREATED_BY,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CREATION_MESSAGE,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CVE,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_CWE,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_DESCRIPTION,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_DOCUMENTATION_URL,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_ID,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_IS_PUBLISHED,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_IS_TESTING,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_LANGUAGE,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_SEVERITY,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_SHORT_DESCRIPTION,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_SHOULD_USE_AI_FIX,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_TAGS,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_TESTS,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_TREE_SITTER_QUERY,
+  CustomRuleRevisionEmbedded.JSON_PROPERTY_VERSION_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CustomRuleRevisionAttributes {
+public class CustomRuleRevisionEmbedded {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARGUMENTS = "arguments";
   private List<Argument> arguments = new ArrayList<>();
@@ -71,16 +71,19 @@ public class CustomRuleRevisionAttributes {
   private String creationMessage;
 
   public static final String JSON_PROPERTY_CVE = "cve";
-  private JsonNullable<String> cve = JsonNullable.<String>undefined();
+  private String cve;
 
   public static final String JSON_PROPERTY_CWE = "cwe";
-  private JsonNullable<String> cwe = JsonNullable.<String>undefined();
+  private String cwe;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
   public static final String JSON_PROPERTY_DOCUMENTATION_URL = "documentation_url";
-  private JsonNullable<String> documentationUrl = JsonNullable.<String>undefined();
+  private String documentationUrl;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_IS_PUBLISHED = "is_published";
   private Boolean isPublished;
@@ -112,10 +115,10 @@ public class CustomRuleRevisionAttributes {
   public static final String JSON_PROPERTY_VERSION_ID = "version_id";
   private Long versionId;
 
-  public CustomRuleRevisionAttributes() {}
+  public CustomRuleRevisionEmbedded() {}
 
   @JsonCreator
-  public CustomRuleRevisionAttributes(
+  public CustomRuleRevisionEmbedded(
       @JsonProperty(required = true, value = JSON_PROPERTY_ARGUMENTS) List<Argument> arguments,
       @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY)
           CustomRuleRevisionAttributesCategory category,
@@ -125,6 +128,7 @@ public class CustomRuleRevisionAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATION_MESSAGE) String creationMessage,
       @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_IS_PUBLISHED) Boolean isPublished,
       @JsonProperty(required = true, value = JSON_PROPERTY_IS_TESTING) Boolean isTesting,
       @JsonProperty(required = true, value = JSON_PROPERTY_LANGUAGE) Language language,
@@ -154,6 +158,7 @@ public class CustomRuleRevisionAttributes {
     this.createdBy = createdBy;
     this.creationMessage = creationMessage;
     this.description = description;
+    this.id = id;
     this.isPublished = isPublished;
     this.isTesting = isTesting;
     this.language = language;
@@ -174,7 +179,7 @@ public class CustomRuleRevisionAttributes {
     this.versionId = versionId;
   }
 
-  public CustomRuleRevisionAttributes arguments(List<Argument> arguments) {
+  public CustomRuleRevisionEmbedded arguments(List<Argument> arguments) {
     this.arguments = arguments;
     for (Argument item : arguments) {
       this.unparsed |= item.unparsed;
@@ -182,7 +187,7 @@ public class CustomRuleRevisionAttributes {
     return this;
   }
 
-  public CustomRuleRevisionAttributes addArgumentsItem(Argument argumentsItem) {
+  public CustomRuleRevisionEmbedded addArgumentsItem(Argument argumentsItem) {
     this.arguments.add(argumentsItem);
     this.unparsed |= argumentsItem.unparsed;
     return this;
@@ -209,7 +214,7 @@ public class CustomRuleRevisionAttributes {
     }
   }
 
-  public CustomRuleRevisionAttributes category(CustomRuleRevisionAttributesCategory category) {
+  public CustomRuleRevisionEmbedded category(CustomRuleRevisionAttributesCategory category) {
     this.category = category;
     this.unparsed |= !category.isValid();
     return this;
@@ -233,7 +238,7 @@ public class CustomRuleRevisionAttributes {
     this.category = category;
   }
 
-  public CustomRuleRevisionAttributes checksum(String checksum) {
+  public CustomRuleRevisionEmbedded checksum(String checksum) {
     this.checksum = checksum;
     return this;
   }
@@ -253,7 +258,7 @@ public class CustomRuleRevisionAttributes {
     this.checksum = checksum;
   }
 
-  public CustomRuleRevisionAttributes code(String code) {
+  public CustomRuleRevisionEmbedded code(String code) {
     this.code = code;
     return this;
   }
@@ -273,7 +278,7 @@ public class CustomRuleRevisionAttributes {
     this.code = code;
   }
 
-  public CustomRuleRevisionAttributes createdAt(OffsetDateTime createdAt) {
+  public CustomRuleRevisionEmbedded createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -293,7 +298,7 @@ public class CustomRuleRevisionAttributes {
     this.createdAt = createdAt;
   }
 
-  public CustomRuleRevisionAttributes createdBy(String createdBy) {
+  public CustomRuleRevisionEmbedded createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
@@ -313,7 +318,7 @@ public class CustomRuleRevisionAttributes {
     this.createdBy = createdBy;
   }
 
-  public CustomRuleRevisionAttributes creationMessage(String creationMessage) {
+  public CustomRuleRevisionEmbedded creationMessage(String creationMessage) {
     this.creationMessage = creationMessage;
     return this;
   }
@@ -333,69 +338,49 @@ public class CustomRuleRevisionAttributes {
     this.creationMessage = creationMessage;
   }
 
-  public CustomRuleRevisionAttributes cve(String cve) {
-    this.cve = JsonNullable.<String>of(cve);
+  public CustomRuleRevisionEmbedded cve(String cve) {
+    this.cve = cve;
     return this;
   }
 
   /**
-   * Associated CVE
+   * Associated CVE. Omitted when the revision has no associated CVE.
    *
    * @return cve
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCve() {
-    return cve.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getCve_JsonNullable() {
+  public String getCve() {
     return cve;
   }
 
-  @JsonProperty(JSON_PROPERTY_CVE)
-  public void setCve_JsonNullable(JsonNullable<String> cve) {
+  public void setCve(String cve) {
     this.cve = cve;
   }
 
-  public void setCve(String cve) {
-    this.cve = JsonNullable.<String>of(cve);
-  }
-
-  public CustomRuleRevisionAttributes cwe(String cwe) {
-    this.cwe = JsonNullable.<String>of(cwe);
+  public CustomRuleRevisionEmbedded cwe(String cwe) {
+    this.cwe = cwe;
     return this;
   }
 
   /**
-   * Associated CWE
+   * Associated CWE. Omitted when the revision has no associated CWE.
    *
    * @return cwe
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCwe() {
-    return cwe.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CWE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getCwe_JsonNullable() {
+  public String getCwe() {
     return cwe;
   }
 
-  @JsonProperty(JSON_PROPERTY_CWE)
-  public void setCwe_JsonNullable(JsonNullable<String> cwe) {
+  public void setCwe(String cwe) {
     this.cwe = cwe;
   }
 
-  public void setCwe(String cwe) {
-    this.cwe = JsonNullable.<String>of(cwe);
-  }
-
-  public CustomRuleRevisionAttributes description(String description) {
+  public CustomRuleRevisionEmbedded description(String description) {
     this.description = description;
     return this;
   }
@@ -415,38 +400,48 @@ public class CustomRuleRevisionAttributes {
     this.description = description;
   }
 
-  public CustomRuleRevisionAttributes documentationUrl(String documentationUrl) {
-    this.documentationUrl = JsonNullable.<String>of(documentationUrl);
+  public CustomRuleRevisionEmbedded documentationUrl(String documentationUrl) {
+    this.documentationUrl = documentationUrl;
     return this;
   }
 
   /**
-   * Documentation URL
+   * Documentation URL. Omitted when the revision has no documentation URL.
    *
    * @return documentationUrl
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDocumentationUrl() {
-    return documentationUrl.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getDocumentationUrl_JsonNullable() {
+  public String getDocumentationUrl() {
     return documentationUrl;
   }
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URL)
-  public void setDocumentationUrl_JsonNullable(JsonNullable<String> documentationUrl) {
+  public void setDocumentationUrl(String documentationUrl) {
     this.documentationUrl = documentationUrl;
   }
 
-  public void setDocumentationUrl(String documentationUrl) {
-    this.documentationUrl = JsonNullable.<String>of(documentationUrl);
+  public CustomRuleRevisionEmbedded id(String id) {
+    this.id = id;
+    return this;
   }
 
-  public CustomRuleRevisionAttributes isPublished(Boolean isPublished) {
+  /**
+   * Revision identifier
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public CustomRuleRevisionEmbedded isPublished(Boolean isPublished) {
     this.isPublished = isPublished;
     return this;
   }
@@ -466,7 +461,7 @@ public class CustomRuleRevisionAttributes {
     this.isPublished = isPublished;
   }
 
-  public CustomRuleRevisionAttributes isTesting(Boolean isTesting) {
+  public CustomRuleRevisionEmbedded isTesting(Boolean isTesting) {
     this.isTesting = isTesting;
     return this;
   }
@@ -486,7 +481,7 @@ public class CustomRuleRevisionAttributes {
     this.isTesting = isTesting;
   }
 
-  public CustomRuleRevisionAttributes language(Language language) {
+  public CustomRuleRevisionEmbedded language(Language language) {
     this.language = language;
     this.unparsed |= !language.isValid();
     return this;
@@ -510,7 +505,7 @@ public class CustomRuleRevisionAttributes {
     this.language = language;
   }
 
-  public CustomRuleRevisionAttributes severity(CustomRuleRevisionAttributesSeverity severity) {
+  public CustomRuleRevisionEmbedded severity(CustomRuleRevisionAttributesSeverity severity) {
     this.severity = severity;
     this.unparsed |= !severity.isValid();
     return this;
@@ -534,7 +529,7 @@ public class CustomRuleRevisionAttributes {
     this.severity = severity;
   }
 
-  public CustomRuleRevisionAttributes shortDescription(String shortDescription) {
+  public CustomRuleRevisionEmbedded shortDescription(String shortDescription) {
     this.shortDescription = shortDescription;
     return this;
   }
@@ -554,7 +549,7 @@ public class CustomRuleRevisionAttributes {
     this.shortDescription = shortDescription;
   }
 
-  public CustomRuleRevisionAttributes shouldUseAiFix(Boolean shouldUseAiFix) {
+  public CustomRuleRevisionEmbedded shouldUseAiFix(Boolean shouldUseAiFix) {
     this.shouldUseAiFix = shouldUseAiFix;
     return this;
   }
@@ -574,12 +569,12 @@ public class CustomRuleRevisionAttributes {
     this.shouldUseAiFix = shouldUseAiFix;
   }
 
-  public CustomRuleRevisionAttributes tags(List<String> tags) {
+  public CustomRuleRevisionEmbedded tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public CustomRuleRevisionAttributes addTagsItem(String tagsItem) {
+  public CustomRuleRevisionEmbedded addTagsItem(String tagsItem) {
     this.tags.add(tagsItem);
     return this;
   }
@@ -600,7 +595,7 @@ public class CustomRuleRevisionAttributes {
     this.tags = tags;
   }
 
-  public CustomRuleRevisionAttributes tests(List<CustomRuleRevisionTest> tests) {
+  public CustomRuleRevisionEmbedded tests(List<CustomRuleRevisionTest> tests) {
     this.tests = tests;
     for (CustomRuleRevisionTest item : tests) {
       this.unparsed |= item.unparsed;
@@ -608,7 +603,7 @@ public class CustomRuleRevisionAttributes {
     return this;
   }
 
-  public CustomRuleRevisionAttributes addTestsItem(CustomRuleRevisionTest testsItem) {
+  public CustomRuleRevisionEmbedded addTestsItem(CustomRuleRevisionTest testsItem) {
     this.tests.add(testsItem);
     this.unparsed |= testsItem.unparsed;
     return this;
@@ -635,7 +630,7 @@ public class CustomRuleRevisionAttributes {
     }
   }
 
-  public CustomRuleRevisionAttributes treeSitterQuery(String treeSitterQuery) {
+  public CustomRuleRevisionEmbedded treeSitterQuery(String treeSitterQuery) {
     this.treeSitterQuery = treeSitterQuery;
     return this;
   }
@@ -655,7 +650,7 @@ public class CustomRuleRevisionAttributes {
     this.treeSitterQuery = treeSitterQuery;
   }
 
-  public CustomRuleRevisionAttributes versionId(Long versionId) {
+  public CustomRuleRevisionEmbedded versionId(Long versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -687,10 +682,10 @@ public class CustomRuleRevisionAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CustomRuleRevisionAttributes
+   * @return CustomRuleRevisionEmbedded
    */
   @JsonAnySetter
-  public CustomRuleRevisionAttributes putAdditionalProperty(String key, Object value) {
+  public CustomRuleRevisionEmbedded putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -721,7 +716,7 @@ public class CustomRuleRevisionAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CustomRuleRevisionAttributes object is equal to o. */
+  /** Return true if this CustomRuleRevisionEmbedded object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -730,30 +725,31 @@ public class CustomRuleRevisionAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomRuleRevisionAttributes customRuleRevisionAttributes = (CustomRuleRevisionAttributes) o;
-    return Objects.equals(this.arguments, customRuleRevisionAttributes.arguments)
-        && Objects.equals(this.category, customRuleRevisionAttributes.category)
-        && Objects.equals(this.checksum, customRuleRevisionAttributes.checksum)
-        && Objects.equals(this.code, customRuleRevisionAttributes.code)
-        && Objects.equals(this.createdAt, customRuleRevisionAttributes.createdAt)
-        && Objects.equals(this.createdBy, customRuleRevisionAttributes.createdBy)
-        && Objects.equals(this.creationMessage, customRuleRevisionAttributes.creationMessage)
-        && Objects.equals(this.cve, customRuleRevisionAttributes.cve)
-        && Objects.equals(this.cwe, customRuleRevisionAttributes.cwe)
-        && Objects.equals(this.description, customRuleRevisionAttributes.description)
-        && Objects.equals(this.documentationUrl, customRuleRevisionAttributes.documentationUrl)
-        && Objects.equals(this.isPublished, customRuleRevisionAttributes.isPublished)
-        && Objects.equals(this.isTesting, customRuleRevisionAttributes.isTesting)
-        && Objects.equals(this.language, customRuleRevisionAttributes.language)
-        && Objects.equals(this.severity, customRuleRevisionAttributes.severity)
-        && Objects.equals(this.shortDescription, customRuleRevisionAttributes.shortDescription)
-        && Objects.equals(this.shouldUseAiFix, customRuleRevisionAttributes.shouldUseAiFix)
-        && Objects.equals(this.tags, customRuleRevisionAttributes.tags)
-        && Objects.equals(this.tests, customRuleRevisionAttributes.tests)
-        && Objects.equals(this.treeSitterQuery, customRuleRevisionAttributes.treeSitterQuery)
-        && Objects.equals(this.versionId, customRuleRevisionAttributes.versionId)
+    CustomRuleRevisionEmbedded customRuleRevisionEmbedded = (CustomRuleRevisionEmbedded) o;
+    return Objects.equals(this.arguments, customRuleRevisionEmbedded.arguments)
+        && Objects.equals(this.category, customRuleRevisionEmbedded.category)
+        && Objects.equals(this.checksum, customRuleRevisionEmbedded.checksum)
+        && Objects.equals(this.code, customRuleRevisionEmbedded.code)
+        && Objects.equals(this.createdAt, customRuleRevisionEmbedded.createdAt)
+        && Objects.equals(this.createdBy, customRuleRevisionEmbedded.createdBy)
+        && Objects.equals(this.creationMessage, customRuleRevisionEmbedded.creationMessage)
+        && Objects.equals(this.cve, customRuleRevisionEmbedded.cve)
+        && Objects.equals(this.cwe, customRuleRevisionEmbedded.cwe)
+        && Objects.equals(this.description, customRuleRevisionEmbedded.description)
+        && Objects.equals(this.documentationUrl, customRuleRevisionEmbedded.documentationUrl)
+        && Objects.equals(this.id, customRuleRevisionEmbedded.id)
+        && Objects.equals(this.isPublished, customRuleRevisionEmbedded.isPublished)
+        && Objects.equals(this.isTesting, customRuleRevisionEmbedded.isTesting)
+        && Objects.equals(this.language, customRuleRevisionEmbedded.language)
+        && Objects.equals(this.severity, customRuleRevisionEmbedded.severity)
+        && Objects.equals(this.shortDescription, customRuleRevisionEmbedded.shortDescription)
+        && Objects.equals(this.shouldUseAiFix, customRuleRevisionEmbedded.shouldUseAiFix)
+        && Objects.equals(this.tags, customRuleRevisionEmbedded.tags)
+        && Objects.equals(this.tests, customRuleRevisionEmbedded.tests)
+        && Objects.equals(this.treeSitterQuery, customRuleRevisionEmbedded.treeSitterQuery)
+        && Objects.equals(this.versionId, customRuleRevisionEmbedded.versionId)
         && Objects.equals(
-            this.additionalProperties, customRuleRevisionAttributes.additionalProperties);
+            this.additionalProperties, customRuleRevisionEmbedded.additionalProperties);
   }
 
   @Override
@@ -770,6 +766,7 @@ public class CustomRuleRevisionAttributes {
         cwe,
         description,
         documentationUrl,
+        id,
         isPublished,
         isTesting,
         language,
@@ -786,7 +783,7 @@ public class CustomRuleRevisionAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomRuleRevisionAttributes {\n");
+    sb.append("class CustomRuleRevisionEmbedded {\n");
     sb.append("    arguments: ").append(toIndentedString(arguments)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    checksum: ").append(toIndentedString(checksum)).append("\n");
@@ -798,6 +795,7 @@ public class CustomRuleRevisionAttributes {
     sb.append("    cwe: ").append(toIndentedString(cwe)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    documentationUrl: ").append(toIndentedString(documentationUrl)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isPublished: ").append(toIndentedString(isPublished)).append("\n");
     sb.append("    isTesting: ").append(toIndentedString(isTesting)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");

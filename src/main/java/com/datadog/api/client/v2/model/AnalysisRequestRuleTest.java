@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,73 +16,87 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The request payload for running static analysis on source code. */
+/** A test case of a forwarded static analysis rule. */
 @JsonPropertyOrder({
-  AnalysisRequest.JSON_PROPERTY__AUTHENTICATION_TOKEN,
-  AnalysisRequest.JSON_PROPERTY_DATA
+  AnalysisRequestRuleTest.JSON_PROPERTY_ANNOTATION_COUNT,
+  AnalysisRequestRuleTest.JSON_PROPERTY_CODE,
+  AnalysisRequestRuleTest.JSON_PROPERTY_FILENAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AnalysisRequest {
+public class AnalysisRequestRuleTest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY__AUTHENTICATION_TOKEN = "_authentication_token";
-  private String AuthenticationToken;
+  public static final String JSON_PROPERTY_ANNOTATION_COUNT = "annotation_count";
+  private Long annotationCount;
 
-  public static final String JSON_PROPERTY_DATA = "data";
-  private AnalysisRequestData data;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
-  public AnalysisRequest() {}
+  public static final String JSON_PROPERTY_FILENAME = "filename";
+  private String filename;
 
-  @JsonCreator
-  public AnalysisRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) AnalysisRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
-
-  public AnalysisRequest AuthenticationToken(String AuthenticationToken) {
-    this.AuthenticationToken = AuthenticationToken;
+  public AnalysisRequestRuleTest annotationCount(Long annotationCount) {
+    this.annotationCount = annotationCount;
     return this;
   }
 
   /**
-   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   * The expected number of findings the rule should produce against the test code. minimum: 0
+   * maximum: 65535
    *
-   * @return AuthenticationToken
+   * @return annotationCount
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY__AUTHENTICATION_TOKEN)
+  @JsonProperty(JSON_PROPERTY_ANNOTATION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAuthenticationToken() {
-    return AuthenticationToken;
+  public Long getAnnotationCount() {
+    return annotationCount;
   }
 
-  public void setAuthenticationToken(String AuthenticationToken) {
-    this.AuthenticationToken = AuthenticationToken;
+  public void setAnnotationCount(Long annotationCount) {
+    this.annotationCount = annotationCount;
   }
 
-  public AnalysisRequest data(AnalysisRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public AnalysisRequestRuleTest code(String code) {
+    this.code = code;
     return this;
   }
 
   /**
-   * The primary data object in the analysis request.
+   * The source code snippet used as input for the rule test.
    *
-   * @return data
+   * @return code
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AnalysisRequestData getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCode() {
+    return code;
   }
 
-  public void setData(AnalysisRequestData data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
-    }
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public AnalysisRequestRuleTest filename(String filename) {
+    this.filename = filename;
+    return this;
+  }
+
+  /**
+   * The filename associated with the test code snippet.
+   *
+   * @return filename
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILENAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFilename() {
+    return filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
   }
 
   /**
@@ -98,10 +111,10 @@ public class AnalysisRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AnalysisRequest
+   * @return AnalysisRequestRuleTest
    */
   @JsonAnySetter
-  public AnalysisRequest putAdditionalProperty(String key, Object value) {
+  public AnalysisRequestRuleTest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +145,7 @@ public class AnalysisRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AnalysisRequest object is equal to o. */
+  /** Return true if this AnalysisRequestRuleTest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,25 +154,25 @@ public class AnalysisRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AnalysisRequest analysisRequest = (AnalysisRequest) o;
-    return Objects.equals(this.AuthenticationToken, analysisRequest.AuthenticationToken)
-        && Objects.equals(this.data, analysisRequest.data)
-        && Objects.equals(this.additionalProperties, analysisRequest.additionalProperties);
+    AnalysisRequestRuleTest analysisRequestRuleTest = (AnalysisRequestRuleTest) o;
+    return Objects.equals(this.annotationCount, analysisRequestRuleTest.annotationCount)
+        && Objects.equals(this.code, analysisRequestRuleTest.code)
+        && Objects.equals(this.filename, analysisRequestRuleTest.filename)
+        && Objects.equals(this.additionalProperties, analysisRequestRuleTest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(AuthenticationToken, data, additionalProperties);
+    return Objects.hash(annotationCount, code, filename, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AnalysisRequest {\n");
-    sb.append("    AuthenticationToken: ")
-        .append(toIndentedString(AuthenticationToken))
-        .append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class AnalysisRequestRuleTest {\n");
+    sb.append("    annotationCount: ").append(toIndentedString(annotationCount)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

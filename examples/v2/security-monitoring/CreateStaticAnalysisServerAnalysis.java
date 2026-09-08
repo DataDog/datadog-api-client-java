@@ -8,6 +8,8 @@ import com.datadog.api.client.v2.model.AnalysisRequestData;
 import com.datadog.api.client.v2.model.AnalysisRequestDataAttributes;
 import com.datadog.api.client.v2.model.AnalysisRequestDataType;
 import com.datadog.api.client.v2.model.AnalysisRequestRule;
+import com.datadog.api.client.v2.model.AnalysisRequestRuleArgument;
+import com.datadog.api.client.v2.model.AnalysisRequestRuleTest;
 import com.datadog.api.client.v2.model.AnalysisResponse;
 import java.util.Collections;
 
@@ -30,14 +32,21 @@ public class Example {
                             .rules(
                                 Collections.singletonList(
                                     new AnalysisRequestRule()
+                                        .arguments(
+                                            Collections.singletonList(
+                                                new AnalysisRequestRuleArgument()))
                                         .category("BEST_PRACTICES")
                                         .checksum("abc123def456")
                                         .code("ZnVuY3Rpb24gdmlzaXQobm9kZSkge30=")
                                         .entityChecked(null)
                                         .id("python-best-practices/no-exit")
                                         .language("python")
+                                        .name("no-exit")
                                         .regex(null)
                                         .severity("WARNING")
+                                        .tests(
+                                            Collections.singletonList(
+                                                new AnalysisRequestRuleTest()))
                                         .treeSitterQuery("KGNhbGwgbmFtZTogKGF0dHJpYnV0ZSkpQHZhbA==")
                                         .type("TREE_SITTER_QUERY"))))
                     .type(AnalysisRequestDataType.ANALYSIS_REQUEST));

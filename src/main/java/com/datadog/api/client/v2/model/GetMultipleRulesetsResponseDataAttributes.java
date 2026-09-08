@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -27,24 +28,31 @@ import java.util.Objects;
 public class GetMultipleRulesetsResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RULESETS = "rulesets";
-  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItems> rulesets = null;
+  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItems> rulesets = new ArrayList<>();
+
+  public GetMultipleRulesetsResponseDataAttributes() {}
+
+  @JsonCreator
+  public GetMultipleRulesetsResponseDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULESETS)
+          List<GetMultipleRulesetsResponseDataAttributesRulesetsItems> rulesets) {
+    this.rulesets = rulesets;
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItems item : rulesets) {
+      this.unparsed |= item.unparsed;
+    }
+  }
 
   public GetMultipleRulesetsResponseDataAttributes rulesets(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItems> rulesets) {
     this.rulesets = rulesets;
-    if (rulesets != null) {
-      for (GetMultipleRulesetsResponseDataAttributesRulesetsItems item : rulesets) {
-        this.unparsed |= item.unparsed;
-      }
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItems item : rulesets) {
+      this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public GetMultipleRulesetsResponseDataAttributes addRulesetsItem(
       GetMultipleRulesetsResponseDataAttributesRulesetsItems rulesetsItem) {
-    if (this.rulesets == null) {
-      this.rulesets = new ArrayList<>();
-    }
     this.rulesets.add(rulesetsItem);
     this.unparsed |= rulesetsItem.unparsed;
     return this;
@@ -55,9 +63,8 @@ public class GetMultipleRulesetsResponseDataAttributes {
    *
    * @return rulesets
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RULESETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GetMultipleRulesetsResponseDataAttributesRulesetsItems> getRulesets() {
     return rulesets;
   }

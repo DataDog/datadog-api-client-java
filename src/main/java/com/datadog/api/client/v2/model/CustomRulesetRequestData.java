@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,7 +17,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for a custom ruleset create or update request. */
+/**
+ * Data object for a custom ruleset create or update request. The resource <code>id</code> is
+ * required and must equal both <code>attributes.name</code> and, on update, the <code>ruleset_name
+ * </code> path parameter; a request that omits it or supplies a different value is rejected with a
+ * 412 response.
+ */
 @JsonPropertyOrder({
   CustomRulesetRequestData.JSON_PROPERTY_ATTRIBUTES,
   CustomRulesetRequestData.JSON_PROPERTY_ID,
@@ -35,6 +41,21 @@ public class CustomRulesetRequestData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private CustomRulesetDataType type;
 
+  public CustomRulesetRequestData() {}
+
+  @JsonCreator
+  public CustomRulesetRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          CustomRulesetRequestDataAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CustomRulesetDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
   public CustomRulesetRequestData attributes(CustomRulesetRequestDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -42,13 +63,13 @@ public class CustomRulesetRequestData {
   }
 
   /**
-   * Attributes for creating or updating a custom ruleset.
+   * Attributes for creating or updating a custom ruleset. <code>name</code> is required and must
+   * equal the resource <code>id</code>; the server rejects a mismatch with a 412 response.
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CustomRulesetRequestDataAttributes getAttributes() {
     return attributes;
   }
@@ -66,13 +87,12 @@ public class CustomRulesetRequestData {
   }
 
   /**
-   * Ruleset identifier
+   * Ruleset identifier, which is the same as the ruleset name.
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -92,9 +112,8 @@ public class CustomRulesetRequestData {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CustomRulesetDataType getType() {
     return type;
   }
