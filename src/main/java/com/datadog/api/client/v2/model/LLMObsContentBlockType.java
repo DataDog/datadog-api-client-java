@@ -27,7 +27,8 @@ public class LLMObsContentBlockType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("markdown", "header", "text", "json", "image", "widget", "llmobs_trace"));
+          Arrays.asList(
+              "markdown", "header", "text", "json", "image", "widget", "llmobs_trace", "frontend"));
 
   public static final LLMObsContentBlockType MARKDOWN = new LLMObsContentBlockType("markdown");
   public static final LLMObsContentBlockType HEADER = new LLMObsContentBlockType("header");
@@ -37,6 +38,7 @@ public class LLMObsContentBlockType extends ModelEnum<String> {
   public static final LLMObsContentBlockType WIDGET = new LLMObsContentBlockType("widget");
   public static final LLMObsContentBlockType LLMOBS_TRACE =
       new LLMObsContentBlockType("llmobs_trace");
+  public static final LLMObsContentBlockType FRONTEND = new LLMObsContentBlockType("frontend");
 
   LLMObsContentBlockType(String value) {
     super(value, allowedValues);

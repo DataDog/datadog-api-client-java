@@ -32,12 +32,15 @@ import java.util.Objects;
  *       owns the renderable schema).
  *   <li><code>llmobs_trace</code>: <code>traceId</code> is required; <code>interactionType</code>,
  *       when set, must be <code>trace</code> or <code>experiment_trace</code>.
+ *   <li><code>frontend</code>: <code>code</code> is required and must be a non-empty string; <code>
+ *       label</code> is optional.
  * </ul>
  *
  * <p><code>height</code>, when set, must be positive.
  */
 @JsonPropertyOrder({
   LLMObsContentBlock.JSON_PROPERTY_ALT,
+  LLMObsContentBlock.JSON_PROPERTY_CODE,
   LLMObsContentBlock.JSON_PROPERTY_CONTENT,
   LLMObsContentBlock.JSON_PROPERTY_HEIGHT,
   LLMObsContentBlock.JSON_PROPERTY_INTERACTION_TYPE,
@@ -55,6 +58,9 @@ public class LLMObsContentBlock {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALT = "alt";
   private String alt;
+
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
   private Object content = null;
@@ -116,6 +122,27 @@ public class LLMObsContentBlock {
     this.alt = alt;
   }
 
+  public LLMObsContentBlock code(String code) {
+    this.code = code;
+    return this;
+  }
+
+  /**
+   * HTML code rendered by a <code>frontend</code> block. Required for <code>frontend</code> blocks.
+   *
+   * @return code
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
   public LLMObsContentBlock content(Object content) {
     this.content = content;
     return this;
@@ -124,7 +151,7 @@ public class LLMObsContentBlock {
   /**
    * Block payload. A string for <code>markdown</code>, <code>header</code>, and <code>text</code>;
    * an arbitrary JSON value (object, array, or scalar) for <code>json</code>. Omitted for <code>
-   * image</code>, <code>widget</code>, and <code>llmobs_trace</code>.
+   * image</code>, <code>widget</code>, <code>llmobs_trace</code>, and <code>frontend</code>.
    *
    * @return content
    */
@@ -193,7 +220,7 @@ public class LLMObsContentBlock {
   }
 
   /**
-   * Optional label rendered alongside the block.
+   * Optional label rendered alongside a <code>frontend</code> block.
    *
    * @return label
    */
@@ -404,6 +431,7 @@ public class LLMObsContentBlock {
     }
     LLMObsContentBlock llmObsContentBlock = (LLMObsContentBlock) o;
     return Objects.equals(this.alt, llmObsContentBlock.alt)
+        && Objects.equals(this.code, llmObsContentBlock.code)
         && Objects.equals(this.content, llmObsContentBlock.content)
         && Objects.equals(this.height, llmObsContentBlock.height)
         && Objects.equals(this.interactionType, llmObsContentBlock.interactionType)
@@ -421,6 +449,7 @@ public class LLMObsContentBlock {
   public int hashCode() {
     return Objects.hash(
         alt,
+        code,
         content,
         height,
         interactionType,
@@ -439,6 +468,7 @@ public class LLMObsContentBlock {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsContentBlock {\n");
     sb.append("    alt: ").append(toIndentedString(alt)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    interactionType: ").append(toIndentedString(interactionType)).append("\n");
