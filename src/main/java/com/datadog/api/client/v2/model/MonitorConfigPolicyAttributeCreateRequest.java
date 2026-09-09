@@ -78,7 +78,8 @@ public class MonitorConfigPolicyAttributeCreateRequest {
   }
 
   /**
-   * The monitor configuration policy type.
+   * The monitor configuration policy type. <code>tag</code> enforces required tags on monitors.
+   * <code>downtime</code> sets a maximum downtime duration for the organization.
    *
    * @return policyType
    */
