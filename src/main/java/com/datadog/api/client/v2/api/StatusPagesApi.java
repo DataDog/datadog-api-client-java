@@ -5358,6 +5358,7 @@ public class StatusPagesApi {
     private Long pageOffset;
     private Long pageLimit;
     private String filterDomainPrefix;
+    private String filterName;
     private String include;
 
     /**
@@ -5391,6 +5392,18 @@ public class StatusPagesApi {
      */
     public ListStatusPagesOptionalParameters filterDomainPrefix(String filterDomainPrefix) {
       this.filterDomainPrefix = filterDomainPrefix;
+      return this;
+    }
+
+    /**
+     * Set filterName.
+     *
+     * @param filterName Filter status pages by name with case-insensitive substring matching.
+     *     (optional)
+     * @return ListStatusPagesOptionalParameters
+     */
+    public ListStatusPagesOptionalParameters filterName(String filterName) {
+      this.filterName = filterName;
       return this;
     }
 
@@ -5485,6 +5498,7 @@ public class StatusPagesApi {
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
     String filterDomainPrefix = parameters.filterDomainPrefix;
+    String filterName = parameters.filterName;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
@@ -5496,6 +5510,7 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
@@ -5532,6 +5547,7 @@ public class StatusPagesApi {
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
     String filterDomainPrefix = parameters.filterDomainPrefix;
+    String filterName = parameters.filterName;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
@@ -5543,6 +5559,7 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
