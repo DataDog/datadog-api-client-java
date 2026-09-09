@@ -38,7 +38,7 @@ public class AggregatedLongTasksResponseAttributes {
   private String applicationId;
 
   public static final String JSON_PROPERTY_CRITERIA = "criteria";
-  private AggregatedWaterfallPerformanceCriteria criteria;
+  private AggregatedLongTasksResponseAttributesCriteria criteria;
 
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
@@ -64,6 +64,8 @@ public class AggregatedLongTasksResponseAttributes {
   @JsonCreator
   public AggregatedLongTasksResponseAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CRITERIA)
+          AggregatedLongTasksResponseAttributesCriteria criteria,
       @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
       @JsonProperty(required = true, value = JSON_PROPERTY_LONG_TASKS_BY_INVOKER_TYPE)
           List<AggregatedLongTasksByInvokerType> longTasksByInvokerType,
@@ -73,6 +75,10 @@ public class AggregatedLongTasksResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_COUNT) Integer viewCount,
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_NAME) String viewName) {
     this.applicationId = applicationId;
+    this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
     this.from = from;
     this.longTasksByInvokerType = longTasksByInvokerType;
     for (AggregatedLongTasksByInvokerType item : longTasksByInvokerType) {
@@ -105,25 +111,28 @@ public class AggregatedLongTasksResponseAttributes {
   }
 
   public AggregatedLongTasksResponseAttributes criteria(
-      AggregatedWaterfallPerformanceCriteria criteria) {
+      AggregatedLongTasksResponseAttributesCriteria criteria) {
     this.criteria = criteria;
-    this.unparsed |= criteria.unparsed;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
     return this;
   }
 
   /**
-   * Performance criteria to filter view instances by a metric threshold.
+   * Performance criteria used to filter view instances by a metric threshold, or null if no
+   * criteria were applied.
    *
    * @return criteria
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CRITERIA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AggregatedWaterfallPerformanceCriteria getCriteria() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AggregatedLongTasksResponseAttributesCriteria getCriteria() {
     return criteria;
   }
 
-  public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
+  public void setCriteria(AggregatedLongTasksResponseAttributesCriteria criteria) {
     this.criteria = criteria;
     if (criteria != null) {
       this.unparsed |= criteria.unparsed;
