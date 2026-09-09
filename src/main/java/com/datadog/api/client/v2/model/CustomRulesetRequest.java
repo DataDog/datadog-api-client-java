@@ -32,7 +32,10 @@ public class CustomRulesetRequest {
   }
 
   /**
-   * Data object for a custom ruleset create or update request.
+   * Data object for a custom ruleset create or update request. The resource <code>id</code> is
+   * required and must equal both <code>attributes.name</code> and, on update, the <code>
+   * ruleset_name</code> path parameter; a request that omits it or supplies a different value is
+   * rejected with a 412 response.
    *
    * @return data
    */

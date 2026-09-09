@@ -17,13 +17,40 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The request payload for retrieving rules for multiple rulesets in a single batch call. */
-@JsonPropertyOrder({GetMultipleRulesetsRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  GetMultipleRulesetsRequest.JSON_PROPERTY__AUTHENTICATION_TOKEN,
+  GetMultipleRulesetsRequest.JSON_PROPERTY_DATA
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetMultipleRulesetsRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY__AUTHENTICATION_TOKEN = "_authentication_token";
+  private String AuthenticationToken;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private GetMultipleRulesetsRequestData data;
+
+  public GetMultipleRulesetsRequest AuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
+    return this;
+  }
+
+  /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   *
+   * @return AuthenticationToken
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY__AUTHENTICATION_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAuthenticationToken() {
+    return AuthenticationToken;
+  }
+
+  public void setAuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
+  }
 
   public GetMultipleRulesetsRequest data(GetMultipleRulesetsRequestData data) {
     this.data = data;
@@ -107,20 +134,24 @@ public class GetMultipleRulesetsRequest {
       return false;
     }
     GetMultipleRulesetsRequest getMultipleRulesetsRequest = (GetMultipleRulesetsRequest) o;
-    return Objects.equals(this.data, getMultipleRulesetsRequest.data)
+    return Objects.equals(this.AuthenticationToken, getMultipleRulesetsRequest.AuthenticationToken)
+        && Objects.equals(this.data, getMultipleRulesetsRequest.data)
         && Objects.equals(
             this.additionalProperties, getMultipleRulesetsRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(AuthenticationToken, data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetMultipleRulesetsRequest {\n");
+    sb.append("    AuthenticationToken: ")
+        .append(toIndentedString(AuthenticationToken))
+        .append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,76 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The resource identifier and type for a ruleset. */
+/** A configurable argument of a forwarded static analysis rule. */
 @JsonPropertyOrder({
-  GetMultipleRulesetsResponseDataAttributesRulesetsItemsData.JSON_PROPERTY_ID,
-  GetMultipleRulesetsResponseDataAttributesRulesetsItemsData.JSON_PROPERTY_TYPE
+  AnalysisRequestRuleArgument.JSON_PROPERTY_DESCRIPTION,
+  AnalysisRequestRuleArgument.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
+public class AnalysisRequestRuleArgument {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType type =
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType.RULESETS;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsData() {}
-
-  @JsonCreator
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsData id(String id) {
-    this.id = id;
+  public AnalysisRequestRuleArgument description(String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * The unique identifier of the ruleset resource.
+   * An explanation of the argument's purpose and accepted values.
    *
-   * @return id
+   * @return description
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public String getDescription() {
+    return description;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsData type(
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public AnalysisRequestRuleArgument name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Rulesets resource type.
+   * The name of the rule argument.
    *
-   * @return type
+   * @return name
    */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType getType() {
-    return type;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
   }
 
-  public void setType(GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -101,11 +85,10 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GetMultipleRulesetsResponseDataAttributesRulesetsItemsData
+   * @return AnalysisRequestRuleArgument
    */
   @JsonAnySetter
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsData putAdditionalProperty(
-      String key, Object value) {
+  public AnalysisRequestRuleArgument putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,10 +119,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GetMultipleRulesetsResponseDataAttributesRulesetsItemsData object is equal
-   * to o.
-   */
+  /** Return true if this AnalysisRequestRuleArgument object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -148,28 +128,24 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsData
-        getMultipleRulesetsResponseDataAttributesRulesetsItemsData =
-            (GetMultipleRulesetsResponseDataAttributesRulesetsItemsData) o;
-    return Objects.equals(this.id, getMultipleRulesetsResponseDataAttributesRulesetsItemsData.id)
+    AnalysisRequestRuleArgument analysisRequestRuleArgument = (AnalysisRequestRuleArgument) o;
+    return Objects.equals(this.description, analysisRequestRuleArgument.description)
+        && Objects.equals(this.name, analysisRequestRuleArgument.name)
         && Objects.equals(
-            this.type, getMultipleRulesetsResponseDataAttributesRulesetsItemsData.type)
-        && Objects.equals(
-            this.additionalProperties,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsData.additionalProperties);
+            this.additionalProperties, analysisRequestRuleArgument.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(description, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class AnalysisRequestRuleArgument {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

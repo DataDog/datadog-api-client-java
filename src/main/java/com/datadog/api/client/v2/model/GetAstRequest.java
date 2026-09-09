@@ -18,11 +18,17 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The request payload for parsing source code into an abstract syntax tree. */
-@JsonPropertyOrder({GetAstRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  GetAstRequest.JSON_PROPERTY__AUTHENTICATION_TOKEN,
+  GetAstRequest.JSON_PROPERTY_DATA
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetAstRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY__AUTHENTICATION_TOKEN = "_authentication_token";
+  private String AuthenticationToken;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private GetAstRequestData data;
 
@@ -33,6 +39,27 @@ public class GetAstRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) GetAstRequestData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
+  }
+
+  public GetAstRequest AuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
+    return this;
+  }
+
+  /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   *
+   * @return AuthenticationToken
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY__AUTHENTICATION_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAuthenticationToken() {
+    return AuthenticationToken;
+  }
+
+  public void setAuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
   }
 
   public GetAstRequest data(GetAstRequestData data) {
@@ -115,19 +142,23 @@ public class GetAstRequest {
       return false;
     }
     GetAstRequest getAstRequest = (GetAstRequest) o;
-    return Objects.equals(this.data, getAstRequest.data)
+    return Objects.equals(this.AuthenticationToken, getAstRequest.AuthenticationToken)
+        && Objects.equals(this.data, getAstRequest.data)
         && Objects.equals(this.additionalProperties, getAstRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(AuthenticationToken, data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAstRequest {\n");
+    sb.append("    AuthenticationToken: ")
+        .append(toIndentedString(AuthenticationToken))
+        .append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

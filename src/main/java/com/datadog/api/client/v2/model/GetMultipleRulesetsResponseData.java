@@ -44,8 +44,14 @@ public class GetMultipleRulesetsResponseData {
 
   @JsonCreator
   public GetMultipleRulesetsResponseData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          GetMultipleRulesetsResponseDataAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           GetMultipleRulesetsResponseDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -63,9 +69,8 @@ public class GetMultipleRulesetsResponseData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public GetMultipleRulesetsResponseDataAttributes getAttributes() {
     return attributes;
   }
@@ -83,13 +88,12 @@ public class GetMultipleRulesetsResponseData {
   }
 
   /**
-   * The unique identifier of the get-multiple-rulesets response resource.
+   * The unique identifier of the get-multiple-rulesets response resource, echoed from the request.
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }

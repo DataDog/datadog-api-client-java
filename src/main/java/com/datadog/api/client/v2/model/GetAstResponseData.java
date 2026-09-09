@@ -42,9 +42,11 @@ public class GetAstResponseData {
   public GetAstResponseData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           GetAstResponseDataAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GetAstResponseDataType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -79,13 +81,12 @@ public class GetAstResponseData {
   }
 
   /**
-   * The identifier of the get-AST response resource.
+   * The identifier of the get-AST response resource, echoed from the request.
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }

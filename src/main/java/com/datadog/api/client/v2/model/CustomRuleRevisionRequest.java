@@ -17,13 +17,40 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Request body for creating a new custom rule revision. */
-@JsonPropertyOrder({CustomRuleRevisionRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  CustomRuleRevisionRequest.JSON_PROPERTY__AUTHENTICATION_TOKEN,
+  CustomRuleRevisionRequest.JSON_PROPERTY_DATA
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CustomRuleRevisionRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY__AUTHENTICATION_TOKEN = "_authentication_token";
+  private String AuthenticationToken;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private CustomRuleRevisionRequestData data;
+
+  public CustomRuleRevisionRequest AuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
+    return this;
+  }
+
+  /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   *
+   * @return AuthenticationToken
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY__AUTHENTICATION_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAuthenticationToken() {
+    return AuthenticationToken;
+  }
+
+  public void setAuthenticationToken(String AuthenticationToken) {
+    this.AuthenticationToken = AuthenticationToken;
+  }
 
   public CustomRuleRevisionRequest data(CustomRuleRevisionRequestData data) {
     this.data = data;
@@ -106,20 +133,24 @@ public class CustomRuleRevisionRequest {
       return false;
     }
     CustomRuleRevisionRequest customRuleRevisionRequest = (CustomRuleRevisionRequest) o;
-    return Objects.equals(this.data, customRuleRevisionRequest.data)
+    return Objects.equals(this.AuthenticationToken, customRuleRevisionRequest.AuthenticationToken)
+        && Objects.equals(this.data, customRuleRevisionRequest.data)
         && Objects.equals(
             this.additionalProperties, customRuleRevisionRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(AuthenticationToken, data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomRuleRevisionRequest {\n");
+    sb.append("    AuthenticationToken: ")
+        .append(toIndentedString(AuthenticationToken))
+        .append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

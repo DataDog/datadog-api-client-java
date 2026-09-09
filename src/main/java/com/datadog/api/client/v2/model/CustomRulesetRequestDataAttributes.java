@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,7 +20,10 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating or updating a custom ruleset. */
+/**
+ * Attributes for creating or updating a custom ruleset. <code>name</code> is required and must
+ * equal the resource <code>id</code>; the server rejects a mismatch with a 412 response.
+ */
 @JsonPropertyOrder({
   CustomRulesetRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   CustomRulesetRequestDataAttributes.JSON_PROPERTY_NAME,
@@ -41,6 +45,14 @@ public class CustomRulesetRequestDataAttributes {
 
   public static final String JSON_PROPERTY_SHORT_DESCRIPTION = "short_description";
   private String shortDescription;
+
+  public CustomRulesetRequestDataAttributes() {}
+
+  @JsonCreator
+  public CustomRulesetRequestDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
+  }
 
   public CustomRulesetRequestDataAttributes description(String description) {
     this.description = description;
@@ -69,13 +81,12 @@ public class CustomRulesetRequestDataAttributes {
   }
 
   /**
-   * Ruleset name
+   * Ruleset name, which must be the same as the resource identifier.
    *
    * @return name
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }

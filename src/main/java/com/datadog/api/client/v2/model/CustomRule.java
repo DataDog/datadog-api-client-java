@@ -6,24 +6,31 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A custom static analysis rule within a ruleset. */
+/**
+ * A custom static analysis rule within a ruleset, as supplied in a create or update request. Nested
+ * rules are sent flat, without a <code>data</code>/<code>type</code>/<code>attributes</code>
+ * envelope. <code>id</code> and <code>name</code> are client-supplied and must match each other.
+ * The remaining members are server-assigned and read-only; they are declared so that a ruleset
+ * previously read back can be supplied unchanged.
+ */
 @JsonPropertyOrder({
   CustomRule.JSON_PROPERTY_CREATED_AT,
   CustomRule.JSON_PROPERTY_CREATED_BY,
+  CustomRule.JSON_PROPERTY_ID,
   CustomRule.JSON_PROPERTY_LAST_REVISION,
-  CustomRule.JSON_PROPERTY_NAME
+  CustomRule.JSON_PROPERTY_NAME,
+  CustomRule.JSON_PROPERTY_REVISIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,31 +42,27 @@ public class CustomRule {
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
   private String createdBy;
 
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
   public static final String JSON_PROPERTY_LAST_REVISION = "last_revision";
-  private CustomRuleRevision lastRevision;
+  private CustomRuleRevisionInput lastRevision;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_REVISIONS = "revisions";
+  private JsonNullable<List<CustomRuleRevisionInput>> revisions =
+      JsonNullable.<List<CustomRuleRevisionInput>>undefined();
 
   public CustomRule() {}
 
   @JsonCreator
   public CustomRule(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LAST_REVISION)
-          CustomRuleRevision lastRevision,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.createdAt = createdAt;
-    this.createdBy = createdBy;
-    this.lastRevision = lastRevision;
-    this.unparsed |= lastRevision.unparsed;
+    this.id = id;
     this.name = name;
-  }
-
-  public CustomRule createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
   }
 
   /**
@@ -67,19 +70,11 @@ public class CustomRule {
    *
    * @return createdAt
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public CustomRule createdBy(String createdBy) {
-    this.createdBy = createdBy;
-    return this;
   }
 
   /**
@@ -87,34 +82,56 @@ public class CustomRule {
    *
    * @return createdBy
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedBy() {
     return createdBy;
   }
 
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
+  public CustomRule id(String id) {
+    this.id = id;
+    return this;
   }
 
-  public CustomRule lastRevision(CustomRuleRevision lastRevision) {
+  /**
+   * Rule identifier, which is the same as the rule name.
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public CustomRule lastRevision(CustomRuleRevisionInput lastRevision) {
     this.lastRevision = lastRevision;
     this.unparsed |= lastRevision.unparsed;
     return this;
   }
 
   /**
-   * A specific revision of a custom static analysis rule.
+   * A revision of a custom static analysis rule as embedded in a rule supplied by a create or
+   * update request. Nested revisions are sent flat, without a <code>data</code>/<code>type</code>/
+   * <code>attributes</code> envelope. <code>id</code>, <code>version_id</code>, <code>checksum
+   * </code>, <code>created_at</code> and <code>created_by</code> are server-assigned and read-only;
+   * they are declared so that a ruleset previously read back can be supplied unchanged.
    *
    * @return lastRevision
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_REVISION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CustomRuleRevision getLastRevision() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CustomRuleRevisionInput getLastRevision() {
     return lastRevision;
   }
 
-  public void setLastRevision(CustomRuleRevision lastRevision) {
+  public void setLastRevision(CustomRuleRevisionInput lastRevision) {
     this.lastRevision = lastRevision;
     if (lastRevision != null) {
       this.unparsed |= lastRevision.unparsed;
@@ -141,50 +158,47 @@ public class CustomRule {
     this.name = name;
   }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
+  public CustomRule revisions(List<CustomRuleRevisionInput> revisions) {
+    this.revisions = JsonNullable.<List<CustomRuleRevisionInput>>of(revisions);
+    return this;
+  }
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return CustomRule
-   */
-  @JsonAnySetter
-  public CustomRule putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+  public CustomRule addRevisionsItem(CustomRuleRevisionInput revisionsItem) {
+    if (this.revisions == null || !this.revisions.isPresent()) {
+      this.revisions = JsonNullable.<List<CustomRuleRevisionInput>>of(new ArrayList<>());
     }
-    this.additionalProperties.put(key, value);
+    try {
+      this.revisions.get().add(revisionsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * Return the additional (undeclared) property.
+   * Revision history of the rule.
    *
-   * @return The additional properties
+   * @return revisions
    */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<CustomRuleRevisionInput> getRevisions() {
+    return revisions.orElse(null);
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
+  @JsonProperty(JSON_PROPERTY_REVISIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<CustomRuleRevisionInput>> getRevisions_JsonNullable() {
+    return revisions;
+  }
+
+  @JsonProperty(JSON_PROPERTY_REVISIONS)
+  public void setRevisions_JsonNullable(JsonNullable<List<CustomRuleRevisionInput>> revisions) {
+    this.revisions = revisions;
+  }
+
+  public void setRevisions(List<CustomRuleRevisionInput> revisions) {
+    this.revisions = JsonNullable.<List<CustomRuleRevisionInput>>of(revisions);
   }
 
   /** Return true if this CustomRule object is equal to o. */
@@ -199,14 +213,15 @@ public class CustomRule {
     CustomRule customRule = (CustomRule) o;
     return Objects.equals(this.createdAt, customRule.createdAt)
         && Objects.equals(this.createdBy, customRule.createdBy)
+        && Objects.equals(this.id, customRule.id)
         && Objects.equals(this.lastRevision, customRule.lastRevision)
         && Objects.equals(this.name, customRule.name)
-        && Objects.equals(this.additionalProperties, customRule.additionalProperties);
+        && Objects.equals(this.revisions, customRule.revisions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, lastRevision, name, additionalProperties);
+    return Objects.hash(createdAt, createdBy, id, lastRevision, name, revisions);
   }
 
   @Override
@@ -215,11 +230,10 @@ public class CustomRule {
     sb.append("class CustomRule {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastRevision: ").append(toIndentedString(lastRevision)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
+    sb.append("    revisions: ").append(toIndentedString(revisions)).append("\n");
     sb.append('}');
     return sb.toString();
   }

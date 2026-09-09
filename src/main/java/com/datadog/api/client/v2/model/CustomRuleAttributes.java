@@ -20,18 +20,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a custom ruleset, including its name, description, and rules. */
+/**
+ * Attributes of a custom static analysis rule, including its most recent revision and revision
+ * history.
+ */
 @JsonPropertyOrder({
-  CustomRulesetAttributes.JSON_PROPERTY_CREATED_AT,
-  CustomRulesetAttributes.JSON_PROPERTY_CREATED_BY,
-  CustomRulesetAttributes.JSON_PROPERTY_DESCRIPTION,
-  CustomRulesetAttributes.JSON_PROPERTY_NAME,
-  CustomRulesetAttributes.JSON_PROPERTY_RULES,
-  CustomRulesetAttributes.JSON_PROPERTY_SHORT_DESCRIPTION
+  CustomRuleAttributes.JSON_PROPERTY_CREATED_AT,
+  CustomRuleAttributes.JSON_PROPERTY_CREATED_BY,
+  CustomRuleAttributes.JSON_PROPERTY_LAST_REVISION,
+  CustomRuleAttributes.JSON_PROPERTY_NAME,
+  CustomRuleAttributes.JSON_PROPERTY_REVISIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CustomRulesetAttributes {
+public class CustomRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -39,44 +41,40 @@ public class CustomRulesetAttributes {
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
   private String createdBy;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  public static final String JSON_PROPERTY_LAST_REVISION = "last_revision";
+  private CustomRuleRevisionEmbedded lastRevision;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_RULES = "rules";
-  private List<CustomRulesetRuleEmbedded> rules = new ArrayList<>();
+  public static final String JSON_PROPERTY_REVISIONS = "revisions";
+  private List<CustomRuleRevisionEmbedded> revisions = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_SHORT_DESCRIPTION = "short_description";
-  private String shortDescription;
-
-  public CustomRulesetAttributes() {}
+  public CustomRuleAttributes() {}
 
   @JsonCreator
-  public CustomRulesetAttributes(
+  public CustomRuleAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAST_REVISION)
+          CustomRuleRevisionEmbedded lastRevision,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
-          List<CustomRulesetRuleEmbedded> rules,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SHORT_DESCRIPTION)
-          String shortDescription) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_REVISIONS)
+          List<CustomRuleRevisionEmbedded> revisions) {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
-    this.description = description;
+    this.lastRevision = lastRevision;
+    this.unparsed |= lastRevision.unparsed;
     this.name = name;
-    this.rules = rules;
-    if (rules != null) {
-      for (CustomRulesetRuleEmbedded item : rules) {
+    this.revisions = revisions;
+    if (revisions != null) {
+      for (CustomRuleRevisionEmbedded item : revisions) {
         this.unparsed |= item.unparsed;
       }
     }
-    this.shortDescription = shortDescription;
   }
 
-  public CustomRulesetAttributes createdAt(OffsetDateTime createdAt) {
+  public CustomRuleAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -96,7 +94,7 @@ public class CustomRulesetAttributes {
     this.createdAt = createdAt;
   }
 
-  public CustomRulesetAttributes createdBy(String createdBy) {
+  public CustomRuleAttributes createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
@@ -116,33 +114,37 @@ public class CustomRulesetAttributes {
     this.createdBy = createdBy;
   }
 
-  public CustomRulesetAttributes description(String description) {
-    this.description = description;
+  public CustomRuleAttributes lastRevision(CustomRuleRevisionEmbedded lastRevision) {
+    this.lastRevision = lastRevision;
+    this.unparsed |= lastRevision.unparsed;
     return this;
   }
 
   /**
-   * Base64-encoded full description
+   * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
    *
-   * @return description
+   * @return lastRevision
    */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_LAST_REVISION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
+  public CustomRuleRevisionEmbedded getLastRevision() {
+    return lastRevision;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setLastRevision(CustomRuleRevisionEmbedded lastRevision) {
+    this.lastRevision = lastRevision;
+    if (lastRevision != null) {
+      this.unparsed |= lastRevision.unparsed;
+    }
   }
 
-  public CustomRulesetAttributes name(String name) {
+  public CustomRuleAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Ruleset name
+   * Rule name
    *
    * @return name
    */
@@ -156,59 +158,39 @@ public class CustomRulesetAttributes {
     this.name = name;
   }
 
-  public CustomRulesetAttributes rules(List<CustomRulesetRuleEmbedded> rules) {
-    this.rules = rules;
-    for (CustomRulesetRuleEmbedded item : rules) {
+  public CustomRuleAttributes revisions(List<CustomRuleRevisionEmbedded> revisions) {
+    this.revisions = revisions;
+    for (CustomRuleRevisionEmbedded item : revisions) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public CustomRulesetAttributes addRulesItem(CustomRulesetRuleEmbedded rulesItem) {
-    this.rules.add(rulesItem);
-    this.unparsed |= rulesItem.unparsed;
+  public CustomRuleAttributes addRevisionsItem(CustomRuleRevisionEmbedded revisionsItem) {
+    this.revisions.add(revisionsItem);
+    this.unparsed |= revisionsItem.unparsed;
     return this;
   }
 
   /**
-   * Rules in the ruleset
+   * Revision history of the rule.
    *
-   * @return rules
+   * @return revisions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULES)
+  @JsonProperty(JSON_PROPERTY_REVISIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CustomRulesetRuleEmbedded> getRules() {
-    return rules;
+  public List<CustomRuleRevisionEmbedded> getRevisions() {
+    return revisions;
   }
 
-  public void setRules(List<CustomRulesetRuleEmbedded> rules) {
-    this.rules = rules;
-    if (rules != null) {
-      for (CustomRulesetRuleEmbedded item : rules) {
+  public void setRevisions(List<CustomRuleRevisionEmbedded> revisions) {
+    this.revisions = revisions;
+    if (revisions != null) {
+      for (CustomRuleRevisionEmbedded item : revisions) {
         this.unparsed |= item.unparsed;
       }
     }
-  }
-
-  public CustomRulesetAttributes shortDescription(String shortDescription) {
-    this.shortDescription = shortDescription;
-    return this;
-  }
-
-  /**
-   * Base64-encoded short description
-   *
-   * @return shortDescription
-   */
-  @JsonProperty(JSON_PROPERTY_SHORT_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getShortDescription() {
-    return shortDescription;
-  }
-
-  public void setShortDescription(String shortDescription) {
-    this.shortDescription = shortDescription;
   }
 
   /**
@@ -223,10 +205,10 @@ public class CustomRulesetAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CustomRulesetAttributes
+   * @return CustomRuleAttributes
    */
   @JsonAnySetter
-  public CustomRulesetAttributes putAdditionalProperty(String key, Object value) {
+  public CustomRuleAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -257,7 +239,7 @@ public class CustomRulesetAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CustomRulesetAttributes object is equal to o. */
+  /** Return true if this CustomRuleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -266,32 +248,29 @@ public class CustomRulesetAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomRulesetAttributes customRulesetAttributes = (CustomRulesetAttributes) o;
-    return Objects.equals(this.createdAt, customRulesetAttributes.createdAt)
-        && Objects.equals(this.createdBy, customRulesetAttributes.createdBy)
-        && Objects.equals(this.description, customRulesetAttributes.description)
-        && Objects.equals(this.name, customRulesetAttributes.name)
-        && Objects.equals(this.rules, customRulesetAttributes.rules)
-        && Objects.equals(this.shortDescription, customRulesetAttributes.shortDescription)
-        && Objects.equals(this.additionalProperties, customRulesetAttributes.additionalProperties);
+    CustomRuleAttributes customRuleAttributes = (CustomRuleAttributes) o;
+    return Objects.equals(this.createdAt, customRuleAttributes.createdAt)
+        && Objects.equals(this.createdBy, customRuleAttributes.createdBy)
+        && Objects.equals(this.lastRevision, customRuleAttributes.lastRevision)
+        && Objects.equals(this.name, customRuleAttributes.name)
+        && Objects.equals(this.revisions, customRuleAttributes.revisions)
+        && Objects.equals(this.additionalProperties, customRuleAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt, createdBy, description, name, rules, shortDescription, additionalProperties);
+    return Objects.hash(createdAt, createdBy, lastRevision, name, revisions, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomRulesetAttributes {\n");
+    sb.append("class CustomRuleAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    lastRevision: ").append(toIndentedString(lastRevision)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
-    sb.append("    shortDescription: ").append(toIndentedString(shortDescription)).append("\n");
+    sb.append("    revisions: ").append(toIndentedString(revisions)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
