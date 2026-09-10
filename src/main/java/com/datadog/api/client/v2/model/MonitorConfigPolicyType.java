@@ -18,13 +18,18 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The monitor configuration policy type. */
+/**
+ * The monitor configuration policy type. <code>tag</code> enforces required tags on monitors.
+ * <code>downtime</code> sets a maximum downtime duration for the organization.
+ */
 @JsonSerialize(using = MonitorConfigPolicyType.MonitorConfigPolicyTypeSerializer.class)
 public class MonitorConfigPolicyType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("tag"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("tag", "downtime"));
 
   public static final MonitorConfigPolicyType TAG = new MonitorConfigPolicyType("tag");
+  public static final MonitorConfigPolicyType DOWNTIME = new MonitorConfigPolicyType("downtime");
 
   MonitorConfigPolicyType(String value) {
     super(value, allowedValues);
