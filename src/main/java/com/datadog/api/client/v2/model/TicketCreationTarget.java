@@ -23,11 +23,12 @@ import java.util.Set;
 public class TicketCreationTarget extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("jira", "case_management"));
+      new HashSet<String>(Arrays.asList("jira", "case_management", "linear"));
 
   public static final TicketCreationTarget JIRA = new TicketCreationTarget("jira");
   public static final TicketCreationTarget CASE_MANAGEMENT =
       new TicketCreationTarget("case_management");
+  public static final TicketCreationTarget LINEAR = new TicketCreationTarget("linear");
 
   TicketCreationTarget(String value) {
     super(value, allowedValues);

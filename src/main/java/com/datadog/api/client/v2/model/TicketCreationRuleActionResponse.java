@@ -112,9 +112,16 @@ public class TicketCreationRuleActionResponse {
   }
 
   /**
-   * Custom fields of the Jira issue to create. For the list of available fields, see <a
+   * Target-specific fields of the ticket to create.
+   *
+   * <p>For <code>target: jira</code>, the custom fields of the Jira issue. For the list of
+   * available fields, see <a
    * href="https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get">Jira
    * documentation</a>.
+   *
+   * <p>For <code>target: linear</code>, the optional keys <code>linear_project_id</code> (string,
+   * the identifier of the Linear project the issue is created in) and <code>linear_label_ids</code>
+   * (array of strings, the identifiers of the Linear labels applied to the issue).
    *
    * @return fields
    */
