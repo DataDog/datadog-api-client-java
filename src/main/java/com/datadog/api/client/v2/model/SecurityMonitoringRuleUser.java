@@ -12,87 +12,65 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A rule version with a list of updates. */
-@JsonPropertyOrder({RuleVersions.JSON_PROPERTY_CHANGES, RuleVersions.JSON_PROPERTY_RULE})
+/** The user who created or last updated the rule. */
+@JsonPropertyOrder({
+  SecurityMonitoringRuleUser.JSON_PROPERTY_HANDLE,
+  SecurityMonitoringRuleUser.JSON_PROPERTY_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RuleVersions {
+public class SecurityMonitoringRuleUser {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CHANGES = "changes";
-  private List<VersionHistoryUpdate> changes = null;
+  public static final String JSON_PROPERTY_HANDLE = "handle";
+  private String handle;
 
-  public static final String JSON_PROPERTY_RULE = "rule";
-  private SecurityMonitoringRuleResponse rule;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public RuleVersions changes(List<VersionHistoryUpdate> changes) {
-    this.changes = changes;
-    if (changes != null) {
-      for (VersionHistoryUpdate item : changes) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    return this;
-  }
-
-  public RuleVersions addChangesItem(VersionHistoryUpdate changesItem) {
-    if (this.changes == null) {
-      this.changes = new ArrayList<>();
-    }
-    this.changes.add(changesItem);
-    this.unparsed |= changesItem.unparsed;
+  public SecurityMonitoringRuleUser handle(String handle) {
+    this.handle = handle;
     return this;
   }
 
   /**
-   * A list of changes.
+   * The user handle. Empty for a default rule with no user.
    *
-   * @return changes
+   * @return handle
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGES)
+  @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<VersionHistoryUpdate> getChanges() {
-    return changes;
+  public String getHandle() {
+    return handle;
   }
 
-  public void setChanges(List<VersionHistoryUpdate> changes) {
-    this.changes = changes;
-    if (changes != null) {
-      for (VersionHistoryUpdate item : changes) {
-        this.unparsed |= item.unparsed;
-      }
-    }
+  public void setHandle(String handle) {
+    this.handle = handle;
   }
 
-  public RuleVersions rule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
-    this.unparsed |= rule.unparsed;
+  public SecurityMonitoringRuleUser name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * A security monitoring rule.
+   * The user name. Empty for a default rule with no user.
    *
-   * @return rule
+   * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleResponse getRule() {
-    return rule;
+  public String getName() {
+    return name;
   }
 
-  public void setRule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
-    if (rule != null) {
-      this.unparsed |= rule.unparsed;
-    }
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -107,10 +85,10 @@ public class RuleVersions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RuleVersions
+   * @return SecurityMonitoringRuleUser
    */
   @JsonAnySetter
-  public RuleVersions putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringRuleUser putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -141,7 +119,7 @@ public class RuleVersions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RuleVersions object is equal to o. */
+  /** Return true if this SecurityMonitoringRuleUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,23 +128,24 @@ public class RuleVersions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RuleVersions ruleVersions = (RuleVersions) o;
-    return Objects.equals(this.changes, ruleVersions.changes)
-        && Objects.equals(this.rule, ruleVersions.rule)
-        && Objects.equals(this.additionalProperties, ruleVersions.additionalProperties);
+    SecurityMonitoringRuleUser securityMonitoringRuleUser = (SecurityMonitoringRuleUser) o;
+    return Objects.equals(this.handle, securityMonitoringRuleUser.handle)
+        && Objects.equals(this.name, securityMonitoringRuleUser.name)
+        && Objects.equals(
+            this.additionalProperties, securityMonitoringRuleUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changes, rule, additionalProperties);
+    return Objects.hash(handle, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RuleVersions {\n");
-    sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
-    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
+    sb.append("class SecurityMonitoringRuleUser {\n");
+    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

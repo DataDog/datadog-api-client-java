@@ -26,6 +26,7 @@ import java.util.Objects;
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_DEFAULT_RULE_ID,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
+  SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_METRICS,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_NAME,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_RULE_ID
@@ -51,6 +52,10 @@ public class SecurityMonitoringSignalRuleResponseQuery {
 
   public static final String JSON_PROPERTY_GROUP_BY_FIELDS = "groupByFields";
   private List<String> groupByFields = null;
+
+  public static final String JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS =
+      "hasOptionalGroupByFields";
+  private Boolean hasOptionalGroupByFields;
 
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private List<String> metrics = null;
@@ -220,6 +225,28 @@ public class SecurityMonitoringSignalRuleResponseQuery {
     this.groupByFields = groupByFields;
   }
 
+  public SecurityMonitoringSignalRuleResponseQuery hasOptionalGroupByFields(
+      Boolean hasOptionalGroupByFields) {
+    this.hasOptionalGroupByFields = hasOptionalGroupByFields;
+    return this;
+  }
+
+  /**
+   * Whether events with missing group-by fields are processed with a replacement value.
+   *
+   * @return hasOptionalGroupByFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasOptionalGroupByFields() {
+    return hasOptionalGroupByFields;
+  }
+
+  public void setHasOptionalGroupByFields(Boolean hasOptionalGroupByFields) {
+    this.hasOptionalGroupByFields = hasOptionalGroupByFields;
+  }
+
   public SecurityMonitoringSignalRuleResponseQuery metrics(List<String> metrics) {
     this.metrics = metrics;
     return this;
@@ -360,6 +387,9 @@ public class SecurityMonitoringSignalRuleResponseQuery {
             this.distinctFields, securityMonitoringSignalRuleResponseQuery.distinctFields)
         && Objects.equals(
             this.groupByFields, securityMonitoringSignalRuleResponseQuery.groupByFields)
+        && Objects.equals(
+            this.hasOptionalGroupByFields,
+            securityMonitoringSignalRuleResponseQuery.hasOptionalGroupByFields)
         && Objects.equals(this.metrics, securityMonitoringSignalRuleResponseQuery.metrics)
         && Objects.equals(this.name, securityMonitoringSignalRuleResponseQuery.name)
         && Objects.equals(this.ruleId, securityMonitoringSignalRuleResponseQuery.ruleId)
@@ -377,6 +407,7 @@ public class SecurityMonitoringSignalRuleResponseQuery {
         defaultRuleId,
         distinctFields,
         groupByFields,
+        hasOptionalGroupByFields,
         metrics,
         name,
         ruleId,
@@ -395,6 +426,9 @@ public class SecurityMonitoringSignalRuleResponseQuery {
     sb.append("    defaultRuleId: ").append(toIndentedString(defaultRuleId)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
+    sb.append("    hasOptionalGroupByFields: ")
+        .append(toIndentedString(hasOptionalGroupByFields))
+        .append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");

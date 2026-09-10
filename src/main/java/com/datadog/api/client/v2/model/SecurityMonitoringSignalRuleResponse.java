@@ -20,31 +20,44 @@ import java.util.Objects;
 
 /** Rule. */
 @JsonPropertyOrder({
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_BLOCKING,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATOR,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CUSTOM_MESSAGE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CUSTOM_NAME,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_DEFAULT_RULE_ID,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_DEFAULT_TAGS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_DEPRECATION_DATE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_FILTERS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_ID,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_IS_BETA,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_IS_DEFAULT,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_IS_DELETED,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_IS_DEPRECATED,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_IS_ENABLED,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_IS_PARTNER,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_MESSAGE,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_METADATA,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_NAME,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_QUERIES,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_TAGS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_TYPE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_UPDATED_AT,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_UPDATER,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalRuleResponse {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BLOCKING = "blocking";
+  private Boolean blocking;
+
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
 
@@ -54,11 +67,20 @@ public class SecurityMonitoringSignalRuleResponse {
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
   private Long creationAuthorId;
 
+  public static final String JSON_PROPERTY_CREATOR = "creator";
+  private SecurityMonitoringRuleUser creator;
+
   public static final String JSON_PROPERTY_CUSTOM_MESSAGE = "customMessage";
   private String customMessage;
 
   public static final String JSON_PROPERTY_CUSTOM_NAME = "customName";
   private String customName;
+
+  public static final String JSON_PROPERTY_DEFAULT_RULE_ID = "defaultRuleId";
+  private String defaultRuleId;
+
+  public static final String JSON_PROPERTY_DEFAULT_TAGS = "defaultTags";
+  private List<String> defaultTags = null;
 
   public static final String JSON_PROPERTY_DEPRECATION_DATE = "deprecationDate";
   private Long deprecationDate;
@@ -72,17 +94,29 @@ public class SecurityMonitoringSignalRuleResponse {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_IS_BETA = "isBeta";
+  private Boolean isBeta;
+
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
+  public static final String JSON_PROPERTY_IS_DEPRECATED = "isDeprecated";
+  private Boolean isDeprecated;
+
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
 
+  public static final String JSON_PROPERTY_IS_PARTNER = "isPartner";
+  private Boolean isPartner;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private SecurityMonitoringRuleMetadata metadata;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -102,8 +136,35 @@ public class SecurityMonitoringSignalRuleResponse {
   public static final String JSON_PROPERTY_UPDATE_AUTHOR_ID = "updateAuthorId";
   private Long updateAuthorId;
 
+  public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
+  private Long updatedAt;
+
+  public static final String JSON_PROPERTY_UPDATER = "updater";
+  private SecurityMonitoringRuleUser updater;
+
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
+
+  public SecurityMonitoringSignalRuleResponse blocking(Boolean blocking) {
+    this.blocking = blocking;
+    return this;
+  }
+
+  /**
+   * Whether the rule blocks attackers.
+   *
+   * @return blocking
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOCKING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getBlocking() {
+    return blocking;
+  }
+
+  public void setBlocking(Boolean blocking) {
+    this.blocking = blocking;
+  }
 
   public SecurityMonitoringSignalRuleResponse cases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
@@ -187,6 +248,31 @@ public class SecurityMonitoringSignalRuleResponse {
     this.creationAuthorId = creationAuthorId;
   }
 
+  public SecurityMonitoringSignalRuleResponse creator(SecurityMonitoringRuleUser creator) {
+    this.creator = creator;
+    this.unparsed |= creator.unparsed;
+    return this;
+  }
+
+  /**
+   * The user who created or last updated the rule.
+   *
+   * @return creator
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleUser getCreator() {
+    return creator;
+  }
+
+  public void setCreator(SecurityMonitoringRuleUser creator) {
+    this.creator = creator;
+    if (creator != null) {
+      this.unparsed |= creator.unparsed;
+    }
+  }
+
   public SecurityMonitoringSignalRuleResponse customMessage(String customMessage) {
     this.customMessage = customMessage;
     return this;
@@ -227,6 +313,56 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setCustomName(String customName) {
     this.customName = customName;
+  }
+
+  public SecurityMonitoringSignalRuleResponse defaultRuleId(String defaultRuleId) {
+    this.defaultRuleId = defaultRuleId;
+    return this;
+  }
+
+  /**
+   * The ID of the corresponding default rule.
+   *
+   * @return defaultRuleId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_RULE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDefaultRuleId() {
+    return defaultRuleId;
+  }
+
+  public void setDefaultRuleId(String defaultRuleId) {
+    this.defaultRuleId = defaultRuleId;
+  }
+
+  public SecurityMonitoringSignalRuleResponse defaultTags(List<String> defaultTags) {
+    this.defaultTags = defaultTags;
+    return this;
+  }
+
+  public SecurityMonitoringSignalRuleResponse addDefaultTagsItem(String defaultTagsItem) {
+    if (this.defaultTags == null) {
+      this.defaultTags = new ArrayList<>();
+    }
+    this.defaultTags.add(defaultTagsItem);
+    return this;
+  }
+
+  /**
+   * Default tags for default rules, included in tags.
+   *
+   * @return defaultTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDefaultTags() {
+    return defaultTags;
+  }
+
+  public void setDefaultTags(List<String> defaultTags) {
+    this.defaultTags = defaultTags;
   }
 
   public SecurityMonitoringSignalRuleResponse deprecationDate(Long deprecationDate) {
@@ -333,6 +469,27 @@ public class SecurityMonitoringSignalRuleResponse {
     this.id = id;
   }
 
+  public SecurityMonitoringSignalRuleResponse isBeta(Boolean isBeta) {
+    this.isBeta = isBeta;
+    return this;
+  }
+
+  /**
+   * Whether the rule is in beta.
+   *
+   * @return isBeta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_BETA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsBeta() {
+    return isBeta;
+  }
+
+  public void setIsBeta(Boolean isBeta) {
+    this.isBeta = isBeta;
+  }
+
   public SecurityMonitoringSignalRuleResponse isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
@@ -375,6 +532,27 @@ public class SecurityMonitoringSignalRuleResponse {
     this.isDeleted = isDeleted;
   }
 
+  public SecurityMonitoringSignalRuleResponse isDeprecated(Boolean isDeprecated) {
+    this.isDeprecated = isDeprecated;
+    return this;
+  }
+
+  /**
+   * Whether the rule is deprecated.
+   *
+   * @return isDeprecated
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_DEPRECATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsDeprecated() {
+    return isDeprecated;
+  }
+
+  public void setIsDeprecated(Boolean isDeprecated) {
+    this.isDeprecated = isDeprecated;
+  }
+
   public SecurityMonitoringSignalRuleResponse isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
@@ -396,6 +574,27 @@ public class SecurityMonitoringSignalRuleResponse {
     this.isEnabled = isEnabled;
   }
 
+  public SecurityMonitoringSignalRuleResponse isPartner(Boolean isPartner) {
+    this.isPartner = isPartner;
+    return this;
+  }
+
+  /**
+   * Whether the rule is provided by a partner.
+   *
+   * @return isPartner
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_PARTNER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsPartner() {
+    return isPartner;
+  }
+
+  public void setIsPartner(Boolean isPartner) {
+    this.isPartner = isPartner;
+  }
+
   public SecurityMonitoringSignalRuleResponse message(String message) {
     this.message = message;
     return this;
@@ -415,6 +614,31 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  public SecurityMonitoringSignalRuleResponse metadata(SecurityMonitoringRuleMetadata metadata) {
+    this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
+    return this;
+  }
+
+  /**
+   * Metadata associated with the rule.
+   *
+   * @return metadata
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(SecurityMonitoringRuleMetadata metadata) {
+    this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalRuleResponse name(String name) {
@@ -580,6 +804,52 @@ public class SecurityMonitoringSignalRuleResponse {
     this.updateAuthorId = updateAuthorId;
   }
 
+  public SecurityMonitoringSignalRuleResponse updatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * The date the rule was last updated, in milliseconds.
+   *
+   * @return updatedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public SecurityMonitoringSignalRuleResponse updater(SecurityMonitoringRuleUser updater) {
+    this.updater = updater;
+    this.unparsed |= updater.unparsed;
+    return this;
+  }
+
+  /**
+   * The user who created or last updated the rule.
+   *
+   * @return updater
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleUser getUpdater() {
+    return updater;
+  }
+
+  public void setUpdater(SecurityMonitoringRuleUser updater) {
+    this.updater = updater;
+    if (updater != null) {
+      this.unparsed |= updater.unparsed;
+    }
+  }
+
   public SecurityMonitoringSignalRuleResponse version(Long version) {
     this.version = version;
     return this;
@@ -658,28 +928,38 @@ public class SecurityMonitoringSignalRuleResponse {
     }
     SecurityMonitoringSignalRuleResponse securityMonitoringSignalRuleResponse =
         (SecurityMonitoringSignalRuleResponse) o;
-    return Objects.equals(this.cases, securityMonitoringSignalRuleResponse.cases)
+    return Objects.equals(this.blocking, securityMonitoringSignalRuleResponse.blocking)
+        && Objects.equals(this.cases, securityMonitoringSignalRuleResponse.cases)
         && Objects.equals(this.createdAt, securityMonitoringSignalRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringSignalRuleResponse.creationAuthorId)
+        && Objects.equals(this.creator, securityMonitoringSignalRuleResponse.creator)
         && Objects.equals(this.customMessage, securityMonitoringSignalRuleResponse.customMessage)
         && Objects.equals(this.customName, securityMonitoringSignalRuleResponse.customName)
+        && Objects.equals(this.defaultRuleId, securityMonitoringSignalRuleResponse.defaultRuleId)
+        && Objects.equals(this.defaultTags, securityMonitoringSignalRuleResponse.defaultTags)
         && Objects.equals(
             this.deprecationDate, securityMonitoringSignalRuleResponse.deprecationDate)
         && Objects.equals(this.filters, securityMonitoringSignalRuleResponse.filters)
         && Objects.equals(
             this.hasExtendedTitle, securityMonitoringSignalRuleResponse.hasExtendedTitle)
         && Objects.equals(this.id, securityMonitoringSignalRuleResponse.id)
+        && Objects.equals(this.isBeta, securityMonitoringSignalRuleResponse.isBeta)
         && Objects.equals(this.isDefault, securityMonitoringSignalRuleResponse.isDefault)
         && Objects.equals(this.isDeleted, securityMonitoringSignalRuleResponse.isDeleted)
+        && Objects.equals(this.isDeprecated, securityMonitoringSignalRuleResponse.isDeprecated)
         && Objects.equals(this.isEnabled, securityMonitoringSignalRuleResponse.isEnabled)
+        && Objects.equals(this.isPartner, securityMonitoringSignalRuleResponse.isPartner)
         && Objects.equals(this.message, securityMonitoringSignalRuleResponse.message)
+        && Objects.equals(this.metadata, securityMonitoringSignalRuleResponse.metadata)
         && Objects.equals(this.name, securityMonitoringSignalRuleResponse.name)
         && Objects.equals(this.options, securityMonitoringSignalRuleResponse.options)
         && Objects.equals(this.queries, securityMonitoringSignalRuleResponse.queries)
         && Objects.equals(this.tags, securityMonitoringSignalRuleResponse.tags)
         && Objects.equals(this.type, securityMonitoringSignalRuleResponse.type)
         && Objects.equals(this.updateAuthorId, securityMonitoringSignalRuleResponse.updateAuthorId)
+        && Objects.equals(this.updatedAt, securityMonitoringSignalRuleResponse.updatedAt)
+        && Objects.equals(this.updater, securityMonitoringSignalRuleResponse.updater)
         && Objects.equals(this.version, securityMonitoringSignalRuleResponse.version)
         && Objects.equals(
             this.additionalProperties, securityMonitoringSignalRuleResponse.additionalProperties);
@@ -688,25 +968,35 @@ public class SecurityMonitoringSignalRuleResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
+        blocking,
         cases,
         createdAt,
         creationAuthorId,
+        creator,
         customMessage,
         customName,
+        defaultRuleId,
+        defaultTags,
         deprecationDate,
         filters,
         hasExtendedTitle,
         id,
+        isBeta,
         isDefault,
         isDeleted,
+        isDeprecated,
         isEnabled,
+        isPartner,
         message,
+        metadata,
         name,
         options,
         queries,
         tags,
         type,
         updateAuthorId,
+        updatedAt,
+        updater,
         version,
         additionalProperties);
   }
@@ -715,25 +1005,35 @@ public class SecurityMonitoringSignalRuleResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringSignalRuleResponse {\n");
+    sb.append("    blocking: ").append(toIndentedString(blocking)).append("\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
     sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
+    sb.append("    defaultRuleId: ").append(toIndentedString(defaultRuleId)).append("\n");
+    sb.append("    defaultTags: ").append(toIndentedString(defaultTags)).append("\n");
     sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isBeta: ").append(toIndentedString(isBeta)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    isDeprecated: ").append(toIndentedString(isDeprecated)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    isPartner: ").append(toIndentedString(isPartner)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    updater: ").append(toIndentedString(updater)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

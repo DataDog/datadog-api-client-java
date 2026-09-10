@@ -20,7 +20,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Options on impossible travel detection method. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS,
-  SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS_DURATION
+  SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS_DURATION,
+  SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_DETECT_IP_TRANSITION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,6 +33,9 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
   public static final String JSON_PROPERTY_BASELINE_USER_LOCATIONS_DURATION =
       "baselineUserLocationsDuration";
   private JsonNullable<Integer> baselineUserLocationsDuration = JsonNullable.<Integer>undefined();
+
+  public static final String JSON_PROPERTY_DETECT_IP_TRANSITION = "detectIpTransition";
+  private Boolean detectIpTransition;
 
   public SecurityMonitoringRuleImpossibleTravelOptions baselineUserLocations(
       Boolean baselineUserLocations) {
@@ -89,6 +93,28 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
 
   public void setBaselineUserLocationsDuration(Integer baselineUserLocationsDuration) {
     this.baselineUserLocationsDuration = JsonNullable.<Integer>of(baselineUserLocationsDuration);
+  }
+
+  public SecurityMonitoringRuleImpossibleTravelOptions detectIpTransition(
+      Boolean detectIpTransition) {
+    this.detectIpTransition = detectIpTransition;
+    return this;
+  }
+
+  /**
+   * Whether to detect transitions between IP addresses.
+   *
+   * @return detectIpTransition
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DETECT_IP_TRANSITION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDetectIpTransition() {
+    return detectIpTransition;
+  }
+
+  public void setDetectIpTransition(Boolean detectIpTransition) {
+    this.detectIpTransition = detectIpTransition;
   }
 
   /**
@@ -156,13 +182,20 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
             this.baselineUserLocationsDuration,
             securityMonitoringRuleImpossibleTravelOptions.baselineUserLocationsDuration)
         && Objects.equals(
+            this.detectIpTransition,
+            securityMonitoringRuleImpossibleTravelOptions.detectIpTransition)
+        && Objects.equals(
             this.additionalProperties,
             securityMonitoringRuleImpossibleTravelOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baselineUserLocations, baselineUserLocationsDuration, additionalProperties);
+    return Objects.hash(
+        baselineUserLocations,
+        baselineUserLocationsDuration,
+        detectIpTransition,
+        additionalProperties);
   }
 
   @Override
@@ -175,6 +208,7 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
     sb.append("    baselineUserLocationsDuration: ")
         .append(toIndentedString(baselineUserLocationsDuration))
         .append("\n");
+    sb.append("    detectIpTransition: ").append(toIndentedString(detectIpTransition)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

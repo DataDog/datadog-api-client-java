@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -28,7 +30,9 @@ import java.util.Objects;
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_RELATED_SIGNALS_FIELDS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_SIGNAL_TITLE_TEMPLATE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
@@ -66,8 +70,14 @@ public class SecurityMonitoringRuleOptions {
   public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
   private SecurityMonitoringRuleNewValueOptions newValueOptions;
 
+  public static final String JSON_PROPERTY_RELATED_SIGNALS_FIELDS = "relatedSignalsFields";
+  private List<String> relatedSignalsFields = null;
+
   public static final String JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS = "sequenceDetectionOptions";
   private SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions;
+
+  public static final String JSON_PROPERTY_SIGNAL_TITLE_TEMPLATE = "signalTitleTemplate";
+  private String signalTitleTemplate;
 
   public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
   private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
@@ -341,6 +351,36 @@ public class SecurityMonitoringRuleOptions {
     }
   }
 
+  public SecurityMonitoringRuleOptions relatedSignalsFields(List<String> relatedSignalsFields) {
+    this.relatedSignalsFields = relatedSignalsFields;
+    return this;
+  }
+
+  public SecurityMonitoringRuleOptions addRelatedSignalsFieldsItem(
+      String relatedSignalsFieldsItem) {
+    if (this.relatedSignalsFields == null) {
+      this.relatedSignalsFields = new ArrayList<>();
+    }
+    this.relatedSignalsFields.add(relatedSignalsFieldsItem);
+    return this;
+  }
+
+  /**
+   * Fields used to identify related signals.
+   *
+   * @return relatedSignalsFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATED_SIGNALS_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getRelatedSignalsFields() {
+    return relatedSignalsFields;
+  }
+
+  public void setRelatedSignalsFields(List<String> relatedSignalsFields) {
+    this.relatedSignalsFields = relatedSignalsFields;
+  }
+
   public SecurityMonitoringRuleOptions sequenceDetectionOptions(
       SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
     this.sequenceDetectionOptions = sequenceDetectionOptions;
@@ -366,6 +406,27 @@ public class SecurityMonitoringRuleOptions {
     if (sequenceDetectionOptions != null) {
       this.unparsed |= sequenceDetectionOptions.unparsed;
     }
+  }
+
+  public SecurityMonitoringRuleOptions signalTitleTemplate(String signalTitleTemplate) {
+    this.signalTitleTemplate = signalTitleTemplate;
+    return this;
+  }
+
+  /**
+   * A template for the signal title.
+   *
+   * @return signalTitleTemplate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNAL_TITLE_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSignalTitleTemplate() {
+    return signalTitleTemplate;
+  }
+
+  public void setSignalTitleTemplate(String signalTitleTemplate) {
+    this.signalTitleTemplate = signalTitleTemplate;
   }
 
   public SecurityMonitoringRuleOptions thirdPartyRuleOptions(
@@ -468,7 +529,11 @@ public class SecurityMonitoringRuleOptions {
         && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
         && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions)
         && Objects.equals(
+            this.relatedSignalsFields, securityMonitoringRuleOptions.relatedSignalsFields)
+        && Objects.equals(
             this.sequenceDetectionOptions, securityMonitoringRuleOptions.sequenceDetectionOptions)
+        && Objects.equals(
+            this.signalTitleTemplate, securityMonitoringRuleOptions.signalTitleTemplate)
         && Objects.equals(
             this.thirdPartyRuleOptions, securityMonitoringRuleOptions.thirdPartyRuleOptions)
         && Objects.equals(
@@ -488,7 +553,9 @@ public class SecurityMonitoringRuleOptions {
         keepAlive,
         maxSignalDuration,
         newValueOptions,
+        relatedSignalsFields,
         sequenceDetectionOptions,
+        signalTitleTemplate,
         thirdPartyRuleOptions,
         additionalProperties);
   }
@@ -517,8 +584,14 @@ public class SecurityMonitoringRuleOptions {
     sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
     sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
     sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
+    sb.append("    relatedSignalsFields: ")
+        .append(toIndentedString(relatedSignalsFields))
+        .append("\n");
     sb.append("    sequenceDetectionOptions: ")
         .append(toIndentedString(sequenceDetectionOptions))
+        .append("\n");
+    sb.append("    signalTitleTemplate: ")
+        .append(toIndentedString(signalTitleTemplate))
         .append("\n");
     sb.append("    thirdPartyRuleOptions: ")
         .append(toIndentedString(thirdPartyRuleOptions))
