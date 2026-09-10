@@ -58,8 +58,8 @@ public class RumCrossProductSampling {
   }
 
   /**
-   * The sample rate for the APM cross-product retention filter, between 0 and 100. minimum: 0
-   * maximum: 100
+   * The sample rate for the APM cross-product retention filter, between 0 and 100. Values returned
+   * by the API are rounded to two decimal places. minimum: 0 maximum: 100
    *
    * @return traceSampleRate
    */

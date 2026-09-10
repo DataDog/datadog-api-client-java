@@ -168,7 +168,8 @@ public class RumRetentionFilterUpdateAttributes {
   }
 
   /**
-   * The sample rate for a RUM retention filter, between 0.1 and 100. minimum: 0.1 maximum: 100
+   * The sample rate for a RUM retention filter, between 0.1 and 100. Values are truncated to one
+   * decimal place. minimum: 0.1 maximum: 100
    *
    * @return sampleRate
    */
