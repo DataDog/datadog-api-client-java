@@ -3,6 +3,7 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreateOnCallNotificationRuleRequest;
 import com.datadog.api.client.v2.model.CreateUserNotificationChannelRequest;
@@ -15,8 +16,10 @@ import com.datadog.api.client.v2.model.NotificationChannel;
 import com.datadog.api.client.v2.model.OnCallNotificationRule;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
+import com.datadog.api.client.v2.model.ScheduleListItem;
 import com.datadog.api.client.v2.model.ScheduleOnCallResponders;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
+import com.datadog.api.client.v2.model.Schedules;
 import com.datadog.api.client.v2.model.Shift;
 import com.datadog.api.client.v2.model.TeamOnCallResponders;
 import com.datadog.api.client.v2.model.TeamRoutingRules;
@@ -26,6 +29,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -3066,6 +3070,285 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OnCallNotificationRule>() {});
+  }
+
+  /** Manage optional parameters to listOnCallSchedules. */
+  public static class ListOnCallSchedulesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String filterQuery;
+    private String include;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
+     * @return ListOnCallSchedulesOptionalParameters
+     */
+    public ListOnCallSchedulesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListOnCallSchedulesOptionalParameters
+     */
+    public ListOnCallSchedulesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery Search query to filter schedules. Supports free-text search on schedule
+     *     name (case-insensitive, <code>*</code> wildcards), and structured filters such as <code>
+     *     team.id:&lt;uuid&gt;</code> and <code>user.id:&lt;uuid&gt;</code> (multiple values can be
+     *     combined with <code>OR</code>, e.g. <code>user.id:(&lt;uuid&gt; OR &lt;uuid&gt;)</code>).
+     *     (optional)
+     * @return ListOnCallSchedulesOptionalParameters
+     */
+    public ListOnCallSchedulesOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed value:
+     *     <code>teams</code>. (optional)
+     * @return ListOnCallSchedulesOptionalParameters
+     */
+    public ListOnCallSchedulesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * List On-Call schedules.
+   *
+   * <p>See {@link #listOnCallSchedulesWithHttpInfo}.
+   *
+   * @return Schedules
+   * @throws ApiException if fails to make API call
+   */
+  public Schedules listOnCallSchedules() throws ApiException {
+    return listOnCallSchedulesWithHttpInfo(new ListOnCallSchedulesOptionalParameters()).getData();
+  }
+
+  /**
+   * List On-Call schedules.
+   *
+   * <p>See {@link #listOnCallSchedulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;Schedules&gt;
+   */
+  public CompletableFuture<Schedules> listOnCallSchedulesAsync() {
+    return listOnCallSchedulesWithHttpInfoAsync(new ListOnCallSchedulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call schedules.
+   *
+   * <p>See {@link #listOnCallSchedulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return Schedules
+   * @throws ApiException if fails to make API call
+   */
+  public Schedules listOnCallSchedules(ListOnCallSchedulesOptionalParameters parameters)
+      throws ApiException {
+    return listOnCallSchedulesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List On-Call schedules.
+   *
+   * <p>See {@link #listOnCallSchedulesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Schedules&gt;
+   */
+  public CompletableFuture<Schedules> listOnCallSchedulesAsync(
+      ListOnCallSchedulesOptionalParameters parameters) {
+    return listOnCallSchedulesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call schedules.
+   *
+   * <p>See {@link #listOnCallSchedulesWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;ScheduleListItem&gt;
+   */
+  public PaginationIterable<ScheduleListItem> listOnCallSchedulesWithPagination() {
+    ListOnCallSchedulesOptionalParameters parameters = new ListOnCallSchedulesOptionalParameters();
+    return listOnCallSchedulesWithPagination(parameters);
+  }
+
+  /**
+   * List On-Call schedules.
+   *
+   * <p>See {@link #listOnCallSchedulesWithHttpInfo}.
+   *
+   * @return Schedules
+   */
+  public PaginationIterable<ScheduleListItem> listOnCallSchedulesWithPagination(
+      ListOnCallSchedulesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listOnCallSchedules",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Retrieve a list of On-Call schedules.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Schedules&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Schedules> listOnCallSchedulesWithHttpInfo(
+      ListOnCallSchedulesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/schedules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.listOnCallSchedules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Schedules>() {});
+  }
+
+  /**
+   * List On-Call schedules.
+   *
+   * <p>See {@link #listOnCallSchedulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Schedules&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Schedules>> listOnCallSchedulesWithHttpInfoAsync(
+      ListOnCallSchedulesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/schedules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.listOnCallSchedules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Schedules>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Schedules>() {});
   }
 
   /**
