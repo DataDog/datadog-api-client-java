@@ -1,5 +1,4 @@
 // Get a list of security signals returns "OK" response
-
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
@@ -20,14 +19,10 @@ public class Example {
         new SecurityMonitoringSignalListRequest()
             .filter(
                 new SecurityMonitoringSignalListRequestFilter()
-                    .from(OffsetDateTime.parse("2019-01-02T09:42:36.320Z"))
+                    .from(OffsetDateTime.now().plusMinutes(-15))
                     .query("security:attack status:high")
-                    .to(OffsetDateTime.parse("2019-01-03T09:42:36.320Z")))
-            .page(
-                new SecurityMonitoringSignalListRequestPage()
-                    .cursor(
-                        "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==")
-                    .limit(25))
+                    .to(OffsetDateTime.now()))
+            .page(new SecurityMonitoringSignalListRequestPage().limit(25))
             .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING);
 
     try {

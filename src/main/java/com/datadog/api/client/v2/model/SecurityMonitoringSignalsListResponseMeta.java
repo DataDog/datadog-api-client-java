@@ -17,13 +17,48 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Meta attributes. */
-@JsonPropertyOrder({SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_PAGE})
+@JsonPropertyOrder({
+  SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_ELAPSED,
+  SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_PAGE,
+  SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_REQUEST_ID,
+  SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_STATUS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalsListResponseMeta {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ELAPSED = "elapsed";
+  private Long elapsed;
+
   public static final String JSON_PROPERTY_PAGE = "page";
   private SecurityMonitoringSignalsListResponseMetaPage page;
+
+  public static final String JSON_PROPERTY_REQUEST_ID = "request_id";
+  private String requestId;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private String status;
+
+  public SecurityMonitoringSignalsListResponseMeta elapsed(Long elapsed) {
+    this.elapsed = elapsed;
+    return this;
+  }
+
+  /**
+   * The time elapsed in milliseconds.
+   *
+   * @return elapsed
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ELAPSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getElapsed() {
+    return elapsed;
+  }
+
+  public void setElapsed(Long elapsed) {
+    this.elapsed = elapsed;
+  }
 
   public SecurityMonitoringSignalsListResponseMeta page(
       SecurityMonitoringSignalsListResponseMetaPage page) {
@@ -49,6 +84,48 @@ public class SecurityMonitoringSignalsListResponseMeta {
     if (page != null) {
       this.unparsed |= page.unparsed;
     }
+  }
+
+  public SecurityMonitoringSignalsListResponseMeta requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+  /**
+   * The unique identifier of the request.
+   *
+   * @return requestId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
+  public SecurityMonitoringSignalsListResponseMeta status(String status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * The status of the response.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   /**
@@ -108,7 +185,10 @@ public class SecurityMonitoringSignalsListResponseMeta {
     }
     SecurityMonitoringSignalsListResponseMeta securityMonitoringSignalsListResponseMeta =
         (SecurityMonitoringSignalsListResponseMeta) o;
-    return Objects.equals(this.page, securityMonitoringSignalsListResponseMeta.page)
+    return Objects.equals(this.elapsed, securityMonitoringSignalsListResponseMeta.elapsed)
+        && Objects.equals(this.page, securityMonitoringSignalsListResponseMeta.page)
+        && Objects.equals(this.requestId, securityMonitoringSignalsListResponseMeta.requestId)
+        && Objects.equals(this.status, securityMonitoringSignalsListResponseMeta.status)
         && Objects.equals(
             this.additionalProperties,
             securityMonitoringSignalsListResponseMeta.additionalProperties);
@@ -116,14 +196,17 @@ public class SecurityMonitoringSignalsListResponseMeta {
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, additionalProperties);
+    return Objects.hash(elapsed, page, requestId, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringSignalsListResponseMeta {\n");
+    sb.append("    elapsed: ").append(toIndentedString(elapsed)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
