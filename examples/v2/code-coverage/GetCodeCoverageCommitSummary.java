@@ -12,7 +12,6 @@ import com.datadog.api.client.v2.model.CoverageSummaryResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getCodeCoverageCommitSummary", true);
     CodeCoverageApi apiInstance = new CodeCoverageApi(defaultClient);
 
     CommitCoverageSummaryRequest body =
