@@ -1,4 +1,4 @@
-// Delete a ticket creation rule returns "Rule successfully deleted." response
+// Delete a ticket creation rule returns "Successfully deleted the ticket creation rule" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -12,18 +12,9 @@ public class Example {
         "v2.deleteSecurityFindingsAutomationTicketCreationRule", true);
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    // there is a valid "valid_ticket_creation_rule" in the system
-    UUID VALID_TICKET_CREATION_RULE_DATA_ID = null;
-    try {
-      VALID_TICKET_CREATION_RULE_DATA_ID =
-          UUID.fromString(System.getenv("VALID_TICKET_CREATION_RULE_DATA_ID"));
-    } catch (IllegalArgumentException e) {
-      System.err.println("Error parsing UUID: " + e.getMessage());
-    }
-
     try {
       apiInstance.deleteSecurityFindingsAutomationTicketCreationRule(
-          VALID_TICKET_CREATION_RULE_DATA_ID);
+          UUID.fromString("00000000-0000-0000-0000-000000000000"));
     } catch (ApiException e) {
       System.err.println(
           "Exception when calling"

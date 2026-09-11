@@ -55,7 +55,7 @@ public class SeverityModifierRuleReorderResponse {
   }
 
   /**
-   * The ordered list of severity modifier rules; every rule must be included.
+   * The ordered list of all severity modifier rules. Every rule must be included.
    *
    * @return data
    */

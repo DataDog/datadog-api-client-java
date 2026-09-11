@@ -958,6 +958,7 @@ public class ApiClient {
           put("v2.createIoCTriageState", false);
           put("v2.createSampleLogGenerationSubscription", false);
           put("v2.createSecurityFindingsAutomationDueDateRule", false);
+          put("v2.createSecurityFindingsAutomationInboxRule", false);
           put("v2.createSecurityFindingsAutomationMuteRule", false);
           put("v2.createSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.createSecurityFindingsAutomationTicketCreationRule", false);
@@ -970,11 +971,14 @@ public class ApiClient {
           put("v2.deleteHistoricalJob", false);
           put("v2.deleteSampleLogGenerationSubscription", false);
           put("v2.deleteSecurityFindingsAutomationDueDateRule", false);
+          put("v2.deleteSecurityFindingsAutomationInboxRule", false);
           put("v2.deleteSecurityFindingsAutomationMuteRule", false);
           put("v2.deleteSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.deleteSecurityFindingsAutomationTicketCreationRule", false);
           put("v2.deleteSecurityMonitoringDataset", false);
           put("v2.deleteSecurityMonitoringIntegrationConfig", false);
+          put("v2.disableSecurityFindingsAutomationDefaultInboxRule", false);
+          put("v2.enableSecurityFindingsAutomationDefaultInboxRule", false);
           put("v2.exportSecurityMonitoringTerraformResource", false);
           put("v2.getContentPacksStates", false);
           put("v2.getEntityContext", false);
@@ -984,7 +988,9 @@ public class ApiClient {
           put("v2.getIndicatorOfCompromise", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
+          put("v2.getSecurityFindingsAutomationDefaultInboxRule", false);
           put("v2.getSecurityFindingsAutomationDueDateRule", false);
+          put("v2.getSecurityFindingsAutomationInboxRule", false);
           put("v2.getSecurityFindingsAutomationMuteRule", false);
           put("v2.getSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.getSecurityFindingsAutomationTicketCreationRule", false);
@@ -1007,7 +1013,9 @@ public class ApiClient {
           put("v2.listMultipleRulesets", false);
           put("v2.listSampleLogGenerationSubscriptions", false);
           put("v2.listScannedAssetsMetadata", false);
+          put("v2.listSecurityFindingsAutomationDefaultInboxRules", false);
           put("v2.listSecurityFindingsAutomationDueDateRules", false);
+          put("v2.listSecurityFindingsAutomationInboxRules", false);
           put("v2.listSecurityFindingsAutomationMuteRules", false);
           put("v2.listSecurityFindingsAutomationSeverityModifierRules", false);
           put("v2.listSecurityFindingsAutomationTicketCreationRules", false);
@@ -1018,6 +1026,7 @@ public class ApiClient {
           put("v2.listVulnerabilities", false);
           put("v2.listVulnerableAssets", false);
           put("v2.reorderSecurityFindingsAutomationDueDateRules", false);
+          put("v2.reorderSecurityFindingsAutomationInboxRules", false);
           put("v2.reorderSecurityFindingsAutomationMuteRules", false);
           put("v2.reorderSecurityFindingsAutomationSeverityModifierRules", false);
           put("v2.reorderSecurityFindingsAutomationTicketCreationRules", false);
@@ -1026,6 +1035,7 @@ public class ApiClient {
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.updateFindingsAssignee", false);
           put("v2.updateSecurityFindingsAutomationDueDateRule", false);
+          put("v2.updateSecurityFindingsAutomationInboxRule", false);
           put("v2.updateSecurityFindingsAutomationMuteRule", false);
           put("v2.updateSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.updateSecurityFindingsAutomationTicketCreationRule", false);

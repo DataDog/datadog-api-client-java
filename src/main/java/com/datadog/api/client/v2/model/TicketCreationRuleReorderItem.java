@@ -50,7 +50,7 @@ public class TicketCreationRuleReorderItem {
   }
 
   /**
-   * The ID of the automation rule.
+   * The ID of the ticket creation rule.
    *
    * @return id
    */

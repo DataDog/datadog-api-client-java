@@ -1,4 +1,4 @@
-// Delete a due date rule returns "Rule successfully deleted." response
+// Delete a due date rule returns "Successfully deleted the due date rule" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -12,16 +12,9 @@ public class Example {
         "v2.deleteSecurityFindingsAutomationDueDateRule", true);
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    // there is a valid "valid_due_date_rule" in the system
-    UUID VALID_DUE_DATE_RULE_DATA_ID = null;
     try {
-      VALID_DUE_DATE_RULE_DATA_ID = UUID.fromString(System.getenv("VALID_DUE_DATE_RULE_DATA_ID"));
-    } catch (IllegalArgumentException e) {
-      System.err.println("Error parsing UUID: " + e.getMessage());
-    }
-
-    try {
-      apiInstance.deleteSecurityFindingsAutomationDueDateRule(VALID_DUE_DATE_RULE_DATA_ID);
+      apiInstance.deleteSecurityFindingsAutomationDueDateRule(
+          UUID.fromString("00000000-0000-0000-0000-000000000000"));
     } catch (ApiException e) {
       System.err.println(
           "Exception when calling"
