@@ -1231,6 +1231,11 @@ public class ApiClient {
           put("v2.getElasticCloudIntegrationAccount", false);
           put("v2.listElasticCloudIntegrationAccounts", false);
           put("v2.updateElasticCloudIntegrationAccount", false);
+          put("v2.createSnowflakeIntegrationAccount", false);
+          put("v2.deleteSnowflakeIntegrationAccount", false);
+          put("v2.getSnowflakeIntegrationAccount", false);
+          put("v2.listSnowflakeIntegrationAccounts", false);
+          put("v2.updateSnowflakeIntegrationAccount", false);
           put("v2.createTwilioIntegrationAccount", false);
           put("v2.deleteTwilioIntegrationAccount", false);
           put("v2.getTwilioIntegrationAccount", false);
