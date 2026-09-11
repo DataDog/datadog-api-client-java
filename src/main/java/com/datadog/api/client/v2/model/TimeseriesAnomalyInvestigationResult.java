@@ -70,7 +70,8 @@ public class TimeseriesAnomalyInvestigationResult {
   }
 
   /**
-   * Detected anomalies. This API version returns at most one anomaly.
+   * Detected anomalies, ordered by significance. This API version returns at most three anomalies
+   * across the submitted request.
    *
    * @return anomalies
    */

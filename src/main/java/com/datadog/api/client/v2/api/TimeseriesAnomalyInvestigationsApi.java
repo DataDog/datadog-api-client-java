@@ -78,9 +78,9 @@ public class TimeseriesAnomalyInvestigationsApi {
   }
 
   /**
-   * Investigates a metrics timeseries request for its most significant anomaly and returns
+   * Investigates a metrics timeseries request for its most significant anomalies and returns
    * deterministic findings. Metrics queries with or without grouping are supported. This API
-   * version accepts exactly one request and returns at most one anomaly.
+   * version accepts exactly one request and returns at most three anomalies.
    *
    * @param body Metrics timeseries request to investigate. The request body must not exceed 2 MiB.
    *     (required)

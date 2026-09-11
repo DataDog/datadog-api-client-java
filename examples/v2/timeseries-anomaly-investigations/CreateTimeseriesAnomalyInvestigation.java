@@ -33,7 +33,7 @@ public class Example {
                                         .formulas(
                                             Collections.singletonList(
                                                 new TimeseriesAnomalyInvestigationFormula()
-                                                    .formula("anomalies(query1, 'agile', 3)")))
+                                                    .formula("query1")))
                                         .from(1754406000000L)
                                         .queries(
                                             Collections.singletonList(
