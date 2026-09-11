@@ -24,6 +24,8 @@ import com.datadog.api.client.v2.model.CreateLinearIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
 import com.datadog.api.client.v2.model.CreateServiceNowTicketRequestArray;
 import com.datadog.api.client.v2.model.CycloneDXBom;
+import com.datadog.api.client.v2.model.DefaultInboxRuleResponse;
+import com.datadog.api.client.v2.model.DefaultInboxRulesResponse;
 import com.datadog.api.client.v2.model.DefaultRulesetsPerLanguageResponse;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
@@ -51,6 +53,12 @@ import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.GetSuppressionVersionHistoryResponse;
 import com.datadog.api.client.v2.model.HistoricalJobResponse;
+import com.datadog.api.client.v2.model.InboxRuleCreateRequest;
+import com.datadog.api.client.v2.model.InboxRuleReorderRequest;
+import com.datadog.api.client.v2.model.InboxRuleReorderResponse;
+import com.datadog.api.client.v2.model.InboxRuleResponse;
+import com.datadog.api.client.v2.model.InboxRuleUpdateRequest;
+import com.datadog.api.client.v2.model.InboxRulesResponse;
 import com.datadog.api.client.v2.model.IoCExplorerListResponse;
 import com.datadog.api.client.v2.model.IoCTriageState;
 import com.datadog.api.client.v2.model.IoCTriageWriteRequest;
@@ -4399,7 +4407,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new due date rule for the current organization.
+   * Create a due date rule for the current organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;DueDateRuleResponse&gt;
@@ -4523,6 +4531,161 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create an inbox rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return InboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleResponse createSecurityFindingsAutomationInboxRule(InboxRuleCreateRequest body)
+      throws ApiException {
+    return createSecurityFindingsAutomationInboxRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an inbox rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationInboxRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;InboxRuleResponse&gt;
+   */
+  public CompletableFuture<InboxRuleResponse> createSecurityFindingsAutomationInboxRuleAsync(
+      InboxRuleCreateRequest body) {
+    return createSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an inbox rule for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;InboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleResponse> createSecurityFindingsAutomationInboxRuleWithHttpInfo(
+      InboxRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityFindingsAutomationInboxRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityFindingsAutomationInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Create an inbox rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleResponse>>
+      createSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(InboxRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityFindingsAutomationInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityFindingsAutomationInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
    * Create a mute rule.
    *
    * <p>See {@link #createSecurityFindingsAutomationMuteRuleWithHttpInfo}.
@@ -4554,7 +4717,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new mute rule for the current organization.
+   * Create a mute rule for the current organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;MuteRuleResponse&gt;
@@ -4710,7 +4873,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new severity modifier rule for the current organization.
+   * Create a severity modifier rule for the current organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;SeverityModifierRuleResponse&gt;
@@ -4871,7 +5034,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new ticket creation rule for the current organization.
+   * Create a ticket creation rule for the current organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;TicketCreationRuleResponse&gt;
@@ -7451,7 +7614,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing due date rule by ID.
+   * Delete a due date rule by ID.
    *
    * @param ruleId The ID of the due date rule. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -7460,7 +7623,7 @@ public class SecurityMonitoringApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> Successfully deleted the due date rule </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -7578,6 +7741,161 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Delete an inbox rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityFindingsAutomationInboxRule(UUID ruleId) throws ApiException {
+    deleteSecurityFindingsAutomationInboxRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete an inbox rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationInboxRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityFindingsAutomationInboxRuleAsync(UUID ruleId) {
+    return deleteSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an inbox rule by ID.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Successfully deleted the inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityFindingsAutomationInboxRuleWithHttpInfo(UUID ruleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " deleteSecurityFindingsAutomationInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an inbox rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " deleteSecurityFindingsAutomationInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete a mute rule.
    *
    * <p>See {@link #deleteSecurityFindingsAutomationMuteRuleWithHttpInfo}.
@@ -7606,7 +7924,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing mute rule by ID.
+   * Delete a mute rule by ID.
    *
    * @param ruleId The ID of the mute rule. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -7615,7 +7933,7 @@ public class SecurityMonitoringApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> Successfully deleted the mute rule </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -7763,7 +8081,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing severity modifier rule by ID.
+   * Delete a severity modifier rule by ID.
    *
    * @param ruleId The ID of the severity modifier rule. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -7772,7 +8090,7 @@ public class SecurityMonitoringApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> Rule successfully deleted </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> Successfully deleted the severity modifier rule </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
@@ -7920,7 +8238,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing ticket creation rule by ID.
+   * Delete a ticket creation rule by ID.
    *
    * @param ruleId The ID of the ticket creation rule. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -7929,7 +8247,7 @@ public class SecurityMonitoringApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> Successfully deleted the ticket creation rule </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -9184,6 +9502,189 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Disable a default inbox rule.
+   *
+   * <p>See {@link #disableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return DefaultInboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultInboxRuleResponse disableSecurityFindingsAutomationDefaultInboxRule(String ruleId)
+      throws ApiException {
+    return disableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Disable a default inbox rule.
+   *
+   * <p>See {@link #disableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return CompletableFuture&lt;DefaultInboxRuleResponse&gt;
+   */
+  public CompletableFuture<DefaultInboxRuleResponse>
+      disableSecurityFindingsAutomationDefaultInboxRuleAsync(String ruleId) {
+    return disableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Disable a default inbox rule for the current organization.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return ApiResponse&lt;DefaultInboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully disabled the default inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DefaultInboxRuleResponse>
+      disableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo(String ruleId)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "disableSecurityFindingsAutomationDefaultInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " disableSecurityFindingsAutomationDefaultInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/disable"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.disableSecurityFindingsAutomationDefaultInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRuleResponse>() {});
+  }
+
+  /**
+   * Disable a default inbox rule.
+   *
+   * <p>See {@link #disableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DefaultInboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DefaultInboxRuleResponse>>
+      disableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync(String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "disableSecurityFindingsAutomationDefaultInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " disableSecurityFindingsAutomationDefaultInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/disable"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.disableSecurityFindingsAutomationDefaultInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRuleResponse>() {});
+  }
+
+  /**
    * Update security signal triage state or assignee.
    *
    * <p>See {@link #editSecurityMonitoringSignalWithHttpInfo}.
@@ -9865,6 +10366,189 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalTriageUpdateResponse>() {});
+  }
+
+  /**
+   * Enable a default inbox rule.
+   *
+   * <p>See {@link #enableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return DefaultInboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultInboxRuleResponse enableSecurityFindingsAutomationDefaultInboxRule(String ruleId)
+      throws ApiException {
+    return enableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Enable a default inbox rule.
+   *
+   * <p>See {@link #enableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return CompletableFuture&lt;DefaultInboxRuleResponse&gt;
+   */
+  public CompletableFuture<DefaultInboxRuleResponse>
+      enableSecurityFindingsAutomationDefaultInboxRuleAsync(String ruleId) {
+    return enableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Enable a default inbox rule for the current organization.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return ApiResponse&lt;DefaultInboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully enabled the default inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DefaultInboxRuleResponse>
+      enableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo(String ruleId)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "enableSecurityFindingsAutomationDefaultInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " enableSecurityFindingsAutomationDefaultInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/enable"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.enableSecurityFindingsAutomationDefaultInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRuleResponse>() {});
+  }
+
+  /**
+   * Enable a default inbox rule.
+   *
+   * <p>See {@link #enableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DefaultInboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DefaultInboxRuleResponse>>
+      enableSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync(String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "enableSecurityFindingsAutomationDefaultInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " enableSecurityFindingsAutomationDefaultInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/enable"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.enableSecurityFindingsAutomationDefaultInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRuleResponse>() {});
   }
 
   /**
@@ -12666,6 +13350,189 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get a default inbox rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return DefaultInboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultInboxRuleResponse getSecurityFindingsAutomationDefaultInboxRule(String ruleId)
+      throws ApiException {
+    return getSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get a default inbox rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return CompletableFuture&lt;DefaultInboxRuleResponse&gt;
+   */
+  public CompletableFuture<DefaultInboxRuleResponse>
+      getSecurityFindingsAutomationDefaultInboxRuleAsync(String ruleId) {
+    return getSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a default inbox rule by ID. Datadog manages default inbox rules. Their name,
+   * rule, and action are read-only, and each organization can change only whether they are enabled.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return ApiResponse&lt;DefaultInboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the default inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DefaultInboxRuleResponse>
+      getSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo(String ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationDefaultInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " getSecurityFindingsAutomationDefaultInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityFindingsAutomationDefaultInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRuleResponse>() {});
+  }
+
+  /**
+   * Get a default inbox rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationDefaultInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
+   *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
+   *     library_vulnerability_default_rule</code>, <code>attack_path_default_rule</code>, <code>
+   *     host_and_container_vulnerability_default_rule</code>, <code>
+   *     runtime_code_vulnerability_default_rule</code>, <code>iac_misconfiguration_default_rule
+   *     </code>, and <code>misconfiguration_default_rule</code>. Datadog can add new default rules
+   *     over time. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DefaultInboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DefaultInboxRuleResponse>>
+      getSecurityFindingsAutomationDefaultInboxRuleWithHttpInfoAsync(String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationDefaultInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " getSecurityFindingsAutomationDefaultInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityFindingsAutomationDefaultInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DefaultInboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRuleResponse>() {});
+  }
+
+  /**
    * Get a due date rule.
    *
    * <p>See {@link #getSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
@@ -12821,6 +13688,163 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<DueDateRuleResponse>() {});
+  }
+
+  /**
+   * Get an inbox rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @return InboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleResponse getSecurityFindingsAutomationInboxRule(UUID ruleId) throws ApiException {
+    return getSecurityFindingsAutomationInboxRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get an inbox rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationInboxRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @return CompletableFuture&lt;InboxRuleResponse&gt;
+   */
+  public CompletableFuture<InboxRuleResponse> getSecurityFindingsAutomationInboxRuleAsync(
+      UUID ruleId) {
+    return getSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of an inbox rule by ID.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @return ApiResponse&lt;InboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleResponse> getSecurityFindingsAutomationInboxRuleWithHttpInfo(
+      UUID ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " getSecurityFindingsAutomationInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityFindingsAutomationInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Get an inbox rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleResponse>>
+      getSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " getSecurityFindingsAutomationInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityFindingsAutomationInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
   }
 
   /**
@@ -20295,6 +21319,138 @@ public class SecurityMonitoringApi {
         new GenericType<ListSecurityFindingsResponse>() {});
   }
 
+  /**
+   * Get all default inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDefaultInboxRulesWithHttpInfo}.
+   *
+   * @return DefaultInboxRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultInboxRulesResponse listSecurityFindingsAutomationDefaultInboxRules()
+      throws ApiException {
+    return listSecurityFindingsAutomationDefaultInboxRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all default inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDefaultInboxRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;DefaultInboxRulesResponse&gt;
+   */
+  public CompletableFuture<DefaultInboxRulesResponse>
+      listSecurityFindingsAutomationDefaultInboxRulesAsync() {
+    return listSecurityFindingsAutomationDefaultInboxRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all default inbox rules for the current organization. Datadog manages default inbox rules.
+   * Their name, rule, and action are read-only, and each organization can change only whether they
+   * are enabled.
+   *
+   * @return ApiResponse&lt;DefaultInboxRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the list of default inbox rules </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DefaultInboxRulesResponse>
+      listSecurityFindingsAutomationDefaultInboxRulesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationDefaultInboxRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/default_inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityFindingsAutomationDefaultInboxRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRulesResponse>() {});
+  }
+
+  /**
+   * Get all default inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDefaultInboxRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;DefaultInboxRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DefaultInboxRulesResponse>>
+      listSecurityFindingsAutomationDefaultInboxRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationDefaultInboxRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DefaultInboxRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/default_inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityFindingsAutomationDefaultInboxRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DefaultInboxRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultInboxRulesResponse>() {});
+  }
+
   /** Manage optional parameters to listSecurityFindingsAutomationDueDateRules. */
   public static class ListSecurityFindingsAutomationDueDateRulesOptionalParameters {
     private Long pageSize;
@@ -20499,6 +21655,211 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<DueDateRulesResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityFindingsAutomationInboxRules. */
+  public static class ListSecurityFindingsAutomationInboxRulesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @return ListSecurityFindingsAutomationInboxRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationInboxRulesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to return. (optional, default to 0)
+     * @return ListSecurityFindingsAutomationInboxRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationInboxRulesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * Get all inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationInboxRulesWithHttpInfo}.
+   *
+   * @return InboxRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRulesResponse listSecurityFindingsAutomationInboxRules() throws ApiException {
+    return listSecurityFindingsAutomationInboxRulesWithHttpInfo(
+            new ListSecurityFindingsAutomationInboxRulesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get all inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationInboxRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;InboxRulesResponse&gt;
+   */
+  public CompletableFuture<InboxRulesResponse> listSecurityFindingsAutomationInboxRulesAsync() {
+    return listSecurityFindingsAutomationInboxRulesWithHttpInfoAsync(
+            new ListSecurityFindingsAutomationInboxRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationInboxRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return InboxRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRulesResponse listSecurityFindingsAutomationInboxRules(
+      ListSecurityFindingsAutomationInboxRulesOptionalParameters parameters) throws ApiException {
+    return listSecurityFindingsAutomationInboxRulesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationInboxRulesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;InboxRulesResponse&gt;
+   */
+  public CompletableFuture<InboxRulesResponse> listSecurityFindingsAutomationInboxRulesAsync(
+      ListSecurityFindingsAutomationInboxRulesOptionalParameters parameters) {
+    return listSecurityFindingsAutomationInboxRulesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all inbox rules for the current organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;InboxRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the list of inbox rules </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRulesResponse> listSecurityFindingsAutomationInboxRulesWithHttpInfo(
+      ListSecurityFindingsAutomationInboxRulesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationInboxRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/inbox_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityFindingsAutomationInboxRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRulesResponse>() {});
+  }
+
+  /**
+   * Get all inbox rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationInboxRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRulesResponse>>
+      listSecurityFindingsAutomationInboxRulesWithHttpInfoAsync(
+          ListSecurityFindingsAutomationInboxRulesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationInboxRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<InboxRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/inbox_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityFindingsAutomationInboxRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRulesResponse>() {});
   }
 
   /** Manage optional parameters to listSecurityFindingsAutomationMuteRules. */
@@ -25144,6 +26505,162 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Reorder inbox rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationInboxRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return InboxRuleReorderResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleReorderResponse reorderSecurityFindingsAutomationInboxRules(
+      InboxRuleReorderRequest body) throws ApiException {
+    return reorderSecurityFindingsAutomationInboxRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Reorder inbox rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationInboxRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;InboxRuleReorderResponse&gt;
+   */
+  public CompletableFuture<InboxRuleReorderResponse>
+      reorderSecurityFindingsAutomationInboxRulesAsync(InboxRuleReorderRequest body) {
+    return reorderSecurityFindingsAutomationInboxRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder the list of inbox rules for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;InboxRuleReorderResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully reordered the inbox rules </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleReorderResponse>
+      reorderSecurityFindingsAutomationInboxRulesWithHttpInfo(InboxRuleReorderRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationInboxRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " reorderSecurityFindingsAutomationInboxRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/inbox_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationInboxRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleReorderResponse>() {});
+  }
+
+  /**
+   * Reorder inbox rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationInboxRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleReorderResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleReorderResponse>>
+      reorderSecurityFindingsAutomationInboxRulesWithHttpInfoAsync(InboxRuleReorderRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationInboxRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<InboxRuleReorderResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<InboxRuleReorderResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " reorderSecurityFindingsAutomationInboxRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/inbox_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationInboxRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleReorderResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleReorderResponse>() {});
+  }
+
+  /**
    * Reorder mute rules.
    *
    * <p>See {@link #reorderSecurityFindingsAutomationMuteRulesWithHttpInfo}.
@@ -27712,7 +29229,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing due date rule by ID.
+   * Update a due date rule by ID.
    *
    * @param ruleId The ID of the due date rule. (required)
    * @param body (required)
@@ -27863,6 +29380,190 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Update an inbox rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @param body (required)
+   * @return InboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleResponse updateSecurityFindingsAutomationInboxRule(
+      UUID ruleId, InboxRuleUpdateRequest body) throws ApiException {
+    return updateSecurityFindingsAutomationInboxRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update an inbox rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationInboxRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;InboxRuleResponse&gt;
+   */
+  public CompletableFuture<InboxRuleResponse> updateSecurityFindingsAutomationInboxRuleAsync(
+      UUID ruleId, InboxRuleUpdateRequest body) {
+    return updateSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an inbox rule by ID.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;InboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully updated the inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleResponse> updateSecurityFindingsAutomationInboxRuleWithHttpInfo(
+      UUID ruleId, InboxRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " updateSecurityFindingsAutomationInboxRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityFindingsAutomationInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Update an inbox rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationInboxRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the inbox rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleResponse>>
+      updateSecurityFindingsAutomationInboxRuleWithHttpInfoAsync(
+          UUID ruleId, InboxRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationInboxRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " updateSecurityFindingsAutomationInboxRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityFindingsAutomationInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/inbox_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
    * Update a mute rule.
    *
    * <p>See {@link #updateSecurityFindingsAutomationMuteRuleWithHttpInfo}.
@@ -27896,7 +29597,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing mute rule by ID.
+   * Update a mute rule by ID.
    *
    * @param ruleId The ID of the mute rule. (required)
    * @param body (required)
@@ -28081,7 +29782,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing severity modifier rule by ID.
+   * Update a severity modifier rule by ID.
    *
    * @param ruleId The ID of the severity modifier rule. (required)
    * @param body (required)
@@ -28271,7 +29972,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing ticket creation rule by ID.
+   * Update a ticket creation rule by ID.
    *
    * @param ruleId The ID of the ticket creation rule. (required)
    * @param body (required)

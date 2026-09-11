@@ -16,69 +16,77 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.UUID;
 
-/** A reference to a mute rule used for reordering. */
-@JsonPropertyOrder({MuteRuleReorderItem.JSON_PROPERTY_ID, MuteRuleReorderItem.JSON_PROPERTY_TYPE})
+/** The data object for an inbox rule create request. */
+@JsonPropertyOrder({
+  InboxRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
+  InboxRuleDataCreate.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MuteRuleReorderItem {
+public class InboxRuleDataCreate {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private InboxRuleAttributesCreate attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private MuteRuleType type;
+  private InboxRuleType type;
 
-  public MuteRuleReorderItem() {}
+  public InboxRuleDataCreate() {}
 
   @JsonCreator
-  public MuteRuleReorderItem(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) MuteRuleType type) {
-    this.id = id;
+  public InboxRuleDataCreate(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          InboxRuleAttributesCreate attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) InboxRuleType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public MuteRuleReorderItem id(UUID id) {
-    this.id = id;
+  public InboxRuleDataCreate attributes(InboxRuleAttributesCreate attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The ID of the mute rule.
+   * Attributes for creating or updating an inbox rule.
    *
-   * @return id
+   * @return attributes
    */
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UUID getId() {
-    return id;
+  public InboxRuleAttributesCreate getAttributes() {
+    return attributes;
   }
 
-  public void setId(UUID id) {
-    this.id = id;
+  public void setAttributes(InboxRuleAttributesCreate attributes) {
+    this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
-  public MuteRuleReorderItem type(MuteRuleType type) {
+  public InboxRuleDataCreate type(InboxRuleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The JSON:API type for mute rules.
+   * The JSON:API type for inbox rules.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MuteRuleType getType() {
+  public InboxRuleType getType() {
     return type;
   }
 
-  public void setType(MuteRuleType type) {
+  public void setType(InboxRuleType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -97,10 +105,10 @@ public class MuteRuleReorderItem {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MuteRuleReorderItem
+   * @return InboxRuleDataCreate
    */
   @JsonAnySetter
-  public MuteRuleReorderItem putAdditionalProperty(String key, Object value) {
+  public InboxRuleDataCreate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,7 +139,7 @@ public class MuteRuleReorderItem {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MuteRuleReorderItem object is equal to o. */
+  /** Return true if this InboxRuleDataCreate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,22 +148,22 @@ public class MuteRuleReorderItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MuteRuleReorderItem muteRuleReorderItem = (MuteRuleReorderItem) o;
-    return Objects.equals(this.id, muteRuleReorderItem.id)
-        && Objects.equals(this.type, muteRuleReorderItem.type)
-        && Objects.equals(this.additionalProperties, muteRuleReorderItem.additionalProperties);
+    InboxRuleDataCreate inboxRuleDataCreate = (InboxRuleDataCreate) o;
+    return Objects.equals(this.attributes, inboxRuleDataCreate.attributes)
+        && Objects.equals(this.type, inboxRuleDataCreate.type)
+        && Objects.equals(this.additionalProperties, inboxRuleDataCreate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MuteRuleReorderItem {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class InboxRuleDataCreate {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -19,58 +19,122 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The body of a severity modifier rule reorder request. */
-@JsonPropertyOrder({SeverityModifierRuleReorderRequest.JSON_PROPERTY_DATA})
+/** A list of inbox rules with pagination metadata. */
+@JsonPropertyOrder({
+  InboxRulesResponse.JSON_PROPERTY_DATA,
+  InboxRulesResponse.JSON_PROPERTY_LINKS,
+  InboxRulesResponse.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SeverityModifierRuleReorderRequest {
+public class InboxRulesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<SeverityModifierRuleReorderItem> data = new ArrayList<>();
+  private List<InboxRuleDataResponse> data = new ArrayList<>();
 
-  public SeverityModifierRuleReorderRequest() {}
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private SecurityAutomationRulesLinks links;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private SecurityAutomationRulesMeta meta;
+
+  public InboxRulesResponse() {}
 
   @JsonCreator
-  public SeverityModifierRuleReorderRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<SeverityModifierRuleReorderItem> data) {
+  public InboxRulesResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<InboxRuleDataResponse> data,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LINKS)
+          SecurityAutomationRulesLinks links,
+      @JsonProperty(required = true, value = JSON_PROPERTY_META) SecurityAutomationRulesMeta meta) {
     this.data = data;
-    for (SeverityModifierRuleReorderItem item : data) {
+    for (InboxRuleDataResponse item : data) {
       this.unparsed |= item.unparsed;
     }
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
   }
 
-  public SeverityModifierRuleReorderRequest data(List<SeverityModifierRuleReorderItem> data) {
+  public InboxRulesResponse data(List<InboxRuleDataResponse> data) {
     this.data = data;
-    for (SeverityModifierRuleReorderItem item : data) {
+    for (InboxRuleDataResponse item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SeverityModifierRuleReorderRequest addDataItem(SeverityModifierRuleReorderItem dataItem) {
+  public InboxRulesResponse addDataItem(InboxRuleDataResponse dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * The ordered list of all severity modifier rules. Every rule must be included.
+   * A list of inbox rule data objects.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SeverityModifierRuleReorderItem> getData() {
+  public List<InboxRuleDataResponse> getData() {
     return data;
   }
 
-  public void setData(List<SeverityModifierRuleReorderItem> data) {
+  public void setData(List<InboxRuleDataResponse> data) {
     this.data = data;
     if (data != null) {
-      for (SeverityModifierRuleReorderItem item : data) {
+      for (InboxRuleDataResponse item : data) {
         this.unparsed |= item.unparsed;
       }
+    }
+  }
+
+  public InboxRulesResponse links(SecurityAutomationRulesLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination links for the list of automation rules.
+   *
+   * @return links
+   */
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityAutomationRulesLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(SecurityAutomationRulesLinks links) {
+    this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
+  }
+
+  public InboxRulesResponse meta(SecurityAutomationRulesMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Metadata for the list of automation rules.
+   *
+   * @return meta
+   */
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityAutomationRulesMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(SecurityAutomationRulesMeta meta) {
+    this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
     }
   }
 
@@ -86,10 +150,10 @@ public class SeverityModifierRuleReorderRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SeverityModifierRuleReorderRequest
+   * @return InboxRulesResponse
    */
   @JsonAnySetter
-  public SeverityModifierRuleReorderRequest putAdditionalProperty(String key, Object value) {
+  public InboxRulesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +184,7 @@ public class SeverityModifierRuleReorderRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SeverityModifierRuleReorderRequest object is equal to o. */
+  /** Return true if this InboxRulesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,23 +193,25 @@ public class SeverityModifierRuleReorderRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SeverityModifierRuleReorderRequest severityModifierRuleReorderRequest =
-        (SeverityModifierRuleReorderRequest) o;
-    return Objects.equals(this.data, severityModifierRuleReorderRequest.data)
-        && Objects.equals(
-            this.additionalProperties, severityModifierRuleReorderRequest.additionalProperties);
+    InboxRulesResponse inboxRulesResponse = (InboxRulesResponse) o;
+    return Objects.equals(this.data, inboxRulesResponse.data)
+        && Objects.equals(this.links, inboxRulesResponse.links)
+        && Objects.equals(this.meta, inboxRulesResponse.meta)
+        && Objects.equals(this.additionalProperties, inboxRulesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SeverityModifierRuleReorderRequest {\n");
+    sb.append("class InboxRulesResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
