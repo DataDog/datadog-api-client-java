@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.TenancyConfigList;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getTenancyConfigs", true);
     OciIntegrationApi apiInstance = new OciIntegrationApi(defaultClient);
 
     try {
