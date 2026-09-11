@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Most significant anomaly detected in the request. */
+/** One of the most significant anomalies detected in the request. */
 @JsonPropertyOrder({
   TimeseriesAnomalyInvestigationAnomaly.JSON_PROPERTY_ANOMALY_DETECTION,
   TimeseriesAnomalyInvestigationAnomaly.JSON_PROPERTY_DETECTED_INTERVAL,

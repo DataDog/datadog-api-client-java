@@ -46,7 +46,9 @@ public class TimeseriesAnomalyInvestigationFormula {
   }
 
   /**
-   * Formula expression referencing one or more named queries.
+   * Formula expression referencing one or more named queries. When the expression does not contain
+   * an explicit <code>anomalies()</code> call, the endpoint applies the default Watchdog Explains
+   * anomaly detection configuration.
    *
    * @return formula
    */
