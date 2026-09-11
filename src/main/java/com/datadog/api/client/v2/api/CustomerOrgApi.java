@@ -82,6 +82,22 @@ public class CustomerOrgApi {
    * resulting state from the downstream service. Requires the <code>org_management</code>
    * permission.
    *
+   * <p><strong>Limitations</strong>:
+   *
+   * <ul>
+   *   <li><strong>Organization age</strong>: Only organizations created within the last 10 days can
+   *       be disabled through this endpoint. This restriction is a safeguard against accidentally
+   *       disabling long-running organizations. Attempting to disable an older organization returns
+   *       a <code>403 Forbidden</code>.
+   *   <li><strong>Feature flag</strong>: The feature flag <code>org_disable_self_service_enabled
+   *       </code> must be enabled for the target organization or one of its ancestor organizations.
+   *       Contact <a href="https://docs.datadoghq.com/help/">Datadog support</a> to enable this for
+   *       your organization. Requests for organizations without this flag return a <code>
+   *       403 Forbidden</code>.
+   *   <li><strong>Already-disabled organizations</strong>: If the target organization is already
+   *       disabled, the request returns a <code>409 Conflict</code>.
+   * </ul>
+   *
    * @param body (required)
    * @return ApiResponse&lt;CustomerOrgDisableResponse&gt;
    * @throws ApiException if fails to make API call
@@ -93,6 +109,7 @@ public class CustomerOrgApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
    *     </table>
