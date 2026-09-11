@@ -21,9 +21,12 @@ import java.util.Objects;
 
 /**
  * The <code>generate_metrics</code> processor creates custom metrics from logs. Metrics can be
- * counters, gauges, or distributions and optionally grouped by log fields. The generated metrics
- * must be routed to a metrics destination using the input <code>&lt;processor-id&gt;.metrics</code>
- * .
+ * counters, gauges, or distributions and optionally grouped by log fields.
+ *
+ * <p>There must be a destination whose <code>inputs</code> reference this processor with the <code>
+ * &lt;processor-id&gt;.metrics</code> suffix to route the generated metrics. All destination types
+ * normally supported for <code>metrics</code> pipelines are also supported as metrics destinations
+ * in <code>logs</code> pipelines.
  *
  * <p><strong>Supported pipeline types:</strong> logs
  */
