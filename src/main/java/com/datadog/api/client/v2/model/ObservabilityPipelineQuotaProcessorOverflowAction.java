@@ -22,6 +22,12 @@ import java.util.Set;
  * The action to take when the quota or bucket limit is exceeded. Options: - <code>drop</code>: Drop
  * the event. - <code>no_action</code>: Let the event pass through. - <code>overflow_routing</code>:
  * Route to an overflow destination.
+ *
+ * <p>When <code>overflow_routing</code> is used, there must be a destination whose <code>inputs
+ * </code> reference this processor with the <code>&lt;processor-id&gt;.overflow_events</code>
+ * suffix to route the overflowing events. Only the following destination types support overflow
+ * inputs: <code>amazon_s3_generic</code>, <code>amazon_s3</code>, <code>google_cloud_storage</code>
+ * , and <code>azure_storage</code>.
  */
 @JsonSerialize(
     using =

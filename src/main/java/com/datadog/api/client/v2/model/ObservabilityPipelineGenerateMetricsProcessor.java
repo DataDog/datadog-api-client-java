@@ -25,7 +25,13 @@ import java.util.Objects;
  * fields.
  *
  * <p><strong>Supported pipeline types:</strong> logs
+ *
+ * <p><strong>Deprecated:</strong> This processor is deprecated. Use the <code>generate_metrics
+ * </code> processor instead.
+ *
+ * @deprecated
  */
+@Deprecated
 @JsonPropertyOrder({
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_ENABLED,
