@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.OAuth2WellKnownSitesResponse;
 import com.datadog.api.client.v2.model.OAuthClientRegistrationRequest;
 import com.datadog.api.client.v2.model.OAuthClientRegistrationResponse;
 import com.datadog.api.client.v2.model.OAuthScopesRestrictionResponse;
+import com.datadog.api.client.v2.model.OIDCDiscoveryDocument;
 import com.datadog.api.client.v2.model.UpsertOAuthScopesRestrictionRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -330,6 +331,133 @@ public class OAuth2ClientPublicApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OAuth2WellKnownSitesResponse>() {});
+  }
+
+  /**
+   * Get OpenID Connect provider metadata.
+   *
+   * <p>See {@link #getOIDCDiscoveryDocumentWithHttpInfo}.
+   *
+   * @return OIDCDiscoveryDocument
+   * @throws ApiException if fails to make API call
+   */
+  public OIDCDiscoveryDocument getOIDCDiscoveryDocument() throws ApiException {
+    return getOIDCDiscoveryDocumentWithHttpInfo().getData();
+  }
+
+  /**
+   * Get OpenID Connect provider metadata.
+   *
+   * <p>See {@link #getOIDCDiscoveryDocumentWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OIDCDiscoveryDocument&gt;
+   */
+  public CompletableFuture<OIDCDiscoveryDocument> getOIDCDiscoveryDocumentAsync() {
+    return getOIDCDiscoveryDocumentWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve OpenID Connect provider metadata for the OAuth2 v2 token endpoint.
+   *
+   * @return ApiResponse&lt;OIDCDiscoveryDocument&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OIDCDiscoveryDocument> getOIDCDiscoveryDocumentWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOIDCDiscoveryDocument";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/oauth2/.well-known/openid-configuration";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OAuth2ClientPublicApi.getOIDCDiscoveryDocument",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCDiscoveryDocument>() {});
+  }
+
+  /**
+   * Get OpenID Connect provider metadata.
+   *
+   * <p>See {@link #getOIDCDiscoveryDocumentWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OIDCDiscoveryDocument&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OIDCDiscoveryDocument>>
+      getOIDCDiscoveryDocumentWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getOIDCDiscoveryDocument";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OIDCDiscoveryDocument>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/oauth2/.well-known/openid-configuration";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OAuth2ClientPublicApi.getOIDCDiscoveryDocument",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OIDCDiscoveryDocument>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCDiscoveryDocument>() {});
   }
 
   /**
