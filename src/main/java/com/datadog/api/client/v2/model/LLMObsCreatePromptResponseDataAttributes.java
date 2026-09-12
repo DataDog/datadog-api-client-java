@@ -20,34 +20,35 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update
- * responses omit complete template and configuration data.
- */
+/** Attributes returned after creating an Agent Observability prompt and its first version. */
 @JsonPropertyOrder({
-  LLMObsPromptDataAttributes.JSON_PROPERTY_AUTHOR,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_CREATED_AT,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_CREATED_FROM,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_DATASETS,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_DESCRIPTION,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_EXTRACTED_FROM,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_IN_REGISTRY,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_LAST_SEEN_AT,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_LAST_VERSION_CREATED_AT,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_ML_APP,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_ML_APPS,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_NUM_VERSIONS,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_PROMPT_ID,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_SOURCE,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_TAGS,
-  LLMObsPromptDataAttributes.JSON_PROPERTY_TITLE
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_AUTHOR,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_CONFIG,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_CREATED_AT,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_CREATED_FROM,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_DATASETS,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_DESCRIPTION,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_EXTRACTED_FROM,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_IN_REGISTRY,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_LAST_SEEN_AT,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_LAST_VERSION_CREATED_AT,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_ML_APP,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_ML_APPS,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_NUM_VERSIONS,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_PROMPT_ID,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_SOURCE,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_TAGS,
+  LLMObsCreatePromptResponseDataAttributes.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsPromptDataAttributes {
+public class LLMObsCreatePromptResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private String author;
+
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private Map<String, Object> config = new HashMap<String, Object>();
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -94,16 +95,18 @@ public class LLMObsPromptDataAttributes {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
-  public LLMObsPromptDataAttributes() {}
+  public LLMObsCreatePromptResponseDataAttributes() {}
 
   @JsonCreator
-  public LLMObsPromptDataAttributes(
+  public LLMObsCreatePromptResponseDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) Map<String, Object> config,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_FROM) String createdFrom,
       @JsonProperty(required = true, value = JSON_PROPERTY_IN_REGISTRY) Boolean inRegistry,
       @JsonProperty(required = true, value = JSON_PROPERTY_NUM_VERSIONS) Long numVersions,
       @JsonProperty(required = true, value = JSON_PROPERTY_PROMPT_ID) String promptId,
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE)
           LLMObsPromptResponseSource source) {
+    this.config = config;
     this.createdFrom = createdFrom;
     this.inRegistry = inRegistry;
     this.numVersions = numVersions;
@@ -112,7 +115,7 @@ public class LLMObsPromptDataAttributes {
     this.unparsed |= !source.isValid();
   }
 
-  public LLMObsPromptDataAttributes author(String author) {
+  public LLMObsCreatePromptResponseDataAttributes author(String author) {
     this.author = author;
     return this;
   }
@@ -133,7 +136,34 @@ public class LLMObsPromptDataAttributes {
     this.author = author;
   }
 
-  public LLMObsPromptDataAttributes createdAt(OffsetDateTime createdAt) {
+  public LLMObsCreatePromptResponseDataAttributes config(Map<String, Object> config) {
+    this.config = config;
+    return this;
+  }
+
+  public LLMObsCreatePromptResponseDataAttributes putConfigItem(String key, Object configItem) {
+    this.config.put(key, configItem);
+    return this;
+  }
+
+  /**
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the
+   * object without interpolating it, validating provider-specific keys, or applying it to model
+   * calls. Do not include secrets.
+   *
+   * @return config
+   */
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
+  }
+
+  public LLMObsCreatePromptResponseDataAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -154,7 +184,7 @@ public class LLMObsPromptDataAttributes {
     this.createdAt = createdAt;
   }
 
-  public LLMObsPromptDataAttributes createdFrom(String createdFrom) {
+  public LLMObsCreatePromptResponseDataAttributes createdFrom(String createdFrom) {
     this.createdFrom = createdFrom;
     return this;
   }
@@ -175,7 +205,7 @@ public class LLMObsPromptDataAttributes {
     this.createdFrom = createdFrom;
   }
 
-  public LLMObsPromptDataAttributes datasets(List<LLMObsPromptDataset> datasets) {
+  public LLMObsCreatePromptResponseDataAttributes datasets(List<LLMObsPromptDataset> datasets) {
     this.datasets = datasets;
     if (datasets != null) {
       for (LLMObsPromptDataset item : datasets) {
@@ -185,7 +215,8 @@ public class LLMObsPromptDataAttributes {
     return this;
   }
 
-  public LLMObsPromptDataAttributes addDatasetsItem(LLMObsPromptDataset datasetsItem) {
+  public LLMObsCreatePromptResponseDataAttributes addDatasetsItem(
+      LLMObsPromptDataset datasetsItem) {
     if (this.datasets == null) {
       this.datasets = new ArrayList<>();
     }
@@ -215,7 +246,7 @@ public class LLMObsPromptDataAttributes {
     }
   }
 
-  public LLMObsPromptDataAttributes description(String description) {
+  public LLMObsCreatePromptResponseDataAttributes description(String description) {
     this.description = description;
     return this;
   }
@@ -236,7 +267,7 @@ public class LLMObsPromptDataAttributes {
     this.description = description;
   }
 
-  public LLMObsPromptDataAttributes extractedFrom(String extractedFrom) {
+  public LLMObsCreatePromptResponseDataAttributes extractedFrom(String extractedFrom) {
     this.extractedFrom = extractedFrom;
     return this;
   }
@@ -257,7 +288,7 @@ public class LLMObsPromptDataAttributes {
     this.extractedFrom = extractedFrom;
   }
 
-  public LLMObsPromptDataAttributes inRegistry(Boolean inRegistry) {
+  public LLMObsCreatePromptResponseDataAttributes inRegistry(Boolean inRegistry) {
     this.inRegistry = inRegistry;
     return this;
   }
@@ -277,7 +308,7 @@ public class LLMObsPromptDataAttributes {
     this.inRegistry = inRegistry;
   }
 
-  public LLMObsPromptDataAttributes lastSeenAt(OffsetDateTime lastSeenAt) {
+  public LLMObsCreatePromptResponseDataAttributes lastSeenAt(OffsetDateTime lastSeenAt) {
     this.lastSeenAt = lastSeenAt;
     return this;
   }
@@ -298,7 +329,8 @@ public class LLMObsPromptDataAttributes {
     this.lastSeenAt = lastSeenAt;
   }
 
-  public LLMObsPromptDataAttributes lastVersionCreatedAt(OffsetDateTime lastVersionCreatedAt) {
+  public LLMObsCreatePromptResponseDataAttributes lastVersionCreatedAt(
+      OffsetDateTime lastVersionCreatedAt) {
     this.lastVersionCreatedAt = lastVersionCreatedAt;
     return this;
   }
@@ -319,7 +351,7 @@ public class LLMObsPromptDataAttributes {
     this.lastVersionCreatedAt = lastVersionCreatedAt;
   }
 
-  public LLMObsPromptDataAttributes mlApp(String mlApp) {
+  public LLMObsCreatePromptResponseDataAttributes mlApp(String mlApp) {
     this.mlApp = mlApp;
     return this;
   }
@@ -340,12 +372,12 @@ public class LLMObsPromptDataAttributes {
     this.mlApp = mlApp;
   }
 
-  public LLMObsPromptDataAttributes mlApps(List<String> mlApps) {
+  public LLMObsCreatePromptResponseDataAttributes mlApps(List<String> mlApps) {
     this.mlApps = mlApps;
     return this;
   }
 
-  public LLMObsPromptDataAttributes addMlAppsItem(String mlAppsItem) {
+  public LLMObsCreatePromptResponseDataAttributes addMlAppsItem(String mlAppsItem) {
     if (this.mlApps == null) {
       this.mlApps = new ArrayList<>();
     }
@@ -369,7 +401,7 @@ public class LLMObsPromptDataAttributes {
     this.mlApps = mlApps;
   }
 
-  public LLMObsPromptDataAttributes numVersions(Long numVersions) {
+  public LLMObsCreatePromptResponseDataAttributes numVersions(Long numVersions) {
     this.numVersions = numVersions;
     return this;
   }
@@ -389,7 +421,7 @@ public class LLMObsPromptDataAttributes {
     this.numVersions = numVersions;
   }
 
-  public LLMObsPromptDataAttributes promptId(String promptId) {
+  public LLMObsCreatePromptResponseDataAttributes promptId(String promptId) {
     this.promptId = promptId;
     return this;
   }
@@ -409,7 +441,7 @@ public class LLMObsPromptDataAttributes {
     this.promptId = promptId;
   }
 
-  public LLMObsPromptDataAttributes source(LLMObsPromptResponseSource source) {
+  public LLMObsCreatePromptResponseDataAttributes source(LLMObsPromptResponseSource source) {
     this.source = source;
     this.unparsed |= !source.isValid();
     return this;
@@ -433,12 +465,12 @@ public class LLMObsPromptDataAttributes {
     this.source = source;
   }
 
-  public LLMObsPromptDataAttributes tags(List<String> tags) {
+  public LLMObsCreatePromptResponseDataAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public LLMObsPromptDataAttributes addTagsItem(String tagsItem) {
+  public LLMObsCreatePromptResponseDataAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -462,7 +494,7 @@ public class LLMObsPromptDataAttributes {
     this.tags = tags;
   }
 
-  public LLMObsPromptDataAttributes title(String title) {
+  public LLMObsCreatePromptResponseDataAttributes title(String title) {
     this.title = title;
     return this;
   }
@@ -495,10 +527,10 @@ public class LLMObsPromptDataAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return LLMObsPromptDataAttributes
+   * @return LLMObsCreatePromptResponseDataAttributes
    */
   @JsonAnySetter
-  public LLMObsPromptDataAttributes putAdditionalProperty(String key, Object value) {
+  public LLMObsCreatePromptResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -529,7 +561,7 @@ public class LLMObsPromptDataAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsPromptDataAttributes object is equal to o. */
+  /** Return true if this LLMObsCreatePromptResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -538,32 +570,38 @@ public class LLMObsPromptDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsPromptDataAttributes llmObsPromptDataAttributes = (LLMObsPromptDataAttributes) o;
-    return Objects.equals(this.author, llmObsPromptDataAttributes.author)
-        && Objects.equals(this.createdAt, llmObsPromptDataAttributes.createdAt)
-        && Objects.equals(this.createdFrom, llmObsPromptDataAttributes.createdFrom)
-        && Objects.equals(this.datasets, llmObsPromptDataAttributes.datasets)
-        && Objects.equals(this.description, llmObsPromptDataAttributes.description)
-        && Objects.equals(this.extractedFrom, llmObsPromptDataAttributes.extractedFrom)
-        && Objects.equals(this.inRegistry, llmObsPromptDataAttributes.inRegistry)
-        && Objects.equals(this.lastSeenAt, llmObsPromptDataAttributes.lastSeenAt)
+    LLMObsCreatePromptResponseDataAttributes llmObsCreatePromptResponseDataAttributes =
+        (LLMObsCreatePromptResponseDataAttributes) o;
+    return Objects.equals(this.author, llmObsCreatePromptResponseDataAttributes.author)
+        && Objects.equals(this.config, llmObsCreatePromptResponseDataAttributes.config)
+        && Objects.equals(this.createdAt, llmObsCreatePromptResponseDataAttributes.createdAt)
+        && Objects.equals(this.createdFrom, llmObsCreatePromptResponseDataAttributes.createdFrom)
+        && Objects.equals(this.datasets, llmObsCreatePromptResponseDataAttributes.datasets)
+        && Objects.equals(this.description, llmObsCreatePromptResponseDataAttributes.description)
         && Objects.equals(
-            this.lastVersionCreatedAt, llmObsPromptDataAttributes.lastVersionCreatedAt)
-        && Objects.equals(this.mlApp, llmObsPromptDataAttributes.mlApp)
-        && Objects.equals(this.mlApps, llmObsPromptDataAttributes.mlApps)
-        && Objects.equals(this.numVersions, llmObsPromptDataAttributes.numVersions)
-        && Objects.equals(this.promptId, llmObsPromptDataAttributes.promptId)
-        && Objects.equals(this.source, llmObsPromptDataAttributes.source)
-        && Objects.equals(this.tags, llmObsPromptDataAttributes.tags)
-        && Objects.equals(this.title, llmObsPromptDataAttributes.title)
+            this.extractedFrom, llmObsCreatePromptResponseDataAttributes.extractedFrom)
+        && Objects.equals(this.inRegistry, llmObsCreatePromptResponseDataAttributes.inRegistry)
+        && Objects.equals(this.lastSeenAt, llmObsCreatePromptResponseDataAttributes.lastSeenAt)
         && Objects.equals(
-            this.additionalProperties, llmObsPromptDataAttributes.additionalProperties);
+            this.lastVersionCreatedAt,
+            llmObsCreatePromptResponseDataAttributes.lastVersionCreatedAt)
+        && Objects.equals(this.mlApp, llmObsCreatePromptResponseDataAttributes.mlApp)
+        && Objects.equals(this.mlApps, llmObsCreatePromptResponseDataAttributes.mlApps)
+        && Objects.equals(this.numVersions, llmObsCreatePromptResponseDataAttributes.numVersions)
+        && Objects.equals(this.promptId, llmObsCreatePromptResponseDataAttributes.promptId)
+        && Objects.equals(this.source, llmObsCreatePromptResponseDataAttributes.source)
+        && Objects.equals(this.tags, llmObsCreatePromptResponseDataAttributes.tags)
+        && Objects.equals(this.title, llmObsCreatePromptResponseDataAttributes.title)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsCreatePromptResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         author,
+        config,
         createdAt,
         createdFrom,
         datasets,
@@ -585,8 +623,9 @@ public class LLMObsPromptDataAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LLMObsPromptDataAttributes {\n");
+    sb.append("class LLMObsCreatePromptResponseDataAttributes {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdFrom: ").append(toIndentedString(createdFrom)).append("\n");
     sb.append("    datasets: ").append(toIndentedString(datasets)).append("\n");

@@ -23,6 +23,7 @@ import java.util.Objects;
 /** Attributes of a specific version of an Agent Observability prompt. */
 @JsonPropertyOrder({
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_AUTHOR,
+  LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CONFIG,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CREATED_AT,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_DATASETS,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -44,6 +45,9 @@ public class LLMObsPromptVersionDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private String author;
+
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private Map<String, Object> config = new HashMap<String, Object>();
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -91,10 +95,12 @@ public class LLMObsPromptVersionDataAttributes {
 
   @JsonCreator
   public LLMObsPromptVersionDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) Map<String, Object> config,
       @JsonProperty(required = true, value = JSON_PROPERTY_PROMPT_ID) String promptId,
       @JsonProperty(required = true, value = JSON_PROPERTY_PROMPT_UUID) String promptUuid,
       @JsonProperty(required = true, value = JSON_PROPERTY_TEMPLATE) LLMObsPromptTemplate template,
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Long version) {
+    this.config = config;
     this.promptId = promptId;
     this.promptUuid = promptUuid;
     this.template = template;
@@ -121,6 +127,33 @@ public class LLMObsPromptVersionDataAttributes {
 
   public void setAuthor(String author) {
     this.author = author;
+  }
+
+  public LLMObsPromptVersionDataAttributes config(Map<String, Object> config) {
+    this.config = config;
+    return this;
+  }
+
+  public LLMObsPromptVersionDataAttributes putConfigItem(String key, Object configItem) {
+    this.config.put(key, configItem);
+    return this;
+  }
+
+  /**
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the
+   * object without interpolating it, validating provider-specific keys, or applying it to model
+   * calls. Do not include secrets.
+   *
+   * @return config
+   */
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
   }
 
   public LLMObsPromptVersionDataAttributes createdAt(OffsetDateTime createdAt) {
@@ -522,6 +555,7 @@ public class LLMObsPromptVersionDataAttributes {
     LLMObsPromptVersionDataAttributes llmObsPromptVersionDataAttributes =
         (LLMObsPromptVersionDataAttributes) o;
     return Objects.equals(this.author, llmObsPromptVersionDataAttributes.author)
+        && Objects.equals(this.config, llmObsPromptVersionDataAttributes.config)
         && Objects.equals(this.createdAt, llmObsPromptVersionDataAttributes.createdAt)
         && Objects.equals(this.datasets, llmObsPromptVersionDataAttributes.datasets)
         && Objects.equals(this.description, llmObsPromptVersionDataAttributes.description)
@@ -544,6 +578,7 @@ public class LLMObsPromptVersionDataAttributes {
   public int hashCode() {
     return Objects.hash(
         author,
+        config,
         createdAt,
         datasets,
         description,
@@ -566,6 +601,7 @@ public class LLMObsPromptVersionDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPromptVersionDataAttributes {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    datasets: ").append(toIndentedString(datasets)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

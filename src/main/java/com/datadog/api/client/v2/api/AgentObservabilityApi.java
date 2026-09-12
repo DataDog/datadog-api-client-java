@@ -20,6 +20,7 @@ import com.datadog.api.client.v2.model.LLMObsAnnotationQueuesResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationsRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationsResponse;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptRequest;
+import com.datadog.api.client.v2.model.LLMObsCreatePromptResponse;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptVersionRequest;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigListResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigResponse;
@@ -2158,10 +2159,10 @@ public class AgentObservabilityApi {
    * <p>See {@link #createLLMObsPromptWithHttpInfo}.
    *
    * @param body Create prompt payload. (required)
-   * @return LLMObsPromptResponse
+   * @return LLMObsCreatePromptResponse
    * @throws ApiException if fails to make API call
    */
-  public LLMObsPromptResponse createLLMObsPrompt(LLMObsCreatePromptRequest body)
+  public LLMObsCreatePromptResponse createLLMObsPrompt(LLMObsCreatePromptRequest body)
       throws ApiException {
     return createLLMObsPromptWithHttpInfo(body).getData();
   }
@@ -2172,9 +2173,9 @@ public class AgentObservabilityApi {
    * <p>See {@link #createLLMObsPromptWithHttpInfoAsync}.
    *
    * @param body Create prompt payload. (required)
-   * @return CompletableFuture&lt;LLMObsPromptResponse&gt;
+   * @return CompletableFuture&lt;LLMObsCreatePromptResponse&gt;
    */
-  public CompletableFuture<LLMObsPromptResponse> createLLMObsPromptAsync(
+  public CompletableFuture<LLMObsCreatePromptResponse> createLLMObsPromptAsync(
       LLMObsCreatePromptRequest body) {
     return createLLMObsPromptWithHttpInfoAsync(body)
         .thenApply(
@@ -2187,7 +2188,7 @@ public class AgentObservabilityApi {
    * Create a new prompt (and its first version) in the Agent Observability prompt registry.
    *
    * @param body Create prompt payload. (required)
-   * @return ApiResponse&lt;LLMObsPromptResponse&gt;
+   * @return ApiResponse&lt;LLMObsCreatePromptResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -2201,7 +2202,7 @@ public class AgentObservabilityApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<LLMObsPromptResponse> createLLMObsPromptWithHttpInfo(
+  public ApiResponse<LLMObsCreatePromptResponse> createLLMObsPromptWithHttpInfo(
       LLMObsCreatePromptRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createLLMObsPrompt";
@@ -2239,7 +2240,7 @@ public class AgentObservabilityApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<LLMObsPromptResponse>() {});
+        new GenericType<LLMObsCreatePromptResponse>() {});
   }
 
   /**
@@ -2248,16 +2249,16 @@ public class AgentObservabilityApi {
    * <p>See {@link #createLLMObsPromptWithHttpInfo}.
    *
    * @param body Create prompt payload. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsCreatePromptResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<LLMObsPromptResponse>> createLLMObsPromptWithHttpInfoAsync(
-      LLMObsCreatePromptRequest body) {
+  public CompletableFuture<ApiResponse<LLMObsCreatePromptResponse>>
+      createLLMObsPromptWithHttpInfoAsync(LLMObsCreatePromptRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createLLMObsPrompt";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<LLMObsCreatePromptResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -2266,7 +2267,7 @@ public class AgentObservabilityApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<LLMObsCreatePromptResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling createLLMObsPrompt"));
@@ -2289,7 +2290,7 @@ public class AgentObservabilityApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<LLMObsCreatePromptResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -2301,7 +2302,7 @@ public class AgentObservabilityApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<LLMObsPromptResponse>() {});
+        new GenericType<LLMObsCreatePromptResponse>() {});
   }
 
   /**
@@ -6232,7 +6233,8 @@ public class AgentObservabilityApi {
   }
 
   /**
-   * Get the full template of a single, specific version of an Agent Observability prompt.
+   * Get the full template and configuration of a single, specific version of an Agent Observability
+   * prompt.
    *
    * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param version The version number of the Agent Observability prompt. (required)

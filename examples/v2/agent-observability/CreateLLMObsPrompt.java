@@ -6,11 +6,12 @@ import com.datadog.api.client.v2.api.AgentObservabilityApi;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptData;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptDataAttributes;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptRequest;
-import com.datadog.api.client.v2.model.LLMObsPromptResponse;
+import com.datadog.api.client.v2.model.LLMObsCreatePromptResponse;
 import com.datadog.api.client.v2.model.LLMObsPromptTemplate;
 import com.datadog.api.client.v2.model.LLMObsPromptType;
 import com.datadog.api.client.v2.model.LLMObsPromptVersionLabel;
 import java.util.Collections;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,6 +25,11 @@ public class Example {
                 new LLMObsCreatePromptData()
                     .attributes(
                         new LLMObsCreatePromptDataAttributes()
+                            .config(
+                                Map.ofEntries(
+                                    Map.entry("model", "provider-model"),
+                                    Map.entry("response_format", "{'type': 'json_object'}"),
+                                    Map.entry("temperature", "0.2")))
                             .labels(Collections.singletonList(LLMObsPromptVersionLabel.PRODUCTION))
                             .promptId("customer-support-assistant")
                             .template(
@@ -31,7 +37,7 @@ public class Example {
                     .type(LLMObsPromptType.PROMPT_TEMPLATES));
 
     try {
-      LLMObsPromptResponse result = apiInstance.createLLMObsPrompt(body);
+      LLMObsCreatePromptResponse result = apiInstance.createLLMObsPrompt(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentObservabilityApi#createLLMObsPrompt");

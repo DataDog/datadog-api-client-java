@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_CHAT_TEMPLATE,
+  LLMObsPromptSDKDataAttributes.JSON_PROPERTY_CONFIG,
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_LABELS,
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_PROMPT_ID,
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_PROMPT_VERSION_UUID,
@@ -36,6 +38,9 @@ public class LLMObsPromptSDKDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHAT_TEMPLATE = "chat_template";
   private List<LLMObsPromptChatMessage> chatTemplate = null;
+
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private Map<String, Object> config = new HashMap<String, Object>();
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private List<String> labels = null;
@@ -51,6 +56,14 @@ public class LLMObsPromptSDKDataAttributes {
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
+
+  public LLMObsPromptSDKDataAttributes() {}
+
+  @JsonCreator
+  public LLMObsPromptSDKDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) Map<String, Object> config) {
+    this.config = config;
+  }
 
   public LLMObsPromptSDKDataAttributes chatTemplate(List<LLMObsPromptChatMessage> chatTemplate) {
     this.chatTemplate = chatTemplate;
@@ -92,6 +105,33 @@ public class LLMObsPromptSDKDataAttributes {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public LLMObsPromptSDKDataAttributes config(Map<String, Object> config) {
+    this.config = config;
+    return this;
+  }
+
+  public LLMObsPromptSDKDataAttributes putConfigItem(String key, Object configItem) {
+    this.config.put(key, configItem);
+    return this;
+  }
+
+  /**
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the
+   * object without interpolating it, validating provider-specific keys, or applying it to model
+   * calls. Do not include secrets.
+   *
+   * @return config
+   */
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
   }
 
   public LLMObsPromptSDKDataAttributes labels(List<String> labels) {
@@ -268,6 +308,7 @@ public class LLMObsPromptSDKDataAttributes {
     }
     LLMObsPromptSDKDataAttributes llmObsPromptSdkDataAttributes = (LLMObsPromptSDKDataAttributes) o;
     return Objects.equals(this.chatTemplate, llmObsPromptSdkDataAttributes.chatTemplate)
+        && Objects.equals(this.config, llmObsPromptSdkDataAttributes.config)
         && Objects.equals(this.labels, llmObsPromptSdkDataAttributes.labels)
         && Objects.equals(this.promptId, llmObsPromptSdkDataAttributes.promptId)
         && Objects.equals(this.promptVersionUuid, llmObsPromptSdkDataAttributes.promptVersionUuid)
@@ -280,7 +321,14 @@ public class LLMObsPromptSDKDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        chatTemplate, labels, promptId, promptVersionUuid, template, version, additionalProperties);
+        chatTemplate,
+        config,
+        labels,
+        promptId,
+        promptVersionUuid,
+        template,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -288,6 +336,7 @@ public class LLMObsPromptSDKDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPromptSDKDataAttributes {\n");
     sb.append("    chatTemplate: ").append(toIndentedString(chatTemplate)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    promptId: ").append(toIndentedString(promptId)).append("\n");
     sb.append("    promptVersionUuid: ").append(toIndentedString(promptVersionUuid)).append("\n");
