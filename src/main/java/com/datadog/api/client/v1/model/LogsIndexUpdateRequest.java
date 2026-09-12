@@ -24,6 +24,7 @@ import java.util.Objects;
   LogsIndexUpdateRequest.JSON_PROPERTY_DAILY_LIMIT,
   LogsIndexUpdateRequest.JSON_PROPERTY_DAILY_LIMIT_RESET,
   LogsIndexUpdateRequest.JSON_PROPERTY_DAILY_LIMIT_WARNING_THRESHOLD_PERCENTAGE,
+  LogsIndexUpdateRequest.JSON_PROPERTY_DESCRIPTION,
   LogsIndexUpdateRequest.JSON_PROPERTY_DISABLE_DAILY_LIMIT,
   LogsIndexUpdateRequest.JSON_PROPERTY_EXCLUSION_FILTERS,
   LogsIndexUpdateRequest.JSON_PROPERTY_FILTER,
@@ -44,6 +45,9 @@ public class LogsIndexUpdateRequest {
   public static final String JSON_PROPERTY_DAILY_LIMIT_WARNING_THRESHOLD_PERCENTAGE =
       "daily_limit_warning_threshold_percentage";
   private Double dailyLimitWarningThresholdPercentage;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_DISABLE_DAILY_LIMIT = "disable_daily_limit";
   private Boolean disableDailyLimit;
@@ -140,6 +144,28 @@ public class LogsIndexUpdateRequest {
 
   public void setDailyLimitWarningThresholdPercentage(Double dailyLimitWarningThresholdPercentage) {
     this.dailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
+  }
+
+  public LogsIndexUpdateRequest description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * A description of the index, to help explain its purpose or configuration to other users.
+   * Maximum length of 250 characters.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public LogsIndexUpdateRequest disableDailyLimit(Boolean disableDailyLimit) {
@@ -376,6 +402,7 @@ public class LogsIndexUpdateRequest {
         && Objects.equals(
             this.dailyLimitWarningThresholdPercentage,
             logsIndexUpdateRequest.dailyLimitWarningThresholdPercentage)
+        && Objects.equals(this.description, logsIndexUpdateRequest.description)
         && Objects.equals(this.disableDailyLimit, logsIndexUpdateRequest.disableDailyLimit)
         && Objects.equals(this.exclusionFilters, logsIndexUpdateRequest.exclusionFilters)
         && Objects.equals(this.filter, logsIndexUpdateRequest.filter)
@@ -392,6 +419,7 @@ public class LogsIndexUpdateRequest {
         dailyLimit,
         dailyLimitReset,
         dailyLimitWarningThresholdPercentage,
+        description,
         disableDailyLimit,
         exclusionFilters,
         filter,
@@ -410,6 +438,7 @@ public class LogsIndexUpdateRequest {
     sb.append("    dailyLimitWarningThresholdPercentage: ")
         .append(toIndentedString(dailyLimitWarningThresholdPercentage))
         .append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    disableDailyLimit: ").append(toIndentedString(disableDailyLimit)).append("\n");
     sb.append("    exclusionFilters: ").append(toIndentedString(exclusionFilters)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
