@@ -44,7 +44,7 @@ public class LLMObsCreatePromptVersionDataAttributes {
   private List<LLMObsPromptVersionLabel> labels = null;
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private LLMObsPromptTemplate template;
+  private LLMObsPromptAuthoringTemplate template = new LLMObsPromptAuthoringTemplate();
 
   public static final String JSON_PROPERTY_USER_VERSION = "user_version";
   private String userVersion;
@@ -54,9 +54,8 @@ public class LLMObsCreatePromptVersionDataAttributes {
   @JsonCreator
   public LLMObsCreatePromptVersionDataAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_TEMPLATE)
-          LLMObsPromptTemplate template) {
+          LLMObsPromptAuthoringTemplate template) {
     this.template = template;
-    this.unparsed |= template.unparsed;
   }
 
   public LLMObsCreatePromptVersionDataAttributes description(String description) {
@@ -144,28 +143,29 @@ public class LLMObsCreatePromptVersionDataAttributes {
     this.labels = labels;
   }
 
-  public LLMObsCreatePromptVersionDataAttributes template(LLMObsPromptTemplate template) {
+  public LLMObsCreatePromptVersionDataAttributes template(LLMObsPromptAuthoringTemplate template) {
     this.template = template;
-    this.unparsed |= template.unparsed;
     return this;
   }
 
   /**
-   * A text template or a list of chat messages.
+   * Authoring input for a prompt version. String content can include an exact prompt version with
+   * <code>{{&gt;prompt-id version=N}}</code>, where <code>N</code> is positive. An include without
+   * a version is invalid. Prefix an otherwise literal partial with a backslash, as in <code>
+   * \{{&gt;customer-partial}}</code>. Structured chat items include an entire child chat or the
+   * ordered messages selected by <code>items</code>. Parent and child variables share the existing
+   * flat variable namespace. On writes this value is submitted through <code>template</code>.
    *
    * @return template
    */
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsPromptTemplate getTemplate() {
+  public LLMObsPromptAuthoringTemplate getTemplate() {
     return template;
   }
 
-  public void setTemplate(LLMObsPromptTemplate template) {
+  public void setTemplate(LLMObsPromptAuthoringTemplate template) {
     this.template = template;
-    if (template != null) {
-      this.unparsed |= template.unparsed;
-    }
   }
 
   public LLMObsCreatePromptVersionDataAttributes userVersion(String userVersion) {

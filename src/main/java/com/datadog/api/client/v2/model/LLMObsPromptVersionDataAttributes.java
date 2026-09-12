@@ -19,10 +19,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a specific version of an Agent Observability prompt. */
 @JsonPropertyOrder({
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_AUTHOR,
+  LLMObsPromptVersionDataAttributes.JSON_PROPERTY_AUTHORING_TEMPLATE,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CREATED_AT,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_DATASETS,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -44,6 +46,10 @@ public class LLMObsPromptVersionDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private String author;
+
+  public static final String JSON_PROPERTY_AUTHORING_TEMPLATE = "authoring_template";
+  private JsonNullable<LLMObsPromptAuthoringTemplateResponse> authoringTemplate =
+      JsonNullable.<LLMObsPromptAuthoringTemplateResponse>undefined();
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -121,6 +127,35 @@ public class LLMObsPromptVersionDataAttributes {
 
   public void setAuthor(String author) {
     this.author = author;
+  }
+
+  /**
+   * Include-bearing source for a composed version. Ordinary versions omit this attribute. <code>
+   * template</code> remains the flat compiled artifact; submit edited authored content through
+   * <code>template</code> when creating a new version.
+   *
+   * @return authoringTemplate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public LLMObsPromptAuthoringTemplateResponse getAuthoringTemplate() {
+
+    if (authoringTemplate == null) {
+      authoringTemplate = JsonNullable.<LLMObsPromptAuthoringTemplateResponse>undefined();
+    }
+    return authoringTemplate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTHORING_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<LLMObsPromptAuthoringTemplateResponse> getAuthoringTemplate_JsonNullable() {
+    return authoringTemplate;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTHORING_TEMPLATE)
+  private void setAuthoringTemplate_JsonNullable(
+      JsonNullable<LLMObsPromptAuthoringTemplateResponse> authoringTemplate) {
+    this.authoringTemplate = authoringTemplate;
   }
 
   public LLMObsPromptVersionDataAttributes createdAt(OffsetDateTime createdAt) {
@@ -385,7 +420,7 @@ public class LLMObsPromptVersionDataAttributes {
   }
 
   /**
-   * A text template or a list of chat messages.
+   * The flat compiled text template or list of chat messages used at runtime.
    *
    * @return template
    */
@@ -522,6 +557,8 @@ public class LLMObsPromptVersionDataAttributes {
     LLMObsPromptVersionDataAttributes llmObsPromptVersionDataAttributes =
         (LLMObsPromptVersionDataAttributes) o;
     return Objects.equals(this.author, llmObsPromptVersionDataAttributes.author)
+        && Objects.equals(
+            this.authoringTemplate, llmObsPromptVersionDataAttributes.authoringTemplate)
         && Objects.equals(this.createdAt, llmObsPromptVersionDataAttributes.createdAt)
         && Objects.equals(this.datasets, llmObsPromptVersionDataAttributes.datasets)
         && Objects.equals(this.description, llmObsPromptVersionDataAttributes.description)
@@ -544,6 +581,7 @@ public class LLMObsPromptVersionDataAttributes {
   public int hashCode() {
     return Objects.hash(
         author,
+        authoringTemplate,
         createdAt,
         datasets,
         description,
@@ -566,6 +604,7 @@ public class LLMObsPromptVersionDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPromptVersionDataAttributes {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("    authoringTemplate: ").append(toIndentedString(authoringTemplate)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    datasets: ").append(toIndentedString(datasets)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
