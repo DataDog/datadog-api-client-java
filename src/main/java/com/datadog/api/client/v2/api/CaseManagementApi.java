@@ -19,6 +19,7 @@ import com.datadog.api.client.v2.model.CaseCountResponse;
 import com.datadog.api.client.v2.model.CaseCreateRequest;
 import com.datadog.api.client.v2.model.CaseEmptyRequest;
 import com.datadog.api.client.v2.model.CaseInsightsRequest;
+import com.datadog.api.client.v2.model.CaseInvestigationNotebookCreateRequest;
 import com.datadog.api.client.v2.model.CaseLinkCreateRequest;
 import com.datadog.api.client.v2.model.CaseLinkResponse;
 import com.datadog.api.client.v2.model.CaseLinksResponse;
@@ -49,7 +50,6 @@ import com.datadog.api.client.v2.model.MaintenanceWindowCreateRequest;
 import com.datadog.api.client.v2.model.MaintenanceWindowResponse;
 import com.datadog.api.client.v2.model.MaintenanceWindowUpdateRequest;
 import com.datadog.api.client.v2.model.MaintenanceWindowsResponse;
-import com.datadog.api.client.v2.model.NotebookCreateRequest;
 import com.datadog.api.client.v2.model.ProjectCreateRequest;
 import com.datadog.api.client.v2.model.ProjectFavoritesResponse;
 import com.datadog.api.client.v2.model.ProjectRelationship;
@@ -1781,10 +1781,11 @@ public class CaseManagementApi {
    * <p>See {@link #createCaseNotebookWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
-   * @param body Notebook creation request (required)
+   * @param body Case investigation notebook creation request. (required)
    * @throws ApiException if fails to make API call
    */
-  public void createCaseNotebook(String caseId, NotebookCreateRequest body) throws ApiException {
+  public void createCaseNotebook(String caseId, CaseInvestigationNotebookCreateRequest body)
+      throws ApiException {
     createCaseNotebookWithHttpInfo(caseId, body);
   }
 
@@ -1794,11 +1795,11 @@ public class CaseManagementApi {
    * <p>See {@link #createCaseNotebookWithHttpInfoAsync}.
    *
    * @param caseId Case's UUID or key (required)
-   * @param body Notebook creation request (required)
+   * @param body Case investigation notebook creation request. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> createCaseNotebookAsync(
-      String caseId, NotebookCreateRequest body) {
+      String caseId, CaseInvestigationNotebookCreateRequest body) {
     return createCaseNotebookWithHttpInfoAsync(caseId, body)
         .thenApply(
             response -> {
@@ -1807,10 +1808,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Create a new investigation notebook and link it to a case
+   * Create a new investigation notebook and link it to a case.
    *
    * @param caseId Case's UUID or key (required)
-   * @param body Notebook creation request (required)
+   * @param body Case investigation notebook creation request. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1825,8 +1826,8 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> createCaseNotebookWithHttpInfo(String caseId, NotebookCreateRequest body)
-      throws ApiException {
+  public ApiResponse<Void> createCaseNotebookWithHttpInfo(
+      String caseId, CaseInvestigationNotebookCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -1873,11 +1874,11 @@ public class CaseManagementApi {
    * <p>See {@link #createCaseNotebookWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
-   * @param body Notebook creation request (required)
+   * @param body Case investigation notebook creation request. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> createCaseNotebookWithHttpInfoAsync(
-      String caseId, NotebookCreateRequest body) {
+      String caseId, CaseInvestigationNotebookCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
