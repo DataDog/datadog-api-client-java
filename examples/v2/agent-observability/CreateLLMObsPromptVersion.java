@@ -6,7 +6,6 @@ import com.datadog.api.client.v2.api.AgentObservabilityApi;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptVersionData;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptVersionDataAttributes;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptVersionRequest;
-import com.datadog.api.client.v2.model.LLMObsPromptTemplate;
 import com.datadog.api.client.v2.model.LLMObsPromptVersionLabel;
 import com.datadog.api.client.v2.model.LLMObsPromptVersionResponse;
 import com.datadog.api.client.v2.model.LLMObsPromptVersionType;
@@ -25,8 +24,7 @@ public class Example {
                     .attributes(
                         new LLMObsCreatePromptVersionDataAttributes()
                             .labels(Collections.singletonList(LLMObsPromptVersionLabel.PRODUCTION))
-                            .template(
-                                new LLMObsPromptTemplate("You are a helpful assistant for .")))
+                            .template("You are a helpful assistant for ."))
                     .type(LLMObsPromptVersionType.PROMPT_TEMPLATE_VERSIONS));
 
     try {

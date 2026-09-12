@@ -7,7 +7,6 @@ import com.datadog.api.client.v2.model.LLMObsCreatePromptData;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptDataAttributes;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptRequest;
 import com.datadog.api.client.v2.model.LLMObsPromptResponse;
-import com.datadog.api.client.v2.model.LLMObsPromptTemplate;
 import com.datadog.api.client.v2.model.LLMObsPromptType;
 import com.datadog.api.client.v2.model.LLMObsPromptVersionLabel;
 import java.util.Collections;
@@ -26,8 +25,7 @@ public class Example {
                         new LLMObsCreatePromptDataAttributes()
                             .labels(Collections.singletonList(LLMObsPromptVersionLabel.PRODUCTION))
                             .promptId("customer-support-assistant")
-                            .template(
-                                new LLMObsPromptTemplate("You are a helpful assistant for .")))
+                            .template("You are a helpful assistant for ."))
                     .type(LLMObsPromptType.PROMPT_TEMPLATES));
 
     try {
