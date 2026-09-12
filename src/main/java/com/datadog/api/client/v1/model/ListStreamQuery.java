@@ -25,16 +25,21 @@ import java.util.Objects;
   ListStreamQuery.JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH,
   ListStreamQuery.JSON_PROPERTY_COMPUTE,
   ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
+  ListStreamQuery.JSON_PROPERTY_ENV,
   ListStreamQuery.JSON_PROPERTY_EVENT_SIZE,
   ListStreamQuery.JSON_PROPERTY_GROUP_BY,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
   ListStreamQuery.JSON_PROPERTY_PERSONA,
   ListStreamQuery.JSON_PROPERTY_QUERY_STRING,
+  ListStreamQuery.JSON_PROPERTY_RECOMMENDATION_TYPES,
+  ListStreamQuery.JSON_PROPERTY_SERVICES,
   ListStreamQuery.JSON_PROPERTY_SORT,
   ListStreamQuery.JSON_PROPERTY_STATES,
+  ListStreamQuery.JSON_PROPERTY_STATUSES,
   ListStreamQuery.JSON_PROPERTY_STORAGE,
   ListStreamQuery.JSON_PROPERTY_SUSPECTED_CAUSES,
   ListStreamQuery.JSON_PROPERTY_TEAM_HANDLES,
+  ListStreamQuery.JSON_PROPERTY_TEAMS,
   ListStreamQuery.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -54,6 +59,9 @@ public class ListStreamQuery {
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ListStreamSource dataSource = ListStreamSource.LOGS_STREAM;
 
+  public static final String JSON_PROPERTY_ENV = "env";
+  private String env;
+
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
 
@@ -69,11 +77,20 @@ public class ListStreamQuery {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
 
+  public static final String JSON_PROPERTY_RECOMMENDATION_TYPES = "recommendation_types";
+  private List<String> recommendationTypes = null;
+
+  public static final String JSON_PROPERTY_SERVICES = "services";
+  private List<String> services = null;
+
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetFieldSort sort;
 
   public static final String JSON_PROPERTY_STATES = "states";
   private List<ListStreamIssueState> states = null;
+
+  public static final String JSON_PROPERTY_STATUSES = "statuses";
+  private List<String> statuses = null;
 
   public static final String JSON_PROPERTY_STORAGE = "storage";
   private String storage;
@@ -83,6 +100,9 @@ public class ListStreamQuery {
 
   public static final String JSON_PROPERTY_TEAM_HANDLES = "team_handles";
   private List<String> teamHandles = null;
+
+  public static final String JSON_PROPERTY_TEAMS = "teams";
+  private List<String> teams = null;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private ListStreamQueryVersion version;
@@ -197,7 +217,9 @@ public class ListStreamQuery {
 
   /**
    * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream,
-   * and logs_issue_stream are deprecated. Use issue_stream instead.
+   * and logs_issue_stream are deprecated. Use issue_stream instead. apm_recommendations_stream is
+   * used to query APM recommendations, and supports filtering by environment, services, teams,
+   * recommendation types, and status.
    *
    * @return dataSource
    */
@@ -212,6 +234,27 @@ public class ListStreamQuery {
       this.unparsed = true;
     }
     this.dataSource = dataSource;
+  }
+
+  public ListStreamQuery env(String env) {
+    this.env = env;
+    return this;
+  }
+
+  /**
+   * Filter by APM environment. Usable only with <code>apm_recommendations_stream</code>.
+   *
+   * @return env
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
   }
 
   public ListStreamQuery eventSize(WidgetEventSize eventSize) {
@@ -355,6 +398,64 @@ public class ListStreamQuery {
     this.queryString = queryString;
   }
 
+  public ListStreamQuery recommendationTypes(List<String> recommendationTypes) {
+    this.recommendationTypes = recommendationTypes;
+    return this;
+  }
+
+  public ListStreamQuery addRecommendationTypesItem(String recommendationTypesItem) {
+    if (this.recommendationTypes == null) {
+      this.recommendationTypes = new ArrayList<>();
+    }
+    this.recommendationTypes.add(recommendationTypesItem);
+    return this;
+  }
+
+  /**
+   * Filter by recommendation types. Usable only with <code>apm_recommendations_stream</code>.
+   *
+   * @return recommendationTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RECOMMENDATION_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getRecommendationTypes() {
+    return recommendationTypes;
+  }
+
+  public void setRecommendationTypes(List<String> recommendationTypes) {
+    this.recommendationTypes = recommendationTypes;
+  }
+
+  public ListStreamQuery services(List<String> services) {
+    this.services = services;
+    return this;
+  }
+
+  public ListStreamQuery addServicesItem(String servicesItem) {
+    if (this.services == null) {
+      this.services = new ArrayList<>();
+    }
+    this.services.add(servicesItem);
+    return this;
+  }
+
+  /**
+   * Filter by service names. Usable only with <code>apm_recommendations_stream</code>.
+   *
+   * @return services
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getServices() {
+    return services;
+  }
+
+  public void setServices(List<String> services) {
+    this.services = services;
+  }
+
   public ListStreamQuery sort(WidgetFieldSort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -408,6 +509,35 @@ public class ListStreamQuery {
 
   public void setStates(List<ListStreamIssueState> states) {
     this.states = states;
+  }
+
+  public ListStreamQuery statuses(List<String> statuses) {
+    this.statuses = statuses;
+    return this;
+  }
+
+  public ListStreamQuery addStatusesItem(String statusesItem) {
+    if (this.statuses == null) {
+      this.statuses = new ArrayList<>();
+    }
+    this.statuses.add(statusesItem);
+    return this;
+  }
+
+  /**
+   * Filter by recommendation statuses. Usable only with <code>apm_recommendations_stream</code>.
+   *
+   * @return statuses
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getStatuses() {
+    return statuses;
+  }
+
+  public void setStatuses(List<String> statuses) {
+    this.statuses = statuses;
   }
 
   public ListStreamQuery storage(String storage) {
@@ -487,6 +617,35 @@ public class ListStreamQuery {
 
   public void setTeamHandles(List<String> teamHandles) {
     this.teamHandles = teamHandles;
+  }
+
+  public ListStreamQuery teams(List<String> teams) {
+    this.teams = teams;
+    return this;
+  }
+
+  public ListStreamQuery addTeamsItem(String teamsItem) {
+    if (this.teams == null) {
+      this.teams = new ArrayList<>();
+    }
+    this.teams.add(teamsItem);
+    return this;
+  }
+
+  /**
+   * Filter by team handles. Usable only with <code>apm_recommendations_stream</code>.
+   *
+   * @return teams
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTeams() {
+    return teams;
+  }
+
+  public void setTeams(List<String> teams) {
+    this.teams = teams;
   }
 
   public ListStreamQuery version(ListStreamQueryVersion version) {
@@ -577,16 +736,21 @@ public class ListStreamQuery {
             this.clusteringPatternFieldPath, listStreamQuery.clusteringPatternFieldPath)
         && Objects.equals(this.compute, listStreamQuery.compute)
         && Objects.equals(this.dataSource, listStreamQuery.dataSource)
+        && Objects.equals(this.env, listStreamQuery.env)
         && Objects.equals(this.eventSize, listStreamQuery.eventSize)
         && Objects.equals(this.groupBy, listStreamQuery.groupBy)
         && Objects.equals(this.indexes, listStreamQuery.indexes)
         && Objects.equals(this.persona, listStreamQuery.persona)
         && Objects.equals(this.queryString, listStreamQuery.queryString)
+        && Objects.equals(this.recommendationTypes, listStreamQuery.recommendationTypes)
+        && Objects.equals(this.services, listStreamQuery.services)
         && Objects.equals(this.sort, listStreamQuery.sort)
         && Objects.equals(this.states, listStreamQuery.states)
+        && Objects.equals(this.statuses, listStreamQuery.statuses)
         && Objects.equals(this.storage, listStreamQuery.storage)
         && Objects.equals(this.suspectedCauses, listStreamQuery.suspectedCauses)
         && Objects.equals(this.teamHandles, listStreamQuery.teamHandles)
+        && Objects.equals(this.teams, listStreamQuery.teams)
         && Objects.equals(this.version, listStreamQuery.version)
         && Objects.equals(this.additionalProperties, listStreamQuery.additionalProperties);
   }
@@ -598,16 +762,21 @@ public class ListStreamQuery {
         clusteringPatternFieldPath,
         compute,
         dataSource,
+        env,
         eventSize,
         groupBy,
         indexes,
         persona,
         queryString,
+        recommendationTypes,
+        services,
         sort,
         states,
+        statuses,
         storage,
         suspectedCauses,
         teamHandles,
+        teams,
         version,
         additionalProperties);
   }
@@ -622,16 +791,23 @@ public class ListStreamQuery {
         .append("\n");
     sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    persona: ").append(toIndentedString(persona)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
+    sb.append("    recommendationTypes: ")
+        .append(toIndentedString(recommendationTypes))
+        .append("\n");
+    sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    states: ").append(toIndentedString(states)).append("\n");
+    sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("    suspectedCauses: ").append(toIndentedString(suspectedCauses)).append("\n");
     sb.append("    teamHandles: ").append(toIndentedString(teamHandles)).append("\n");
+    sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
