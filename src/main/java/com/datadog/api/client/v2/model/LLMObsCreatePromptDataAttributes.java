@@ -21,9 +21,11 @@ import java.util.Objects;
 
 /**
  * Attributes for creating an Agent Observability prompt and its first version. <code>prompt_id
- * </code> and <code>template</code> are required; all other attributes are optional.
+ * </code> and <code>template</code> are required; all other attributes are optional. If <code>
+ * config</code> is omitted, the first version stores an empty object.
  */
 @JsonPropertyOrder({
+  LLMObsCreatePromptDataAttributes.JSON_PROPERTY_CONFIG,
   LLMObsCreatePromptDataAttributes.JSON_PROPERTY_DESCRIPTION,
   LLMObsCreatePromptDataAttributes.JSON_PROPERTY_ENV_IDS,
   LLMObsCreatePromptDataAttributes.JSON_PROPERTY_LABELS,
@@ -36,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsCreatePromptDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private Map<String, Object> config = null;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -67,6 +72,37 @@ public class LLMObsCreatePromptDataAttributes {
     this.promptId = promptId;
     this.template = template;
     this.unparsed |= template.unparsed;
+  }
+
+  public LLMObsCreatePromptDataAttributes config(Map<String, Object> config) {
+    this.config = config;
+    return this;
+  }
+
+  public LLMObsCreatePromptDataAttributes putConfigItem(String key, Object configItem) {
+    if (this.config == null) {
+      this.config = new HashMap<>();
+    }
+    this.config.put(key, configItem);
+    return this;
+  }
+
+  /**
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the
+   * object without interpolating it, validating provider-specific keys, or applying it to model
+   * calls. Do not include secrets.
+   *
+   * @return config
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
   }
 
   public LLMObsCreatePromptDataAttributes description(String description) {
@@ -296,7 +332,8 @@ public class LLMObsCreatePromptDataAttributes {
     }
     LLMObsCreatePromptDataAttributes llmObsCreatePromptDataAttributes =
         (LLMObsCreatePromptDataAttributes) o;
-    return Objects.equals(this.description, llmObsCreatePromptDataAttributes.description)
+    return Objects.equals(this.config, llmObsCreatePromptDataAttributes.config)
+        && Objects.equals(this.description, llmObsCreatePromptDataAttributes.description)
         && Objects.equals(this.envIds, llmObsCreatePromptDataAttributes.envIds)
         && Objects.equals(this.labels, llmObsCreatePromptDataAttributes.labels)
         && Objects.equals(this.promptId, llmObsCreatePromptDataAttributes.promptId)
@@ -310,13 +347,22 @@ public class LLMObsCreatePromptDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        description, envIds, labels, promptId, template, title, userVersion, additionalProperties);
+        config,
+        description,
+        envIds,
+        labels,
+        promptId,
+        template,
+        title,
+        userVersion,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsCreatePromptDataAttributes {\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envIds: ").append(toIndentedString(envIds)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");

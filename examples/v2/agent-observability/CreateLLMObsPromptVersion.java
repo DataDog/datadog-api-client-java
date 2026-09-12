@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.LLMObsPromptVersionLabel;
 import com.datadog.api.client.v2.model.LLMObsPromptVersionResponse;
 import com.datadog.api.client.v2.model.LLMObsPromptVersionType;
 import java.util.Collections;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,6 +25,11 @@ public class Example {
                 new LLMObsCreatePromptVersionData()
                     .attributes(
                         new LLMObsCreatePromptVersionDataAttributes()
+                            .config(
+                                Map.ofEntries(
+                                    Map.entry("model", "provider-model"),
+                                    Map.entry("response_format", "{'type': 'json_object'}"),
+                                    Map.entry("temperature", "0.2")))
                             .labels(Collections.singletonList(LLMObsPromptVersionLabel.PRODUCTION))
                             .template(
                                 new LLMObsPromptTemplate("You are a helpful assistant for .")))
