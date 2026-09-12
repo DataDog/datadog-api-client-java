@@ -46,7 +46,7 @@ public class ObservabilityPipelineSpec {
   }
 
   /**
-   * Contains the the pipeline configuration.
+   * Contains the pipeline configuration.
    *
    * @return data
    */
