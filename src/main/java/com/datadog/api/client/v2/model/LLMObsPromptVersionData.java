@@ -58,7 +58,9 @@ public class LLMObsPromptVersionData {
   }
 
   /**
-   * Attributes of a specific version of an Agent Observability prompt.
+   * Attributes of a specific version of an Agent Observability prompt. For a composed version,
+   * <code>authoring_template</code> contains its pinned include-bearing source; ordinary versions
+   * omit that attribute.
    *
    * @return attributes
    */
