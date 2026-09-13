@@ -35,7 +35,7 @@ import java.util.Objects;
 public class LLMObsPromptSDKDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHAT_TEMPLATE = "chat_template";
-  private List<LLMObsPromptChatMessage> chatTemplate = null;
+  private List<LLMObsPromptChatTemplateItem> chatTemplate = null;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private List<String> labels = null;
@@ -52,10 +52,11 @@ public class LLMObsPromptSDKDataAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
 
-  public LLMObsPromptSDKDataAttributes chatTemplate(List<LLMObsPromptChatMessage> chatTemplate) {
+  public LLMObsPromptSDKDataAttributes chatTemplate(
+      List<LLMObsPromptChatTemplateItem> chatTemplate) {
     this.chatTemplate = chatTemplate;
     if (chatTemplate != null) {
-      for (LLMObsPromptChatMessage item : chatTemplate) {
+      for (LLMObsPromptChatTemplateItem item : chatTemplate) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -63,7 +64,7 @@ public class LLMObsPromptSDKDataAttributes {
   }
 
   public LLMObsPromptSDKDataAttributes addChatTemplateItem(
-      LLMObsPromptChatMessage chatTemplateItem) {
+      LLMObsPromptChatTemplateItem chatTemplateItem) {
     if (this.chatTemplate == null) {
       this.chatTemplate = new ArrayList<>();
     }
@@ -73,22 +74,22 @@ public class LLMObsPromptSDKDataAttributes {
   }
 
   /**
-   * Chat template for this prompt version, as a list of role and content messages. Omitted for text
-   * templates.
+   * Chat template for this prompt version, as a list of messages and named message placeholders.
+   * Omitted for text templates.
    *
    * @return chatTemplate
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHAT_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LLMObsPromptChatMessage> getChatTemplate() {
+  public List<LLMObsPromptChatTemplateItem> getChatTemplate() {
     return chatTemplate;
   }
 
-  public void setChatTemplate(List<LLMObsPromptChatMessage> chatTemplate) {
+  public void setChatTemplate(List<LLMObsPromptChatTemplateItem> chatTemplate) {
     this.chatTemplate = chatTemplate;
     if (chatTemplate != null) {
-      for (LLMObsPromptChatMessage item : chatTemplate) {
+      for (LLMObsPromptChatTemplateItem item : chatTemplate) {
         this.unparsed |= item.unparsed;
       }
     }
