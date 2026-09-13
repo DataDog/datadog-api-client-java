@@ -180,7 +180,9 @@ public class LLMObsCreatePromptDataAttributes {
   }
 
   /**
-   * A text template or a list of chat messages.
+   * A text template, a list of chat messages, or an authored chat object. Text can include an exact
+   * prompt version with <code>{{&gt;prompt-id version=N}}</code>. Use an authored chat object when
+   * including prompts as chat messages.
    *
    * @return template
    */

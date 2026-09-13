@@ -167,6 +167,55 @@ public class LLMObsPromptTemplate extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'LLMObsPromptChatTemplate'", e);
       }
 
+      // deserialize LLMObsPromptAuthoringMessagesTemplate
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LLMObsPromptAuthoringMessagesTemplate.class.equals(Integer.class)
+            || LLMObsPromptAuthoringMessagesTemplate.class.equals(Long.class)
+            || LLMObsPromptAuthoringMessagesTemplate.class.equals(Float.class)
+            || LLMObsPromptAuthoringMessagesTemplate.class.equals(Double.class)
+            || LLMObsPromptAuthoringMessagesTemplate.class.equals(Boolean.class)
+            || LLMObsPromptAuthoringMessagesTemplate.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LLMObsPromptAuthoringMessagesTemplate.class.equals(Integer.class)
+                        || LLMObsPromptAuthoringMessagesTemplate.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LLMObsPromptAuthoringMessagesTemplate.class.equals(Float.class)
+                        || LLMObsPromptAuthoringMessagesTemplate.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LLMObsPromptAuthoringMessagesTemplate.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LLMObsPromptAuthoringMessagesTemplate.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(LLMObsPromptAuthoringMessagesTemplate.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LLMObsPromptAuthoringMessagesTemplate) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'LLMObsPromptAuthoringMessagesTemplate'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'LLMObsPromptAuthoringMessagesTemplate'",
+            e);
+      }
+
       LLMObsPromptTemplate ret = new LLMObsPromptTemplate();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -209,9 +258,17 @@ public class LLMObsPromptTemplate extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public LLMObsPromptTemplate(LLMObsPromptAuthoringMessagesTemplate o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("String", new GenericType<String>() {});
     schemas.put("LLMObsPromptChatTemplate", new GenericType<LLMObsPromptChatTemplate>() {});
+    schemas.put(
+        "LLMObsPromptAuthoringMessagesTemplate",
+        new GenericType<LLMObsPromptAuthoringMessagesTemplate>() {});
     JSON.registerDescendants(LLMObsPromptTemplate.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -222,7 +279,8 @@ public class LLMObsPromptTemplate extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: String, LLMObsPromptChatTemplate
+   * against the oneOf child schemas: String, LLMObsPromptChatTemplate,
+   * LLMObsPromptAuthoringMessagesTemplate
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -237,18 +295,27 @@ public class LLMObsPromptTemplate extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        LLMObsPromptAuthoringMessagesTemplate.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be String, LLMObsPromptChatTemplate");
+    throw new RuntimeException(
+        "Invalid instance type. Must be String, LLMObsPromptChatTemplate,"
+            + " LLMObsPromptAuthoringMessagesTemplate");
   }
 
   /**
-   * Get the actual instance, which can be the following: String, LLMObsPromptChatTemplate
+   * Get the actual instance, which can be the following: String, LLMObsPromptChatTemplate,
+   * LLMObsPromptAuthoringMessagesTemplate
    *
-   * @return The actual instance (String, LLMObsPromptChatTemplate)
+   * @return The actual instance (String, LLMObsPromptChatTemplate,
+   *     LLMObsPromptAuthoringMessagesTemplate)
    */
   @Override
   public Object getActualInstance() {
@@ -275,5 +342,17 @@ public class LLMObsPromptTemplate extends AbstractOpenApiSchema {
    */
   public LLMObsPromptChatTemplate getLLMObsPromptChatTemplate() throws ClassCastException {
     return (LLMObsPromptChatTemplate) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LLMObsPromptAuthoringMessagesTemplate`. If the actual instance is
+   * not `LLMObsPromptAuthoringMessagesTemplate`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LLMObsPromptAuthoringMessagesTemplate`
+   * @throws ClassCastException if the instance is not `LLMObsPromptAuthoringMessagesTemplate`
+   */
+  public LLMObsPromptAuthoringMessagesTemplate getLLMObsPromptAuthoringMessagesTemplate()
+      throws ClassCastException {
+    return (LLMObsPromptAuthoringMessagesTemplate) super.getActualInstance();
   }
 }
