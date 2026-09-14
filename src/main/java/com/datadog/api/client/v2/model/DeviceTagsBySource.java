@@ -18,39 +18,45 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of ListTagsResponseDataAttributes object. */
-@JsonPropertyOrder({
-  ListTagsResponseDataAttributes.JSON_PROPERTY_BY_SOURCE,
-  ListTagsResponseDataAttributes.JSON_PROPERTY_TAGS
-})
+/** Tags associated with a device from a specific source. */
+@JsonPropertyOrder({DeviceTagsBySource.JSON_PROPERTY_SOURCE, DeviceTagsBySource.JSON_PROPERTY_TAGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ListTagsResponseDataAttributes {
+public class DeviceTagsBySource {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BY_SOURCE = "by_source";
-  private List<DeviceTagsBySource> bySource = null;
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private String source;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-  /**
-   * The list of device tags grouped by source.
-   *
-   * @return bySource
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DeviceTagsBySource> getBySource() {
-    return bySource;
+  public DeviceTagsBySource source(String source) {
+    this.source = source;
+    return this;
   }
 
-  public ListTagsResponseDataAttributes tags(List<String> tags) {
+  /**
+   * The source of the tags.
+   *
+   * @return source
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  public DeviceTagsBySource tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public ListTagsResponseDataAttributes addTagsItem(String tagsItem) {
+  public DeviceTagsBySource addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -59,7 +65,7 @@ public class ListTagsResponseDataAttributes {
   }
 
   /**
-   * The list of tags
+   * The list of tags for the source.
    *
    * @return tags
    */
@@ -86,10 +92,10 @@ public class ListTagsResponseDataAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ListTagsResponseDataAttributes
+   * @return DeviceTagsBySource
    */
   @JsonAnySetter
-  public ListTagsResponseDataAttributes putAdditionalProperty(String key, Object value) {
+  public DeviceTagsBySource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +126,7 @@ public class ListTagsResponseDataAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ListTagsResponseDataAttributes object is equal to o. */
+  /** Return true if this DeviceTagsBySource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,24 +135,22 @@ public class ListTagsResponseDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListTagsResponseDataAttributes listTagsResponseDataAttributes =
-        (ListTagsResponseDataAttributes) o;
-    return Objects.equals(this.bySource, listTagsResponseDataAttributes.bySource)
-        && Objects.equals(this.tags, listTagsResponseDataAttributes.tags)
-        && Objects.equals(
-            this.additionalProperties, listTagsResponseDataAttributes.additionalProperties);
+    DeviceTagsBySource deviceTagsBySource = (DeviceTagsBySource) o;
+    return Objects.equals(this.source, deviceTagsBySource.source)
+        && Objects.equals(this.tags, deviceTagsBySource.tags)
+        && Objects.equals(this.additionalProperties, deviceTagsBySource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bySource, tags, additionalProperties);
+    return Objects.hash(source, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListTagsResponseDataAttributes {\n");
-    sb.append("    bySource: ").append(toIndentedString(bySource)).append("\n");
+    sb.append("class DeviceTagsBySource {\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
