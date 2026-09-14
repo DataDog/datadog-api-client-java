@@ -31,13 +31,18 @@ import java.util.Objects;
   AggregatedResource.JSON_PROPERTY_GLOBAL_VIEW_NAME_PCT,
   AggregatedResource.JSON_PROPERTY_HTTP_METHOD,
   AggregatedResource.JSON_PROPERTY_LOAD_FREQUENCY_PCT,
+  AggregatedResource.JSON_PROPERTY_LOCAL_CACHE_COUNT,
   AggregatedResource.JSON_PROPERTY_MAX_DURATION_MS,
   AggregatedResource.JSON_PROPERTY_MEDIAN_DURATION_MS,
   AggregatedResource.JSON_PROPERTY_MIN_DURATION_MS,
+  AggregatedResource.JSON_PROPERTY_NON_BLOCKING_COUNT,
   AggregatedResource.JSON_PROPERTY_P75_DURATION_MS,
   AggregatedResource.JSON_PROPERTY_P95_DURATION_MS,
+  AggregatedResource.JSON_PROPERTY_RENDER_BLOCKING_COUNT,
+  AggregatedResource.JSON_PROPERTY_RENDER_BLOCKING_PCT,
   AggregatedResource.JSON_PROPERTY_RESOURCE_TYPE,
   AggregatedResource.JSON_PROPERTY_RESOURCE_URL_PATH_GROUP,
+  AggregatedResource.JSON_PROPERTY_SERVER_VALIDATED_CACHE_COUNT,
   AggregatedResource.JSON_PROPERTY_TIMING_BREAKDOWN,
   AggregatedResource.JSON_PROPERTY_TOTAL_REQUESTS,
   AggregatedResource.JSON_PROPERTY_VIEWS_WITH_RESOURCE
@@ -76,6 +81,9 @@ public class AggregatedResource {
   public static final String JSON_PROPERTY_LOAD_FREQUENCY_PCT = "load_frequency_pct";
   private Double loadFrequencyPct;
 
+  public static final String JSON_PROPERTY_LOCAL_CACHE_COUNT = "local_cache_count";
+  private Integer localCacheCount;
+
   public static final String JSON_PROPERTY_MAX_DURATION_MS = "max_duration_ms";
   private Double maxDurationMs;
 
@@ -85,17 +93,30 @@ public class AggregatedResource {
   public static final String JSON_PROPERTY_MIN_DURATION_MS = "min_duration_ms";
   private Double minDurationMs;
 
+  public static final String JSON_PROPERTY_NON_BLOCKING_COUNT = "non_blocking_count";
+  private Integer nonBlockingCount;
+
   public static final String JSON_PROPERTY_P75_DURATION_MS = "p75_duration_ms";
   private Double p75DurationMs;
 
   public static final String JSON_PROPERTY_P95_DURATION_MS = "p95_duration_ms";
   private Double p95DurationMs;
 
+  public static final String JSON_PROPERTY_RENDER_BLOCKING_COUNT = "render_blocking_count";
+  private Integer renderBlockingCount;
+
+  public static final String JSON_PROPERTY_RENDER_BLOCKING_PCT = "render_blocking_pct";
+  private Double renderBlockingPct;
+
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resource_type";
   private String resourceType;
 
   public static final String JSON_PROPERTY_RESOURCE_URL_PATH_GROUP = "resource_url_path_group";
   private String resourceUrlPathGroup;
+
+  public static final String JSON_PROPERTY_SERVER_VALIDATED_CACHE_COUNT =
+      "server_validated_cache_count";
+  private Integer serverValidatedCacheCount;
 
   public static final String JSON_PROPERTY_TIMING_BREAKDOWN = "timing_breakdown";
   private AggregatedResourceTimingBreakdown timingBreakdown;
@@ -120,15 +141,25 @@ public class AggregatedResource {
       @JsonProperty(required = true, value = JSON_PROPERTY_HTTP_METHOD) String httpMethod,
       @JsonProperty(required = true, value = JSON_PROPERTY_LOAD_FREQUENCY_PCT)
           Double loadFrequencyPct,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOCAL_CACHE_COUNT)
+          Integer localCacheCount,
       @JsonProperty(required = true, value = JSON_PROPERTY_MAX_DURATION_MS) Double maxDurationMs,
       @JsonProperty(required = true, value = JSON_PROPERTY_MEDIAN_DURATION_MS)
           Double medianDurationMs,
       @JsonProperty(required = true, value = JSON_PROPERTY_MIN_DURATION_MS) Double minDurationMs,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NON_BLOCKING_COUNT)
+          Integer nonBlockingCount,
       @JsonProperty(required = true, value = JSON_PROPERTY_P75_DURATION_MS) Double p75DurationMs,
       @JsonProperty(required = true, value = JSON_PROPERTY_P95_DURATION_MS) Double p95DurationMs,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RENDER_BLOCKING_COUNT)
+          Integer renderBlockingCount,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RENDER_BLOCKING_PCT)
+          Double renderBlockingPct,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_URL_PATH_GROUP)
           String resourceUrlPathGroup,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVER_VALIDATED_CACHE_COUNT)
+          Integer serverValidatedCacheCount,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIMING_BREAKDOWN)
           AggregatedResourceTimingBreakdown timingBreakdown,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_REQUESTS) Integer totalRequests,
@@ -142,14 +173,19 @@ public class AggregatedResource {
     this.httpMethod = httpMethod;
     if (httpMethod != null) {}
     this.loadFrequencyPct = loadFrequencyPct;
+    this.localCacheCount = localCacheCount;
     this.maxDurationMs = maxDurationMs;
     this.medianDurationMs = medianDurationMs;
     this.minDurationMs = minDurationMs;
+    this.nonBlockingCount = nonBlockingCount;
     this.p75DurationMs = p75DurationMs;
     this.p95DurationMs = p95DurationMs;
+    this.renderBlockingCount = renderBlockingCount;
+    this.renderBlockingPct = renderBlockingPct;
     this.resourceType = resourceType;
     if (resourceType != null) {}
     this.resourceUrlPathGroup = resourceUrlPathGroup;
+    this.serverValidatedCacheCount = serverValidatedCacheCount;
     this.timingBreakdown = timingBreakdown;
     this.unparsed |= timingBreakdown.unparsed;
     this.totalRequests = totalRequests;
@@ -364,6 +400,27 @@ public class AggregatedResource {
     this.loadFrequencyPct = loadFrequencyPct;
   }
 
+  public AggregatedResource localCacheCount(Integer localCacheCount) {
+    this.localCacheCount = localCacheCount;
+    return this;
+  }
+
+  /**
+   * Number of requests served from the local browser cache without a network round trip. maximum:
+   * 2147483647
+   *
+   * @return localCacheCount
+   */
+  @JsonProperty(JSON_PROPERTY_LOCAL_CACHE_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getLocalCacheCount() {
+    return localCacheCount;
+  }
+
+  public void setLocalCacheCount(Integer localCacheCount) {
+    this.localCacheCount = localCacheCount;
+  }
+
   public AggregatedResource maxDurationMs(Double maxDurationMs) {
     this.maxDurationMs = maxDurationMs;
     return this;
@@ -424,6 +481,26 @@ public class AggregatedResource {
     this.minDurationMs = minDurationMs;
   }
 
+  public AggregatedResource nonBlockingCount(Integer nonBlockingCount) {
+    this.nonBlockingCount = nonBlockingCount;
+    return this;
+  }
+
+  /**
+   * Number of requests reported by the browser as non-render-blocking. maximum: 2147483647
+   *
+   * @return nonBlockingCount
+   */
+  @JsonProperty(JSON_PROPERTY_NON_BLOCKING_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getNonBlockingCount() {
+    return nonBlockingCount;
+  }
+
+  public void setNonBlockingCount(Integer nonBlockingCount) {
+    this.nonBlockingCount = nonBlockingCount;
+  }
+
   public AggregatedResource p75DurationMs(Double p75DurationMs) {
     this.p75DurationMs = p75DurationMs;
     return this;
@@ -462,6 +539,46 @@ public class AggregatedResource {
 
   public void setP95DurationMs(Double p95DurationMs) {
     this.p95DurationMs = p95DurationMs;
+  }
+
+  public AggregatedResource renderBlockingCount(Integer renderBlockingCount) {
+    this.renderBlockingCount = renderBlockingCount;
+    return this;
+  }
+
+  /**
+   * Number of requests reported by the browser as render-blocking. maximum: 2147483647
+   *
+   * @return renderBlockingCount
+   */
+  @JsonProperty(JSON_PROPERTY_RENDER_BLOCKING_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getRenderBlockingCount() {
+    return renderBlockingCount;
+  }
+
+  public void setRenderBlockingCount(Integer renderBlockingCount) {
+    this.renderBlockingCount = renderBlockingCount;
+  }
+
+  public AggregatedResource renderBlockingPct(Double renderBlockingPct) {
+    this.renderBlockingPct = renderBlockingPct;
+    return this;
+  }
+
+  /**
+   * Percentage of render-blocking requests among those reporting a render-blocking status.
+   *
+   * @return renderBlockingPct
+   */
+  @JsonProperty(JSON_PROPERTY_RENDER_BLOCKING_PCT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getRenderBlockingPct() {
+    return renderBlockingPct;
+  }
+
+  public void setRenderBlockingPct(Double renderBlockingPct) {
+    this.renderBlockingPct = renderBlockingPct;
   }
 
   public AggregatedResource resourceType(String resourceType) {
@@ -504,6 +621,26 @@ public class AggregatedResource {
 
   public void setResourceUrlPathGroup(String resourceUrlPathGroup) {
     this.resourceUrlPathGroup = resourceUrlPathGroup;
+  }
+
+  public AggregatedResource serverValidatedCacheCount(Integer serverValidatedCacheCount) {
+    this.serverValidatedCacheCount = serverValidatedCacheCount;
+    return this;
+  }
+
+  /**
+   * Number of cached requests revalidated by the server with a 304 response. maximum: 2147483647
+   *
+   * @return serverValidatedCacheCount
+   */
+  @JsonProperty(JSON_PROPERTY_SERVER_VALIDATED_CACHE_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getServerValidatedCacheCount() {
+    return serverValidatedCacheCount;
+  }
+
+  public void setServerValidatedCacheCount(Integer serverValidatedCacheCount) {
+    this.serverValidatedCacheCount = serverValidatedCacheCount;
   }
 
   public AggregatedResource timingBreakdown(AggregatedResourceTimingBreakdown timingBreakdown) {
@@ -636,13 +773,19 @@ public class AggregatedResource {
         && Objects.equals(this.globalViewNamePct, aggregatedResource.globalViewNamePct)
         && Objects.equals(this.httpMethod, aggregatedResource.httpMethod)
         && Objects.equals(this.loadFrequencyPct, aggregatedResource.loadFrequencyPct)
+        && Objects.equals(this.localCacheCount, aggregatedResource.localCacheCount)
         && Objects.equals(this.maxDurationMs, aggregatedResource.maxDurationMs)
         && Objects.equals(this.medianDurationMs, aggregatedResource.medianDurationMs)
         && Objects.equals(this.minDurationMs, aggregatedResource.minDurationMs)
+        && Objects.equals(this.nonBlockingCount, aggregatedResource.nonBlockingCount)
         && Objects.equals(this.p75DurationMs, aggregatedResource.p75DurationMs)
         && Objects.equals(this.p95DurationMs, aggregatedResource.p95DurationMs)
+        && Objects.equals(this.renderBlockingCount, aggregatedResource.renderBlockingCount)
+        && Objects.equals(this.renderBlockingPct, aggregatedResource.renderBlockingPct)
         && Objects.equals(this.resourceType, aggregatedResource.resourceType)
         && Objects.equals(this.resourceUrlPathGroup, aggregatedResource.resourceUrlPathGroup)
+        && Objects.equals(
+            this.serverValidatedCacheCount, aggregatedResource.serverValidatedCacheCount)
         && Objects.equals(this.timingBreakdown, aggregatedResource.timingBreakdown)
         && Objects.equals(this.totalRequests, aggregatedResource.totalRequests)
         && Objects.equals(this.viewsWithResource, aggregatedResource.viewsWithResource)
@@ -662,13 +805,18 @@ public class AggregatedResource {
         globalViewNamePct,
         httpMethod,
         loadFrequencyPct,
+        localCacheCount,
         maxDurationMs,
         medianDurationMs,
         minDurationMs,
+        nonBlockingCount,
         p75DurationMs,
         p95DurationMs,
+        renderBlockingCount,
+        renderBlockingPct,
         resourceType,
         resourceUrlPathGroup,
+        serverValidatedCacheCount,
         timingBreakdown,
         totalRequests,
         viewsWithResource,
@@ -693,14 +841,23 @@ public class AggregatedResource {
     sb.append("    globalViewNamePct: ").append(toIndentedString(globalViewNamePct)).append("\n");
     sb.append("    httpMethod: ").append(toIndentedString(httpMethod)).append("\n");
     sb.append("    loadFrequencyPct: ").append(toIndentedString(loadFrequencyPct)).append("\n");
+    sb.append("    localCacheCount: ").append(toIndentedString(localCacheCount)).append("\n");
     sb.append("    maxDurationMs: ").append(toIndentedString(maxDurationMs)).append("\n");
     sb.append("    medianDurationMs: ").append(toIndentedString(medianDurationMs)).append("\n");
     sb.append("    minDurationMs: ").append(toIndentedString(minDurationMs)).append("\n");
+    sb.append("    nonBlockingCount: ").append(toIndentedString(nonBlockingCount)).append("\n");
     sb.append("    p75DurationMs: ").append(toIndentedString(p75DurationMs)).append("\n");
     sb.append("    p95DurationMs: ").append(toIndentedString(p95DurationMs)).append("\n");
+    sb.append("    renderBlockingCount: ")
+        .append(toIndentedString(renderBlockingCount))
+        .append("\n");
+    sb.append("    renderBlockingPct: ").append(toIndentedString(renderBlockingPct)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    resourceUrlPathGroup: ")
         .append(toIndentedString(resourceUrlPathGroup))
+        .append("\n");
+    sb.append("    serverValidatedCacheCount: ")
+        .append(toIndentedString(serverValidatedCacheCount))
         .append("\n");
     sb.append("    timingBreakdown: ").append(toIndentedString(timingBreakdown)).append("\n");
     sb.append("    totalRequests: ").append(toIndentedString(totalRequests)).append("\n");
