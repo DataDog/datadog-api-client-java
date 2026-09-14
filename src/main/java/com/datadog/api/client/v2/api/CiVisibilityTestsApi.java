@@ -5,11 +5,11 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.CIAppQueryPageOptions;
 import com.datadog.api.client.v2.model.CIAppSort;
 import com.datadog.api.client.v2.model.CIAppTestEvent;
 import com.datadog.api.client.v2.model.CIAppTestEventsRequest;
 import com.datadog.api.client.v2.model.CIAppTestEventsResponse;
+import com.datadog.api.client.v2.model.CIAppTestQueryPageOptions;
 import com.datadog.api.client.v2.model.CIAppTestsAggregateRequest;
 import com.datadog.api.client.v2.model.CIAppTestsAnalyticsAggregateResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -600,14 +600,14 @@ public class CiVisibilityTestsApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit;
+    CIAppTestQueryPageLimit limit;
 
     if (parameters.body == null) {
       parameters.body(new CIAppTestEventsRequest());
     }
 
     if (parameters.body.getPage() == null) {
-      parameters.body.setPage(new CIAppQueryPageOptions());
+      parameters.body.setPage(new CIAppTestQueryPageOptions());
     }
 
     if (parameters.body.getPage().getLimit() == null) {

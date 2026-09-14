@@ -4,10 +4,11 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.CiVisibilityTestsApi;
 import com.datadog.api.client.v2.api.CiVisibilityTestsApi.SearchCIAppTestEventsOptionalParameters;
-import com.datadog.api.client.v2.model.CIAppQueryPageOptions;
 import com.datadog.api.client.v2.model.CIAppSort;
 import com.datadog.api.client.v2.model.CIAppTestEvent;
 import com.datadog.api.client.v2.model.CIAppTestEventsRequest;
+import com.datadog.api.client.v2.model.CIAppTestQueryPageLimit;
+import com.datadog.api.client.v2.model.CIAppTestQueryPageOptions;
 import com.datadog.api.client.v2.model.CIAppTestsQueryFilter;
 
 public class Example {
@@ -22,7 +23,7 @@ public class Example {
                     .from("now-15m")
                     .query("@test.status:pass AND -@language:python")
                     .to("now"))
-            .page(new CIAppQueryPageOptions().limit(2))
+            .page(new CIAppTestQueryPageOptions().limit(new CIAppTestQueryPageLimit(2)))
             .sort(CIAppSort.TIMESTAMP_ASCENDING);
 
     try {

@@ -5,10 +5,11 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CiVisibilityTestsApi;
 import com.datadog.api.client.v2.api.CiVisibilityTestsApi.SearchCIAppTestEventsOptionalParameters;
 import com.datadog.api.client.v2.model.CIAppQueryOptions;
-import com.datadog.api.client.v2.model.CIAppQueryPageOptions;
 import com.datadog.api.client.v2.model.CIAppSort;
 import com.datadog.api.client.v2.model.CIAppTestEventsRequest;
 import com.datadog.api.client.v2.model.CIAppTestEventsResponse;
+import com.datadog.api.client.v2.model.CIAppTestQueryPageLimit;
+import com.datadog.api.client.v2.model.CIAppTestQueryPageOptions;
 import com.datadog.api.client.v2.model.CIAppTestsQueryFilter;
 
 public class Example {
@@ -24,7 +25,7 @@ public class Example {
                     .query("@test.service:web-ui-tests AND @test.status:skip")
                     .to("now"))
             .options(new CIAppQueryOptions().timezone("GMT"))
-            .page(new CIAppQueryPageOptions().limit(25))
+            .page(new CIAppTestQueryPageOptions().limit(new CIAppTestQueryPageLimit(25)))
             .sort(CIAppSort.TIMESTAMP_ASCENDING);
 
     try {

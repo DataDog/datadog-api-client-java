@@ -34,7 +34,7 @@ public class CIAppTestEventsRequest {
   private CIAppQueryOptions options;
 
   public static final String JSON_PROPERTY_PAGE = "page";
-  private CIAppQueryPageOptions page;
+  private CIAppTestQueryPageOptions page;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private CIAppSort sort;
@@ -90,25 +90,25 @@ public class CIAppTestEventsRequest {
     }
   }
 
-  public CIAppTestEventsRequest page(CIAppQueryPageOptions page) {
+  public CIAppTestEventsRequest page(CIAppTestQueryPageOptions page) {
     this.page = page;
     this.unparsed |= page.unparsed;
     return this;
   }
 
   /**
-   * Paging attributes for listing events.
+   * Paging attributes for listing test events.
    *
    * @return page
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppQueryPageOptions getPage() {
+  public CIAppTestQueryPageOptions getPage() {
     return page;
   }
 
-  public void setPage(CIAppQueryPageOptions page) {
+  public void setPage(CIAppTestQueryPageOptions page) {
     this.page = page;
     if (page != null) {
       this.unparsed |= page.unparsed;
