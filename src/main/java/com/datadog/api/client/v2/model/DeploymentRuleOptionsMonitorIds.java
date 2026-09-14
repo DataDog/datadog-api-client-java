@@ -11,19 +11,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-/** Monitor query options for deployment rules. */
+/** Specific monitor options for deployment rules. */
 @JsonPropertyOrder({
-  DeploymentRuleOptionsMonitor.JSON_PROPERTY_DURATION,
-  DeploymentRuleOptionsMonitor.JSON_PROPERTY_FAIL_ON_NO_DATA,
-  DeploymentRuleOptionsMonitor.JSON_PROPERTY_FAIL_ON_NO_GROUPS_FOUND,
-  DeploymentRuleOptionsMonitor.JSON_PROPERTY_QUERY,
-  DeploymentRuleOptionsMonitor.JSON_PROPERTY_WARMUP
+  DeploymentRuleOptionsMonitorIds.JSON_PROPERTY_DURATION,
+  DeploymentRuleOptionsMonitorIds.JSON_PROPERTY_FAIL_ON_NO_DATA,
+  DeploymentRuleOptionsMonitorIds.JSON_PROPERTY_FAIL_ON_NO_GROUPS_FOUND,
+  DeploymentRuleOptionsMonitorIds.JSON_PROPERTY_MONITOR_IDS,
+  DeploymentRuleOptionsMonitorIds.JSON_PROPERTY_WARMUP
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DeploymentRuleOptionsMonitor {
+public class DeploymentRuleOptionsMonitorIds {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
@@ -34,27 +36,31 @@ public class DeploymentRuleOptionsMonitor {
   public static final String JSON_PROPERTY_FAIL_ON_NO_GROUPS_FOUND = "fail_on_no_groups_found";
   private Boolean failOnNoGroupsFound = false;
 
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
+  public static final String JSON_PROPERTY_MONITOR_IDS = "monitor_ids";
+  private List<DeploymentRuleOptionsMonitorId> monitorIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WARMUP = "warmup";
   private Long warmup = 0l;
 
-  public DeploymentRuleOptionsMonitor() {}
+  public DeploymentRuleOptionsMonitorIds() {}
 
   @JsonCreator
-  public DeploymentRuleOptionsMonitor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.query = query;
+  public DeploymentRuleOptionsMonitorIds(
+      @JsonProperty(required = true, value = JSON_PROPERTY_MONITOR_IDS)
+          List<DeploymentRuleOptionsMonitorId> monitorIds) {
+    this.monitorIds = monitorIds;
+    for (DeploymentRuleOptionsMonitorId item : monitorIds) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
-  public DeploymentRuleOptionsMonitor duration(Long duration) {
+  public DeploymentRuleOptionsMonitorIds duration(Long duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * Seconds the monitor needs to stay in OK status for the rule to pass.
+   * Seconds the monitors need to stay in OK status for the rule to pass.
    *
    * @return duration
    */
@@ -69,13 +75,13 @@ public class DeploymentRuleOptionsMonitor {
     this.duration = duration;
   }
 
-  public DeploymentRuleOptionsMonitor failOnNoData(Boolean failOnNoData) {
+  public DeploymentRuleOptionsMonitorIds failOnNoData(Boolean failOnNoData) {
     this.failOnNoData = failOnNoData;
     return this;
   }
 
   /**
-   * Whether the rule should fail if a matching monitor group is in a NO DATA state.
+   * Whether the rule should fail if a selected monitor group is in a NO DATA state.
    *
    * @return failOnNoData
    */
@@ -90,13 +96,13 @@ public class DeploymentRuleOptionsMonitor {
     this.failOnNoData = failOnNoData;
   }
 
-  public DeploymentRuleOptionsMonitor failOnNoGroupsFound(Boolean failOnNoGroupsFound) {
+  public DeploymentRuleOptionsMonitorIds failOnNoGroupsFound(Boolean failOnNoGroupsFound) {
     this.failOnNoGroupsFound = failOnNoGroupsFound;
     return this;
   }
 
   /**
-   * Whether the rule should fail if no monitor groups are found for the query.
+   * Whether the rule should fail if no monitor groups are found for the selected monitors.
    *
    * @return failOnNoGroupsFound
    */
@@ -111,33 +117,49 @@ public class DeploymentRuleOptionsMonitor {
     this.failOnNoGroupsFound = failOnNoGroupsFound;
   }
 
-  public DeploymentRuleOptionsMonitor query(String query) {
-    this.query = query;
+  public DeploymentRuleOptionsMonitorIds monitorIds(
+      List<DeploymentRuleOptionsMonitorId> monitorIds) {
+    this.monitorIds = monitorIds;
+    for (DeploymentRuleOptionsMonitorId item : monitorIds) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public DeploymentRuleOptionsMonitorIds addMonitorIdsItem(
+      DeploymentRuleOptionsMonitorId monitorIdsItem) {
+    this.monitorIds.add(monitorIdsItem);
+    this.unparsed |= monitorIdsItem.unparsed;
     return this;
   }
 
   /**
-   * A query that selects the monitors to evaluate.
+   * A non-empty list of specific monitors to evaluate.
    *
-   * @return query
+   * @return monitorIds
    */
-  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonProperty(JSON_PROPERTY_MONITOR_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
+  public List<DeploymentRuleOptionsMonitorId> getMonitorIds() {
+    return monitorIds;
   }
 
-  public void setQuery(String query) {
-    this.query = query;
+  public void setMonitorIds(List<DeploymentRuleOptionsMonitorId> monitorIds) {
+    this.monitorIds = monitorIds;
+    if (monitorIds != null) {
+      for (DeploymentRuleOptionsMonitorId item : monitorIds) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
-  public DeploymentRuleOptionsMonitor warmup(Long warmup) {
+  public DeploymentRuleOptionsMonitorIds warmup(Long warmup) {
     this.warmup = warmup;
     return this;
   }
 
   /**
-   * Seconds to wait after a deployment starts before evaluating the monitor's status. minimum: 0
+   * Seconds to wait after a deployment starts before evaluating the monitors' statuses. minimum: 0
    *
    * @return warmup
    */
@@ -152,7 +174,7 @@ public class DeploymentRuleOptionsMonitor {
     this.warmup = warmup;
   }
 
-  /** Return true if this DeploymentRuleOptionsMonitor object is equal to o. */
+  /** Return true if this DeploymentRuleOptionsMonitorIds object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -161,30 +183,31 @@ public class DeploymentRuleOptionsMonitor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeploymentRuleOptionsMonitor deploymentRuleOptionsMonitor = (DeploymentRuleOptionsMonitor) o;
-    return Objects.equals(this.duration, deploymentRuleOptionsMonitor.duration)
-        && Objects.equals(this.failOnNoData, deploymentRuleOptionsMonitor.failOnNoData)
+    DeploymentRuleOptionsMonitorIds deploymentRuleOptionsMonitorIds =
+        (DeploymentRuleOptionsMonitorIds) o;
+    return Objects.equals(this.duration, deploymentRuleOptionsMonitorIds.duration)
+        && Objects.equals(this.failOnNoData, deploymentRuleOptionsMonitorIds.failOnNoData)
         && Objects.equals(
-            this.failOnNoGroupsFound, deploymentRuleOptionsMonitor.failOnNoGroupsFound)
-        && Objects.equals(this.query, deploymentRuleOptionsMonitor.query)
-        && Objects.equals(this.warmup, deploymentRuleOptionsMonitor.warmup);
+            this.failOnNoGroupsFound, deploymentRuleOptionsMonitorIds.failOnNoGroupsFound)
+        && Objects.equals(this.monitorIds, deploymentRuleOptionsMonitorIds.monitorIds)
+        && Objects.equals(this.warmup, deploymentRuleOptionsMonitorIds.warmup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, failOnNoData, failOnNoGroupsFound, query, warmup);
+    return Objects.hash(duration, failOnNoData, failOnNoGroupsFound, monitorIds, warmup);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeploymentRuleOptionsMonitor {\n");
+    sb.append("class DeploymentRuleOptionsMonitorIds {\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    failOnNoData: ").append(toIndentedString(failOnNoData)).append("\n");
     sb.append("    failOnNoGroupsFound: ")
         .append(toIndentedString(failOnNoGroupsFound))
         .append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    monitorIds: ").append(toIndentedString(monitorIds)).append("\n");
     sb.append("    warmup: ").append(toIndentedString(warmup)).append("\n");
     sb.append('}');
     return sb.toString();
