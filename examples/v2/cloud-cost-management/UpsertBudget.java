@@ -51,6 +51,7 @@ public class Example {
                             .name("my budget")
                             .orgId(123L)
                             .startMonth(202501L)
+                            .tags(Collections.singletonList("service"))
                             .totalAmount(1000.0)
                             .updatedAt(1738258683590L)
                             .updatedBy("00000000-0a0a-0a0a-aaa0-00000000000a"))
