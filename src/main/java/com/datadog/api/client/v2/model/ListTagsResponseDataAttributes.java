@@ -19,31 +19,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The definition of ListTagsResponseDataAttributes object. */
-@JsonPropertyOrder({
-  ListTagsResponseDataAttributes.JSON_PROPERTY_BY_SOURCE,
-  ListTagsResponseDataAttributes.JSON_PROPERTY_TAGS
-})
+@JsonPropertyOrder({ListTagsResponseDataAttributes.JSON_PROPERTY_TAGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListTagsResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BY_SOURCE = "by_source";
-  private List<DeviceTagsBySource> bySource = null;
-
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
-
-  /**
-   * The list of device tags grouped by source.
-   *
-   * @return bySource
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DeviceTagsBySource> getBySource() {
-    return bySource;
-  }
 
   public ListTagsResponseDataAttributes tags(List<String> tags) {
     this.tags = tags;
@@ -131,22 +113,20 @@ public class ListTagsResponseDataAttributes {
     }
     ListTagsResponseDataAttributes listTagsResponseDataAttributes =
         (ListTagsResponseDataAttributes) o;
-    return Objects.equals(this.bySource, listTagsResponseDataAttributes.bySource)
-        && Objects.equals(this.tags, listTagsResponseDataAttributes.tags)
+    return Objects.equals(this.tags, listTagsResponseDataAttributes.tags)
         && Objects.equals(
             this.additionalProperties, listTagsResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bySource, tags, additionalProperties);
+    return Objects.hash(tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListTagsResponseDataAttributes {\n");
-    sb.append("    bySource: ").append(toIndentedString(bySource)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
