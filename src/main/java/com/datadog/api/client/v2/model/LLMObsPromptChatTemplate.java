@@ -20,12 +20,12 @@ import java.util.Objects;
 @JsonPropertyOrder({})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatMessage> {
+public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatTemplateItem> {
   @JsonIgnore public boolean unparsed = false;
 
   public LLMObsPromptChatTemplate() {}
 
-  public LLMObsPromptChatTemplate(List<LLMObsPromptChatMessage> items) {
+  public LLMObsPromptChatTemplate(List<LLMObsPromptChatTemplateItem> items) {
     super(items);
   }
 
