@@ -39,7 +39,7 @@ public class AggregatedWaterfallResponseAttributes {
   private String applicationId;
 
   public static final String JSON_PROPERTY_CRITERIA = "criteria";
-  private AggregatedWaterfallPerformanceCriteria criteria;
+  private AggregatedWaterfallResponseAttributesCriteria criteria;
 
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
@@ -67,6 +67,8 @@ public class AggregatedWaterfallResponseAttributes {
   @JsonCreator
   public AggregatedWaterfallResponseAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CRITERIA)
+          AggregatedWaterfallResponseAttributesCriteria criteria,
       @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCES)
           List<AggregatedResource> resources,
@@ -78,6 +80,10 @@ public class AggregatedWaterfallResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_COUNT) Integer viewCount,
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_NAME) String viewName) {
     this.applicationId = applicationId;
+    this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
     this.from = from;
     this.resources = resources;
     for (AggregatedResource item : resources) {
@@ -111,25 +117,28 @@ public class AggregatedWaterfallResponseAttributes {
   }
 
   public AggregatedWaterfallResponseAttributes criteria(
-      AggregatedWaterfallPerformanceCriteria criteria) {
+      AggregatedWaterfallResponseAttributesCriteria criteria) {
     this.criteria = criteria;
-    this.unparsed |= criteria.unparsed;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
     return this;
   }
 
   /**
-   * Performance criteria to filter view instances by a metric threshold.
+   * Performance criteria used to filter view instances by a metric threshold, or null if no
+   * criteria were applied.
    *
    * @return criteria
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CRITERIA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AggregatedWaterfallPerformanceCriteria getCriteria() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AggregatedWaterfallResponseAttributesCriteria getCriteria() {
     return criteria;
   }
 
-  public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
+  public void setCriteria(AggregatedWaterfallResponseAttributesCriteria criteria) {
     this.criteria = criteria;
     if (criteria != null) {
       this.unparsed |= criteria.unparsed;
