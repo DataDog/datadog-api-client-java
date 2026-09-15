@@ -16,61 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Hash file specified by the field attribute */
+/** The log action applied when the rule is triggered. */
 @JsonPropertyOrder({
-  CloudWorkloadSecurityAgentRuleActionHash.JSON_PROPERTY_FIELD,
-  CloudWorkloadSecurityAgentRuleActionHash.JSON_PROPERTY_MAX_FILE_SIZE
+  CloudWorkloadSecurityAgentRuleActionLog.JSON_PROPERTY_LEVEL,
+  CloudWorkloadSecurityAgentRuleActionLog.JSON_PROPERTY_MESSAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CloudWorkloadSecurityAgentRuleActionHash {
+public class CloudWorkloadSecurityAgentRuleActionLog {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
+  public static final String JSON_PROPERTY_LEVEL = "level";
+  private String level;
 
-  public static final String JSON_PROPERTY_MAX_FILE_SIZE = "max_file_size";
-  private Long maxFileSize;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-  public CloudWorkloadSecurityAgentRuleActionHash field(String field) {
-    this.field = field;
+  public CloudWorkloadSecurityAgentRuleActionLog level(String level) {
+    this.level = level;
     return this;
   }
 
   /**
-   * The field of the hash action
+   * The level of the log action.
    *
-   * @return field
+   * @return level
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getField() {
-    return field;
+  public String getLevel() {
+    return level;
   }
 
-  public void setField(String field) {
-    this.field = field;
+  public void setLevel(String level) {
+    this.level = level;
   }
 
-  public CloudWorkloadSecurityAgentRuleActionHash maxFileSize(Long maxFileSize) {
-    this.maxFileSize = maxFileSize;
+  public CloudWorkloadSecurityAgentRuleActionLog message(String message) {
+    this.message = message;
     return this;
   }
 
   /**
-   * The maximum size of the files to hash, in bytes.
+   * The message of the log action.
    *
-   * @return maxFileSize
+   * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_FILE_SIZE)
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMaxFileSize() {
-    return maxFileSize;
+  public String getMessage() {
+    return message;
   }
 
-  public void setMaxFileSize(Long maxFileSize) {
-    this.maxFileSize = maxFileSize;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
@@ -85,10 +85,10 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CloudWorkloadSecurityAgentRuleActionHash
+   * @return CloudWorkloadSecurityAgentRuleActionLog
    */
   @JsonAnySetter
-  public CloudWorkloadSecurityAgentRuleActionHash putAdditionalProperty(String key, Object value) {
+  public CloudWorkloadSecurityAgentRuleActionLog putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +119,7 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentRuleActionHash object is equal to o. */
+  /** Return true if this CloudWorkloadSecurityAgentRuleActionLog object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,26 +128,26 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentRuleActionHash cloudWorkloadSecurityAgentRuleActionHash =
-        (CloudWorkloadSecurityAgentRuleActionHash) o;
-    return Objects.equals(this.field, cloudWorkloadSecurityAgentRuleActionHash.field)
-        && Objects.equals(this.maxFileSize, cloudWorkloadSecurityAgentRuleActionHash.maxFileSize)
+    CloudWorkloadSecurityAgentRuleActionLog cloudWorkloadSecurityAgentRuleActionLog =
+        (CloudWorkloadSecurityAgentRuleActionLog) o;
+    return Objects.equals(this.level, cloudWorkloadSecurityAgentRuleActionLog.level)
+        && Objects.equals(this.message, cloudWorkloadSecurityAgentRuleActionLog.message)
         && Objects.equals(
             this.additionalProperties,
-            cloudWorkloadSecurityAgentRuleActionHash.additionalProperties);
+            cloudWorkloadSecurityAgentRuleActionLog.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, maxFileSize, additionalProperties);
+    return Objects.hash(level, message, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CloudWorkloadSecurityAgentRuleActionHash {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    maxFileSize: ").append(toIndentedString(maxFileSize)).append("\n");
+    sb.append("class CloudWorkloadSecurityAgentRuleActionLog {\n");
+    sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

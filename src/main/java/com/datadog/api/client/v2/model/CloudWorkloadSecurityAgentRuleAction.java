@@ -18,17 +18,23 @@ import java.util.Objects;
 
 /** The action the rule can perform if triggered */
 @JsonPropertyOrder({
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_COREDUMP,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_DISABLED,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_FILTER,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_HASH,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_KILL,
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_LOG,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_METADATA,
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_NETWORK_FILTER,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_SET
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleAction {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COREDUMP = "coredump";
+  private CloudWorkloadSecurityAgentRuleActionCoreDump coredump;
+
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
@@ -41,11 +47,43 @@ public class CloudWorkloadSecurityAgentRuleAction {
   public static final String JSON_PROPERTY_KILL = "kill";
   private CloudWorkloadSecurityAgentRuleKill kill;
 
+  public static final String JSON_PROPERTY_LOG = "log";
+  private CloudWorkloadSecurityAgentRuleActionLog log;
+
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private CloudWorkloadSecurityAgentRuleActionMetadata metadata;
 
+  public static final String JSON_PROPERTY_NETWORK_FILTER = "network_filter";
+  private CloudWorkloadSecurityAgentRuleActionNetworkFilter networkFilter;
+
   public static final String JSON_PROPERTY_SET = "set";
   private CloudWorkloadSecurityAgentRuleActionSet set;
+
+  public CloudWorkloadSecurityAgentRuleAction coredump(
+      CloudWorkloadSecurityAgentRuleActionCoreDump coredump) {
+    this.coredump = coredump;
+    this.unparsed |= coredump.unparsed;
+    return this;
+  }
+
+  /**
+   * The core dump action applied on the process matching the rule.
+   *
+   * @return coredump
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COREDUMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudWorkloadSecurityAgentRuleActionCoreDump getCoredump() {
+    return coredump;
+  }
+
+  public void setCoredump(CloudWorkloadSecurityAgentRuleActionCoreDump coredump) {
+    this.coredump = coredump;
+    if (coredump != null) {
+      this.unparsed |= coredump.unparsed;
+    }
+  }
 
   public CloudWorkloadSecurityAgentRuleAction disabled(Boolean disabled) {
     this.disabled = disabled;
@@ -139,6 +177,31 @@ public class CloudWorkloadSecurityAgentRuleAction {
     }
   }
 
+  public CloudWorkloadSecurityAgentRuleAction log(CloudWorkloadSecurityAgentRuleActionLog log) {
+    this.log = log;
+    this.unparsed |= log.unparsed;
+    return this;
+  }
+
+  /**
+   * The log action applied when the rule is triggered.
+   *
+   * @return log
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudWorkloadSecurityAgentRuleActionLog getLog() {
+    return log;
+  }
+
+  public void setLog(CloudWorkloadSecurityAgentRuleActionLog log) {
+    this.log = log;
+    if (log != null) {
+      this.unparsed |= log.unparsed;
+    }
+  }
+
   public CloudWorkloadSecurityAgentRuleAction metadata(
       CloudWorkloadSecurityAgentRuleActionMetadata metadata) {
     this.metadata = metadata;
@@ -162,6 +225,32 @@ public class CloudWorkloadSecurityAgentRuleAction {
     this.metadata = metadata;
     if (metadata != null) {
       this.unparsed |= metadata.unparsed;
+    }
+  }
+
+  public CloudWorkloadSecurityAgentRuleAction networkFilter(
+      CloudWorkloadSecurityAgentRuleActionNetworkFilter networkFilter) {
+    this.networkFilter = networkFilter;
+    this.unparsed |= networkFilter.unparsed;
+    return this;
+  }
+
+  /**
+   * The network filter action applied on the network traffic matching the rule.
+   *
+   * @return networkFilter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NETWORK_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudWorkloadSecurityAgentRuleActionNetworkFilter getNetworkFilter() {
+    return networkFilter;
+  }
+
+  public void setNetworkFilter(CloudWorkloadSecurityAgentRuleActionNetworkFilter networkFilter) {
+    this.networkFilter = networkFilter;
+    if (networkFilter != null) {
+      this.unparsed |= networkFilter.unparsed;
     }
   }
 
@@ -247,11 +336,14 @@ public class CloudWorkloadSecurityAgentRuleAction {
     }
     CloudWorkloadSecurityAgentRuleAction cloudWorkloadSecurityAgentRuleAction =
         (CloudWorkloadSecurityAgentRuleAction) o;
-    return Objects.equals(this.disabled, cloudWorkloadSecurityAgentRuleAction.disabled)
+    return Objects.equals(this.coredump, cloudWorkloadSecurityAgentRuleAction.coredump)
+        && Objects.equals(this.disabled, cloudWorkloadSecurityAgentRuleAction.disabled)
         && Objects.equals(this.filter, cloudWorkloadSecurityAgentRuleAction.filter)
         && Objects.equals(this.hash, cloudWorkloadSecurityAgentRuleAction.hash)
         && Objects.equals(this.kill, cloudWorkloadSecurityAgentRuleAction.kill)
+        && Objects.equals(this.log, cloudWorkloadSecurityAgentRuleAction.log)
         && Objects.equals(this.metadata, cloudWorkloadSecurityAgentRuleAction.metadata)
+        && Objects.equals(this.networkFilter, cloudWorkloadSecurityAgentRuleAction.networkFilter)
         && Objects.equals(this.set, cloudWorkloadSecurityAgentRuleAction.set)
         && Objects.equals(
             this.additionalProperties, cloudWorkloadSecurityAgentRuleAction.additionalProperties);
@@ -259,18 +351,31 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(disabled, filter, hash, kill, metadata, set, additionalProperties);
+    return Objects.hash(
+        coredump,
+        disabled,
+        filter,
+        hash,
+        kill,
+        log,
+        metadata,
+        networkFilter,
+        set,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleAction {\n");
+    sb.append("    coredump: ").append(toIndentedString(coredump)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("    kill: ").append(toIndentedString(kill)).append("\n");
+    sb.append("    log: ").append(toIndentedString(log)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    networkFilter: ").append(toIndentedString(networkFilter)).append("\n");
     sb.append("    set: ").append(toIndentedString(set)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

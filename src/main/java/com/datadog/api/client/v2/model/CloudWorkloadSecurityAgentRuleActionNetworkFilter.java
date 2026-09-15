@@ -16,61 +16,86 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Hash file specified by the field attribute */
+/** The network filter action applied on the network traffic matching the rule. */
 @JsonPropertyOrder({
-  CloudWorkloadSecurityAgentRuleActionHash.JSON_PROPERTY_FIELD,
-  CloudWorkloadSecurityAgentRuleActionHash.JSON_PROPERTY_MAX_FILE_SIZE
+  CloudWorkloadSecurityAgentRuleActionNetworkFilter.JSON_PROPERTY_FILTER,
+  CloudWorkloadSecurityAgentRuleActionNetworkFilter.JSON_PROPERTY_POLICY,
+  CloudWorkloadSecurityAgentRuleActionNetworkFilter.JSON_PROPERTY_SCOPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CloudWorkloadSecurityAgentRuleActionHash {
+public class CloudWorkloadSecurityAgentRuleActionNetworkFilter {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
+  public static final String JSON_PROPERTY_FILTER = "filter";
+  private String filter;
 
-  public static final String JSON_PROPERTY_MAX_FILE_SIZE = "max_file_size";
-  private Long maxFileSize;
+  public static final String JSON_PROPERTY_POLICY = "policy";
+  private String policy;
 
-  public CloudWorkloadSecurityAgentRuleActionHash field(String field) {
-    this.field = field;
+  public static final String JSON_PROPERTY_SCOPE = "scope";
+  private String scope;
+
+  public CloudWorkloadSecurityAgentRuleActionNetworkFilter filter(String filter) {
+    this.filter = filter;
     return this;
   }
 
   /**
-   * The field of the hash action
+   * The filter expression of the network filter action.
    *
-   * @return field
+   * @return filter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getField() {
-    return field;
+  public String getFilter() {
+    return filter;
   }
 
-  public void setField(String field) {
-    this.field = field;
+  public void setFilter(String filter) {
+    this.filter = filter;
   }
 
-  public CloudWorkloadSecurityAgentRuleActionHash maxFileSize(Long maxFileSize) {
-    this.maxFileSize = maxFileSize;
+  public CloudWorkloadSecurityAgentRuleActionNetworkFilter policy(String policy) {
+    this.policy = policy;
     return this;
   }
 
   /**
-   * The maximum size of the files to hash, in bytes.
+   * The policy of the network filter action.
    *
-   * @return maxFileSize
+   * @return policy
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_FILE_SIZE)
+  @JsonProperty(JSON_PROPERTY_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMaxFileSize() {
-    return maxFileSize;
+  public String getPolicy() {
+    return policy;
   }
 
-  public void setMaxFileSize(Long maxFileSize) {
-    this.maxFileSize = maxFileSize;
+  public void setPolicy(String policy) {
+    this.policy = policy;
+  }
+
+  public CloudWorkloadSecurityAgentRuleActionNetworkFilter scope(String scope) {
+    this.scope = scope;
+    return this;
+  }
+
+  /**
+   * The scope of the network filter action.
+   *
+   * @return scope
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getScope() {
+    return scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
   }
 
   /**
@@ -85,10 +110,11 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CloudWorkloadSecurityAgentRuleActionHash
+   * @return CloudWorkloadSecurityAgentRuleActionNetworkFilter
    */
   @JsonAnySetter
-  public CloudWorkloadSecurityAgentRuleActionHash putAdditionalProperty(String key, Object value) {
+  public CloudWorkloadSecurityAgentRuleActionNetworkFilter putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +145,7 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentRuleActionHash object is equal to o. */
+  /** Return true if this CloudWorkloadSecurityAgentRuleActionNetworkFilter object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,26 +154,29 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentRuleActionHash cloudWorkloadSecurityAgentRuleActionHash =
-        (CloudWorkloadSecurityAgentRuleActionHash) o;
-    return Objects.equals(this.field, cloudWorkloadSecurityAgentRuleActionHash.field)
-        && Objects.equals(this.maxFileSize, cloudWorkloadSecurityAgentRuleActionHash.maxFileSize)
+    CloudWorkloadSecurityAgentRuleActionNetworkFilter
+        cloudWorkloadSecurityAgentRuleActionNetworkFilter =
+            (CloudWorkloadSecurityAgentRuleActionNetworkFilter) o;
+    return Objects.equals(this.filter, cloudWorkloadSecurityAgentRuleActionNetworkFilter.filter)
+        && Objects.equals(this.policy, cloudWorkloadSecurityAgentRuleActionNetworkFilter.policy)
+        && Objects.equals(this.scope, cloudWorkloadSecurityAgentRuleActionNetworkFilter.scope)
         && Objects.equals(
             this.additionalProperties,
-            cloudWorkloadSecurityAgentRuleActionHash.additionalProperties);
+            cloudWorkloadSecurityAgentRuleActionNetworkFilter.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, maxFileSize, additionalProperties);
+    return Objects.hash(filter, policy, scope, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CloudWorkloadSecurityAgentRuleActionHash {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    maxFileSize: ").append(toIndentedString(maxFileSize)).append("\n");
+    sb.append("class CloudWorkloadSecurityAgentRuleActionNetworkFilter {\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
