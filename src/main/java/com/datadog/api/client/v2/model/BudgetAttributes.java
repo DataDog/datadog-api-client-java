@@ -32,6 +32,7 @@ import java.util.Objects;
   BudgetAttributes.JSON_PROPERTY_NAME,
   BudgetAttributes.JSON_PROPERTY_ORG_ID,
   BudgetAttributes.JSON_PROPERTY_START_MONTH,
+  BudgetAttributes.JSON_PROPERTY_TAGS,
   BudgetAttributes.JSON_PROPERTY_TOTAL_AMOUNT,
   BudgetAttributes.JSON_PROPERTY_UPDATED_AT,
   BudgetAttributes.JSON_PROPERTY_UPDATED_BY
@@ -75,6 +76,9 @@ public class BudgetAttributes {
 
   public static final String JSON_PROPERTY_START_MONTH = "start_month";
   private Long startMonth;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TOTAL_AMOUNT = "total_amount";
   private Double totalAmount;
@@ -364,6 +368,35 @@ public class BudgetAttributes {
     this.startMonth = startMonth;
   }
 
+  public BudgetAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public BudgetAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * The tag keys used to group costs for the budget.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public BudgetAttributes totalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
     return this;
@@ -495,6 +528,7 @@ public class BudgetAttributes {
         && Objects.equals(this.name, budgetAttributes.name)
         && Objects.equals(this.orgId, budgetAttributes.orgId)
         && Objects.equals(this.startMonth, budgetAttributes.startMonth)
+        && Objects.equals(this.tags, budgetAttributes.tags)
         && Objects.equals(this.totalAmount, budgetAttributes.totalAmount)
         && Objects.equals(this.updatedAt, budgetAttributes.updatedAt)
         && Objects.equals(this.updatedBy, budgetAttributes.updatedBy)
@@ -516,6 +550,7 @@ public class BudgetAttributes {
         name,
         orgId,
         startMonth,
+        tags,
         totalAmount,
         updatedAt,
         updatedBy,
@@ -538,6 +573,7 @@ public class BudgetAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    startMonth: ").append(toIndentedString(startMonth)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
