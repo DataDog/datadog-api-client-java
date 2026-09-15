@@ -21,23 +21,31 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Rule. */
 @JsonPropertyOrder({
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_BLOCKING,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CALCULATED_FIELDS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATOR,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CUSTOM_MESSAGE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CUSTOM_NAME,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DATA_SOURCE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DEFAULT_TAGS,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DEPENDENCIES,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DEPRECATION_DATE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_FILTERS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_GROUP_SIGNALS_BY,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_ID,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_IS_BETA,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_IS_DEFAULT,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_IS_DELETED,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_IS_DEPRECATED,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_IS_ENABLED,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_IS_PARTNER,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_MESSAGE,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_METADATA,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_NAME,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_QUERIES,
@@ -48,12 +56,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_TYPE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_UPDATED_AT,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_UPDATER,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringStandardRuleResponse {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BLOCKING = "blocking";
+  private Boolean blocking;
+
   public static final String JSON_PROPERTY_CALCULATED_FIELDS = "calculatedFields";
   private List<CalculatedField> calculatedFields = null;
 
@@ -69,14 +81,24 @@ public class SecurityMonitoringStandardRuleResponse {
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
   private Long creationAuthorId;
 
+  public static final String JSON_PROPERTY_CREATOR = "creator";
+  private SecurityMonitoringUser creator;
+
   public static final String JSON_PROPERTY_CUSTOM_MESSAGE = "customMessage";
   private String customMessage;
 
   public static final String JSON_PROPERTY_CUSTOM_NAME = "customName";
   private String customName;
 
+  public static final String JSON_PROPERTY_DATA_SOURCE = "dataSource";
+  private SecurityMonitoringStandardDataSource dataSource =
+      SecurityMonitoringStandardDataSource.LOGS;
+
   public static final String JSON_PROPERTY_DEFAULT_TAGS = "defaultTags";
   private List<String> defaultTags = null;
+
+  public static final String JSON_PROPERTY_DEPENDENCIES = "dependencies";
+  private List<String> dependencies = null;
 
   public static final String JSON_PROPERTY_DEPRECATION_DATE = "deprecationDate";
   private Long deprecationDate;
@@ -93,17 +115,29 @@ public class SecurityMonitoringStandardRuleResponse {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_IS_BETA = "isBeta";
+  private Boolean isBeta;
+
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
+  public static final String JSON_PROPERTY_IS_DEPRECATED = "isDeprecated";
+  private Boolean isDeprecated;
+
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
 
+  public static final String JSON_PROPERTY_IS_PARTNER = "isPartner";
+  private Boolean isPartner;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -136,8 +170,32 @@ public class SecurityMonitoringStandardRuleResponse {
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private Long updatedAt;
 
+  public static final String JSON_PROPERTY_UPDATER = "updater";
+  private SecurityMonitoringUser updater;
+
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
+
+  public SecurityMonitoringStandardRuleResponse blocking(Boolean blocking) {
+    this.blocking = blocking;
+    return this;
+  }
+
+  /**
+   * Whether the rule blocks requests.
+   *
+   * @return blocking
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOCKING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getBlocking() {
+    return blocking;
+  }
+
+  public void setBlocking(Boolean blocking) {
+    this.blocking = blocking;
+  }
 
   public SecurityMonitoringStandardRuleResponse calculatedFields(
       List<CalculatedField> calculatedFields) {
@@ -291,6 +349,31 @@ public class SecurityMonitoringStandardRuleResponse {
     this.creationAuthorId = creationAuthorId;
   }
 
+  public SecurityMonitoringStandardRuleResponse creator(SecurityMonitoringUser creator) {
+    this.creator = creator;
+    this.unparsed |= creator.unparsed;
+    return this;
+  }
+
+  /**
+   * A user.
+   *
+   * @return creator
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringUser getCreator() {
+    return creator;
+  }
+
+  public void setCreator(SecurityMonitoringUser creator) {
+    this.creator = creator;
+    if (creator != null) {
+      this.unparsed |= creator.unparsed;
+    }
+  }
+
   public SecurityMonitoringStandardRuleResponse customMessage(String customMessage) {
     this.customMessage = customMessage;
     return this;
@@ -333,6 +416,33 @@ public class SecurityMonitoringStandardRuleResponse {
     this.customName = customName;
   }
 
+  public SecurityMonitoringStandardRuleResponse dataSource(
+      SecurityMonitoringStandardDataSource dataSource) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    return this;
+  }
+
+  /**
+   * Source of events, either logs, audit trail, security signals, or Datadog events. <code>
+   * app_sec_spans</code> is deprecated in favor of <code>spans</code>.
+   *
+   * @return dataSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringStandardDataSource getDataSource() {
+    return dataSource;
+  }
+
+  public void setDataSource(SecurityMonitoringStandardDataSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
+    }
+    this.dataSource = dataSource;
+  }
+
   public SecurityMonitoringStandardRuleResponse defaultTags(List<String> defaultTags) {
     this.defaultTags = defaultTags;
     return this;
@@ -360,6 +470,35 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setDefaultTags(List<String> defaultTags) {
     this.defaultTags = defaultTags;
+  }
+
+  public SecurityMonitoringStandardRuleResponse dependencies(List<String> dependencies) {
+    this.dependencies = dependencies;
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleResponse addDependenciesItem(String dependenciesItem) {
+    if (this.dependencies == null) {
+      this.dependencies = new ArrayList<>();
+    }
+    this.dependencies.add(dependenciesItem);
+    return this;
+  }
+
+  /**
+   * Dependencies used by the rule.
+   *
+   * @return dependencies
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEPENDENCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDependencies() {
+    return dependencies;
+  }
+
+  public void setDependencies(List<String> dependencies) {
+    this.dependencies = dependencies;
   }
 
   public SecurityMonitoringStandardRuleResponse deprecationDate(Long deprecationDate) {
@@ -497,6 +636,27 @@ public class SecurityMonitoringStandardRuleResponse {
     this.id = id;
   }
 
+  public SecurityMonitoringStandardRuleResponse isBeta(Boolean isBeta) {
+    this.isBeta = isBeta;
+    return this;
+  }
+
+  /**
+   * Whether the rule is in beta.
+   *
+   * @return isBeta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_BETA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsBeta() {
+    return isBeta;
+  }
+
+  public void setIsBeta(Boolean isBeta) {
+    this.isBeta = isBeta;
+  }
+
   public SecurityMonitoringStandardRuleResponse isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
@@ -539,6 +699,27 @@ public class SecurityMonitoringStandardRuleResponse {
     this.isDeleted = isDeleted;
   }
 
+  public SecurityMonitoringStandardRuleResponse isDeprecated(Boolean isDeprecated) {
+    this.isDeprecated = isDeprecated;
+    return this;
+  }
+
+  /**
+   * Whether the rule is deprecated.
+   *
+   * @return isDeprecated
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_DEPRECATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsDeprecated() {
+    return isDeprecated;
+  }
+
+  public void setIsDeprecated(Boolean isDeprecated) {
+    this.isDeprecated = isDeprecated;
+  }
+
   public SecurityMonitoringStandardRuleResponse isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
@@ -560,6 +741,27 @@ public class SecurityMonitoringStandardRuleResponse {
     this.isEnabled = isEnabled;
   }
 
+  public SecurityMonitoringStandardRuleResponse isPartner(Boolean isPartner) {
+    this.isPartner = isPartner;
+    return this;
+  }
+
+  /**
+   * Whether the rule is provided by a partner.
+   *
+   * @return isPartner
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_PARTNER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsPartner() {
+    return isPartner;
+  }
+
+  public void setIsPartner(Boolean isPartner) {
+    this.isPartner = isPartner;
+  }
+
   public SecurityMonitoringStandardRuleResponse message(String message) {
     this.message = message;
     return this;
@@ -579,6 +781,35 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  public SecurityMonitoringStandardRuleResponse metadata(Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleResponse putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+  /**
+   * Additional metadata about the rule.
+   *
+   * @return metadata
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Map<String, Object> metadata) {
+    this.metadata = metadata;
   }
 
   public SecurityMonitoringStandardRuleResponse name(String name) {
@@ -885,6 +1116,31 @@ public class SecurityMonitoringStandardRuleResponse {
     this.updatedAt = updatedAt;
   }
 
+  public SecurityMonitoringStandardRuleResponse updater(SecurityMonitoringUser updater) {
+    this.updater = updater;
+    this.unparsed |= updater.unparsed;
+    return this;
+  }
+
+  /**
+   * A user.
+   *
+   * @return updater
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringUser getUpdater() {
+    return updater;
+  }
+
+  public void setUpdater(SecurityMonitoringUser updater) {
+    this.updater = updater;
+    if (updater != null) {
+      this.unparsed |= updater.unparsed;
+    }
+  }
+
   public SecurityMonitoringStandardRuleResponse version(Long version) {
     this.version = version;
     return this;
@@ -963,7 +1219,8 @@ public class SecurityMonitoringStandardRuleResponse {
     }
     SecurityMonitoringStandardRuleResponse securityMonitoringStandardRuleResponse =
         (SecurityMonitoringStandardRuleResponse) o;
-    return Objects.equals(
+    return Objects.equals(this.blocking, securityMonitoringStandardRuleResponse.blocking)
+        && Objects.equals(
             this.calculatedFields, securityMonitoringStandardRuleResponse.calculatedFields)
         && Objects.equals(this.cases, securityMonitoringStandardRuleResponse.cases)
         && Objects.equals(
@@ -972,9 +1229,12 @@ public class SecurityMonitoringStandardRuleResponse {
         && Objects.equals(this.createdAt, securityMonitoringStandardRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringStandardRuleResponse.creationAuthorId)
+        && Objects.equals(this.creator, securityMonitoringStandardRuleResponse.creator)
         && Objects.equals(this.customMessage, securityMonitoringStandardRuleResponse.customMessage)
         && Objects.equals(this.customName, securityMonitoringStandardRuleResponse.customName)
+        && Objects.equals(this.dataSource, securityMonitoringStandardRuleResponse.dataSource)
         && Objects.equals(this.defaultTags, securityMonitoringStandardRuleResponse.defaultTags)
+        && Objects.equals(this.dependencies, securityMonitoringStandardRuleResponse.dependencies)
         && Objects.equals(
             this.deprecationDate, securityMonitoringStandardRuleResponse.deprecationDate)
         && Objects.equals(this.filters, securityMonitoringStandardRuleResponse.filters)
@@ -983,10 +1243,14 @@ public class SecurityMonitoringStandardRuleResponse {
         && Objects.equals(
             this.hasExtendedTitle, securityMonitoringStandardRuleResponse.hasExtendedTitle)
         && Objects.equals(this.id, securityMonitoringStandardRuleResponse.id)
+        && Objects.equals(this.isBeta, securityMonitoringStandardRuleResponse.isBeta)
         && Objects.equals(this.isDefault, securityMonitoringStandardRuleResponse.isDefault)
         && Objects.equals(this.isDeleted, securityMonitoringStandardRuleResponse.isDeleted)
+        && Objects.equals(this.isDeprecated, securityMonitoringStandardRuleResponse.isDeprecated)
         && Objects.equals(this.isEnabled, securityMonitoringStandardRuleResponse.isEnabled)
+        && Objects.equals(this.isPartner, securityMonitoringStandardRuleResponse.isPartner)
         && Objects.equals(this.message, securityMonitoringStandardRuleResponse.message)
+        && Objects.equals(this.metadata, securityMonitoringStandardRuleResponse.metadata)
         && Objects.equals(this.name, securityMonitoringStandardRuleResponse.name)
         && Objects.equals(this.options, securityMonitoringStandardRuleResponse.options)
         && Objects.equals(this.queries, securityMonitoringStandardRuleResponse.queries)
@@ -1001,6 +1265,7 @@ public class SecurityMonitoringStandardRuleResponse {
         && Objects.equals(
             this.updateAuthorId, securityMonitoringStandardRuleResponse.updateAuthorId)
         && Objects.equals(this.updatedAt, securityMonitoringStandardRuleResponse.updatedAt)
+        && Objects.equals(this.updater, securityMonitoringStandardRuleResponse.updater)
         && Objects.equals(this.version, securityMonitoringStandardRuleResponse.version)
         && Objects.equals(
             this.additionalProperties, securityMonitoringStandardRuleResponse.additionalProperties);
@@ -1009,23 +1274,31 @@ public class SecurityMonitoringStandardRuleResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
+        blocking,
         calculatedFields,
         cases,
         complianceSignalOptions,
         createdAt,
         creationAuthorId,
+        creator,
         customMessage,
         customName,
+        dataSource,
         defaultTags,
+        dependencies,
         deprecationDate,
         filters,
         groupSignalsBy,
         hasExtendedTitle,
         id,
+        isBeta,
         isDefault,
         isDeleted,
+        isDeprecated,
         isEnabled,
+        isPartner,
         message,
+        metadata,
         name,
         options,
         queries,
@@ -1036,6 +1309,7 @@ public class SecurityMonitoringStandardRuleResponse {
         type,
         updateAuthorId,
         updatedAt,
+        updater,
         version,
         additionalProperties);
   }
@@ -1044,6 +1318,7 @@ public class SecurityMonitoringStandardRuleResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringStandardRuleResponse {\n");
+    sb.append("    blocking: ").append(toIndentedString(blocking)).append("\n");
     sb.append("    calculatedFields: ").append(toIndentedString(calculatedFields)).append("\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    complianceSignalOptions: ")
@@ -1051,18 +1326,25 @@ public class SecurityMonitoringStandardRuleResponse {
         .append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
     sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
+    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    defaultTags: ").append(toIndentedString(defaultTags)).append("\n");
+    sb.append("    dependencies: ").append(toIndentedString(dependencies)).append("\n");
     sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    groupSignalsBy: ").append(toIndentedString(groupSignalsBy)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isBeta: ").append(toIndentedString(isBeta)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    isDeprecated: ").append(toIndentedString(isDeprecated)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    isPartner: ").append(toIndentedString(isPartner)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
@@ -1073,6 +1355,7 @@ public class SecurityMonitoringStandardRuleResponse {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    updater: ").append(toIndentedString(updater)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
