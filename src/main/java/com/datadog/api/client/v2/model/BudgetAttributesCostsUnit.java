@@ -33,7 +33,7 @@ public class BudgetAttributesCostsUnit {
   private String family;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private Long id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -68,7 +68,7 @@ public class BudgetAttributesCostsUnit {
     this.family = family;
   }
 
-  public BudgetAttributesCostsUnit id(String id) {
+  public BudgetAttributesCostsUnit id(Long id) {
     this.id = id;
     return this;
   }
@@ -81,11 +81,11 @@ public class BudgetAttributesCostsUnit {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
