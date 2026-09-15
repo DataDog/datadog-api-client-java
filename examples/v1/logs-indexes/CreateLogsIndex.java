@@ -21,6 +21,7 @@ public class Example {
             .dailyLimit(300000000L)
             .dailyLimitReset(new LogsDailyLimitReset().resetTime("14:00").resetUtcOffset("+02:00"))
             .dailyLimitWarningThresholdPercentage(70.0)
+            .description("Contains logs matching the criteria defined by the filter.")
             .exclusionFilters(
                 Collections.singletonList(
                     new LogsExclusion()
