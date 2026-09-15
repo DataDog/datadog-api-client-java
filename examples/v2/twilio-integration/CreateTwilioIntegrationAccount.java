@@ -1,39 +1,39 @@
-// Update a Twilio integration account returns "OK" response
+// Create a Twilio integration account returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.TwilioIntegrationAccountsApi;
+import com.datadog.api.client.v2.api.TwilioIntegrationApi;
+import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthRequest;
 import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthType;
-import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthUpdate;
 import com.datadog.api.client.v2.model.IntegrationAccountType;
 import com.datadog.api.client.v2.model.TwilioAlertsLogsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.TwilioCallSummariesLogsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.TwilioCloudCostMetricsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.TwilioEventsLogsIntegrationDataflowRequest;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountAuthenticationUpdate;
+import com.datadog.api.client.v2.model.TwilioIntegrationAccountAuthenticationRequest;
+import com.datadog.api.client.v2.model.TwilioIntegrationAccountCreateAttributes;
+import com.datadog.api.client.v2.model.TwilioIntegrationAccountCreateData;
+import com.datadog.api.client.v2.model.TwilioIntegrationAccountCreateRequest;
 import com.datadog.api.client.v2.model.TwilioIntegrationAccountResponse;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountSettingsUpdate;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountUpdateAttributes;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountUpdateData;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountUpdateRequest;
+import com.datadog.api.client.v2.model.TwilioIntegrationAccountSettingsRequest;
 import com.datadog.api.client.v2.model.TwilioIntegrationDataflowsRequest;
 import com.datadog.api.client.v2.model.TwilioMessagesLogsIntegrationDataflowRequest;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.updateTwilioIntegrationAccount", true);
-    TwilioIntegrationAccountsApi apiInstance = new TwilioIntegrationAccountsApi(defaultClient);
+    defaultClient.setUnstableOperationEnabled("v2.createTwilioIntegrationAccount", true);
+    TwilioIntegrationApi apiInstance = new TwilioIntegrationApi(defaultClient);
 
-    TwilioIntegrationAccountUpdateRequest body =
-        new TwilioIntegrationAccountUpdateRequest()
+    TwilioIntegrationAccountCreateRequest body =
+        new TwilioIntegrationAccountCreateRequest()
             .data(
-                new TwilioIntegrationAccountUpdateData()
+                new TwilioIntegrationAccountCreateData()
                     .attributes(
-                        new TwilioIntegrationAccountUpdateAttributes()
+                        new TwilioIntegrationAccountCreateAttributes()
                             .authentication(
-                                new TwilioIntegrationAccountAuthenticationUpdate(
-                                    new IntegrationAccountBasicAuthUpdate()
+                                new TwilioIntegrationAccountAuthenticationRequest(
+                                    new IntegrationAccountBasicAuthRequest()
                                         .authType(IntegrationAccountBasicAuthType.BASIC)
                                         .password("your-password")
                                         .username("datadog")))
@@ -56,19 +56,17 @@ public class Example {
                                             .enabled(true)))
                             .name("twilio-prod")
                             .settings(
-                                new TwilioIntegrationAccountSettingsUpdate()
+                                new TwilioIntegrationAccountSettingsRequest()
                                     .accountSid("ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                                     .censorLogs(true)))
-                    .id("953a0060-81ec-4221-aed4-d4733b59cd96")
                     .type(IntegrationAccountType.INTEGRATION_ACCOUNT));
 
     try {
-      TwilioIntegrationAccountResponse result =
-          apiInstance.updateTwilioIntegrationAccount("account_id", body);
+      TwilioIntegrationAccountResponse result = apiInstance.createTwilioIntegrationAccount(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling TwilioIntegrationAccountsApi#updateTwilioIntegrationAccount");
+          "Exception when calling TwilioIntegrationApi#createTwilioIntegrationAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

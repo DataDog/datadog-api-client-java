@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.ElasticCloudIntegrationAccountsApi;
+import com.datadog.api.client.v2.api.ElasticCloudIntegrationApi;
 import com.datadog.api.client.v2.model.ElasticCloudDetailedIndexStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudIndexStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountAuthenticationRequest;
@@ -25,8 +25,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.createElasticCloudIntegrationAccount", true);
-    ElasticCloudIntegrationAccountsApi apiInstance =
-        new ElasticCloudIntegrationAccountsApi(defaultClient);
+    ElasticCloudIntegrationApi apiInstance = new ElasticCloudIntegrationApi(defaultClient);
 
     ElasticCloudIntegrationAccountCreateRequest body =
         new ElasticCloudIntegrationAccountCreateRequest()
@@ -76,8 +75,7 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling"
-              + " ElasticCloudIntegrationAccountsApi#createElasticCloudIntegrationAccount");
+          "Exception when calling ElasticCloudIntegrationApi#createElasticCloudIntegrationAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud primary shard stats dataflow. */
+/** Metrics covering only the cluster's primary shards. */
 @JsonPropertyOrder({
   ElasticCloudPrimaryShardStatsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudPrimaryShardStatsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +37,7 @@ public class ElasticCloudPrimaryShardStatsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */
