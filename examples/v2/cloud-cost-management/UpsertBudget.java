@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.BudgetWithEntriesData;
 import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItems;
 import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItemsCosts;
 import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems;
+import com.datadog.api.client.v2.model.BudgetWithEntriesMeta;
 import java.util.Collections;
 
 public class Example {
@@ -55,7 +56,8 @@ public class Example {
                             .updatedAt(1738258683590L)
                             .updatedBy("00000000-0a0a-0a0a-aaa0-00000000000a"))
                     .id("00000000-0a0a-0a0a-aaa0-00000000000a")
-                    .type(""));
+                    .type(""))
+            .meta(new BudgetWithEntriesMeta().error(""));
 
     try {
       BudgetWithEntries result = apiInstance.upsertBudget(body);
