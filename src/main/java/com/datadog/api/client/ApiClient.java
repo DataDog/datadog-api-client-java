@@ -1260,8 +1260,6 @@ public class ApiClient {
           put("v2.listJiraAccounts", false);
           put("v2.listJiraIssueTemplates", false);
           put("v2.updateJiraIssueTemplate", false);
-          put("v2.createTenancyConfig", false);
-          put("v2.getTenancyConfigs", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);

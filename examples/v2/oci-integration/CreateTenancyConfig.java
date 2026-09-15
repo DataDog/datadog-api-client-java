@@ -18,7 +18,6 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.createTenancyConfig", true);
     OciIntegrationApi apiInstance = new OciIntegrationApi(defaultClient);
 
     CreateTenancyConfigRequest body =
