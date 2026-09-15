@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud shard allocation stats dataflow. */
+/** Metrics for how many shards are allocated to each data node, and the disk space they use. */
 @JsonPropertyOrder({
   ElasticCloudShardAllocationStatsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudShardAllocationStatsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +37,7 @@ public class ElasticCloudShardAllocationStatsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

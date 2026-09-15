@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud detailed index stats dataflow. */
+/** Primary shard metrics broken down per index, rather than aggregated across the cluster. */
 @JsonPropertyOrder({
   ElasticCloudDetailedIndexStatsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudDetailedIndexStatsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +37,7 @@ public class ElasticCloudDetailedIndexStatsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

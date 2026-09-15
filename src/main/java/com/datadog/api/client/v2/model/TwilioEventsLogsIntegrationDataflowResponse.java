@@ -16,7 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Twilio events logs dataflow. */
+/**
+ * Twilio Event resource logs, which record virtually every action taken in your Twilio account,
+ * such as provisioning a phone number, changing account security settings, or deleting a recording.
+ * Actions are recorded whether they came from the REST API, a user in the Twilio Console, or Twilio
+ * itself. <a href="https://docs.datadoghq.com/security/cloud_siem/">Cloud SIEM</a> analyzes and
+ * correlates these logs to detect threats in real time.
+ */
 @JsonPropertyOrder({
   TwilioEventsLogsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   TwilioEventsLogsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +43,7 @@ public class TwilioEventsLogsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Twilio dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

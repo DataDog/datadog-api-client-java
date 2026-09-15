@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud metrics dataflow. */
+/**
+ * Node-level statistics for the clusters in your deployment, such as the number of nodes and the
+ * number of documents on each node. This is the integration's baseline collection: it is always on
+ * and cannot be turned off, which is why it appears in responses only.
+ */
 @JsonPropertyOrder({
   ElasticCloudMetricsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudMetricsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -32,7 +36,8 @@ public class ElasticCloudMetricsIntegrationDataflowResponse {
   private IntegrationAccountDataflowStatus status;
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data. Always <code>true</code>, because this collection cannot be
+   * turned off.
    *
    * @return enabled
    */

@@ -87,7 +87,7 @@ public class ElasticCloudIntegrationAccountResponseAttributes {
   }
 
   /**
-   * Dataflows configured on the Elastic Cloud integration account, keyed by dataflow id.
+   * Data Datadog collects from Elastic Cloud, keyed by dataflow id.
    *
    * @return dataflows
    */

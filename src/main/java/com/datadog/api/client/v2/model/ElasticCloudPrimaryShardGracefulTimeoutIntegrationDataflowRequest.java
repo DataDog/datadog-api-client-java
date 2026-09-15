@@ -6,17 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud primary shard graceful timeout dataflow. */
+/**
+ * Tolerance for slow primary shard requests. Primary shard metrics can grow large enough for the
+ * request to time out; enabling this keeps the rest of the collection running when that happens
+ * instead of failing the run. Only has an effect alongside <code>elastic-cloud-primary-shard-stats
+ * </code>.
+ */
 @JsonPropertyOrder({
   ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest.JSON_PROPERTY_ENABLED
 })
@@ -34,7 +35,8 @@ public class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest {
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether this tolerance is applied. Defaults to <code>false</code>; set to <code>true</code> to
+   * apply it.
    *
    * @return enabled
    */
@@ -47,53 +49,6 @@ public class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest
-   */
-  @JsonAnySetter
-  public ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest putAdditionalProperty(
-      String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
   }
 
   /**
@@ -112,15 +67,12 @@ public class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest {
         elasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest =
             (ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest) o;
     return Objects.equals(
-            this.enabled, elasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest.enabled)
-        && Objects.equals(
-            this.additionalProperties,
-            elasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest.additionalProperties);
+        this.enabled, elasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest.enabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, additionalProperties);
+    return Objects.hash(enabled);
   }
 
   @Override
@@ -128,9 +80,6 @@ public class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest {\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
     sb.append('}');
     return sb.toString();
   }
