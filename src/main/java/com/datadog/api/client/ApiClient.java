@@ -431,6 +431,77 @@ public class ApiClient {
                             }
                           }))));
           put(
+              "v2.OAuth2ClientPublicApi.getOIDCDiscoveryDocument",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for Datadog customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
+                                              "ap2.datadoghq.com",
+                                              "uk1.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com",
+                                              "us2.ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "app",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "app.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "app",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
               "v2.OnCallPagingApi.createOnCallPage",
               new ArrayList<ServerConfiguration>(
                   Arrays.asList(
@@ -1310,6 +1381,7 @@ public class ApiClient {
           put("v2.listNetworkHealthInsights", false);
           put("v2.deleteScopesRestriction", false);
           put("v2.getOAuth2WellKnownSites", false);
+          put("v2.getOIDCDiscoveryDocument", false);
           put("v2.getScopesRestriction", false);
           put("v2.registerOAuthClient", false);
           put("v2.upsertScopesRestriction", false);
