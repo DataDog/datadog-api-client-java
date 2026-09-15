@@ -4,46 +4,29 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v2.model;
+package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Hash file specified by the field attribute */
-@JsonPropertyOrder({CloudWorkloadSecurityAgentRuleActionHash.JSON_PROPERTY_FIELD})
+/** An array of object values passed to the embedded app. */
+@JsonPropertyOrder({})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CloudWorkloadSecurityAgentRuleActionHash {
+public class EmbeddedAppWidgetInputValueObjectArray extends ArrayList<Map<String, Object>> {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
 
-  public CloudWorkloadSecurityAgentRuleActionHash field(String field) {
-    this.field = field;
-    return this;
-  }
+  public EmbeddedAppWidgetInputValueObjectArray() {}
 
-  /**
-   * The field of the hash action
-   *
-   * @return field
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getField() {
-    return field;
-  }
-
-  public void setField(String field) {
-    this.field = field;
+  public EmbeddedAppWidgetInputValueObjectArray(List<Map<String, Object>> items) {
+    super(items);
   }
 
   /**
@@ -58,10 +41,10 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CloudWorkloadSecurityAgentRuleActionHash
+   * @return EmbeddedAppWidgetInputValueObjectArray
    */
   @JsonAnySetter
-  public CloudWorkloadSecurityAgentRuleActionHash putAdditionalProperty(String key, Object value) {
+  public EmbeddedAppWidgetInputValueObjectArray putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -92,7 +75,7 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentRuleActionHash object is equal to o. */
+  /** Return true if this EmbeddedAppWidgetInputValueObjectArray object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,24 +84,19 @@ public class CloudWorkloadSecurityAgentRuleActionHash {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentRuleActionHash cloudWorkloadSecurityAgentRuleActionHash =
-        (CloudWorkloadSecurityAgentRuleActionHash) o;
-    return Objects.equals(this.field, cloudWorkloadSecurityAgentRuleActionHash.field)
-        && Objects.equals(
-            this.additionalProperties,
-            cloudWorkloadSecurityAgentRuleActionHash.additionalProperties);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, additionalProperties);
+    return Objects.hash(additionalProperties, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CloudWorkloadSecurityAgentRuleActionHash {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("class EmbeddedAppWidgetInputValueObjectArray {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

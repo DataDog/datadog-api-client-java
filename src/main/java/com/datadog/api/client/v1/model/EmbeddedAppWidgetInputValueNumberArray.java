@@ -4,73 +4,29 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v2.model;
+package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The log action applied when the rule is triggered. */
-@JsonPropertyOrder({
-  CloudWorkloadSecurityAgentRuleActionLog.JSON_PROPERTY_LEVEL,
-  CloudWorkloadSecurityAgentRuleActionLog.JSON_PROPERTY_MESSAGE
-})
+/** An array of numeric values passed to the embedded app. */
+@JsonPropertyOrder({})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CloudWorkloadSecurityAgentRuleActionLog {
+public class EmbeddedAppWidgetInputValueNumberArray extends ArrayList<Double> {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_LEVEL = "level";
-  private String level;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
+  public EmbeddedAppWidgetInputValueNumberArray() {}
 
-  public CloudWorkloadSecurityAgentRuleActionLog level(String level) {
-    this.level = level;
-    return this;
-  }
-
-  /**
-   * The level of the log action.
-   *
-   * @return level
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLevel() {
-    return level;
-  }
-
-  public void setLevel(String level) {
-    this.level = level;
-  }
-
-  public CloudWorkloadSecurityAgentRuleActionLog message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * The message of the log action.
-   *
-   * @return message
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
+  public EmbeddedAppWidgetInputValueNumberArray(List<Double> items) {
+    super(items);
   }
 
   /**
@@ -85,10 +41,10 @@ public class CloudWorkloadSecurityAgentRuleActionLog {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CloudWorkloadSecurityAgentRuleActionLog
+   * @return EmbeddedAppWidgetInputValueNumberArray
    */
   @JsonAnySetter
-  public CloudWorkloadSecurityAgentRuleActionLog putAdditionalProperty(String key, Object value) {
+  public EmbeddedAppWidgetInputValueNumberArray putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +75,7 @@ public class CloudWorkloadSecurityAgentRuleActionLog {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentRuleActionLog object is equal to o. */
+  /** Return true if this EmbeddedAppWidgetInputValueNumberArray object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,26 +84,19 @@ public class CloudWorkloadSecurityAgentRuleActionLog {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentRuleActionLog cloudWorkloadSecurityAgentRuleActionLog =
-        (CloudWorkloadSecurityAgentRuleActionLog) o;
-    return Objects.equals(this.level, cloudWorkloadSecurityAgentRuleActionLog.level)
-        && Objects.equals(this.message, cloudWorkloadSecurityAgentRuleActionLog.message)
-        && Objects.equals(
-            this.additionalProperties,
-            cloudWorkloadSecurityAgentRuleActionLog.additionalProperties);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(level, message, additionalProperties);
+    return Objects.hash(additionalProperties, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CloudWorkloadSecurityAgentRuleActionLog {\n");
-    sb.append("    level: ").append(toIndentedString(level)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("class EmbeddedAppWidgetInputValueNumberArray {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
