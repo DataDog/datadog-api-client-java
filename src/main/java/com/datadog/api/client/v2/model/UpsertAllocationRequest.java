@@ -83,7 +83,9 @@ public class UpsertAllocationRequest {
   }
 
   /**
-   * The experiment ID for experiment-linked allocations.
+   * The experiment ID linked to the allocation. For <code>FEATURE_GATE</code> allocations, a
+   * non-null value denotes a standard experiment. For <code>CANARY</code> allocations, Datadog
+   * manages this value. Omit it when creating a canary allocation.
    *
    * @return experimentId
    */
