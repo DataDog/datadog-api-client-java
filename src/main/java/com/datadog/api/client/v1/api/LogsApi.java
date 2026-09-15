@@ -193,7 +193,8 @@ public class LogsApi {
     /**
      * Set contentEncoding.
      *
-     * @param contentEncoding HTTP header used to compress the media-type. (optional)
+     * @param contentEncoding HTTP header used to compress the media-type. (optional, default to
+     *     "gzip")
      * @return SubmitLogOptionalParameters
      */
     public SubmitLogOptionalParameters contentEncoding(ContentEncoding contentEncoding) {
