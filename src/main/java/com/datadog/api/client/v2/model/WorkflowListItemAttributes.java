@@ -27,6 +27,7 @@ import java.util.Objects;
   WorkflowListItemAttributes.JSON_PROPERTY_NAME,
   WorkflowListItemAttributes.JSON_PROPERTY_PUBLISHED,
   WorkflowListItemAttributes.JSON_PROPERTY_RUN_AS_USER_MODE,
+  WorkflowListItemAttributes.JSON_PROPERTY_SENSITIVE_PRIVILEGES,
   WorkflowListItemAttributes.JSON_PROPERTY_SPEC,
   WorkflowListItemAttributes.JSON_PROPERTY_TAGS,
   WorkflowListItemAttributes.JSON_PROPERTY_UPDATED_AT
@@ -49,6 +50,9 @@ public class WorkflowListItemAttributes {
 
   public static final String JSON_PROPERTY_RUN_AS_USER_MODE = "runAsUserMode";
   private WorkflowRunAsUserMode runAsUserMode;
+
+  public static final String JSON_PROPERTY_SENSITIVE_PRIVILEGES = "sensitivePrivileges";
+  private Boolean sensitivePrivileges;
 
   public static final String JSON_PROPERTY_SPEC = "spec";
   private Spec spec;
@@ -165,6 +169,30 @@ public class WorkflowListItemAttributes {
       this.unparsed = true;
     }
     this.runAsUserMode = runAsUserMode;
+  }
+
+  public WorkflowListItemAttributes sensitivePrivileges(Boolean sensitivePrivileges) {
+    this.sensitivePrivileges = sensitivePrivileges;
+    return this;
+  }
+
+  /**
+   * Whether the workflow requires sensitive privileges to run. Only the workflow owner can update
+   * this field. This allows it to run actions that use <a
+   * href="https://docs.datadoghq.com/actions/private_actions/execution_policies/">Execution
+   * Policies</a>.
+   *
+   * @return sensitivePrivileges
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SENSITIVE_PRIVILEGES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSensitivePrivileges() {
+    return sensitivePrivileges;
+  }
+
+  public void setSensitivePrivileges(Boolean sensitivePrivileges) {
+    this.sensitivePrivileges = sensitivePrivileges;
   }
 
   public WorkflowListItemAttributes spec(Spec spec) {
@@ -294,6 +322,7 @@ public class WorkflowListItemAttributes {
         && Objects.equals(this.name, workflowListItemAttributes.name)
         && Objects.equals(this.published, workflowListItemAttributes.published)
         && Objects.equals(this.runAsUserMode, workflowListItemAttributes.runAsUserMode)
+        && Objects.equals(this.sensitivePrivileges, workflowListItemAttributes.sensitivePrivileges)
         && Objects.equals(this.spec, workflowListItemAttributes.spec)
         && Objects.equals(this.tags, workflowListItemAttributes.tags)
         && Objects.equals(this.updatedAt, workflowListItemAttributes.updatedAt)
@@ -309,6 +338,7 @@ public class WorkflowListItemAttributes {
         name,
         published,
         runAsUserMode,
+        sensitivePrivileges,
         spec,
         tags,
         updatedAt,
@@ -324,6 +354,9 @@ public class WorkflowListItemAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
     sb.append("    runAsUserMode: ").append(toIndentedString(runAsUserMode)).append("\n");
+    sb.append("    sensitivePrivileges: ")
+        .append(toIndentedString(sensitivePrivileges))
+        .append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
