@@ -27,6 +27,7 @@ import java.util.Objects;
   WorkflowDataUpdateAttributes.JSON_PROPERTY_PUBLISHED,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_RUN_AS,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_RUN_AS_USER_MODE,
+  WorkflowDataUpdateAttributes.JSON_PROPERTY_SENSITIVE_PRIVILEGES,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_SPEC,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_TAGS,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_UPDATED_AT,
@@ -53,6 +54,9 @@ public class WorkflowDataUpdateAttributes {
 
   public static final String JSON_PROPERTY_RUN_AS_USER_MODE = "runAsUserMode";
   private WorkflowRunAsUserMode runAsUserMode;
+
+  public static final String JSON_PROPERTY_SENSITIVE_PRIVILEGES = "sensitivePrivileges";
+  private Boolean sensitivePrivileges;
 
   public static final String JSON_PROPERTY_SPEC = "spec";
   private Spec spec;
@@ -191,6 +195,30 @@ public class WorkflowDataUpdateAttributes {
       this.unparsed = true;
     }
     this.runAsUserMode = runAsUserMode;
+  }
+
+  public WorkflowDataUpdateAttributes sensitivePrivileges(Boolean sensitivePrivileges) {
+    this.sensitivePrivileges = sensitivePrivileges;
+    return this;
+  }
+
+  /**
+   * Whether the workflow requires sensitive privileges to run. Only the workflow owner can update
+   * this field. This allows it to run actions that use <a
+   * href="https://docs.datadoghq.com/actions/private_actions/execution_policies/">Execution
+   * Policies</a>.
+   *
+   * @return sensitivePrivileges
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SENSITIVE_PRIVILEGES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSensitivePrivileges() {
+    return sensitivePrivileges;
+  }
+
+  public void setSensitivePrivileges(Boolean sensitivePrivileges) {
+    this.sensitivePrivileges = sensitivePrivileges;
   }
 
   public WorkflowDataUpdateAttributes spec(Spec spec) {
@@ -343,6 +371,8 @@ public class WorkflowDataUpdateAttributes {
         && Objects.equals(this.published, workflowDataUpdateAttributes.published)
         && Objects.equals(this.runAs, workflowDataUpdateAttributes.runAs)
         && Objects.equals(this.runAsUserMode, workflowDataUpdateAttributes.runAsUserMode)
+        && Objects.equals(
+            this.sensitivePrivileges, workflowDataUpdateAttributes.sensitivePrivileges)
         && Objects.equals(this.spec, workflowDataUpdateAttributes.spec)
         && Objects.equals(this.tags, workflowDataUpdateAttributes.tags)
         && Objects.equals(this.updatedAt, workflowDataUpdateAttributes.updatedAt)
@@ -360,6 +390,7 @@ public class WorkflowDataUpdateAttributes {
         published,
         runAs,
         runAsUserMode,
+        sensitivePrivileges,
         spec,
         tags,
         updatedAt,
@@ -377,6 +408,9 @@ public class WorkflowDataUpdateAttributes {
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
     sb.append("    runAs: ").append(toIndentedString(runAs)).append("\n");
     sb.append("    runAsUserMode: ").append(toIndentedString(runAsUserMode)).append("\n");
+    sb.append("    sensitivePrivileges: ")
+        .append(toIndentedString(sensitivePrivileges))
+        .append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

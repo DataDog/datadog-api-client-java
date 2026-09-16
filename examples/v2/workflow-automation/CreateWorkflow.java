@@ -50,6 +50,7 @@ public class Example {
                             .runAs(
                                 new WorkflowRunAs(
                                     new WorkflowRunAsOwner().type(WorkflowRunAsOwnerType.OWNER)))
+                            .sensitivePrivileges(true)
                             .spec(
                                 new Spec()
                                     .connectionEnvs(
