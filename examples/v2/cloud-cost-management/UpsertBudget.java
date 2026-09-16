@@ -30,7 +30,7 @@ public class Example {
                                     .amount(null)
                                     .forecast(null)
                                     .ootbForecast(null))
-                            .costsUnit(new BudgetAttributesCostsUnit())
+                            .costsUnit(new BudgetAttributesCostsUnit().id(42L))
                             .createdAt(1738258683590L)
                             .createdBy("00000000-0a0a-0a0a-aaa0-00000000000a")
                             .endMonth(202502L)
