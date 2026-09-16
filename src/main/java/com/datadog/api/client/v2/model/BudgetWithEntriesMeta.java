@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,66 +17,41 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of the <code>BudgetWithEntries</code> object. */
-@JsonPropertyOrder({BudgetWithEntries.JSON_PROPERTY_DATA, BudgetWithEntries.JSON_PROPERTY_META})
+/** Additional information about errors encountered while retrieving budget cost data. */
+@JsonPropertyOrder({BudgetWithEntriesMeta.JSON_PROPERTY_ERROR})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BudgetWithEntries {
+public class BudgetWithEntriesMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private BudgetWithEntriesData data;
+  public static final String JSON_PROPERTY_ERROR = "error";
+  private String error;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private BudgetWithEntriesMeta meta;
+  public BudgetWithEntriesMeta() {}
 
-  public BudgetWithEntries data(BudgetWithEntriesData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  @JsonCreator
+  public BudgetWithEntriesMeta(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERROR) String error) {
+    this.error = error;
+  }
+
+  public BudgetWithEntriesMeta error(String error) {
+    this.error = error;
     return this;
   }
 
   /**
-   * A budget and all its entries.
+   * A user-facing explanation of why budget cost data could not be retrieved.
    *
-   * @return data
+   * @return error
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BudgetWithEntriesData getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getError() {
+    return error;
   }
 
-  public void setData(BudgetWithEntriesData data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
-    }
-  }
-
-  public BudgetWithEntries meta(BudgetWithEntriesMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Additional information about errors encountered while retrieving budget cost data.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BudgetWithEntriesMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(BudgetWithEntriesMeta meta) {
-    this.meta = meta;
-    if (meta != null) {
-      this.unparsed |= meta.unparsed;
-    }
+  public void setError(String error) {
+    this.error = error;
   }
 
   /**
@@ -90,10 +66,10 @@ public class BudgetWithEntries {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BudgetWithEntries
+   * @return BudgetWithEntriesMeta
    */
   @JsonAnySetter
-  public BudgetWithEntries putAdditionalProperty(String key, Object value) {
+  public BudgetWithEntriesMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -124,7 +100,7 @@ public class BudgetWithEntries {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BudgetWithEntries object is equal to o. */
+  /** Return true if this BudgetWithEntriesMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,23 +109,21 @@ public class BudgetWithEntries {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BudgetWithEntries budgetWithEntries = (BudgetWithEntries) o;
-    return Objects.equals(this.data, budgetWithEntries.data)
-        && Objects.equals(this.meta, budgetWithEntries.meta)
-        && Objects.equals(this.additionalProperties, budgetWithEntries.additionalProperties);
+    BudgetWithEntriesMeta budgetWithEntriesMeta = (BudgetWithEntriesMeta) o;
+    return Objects.equals(this.error, budgetWithEntriesMeta.error)
+        && Objects.equals(this.additionalProperties, budgetWithEntriesMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(error, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BudgetWithEntries {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class BudgetWithEntriesMeta {\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
