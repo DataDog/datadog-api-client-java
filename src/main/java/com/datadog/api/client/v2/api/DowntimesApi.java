@@ -324,6 +324,7 @@ public class DowntimesApi {
   /** Manage optional parameters to getDowntime. */
   public static class GetDowntimeOptionalParameters {
     private String include;
+    private Boolean withRunAs;
 
     /**
      * Set include.
@@ -335,6 +336,20 @@ public class DowntimesApi {
      */
     public GetDowntimeOptionalParameters include(String include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set withRunAs.
+     *
+     * @param withRunAs If <code>true</code>, include the <code>run_as</code> attribute in the
+     *     response, which lists the principals allowed to act on behalf of the downtime.
+     *     <strong>Note</strong>: This feature is currently in Preview and may not be available for
+     *     all organizations. (optional, default to false)
+     * @return GetDowntimeOptionalParameters
+     */
+    public GetDowntimeOptionalParameters withRunAs(Boolean withRunAs) {
+      this.withRunAs = withRunAs;
       return this;
     }
   }
@@ -429,6 +444,7 @@ public class DowntimesApi {
           400, "Missing the required parameter 'downtimeId' when calling getDowntime");
     }
     String include = parameters.include;
+    Boolean withRunAs = parameters.withRunAs;
     // create path and map variables
     String localVarPath =
         "/api/v2/downtime/{downtime_id}"
@@ -439,6 +455,7 @@ public class DowntimesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_run_as", withRunAs));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -482,6 +499,7 @@ public class DowntimesApi {
       return result;
     }
     String include = parameters.include;
+    Boolean withRunAs = parameters.withRunAs;
     // create path and map variables
     String localVarPath =
         "/api/v2/downtime/{downtime_id}"
@@ -492,6 +510,7 @@ public class DowntimesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_run_as", withRunAs));
 
     Invocation.Builder builder;
     try {
