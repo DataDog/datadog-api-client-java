@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.BitsAiApi;
+import com.datadog.api.client.v2.model.GeneralInvestigationAttributes;
 import com.datadog.api.client.v2.model.MonitorAlertTriggerAttributes;
 import com.datadog.api.client.v2.model.TriggerAttributes;
 import com.datadog.api.client.v2.model.TriggerInvestigationRequest;
@@ -11,6 +12,7 @@ import com.datadog.api.client.v2.model.TriggerInvestigationRequestDataAttributes
 import com.datadog.api.client.v2.model.TriggerInvestigationRequestType;
 import com.datadog.api.client.v2.model.TriggerInvestigationResponse;
 import com.datadog.api.client.v2.model.TriggerType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -26,6 +28,14 @@ public class Example {
                         new TriggerInvestigationRequestDataAttributes()
                             .trigger(
                                 new TriggerAttributes()
+                                    .generalInvestigation(
+                                        new GeneralInvestigationAttributes()
+                                            .description(
+                                                "Checkout latency has been elevated for the past"
+                                                    + " hour.")
+                                            .endTime(1700003600000L)
+                                            .startTime(1700000000000L)
+                                            .tags(Collections.singletonList("service:checkout")))
                                     .monitorAlertTrigger(
                                         new MonitorAlertTriggerAttributes()
                                             .eventId("1234567890123456789")

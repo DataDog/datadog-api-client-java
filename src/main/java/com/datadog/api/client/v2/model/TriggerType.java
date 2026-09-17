@@ -23,9 +23,10 @@ import java.util.Set;
 public class TriggerType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("monitor_alert_trigger"));
+      new HashSet<String>(Arrays.asList("monitor_alert_trigger", "general_investigation"));
 
   public static final TriggerType MONITOR_ALERT_TRIGGER = new TriggerType("monitor_alert_trigger");
+  public static final TriggerType GENERAL_INVESTIGATION = new TriggerType("general_investigation");
 
   TriggerType(String value) {
     super(value, allowedValues);
