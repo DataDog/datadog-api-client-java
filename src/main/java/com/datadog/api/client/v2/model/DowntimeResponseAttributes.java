@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeResponseAttributes.JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION,
   DowntimeResponseAttributes.JSON_PROPERTY_NOTIFY_END_STATES,
   DowntimeResponseAttributes.JSON_PROPERTY_NOTIFY_END_TYPES,
+  DowntimeResponseAttributes.JSON_PROPERTY_RUN_AS,
   DowntimeResponseAttributes.JSON_PROPERTY_SCHEDULE,
   DowntimeResponseAttributes.JSON_PROPERTY_SCOPE,
   DowntimeResponseAttributes.JSON_PROPERTY_STATUS
@@ -66,6 +67,9 @@ public class DowntimeResponseAttributes {
 
   public static final String JSON_PROPERTY_NOTIFY_END_TYPES = "notify_end_types";
   private List<DowntimeNotifyEndStateActions> notifyEndTypes = null;
+
+  public static final String JSON_PROPERTY_RUN_AS = "run_as";
+  private List<DowntimeRunAsItem> runAs = null;
 
   public static final String JSON_PROPERTY_SCHEDULE = "schedule";
   private DowntimeScheduleResponse schedule;
@@ -326,6 +330,21 @@ public class DowntimeResponseAttributes {
     this.notifyEndTypes = notifyEndTypes;
   }
 
+  /**
+   * The principals (users, roles, or teams) allowed to act on behalf of the downtime.
+   *
+   * <p><strong>Note</strong>: This feature is currently in Preview and may not be available for all
+   * organizations.
+   *
+   * @return runAs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DowntimeRunAsItem> getRunAs() {
+    return runAs;
+  }
+
   public DowntimeResponseAttributes schedule(DowntimeScheduleResponse schedule) {
     this.schedule = schedule;
     this.unparsed |= schedule.unparsed;
@@ -467,6 +486,7 @@ public class DowntimeResponseAttributes {
             downtimeResponseAttributes.muteFirstRecoveryNotification)
         && Objects.equals(this.notifyEndStates, downtimeResponseAttributes.notifyEndStates)
         && Objects.equals(this.notifyEndTypes, downtimeResponseAttributes.notifyEndTypes)
+        && Objects.equals(this.runAs, downtimeResponseAttributes.runAs)
         && Objects.equals(this.schedule, downtimeResponseAttributes.schedule)
         && Objects.equals(this.scope, downtimeResponseAttributes.scope)
         && Objects.equals(this.status, downtimeResponseAttributes.status)
@@ -486,6 +506,7 @@ public class DowntimeResponseAttributes {
         muteFirstRecoveryNotification,
         notifyEndStates,
         notifyEndTypes,
+        runAs,
         schedule,
         scope,
         status,
@@ -507,6 +528,7 @@ public class DowntimeResponseAttributes {
         .append("\n");
     sb.append("    notifyEndStates: ").append(toIndentedString(notifyEndStates)).append("\n");
     sb.append("    notifyEndTypes: ").append(toIndentedString(notifyEndTypes)).append("\n");
+    sb.append("    runAs: ").append(toIndentedString(runAs)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
