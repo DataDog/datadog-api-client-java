@@ -167,6 +167,10 @@ public final class TestRunner {
       Object value = materialize(body.get("value"), world);
       world.addMaterializedRequestParameter("body", MAPPER.writeValueAsString(value));
     }
+    if (request.get("compression") != null) {
+      world.addMaterializedRequestParameter(
+          "Content-Encoding", MAPPER.writeValueAsString(request.get("compression")));
+    }
     for (Map<String, Object> parameter : parameters) {
       if (!"path".equals(parameter.get("in")) && !Boolean.TRUE.equals(parameter.get("required"))) {
         applyParameter(world, parameter);
