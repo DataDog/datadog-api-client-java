@@ -4,10 +4,10 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountCreateRequest;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountResponse;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountUpdateRequest;
-import com.datadog.api.client.v2.model.TwilioIntegrationAccountsResponse;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountCreateRequest;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountResponse;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountUpdateRequest;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -17,14 +17,14 @@ import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TwilioIntegrationAccountsApi {
+public class ElasticCloudIntegrationApi {
   private ApiClient apiClient;
 
-  public TwilioIntegrationAccountsApi() {
+  public ElasticCloudIntegrationApi() {
     this(ApiClient.getDefaultApiClient());
   }
 
-  public TwilioIntegrationAccountsApi(ApiClient apiClient) {
+  public ElasticCloudIntegrationApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -47,30 +47,30 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * Create a Twilio integration account.
+   * Create an Elastic Cloud integration account.
    *
-   * <p>See {@link #createTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #createElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param body (required)
-   * @return TwilioIntegrationAccountResponse
+   * @return ElasticCloudIntegrationAccountResponse
    * @throws ApiException if fails to make API call
    */
-  public TwilioIntegrationAccountResponse createTwilioIntegrationAccount(
-      TwilioIntegrationAccountCreateRequest body) throws ApiException {
-    return createTwilioIntegrationAccountWithHttpInfo(body).getData();
+  public ElasticCloudIntegrationAccountResponse createElasticCloudIntegrationAccount(
+      ElasticCloudIntegrationAccountCreateRequest body) throws ApiException {
+    return createElasticCloudIntegrationAccountWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a Twilio integration account.
+   * Create an Elastic Cloud integration account.
    *
-   * <p>See {@link #createTwilioIntegrationAccountWithHttpInfoAsync}.
+   * <p>See {@link #createElasticCloudIntegrationAccountWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;TwilioIntegrationAccountResponse&gt;
+   * @return CompletableFuture&lt;ElasticCloudIntegrationAccountResponse&gt;
    */
-  public CompletableFuture<TwilioIntegrationAccountResponse> createTwilioIntegrationAccountAsync(
-      TwilioIntegrationAccountCreateRequest body) {
-    return createTwilioIntegrationAccountWithHttpInfoAsync(body)
+  public CompletableFuture<ElasticCloudIntegrationAccountResponse>
+      createElasticCloudIntegrationAccountAsync(ElasticCloudIntegrationAccountCreateRequest body) {
+    return createElasticCloudIntegrationAccountWithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -78,10 +78,10 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * Create a Twilio integration account.
+   * Create an Elastic Cloud integration account.
    *
    * @param body (required)
-   * @return ApiResponse&lt;TwilioIntegrationAccountResponse&gt;
+   * @return ApiResponse&lt;ElasticCloudIntegrationAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -95,10 +95,11 @@ public class TwilioIntegrationAccountsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TwilioIntegrationAccountResponse> createTwilioIntegrationAccountWithHttpInfo(
-      TwilioIntegrationAccountCreateRequest body) throws ApiException {
+  public ApiResponse<ElasticCloudIntegrationAccountResponse>
+      createElasticCloudIntegrationAccountWithHttpInfo(
+          ElasticCloudIntegrationAccountCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "createTwilioIntegrationAccount";
+    String operationId = "createElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -109,16 +110,18 @@ public class TwilioIntegrationAccountsApi {
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createTwilioIntegrationAccount");
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createElasticCloudIntegrationAccount");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/integration-interfaces/twilio/accounts";
+    String localVarPath = "/api/v2/integration-interfaces/elastic-cloud/accounts";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.TwilioIntegrationAccountsApi.createTwilioIntegrationAccount",
+            "v2.ElasticCloudIntegrationApi.createElasticCloudIntegrationAccount",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -133,25 +136,26 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountResponse>() {});
   }
 
   /**
-   * Create a Twilio integration account.
+   * Create an Elastic Cloud integration account.
    *
-   * <p>See {@link #createTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #createElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;TwilioIntegrationAccountResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;ElasticCloudIntegrationAccountResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>>
-      createTwilioIntegrationAccountWithHttpInfoAsync(TwilioIntegrationAccountCreateRequest body) {
+  public CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>>
+      createElasticCloudIntegrationAccountWithHttpInfoAsync(
+          ElasticCloudIntegrationAccountCreateRequest body) {
     // Check if unstable operation is enabled
-    String operationId = "createTwilioIntegrationAccount";
+    String operationId = "createElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
@@ -161,16 +165,17 @@ public class TwilioIntegrationAccountsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'body' when calling createTwilioIntegrationAccount"));
+              "Missing the required parameter 'body' when calling"
+                  + " createElasticCloudIntegrationAccount"));
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/integration-interfaces/twilio/accounts";
+    String localVarPath = "/api/v2/integration-interfaces/elastic-cloud/accounts";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -178,7 +183,7 @@ public class TwilioIntegrationAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.TwilioIntegrationAccountsApi.createTwilioIntegrationAccount",
+              "v2.ElasticCloudIntegrationApi.createElasticCloudIntegrationAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -186,7 +191,7 @@ public class TwilioIntegrationAccountsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -199,31 +204,31 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountResponse>() {});
   }
 
   /**
-   * Delete a Twilio integration account.
+   * Delete an Elastic Cloud integration account.
    *
-   * <p>See {@link #deleteTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #deleteElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteTwilioIntegrationAccount(String accountId) throws ApiException {
-    deleteTwilioIntegrationAccountWithHttpInfo(accountId);
+  public void deleteElasticCloudIntegrationAccount(String accountId) throws ApiException {
+    deleteElasticCloudIntegrationAccountWithHttpInfo(accountId);
   }
 
   /**
-   * Delete a Twilio integration account.
+   * Delete an Elastic Cloud integration account.
    *
-   * <p>See {@link #deleteTwilioIntegrationAccountWithHttpInfoAsync}.
+   * <p>See {@link #deleteElasticCloudIntegrationAccountWithHttpInfoAsync}.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteTwilioIntegrationAccountAsync(String accountId) {
-    return deleteTwilioIntegrationAccountWithHttpInfoAsync(accountId)
+  public CompletableFuture<Void> deleteElasticCloudIntegrationAccountAsync(String accountId) {
+    return deleteElasticCloudIntegrationAccountWithHttpInfoAsync(accountId)
         .thenApply(
             response -> {
               return response.getData();
@@ -231,7 +236,7 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * Delete a Twilio integration account.
+   * Delete an Elastic Cloud integration account.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -247,10 +252,10 @@ public class TwilioIntegrationAccountsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteTwilioIntegrationAccountWithHttpInfo(String accountId)
+  public ApiResponse<Void> deleteElasticCloudIntegrationAccountWithHttpInfo(String accountId)
       throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "deleteTwilioIntegrationAccount";
+    String operationId = "deleteElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -262,18 +267,19 @@ public class TwilioIntegrationAccountsApi {
     if (accountId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'accountId' when calling deleteTwilioIntegrationAccount");
+          "Missing the required parameter 'accountId' when calling"
+              + " deleteElasticCloudIntegrationAccount");
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/integration-interfaces/twilio/accounts/{account_id}"
+        "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}"
             .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.TwilioIntegrationAccountsApi.deleteTwilioIntegrationAccount",
+            "v2.ElasticCloudIntegrationApi.deleteElasticCloudIntegrationAccount",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -292,17 +298,17 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * Delete a Twilio integration account.
+   * Delete an Elastic Cloud integration account.
    *
-   * <p>See {@link #deleteTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #deleteElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteTwilioIntegrationAccountWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Void>> deleteElasticCloudIntegrationAccountWithHttpInfoAsync(
       String accountId) {
     // Check if unstable operation is enabled
-    String operationId = "deleteTwilioIntegrationAccount";
+    String operationId = "deleteElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -320,12 +326,12 @@ public class TwilioIntegrationAccountsApi {
           new ApiException(
               400,
               "Missing the required parameter 'accountId' when calling"
-                  + " deleteTwilioIntegrationAccount"));
+                  + " deleteElasticCloudIntegrationAccount"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/integration-interfaces/twilio/accounts/{account_id}"
+        "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}"
             .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -334,7 +340,7 @@ public class TwilioIntegrationAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.TwilioIntegrationAccountsApi.deleteTwilioIntegrationAccount",
+              "v2.ElasticCloudIntegrationApi.deleteElasticCloudIntegrationAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -358,30 +364,30 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * Get a Twilio integration account.
+   * Get an Elastic Cloud integration account.
    *
-   * <p>See {@link #getTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #getElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param accountId Unique identifier of the integration account. (required)
-   * @return TwilioIntegrationAccountResponse
+   * @return ElasticCloudIntegrationAccountResponse
    * @throws ApiException if fails to make API call
    */
-  public TwilioIntegrationAccountResponse getTwilioIntegrationAccount(String accountId)
+  public ElasticCloudIntegrationAccountResponse getElasticCloudIntegrationAccount(String accountId)
       throws ApiException {
-    return getTwilioIntegrationAccountWithHttpInfo(accountId).getData();
+    return getElasticCloudIntegrationAccountWithHttpInfo(accountId).getData();
   }
 
   /**
-   * Get a Twilio integration account.
+   * Get an Elastic Cloud integration account.
    *
-   * <p>See {@link #getTwilioIntegrationAccountWithHttpInfoAsync}.
+   * <p>See {@link #getElasticCloudIntegrationAccountWithHttpInfoAsync}.
    *
    * @param accountId Unique identifier of the integration account. (required)
-   * @return CompletableFuture&lt;TwilioIntegrationAccountResponse&gt;
+   * @return CompletableFuture&lt;ElasticCloudIntegrationAccountResponse&gt;
    */
-  public CompletableFuture<TwilioIntegrationAccountResponse> getTwilioIntegrationAccountAsync(
-      String accountId) {
-    return getTwilioIntegrationAccountWithHttpInfoAsync(accountId)
+  public CompletableFuture<ElasticCloudIntegrationAccountResponse>
+      getElasticCloudIntegrationAccountAsync(String accountId) {
+    return getElasticCloudIntegrationAccountWithHttpInfoAsync(accountId)
         .thenApply(
             response -> {
               return response.getData();
@@ -389,10 +395,10 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * Get a Twilio integration account.
+   * Get an Elastic Cloud integration account.
    *
    * @param accountId Unique identifier of the integration account. (required)
-   * @return ApiResponse&lt;TwilioIntegrationAccountResponse&gt;
+   * @return ApiResponse&lt;ElasticCloudIntegrationAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -405,10 +411,10 @@ public class TwilioIntegrationAccountsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TwilioIntegrationAccountResponse> getTwilioIntegrationAccountWithHttpInfo(
-      String accountId) throws ApiException {
+  public ApiResponse<ElasticCloudIntegrationAccountResponse>
+      getElasticCloudIntegrationAccountWithHttpInfo(String accountId) throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "getTwilioIntegrationAccount";
+    String operationId = "getElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -420,18 +426,19 @@ public class TwilioIntegrationAccountsApi {
     if (accountId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'accountId' when calling getTwilioIntegrationAccount");
+          "Missing the required parameter 'accountId' when calling"
+              + " getElasticCloudIntegrationAccount");
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/integration-interfaces/twilio/accounts/{account_id}"
+        "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}"
             .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.TwilioIntegrationAccountsApi.getTwilioIntegrationAccount",
+            "v2.ElasticCloudIntegrationApi.getElasticCloudIntegrationAccount",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -446,25 +453,25 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountResponse>() {});
   }
 
   /**
-   * Get a Twilio integration account.
+   * Get an Elastic Cloud integration account.
    *
-   * <p>See {@link #getTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #getElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param accountId Unique identifier of the integration account. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;TwilioIntegrationAccountResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;ElasticCloudIntegrationAccountResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>>
-      getTwilioIntegrationAccountWithHttpInfoAsync(String accountId) {
+  public CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>>
+      getElasticCloudIntegrationAccountWithHttpInfoAsync(String accountId) {
     // Check if unstable operation is enabled
-    String operationId = "getTwilioIntegrationAccount";
+    String operationId = "getElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
@@ -474,18 +481,18 @@ public class TwilioIntegrationAccountsApi {
 
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
               "Missing the required parameter 'accountId' when calling"
-                  + " getTwilioIntegrationAccount"));
+                  + " getElasticCloudIntegrationAccount"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/integration-interfaces/twilio/accounts/{account_id}"
+        "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}"
             .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -494,7 +501,7 @@ public class TwilioIntegrationAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.TwilioIntegrationAccountsApi.getTwilioIntegrationAccount",
+              "v2.ElasticCloudIntegrationApi.getElasticCloudIntegrationAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -502,7 +509,7 @@ public class TwilioIntegrationAccountsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -515,30 +522,32 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountResponse>() {});
   }
 
   /**
-   * List Twilio integration accounts.
+   * List Elastic Cloud integration accounts.
    *
-   * <p>See {@link #listTwilioIntegrationAccountsWithHttpInfo}.
+   * <p>See {@link #listElasticCloudIntegrationAccountsWithHttpInfo}.
    *
-   * @return TwilioIntegrationAccountsResponse
+   * @return ElasticCloudIntegrationAccountsResponse
    * @throws ApiException if fails to make API call
    */
-  public TwilioIntegrationAccountsResponse listTwilioIntegrationAccounts() throws ApiException {
-    return listTwilioIntegrationAccountsWithHttpInfo().getData();
+  public ElasticCloudIntegrationAccountsResponse listElasticCloudIntegrationAccounts()
+      throws ApiException {
+    return listElasticCloudIntegrationAccountsWithHttpInfo().getData();
   }
 
   /**
-   * List Twilio integration accounts.
+   * List Elastic Cloud integration accounts.
    *
-   * <p>See {@link #listTwilioIntegrationAccountsWithHttpInfoAsync}.
+   * <p>See {@link #listElasticCloudIntegrationAccountsWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;TwilioIntegrationAccountsResponse&gt;
+   * @return CompletableFuture&lt;ElasticCloudIntegrationAccountsResponse&gt;
    */
-  public CompletableFuture<TwilioIntegrationAccountsResponse> listTwilioIntegrationAccountsAsync() {
-    return listTwilioIntegrationAccountsWithHttpInfoAsync()
+  public CompletableFuture<ElasticCloudIntegrationAccountsResponse>
+      listElasticCloudIntegrationAccountsAsync() {
+    return listElasticCloudIntegrationAccountsWithHttpInfoAsync()
         .thenApply(
             response -> {
               return response.getData();
@@ -546,9 +555,9 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * List Twilio integration accounts.
+   * List Elastic Cloud integration accounts.
    *
-   * @return ApiResponse&lt;TwilioIntegrationAccountsResponse&gt;
+   * @return ApiResponse&lt;ElasticCloudIntegrationAccountsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -561,10 +570,10 @@ public class TwilioIntegrationAccountsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TwilioIntegrationAccountsResponse> listTwilioIntegrationAccountsWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<ElasticCloudIntegrationAccountsResponse>
+      listElasticCloudIntegrationAccountsWithHttpInfo() throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "listTwilioIntegrationAccounts";
+    String operationId = "listElasticCloudIntegrationAccounts";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -572,13 +581,13 @@ public class TwilioIntegrationAccountsApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/integration-interfaces/twilio/accounts";
+    String localVarPath = "/api/v2/integration-interfaces/elastic-cloud/accounts";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.TwilioIntegrationAccountsApi.listTwilioIntegrationAccounts",
+            "v2.ElasticCloudIntegrationApi.listElasticCloudIntegrationAccounts",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -593,24 +602,24 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountsResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountsResponse>() {});
   }
 
   /**
-   * List Twilio integration accounts.
+   * List Elastic Cloud integration accounts.
    *
-   * <p>See {@link #listTwilioIntegrationAccountsWithHttpInfo}.
+   * <p>See {@link #listElasticCloudIntegrationAccountsWithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;TwilioIntegrationAccountsResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;ElasticCloudIntegrationAccountsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TwilioIntegrationAccountsResponse>>
-      listTwilioIntegrationAccountsWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountsResponse>>
+      listElasticCloudIntegrationAccountsWithHttpInfoAsync() {
     // Check if unstable operation is enabled
-    String operationId = "listTwilioIntegrationAccounts";
+    String operationId = "listElasticCloudIntegrationAccounts";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountsResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountsResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
@@ -618,7 +627,7 @@ public class TwilioIntegrationAccountsApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/integration-interfaces/twilio/accounts";
+    String localVarPath = "/api/v2/integration-interfaces/elastic-cloud/accounts";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -626,7 +635,7 @@ public class TwilioIntegrationAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.TwilioIntegrationAccountsApi.listTwilioIntegrationAccounts",
+              "v2.ElasticCloudIntegrationApi.listElasticCloudIntegrationAccounts",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -634,7 +643,7 @@ public class TwilioIntegrationAccountsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountsResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountsResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -647,36 +656,37 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountsResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountsResponse>() {});
   }
 
   /**
-   * Update a Twilio integration account.
+   * Update an Elastic Cloud integration account.
    *
-   * <p>See {@link #updateTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #updateElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @param body (required)
-   * @return TwilioIntegrationAccountResponse
+   * @return ElasticCloudIntegrationAccountResponse
    * @throws ApiException if fails to make API call
    */
-  public TwilioIntegrationAccountResponse updateTwilioIntegrationAccount(
-      String accountId, TwilioIntegrationAccountUpdateRequest body) throws ApiException {
-    return updateTwilioIntegrationAccountWithHttpInfo(accountId, body).getData();
+  public ElasticCloudIntegrationAccountResponse updateElasticCloudIntegrationAccount(
+      String accountId, ElasticCloudIntegrationAccountUpdateRequest body) throws ApiException {
+    return updateElasticCloudIntegrationAccountWithHttpInfo(accountId, body).getData();
   }
 
   /**
-   * Update a Twilio integration account.
+   * Update an Elastic Cloud integration account.
    *
-   * <p>See {@link #updateTwilioIntegrationAccountWithHttpInfoAsync}.
+   * <p>See {@link #updateElasticCloudIntegrationAccountWithHttpInfoAsync}.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;TwilioIntegrationAccountResponse&gt;
+   * @return CompletableFuture&lt;ElasticCloudIntegrationAccountResponse&gt;
    */
-  public CompletableFuture<TwilioIntegrationAccountResponse> updateTwilioIntegrationAccountAsync(
-      String accountId, TwilioIntegrationAccountUpdateRequest body) {
-    return updateTwilioIntegrationAccountWithHttpInfoAsync(accountId, body)
+  public CompletableFuture<ElasticCloudIntegrationAccountResponse>
+      updateElasticCloudIntegrationAccountAsync(
+          String accountId, ElasticCloudIntegrationAccountUpdateRequest body) {
+    return updateElasticCloudIntegrationAccountWithHttpInfoAsync(accountId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -684,11 +694,11 @@ public class TwilioIntegrationAccountsApi {
   }
 
   /**
-   * Update a Twilio integration account. Only the fields provided are changed.
+   * Update an Elastic Cloud integration account. Only the fields provided are changed.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @param body (required)
-   * @return ApiResponse&lt;TwilioIntegrationAccountResponse&gt;
+   * @return ApiResponse&lt;ElasticCloudIntegrationAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -702,10 +712,11 @@ public class TwilioIntegrationAccountsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TwilioIntegrationAccountResponse> updateTwilioIntegrationAccountWithHttpInfo(
-      String accountId, TwilioIntegrationAccountUpdateRequest body) throws ApiException {
+  public ApiResponse<ElasticCloudIntegrationAccountResponse>
+      updateElasticCloudIntegrationAccountWithHttpInfo(
+          String accountId, ElasticCloudIntegrationAccountUpdateRequest body) throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "updateTwilioIntegrationAccount";
+    String operationId = "updateElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -717,24 +728,27 @@ public class TwilioIntegrationAccountsApi {
     if (accountId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'accountId' when calling updateTwilioIntegrationAccount");
+          "Missing the required parameter 'accountId' when calling"
+              + " updateElasticCloudIntegrationAccount");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateTwilioIntegrationAccount");
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateElasticCloudIntegrationAccount");
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/integration-interfaces/twilio/accounts/{account_id}"
+        "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}"
             .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.TwilioIntegrationAccountsApi.updateTwilioIntegrationAccount",
+            "v2.ElasticCloudIntegrationApi.updateElasticCloudIntegrationAccount",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -749,27 +763,27 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountResponse>() {});
   }
 
   /**
-   * Update a Twilio integration account.
+   * Update an Elastic Cloud integration account.
    *
-   * <p>See {@link #updateTwilioIntegrationAccountWithHttpInfo}.
+   * <p>See {@link #updateElasticCloudIntegrationAccountWithHttpInfo}.
    *
    * @param accountId Unique identifier of the integration account. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;TwilioIntegrationAccountResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;ElasticCloudIntegrationAccountResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>>
-      updateTwilioIntegrationAccountWithHttpInfoAsync(
-          String accountId, TwilioIntegrationAccountUpdateRequest body) {
+  public CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>>
+      updateElasticCloudIntegrationAccountWithHttpInfoAsync(
+          String accountId, ElasticCloudIntegrationAccountUpdateRequest body) {
     // Check if unstable operation is enabled
-    String operationId = "updateTwilioIntegrationAccount";
+    String operationId = "updateElasticCloudIntegrationAccount";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
@@ -779,29 +793,30 @@ public class TwilioIntegrationAccountsApi {
 
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
               "Missing the required parameter 'accountId' when calling"
-                  + " updateTwilioIntegrationAccount"));
+                  + " updateElasticCloudIntegrationAccount"));
       return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'body' when calling updateTwilioIntegrationAccount"));
+              "Missing the required parameter 'body' when calling"
+                  + " updateElasticCloudIntegrationAccount"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/integration-interfaces/twilio/accounts/{account_id}"
+        "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}"
             .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -810,7 +825,7 @@ public class TwilioIntegrationAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.TwilioIntegrationAccountsApi.updateTwilioIntegrationAccount",
+              "v2.ElasticCloudIntegrationApi.updateElasticCloudIntegrationAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -818,7 +833,7 @@ public class TwilioIntegrationAccountsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TwilioIntegrationAccountResponse>> result =
+      CompletableFuture<ApiResponse<ElasticCloudIntegrationAccountResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -831,6 +846,6 @@ public class TwilioIntegrationAccountsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TwilioIntegrationAccountResponse>() {});
+        new GenericType<ElasticCloudIntegrationAccountResponse>() {});
   }
 }

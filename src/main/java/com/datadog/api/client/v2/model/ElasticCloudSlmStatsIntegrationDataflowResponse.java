@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud snapshot lifecycle management stats dataflow. */
+/**
+ * Metrics about the actions taken by snapshot lifecycle management. Requires the <code>read_slm
+ * </code> Elasticsearch cluster privilege on the role of the user in <code>authentication</code>;
+ * without it this dataflow collects no data.
+ */
 @JsonPropertyOrder({
   ElasticCloudSlmStatsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudSlmStatsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +41,7 @@ public class ElasticCloudSlmStatsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

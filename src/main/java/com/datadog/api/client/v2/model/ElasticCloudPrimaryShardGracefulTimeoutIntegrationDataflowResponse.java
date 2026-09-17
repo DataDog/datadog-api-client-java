@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud primary shard graceful timeout dataflow. */
+/**
+ * Tolerance for slow primary shard requests, keeping the rest of the collection running when a
+ * primary shard request times out instead of failing the run. Only has an effect alongside <code>
+ * elastic-cloud-primary-shard-stats</code>.
+ */
 @JsonPropertyOrder({
   ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -38,7 +42,7 @@ public class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse 
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether this tolerance is applied.
    *
    * @return enabled
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Dataflows configured on the Elastic Cloud integration account, keyed by dataflow id. */
+/** Data Datadog collects from Elastic Cloud, keyed by dataflow id. */
 @JsonPropertyOrder({
   ElasticCloudIntegrationDataflowsResponse.JSON_PROPERTY_ELASTIC_CLOUD_DETAILED_INDEX_STATS,
   ElasticCloudIntegrationDataflowsResponse.JSON_PROPERTY_ELASTIC_CLOUD_INDEX_STATS,
@@ -71,7 +71,7 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud detailed index stats dataflow.
+   * Primary shard metrics broken down per index, rather than aggregated across the cluster.
    *
    * @return elasticCloudDetailedIndexStats
    */
@@ -99,7 +99,8 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud index stats dataflow.
+   * Metrics for individual indices. Only the indices granted to the role of the user in <code>
+   * authentication</code> are collected.
    *
    * @return elasticCloudIndexStats
    */
@@ -126,7 +127,9 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud metrics dataflow.
+   * Node-level statistics for the clusters in your deployment, such as the number of nodes and the
+   * number of documents on each node. This is the integration's baseline collection: it is always
+   * on and cannot be turned off, which is why it appears in responses only.
    *
    * @return elasticCloudMetrics
    */
@@ -153,7 +156,7 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud pending task stats dataflow.
+   * Metrics for cluster-level changes that have been submitted but not yet executed.
    *
    * @return elasticCloudPendingTaskStats
    */
@@ -181,7 +184,9 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud primary shard graceful timeout dataflow.
+   * Tolerance for slow primary shard requests, keeping the rest of the collection running when a
+   * primary shard request times out instead of failing the run. Only has an effect alongside <code>
+   * elastic-cloud-primary-shard-stats</code>.
    *
    * @return elasticCloudPrimaryShardGracefulTimeout
    */
@@ -210,7 +215,7 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud primary shard stats dataflow.
+   * Metrics covering only the cluster's primary shards.
    *
    * @return elasticCloudPrimaryShardStats
    */
@@ -239,7 +244,7 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud shard allocation stats dataflow.
+   * Metrics for how many shards are allocated to each data node, and the disk space they use.
    *
    * @return elasticCloudShardAllocationStats
    */
@@ -268,7 +273,9 @@ public class ElasticCloudIntegrationDataflowsResponse {
   }
 
   /**
-   * The Elastic Cloud snapshot lifecycle management stats dataflow.
+   * Metrics about the actions taken by snapshot lifecycle management. Requires the <code>read_slm
+   * </code> Elasticsearch cluster privilege on the role of the user in <code>authentication</code>;
+   * without it this dataflow collects no data.
    *
    * @return elasticCloudSlmStats
    */

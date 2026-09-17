@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud index stats dataflow. */
+/**
+ * Metrics for individual indices. Only the indices granted to the role of the user in <code>
+ * authentication</code> are collected.
+ */
 @JsonPropertyOrder({
   ElasticCloudIndexStatsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudIndexStatsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +40,7 @@ public class ElasticCloudIndexStatsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

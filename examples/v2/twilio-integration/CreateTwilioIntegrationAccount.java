@@ -2,15 +2,15 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.TwilioIntegrationAccountsApi;
-import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthRequest;
-import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthType;
+import com.datadog.api.client.v2.api.TwilioIntegrationApi;
 import com.datadog.api.client.v2.model.IntegrationAccountType;
 import com.datadog.api.client.v2.model.TwilioAlertsLogsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.TwilioCallSummariesLogsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.TwilioCloudCostMetricsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.TwilioEventsLogsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.TwilioIntegrationAccountAuthenticationRequest;
+import com.datadog.api.client.v2.model.TwilioIntegrationAccountBasicAuthRequest;
+import com.datadog.api.client.v2.model.TwilioIntegrationAccountBasicAuthType;
 import com.datadog.api.client.v2.model.TwilioIntegrationAccountCreateAttributes;
 import com.datadog.api.client.v2.model.TwilioIntegrationAccountCreateData;
 import com.datadog.api.client.v2.model.TwilioIntegrationAccountCreateRequest;
@@ -23,7 +23,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.createTwilioIntegrationAccount", true);
-    TwilioIntegrationAccountsApi apiInstance = new TwilioIntegrationAccountsApi(defaultClient);
+    TwilioIntegrationApi apiInstance = new TwilioIntegrationApi(defaultClient);
 
     TwilioIntegrationAccountCreateRequest body =
         new TwilioIntegrationAccountCreateRequest()
@@ -33,8 +33,8 @@ public class Example {
                         new TwilioIntegrationAccountCreateAttributes()
                             .authentication(
                                 new TwilioIntegrationAccountAuthenticationRequest(
-                                    new IntegrationAccountBasicAuthRequest()
-                                        .authType(IntegrationAccountBasicAuthType.BASIC)
+                                    new TwilioIntegrationAccountBasicAuthRequest()
+                                        .authType(TwilioIntegrationAccountBasicAuthType.BASIC)
                                         .password("your-password")
                                         .username("datadog")))
                             .dataflows(
@@ -66,7 +66,7 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling TwilioIntegrationAccountsApi#createTwilioIntegrationAccount");
+          "Exception when calling TwilioIntegrationApi#createTwilioIntegrationAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

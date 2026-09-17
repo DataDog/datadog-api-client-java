@@ -2,10 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.ElasticCloudIntegrationAccountsApi;
+import com.datadog.api.client.v2.api.ElasticCloudIntegrationApi;
 import com.datadog.api.client.v2.model.ElasticCloudDetailedIndexStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudIndexStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountAuthenticationRequest;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountBasicAuthRequest;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountBasicAuthType;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountCreateAttributes;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountCreateData;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountCreateRequest;
@@ -17,16 +19,13 @@ import com.datadog.api.client.v2.model.ElasticCloudPrimaryShardGracefulTimeoutIn
 import com.datadog.api.client.v2.model.ElasticCloudPrimaryShardStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudShardAllocationStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudSlmStatsIntegrationDataflowRequest;
-import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthRequest;
-import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthType;
 import com.datadog.api.client.v2.model.IntegrationAccountType;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.createElasticCloudIntegrationAccount", true);
-    ElasticCloudIntegrationAccountsApi apiInstance =
-        new ElasticCloudIntegrationAccountsApi(defaultClient);
+    ElasticCloudIntegrationApi apiInstance = new ElasticCloudIntegrationApi(defaultClient);
 
     ElasticCloudIntegrationAccountCreateRequest body =
         new ElasticCloudIntegrationAccountCreateRequest()
@@ -36,8 +35,8 @@ public class Example {
                         new ElasticCloudIntegrationAccountCreateAttributes()
                             .authentication(
                                 new ElasticCloudIntegrationAccountAuthenticationRequest(
-                                    new IntegrationAccountBasicAuthRequest()
-                                        .authType(IntegrationAccountBasicAuthType.BASIC)
+                                    new ElasticCloudIntegrationAccountBasicAuthRequest()
+                                        .authType(ElasticCloudIntegrationAccountBasicAuthType.BASIC)
                                         .password("your-password")
                                         .username("datadog")))
                             .dataflows(
@@ -76,8 +75,7 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling"
-              + " ElasticCloudIntegrationAccountsApi#createElasticCloudIntegrationAccount");
+          "Exception when calling ElasticCloudIntegrationApi#createElasticCloudIntegrationAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

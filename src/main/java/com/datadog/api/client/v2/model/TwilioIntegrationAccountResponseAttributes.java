@@ -86,7 +86,7 @@ public class TwilioIntegrationAccountResponseAttributes {
   }
 
   /**
-   * Dataflows configured on the Twilio integration account, keyed by dataflow id.
+   * Data Datadog collects from Twilio, keyed by dataflow id.
    *
    * @return dataflows
    */

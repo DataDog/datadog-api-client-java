@@ -2,21 +2,19 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.ElasticCloudIntegrationAccountsApi;
+import com.datadog.api.client.v2.api.ElasticCloudIntegrationApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.deleteElasticCloudIntegrationAccount", true);
-    ElasticCloudIntegrationAccountsApi apiInstance =
-        new ElasticCloudIntegrationAccountsApi(defaultClient);
+    ElasticCloudIntegrationApi apiInstance = new ElasticCloudIntegrationApi(defaultClient);
 
     try {
       apiInstance.deleteElasticCloudIntegrationAccount("account_id");
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling"
-              + " ElasticCloudIntegrationAccountsApi#deleteElasticCloudIntegrationAccount");
+          "Exception when calling ElasticCloudIntegrationApi#deleteElasticCloudIntegrationAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
