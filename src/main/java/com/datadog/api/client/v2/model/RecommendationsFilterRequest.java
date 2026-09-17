@@ -8,146 +8,57 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request body for filtering cost recommendations. */
-@JsonPropertyOrder({
-  RecommendationsFilterRequest.JSON_PROPERTY_FILTER,
-  RecommendationsFilterRequest.JSON_PROPERTY_SCOPE,
-  RecommendationsFilterRequest.JSON_PROPERTY_SORT,
-  RecommendationsFilterRequest.JSON_PROPERTY_VIEW
-})
+/** JSON:API request body for filtering cost recommendations. */
+@JsonPropertyOrder({RecommendationsFilterRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RecommendationsFilterRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FILTER = "filter";
-  private String filter;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private RecommendationsFilterRequestData data;
 
-  public static final String JSON_PROPERTY_SCOPE = "scope";
-  private RecommendationsFilterRequestScope scope;
+  public RecommendationsFilterRequest() {}
 
-  public static final String JSON_PROPERTY_SORT = "sort";
-  private List<RecommendationsFilterRequestSortItems> sort = null;
+  @JsonCreator
+  public RecommendationsFilterRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          RecommendationsFilterRequestData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
 
-  public static final String JSON_PROPERTY_VIEW = "view";
-  private String view;
-
-  public RecommendationsFilterRequest filter(String filter) {
-    this.filter = filter;
+  public RecommendationsFilterRequest data(RecommendationsFilterRequestData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Filter expression applied to the recommendations.
+   * JSON:API resource containing the cost recommendations filter. This legacy search contract uses
+   * the resource ID for the filter expression rather than as a persistent resource identifier.
    *
-   * @return filter
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFilter() {
-    return filter;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RecommendationsFilterRequestData getData() {
+    return data;
   }
 
-  public void setFilter(String filter) {
-    this.filter = filter;
-  }
-
-  public RecommendationsFilterRequest scope(RecommendationsFilterRequestScope scope) {
-    this.scope = scope;
-    this.unparsed |= !scope.isValid();
-    return this;
-  }
-
-  /**
-   * Recommendations scope. Defaults to <code>ccm</code>; use <code>experiment</code> for
-   * experimental recommendations or <code>*</code> for both.
-   *
-   * @return scope
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RecommendationsFilterRequestScope getScope() {
-    return scope;
-  }
-
-  public void setScope(RecommendationsFilterRequestScope scope) {
-    if (!scope.isValid()) {
-      this.unparsed = true;
+  public void setData(RecommendationsFilterRequestData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
-    this.scope = scope;
-  }
-
-  public RecommendationsFilterRequest sort(List<RecommendationsFilterRequestSortItems> sort) {
-    this.sort = sort;
-    if (sort != null) {
-      for (RecommendationsFilterRequestSortItems item : sort) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    return this;
-  }
-
-  public RecommendationsFilterRequest addSortItem(RecommendationsFilterRequestSortItems sortItem) {
-    if (this.sort == null) {
-      this.sort = new ArrayList<>();
-    }
-    this.sort.add(sortItem);
-    this.unparsed |= sortItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Ordered list of sort clauses applied to the result set.
-   *
-   * @return sort
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<RecommendationsFilterRequestSortItems> getSort() {
-    return sort;
-  }
-
-  public void setSort(List<RecommendationsFilterRequestSortItems> sort) {
-    this.sort = sort;
-    if (sort != null) {
-      for (RecommendationsFilterRequestSortItems item : sort) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-  }
-
-  public RecommendationsFilterRequest view(String view) {
-    this.view = view;
-    return this;
-  }
-
-  /**
-   * Active view name (for example, <code>active</code>, <code>dismissed</code>, <code>open</code>,
-   * <code>in-progress</code>, or <code>completed</code>).
-   *
-   * @return view
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getView() {
-    return view;
-  }
-
-  public void setView(String view) {
-    this.view = view;
   }
 
   /**
@@ -206,27 +117,21 @@ public class RecommendationsFilterRequest {
       return false;
     }
     RecommendationsFilterRequest recommendationsFilterRequest = (RecommendationsFilterRequest) o;
-    return Objects.equals(this.filter, recommendationsFilterRequest.filter)
-        && Objects.equals(this.scope, recommendationsFilterRequest.scope)
-        && Objects.equals(this.sort, recommendationsFilterRequest.sort)
-        && Objects.equals(this.view, recommendationsFilterRequest.view)
+    return Objects.equals(this.data, recommendationsFilterRequest.data)
         && Objects.equals(
             this.additionalProperties, recommendationsFilterRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, scope, sort, view, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecommendationsFilterRequest {\n");
-    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
-    sb.append("    view: ").append(toIndentedString(view)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
