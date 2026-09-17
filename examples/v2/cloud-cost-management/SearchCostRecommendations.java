@@ -5,6 +5,10 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
 import com.datadog.api.client.v2.model.CostRecommendationArray;
 import com.datadog.api.client.v2.model.RecommendationsFilterRequest;
+import com.datadog.api.client.v2.model.RecommendationsFilterRequestData;
+import com.datadog.api.client.v2.model.RecommendationsFilterRequestDataAttributes;
+import com.datadog.api.client.v2.model.RecommendationsFilterRequestDataType;
+import com.datadog.api.client.v2.model.RecommendationsFilterRequestScope;
 import com.datadog.api.client.v2.model.RecommendationsFilterRequestSortItems;
 import java.util.Collections;
 
@@ -16,12 +20,18 @@ public class Example {
 
     RecommendationsFilterRequest body =
         new RecommendationsFilterRequest()
-            .filter("@resource_table:aws_ec2_instance")
-            .sort(
-                Collections.singletonList(
-                    new RecommendationsFilterRequestSortItems()
-                        .expression("potential_daily_savings.amount")
-                        .order("DESC")));
+            .data(
+                new RecommendationsFilterRequestData()
+                    .attributes(
+                        new RecommendationsFilterRequestDataAttributes()
+                            .scope(RecommendationsFilterRequestScope.CCM)
+                            .sort(
+                                Collections.singletonList(
+                                    new RecommendationsFilterRequestSortItems()
+                                        .expression("potential_daily_savings.amount")
+                                        .order("DESC"))))
+                    .id("@resource_table:aws_ec2_instance")
+                    .type(RecommendationsFilterRequestDataType.RECOMMENDATIONS_FILTER));
 
     try {
       CostRecommendationArray result = apiInstance.searchCostRecommendations(body);
