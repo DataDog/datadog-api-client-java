@@ -3790,7 +3790,7 @@ public class UsageMeteringApi {
   /**
    * Lists usage quotas for the caller's organization in a quota namespace. You can optionally
    * include descendant organizations in the same datacenter as the caller. Requires the <code>
-   * billing_edit</code> permission.
+   * billing_read</code> or <code>billing_edit</code> permission.
    *
    * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
    *     (required)
