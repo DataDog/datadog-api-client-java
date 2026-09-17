@@ -90,51 +90,56 @@ public class ElasticCloudIntegrationAccountAuthenticationRequest extends Abstrac
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize IntegrationAccountBasicAuthRequest
+      // deserialize ElasticCloudIntegrationAccountBasicAuthRequest
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (IntegrationAccountBasicAuthRequest.class.equals(Integer.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Long.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Float.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Double.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(String.class)) {
+        if (ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Integer.class)
+            || ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Long.class)
+            || ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Float.class)
+            || ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Double.class)
+            || ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
+            || ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((IntegrationAccountBasicAuthRequest.class.equals(Integer.class)
-                        || IntegrationAccountBasicAuthRequest.class.equals(Long.class))
+                ((ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Integer.class)
+                        || ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((IntegrationAccountBasicAuthRequest.class.equals(Float.class)
-                        || IntegrationAccountBasicAuthRequest.class.equals(Double.class))
+                ((ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Float.class)
+                        || ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(
+                            Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (IntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
+                (ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (IntegrationAccountBasicAuthRequest.class.equals(String.class)
+                (ElasticCloudIntegrationAccountBasicAuthRequest.class.equals(String.class)
                     && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(IntegrationAccountBasicAuthRequest.class);
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ElasticCloudIntegrationAccountBasicAuthRequest.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((IntegrationAccountBasicAuthRequest) tmp).unparsed) {
+          if (!((ElasticCloudIntegrationAccountBasicAuthRequest) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'IntegrationAccountBasicAuthRequest'");
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ElasticCloudIntegrationAccountBasicAuthRequest'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(
             Level.FINER,
-            "Input data does not match schema 'IntegrationAccountBasicAuthRequest'",
+            "Input data does not match schema 'ElasticCloudIntegrationAccountBasicAuthRequest'",
             e);
       }
 
@@ -169,15 +174,16 @@ public class ElasticCloudIntegrationAccountAuthenticationRequest extends Abstrac
     super("oneOf", Boolean.FALSE);
   }
 
-  public ElasticCloudIntegrationAccountAuthenticationRequest(IntegrationAccountBasicAuthRequest o) {
+  public ElasticCloudIntegrationAccountAuthenticationRequest(
+      ElasticCloudIntegrationAccountBasicAuthRequest o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
     schemas.put(
-        "IntegrationAccountBasicAuthRequest",
-        new GenericType<IntegrationAccountBasicAuthRequest>() {});
+        "ElasticCloudIntegrationAccountBasicAuthRequest",
+        new GenericType<ElasticCloudIntegrationAccountBasicAuthRequest>() {});
     JSON.registerDescendants(
         ElasticCloudIntegrationAccountAuthenticationRequest.class,
         Collections.unmodifiableMap(schemas));
@@ -190,7 +196,7 @@ public class ElasticCloudIntegrationAccountAuthenticationRequest extends Abstrac
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: IntegrationAccountBasicAuthRequest
+   * against the oneOf child schemas: ElasticCloudIntegrationAccountBasicAuthRequest
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -198,7 +204,7 @@ public class ElasticCloudIntegrationAccountAuthenticationRequest extends Abstrac
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(
-        IntegrationAccountBasicAuthRequest.class, instance, new HashSet<Class<?>>())) {
+        ElasticCloudIntegrationAccountBasicAuthRequest.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -207,13 +213,15 @@ public class ElasticCloudIntegrationAccountAuthenticationRequest extends Abstrac
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be IntegrationAccountBasicAuthRequest");
+    throw new RuntimeException(
+        "Invalid instance type. Must be ElasticCloudIntegrationAccountBasicAuthRequest");
   }
 
   /**
-   * Get the actual instance, which can be the following: IntegrationAccountBasicAuthRequest
+   * Get the actual instance, which can be the following:
+   * ElasticCloudIntegrationAccountBasicAuthRequest
    *
-   * @return The actual instance (IntegrationAccountBasicAuthRequest)
+   * @return The actual instance (ElasticCloudIntegrationAccountBasicAuthRequest)
    */
   @Override
   public Object getActualInstance() {
@@ -221,14 +229,16 @@ public class ElasticCloudIntegrationAccountAuthenticationRequest extends Abstrac
   }
 
   /**
-   * Get the actual instance of `IntegrationAccountBasicAuthRequest`. If the actual instance is not
-   * `IntegrationAccountBasicAuthRequest`, the ClassCastException will be thrown.
+   * Get the actual instance of `ElasticCloudIntegrationAccountBasicAuthRequest`. If the actual
+   * instance is not `ElasticCloudIntegrationAccountBasicAuthRequest`, the ClassCastException will
+   * be thrown.
    *
-   * @return The actual instance of `IntegrationAccountBasicAuthRequest`
-   * @throws ClassCastException if the instance is not `IntegrationAccountBasicAuthRequest`
+   * @return The actual instance of `ElasticCloudIntegrationAccountBasicAuthRequest`
+   * @throws ClassCastException if the instance is not
+   *     `ElasticCloudIntegrationAccountBasicAuthRequest`
    */
-  public IntegrationAccountBasicAuthRequest getIntegrationAccountBasicAuthRequest()
-      throws ClassCastException {
-    return (IntegrationAccountBasicAuthRequest) super.getActualInstance();
+  public ElasticCloudIntegrationAccountBasicAuthRequest
+      getElasticCloudIntegrationAccountBasicAuthRequest() throws ClassCastException {
+    return (ElasticCloudIntegrationAccountBasicAuthRequest) super.getActualInstance();
   }
 }

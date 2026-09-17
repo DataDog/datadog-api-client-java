@@ -17,40 +17,36 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Username and password authentication. */
+/** The basic authentication method and username configured on the account. */
 @JsonPropertyOrder({
-  IntegrationAccountBasicAuthRequest.JSON_PROPERTY_AUTH_TYPE,
-  IntegrationAccountBasicAuthRequest.JSON_PROPERTY_PASSWORD,
-  IntegrationAccountBasicAuthRequest.JSON_PROPERTY_USERNAME
+  TwilioIntegrationAccountBasicAuthResponse.JSON_PROPERTY_AUTH_TYPE,
+  TwilioIntegrationAccountBasicAuthResponse.JSON_PROPERTY_USERNAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IntegrationAccountBasicAuthRequest {
+public class TwilioIntegrationAccountBasicAuthResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_TYPE = "auth_type";
-  private IntegrationAccountBasicAuthType authType = IntegrationAccountBasicAuthType.BASIC;
-
-  public static final String JSON_PROPERTY_PASSWORD = "password";
-  private String password;
+  private TwilioIntegrationAccountBasicAuthType authType =
+      TwilioIntegrationAccountBasicAuthType.BASIC;
 
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
-  public IntegrationAccountBasicAuthRequest() {}
+  public TwilioIntegrationAccountBasicAuthResponse() {}
 
   @JsonCreator
-  public IntegrationAccountBasicAuthRequest(
+  public TwilioIntegrationAccountBasicAuthResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_TYPE)
-          IntegrationAccountBasicAuthType authType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+          TwilioIntegrationAccountBasicAuthType authType,
       @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
     this.authType = authType;
     this.unparsed |= !authType.isValid();
-    this.password = password;
     this.username = username;
   }
 
-  public IntegrationAccountBasicAuthRequest authType(IntegrationAccountBasicAuthType authType) {
+  public TwilioIntegrationAccountBasicAuthResponse authType(
+      TwilioIntegrationAccountBasicAuthType authType) {
     this.authType = authType;
     this.unparsed |= !authType.isValid();
     return this;
@@ -63,38 +59,18 @@ public class IntegrationAccountBasicAuthRequest {
    */
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IntegrationAccountBasicAuthType getAuthType() {
+  public TwilioIntegrationAccountBasicAuthType getAuthType() {
     return authType;
   }
 
-  public void setAuthType(IntegrationAccountBasicAuthType authType) {
+  public void setAuthType(TwilioIntegrationAccountBasicAuthType authType) {
     if (!authType.isValid()) {
       this.unparsed = true;
     }
     this.authType = authType;
   }
 
-  public IntegrationAccountBasicAuthRequest password(String password) {
-    this.password = password;
-    return this;
-  }
-
-  /**
-   * Secret password or private key.
-   *
-   * @return password
-   */
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public IntegrationAccountBasicAuthRequest username(String username) {
+  public TwilioIntegrationAccountBasicAuthResponse username(String username) {
     this.username = username;
     return this;
   }
@@ -126,10 +102,10 @@ public class IntegrationAccountBasicAuthRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IntegrationAccountBasicAuthRequest
+   * @return TwilioIntegrationAccountBasicAuthResponse
    */
   @JsonAnySetter
-  public IntegrationAccountBasicAuthRequest putAdditionalProperty(String key, Object value) {
+  public TwilioIntegrationAccountBasicAuthResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -160,7 +136,7 @@ public class IntegrationAccountBasicAuthRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IntegrationAccountBasicAuthRequest object is equal to o. */
+  /** Return true if this TwilioIntegrationAccountBasicAuthResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,26 +145,25 @@ public class IntegrationAccountBasicAuthRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IntegrationAccountBasicAuthRequest integrationAccountBasicAuthRequest =
-        (IntegrationAccountBasicAuthRequest) o;
-    return Objects.equals(this.authType, integrationAccountBasicAuthRequest.authType)
-        && Objects.equals(this.password, integrationAccountBasicAuthRequest.password)
-        && Objects.equals(this.username, integrationAccountBasicAuthRequest.username)
+    TwilioIntegrationAccountBasicAuthResponse twilioIntegrationAccountBasicAuthResponse =
+        (TwilioIntegrationAccountBasicAuthResponse) o;
+    return Objects.equals(this.authType, twilioIntegrationAccountBasicAuthResponse.authType)
+        && Objects.equals(this.username, twilioIntegrationAccountBasicAuthResponse.username)
         && Objects.equals(
-            this.additionalProperties, integrationAccountBasicAuthRequest.additionalProperties);
+            this.additionalProperties,
+            twilioIntegrationAccountBasicAuthResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, password, username, additionalProperties);
+    return Objects.hash(authType, username, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IntegrationAccountBasicAuthRequest {\n");
+    sb.append("class TwilioIntegrationAccountBasicAuthResponse {\n");
     sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

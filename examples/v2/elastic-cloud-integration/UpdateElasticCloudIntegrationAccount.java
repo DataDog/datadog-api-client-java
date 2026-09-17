@@ -2,10 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.ElasticCloudIntegrationAccountsApi;
+import com.datadog.api.client.v2.api.ElasticCloudIntegrationApi;
 import com.datadog.api.client.v2.model.ElasticCloudDetailedIndexStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudIndexStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountAuthenticationUpdate;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountBasicAuthType;
+import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountBasicAuthUpdate;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountResponse;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountSettingsUpdate;
 import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountUpdateAttributes;
@@ -17,16 +19,13 @@ import com.datadog.api.client.v2.model.ElasticCloudPrimaryShardGracefulTimeoutIn
 import com.datadog.api.client.v2.model.ElasticCloudPrimaryShardStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudShardAllocationStatsIntegrationDataflowRequest;
 import com.datadog.api.client.v2.model.ElasticCloudSlmStatsIntegrationDataflowRequest;
-import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthType;
-import com.datadog.api.client.v2.model.IntegrationAccountBasicAuthUpdate;
 import com.datadog.api.client.v2.model.IntegrationAccountType;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.updateElasticCloudIntegrationAccount", true);
-    ElasticCloudIntegrationAccountsApi apiInstance =
-        new ElasticCloudIntegrationAccountsApi(defaultClient);
+    ElasticCloudIntegrationApi apiInstance = new ElasticCloudIntegrationApi(defaultClient);
 
     ElasticCloudIntegrationAccountUpdateRequest body =
         new ElasticCloudIntegrationAccountUpdateRequest()
@@ -36,8 +35,8 @@ public class Example {
                         new ElasticCloudIntegrationAccountUpdateAttributes()
                             .authentication(
                                 new ElasticCloudIntegrationAccountAuthenticationUpdate(
-                                    new IntegrationAccountBasicAuthUpdate()
-                                        .authType(IntegrationAccountBasicAuthType.BASIC)
+                                    new ElasticCloudIntegrationAccountBasicAuthUpdate()
+                                        .authType(ElasticCloudIntegrationAccountBasicAuthType.BASIC)
                                         .password("your-password")
                                         .username("datadog")))
                             .dataflows(
@@ -77,8 +76,7 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling"
-              + " ElasticCloudIntegrationAccountsApi#updateElasticCloudIntegrationAccount");
+          "Exception when calling ElasticCloudIntegrationApi#updateElasticCloudIntegrationAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

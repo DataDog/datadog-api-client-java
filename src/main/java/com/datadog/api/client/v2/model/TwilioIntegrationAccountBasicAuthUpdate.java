@@ -6,15 +6,11 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -22,16 +18,17 @@ import java.util.Objects;
  * </code> to keep the stored one.
  */
 @JsonPropertyOrder({
-  IntegrationAccountBasicAuthUpdate.JSON_PROPERTY_AUTH_TYPE,
-  IntegrationAccountBasicAuthUpdate.JSON_PROPERTY_PASSWORD,
-  IntegrationAccountBasicAuthUpdate.JSON_PROPERTY_USERNAME
+  TwilioIntegrationAccountBasicAuthUpdate.JSON_PROPERTY_AUTH_TYPE,
+  TwilioIntegrationAccountBasicAuthUpdate.JSON_PROPERTY_PASSWORD,
+  TwilioIntegrationAccountBasicAuthUpdate.JSON_PROPERTY_USERNAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IntegrationAccountBasicAuthUpdate {
+public class TwilioIntegrationAccountBasicAuthUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_TYPE = "auth_type";
-  private IntegrationAccountBasicAuthType authType = IntegrationAccountBasicAuthType.BASIC;
+  private TwilioIntegrationAccountBasicAuthType authType =
+      TwilioIntegrationAccountBasicAuthType.BASIC;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
@@ -39,17 +36,18 @@ public class IntegrationAccountBasicAuthUpdate {
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
-  public IntegrationAccountBasicAuthUpdate() {}
+  public TwilioIntegrationAccountBasicAuthUpdate() {}
 
   @JsonCreator
-  public IntegrationAccountBasicAuthUpdate(
+  public TwilioIntegrationAccountBasicAuthUpdate(
       @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_TYPE)
-          IntegrationAccountBasicAuthType authType) {
+          TwilioIntegrationAccountBasicAuthType authType) {
     this.authType = authType;
     this.unparsed |= !authType.isValid();
   }
 
-  public IntegrationAccountBasicAuthUpdate authType(IntegrationAccountBasicAuthType authType) {
+  public TwilioIntegrationAccountBasicAuthUpdate authType(
+      TwilioIntegrationAccountBasicAuthType authType) {
     this.authType = authType;
     this.unparsed |= !authType.isValid();
     return this;
@@ -62,18 +60,18 @@ public class IntegrationAccountBasicAuthUpdate {
    */
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IntegrationAccountBasicAuthType getAuthType() {
+  public TwilioIntegrationAccountBasicAuthType getAuthType() {
     return authType;
   }
 
-  public void setAuthType(IntegrationAccountBasicAuthType authType) {
+  public void setAuthType(TwilioIntegrationAccountBasicAuthType authType) {
     if (!authType.isValid()) {
       this.unparsed = true;
     }
     this.authType = authType;
   }
 
-  public IntegrationAccountBasicAuthUpdate password(String password) {
+  public TwilioIntegrationAccountBasicAuthUpdate password(String password) {
     this.password = password;
     return this;
   }
@@ -94,7 +92,7 @@ public class IntegrationAccountBasicAuthUpdate {
     this.password = password;
   }
 
-  public IntegrationAccountBasicAuthUpdate username(String username) {
+  public TwilioIntegrationAccountBasicAuthUpdate username(String username) {
     this.username = username;
     return this;
   }
@@ -115,53 +113,7 @@ public class IntegrationAccountBasicAuthUpdate {
     this.username = username;
   }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return IntegrationAccountBasicAuthUpdate
-   */
-  @JsonAnySetter
-  public IntegrationAccountBasicAuthUpdate putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /** Return true if this IntegrationAccountBasicAuthUpdate object is equal to o. */
+  /** Return true if this TwilioIntegrationAccountBasicAuthUpdate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -170,30 +122,25 @@ public class IntegrationAccountBasicAuthUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IntegrationAccountBasicAuthUpdate integrationAccountBasicAuthUpdate =
-        (IntegrationAccountBasicAuthUpdate) o;
-    return Objects.equals(this.authType, integrationAccountBasicAuthUpdate.authType)
-        && Objects.equals(this.password, integrationAccountBasicAuthUpdate.password)
-        && Objects.equals(this.username, integrationAccountBasicAuthUpdate.username)
-        && Objects.equals(
-            this.additionalProperties, integrationAccountBasicAuthUpdate.additionalProperties);
+    TwilioIntegrationAccountBasicAuthUpdate twilioIntegrationAccountBasicAuthUpdate =
+        (TwilioIntegrationAccountBasicAuthUpdate) o;
+    return Objects.equals(this.authType, twilioIntegrationAccountBasicAuthUpdate.authType)
+        && Objects.equals(this.password, twilioIntegrationAccountBasicAuthUpdate.password)
+        && Objects.equals(this.username, twilioIntegrationAccountBasicAuthUpdate.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, password, username, additionalProperties);
+    return Objects.hash(authType, password, username);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IntegrationAccountBasicAuthUpdate {\n");
+    sb.append("class TwilioIntegrationAccountBasicAuthUpdate {\n");
     sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
     sb.append('}');
     return sb.toString();
   }

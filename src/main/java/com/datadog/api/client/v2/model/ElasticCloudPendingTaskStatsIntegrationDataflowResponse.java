@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Elastic Cloud pending task stats dataflow. */
+/** Metrics for cluster-level changes that have been submitted but not yet executed. */
 @JsonPropertyOrder({
   ElasticCloudPendingTaskStatsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   ElasticCloudPendingTaskStatsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +37,7 @@ public class ElasticCloudPendingTaskStatsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

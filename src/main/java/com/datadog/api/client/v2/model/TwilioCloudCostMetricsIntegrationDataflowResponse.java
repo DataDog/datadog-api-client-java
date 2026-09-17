@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Twilio cloud cost metrics dataflow. */
+/**
+ * Your Twilio cost data, so that Twilio spend can be broken down and attributed in <a
+ * href="https://docs.datadoghq.com/cloud_cost_management/">Cloud Cost Management</a>.
+ */
 @JsonPropertyOrder({
   TwilioCloudCostMetricsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   TwilioCloudCostMetricsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +40,7 @@ public class TwilioCloudCostMetricsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Twilio dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

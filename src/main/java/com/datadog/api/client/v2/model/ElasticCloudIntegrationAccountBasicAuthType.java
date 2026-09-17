@@ -20,38 +20,43 @@ import java.util.Set;
 
 /** The authentication method type. */
 @JsonSerialize(
-    using = IntegrationAccountBasicAuthType.IntegrationAccountBasicAuthTypeSerializer.class)
-public class IntegrationAccountBasicAuthType extends ModelEnum<String> {
+    using =
+        ElasticCloudIntegrationAccountBasicAuthType
+            .ElasticCloudIntegrationAccountBasicAuthTypeSerializer.class)
+public class ElasticCloudIntegrationAccountBasicAuthType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("basic"));
 
-  public static final IntegrationAccountBasicAuthType BASIC =
-      new IntegrationAccountBasicAuthType("basic");
+  public static final ElasticCloudIntegrationAccountBasicAuthType BASIC =
+      new ElasticCloudIntegrationAccountBasicAuthType("basic");
 
-  IntegrationAccountBasicAuthType(String value) {
+  ElasticCloudIntegrationAccountBasicAuthType(String value) {
     super(value, allowedValues);
   }
 
-  public static class IntegrationAccountBasicAuthTypeSerializer
-      extends StdSerializer<IntegrationAccountBasicAuthType> {
-    public IntegrationAccountBasicAuthTypeSerializer(Class<IntegrationAccountBasicAuthType> t) {
+  public static class ElasticCloudIntegrationAccountBasicAuthTypeSerializer
+      extends StdSerializer<ElasticCloudIntegrationAccountBasicAuthType> {
+    public ElasticCloudIntegrationAccountBasicAuthTypeSerializer(
+        Class<ElasticCloudIntegrationAccountBasicAuthType> t) {
       super(t);
     }
 
-    public IntegrationAccountBasicAuthTypeSerializer() {
+    public ElasticCloudIntegrationAccountBasicAuthTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        IntegrationAccountBasicAuthType value, JsonGenerator jgen, SerializerProvider provider)
+        ElasticCloudIntegrationAccountBasicAuthType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static IntegrationAccountBasicAuthType fromValue(String value) {
-    return new IntegrationAccountBasicAuthType(value);
+  public static ElasticCloudIntegrationAccountBasicAuthType fromValue(String value) {
+    return new ElasticCloudIntegrationAccountBasicAuthType(value);
   }
 }

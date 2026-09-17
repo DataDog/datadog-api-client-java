@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Twilio call summaries logs dataflow. */
+/**
+ * Twilio Call Summary resource logs, covering the metadata and performance of the calls made from
+ * your Twilio account. Requires Voice Insights Advanced Features to be enabled on the Twilio
+ * account; without it this dataflow collects no data.
+ */
 @JsonPropertyOrder({
   TwilioCallSummariesLogsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   TwilioCallSummariesLogsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +41,7 @@ public class TwilioCallSummariesLogsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Twilio dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

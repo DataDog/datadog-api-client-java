@@ -90,51 +90,54 @@ public class TwilioIntegrationAccountAuthenticationRequest extends AbstractOpenA
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize IntegrationAccountBasicAuthRequest
+      // deserialize TwilioIntegrationAccountBasicAuthRequest
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (IntegrationAccountBasicAuthRequest.class.equals(Integer.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Long.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Float.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Double.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
-            || IntegrationAccountBasicAuthRequest.class.equals(String.class)) {
+        if (TwilioIntegrationAccountBasicAuthRequest.class.equals(Integer.class)
+            || TwilioIntegrationAccountBasicAuthRequest.class.equals(Long.class)
+            || TwilioIntegrationAccountBasicAuthRequest.class.equals(Float.class)
+            || TwilioIntegrationAccountBasicAuthRequest.class.equals(Double.class)
+            || TwilioIntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
+            || TwilioIntegrationAccountBasicAuthRequest.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((IntegrationAccountBasicAuthRequest.class.equals(Integer.class)
-                        || IntegrationAccountBasicAuthRequest.class.equals(Long.class))
+                ((TwilioIntegrationAccountBasicAuthRequest.class.equals(Integer.class)
+                        || TwilioIntegrationAccountBasicAuthRequest.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((IntegrationAccountBasicAuthRequest.class.equals(Float.class)
-                        || IntegrationAccountBasicAuthRequest.class.equals(Double.class))
+                ((TwilioIntegrationAccountBasicAuthRequest.class.equals(Float.class)
+                        || TwilioIntegrationAccountBasicAuthRequest.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (IntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
+                (TwilioIntegrationAccountBasicAuthRequest.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (IntegrationAccountBasicAuthRequest.class.equals(String.class)
+                (TwilioIntegrationAccountBasicAuthRequest.class.equals(String.class)
                     && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(IntegrationAccountBasicAuthRequest.class);
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(TwilioIntegrationAccountBasicAuthRequest.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((IntegrationAccountBasicAuthRequest) tmp).unparsed) {
+          if (!((TwilioIntegrationAccountBasicAuthRequest) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'IntegrationAccountBasicAuthRequest'");
+          log.log(
+              Level.FINER, "Input data matches schema 'TwilioIntegrationAccountBasicAuthRequest'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(
             Level.FINER,
-            "Input data does not match schema 'IntegrationAccountBasicAuthRequest'",
+            "Input data does not match schema 'TwilioIntegrationAccountBasicAuthRequest'",
             e);
       }
 
@@ -169,15 +172,15 @@ public class TwilioIntegrationAccountAuthenticationRequest extends AbstractOpenA
     super("oneOf", Boolean.FALSE);
   }
 
-  public TwilioIntegrationAccountAuthenticationRequest(IntegrationAccountBasicAuthRequest o) {
+  public TwilioIntegrationAccountAuthenticationRequest(TwilioIntegrationAccountBasicAuthRequest o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
     schemas.put(
-        "IntegrationAccountBasicAuthRequest",
-        new GenericType<IntegrationAccountBasicAuthRequest>() {});
+        "TwilioIntegrationAccountBasicAuthRequest",
+        new GenericType<TwilioIntegrationAccountBasicAuthRequest>() {});
     JSON.registerDescendants(
         TwilioIntegrationAccountAuthenticationRequest.class, Collections.unmodifiableMap(schemas));
   }
@@ -189,7 +192,7 @@ public class TwilioIntegrationAccountAuthenticationRequest extends AbstractOpenA
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: IntegrationAccountBasicAuthRequest
+   * against the oneOf child schemas: TwilioIntegrationAccountBasicAuthRequest
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -197,7 +200,7 @@ public class TwilioIntegrationAccountAuthenticationRequest extends AbstractOpenA
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(
-        IntegrationAccountBasicAuthRequest.class, instance, new HashSet<Class<?>>())) {
+        TwilioIntegrationAccountBasicAuthRequest.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -206,13 +209,14 @@ public class TwilioIntegrationAccountAuthenticationRequest extends AbstractOpenA
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be IntegrationAccountBasicAuthRequest");
+    throw new RuntimeException(
+        "Invalid instance type. Must be TwilioIntegrationAccountBasicAuthRequest");
   }
 
   /**
-   * Get the actual instance, which can be the following: IntegrationAccountBasicAuthRequest
+   * Get the actual instance, which can be the following: TwilioIntegrationAccountBasicAuthRequest
    *
-   * @return The actual instance (IntegrationAccountBasicAuthRequest)
+   * @return The actual instance (TwilioIntegrationAccountBasicAuthRequest)
    */
   @Override
   public Object getActualInstance() {
@@ -220,14 +224,14 @@ public class TwilioIntegrationAccountAuthenticationRequest extends AbstractOpenA
   }
 
   /**
-   * Get the actual instance of `IntegrationAccountBasicAuthRequest`. If the actual instance is not
-   * `IntegrationAccountBasicAuthRequest`, the ClassCastException will be thrown.
+   * Get the actual instance of `TwilioIntegrationAccountBasicAuthRequest`. If the actual instance
+   * is not `TwilioIntegrationAccountBasicAuthRequest`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `IntegrationAccountBasicAuthRequest`
-   * @throws ClassCastException if the instance is not `IntegrationAccountBasicAuthRequest`
+   * @return The actual instance of `TwilioIntegrationAccountBasicAuthRequest`
+   * @throws ClassCastException if the instance is not `TwilioIntegrationAccountBasicAuthRequest`
    */
-  public IntegrationAccountBasicAuthRequest getIntegrationAccountBasicAuthRequest()
+  public TwilioIntegrationAccountBasicAuthRequest getTwilioIntegrationAccountBasicAuthRequest()
       throws ClassCastException {
-    return (IntegrationAccountBasicAuthRequest) super.getActualInstance();
+    return (TwilioIntegrationAccountBasicAuthRequest) super.getActualInstance();
   }
 }

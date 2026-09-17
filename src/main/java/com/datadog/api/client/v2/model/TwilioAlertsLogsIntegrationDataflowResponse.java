@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The Twilio alerts logs dataflow. */
+/**
+ * Twilio Alert resource logs, which detail the errors and warnings raised when Twilio makes a
+ * webhook request to your server or when your application calls the Twilio REST API.
+ */
 @JsonPropertyOrder({
   TwilioAlertsLogsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
   TwilioAlertsLogsIntegrationDataflowResponse.JSON_PROPERTY_STATUS
@@ -37,7 +40,7 @@ public class TwilioAlertsLogsIntegrationDataflowResponse {
   }
 
   /**
-   * Whether the Twilio dataflow is enabled.
+   * Whether Datadog collects this data.
    *
    * @return enabled
    */

@@ -19,32 +19,34 @@ import java.util.Objects;
 
 /** The basic authentication method and username configured on the account. */
 @JsonPropertyOrder({
-  IntegrationAccountBasicAuthResponse.JSON_PROPERTY_AUTH_TYPE,
-  IntegrationAccountBasicAuthResponse.JSON_PROPERTY_USERNAME
+  ElasticCloudIntegrationAccountBasicAuthResponse.JSON_PROPERTY_AUTH_TYPE,
+  ElasticCloudIntegrationAccountBasicAuthResponse.JSON_PROPERTY_USERNAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IntegrationAccountBasicAuthResponse {
+public class ElasticCloudIntegrationAccountBasicAuthResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_TYPE = "auth_type";
-  private IntegrationAccountBasicAuthType authType = IntegrationAccountBasicAuthType.BASIC;
+  private ElasticCloudIntegrationAccountBasicAuthType authType =
+      ElasticCloudIntegrationAccountBasicAuthType.BASIC;
 
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
-  public IntegrationAccountBasicAuthResponse() {}
+  public ElasticCloudIntegrationAccountBasicAuthResponse() {}
 
   @JsonCreator
-  public IntegrationAccountBasicAuthResponse(
+  public ElasticCloudIntegrationAccountBasicAuthResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_TYPE)
-          IntegrationAccountBasicAuthType authType,
+          ElasticCloudIntegrationAccountBasicAuthType authType,
       @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
     this.authType = authType;
     this.unparsed |= !authType.isValid();
     this.username = username;
   }
 
-  public IntegrationAccountBasicAuthResponse authType(IntegrationAccountBasicAuthType authType) {
+  public ElasticCloudIntegrationAccountBasicAuthResponse authType(
+      ElasticCloudIntegrationAccountBasicAuthType authType) {
     this.authType = authType;
     this.unparsed |= !authType.isValid();
     return this;
@@ -57,18 +59,18 @@ public class IntegrationAccountBasicAuthResponse {
    */
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IntegrationAccountBasicAuthType getAuthType() {
+  public ElasticCloudIntegrationAccountBasicAuthType getAuthType() {
     return authType;
   }
 
-  public void setAuthType(IntegrationAccountBasicAuthType authType) {
+  public void setAuthType(ElasticCloudIntegrationAccountBasicAuthType authType) {
     if (!authType.isValid()) {
       this.unparsed = true;
     }
     this.authType = authType;
   }
 
-  public IntegrationAccountBasicAuthResponse username(String username) {
+  public ElasticCloudIntegrationAccountBasicAuthResponse username(String username) {
     this.username = username;
     return this;
   }
@@ -100,10 +102,11 @@ public class IntegrationAccountBasicAuthResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IntegrationAccountBasicAuthResponse
+   * @return ElasticCloudIntegrationAccountBasicAuthResponse
    */
   @JsonAnySetter
-  public IntegrationAccountBasicAuthResponse putAdditionalProperty(String key, Object value) {
+  public ElasticCloudIntegrationAccountBasicAuthResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,7 +137,7 @@ public class IntegrationAccountBasicAuthResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IntegrationAccountBasicAuthResponse object is equal to o. */
+  /** Return true if this ElasticCloudIntegrationAccountBasicAuthResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,12 +146,14 @@ public class IntegrationAccountBasicAuthResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IntegrationAccountBasicAuthResponse integrationAccountBasicAuthResponse =
-        (IntegrationAccountBasicAuthResponse) o;
-    return Objects.equals(this.authType, integrationAccountBasicAuthResponse.authType)
-        && Objects.equals(this.username, integrationAccountBasicAuthResponse.username)
+    ElasticCloudIntegrationAccountBasicAuthResponse
+        elasticCloudIntegrationAccountBasicAuthResponse =
+            (ElasticCloudIntegrationAccountBasicAuthResponse) o;
+    return Objects.equals(this.authType, elasticCloudIntegrationAccountBasicAuthResponse.authType)
+        && Objects.equals(this.username, elasticCloudIntegrationAccountBasicAuthResponse.username)
         && Objects.equals(
-            this.additionalProperties, integrationAccountBasicAuthResponse.additionalProperties);
+            this.additionalProperties,
+            elasticCloudIntegrationAccountBasicAuthResponse.additionalProperties);
   }
 
   @Override
@@ -159,7 +164,7 @@ public class IntegrationAccountBasicAuthResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IntegrationAccountBasicAuthResponse {\n");
+    sb.append("class ElasticCloudIntegrationAccountBasicAuthResponse {\n");
     sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ")
