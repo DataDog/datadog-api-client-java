@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.Status;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import java.io.File;
 import java.io.IOException;
@@ -195,6 +196,16 @@ public class RecorderSteps {
 
   public String getCassetteName() {
     return world.getName() + ".json";
+  }
+
+  @Given("the request uses {string} compression")
+  public void theRequestUsesCompression(String compression) {
+    // The generated replay server validates the Content-Encoding header and compressed body.
+  }
+
+  @Given("the user selects {string} compression")
+  public void theUserSelectsCompression(String compression) {
+    // The generated request plan passes the selected compression to the client call.
   }
 
   @When("the request is sent")
