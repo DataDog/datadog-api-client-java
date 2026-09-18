@@ -707,7 +707,8 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all scheduled downtimes.
+   * List scheduled downtimes, optionally filtering to those that are active when the request is
+   * made.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListDowntimesResponse&gt;
