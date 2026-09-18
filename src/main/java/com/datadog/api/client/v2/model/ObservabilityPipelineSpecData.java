@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains the the pipeline configuration. */
+/** Contains the pipeline configuration. */
 @JsonPropertyOrder({
   ObservabilityPipelineSpecData.JSON_PROPERTY_ATTRIBUTES,
   ObservabilityPipelineSpecData.JSON_PROPERTY_TYPE
