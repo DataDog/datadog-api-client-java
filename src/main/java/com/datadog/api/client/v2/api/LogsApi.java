@@ -765,13 +765,14 @@ public class LogsApi {
 
   /** Manage optional parameters to submitLog. */
   public static class SubmitLogOptionalParameters {
-    private ContentEncoding contentEncoding;
+    private ContentEncoding contentEncoding = ContentEncoding.GZIP;
     private String ddtags;
 
     /**
      * Set contentEncoding.
      *
-     * @param contentEncoding HTTP header used to compress the media-type. (optional)
+     * @param contentEncoding HTTP header used to compress the media-type. (optional, default to
+     *     "gzip")
      * @return SubmitLogOptionalParameters
      */
     public SubmitLogOptionalParameters contentEncoding(ContentEncoding contentEncoding) {
