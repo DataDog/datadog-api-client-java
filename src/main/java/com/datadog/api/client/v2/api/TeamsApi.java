@@ -4561,7 +4561,7 @@ public class TeamsApi {
 
   /**
    * Get all teams. Can be used to search for teams using the <code>filter[keyword]</code> and
-   * <code>filter[me]</code> query parameters.
+   * <code>filter[me]</code> query parameters. Results are paginated.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TeamsResponse&gt;
