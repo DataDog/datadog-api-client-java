@@ -203,6 +203,11 @@ public class RecorderSteps {
     // The generated replay server validates the Content-Encoding header and compressed body.
   }
 
+  @Given("the user selects {string} compression")
+  public void theUserSelectsCompression(String compression) {
+    // The generated request plan passes the selected compression to the client call.
+  }
+
   @When("the request is sent")
   public void theRequestIsSent() throws Exception {
     TestRunner.applyPlan(world, false);
