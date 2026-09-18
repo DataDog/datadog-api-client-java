@@ -3971,7 +3971,9 @@ public class IncidentsApi {
    * @param body Page creation payload. (required)
    * @return IncidentPageUUIDResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentPageUUIDResponse createPageFromIncident(
       String incidentId, IncidentCreatePageFromIncidentRequest body) throws ApiException {
     return createPageFromIncidentWithHttpInfo(incidentId, body).getData();
@@ -3985,7 +3987,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param body Page creation payload. (required)
    * @return CompletableFuture&lt;IncidentPageUUIDResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentPageUUIDResponse> createPageFromIncidentAsync(
       String incidentId, IncidentCreatePageFromIncidentRequest body) {
     return createPageFromIncidentWithHttpInfoAsync(incidentId, body)
@@ -3997,6 +4001,10 @@ public class IncidentsApi {
 
   /**
    * Create a page from an incident using the Cases service.
+   *
+   * <p><strong>Deprecated</strong>: This endpoint is deprecated. Use <a
+   * href="#create-an-on-call-page-from-an-incident">Create an on-call page from an incident</a>
+   * instead.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Page creation payload. (required)
@@ -4013,7 +4021,10 @@ public class IncidentsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentPageUUIDResponse> createPageFromIncidentWithHttpInfo(
       String incidentId, IncidentCreatePageFromIncidentRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -4072,7 +4083,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param body Page creation payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentPageUUIDResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentPageUUIDResponse>>
       createPageFromIncidentWithHttpInfoAsync(
           String incidentId, IncidentCreatePageFromIncidentRequest body) {
