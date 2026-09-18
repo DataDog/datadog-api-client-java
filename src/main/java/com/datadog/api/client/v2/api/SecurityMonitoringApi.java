@@ -70,6 +70,7 @@ import com.datadog.api.client.v2.model.ListHistoricalJobsResponse;
 import com.datadog.api.client.v2.model.ListSecurityFindingsResponse;
 import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
+import com.datadog.api.client.v2.model.MatchingSignalsResponse;
 import com.datadog.api.client.v2.model.MuteFindingsRequest;
 import com.datadog.api.client.v2.model.MuteFindingsResponse;
 import com.datadog.api.client.v2.model.MuteRuleCreateRequest;
@@ -12391,6 +12392,186 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalSuggestedActionsResponse>() {});
+  }
+
+  /**
+   * Get signals matching an event.
+   *
+   * <p>See {@link #getMatchingSignalsWithHttpInfo}.
+   *
+   * @param eventId The ID of the event to find matching signals for. (required)
+   * @param track The product track that the event belongs to. (required)
+   * @return MatchingSignalsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MatchingSignalsResponse getMatchingSignals(String eventId, String track)
+      throws ApiException {
+    return getMatchingSignalsWithHttpInfo(eventId, track).getData();
+  }
+
+  /**
+   * Get signals matching an event.
+   *
+   * <p>See {@link #getMatchingSignalsWithHttpInfoAsync}.
+   *
+   * @param eventId The ID of the event to find matching signals for. (required)
+   * @param track The product track that the event belongs to. (required)
+   * @return CompletableFuture&lt;MatchingSignalsResponse&gt;
+   */
+  public CompletableFuture<MatchingSignalsResponse> getMatchingSignalsAsync(
+      String eventId, String track) {
+    return getMatchingSignalsWithHttpInfoAsync(eventId, track)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the list of security signals that match a given event on the given track.
+   *
+   * @param eventId The ID of the event to find matching signals for. (required)
+   * @param track The product track that the event belongs to. (required)
+   * @return ApiResponse&lt;MatchingSignalsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MatchingSignalsResponse> getMatchingSignalsWithHttpInfo(
+      String eventId, String track) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMatchingSignals";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'eventId' is set
+    if (eventId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'eventId' when calling getMatchingSignals");
+    }
+
+    // verify the required parameter 'track' is set
+    if (track == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'track' when calling getMatchingSignals");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/events/{event_id}/matching_signals"
+            .replaceAll("\\{" + "event_id" + "\\}", apiClient.escapeString(eventId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "track", track));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getMatchingSignals",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MatchingSignalsResponse>() {});
+  }
+
+  /**
+   * Get signals matching an event.
+   *
+   * <p>See {@link #getMatchingSignalsWithHttpInfo}.
+   *
+   * @param eventId The ID of the event to find matching signals for. (required)
+   * @param track The product track that the event belongs to. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MatchingSignalsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MatchingSignalsResponse>>
+      getMatchingSignalsWithHttpInfoAsync(String eventId, String track) {
+    // Check if unstable operation is enabled
+    String operationId = "getMatchingSignals";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MatchingSignalsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'eventId' is set
+    if (eventId == null) {
+      CompletableFuture<ApiResponse<MatchingSignalsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'eventId' when calling getMatchingSignals"));
+      return result;
+    }
+
+    // verify the required parameter 'track' is set
+    if (track == null) {
+      CompletableFuture<ApiResponse<MatchingSignalsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'track' when calling getMatchingSignals"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/events/{event_id}/matching_signals"
+            .replaceAll("\\{" + "event_id" + "\\}", apiClient.escapeString(eventId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "track", track));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getMatchingSignals",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MatchingSignalsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MatchingSignalsResponse>() {});
   }
 
   /** Manage optional parameters to getResourceEvaluationFilters. */
