@@ -56,7 +56,7 @@ Feature: Bits AI
   Scenario: Trigger a Bits AI investigation returns "Bad Request" response
     Given operation "TriggerInvestigation" enabled
     And new "TriggerInvestigation" request
-    And body with value {"data": {"attributes": {"trigger": {"monitor_alert_trigger": {"event_id": "1234567890123456789", "event_ts": 1700000000000, "monitor_id": 12345678}, "type": "monitor_alert_trigger"}}, "type": "trigger_investigation_request"}}
+    And body with value {"data": {"attributes": {"trigger": {"general_investigation": {"description": "Checkout latency has been elevated for the past hour.", "end_time": 1700003600000, "start_time": 1700000000000, "tags": ["service:checkout"]}, "monitor_alert_trigger": {"event_id": "1234567890123456789", "event_ts": 1700000000000, "monitor_id": 12345678}, "type": "monitor_alert_trigger"}}, "type": "trigger_investigation_request"}}
     When the request is sent
     Then the response status is 400 Bad Request
 
@@ -64,6 +64,6 @@ Feature: Bits AI
   Scenario: Trigger a Bits AI investigation returns "OK" response
     Given operation "TriggerInvestigation" enabled
     And new "TriggerInvestigation" request
-    And body with value {"data": {"attributes": {"trigger": {"monitor_alert_trigger": {"event_id": "1234567890123456789", "event_ts": 1700000000000, "monitor_id": 12345678}, "type": "monitor_alert_trigger"}}, "type": "trigger_investigation_request"}}
+    And body with value {"data": {"attributes": {"trigger": {"general_investigation": {"description": "Checkout latency has been elevated for the past hour.", "end_time": 1700003600000, "start_time": 1700000000000, "tags": ["service:checkout"]}, "monitor_alert_trigger": {"event_id": "1234567890123456789", "event_ts": 1700000000000, "monitor_id": 12345678}, "type": "monitor_alert_trigger"}}, "type": "trigger_investigation_request"}}
     When the request is sent
     Then the response status is 200 OK

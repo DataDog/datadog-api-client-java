@@ -45937,6 +45937,33 @@ components:
       required:
         - type
       type: object
+    GeneralInvestigationAttributes:
+      description: Attributes for a general investigation, not tied to a specific monitor alert.
+      properties:
+        description:
+          description: A free-form description of the problem to investigate.
+          example: "Checkout latency has been elevated for the past hour."
+          type: string
+        end_time:
+          description: The end of the investigation window, in Unix milliseconds. Must be provided together with `start_time`, or both omitted.
+          example: 1700003600000
+          format: int64
+          type: integer
+        start_time:
+          description: The start of the investigation window, in Unix milliseconds. Must be provided together with `end_time`, or both omitted.
+          example: 1700000000000
+          format: int64
+          type: integer
+        tags:
+          description: Tags scoping the investigation.
+          example:
+            - "service:checkout"
+          items:
+            type: string
+          type: array
+      required:
+        - description
+      type: object
     GenerateCostTagDescriptionResponse:
       description: Response wrapping an AI-generated Cloud Cost Management tag key description.
       example:
@@ -123102,13 +123129,14 @@ components:
     TriggerAttributes:
       description: The trigger definition for starting an investigation.
       properties:
+        general_investigation:
+          $ref: "#/components/schemas/GeneralInvestigationAttributes"
         monitor_alert_trigger:
           $ref: "#/components/schemas/MonitorAlertTriggerAttributes"
         type:
           $ref: "#/components/schemas/TriggerType"
       required:
         - type
-        - monitor_alert_trigger
       type: object
     TriggerInvestigationRequest:
       description: Request to trigger a new investigation.
@@ -123214,10 +123242,12 @@ components:
       description: The type of trigger for the investigation.
       enum:
         - monitor_alert_trigger
+        - general_investigation
       example: monitor_alert_trigger
       type: string
       x-enum-varnames:
         - MONITOR_ALERT_TRIGGER
+        - GENERAL_INVESTIGATION
     TriggerWorkflowAutomationAction:
       description: "Triggers a Workflow Automation."
       properties:
@@ -136004,6 +136034,17 @@ paths:
                           event_ts: 1700000000000
                           monitor_id: 12345678
                         type: monitor_alert_trigger
+                    type: trigger_investigation_request
+              general_investigation:
+                value:
+                  data:
+                    attributes:
+                      trigger:
+                        general_investigation:
+                          description: "Checkout latency has been elevated for the past hour."
+                          tags:
+                            - "service:checkout"
+                        type: general_investigation
                     type: trigger_investigation_request
             schema:
               $ref: "#/components/schemas/TriggerInvestigationRequest"
