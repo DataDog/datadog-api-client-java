@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.CustomerOrgDisableType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.disableCustomerOrg", true);
     CustomerOrgApi apiInstance = new CustomerOrgApi(defaultClient);
 

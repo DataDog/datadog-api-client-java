@@ -13,6 +13,7 @@ import com.datadog.api.client.v2.model.CIAppGitHubAccountUpdateRequestRepository
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CiVisibilityGitHubAccountsApi apiInstance = new CiVisibilityGitHubAccountsApi(defaultClient);
 
     CIAppGitHubAccountUpdateRequest body =

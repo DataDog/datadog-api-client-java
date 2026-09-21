@@ -19,6 +19,7 @@ import java.util.Map;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     PowerpackApi apiInstance = new PowerpackApi(defaultClient);
 
     Powerpack body =

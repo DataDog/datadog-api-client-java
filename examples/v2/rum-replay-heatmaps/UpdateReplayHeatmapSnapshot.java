@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.SnapshotUpdateRequestDataType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumReplayHeatmapsApi apiInstance = new RumReplayHeatmapsApi(defaultClient);
 
     SnapshotUpdateRequest body =

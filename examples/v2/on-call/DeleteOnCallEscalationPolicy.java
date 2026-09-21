@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.OnCallApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     OnCallApi apiInstance = new OnCallApi(defaultClient);
 
     // there is a valid "escalation_policy" in the system

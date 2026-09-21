@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.EventResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     EventsApi apiInstance = new EventsApi(defaultClient);
 
     try {

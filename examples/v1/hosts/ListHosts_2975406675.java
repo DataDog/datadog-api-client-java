@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.HostListResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     HostsApi apiInstance = new HostsApi(defaultClient);
 
     try {

@@ -10,6 +10,7 @@ import com.datadog.api.client.v2.model.ServiceDefinitionsListResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ServiceDefinitionApi apiInstance = new ServiceDefinitionApi(defaultClient);
 
     try {

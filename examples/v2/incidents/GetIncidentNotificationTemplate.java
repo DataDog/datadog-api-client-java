@@ -9,6 +9,7 @@ import java.util.UUID;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.getIncidentNotificationTemplate", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 

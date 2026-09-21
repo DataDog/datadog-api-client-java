@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.TeamResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     // there is a valid "dd_team" in the system

@@ -17,6 +17,7 @@ import java.util.Arrays;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     StatusPagesApi apiInstance = new StatusPagesApi(defaultClient);
 
     CreateStatusPageRequest body =

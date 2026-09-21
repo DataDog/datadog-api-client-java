@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.ErrorTrackingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ErrorTrackingApi apiInstance = new ErrorTrackingApi(defaultClient);
 
     // there is a valid "issue" in the system
