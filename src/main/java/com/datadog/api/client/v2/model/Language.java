@@ -35,7 +35,19 @@ public class Language extends ModelEnum<String> {
               "CSHARP",
               "PHP",
               "KOTLIN",
-              "SWIFT"));
+              "SWIFT",
+              "DART",
+              "DOCKERFILE",
+              "ELIXIR",
+              "JSON",
+              "RUST",
+              "TERRAFORM",
+              "STARLARK",
+              "BASH",
+              "MARKDOWN",
+              "APEX",
+              "R",
+              "SQL"));
 
   public static final Language PYTHON = new Language("PYTHON");
   public static final Language JAVASCRIPT = new Language("JAVASCRIPT");
@@ -48,6 +60,18 @@ public class Language extends ModelEnum<String> {
   public static final Language PHP = new Language("PHP");
   public static final Language KOTLIN = new Language("KOTLIN");
   public static final Language SWIFT = new Language("SWIFT");
+  public static final Language DART = new Language("DART");
+  public static final Language DOCKERFILE = new Language("DOCKERFILE");
+  public static final Language ELIXIR = new Language("ELIXIR");
+  public static final Language JSON = new Language("JSON");
+  public static final Language RUST = new Language("RUST");
+  public static final Language TERRAFORM = new Language("TERRAFORM");
+  public static final Language STARLARK = new Language("STARLARK");
+  public static final Language BASH = new Language("BASH");
+  public static final Language MARKDOWN = new Language("MARKDOWN");
+  public static final Language APEX = new Language("APEX");
+  public static final Language R = new Language("R");
+  public static final Language SQL = new Language("SQL");
 
   Language(String value) {
     super(value, allowedValues);
