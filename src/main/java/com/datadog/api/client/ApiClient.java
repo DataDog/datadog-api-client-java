@@ -1057,6 +1057,7 @@ public class ApiClient {
           put("v2.getFinding", false);
           put("v2.getHistoricalJob", false);
           put("v2.getIndicatorOfCompromise", false);
+          put("v2.getMatchingSignals", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
           put("v2.getSecurityFindingsAutomationDefaultInboxRule", false);
