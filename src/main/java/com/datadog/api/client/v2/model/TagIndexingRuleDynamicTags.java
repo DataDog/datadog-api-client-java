@@ -32,9 +32,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   TagIndexingRuleDynamicTags.JSON_PROPERTY_EXCLUDE_NOT_QUERIED_WINDOW_SECONDS,
-  TagIndexingRuleDynamicTags.JSON_PROPERTY_EXCLUDE_NOT_USED_IN_ASSETS,
-  TagIndexingRuleDynamicTags.JSON_PROPERTY_QUERIED_TAGS_WINDOW_SECONDS,
-  TagIndexingRuleDynamicTags.JSON_PROPERTY_RELATED_ASSET_TAGS
+  TagIndexingRuleDynamicTags.JSON_PROPERTY_EXCLUDE_NOT_USED_IN_ASSETS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,13 +45,6 @@ public class TagIndexingRuleDynamicTags {
   public static final String JSON_PROPERTY_EXCLUDE_NOT_USED_IN_ASSETS =
       "exclude_not_used_in_assets";
   private Boolean excludeNotUsedInAssets;
-
-  public static final String JSON_PROPERTY_QUERIED_TAGS_WINDOW_SECONDS =
-      "queried_tags_window_seconds";
-  private Long queriedTagsWindowSeconds;
-
-  public static final String JSON_PROPERTY_RELATED_ASSET_TAGS = "related_asset_tags";
-  private Boolean relatedAssetTags;
 
   public TagIndexingRuleDynamicTags excludeNotQueriedWindowSeconds(
       Long excludeNotQueriedWindowSeconds) {
@@ -97,48 +88,6 @@ public class TagIndexingRuleDynamicTags {
 
   public void setExcludeNotUsedInAssets(Boolean excludeNotUsedInAssets) {
     this.excludeNotUsedInAssets = excludeNotUsedInAssets;
-  }
-
-  public TagIndexingRuleDynamicTags queriedTagsWindowSeconds(Long queriedTagsWindowSeconds) {
-    this.queriedTagsWindowSeconds = queriedTagsWindowSeconds;
-    return this;
-  }
-
-  /**
-   * Window in seconds for evaluating queried tags.
-   *
-   * @return queriedTagsWindowSeconds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERIED_TAGS_WINDOW_SECONDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getQueriedTagsWindowSeconds() {
-    return queriedTagsWindowSeconds;
-  }
-
-  public void setQueriedTagsWindowSeconds(Long queriedTagsWindowSeconds) {
-    this.queriedTagsWindowSeconds = queriedTagsWindowSeconds;
-  }
-
-  public TagIndexingRuleDynamicTags relatedAssetTags(Boolean relatedAssetTags) {
-    this.relatedAssetTags = relatedAssetTags;
-    return this;
-  }
-
-  /**
-   * When true, tags from related assets are included.
-   *
-   * @return relatedAssetTags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATED_ASSET_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getRelatedAssetTags() {
-    return relatedAssetTags;
-  }
-
-  public void setRelatedAssetTags(Boolean relatedAssetTags) {
-    this.relatedAssetTags = relatedAssetTags;
   }
 
   /**
@@ -203,20 +152,13 @@ public class TagIndexingRuleDynamicTags {
         && Objects.equals(
             this.excludeNotUsedInAssets, tagIndexingRuleDynamicTags.excludeNotUsedInAssets)
         && Objects.equals(
-            this.queriedTagsWindowSeconds, tagIndexingRuleDynamicTags.queriedTagsWindowSeconds)
-        && Objects.equals(this.relatedAssetTags, tagIndexingRuleDynamicTags.relatedAssetTags)
-        && Objects.equals(
             this.additionalProperties, tagIndexingRuleDynamicTags.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        excludeNotQueriedWindowSeconds,
-        excludeNotUsedInAssets,
-        queriedTagsWindowSeconds,
-        relatedAssetTags,
-        additionalProperties);
+        excludeNotQueriedWindowSeconds, excludeNotUsedInAssets, additionalProperties);
   }
 
   @Override
@@ -229,10 +171,6 @@ public class TagIndexingRuleDynamicTags {
     sb.append("    excludeNotUsedInAssets: ")
         .append(toIndentedString(excludeNotUsedInAssets))
         .append("\n");
-    sb.append("    queriedTagsWindowSeconds: ")
-        .append(toIndentedString(queriedTagsWindowSeconds))
-        .append("\n");
-    sb.append("    relatedAssetTags: ").append(toIndentedString(relatedAssetTags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
