@@ -6,7 +6,6 @@ import com.datadog.api.client.v2.api.MetricsApi;
 import com.datadog.api.client.v2.model.TagIndexingRuleCreateAttributes;
 import com.datadog.api.client.v2.model.TagIndexingRuleCreateData;
 import com.datadog.api.client.v2.model.TagIndexingRuleCreateRequest;
-import com.datadog.api.client.v2.model.TagIndexingRuleDynamicTags;
 import com.datadog.api.client.v2.model.TagIndexingRuleMetricMatch;
 import com.datadog.api.client.v2.model.TagIndexingRuleOptions;
 import com.datadog.api.client.v2.model.TagIndexingRuleOptionsData;
@@ -34,10 +33,6 @@ public class Example {
                                 new TagIndexingRuleOptions()
                                     .data(
                                         new TagIndexingRuleOptionsData()
-                                            .dynamicTags(
-                                                new TagIndexingRuleDynamicTags()
-                                                    .queriedTagsWindowSeconds(3600L)
-                                                    .relatedAssetTags(false))
                                             .managePreexistingMetrics(true)
                                             .metricMatch(
                                                 new TagIndexingRuleMetricMatch()
