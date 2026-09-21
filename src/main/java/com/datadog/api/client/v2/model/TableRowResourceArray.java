@@ -19,14 +19,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** List of rows from a reference table query. */
-@JsonPropertyOrder({TableRowResourceArray.JSON_PROPERTY_DATA})
+/**
+ * List of rows from a reference table query, along with metadata about rows that were requested but
+ * not found.
+ */
+@JsonPropertyOrder({
+  TableRowResourceArray.JSON_PROPERTY_DATA,
+  TableRowResourceArray.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TableRowResourceArray {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<TableRowResourceData> data = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private TableRowResourceArrayMeta meta;
 
   public TableRowResourceArray() {}
 
@@ -70,6 +79,31 @@ public class TableRowResourceArray {
       for (TableRowResourceData item : data) {
         this.unparsed |= item.unparsed;
       }
+    }
+  }
+
+  public TableRowResourceArray meta(TableRowResourceArrayMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Metadata about the rows requested, including which ones were not found.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TableRowResourceArrayMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(TableRowResourceArrayMeta meta) {
+    this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
     }
   }
 
@@ -130,12 +164,13 @@ public class TableRowResourceArray {
     }
     TableRowResourceArray tableRowResourceArray = (TableRowResourceArray) o;
     return Objects.equals(this.data, tableRowResourceArray.data)
+        && Objects.equals(this.meta, tableRowResourceArray.meta)
         && Objects.equals(this.additionalProperties, tableRowResourceArray.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
@@ -143,6 +178,7 @@ public class TableRowResourceArray {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowResourceArray {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
