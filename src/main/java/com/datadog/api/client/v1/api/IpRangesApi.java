@@ -71,7 +71,7 @@ public class IpRangesApi {
   }
 
   /**
-   * Get information about Datadog IP ranges.
+   * Get information about Datadog IP ranges, including service-specific prefixes.
    *
    * @return ApiResponse&lt;IPRanges&gt;
    * @throws ApiException if fails to make API call
