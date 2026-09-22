@@ -26,6 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   PartialAPIKeyAttributes.JSON_PROPERTY_LAST4,
   PartialAPIKeyAttributes.JSON_PROPERTY_MODIFIED_AT,
   PartialAPIKeyAttributes.JSON_PROPERTY_NAME,
+  PartialAPIKeyAttributes.JSON_PROPERTY_PRIVATE_ACTION_RUNNER_ENROLL_ENABLED,
   PartialAPIKeyAttributes.JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED
 })
 @jakarta.annotation.Generated(
@@ -49,6 +50,10 @@ public class PartialAPIKeyAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PRIVATE_ACTION_RUNNER_ENROLL_ENABLED =
+      "private_action_runner_enroll_enabled";
+  private Boolean privateActionRunnerEnrollEnabled;
 
   public static final String JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED =
       "remote_config_read_enabled";
@@ -158,6 +163,28 @@ public class PartialAPIKeyAttributes {
     this.name = name;
   }
 
+  public PartialAPIKeyAttributes privateActionRunnerEnrollEnabled(
+      Boolean privateActionRunnerEnrollEnabled) {
+    this.privateActionRunnerEnrollEnabled = privateActionRunnerEnrollEnabled;
+    return this;
+  }
+
+  /**
+   * Whether the API key can enroll a Private Action Runner.
+   *
+   * @return privateActionRunnerEnrollEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIVATE_ACTION_RUNNER_ENROLL_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPrivateActionRunnerEnrollEnabled() {
+    return privateActionRunnerEnrollEnabled;
+  }
+
+  public void setPrivateActionRunnerEnrollEnabled(Boolean privateActionRunnerEnrollEnabled) {
+    this.privateActionRunnerEnrollEnabled = privateActionRunnerEnrollEnabled;
+  }
+
   public PartialAPIKeyAttributes remoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
     this.remoteConfigReadEnabled = remoteConfigReadEnabled;
     return this;
@@ -242,6 +269,9 @@ public class PartialAPIKeyAttributes {
         && Objects.equals(this.modifiedAt, partialApiKeyAttributes.modifiedAt)
         && Objects.equals(this.name, partialApiKeyAttributes.name)
         && Objects.equals(
+            this.privateActionRunnerEnrollEnabled,
+            partialApiKeyAttributes.privateActionRunnerEnrollEnabled)
+        && Objects.equals(
             this.remoteConfigReadEnabled, partialApiKeyAttributes.remoteConfigReadEnabled)
         && Objects.equals(this.additionalProperties, partialApiKeyAttributes.additionalProperties);
   }
@@ -255,6 +285,7 @@ public class PartialAPIKeyAttributes {
         last4,
         modifiedAt,
         name,
+        privateActionRunnerEnrollEnabled,
         remoteConfigReadEnabled,
         additionalProperties);
   }
@@ -269,6 +300,9 @@ public class PartialAPIKeyAttributes {
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    privateActionRunnerEnrollEnabled: ")
+        .append(toIndentedString(privateActionRunnerEnrollEnabled))
+        .append("\n");
     sb.append("    remoteConfigReadEnabled: ")
         .append(toIndentedString(remoteConfigReadEnabled))
         .append("\n");
