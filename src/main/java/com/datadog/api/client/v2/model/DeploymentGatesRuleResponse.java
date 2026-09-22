@@ -110,10 +110,9 @@ public class DeploymentGatesRuleResponse {
   }
 
   /**
-   * The overall status of the gate evaluation. - <code>in_progress</code>: The evaluation is still
-   * running. - <code>pass</code>: All rules passed successfully and the deployment is allowed to
-   * proceed. - <code>fail</code>: One or more rules did not pass; the deployment should not
-   * proceed.
+   * The recorded result of a gate or rule evaluation. - <code>in_progress</code>: The evaluation is
+   * still running. - <code>pass</code>: All rules passed successfully. - <code>fail</code>: One or
+   * more rules did not pass.
    *
    * @return status
    */
