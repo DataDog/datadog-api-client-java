@@ -34,10 +34,7 @@ public class Example {
                                 new TagIndexingRuleOptions()
                                     .data(
                                         new TagIndexingRuleOptionsData()
-                                            .dynamicTags(
-                                                new TagIndexingRuleDynamicTags()
-                                                    .queriedTagsWindowSeconds(3600L)
-                                                    .relatedAssetTags(false))
+                                            .dynamicTags(new TagIndexingRuleDynamicTags())
                                             .managePreexistingMetrics(true)
                                             .metricMatch(
                                                 new TagIndexingRuleMetricMatch()
