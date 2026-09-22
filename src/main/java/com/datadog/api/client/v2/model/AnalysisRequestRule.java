@@ -38,6 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AnalysisRequestRule.JSON_PROPERTY_CODE,
   AnalysisRequestRule.JSON_PROPERTY_CREATED_AT,
   AnalysisRequestRule.JSON_PROPERTY_CREATED_BY,
+  AnalysisRequestRule.JSON_PROPERTY_CREATION_MESSAGE,
   AnalysisRequestRule.JSON_PROPERTY_CVE,
   AnalysisRequestRule.JSON_PROPERTY_CWE,
   AnalysisRequestRule.JSON_PROPERTY_DESCRIPTION,
@@ -54,9 +55,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AnalysisRequestRule.JSON_PROPERTY_SEVERITY,
   AnalysisRequestRule.JSON_PROPERTY_SHORT_DESCRIPTION,
   AnalysisRequestRule.JSON_PROPERTY_SHOULD_USE_AI_FIX,
+  AnalysisRequestRule.JSON_PROPERTY_TAGS,
   AnalysisRequestRule.JSON_PROPERTY_TESTS,
   AnalysisRequestRule.JSON_PROPERTY_TREE_SITTER_QUERY,
-  AnalysisRequestRule.JSON_PROPERTY_TYPE
+  AnalysisRequestRule.JSON_PROPERTY_TYPE,
+  AnalysisRequestRule.JSON_PROPERTY_VERSION_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -79,6 +82,9 @@ public class AnalysisRequestRule {
 
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
   private String createdBy;
+
+  public static final String JSON_PROPERTY_CREATION_MESSAGE = "creation_message";
+  private String creationMessage;
 
   public static final String JSON_PROPERTY_CVE = "cve";
   private String cve;
@@ -128,6 +134,9 @@ public class AnalysisRequestRule {
   public static final String JSON_PROPERTY_SHOULD_USE_AI_FIX = "should_use_ai_fix";
   private Boolean shouldUseAiFix;
 
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
+
   public static final String JSON_PROPERTY_TESTS = "tests";
   private List<AnalysisRequestRuleTest> tests = null;
 
@@ -136,6 +145,9 @@ public class AnalysisRequestRule {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  public static final String JSON_PROPERTY_VERSION_ID = "version_id";
+  private Long versionId;
 
   public AnalysisRequestRule() {}
 
@@ -285,6 +297,28 @@ public class AnalysisRequestRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedBy() {
     return createdBy;
+  }
+
+  public AnalysisRequestRule creationMessage(String creationMessage) {
+    this.creationMessage = creationMessage;
+    return this;
+  }
+
+  /**
+   * The message associated with the custom rule revision. Forwarded from the custom rulesets
+   * endpoints; ignored by this operation.
+   *
+   * @return creationMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATION_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCreationMessage() {
+    return creationMessage;
+  }
+
+  public void setCreationMessage(String creationMessage) {
+    this.creationMessage = creationMessage;
   }
 
   public AnalysisRequestRule cve(String cve) {
@@ -634,6 +668,36 @@ public class AnalysisRequestRule {
     this.shouldUseAiFix = shouldUseAiFix;
   }
 
+  public AnalysisRequestRule tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public AnalysisRequestRule addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Tags associated with the custom rule revision. Forwarded from the custom rulesets endpoints;
+   * ignored by this operation.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public AnalysisRequestRule tests(List<AnalysisRequestRuleTest> tests) {
     this.tests = tests;
     if (tests != null) {
@@ -715,6 +779,28 @@ public class AnalysisRequestRule {
     this.type = type;
   }
 
+  public AnalysisRequestRule versionId(Long versionId) {
+    this.versionId = versionId;
+    return this;
+  }
+
+  /**
+   * The custom rule revision version. Forwarded from the custom rulesets endpoints; ignored by this
+   * operation.
+   *
+   * @return versionId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVersionId() {
+    return versionId;
+  }
+
+  public void setVersionId(Long versionId) {
+    this.versionId = versionId;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -777,6 +863,7 @@ public class AnalysisRequestRule {
         && Objects.equals(this.code, analysisRequestRule.code)
         && Objects.equals(this.createdAt, analysisRequestRule.createdAt)
         && Objects.equals(this.createdBy, analysisRequestRule.createdBy)
+        && Objects.equals(this.creationMessage, analysisRequestRule.creationMessage)
         && Objects.equals(this.cve, analysisRequestRule.cve)
         && Objects.equals(this.cwe, analysisRequestRule.cwe)
         && Objects.equals(this.description, analysisRequestRule.description)
@@ -793,9 +880,11 @@ public class AnalysisRequestRule {
         && Objects.equals(this.severity, analysisRequestRule.severity)
         && Objects.equals(this.shortDescription, analysisRequestRule.shortDescription)
         && Objects.equals(this.shouldUseAiFix, analysisRequestRule.shouldUseAiFix)
+        && Objects.equals(this.tags, analysisRequestRule.tags)
         && Objects.equals(this.tests, analysisRequestRule.tests)
         && Objects.equals(this.treeSitterQuery, analysisRequestRule.treeSitterQuery)
         && Objects.equals(this.type, analysisRequestRule.type)
+        && Objects.equals(this.versionId, analysisRequestRule.versionId)
         && Objects.equals(this.additionalProperties, analysisRequestRule.additionalProperties);
   }
 
@@ -808,6 +897,7 @@ public class AnalysisRequestRule {
         code,
         createdAt,
         createdBy,
+        creationMessage,
         cve,
         cwe,
         description,
@@ -824,9 +914,11 @@ public class AnalysisRequestRule {
         severity,
         shortDescription,
         shouldUseAiFix,
+        tags,
         tests,
         treeSitterQuery,
         type,
+        versionId,
         additionalProperties);
   }
 
@@ -840,6 +932,7 @@ public class AnalysisRequestRule {
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    creationMessage: ").append(toIndentedString(creationMessage)).append("\n");
     sb.append("    cve: ").append(toIndentedString(cve)).append("\n");
     sb.append("    cwe: ").append(toIndentedString(cwe)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -856,9 +949,11 @@ public class AnalysisRequestRule {
     sb.append("    severity: ").append(toIndentedString(severity)).append("\n");
     sb.append("    shortDescription: ").append(toIndentedString(shortDescription)).append("\n");
     sb.append("    shouldUseAiFix: ").append(toIndentedString(shouldUseAiFix)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tests: ").append(toIndentedString(tests)).append("\n");
     sb.append("    treeSitterQuery: ").append(toIndentedString(treeSitterQuery)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

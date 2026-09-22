@@ -25,7 +25,7 @@ import java.util.Set;
 public class CustomRuleRevisionAttributesSeverity extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("ERROR", "WARNING", "NOTICE"));
+      new HashSet<String>(Arrays.asList("ERROR", "WARNING", "NOTICE", "NONE"));
 
   public static final CustomRuleRevisionAttributesSeverity ERROR =
       new CustomRuleRevisionAttributesSeverity("ERROR");
@@ -33,6 +33,8 @@ public class CustomRuleRevisionAttributesSeverity extends ModelEnum<String> {
       new CustomRuleRevisionAttributesSeverity("WARNING");
   public static final CustomRuleRevisionAttributesSeverity NOTICE =
       new CustomRuleRevisionAttributesSeverity("NOTICE");
+  public static final CustomRuleRevisionAttributesSeverity NONE =
+      new CustomRuleRevisionAttributesSeverity("NONE");
 
   CustomRuleRevisionAttributesSeverity(String value) {
     super(value, allowedValues);
