@@ -8,71 +8,50 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The request body for creating or updating multiple rows into a reference table. */
-@JsonPropertyOrder({BatchUpsertRowsRequestArray.JSON_PROPERTY_DATA})
+/** Settings of the Cloud Cost Management dataflow. */
+@JsonPropertyOrder({
+  DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse
+      .JSON_PROPERTY_CCM_COLLECT_ALL_WORKSPACES
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BatchUpsertRowsRequestArray {
+public class DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<BatchUpsertRowsRequestData> data = new ArrayList<>();
+  public static final String JSON_PROPERTY_CCM_COLLECT_ALL_WORKSPACES =
+      "ccm_collect_all_workspaces";
+  private Boolean ccmCollectAllWorkspaces;
 
-  public BatchUpsertRowsRequestArray() {}
-
-  @JsonCreator
-  public BatchUpsertRowsRequestArray(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<BatchUpsertRowsRequestData> data) {
-    this.data = data;
-    for (BatchUpsertRowsRequestData item : data) {
-      this.unparsed |= item.unparsed;
-    }
-  }
-
-  public BatchUpsertRowsRequestArray data(List<BatchUpsertRowsRequestData> data) {
-    this.data = data;
-    for (BatchUpsertRowsRequestData item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public BatchUpsertRowsRequestArray addDataItem(BatchUpsertRowsRequestData dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse ccmCollectAllWorkspaces(
+      Boolean ccmCollectAllWorkspaces) {
+    this.ccmCollectAllWorkspaces = ccmCollectAllWorkspaces;
     return this;
   }
 
   /**
-   * List of row resources to create or update in the reference table. The request payload can be up
-   * to 1 MiB.
+   * Whether cost data is collected for every workspace in the Databricks account rather than this
+   * workspace only. This takes effect across the Databricks account: if any one workspace enables
+   * it, Datadog collects cost data for all of them regardless of their individual settings, and
+   * every covered workspace incurs Cloud Cost Management charges.
    *
-   * @return data
+   * @return ccmCollectAllWorkspaces
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<BatchUpsertRowsRequestData> getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_COLLECT_ALL_WORKSPACES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCcmCollectAllWorkspaces() {
+    return ccmCollectAllWorkspaces;
   }
 
-  public void setData(List<BatchUpsertRowsRequestData> data) {
-    this.data = data;
-    if (data != null) {
-      for (BatchUpsertRowsRequestData item : data) {
-        this.unparsed |= item.unparsed;
-      }
-    }
+  public void setCcmCollectAllWorkspaces(Boolean ccmCollectAllWorkspaces) {
+    this.ccmCollectAllWorkspaces = ccmCollectAllWorkspaces;
   }
 
   /**
@@ -87,10 +66,11 @@ public class BatchUpsertRowsRequestArray {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BatchUpsertRowsRequestArray
+   * @return DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse
    */
   @JsonAnySetter
-  public BatchUpsertRowsRequestArray putAdditionalProperty(String key, Object value) {
+  public DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +101,10 @@ public class BatchUpsertRowsRequestArray {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BatchUpsertRowsRequestArray object is equal to o. */
+  /**
+   * Return true if this DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse object is
+   * equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,22 +113,29 @@ public class BatchUpsertRowsRequestArray {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BatchUpsertRowsRequestArray batchUpsertRowsRequestArray = (BatchUpsertRowsRequestArray) o;
-    return Objects.equals(this.data, batchUpsertRowsRequestArray.data)
+    DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse
+        databricksCloudCostMetricsIntegrationDataflowSettingsResponse =
+            (DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse) o;
+    return Objects.equals(
+            this.ccmCollectAllWorkspaces,
+            databricksCloudCostMetricsIntegrationDataflowSettingsResponse.ccmCollectAllWorkspaces)
         && Objects.equals(
-            this.additionalProperties, batchUpsertRowsRequestArray.additionalProperties);
+            this.additionalProperties,
+            databricksCloudCostMetricsIntegrationDataflowSettingsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(ccmCollectAllWorkspaces, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BatchUpsertRowsRequestArray {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse {\n");
+    sb.append("    ccmCollectAllWorkspaces: ")
+        .append(toIndentedString(ccmCollectAllWorkspaces))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

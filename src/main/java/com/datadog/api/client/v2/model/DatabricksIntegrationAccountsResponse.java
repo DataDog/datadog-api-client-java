@@ -19,57 +19,58 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The request body for creating or updating multiple rows into a reference table. */
-@JsonPropertyOrder({BatchUpsertRowsRequestArray.JSON_PROPERTY_DATA})
+/** Response payload for a list of Databricks integration accounts. */
+@JsonPropertyOrder({DatabricksIntegrationAccountsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BatchUpsertRowsRequestArray {
+public class DatabricksIntegrationAccountsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<BatchUpsertRowsRequestData> data = new ArrayList<>();
+  private List<DatabricksIntegrationAccountResponseData> data = new ArrayList<>();
 
-  public BatchUpsertRowsRequestArray() {}
+  public DatabricksIntegrationAccountsResponse() {}
 
   @JsonCreator
-  public BatchUpsertRowsRequestArray(
+  public DatabricksIntegrationAccountsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<BatchUpsertRowsRequestData> data) {
+          List<DatabricksIntegrationAccountResponseData> data) {
     this.data = data;
-    for (BatchUpsertRowsRequestData item : data) {
+    for (DatabricksIntegrationAccountResponseData item : data) {
       this.unparsed |= item.unparsed;
     }
   }
 
-  public BatchUpsertRowsRequestArray data(List<BatchUpsertRowsRequestData> data) {
+  public DatabricksIntegrationAccountsResponse data(
+      List<DatabricksIntegrationAccountResponseData> data) {
     this.data = data;
-    for (BatchUpsertRowsRequestData item : data) {
+    for (DatabricksIntegrationAccountResponseData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public BatchUpsertRowsRequestArray addDataItem(BatchUpsertRowsRequestData dataItem) {
+  public DatabricksIntegrationAccountsResponse addDataItem(
+      DatabricksIntegrationAccountResponseData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * List of row resources to create or update in the reference table. The request payload can be up
-   * to 1 MiB.
+   * List of Databricks integration accounts.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<BatchUpsertRowsRequestData> getData() {
+  public List<DatabricksIntegrationAccountResponseData> getData() {
     return data;
   }
 
-  public void setData(List<BatchUpsertRowsRequestData> data) {
+  public void setData(List<DatabricksIntegrationAccountResponseData> data) {
     this.data = data;
     if (data != null) {
-      for (BatchUpsertRowsRequestData item : data) {
+      for (DatabricksIntegrationAccountResponseData item : data) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -87,10 +88,10 @@ public class BatchUpsertRowsRequestArray {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BatchUpsertRowsRequestArray
+   * @return DatabricksIntegrationAccountsResponse
    */
   @JsonAnySetter
-  public BatchUpsertRowsRequestArray putAdditionalProperty(String key, Object value) {
+  public DatabricksIntegrationAccountsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +122,7 @@ public class BatchUpsertRowsRequestArray {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BatchUpsertRowsRequestArray object is equal to o. */
+  /** Return true if this DatabricksIntegrationAccountsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,10 +131,11 @@ public class BatchUpsertRowsRequestArray {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BatchUpsertRowsRequestArray batchUpsertRowsRequestArray = (BatchUpsertRowsRequestArray) o;
-    return Objects.equals(this.data, batchUpsertRowsRequestArray.data)
+    DatabricksIntegrationAccountsResponse databricksIntegrationAccountsResponse =
+        (DatabricksIntegrationAccountsResponse) o;
+    return Objects.equals(this.data, databricksIntegrationAccountsResponse.data)
         && Objects.equals(
-            this.additionalProperties, batchUpsertRowsRequestArray.additionalProperties);
+            this.additionalProperties, databricksIntegrationAccountsResponse.additionalProperties);
   }
 
   @Override
@@ -144,7 +146,7 @@ public class BatchUpsertRowsRequestArray {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BatchUpsertRowsRequestArray {\n");
+    sb.append("class DatabricksIntegrationAccountsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -13,66 +13,53 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The request body for creating or updating multiple rows into a reference table. */
-@JsonPropertyOrder({BatchUpsertRowsRequestArray.JSON_PROPERTY_DATA})
+/** The bearer token authentication method configured on the account. */
+@JsonPropertyOrder({DatabricksIntegrationAccountBearerTokenAuthResponse.JSON_PROPERTY_AUTH_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BatchUpsertRowsRequestArray {
+public class DatabricksIntegrationAccountBearerTokenAuthResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<BatchUpsertRowsRequestData> data = new ArrayList<>();
+  public static final String JSON_PROPERTY_AUTH_TYPE = "auth_type";
+  private DatabricksIntegrationAccountBearerTokenAuthType authType =
+      DatabricksIntegrationAccountBearerTokenAuthType.BEARER_TOKEN;
 
-  public BatchUpsertRowsRequestArray() {}
+  public DatabricksIntegrationAccountBearerTokenAuthResponse() {}
 
   @JsonCreator
-  public BatchUpsertRowsRequestArray(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<BatchUpsertRowsRequestData> data) {
-    this.data = data;
-    for (BatchUpsertRowsRequestData item : data) {
-      this.unparsed |= item.unparsed;
-    }
+  public DatabricksIntegrationAccountBearerTokenAuthResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_TYPE)
+          DatabricksIntegrationAccountBearerTokenAuthType authType) {
+    this.authType = authType;
+    this.unparsed |= !authType.isValid();
   }
 
-  public BatchUpsertRowsRequestArray data(List<BatchUpsertRowsRequestData> data) {
-    this.data = data;
-    for (BatchUpsertRowsRequestData item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public BatchUpsertRowsRequestArray addDataItem(BatchUpsertRowsRequestData dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public DatabricksIntegrationAccountBearerTokenAuthResponse authType(
+      DatabricksIntegrationAccountBearerTokenAuthType authType) {
+    this.authType = authType;
+    this.unparsed |= !authType.isValid();
     return this;
   }
 
   /**
-   * List of row resources to create or update in the reference table. The request payload can be up
-   * to 1 MiB.
+   * The authentication method type.
    *
-   * @return data
+   * @return authType
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<BatchUpsertRowsRequestData> getData() {
-    return data;
+  public DatabricksIntegrationAccountBearerTokenAuthType getAuthType() {
+    return authType;
   }
 
-  public void setData(List<BatchUpsertRowsRequestData> data) {
-    this.data = data;
-    if (data != null) {
-      for (BatchUpsertRowsRequestData item : data) {
-        this.unparsed |= item.unparsed;
-      }
+  public void setAuthType(DatabricksIntegrationAccountBearerTokenAuthType authType) {
+    if (!authType.isValid()) {
+      this.unparsed = true;
     }
+    this.authType = authType;
   }
 
   /**
@@ -87,10 +74,11 @@ public class BatchUpsertRowsRequestArray {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BatchUpsertRowsRequestArray
+   * @return DatabricksIntegrationAccountBearerTokenAuthResponse
    */
   @JsonAnySetter
-  public BatchUpsertRowsRequestArray putAdditionalProperty(String key, Object value) {
+  public DatabricksIntegrationAccountBearerTokenAuthResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +109,9 @@ public class BatchUpsertRowsRequestArray {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BatchUpsertRowsRequestArray object is equal to o. */
+  /**
+   * Return true if this DatabricksIntegrationAccountBearerTokenAuthResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,22 +120,26 @@ public class BatchUpsertRowsRequestArray {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BatchUpsertRowsRequestArray batchUpsertRowsRequestArray = (BatchUpsertRowsRequestArray) o;
-    return Objects.equals(this.data, batchUpsertRowsRequestArray.data)
+    DatabricksIntegrationAccountBearerTokenAuthResponse
+        databricksIntegrationAccountBearerTokenAuthResponse =
+            (DatabricksIntegrationAccountBearerTokenAuthResponse) o;
+    return Objects.equals(
+            this.authType, databricksIntegrationAccountBearerTokenAuthResponse.authType)
         && Objects.equals(
-            this.additionalProperties, batchUpsertRowsRequestArray.additionalProperties);
+            this.additionalProperties,
+            databricksIntegrationAccountBearerTokenAuthResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(authType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BatchUpsertRowsRequestArray {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class DatabricksIntegrationAccountBearerTokenAuthResponse {\n");
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
