@@ -25,20 +25,27 @@ public class Example {
                 new DemVariantRequestData()
                     .attributes(
                         new DemVariantAttributes()
-                            .filter("device.type:mobile")
+                            .filter("@device.type:mobile")
                             .name("Mobile checkout")
                             .rumSteps(
                                 Arrays.asList(
                                     new DemRumStep()
                                         .nodes(
                                             Collections.singletonList(
-                                                new DemRumNode().query("action.name:'checkout'")))
+                                                new DemRumNode()
+                                                    .appId("11111111-2222-3333-4444-555555555555")
+                                                    .query("""
+@action.name:"Checkout"
+""")))
                                         .type(DemRumStepType.START),
                                     new DemRumStep()
                                         .nodes(
                                             Collections.singletonList(
                                                 new DemRumNode()
-                                                    .query("action.name:'confirmation'")))
+                                                    .appId("11111111-2222-3333-4444-555555555555")
+                                                    .query("""
+@view.url_path:"/confirmation"
+""")))
                                         .type(DemRumStepType.STOP))))
                     .type(DemVariantType.VARIANTS));
 

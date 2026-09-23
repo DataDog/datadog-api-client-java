@@ -55,7 +55,9 @@ public class DemJourneyRum {
   }
 
   /**
-   * An optional RUM query filter applied to the entire journey.
+   * An optional RUM query filter applied to the entire journey. For a single-application journey,
+   * include the application as <code>@application.id:&lt;application_id&gt;</code> in addition to
+   * setting <code>app_id</code> on every RUM node.
    *
    * @return filter
    */

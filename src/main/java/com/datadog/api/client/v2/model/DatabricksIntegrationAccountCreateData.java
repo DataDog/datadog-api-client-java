@@ -17,97 +17,81 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A RUM node within a journey step. */
+/** Data envelope for creating a Databricks integration account. */
 @JsonPropertyOrder({
-  DemRumNode.JSON_PROPERTY_APP_ID,
-  DemRumNode.JSON_PROPERTY_ID,
-  DemRumNode.JSON_PROPERTY_QUERY
+  DatabricksIntegrationAccountCreateData.JSON_PROPERTY_ATTRIBUTES,
+  DatabricksIntegrationAccountCreateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DemRumNode {
+public class DatabricksIntegrationAccountCreateData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_APP_ID = "app_id";
-  private String appId;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private DatabricksIntegrationAccountCreateAttributes attributes;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private IntegrationAccountType type = IntegrationAccountType.INTEGRATION_ACCOUNT;
 
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
-
-  public DemRumNode() {}
+  public DatabricksIntegrationAccountCreateData() {}
 
   @JsonCreator
-  public DemRumNode(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APP_ID) String appId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.appId = appId;
-    this.query = query;
+  public DatabricksIntegrationAccountCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          DatabricksIntegrationAccountCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IntegrationAccountType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public DemRumNode appId(String appId) {
-    this.appId = appId;
+  public DatabricksIntegrationAccountCreateData attributes(
+      DatabricksIntegrationAccountCreateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every
-   * node when creating or updating a DEM feature or journey, including variants, and is used to
-   * discover the resource in application-scoped searches. Use <code>GET /api/v2/rum/applications
-   * </code> to find RUM application IDs.
+   * Writable attributes used to create a Databricks integration account.
    *
-   * @return appId
+   * @return attributes
    */
-  @JsonProperty(JSON_PROPERTY_APP_ID)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAppId() {
-    return appId;
+  public DatabricksIntegrationAccountCreateAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
+  public void setAttributes(DatabricksIntegrationAccountCreateAttributes attributes) {
+    this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
-  public DemRumNode id(String id) {
-    this.id = id;
+  public DatabricksIntegrationAccountCreateData type(IntegrationAccountType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The ID of the RUM node element.
+   * The type of the integration account resource. Always <code>integration-account</code>.
    *
-   * @return id
+   * @return type
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public DemRumNode query(String query) {
-    this.query = query;
-    return this;
-  }
-
-  /**
-   * The RUM query for matching this node.
-   *
-   * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
+  public IntegrationAccountType getType() {
+    return type;
   }
 
-  public void setQuery(String query) {
-    this.query = query;
+  public void setType(IntegrationAccountType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -122,10 +106,10 @@ public class DemRumNode {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DemRumNode
+   * @return DatabricksIntegrationAccountCreateData
    */
   @JsonAnySetter
-  public DemRumNode putAdditionalProperty(String key, Object value) {
+  public DatabricksIntegrationAccountCreateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -156,7 +140,7 @@ public class DemRumNode {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DemRumNode object is equal to o. */
+  /** Return true if this DatabricksIntegrationAccountCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,25 +149,25 @@ public class DemRumNode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DemRumNode demRumNode = (DemRumNode) o;
-    return Objects.equals(this.appId, demRumNode.appId)
-        && Objects.equals(this.id, demRumNode.id)
-        && Objects.equals(this.query, demRumNode.query)
-        && Objects.equals(this.additionalProperties, demRumNode.additionalProperties);
+    DatabricksIntegrationAccountCreateData databricksIntegrationAccountCreateData =
+        (DatabricksIntegrationAccountCreateData) o;
+    return Objects.equals(this.attributes, databricksIntegrationAccountCreateData.attributes)
+        && Objects.equals(this.type, databricksIntegrationAccountCreateData.type)
+        && Objects.equals(
+            this.additionalProperties, databricksIntegrationAccountCreateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, id, query, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DemRumNode {\n");
-    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("class DatabricksIntegrationAccountCreateData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

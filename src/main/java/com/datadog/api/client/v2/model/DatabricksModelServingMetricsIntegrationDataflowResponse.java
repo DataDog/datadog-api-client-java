@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,97 +16,38 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A RUM node within a journey step. */
-@JsonPropertyOrder({
-  DemRumNode.JSON_PROPERTY_APP_ID,
-  DemRumNode.JSON_PROPERTY_ID,
-  DemRumNode.JSON_PROPERTY_QUERY
-})
+/**
+ * Health and usage metrics for your Databricks model serving endpoints. Not supported on accounts
+ * that authenticate with <code>private_action_runner</code>; on those accounts this dataflow
+ * collects no data.
+ */
+@JsonPropertyOrder({DatabricksModelServingMetricsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DemRumNode {
+public class DatabricksModelServingMetricsIntegrationDataflowResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_APP_ID = "app_id";
-  private String appId;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
-
-  public DemRumNode() {}
-
-  @JsonCreator
-  public DemRumNode(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APP_ID) String appId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.appId = appId;
-    this.query = query;
-  }
-
-  public DemRumNode appId(String appId) {
-    this.appId = appId;
+  public DatabricksModelServingMetricsIntegrationDataflowResponse enabled(Boolean enabled) {
+    this.enabled = enabled;
     return this;
   }
 
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every
-   * node when creating or updating a DEM feature or journey, including variants, and is used to
-   * discover the resource in application-scoped searches. Use <code>GET /api/v2/rum/applications
-   * </code> to find RUM application IDs.
+   * Whether Datadog collects this data.
    *
-   * @return appId
-   */
-  @JsonProperty(JSON_PROPERTY_APP_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public DemRumNode id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the RUM node element.
-   *
-   * @return id
+   * @return enabled
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public Boolean getEnabled() {
+    return enabled;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public DemRumNode query(String query) {
-    this.query = query;
-    return this;
-  }
-
-  /**
-   * The RUM query for matching this node.
-   *
-   * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   /**
@@ -122,10 +62,11 @@ public class DemRumNode {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DemRumNode
+   * @return DatabricksModelServingMetricsIntegrationDataflowResponse
    */
   @JsonAnySetter
-  public DemRumNode putAdditionalProperty(String key, Object value) {
+  public DatabricksModelServingMetricsIntegrationDataflowResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -156,7 +97,10 @@ public class DemRumNode {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DemRumNode object is equal to o. */
+  /**
+   * Return true if this DatabricksModelServingMetricsIntegrationDataflowResponse object is equal to
+   * o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,25 +109,26 @@ public class DemRumNode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DemRumNode demRumNode = (DemRumNode) o;
-    return Objects.equals(this.appId, demRumNode.appId)
-        && Objects.equals(this.id, demRumNode.id)
-        && Objects.equals(this.query, demRumNode.query)
-        && Objects.equals(this.additionalProperties, demRumNode.additionalProperties);
+    DatabricksModelServingMetricsIntegrationDataflowResponse
+        databricksModelServingMetricsIntegrationDataflowResponse =
+            (DatabricksModelServingMetricsIntegrationDataflowResponse) o;
+    return Objects.equals(
+            this.enabled, databricksModelServingMetricsIntegrationDataflowResponse.enabled)
+        && Objects.equals(
+            this.additionalProperties,
+            databricksModelServingMetricsIntegrationDataflowResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, id, query, additionalProperties);
+    return Objects.hash(enabled, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DemRumNode {\n");
-    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("class DatabricksModelServingMetricsIntegrationDataflowResponse {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

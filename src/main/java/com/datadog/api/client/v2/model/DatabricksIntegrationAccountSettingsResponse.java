@@ -17,97 +17,70 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A RUM node within a journey step. */
+/** Settings configured on the Databricks integration account. */
 @JsonPropertyOrder({
-  DemRumNode.JSON_PROPERTY_APP_ID,
-  DemRumNode.JSON_PROPERTY_ID,
-  DemRumNode.JSON_PROPERTY_QUERY
+  DatabricksIntegrationAccountSettingsResponse.JSON_PROPERTY_SYSTEM_TABLES_SQL_WAREHOUSE_ID,
+  DatabricksIntegrationAccountSettingsResponse.JSON_PROPERTY_WORKSPACE_URL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DemRumNode {
+public class DatabricksIntegrationAccountSettingsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_APP_ID = "app_id";
-  private String appId;
+  public static final String JSON_PROPERTY_SYSTEM_TABLES_SQL_WAREHOUSE_ID =
+      "system_tables_sql_warehouse_id";
+  private String systemTablesSqlWarehouseId;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_WORKSPACE_URL = "workspace_url";
+  private String workspaceUrl;
 
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
-
-  public DemRumNode() {}
+  public DatabricksIntegrationAccountSettingsResponse() {}
 
   @JsonCreator
-  public DemRumNode(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APP_ID) String appId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.appId = appId;
-    this.query = query;
+  public DatabricksIntegrationAccountSettingsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_WORKSPACE_URL) String workspaceUrl) {
+    this.workspaceUrl = workspaceUrl;
   }
 
-  public DemRumNode appId(String appId) {
-    this.appId = appId;
+  public DatabricksIntegrationAccountSettingsResponse systemTablesSqlWarehouseId(
+      String systemTablesSqlWarehouseId) {
+    this.systemTablesSqlWarehouseId = systemTablesSqlWarehouseId;
     return this;
   }
 
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every
-   * node when creating or updating a DEM feature or journey, including variants, and is used to
-   * discover the resource in application-scoped searches. Use <code>GET /api/v2/rum/applications
-   * </code> to find RUM application IDs.
+   * ID of the SQL warehouse used to query the Databricks system tables.
    *
-   * @return appId
-   */
-  @JsonProperty(JSON_PROPERTY_APP_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public DemRumNode id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the RUM node element.
-   *
-   * @return id
+   * @return systemTablesSqlWarehouseId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_SYSTEM_TABLES_SQL_WAREHOUSE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public String getSystemTablesSqlWarehouseId() {
+    return systemTablesSqlWarehouseId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSystemTablesSqlWarehouseId(String systemTablesSqlWarehouseId) {
+    this.systemTablesSqlWarehouseId = systemTablesSqlWarehouseId;
   }
 
-  public DemRumNode query(String query) {
-    this.query = query;
+  public DatabricksIntegrationAccountSettingsResponse workspaceUrl(String workspaceUrl) {
+    this.workspaceUrl = workspaceUrl;
     return this;
   }
 
   /**
-   * The RUM query for matching this node.
+   * URL of the Databricks workspace.
    *
-   * @return query
+   * @return workspaceUrl
    */
-  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonProperty(JSON_PROPERTY_WORKSPACE_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
+  public String getWorkspaceUrl() {
+    return workspaceUrl;
   }
 
-  public void setQuery(String query) {
-    this.query = query;
+  public void setWorkspaceUrl(String workspaceUrl) {
+    this.workspaceUrl = workspaceUrl;
   }
 
   /**
@@ -122,10 +95,11 @@ public class DemRumNode {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DemRumNode
+   * @return DatabricksIntegrationAccountSettingsResponse
    */
   @JsonAnySetter
-  public DemRumNode putAdditionalProperty(String key, Object value) {
+  public DatabricksIntegrationAccountSettingsResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -156,7 +130,7 @@ public class DemRumNode {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DemRumNode object is equal to o. */
+  /** Return true if this DatabricksIntegrationAccountSettingsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,25 +139,31 @@ public class DemRumNode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DemRumNode demRumNode = (DemRumNode) o;
-    return Objects.equals(this.appId, demRumNode.appId)
-        && Objects.equals(this.id, demRumNode.id)
-        && Objects.equals(this.query, demRumNode.query)
-        && Objects.equals(this.additionalProperties, demRumNode.additionalProperties);
+    DatabricksIntegrationAccountSettingsResponse databricksIntegrationAccountSettingsResponse =
+        (DatabricksIntegrationAccountSettingsResponse) o;
+    return Objects.equals(
+            this.systemTablesSqlWarehouseId,
+            databricksIntegrationAccountSettingsResponse.systemTablesSqlWarehouseId)
+        && Objects.equals(
+            this.workspaceUrl, databricksIntegrationAccountSettingsResponse.workspaceUrl)
+        && Objects.equals(
+            this.additionalProperties,
+            databricksIntegrationAccountSettingsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, id, query, additionalProperties);
+    return Objects.hash(systemTablesSqlWarehouseId, workspaceUrl, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DemRumNode {\n");
-    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("class DatabricksIntegrationAccountSettingsResponse {\n");
+    sb.append("    systemTablesSqlWarehouseId: ")
+        .append(toIndentedString(systemTablesSqlWarehouseId))
+        .append("\n");
+    sb.append("    workspaceUrl: ").append(toIndentedString(workspaceUrl)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

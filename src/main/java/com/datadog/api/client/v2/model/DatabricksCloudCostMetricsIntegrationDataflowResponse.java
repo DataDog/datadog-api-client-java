@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,97 +16,70 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A RUM node within a journey step. */
+/**
+ * Cost data collected from your Databricks system tables. Requires <a
+ * href="https://docs.datadoghq.com/cloud_cost_management/">Cloud Cost Management</a> to be set up
+ * for your organization.
+ */
 @JsonPropertyOrder({
-  DemRumNode.JSON_PROPERTY_APP_ID,
-  DemRumNode.JSON_PROPERTY_ID,
-  DemRumNode.JSON_PROPERTY_QUERY
+  DatabricksCloudCostMetricsIntegrationDataflowResponse.JSON_PROPERTY_ENABLED,
+  DatabricksCloudCostMetricsIntegrationDataflowResponse.JSON_PROPERTY_SETTINGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DemRumNode {
+public class DatabricksCloudCostMetricsIntegrationDataflowResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_APP_ID = "app_id";
-  private String appId;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_SETTINGS = "settings";
+  private DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse settings;
 
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
-
-  public DemRumNode() {}
-
-  @JsonCreator
-  public DemRumNode(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APP_ID) String appId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.appId = appId;
-    this.query = query;
-  }
-
-  public DemRumNode appId(String appId) {
-    this.appId = appId;
+  public DatabricksCloudCostMetricsIntegrationDataflowResponse enabled(Boolean enabled) {
+    this.enabled = enabled;
     return this;
   }
 
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every
-   * node when creating or updating a DEM feature or journey, including variants, and is used to
-   * discover the resource in application-scoped searches. Use <code>GET /api/v2/rum/applications
-   * </code> to find RUM application IDs.
+   * Whether Datadog collects this data.
    *
-   * @return appId
-   */
-  @JsonProperty(JSON_PROPERTY_APP_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public DemRumNode id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the RUM node element.
-   *
-   * @return id
+   * @return enabled
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public Boolean getEnabled() {
+    return enabled;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
-  public DemRumNode query(String query) {
-    this.query = query;
+  public DatabricksCloudCostMetricsIntegrationDataflowResponse settings(
+      DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse settings) {
+    this.settings = settings;
+    this.unparsed |= settings.unparsed;
     return this;
   }
 
   /**
-   * The RUM query for matching this node.
+   * Settings of the Cloud Cost Management dataflow.
    *
-   * @return query
+   * @return settings
    */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse getSettings() {
+    return settings;
   }
 
-  public void setQuery(String query) {
-    this.query = query;
+  public void setSettings(DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse settings) {
+    this.settings = settings;
+    if (settings != null) {
+      this.unparsed |= settings.unparsed;
+    }
   }
 
   /**
@@ -122,10 +94,11 @@ public class DemRumNode {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DemRumNode
+   * @return DatabricksCloudCostMetricsIntegrationDataflowResponse
    */
   @JsonAnySetter
-  public DemRumNode putAdditionalProperty(String key, Object value) {
+  public DatabricksCloudCostMetricsIntegrationDataflowResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -156,7 +129,9 @@ public class DemRumNode {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DemRumNode object is equal to o. */
+  /**
+   * Return true if this DatabricksCloudCostMetricsIntegrationDataflowResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,25 +140,29 @@ public class DemRumNode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DemRumNode demRumNode = (DemRumNode) o;
-    return Objects.equals(this.appId, demRumNode.appId)
-        && Objects.equals(this.id, demRumNode.id)
-        && Objects.equals(this.query, demRumNode.query)
-        && Objects.equals(this.additionalProperties, demRumNode.additionalProperties);
+    DatabricksCloudCostMetricsIntegrationDataflowResponse
+        databricksCloudCostMetricsIntegrationDataflowResponse =
+            (DatabricksCloudCostMetricsIntegrationDataflowResponse) o;
+    return Objects.equals(
+            this.enabled, databricksCloudCostMetricsIntegrationDataflowResponse.enabled)
+        && Objects.equals(
+            this.settings, databricksCloudCostMetricsIntegrationDataflowResponse.settings)
+        && Objects.equals(
+            this.additionalProperties,
+            databricksCloudCostMetricsIntegrationDataflowResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, id, query, additionalProperties);
+    return Objects.hash(enabled, settings, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DemRumNode {\n");
-    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("class DatabricksCloudCostMetricsIntegrationDataflowResponse {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

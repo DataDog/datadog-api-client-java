@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,97 +16,42 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A RUM node within a journey step. */
+/** Settings of the Cloud Cost Management dataflow. */
 @JsonPropertyOrder({
-  DemRumNode.JSON_PROPERTY_APP_ID,
-  DemRumNode.JSON_PROPERTY_ID,
-  DemRumNode.JSON_PROPERTY_QUERY
+  DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse
+      .JSON_PROPERTY_CCM_COLLECT_ALL_WORKSPACES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DemRumNode {
+public class DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_APP_ID = "app_id";
-  private String appId;
+  public static final String JSON_PROPERTY_CCM_COLLECT_ALL_WORKSPACES =
+      "ccm_collect_all_workspaces";
+  private Boolean ccmCollectAllWorkspaces;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
-
-  public DemRumNode() {}
-
-  @JsonCreator
-  public DemRumNode(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APP_ID) String appId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.appId = appId;
-    this.query = query;
-  }
-
-  public DemRumNode appId(String appId) {
-    this.appId = appId;
+  public DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse ccmCollectAllWorkspaces(
+      Boolean ccmCollectAllWorkspaces) {
+    this.ccmCollectAllWorkspaces = ccmCollectAllWorkspaces;
     return this;
   }
 
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every
-   * node when creating or updating a DEM feature or journey, including variants, and is used to
-   * discover the resource in application-scoped searches. Use <code>GET /api/v2/rum/applications
-   * </code> to find RUM application IDs.
+   * Whether cost data is collected for every workspace in the Databricks account rather than this
+   * workspace only. This takes effect across the Databricks account: if any one workspace enables
+   * it, Datadog collects cost data for all of them regardless of their individual settings, and
+   * every covered workspace incurs Cloud Cost Management charges.
    *
-   * @return appId
-   */
-  @JsonProperty(JSON_PROPERTY_APP_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public DemRumNode id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the RUM node element.
-   *
-   * @return id
+   * @return ccmCollectAllWorkspaces
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_CCM_COLLECT_ALL_WORKSPACES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public Boolean getCcmCollectAllWorkspaces() {
+    return ccmCollectAllWorkspaces;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public DemRumNode query(String query) {
-    this.query = query;
-    return this;
-  }
-
-  /**
-   * The RUM query for matching this node.
-   *
-   * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
+  public void setCcmCollectAllWorkspaces(Boolean ccmCollectAllWorkspaces) {
+    this.ccmCollectAllWorkspaces = ccmCollectAllWorkspaces;
   }
 
   /**
@@ -122,10 +66,11 @@ public class DemRumNode {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DemRumNode
+   * @return DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse
    */
   @JsonAnySetter
-  public DemRumNode putAdditionalProperty(String key, Object value) {
+  public DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -156,7 +101,10 @@ public class DemRumNode {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DemRumNode object is equal to o. */
+  /**
+   * Return true if this DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse object is
+   * equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,25 +113,29 @@ public class DemRumNode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DemRumNode demRumNode = (DemRumNode) o;
-    return Objects.equals(this.appId, demRumNode.appId)
-        && Objects.equals(this.id, demRumNode.id)
-        && Objects.equals(this.query, demRumNode.query)
-        && Objects.equals(this.additionalProperties, demRumNode.additionalProperties);
+    DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse
+        databricksCloudCostMetricsIntegrationDataflowSettingsResponse =
+            (DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse) o;
+    return Objects.equals(
+            this.ccmCollectAllWorkspaces,
+            databricksCloudCostMetricsIntegrationDataflowSettingsResponse.ccmCollectAllWorkspaces)
+        && Objects.equals(
+            this.additionalProperties,
+            databricksCloudCostMetricsIntegrationDataflowSettingsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, id, query, additionalProperties);
+    return Objects.hash(ccmCollectAllWorkspaces, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DemRumNode {\n");
-    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("class DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse {\n");
+    sb.append("    ccmCollectAllWorkspaces: ")
+        .append(toIndentedString(ccmCollectAllWorkspaces))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
