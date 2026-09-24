@@ -8,6 +8,7 @@ import com.datadog.api.client.v1.model.MonitorGroupSearchResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     try {

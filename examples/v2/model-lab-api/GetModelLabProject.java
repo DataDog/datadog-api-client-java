@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.ModelLabProjectResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.getModelLabProject", true);
     ModelLabApiApi apiInstance = new ModelLabApiApi(defaultClient);
 

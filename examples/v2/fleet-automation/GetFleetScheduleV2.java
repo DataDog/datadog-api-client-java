@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.FleetScheduleV2Response;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     FleetAutomationApi apiInstance = new FleetAutomationApi(defaultClient);
 
     // there is a valid "fleet_schedule" in the system

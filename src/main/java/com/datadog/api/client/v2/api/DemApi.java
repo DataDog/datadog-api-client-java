@@ -123,7 +123,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -171,7 +171,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemJourneysListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -253,7 +253,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -300,7 +300,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemJourneyResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -397,7 +397,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -456,7 +456,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemVariantResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -559,7 +559,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -626,7 +626,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemJourneyTestSuiteResponse>> result =
           new CompletableFuture<>();
@@ -712,7 +712,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -763,7 +763,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -846,7 +846,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -894,7 +894,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -977,7 +977,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -1026,7 +1026,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1111,7 +1111,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1160,7 +1160,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemJourneyResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1249,7 +1249,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1301,7 +1301,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemRecommendedTestsResponse>> result =
           new CompletableFuture<>();
@@ -1385,7 +1385,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1435,7 +1435,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1595,7 +1595,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1641,7 +1641,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemSearchInferredJourneysResponse>> result =
           new CompletableFuture<>();
@@ -1839,7 +1839,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1891,7 +1891,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemJourneysListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1987,7 +1987,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PUT",
         builder,
@@ -2046,7 +2046,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemJourneyResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2143,7 +2143,7 @@ public class DemApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PUT",
         builder,
@@ -2202,7 +2202,7 @@ public class DemApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DemVariantResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

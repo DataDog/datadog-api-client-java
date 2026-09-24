@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.FastlyServicesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     FastlyIntegrationApi apiInstance = new FastlyIntegrationApi(defaultClient);
 
     try {

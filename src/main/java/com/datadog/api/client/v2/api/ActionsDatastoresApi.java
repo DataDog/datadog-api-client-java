@@ -140,7 +140,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -205,7 +205,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DeleteAppsDatastoreItemResponseArray>> result =
           new CompletableFuture<>();
@@ -304,7 +304,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -368,7 +368,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<PutAppsDatastoreItemResponseArray>> result =
           new CompletableFuture<>();
@@ -454,7 +454,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -502,7 +502,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CreateAppsDatastoreResponse>> result =
           new CompletableFuture<>();
@@ -587,7 +587,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -636,7 +636,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -734,7 +734,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -798,7 +798,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DeleteAppsDatastoreItemResponse>> result =
           new CompletableFuture<>();
@@ -885,7 +885,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -935,7 +935,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Datastore>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1142,7 +1142,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1205,7 +1205,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ItemApiPayloadArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1277,7 +1277,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1313,7 +1313,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DatastoreArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1411,7 +1411,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -1471,7 +1471,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Datastore>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1569,7 +1569,7 @@ public class ActionsDatastoresApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -1630,7 +1630,7 @@ public class ActionsDatastoresApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ItemApiPayload>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

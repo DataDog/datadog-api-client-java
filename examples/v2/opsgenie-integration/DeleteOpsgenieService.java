@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.OpsgenieIntegrationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);
 
     // there is a valid "opsgenie_service" in the system

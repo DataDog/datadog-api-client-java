@@ -143,7 +143,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -205,7 +205,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsJourneyFunnelResponse>> result =
           new CompletableFuture<>();
@@ -303,7 +303,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -364,7 +364,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsJourneyListResponse>> result =
           new CompletableFuture<>();
@@ -461,7 +461,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -523,7 +523,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsJourneyScalarResponse>> result =
           new CompletableFuture<>();
@@ -621,7 +621,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -683,7 +683,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsJourneyTimeseriesResponse>> result =
           new CompletableFuture<>();
@@ -779,7 +779,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -838,7 +838,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsAnalyticsListResponse>> result =
           new CompletableFuture<>();
@@ -936,7 +936,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -998,7 +998,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsRetentionGridResponse>> result =
           new CompletableFuture<>();
@@ -1095,7 +1095,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1157,7 +1157,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsRetentionListResponse>> result =
           new CompletableFuture<>();
@@ -1254,7 +1254,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1316,7 +1316,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsScalarResponse>> result =
           new CompletableFuture<>();
@@ -1414,7 +1414,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1476,7 +1476,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsTimeseriesResponse>> result =
           new CompletableFuture<>();
@@ -1571,7 +1571,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1631,7 +1631,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsSankeyResponse>> result =
           new CompletableFuture<>();
@@ -1719,7 +1719,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1768,7 +1768,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsScalarResponse>> result =
           new CompletableFuture<>();
@@ -1859,7 +1859,7 @@ public class ProductAnalyticsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1909,7 +1909,7 @@ public class ProductAnalyticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProductAnalyticsTimeseriesResponse>> result =
           new CompletableFuture<>();

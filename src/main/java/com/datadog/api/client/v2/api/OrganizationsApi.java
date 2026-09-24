@@ -130,7 +130,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -181,7 +181,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -270,7 +270,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -322,7 +322,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -665,7 +665,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -701,7 +701,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgConfigListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -944,7 +944,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -981,7 +981,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SAMLConfigurationsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1221,7 +1221,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -1282,7 +1282,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1378,7 +1378,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -1436,7 +1436,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1542,7 +1542,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -1606,7 +1606,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1735,7 +1735,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1779,7 +1779,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

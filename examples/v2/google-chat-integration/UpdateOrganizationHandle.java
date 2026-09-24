@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.GoogleChatUpdateOrganizationHandleRequest
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     GoogleChatIntegrationApi apiInstance = new GoogleChatIntegrationApi(defaultClient);
 
     // there is a valid "organization_handle" in the system

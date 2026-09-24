@@ -146,7 +146,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -206,7 +206,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupMembershipListResponse>> result =
           new CompletableFuture<>();
@@ -300,7 +300,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -357,7 +357,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -452,7 +452,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -509,7 +509,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -604,7 +604,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -664,7 +664,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyOverrideResponse>> result =
           new CompletableFuture<>();
@@ -759,7 +759,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -818,7 +818,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -915,7 +915,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -978,7 +978,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1076,7 +1076,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -1139,7 +1139,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1235,7 +1235,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1295,7 +1295,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1396,7 +1396,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1459,7 +1459,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupMembershipResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1556,7 +1556,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1618,7 +1618,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1719,7 +1719,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1784,7 +1784,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyOverrideResponse>> result =
           new CompletableFuture<>();
@@ -1983,7 +1983,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2046,7 +2046,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupMembershipListResponse>> result =
           new CompletableFuture<>();
@@ -2265,7 +2265,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2342,7 +2342,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2424,7 +2424,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2472,7 +2472,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyConfigListResponse>> result =
           new CompletableFuture<>();
@@ -2676,7 +2676,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2751,7 +2751,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyOverrideListResponse>> result =
           new CompletableFuture<>();
@@ -2852,7 +2852,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2917,7 +2917,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicySuggestionListResponse>> result =
           new CompletableFuture<>();
@@ -3083,7 +3083,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3139,7 +3139,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3246,7 +3246,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -3316,7 +3316,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3426,7 +3426,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -3500,7 +3500,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupMembershipResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3609,7 +3609,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -3683,7 +3683,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3793,7 +3793,7 @@ public class OrgGroupsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -3871,7 +3871,7 @@ public class OrgGroupsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgGroupPolicyOverrideResponse>> result =
           new CompletableFuture<>();

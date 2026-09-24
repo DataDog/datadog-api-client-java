@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.LLMObsPromptVersionsResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listLLMObsPromptVersions", true);
     AgentObservabilityApi apiInstance = new AgentObservabilityApi(defaultClient);
 

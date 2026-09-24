@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DatasetResponseSingle;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.getDataset", true);
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
 

@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DashboardListItems;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
     // there is a valid "dashboard_list" in the system

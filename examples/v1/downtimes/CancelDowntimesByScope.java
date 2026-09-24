@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.CanceledDowntimesIds;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
     // there is a valid "downtime" in the system

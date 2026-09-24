@@ -16,6 +16,7 @@ import com.datadog.api.client.v2.model.RelationshipToIncidentTypeData;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.createIncidentNotificationTemplate", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 

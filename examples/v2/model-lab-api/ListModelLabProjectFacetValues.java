@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.ModelLabProjectFacetType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listModelLabProjectFacetValues", true);
     ModelLabApiApi apiInstance = new ModelLabApiApi(defaultClient);
 

@@ -13,6 +13,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ActionsDatastoresApi apiInstance = new ActionsDatastoresApi(defaultClient);
 
     // there is a valid "datastore" in the system

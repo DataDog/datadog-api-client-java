@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.OwnershipInferenceListResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listOwnershipInferences", true);
     CsmOwnershipApi apiInstance = new CsmOwnershipApi(defaultClient);
 

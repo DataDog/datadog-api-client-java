@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.ConfluentAccountResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ConfluentCloudApi apiInstance = new ConfluentCloudApi(defaultClient);
 
     // there is a valid "confluent_account" in the system

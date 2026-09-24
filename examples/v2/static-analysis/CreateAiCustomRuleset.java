@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.AiCustomRulesetResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.createAiCustomRuleset", true);
     StaticAnalysisApi apiInstance = new StaticAnalysisApi(defaultClient);
 

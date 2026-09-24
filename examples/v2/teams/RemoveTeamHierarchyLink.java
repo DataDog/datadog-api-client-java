@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.TeamsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     // there is a valid "team_hierarchy_link" in the system

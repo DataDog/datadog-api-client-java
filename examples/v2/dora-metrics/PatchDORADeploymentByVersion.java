@@ -14,6 +14,7 @@ import com.datadog.api.client.v2.model.DORADeploymentPatchRequestDataType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.patchDORADeploymentByVersion", true);
     DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
 

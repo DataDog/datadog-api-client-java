@@ -7,6 +7,7 @@ import com.datadog.api.client.v1.api.WebhooksIntegrationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
 
     // there is a valid "webhook_custom_variable" in the system

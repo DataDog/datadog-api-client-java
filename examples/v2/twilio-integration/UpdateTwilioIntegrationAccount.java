@@ -22,6 +22,7 @@ import com.datadog.api.client.v2.model.TwilioMessagesLogsIntegrationDataflowRequ
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.updateTwilioIntegrationAccount", true);
     TwilioIntegrationApi apiInstance = new TwilioIntegrationApi(defaultClient);
 

@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.RoleResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RolesApi apiInstance = new RolesApi(defaultClient);
 
     // there is a valid "role" in the system

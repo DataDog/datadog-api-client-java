@@ -16,6 +16,7 @@ import com.datadog.api.client.v2.model.CustomDestinationUpdateRequestDefinition;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     LogsCustomDestinationsApi apiInstance = new LogsCustomDestinationsApi(defaultClient);
 
     // there is a valid "custom_destination_splunk_with_null_sourcetype" in the system

@@ -7,6 +7,7 @@ import com.datadog.api.client.v1.api.TagsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     TagsApi apiInstance = new TagsApi(defaultClient);
 
     try {

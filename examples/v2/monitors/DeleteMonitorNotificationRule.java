@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.MonitorsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     // there is a valid "monitor_notification_rule" in the system

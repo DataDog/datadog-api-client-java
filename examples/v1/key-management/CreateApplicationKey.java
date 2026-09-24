@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.ApplicationKeyResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
     ApplicationKey body = new ApplicationKey().name("example user");

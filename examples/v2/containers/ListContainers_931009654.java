@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.ContainerItem;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ContainersApi apiInstance = new ContainersApi(defaultClient);
 
     try {

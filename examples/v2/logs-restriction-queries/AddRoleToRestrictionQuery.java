@@ -10,6 +10,7 @@ import com.datadog.api.client.v2.model.RolesType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.addRoleToRestrictionQuery", true);
     LogsRestrictionQueriesApi apiInstance = new LogsRestrictionQueriesApi(defaultClient);
 

@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.CaseTypeUpdateRequest;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CaseManagementTypeApi apiInstance = new CaseManagementTypeApi(defaultClient);
 
     CaseTypeUpdateRequest body =

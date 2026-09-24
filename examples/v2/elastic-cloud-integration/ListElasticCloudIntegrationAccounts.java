@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.ElasticCloudIntegrationAccountsResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listElasticCloudIntegrationAccounts", true);
     ElasticCloudIntegrationApi apiInstance = new ElasticCloudIntegrationApi(defaultClient);
 

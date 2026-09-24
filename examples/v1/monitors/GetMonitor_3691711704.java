@@ -8,6 +8,7 @@ import com.datadog.api.client.v1.model.Monitor;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     // there is a valid "synthetics_api_test" in the system

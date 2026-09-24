@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.MaxSessionDurationUpdateRequest;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     MaxSessionDurationUpdateRequest body =

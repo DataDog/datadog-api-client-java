@@ -8,6 +8,7 @@ import com.datadog.api.client.v1.model.SyntheticsBrowserTestResultFull;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {

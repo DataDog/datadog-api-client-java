@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DomainAllowlistResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     DomainAllowlistApi apiInstance = new DomainAllowlistApi(defaultClient);
 
     try {
