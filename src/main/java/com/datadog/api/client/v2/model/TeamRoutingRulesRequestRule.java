@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Defines an individual routing rule item that contains the rule data for the request. */
 @JsonPropertyOrder({
   TeamRoutingRulesRequestRule.JSON_PROPERTY_ACTIONS,
+  TeamRoutingRulesRequestRule.JSON_PROPERTY_ID,
   TeamRoutingRulesRequestRule.JSON_PROPERTY_POLICY_ID,
   TeamRoutingRulesRequestRule.JSON_PROPERTY_QUERY,
   TeamRoutingRulesRequestRule.JSON_PROPERTY_TIME_RESTRICTION,
@@ -32,6 +33,9 @@ public class TeamRoutingRulesRequestRule {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTIONS = "actions";
   private List<RoutingRuleAction> actions = null;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_POLICY_ID = "policy_id";
   private String policyId;
@@ -83,6 +87,28 @@ public class TeamRoutingRulesRequestRule {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public TeamRoutingRulesRequestRule id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Specifies the unique identifier of an existing routing rule to update. If omitted, a new
+   * routing rule is created.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public TeamRoutingRulesRequestRule policyId(String policyId) {
@@ -236,6 +262,7 @@ public class TeamRoutingRulesRequestRule {
     }
     TeamRoutingRulesRequestRule teamRoutingRulesRequestRule = (TeamRoutingRulesRequestRule) o;
     return Objects.equals(this.actions, teamRoutingRulesRequestRule.actions)
+        && Objects.equals(this.id, teamRoutingRulesRequestRule.id)
         && Objects.equals(this.policyId, teamRoutingRulesRequestRule.policyId)
         && Objects.equals(this.query, teamRoutingRulesRequestRule.query)
         && Objects.equals(this.timeRestriction, teamRoutingRulesRequestRule.timeRestriction)
@@ -246,7 +273,8 @@ public class TeamRoutingRulesRequestRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actions, policyId, query, timeRestriction, urgency, additionalProperties);
+    return Objects.hash(
+        actions, id, policyId, query, timeRestriction, urgency, additionalProperties);
   }
 
   @Override
@@ -254,6 +282,7 @@ public class TeamRoutingRulesRequestRule {
     StringBuilder sb = new StringBuilder();
     sb.append("class TeamRoutingRulesRequestRule {\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    policyId: ").append(toIndentedString(policyId)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    timeRestriction: ").append(toIndentedString(timeRestriction)).append("\n");
