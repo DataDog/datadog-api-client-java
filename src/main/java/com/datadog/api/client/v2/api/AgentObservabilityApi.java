@@ -2187,6 +2187,14 @@ public class AgentObservabilityApi {
   /**
    * Create a new prompt (and its first version) in the Agent Observability prompt registry.
    *
+   * <blockquote>
+   *
+   * <p><strong>Preview</strong>: Prompt composition is available in Preview. To request access,
+   * contact <a href="https://docs.datadoghq.com/help/">Datadog Support</a> or your Customer Success
+   * Manager.
+   *
+   * </blockquote>
+   *
    * @param body Create prompt payload. (required)
    * @return ApiResponse&lt;LLMObsCreatePromptResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2340,6 +2348,14 @@ public class AgentObservabilityApi {
 
   /**
    * Create a new version of an existing Agent Observability prompt.
+   *
+   * <blockquote>
+   *
+   * <p><strong>Preview</strong>: Prompt composition is available in Preview. To request access,
+   * contact <a href="https://docs.datadoghq.com/help/">Datadog Support</a> or your Customer Success
+   * Manager.
+   *
+   * </blockquote>
    *
    * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Create prompt version payload. (required)

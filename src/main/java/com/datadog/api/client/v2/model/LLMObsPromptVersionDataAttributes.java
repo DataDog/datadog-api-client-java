@@ -21,12 +21,14 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes of a specific version of an Agent Observability prompt. Empty <code>config</code> is
- * omitted when configuration authoring is disabled for the organization. Non-empty saved
- * configuration is always returned.
+ * Attributes of a specific version of an Agent Observability prompt. For a composed version, <code>
+ * authoring_template</code> contains its pinned include-bearing source; ordinary versions omit that
+ * attribute. Empty <code>config</code> is omitted when configuration authoring is disabled for the
+ * organization. Non-empty saved configuration is always returned.
  */
 @JsonPropertyOrder({
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_AUTHOR,
+  LLMObsPromptVersionDataAttributes.JSON_PROPERTY_AUTHORING_TEMPLATE,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CONFIG,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CREATED_AT,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_DATASETS,
@@ -49,6 +51,9 @@ public class LLMObsPromptVersionDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private String author;
+
+  public static final String JSON_PROPERTY_AUTHORING_TEMPLATE = "authoring_template";
+  private LLMObsPromptTemplate authoringTemplate;
 
   public static final String JSON_PROPERTY_CONFIG = "config";
   private Map<String, Object> config = null;
@@ -129,6 +134,39 @@ public class LLMObsPromptVersionDataAttributes {
 
   public void setAuthor(String author) {
     this.author = author;
+  }
+
+  public LLMObsPromptVersionDataAttributes authoringTemplate(
+      LLMObsPromptTemplate authoringTemplate) {
+    this.authoringTemplate = authoringTemplate;
+    this.unparsed |= authoringTemplate.unparsed;
+    return this;
+  }
+
+  /**
+   * A text template, a list of chat messages, or an authored chat object. Text can include an exact
+   * prompt version with <code>{{&gt;prompt-id version=N}}</code>; other text, including <code>
+   * {{&gt;...}}</code> sequences without a version, remains literal. Use an authored chat object
+   * when including prompts as chat messages. <strong>Preview</strong>: Prompt composition is
+   * available in Preview. To request access, contact <a
+   * href="https://docs.datadoghq.com/help/">Datadog Support</a> or your Customer Success Manager.
+   * Without access, inline references remain literal text and structured includes are unsupported.
+   * Previously compiled prompt versions remain available for execution.
+   *
+   * @return authoringTemplate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHORING_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsPromptTemplate getAuthoringTemplate() {
+    return authoringTemplate;
+  }
+
+  public void setAuthoringTemplate(LLMObsPromptTemplate authoringTemplate) {
+    this.authoringTemplate = authoringTemplate;
+    if (authoringTemplate != null) {
+      this.unparsed |= authoringTemplate.unparsed;
+    }
   }
 
   public LLMObsPromptVersionDataAttributes config(Map<String, Object> config) {
@@ -426,7 +464,14 @@ public class LLMObsPromptVersionDataAttributes {
   }
 
   /**
-   * A text template or a list of chat messages.
+   * A text template, a list of chat messages, or an authored chat object. Text can include an exact
+   * prompt version with <code>{{&gt;prompt-id version=N}}</code>; other text, including <code>
+   * {{&gt;...}}</code> sequences without a version, remains literal. Use an authored chat object
+   * when including prompts as chat messages. <strong>Preview</strong>: Prompt composition is
+   * available in Preview. To request access, contact <a
+   * href="https://docs.datadoghq.com/help/">Datadog Support</a> or your Customer Success Manager.
+   * Without access, inline references remain literal text and structured includes are unsupported.
+   * Previously compiled prompt versions remain available for execution.
    *
    * @return template
    */
@@ -563,6 +608,8 @@ public class LLMObsPromptVersionDataAttributes {
     LLMObsPromptVersionDataAttributes llmObsPromptVersionDataAttributes =
         (LLMObsPromptVersionDataAttributes) o;
     return Objects.equals(this.author, llmObsPromptVersionDataAttributes.author)
+        && Objects.equals(
+            this.authoringTemplate, llmObsPromptVersionDataAttributes.authoringTemplate)
         && Objects.equals(this.config, llmObsPromptVersionDataAttributes.config)
         && Objects.equals(this.createdAt, llmObsPromptVersionDataAttributes.createdAt)
         && Objects.equals(this.datasets, llmObsPromptVersionDataAttributes.datasets)
@@ -586,6 +633,7 @@ public class LLMObsPromptVersionDataAttributes {
   public int hashCode() {
     return Objects.hash(
         author,
+        authoringTemplate,
         config,
         createdAt,
         datasets,
@@ -609,6 +657,7 @@ public class LLMObsPromptVersionDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPromptVersionDataAttributes {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("    authoringTemplate: ").append(toIndentedString(authoringTemplate)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    datasets: ").append(toIndentedString(datasets)).append("\n");

@@ -58,9 +58,10 @@ public class LLMObsPromptVersionData {
   }
 
   /**
-   * Attributes of a specific version of an Agent Observability prompt. Empty <code>config</code> is
-   * omitted when configuration authoring is disabled for the organization. Non-empty saved
-   * configuration is always returned.
+   * Attributes of a specific version of an Agent Observability prompt. For a composed version,
+   * <code>authoring_template</code> contains its pinned include-bearing source; ordinary versions
+   * omit that attribute. Empty <code>config</code> is omitted when configuration authoring is
+   * disabled for the organization. Non-empty saved configuration is always returned.
    *
    * @return attributes
    */
