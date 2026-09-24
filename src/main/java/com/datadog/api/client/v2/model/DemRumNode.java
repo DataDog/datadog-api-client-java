@@ -39,7 +39,10 @@ public class DemRumNode {
   public DemRumNode() {}
 
   @JsonCreator
-  public DemRumNode(@JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+  public DemRumNode(
+      @JsonProperty(required = true, value = JSON_PROPERTY_APP_ID) String appId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.appId = appId;
     this.query = query;
   }
 
@@ -49,13 +52,15 @@ public class DemRumNode {
   }
 
   /**
-   * The application ID associated with this node.
+   * The RUM application ID whose events this node query matches. This value is required for every
+   * node when creating or updating a DEM feature or journey, including variants, and is used to
+   * discover the resource in application-scoped searches. Use <code>GET /api/v2/rum/applications
+   * </code> to find RUM application IDs.
    *
    * @return appId
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APP_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAppId() {
     return appId;
   }

@@ -30,20 +30,32 @@ public class Example {
                             .description("Tracks the user checkout flow from cart to confirmation.")
                             .journeyRum(
                                 new DemJourneyRum()
-                                    .filter("env:prod")
+                                    .filter(
+                                        "@application.id:11111111-2222-3333-4444-555555555555"
+                                            + " env:prod")
                                     .rumSteps(
                                         Arrays.asList(
                                             new DemRumStep()
                                                 .nodes(
                                                     Collections.singletonList(
                                                         new DemRumNode()
-                                                            .query("action.name:'checkout'")))
+                                                            .appId(
+                                                                "11111111-2222-3333-4444-555555555555")
+                                                            .query(
+                                                                """
+@action.name:"Checkout"
+""")))
                                                 .type(DemRumStepType.START),
                                             new DemRumStep()
                                                 .nodes(
                                                     Collections.singletonList(
                                                         new DemRumNode()
-                                                            .query("action.name:'confirmation'")))
+                                                            .appId(
+                                                                "11111111-2222-3333-4444-555555555555")
+                                                            .query(
+                                                                """
+@view.url_path:"/confirmation"
+""")))
                                                 .type(DemRumStepType.STOP)))
                                     .variants(
                                         Collections.singletonList(
@@ -55,15 +67,23 @@ public class Example {
                                                             .nodes(
                                                                 Collections.singletonList(
                                                                     new DemRumNode()
+                                                                        .appId(
+                                                                            "11111111-2222-3333-4444-555555555555")
                                                                         .query(
-                                                                            "action.name:'checkout'")))
+                                                                            """
+@action.name:"Checkout"
+""")))
                                                             .type(DemRumStepType.START),
                                                         new DemRumStep()
                                                             .nodes(
                                                                 Collections.singletonList(
                                                                     new DemRumNode()
+                                                                        .appId(
+                                                                            "11111111-2222-3333-4444-555555555555")
                                                                         .query(
-                                                                            "action.name:'confirmation'")))
+                                                                            """
+@view.url_path:"/confirmation"
+""")))
                                                             .type(DemRumStepType.STOP))))))
                             .name("Checkout Flow")
                             .tags(Arrays.asList("team:synthetics", "env:prod"))
@@ -77,14 +97,23 @@ public class Example {
                                                     .nodes(
                                                         Collections.singletonList(
                                                             new DemRumNode()
-                                                                .query("action.name:'checkout'")))
+                                                                .appId(
+                                                                    "11111111-2222-3333-4444-555555555555")
+                                                                .query(
+                                                                    """
+@action.name:"Checkout"
+""")))
                                                     .type(DemRumStepType.START),
                                                 new DemRumStep()
                                                     .nodes(
                                                         Collections.singletonList(
                                                             new DemRumNode()
+                                                                .appId(
+                                                                    "11111111-2222-3333-4444-555555555555")
                                                                 .query(
-                                                                    "action.name:'confirmation'")))
+                                                                    """
+@view.url_path:"/confirmation"
+""")))
                                                     .type(DemRumStepType.STOP))))))
                     .type(DemJourneyType.JOURNEYS));
 
