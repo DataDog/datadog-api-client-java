@@ -20,10 +20,13 @@ import java.util.Objects;
 
 /**
  * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of <code>
- * template</code> and <code>chat_template</code> is returned.
+ * template</code> and <code>chat_template</code> is returned. Empty <code>config</code> is omitted
+ * when configuration authoring is disabled for the organization. Non-empty saved configuration is
+ * always returned.
  */
 @JsonPropertyOrder({
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_CHAT_TEMPLATE,
+  LLMObsPromptSDKDataAttributes.JSON_PROPERTY_CONFIG,
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_LABELS,
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_PROMPT_ID,
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_PROMPT_VERSION_UUID,
@@ -35,7 +38,10 @@ import java.util.Objects;
 public class LLMObsPromptSDKDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHAT_TEMPLATE = "chat_template";
-  private List<LLMObsPromptChatMessage> chatTemplate = null;
+  private List<LLMObsPromptChatTemplateItem> chatTemplate = null;
+
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private Map<String, Object> config = null;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private List<String> labels = null;
@@ -52,10 +58,11 @@ public class LLMObsPromptSDKDataAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
 
-  public LLMObsPromptSDKDataAttributes chatTemplate(List<LLMObsPromptChatMessage> chatTemplate) {
+  public LLMObsPromptSDKDataAttributes chatTemplate(
+      List<LLMObsPromptChatTemplateItem> chatTemplate) {
     this.chatTemplate = chatTemplate;
     if (chatTemplate != null) {
-      for (LLMObsPromptChatMessage item : chatTemplate) {
+      for (LLMObsPromptChatTemplateItem item : chatTemplate) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -63,7 +70,7 @@ public class LLMObsPromptSDKDataAttributes {
   }
 
   public LLMObsPromptSDKDataAttributes addChatTemplateItem(
-      LLMObsPromptChatMessage chatTemplateItem) {
+      LLMObsPromptChatTemplateItem chatTemplateItem) {
     if (this.chatTemplate == null) {
       this.chatTemplate = new ArrayList<>();
     }
@@ -73,25 +80,60 @@ public class LLMObsPromptSDKDataAttributes {
   }
 
   /**
-   * Chat template for this prompt version, as a list of role and content messages. Omitted for text
-   * templates.
+   * Chat template for this prompt version, as a list of messages and named message placeholders.
+   * Omitted for text templates. <strong>Preview:</strong> Message placeholders are available in
+   * Preview. To request access, contact <a href="https://www.datadoghq.com/support/">Datadog
+   * Support</a> or your Customer Success Manager.
    *
    * @return chatTemplate
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHAT_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LLMObsPromptChatMessage> getChatTemplate() {
+  public List<LLMObsPromptChatTemplateItem> getChatTemplate() {
     return chatTemplate;
   }
 
-  public void setChatTemplate(List<LLMObsPromptChatMessage> chatTemplate) {
+  public void setChatTemplate(List<LLMObsPromptChatTemplateItem> chatTemplate) {
     this.chatTemplate = chatTemplate;
     if (chatTemplate != null) {
-      for (LLMObsPromptChatMessage item : chatTemplate) {
+      for (LLMObsPromptChatTemplateItem item : chatTemplate) {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public LLMObsPromptSDKDataAttributes config(Map<String, Object> config) {
+    this.config = config;
+    return this;
+  }
+
+  public LLMObsPromptSDKDataAttributes putConfigItem(String key, Object configItem) {
+    if (this.config == null) {
+      this.config = new HashMap<>();
+    }
+    this.config.put(key, configItem);
+    return this;
+  }
+
+  /**
+   * Versioned prompt configuration is in Preview. To request access, contact <a
+   * href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer Success Manager.
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the
+   * object without interpolating it, validating provider-specific keys, or applying it to model
+   * calls. Do not include secrets.
+   *
+   * @return config
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
   }
 
   public LLMObsPromptSDKDataAttributes labels(List<String> labels) {
@@ -268,6 +310,7 @@ public class LLMObsPromptSDKDataAttributes {
     }
     LLMObsPromptSDKDataAttributes llmObsPromptSdkDataAttributes = (LLMObsPromptSDKDataAttributes) o;
     return Objects.equals(this.chatTemplate, llmObsPromptSdkDataAttributes.chatTemplate)
+        && Objects.equals(this.config, llmObsPromptSdkDataAttributes.config)
         && Objects.equals(this.labels, llmObsPromptSdkDataAttributes.labels)
         && Objects.equals(this.promptId, llmObsPromptSdkDataAttributes.promptId)
         && Objects.equals(this.promptVersionUuid, llmObsPromptSdkDataAttributes.promptVersionUuid)
@@ -280,7 +323,14 @@ public class LLMObsPromptSDKDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        chatTemplate, labels, promptId, promptVersionUuid, template, version, additionalProperties);
+        chatTemplate,
+        config,
+        labels,
+        promptId,
+        promptVersionUuid,
+        template,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -288,6 +338,7 @@ public class LLMObsPromptSDKDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPromptSDKDataAttributes {\n");
     sb.append("    chatTemplate: ").append(toIndentedString(chatTemplate)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    promptId: ").append(toIndentedString(promptId)).append("\n");
     sb.append("    promptVersionUuid: ").append(toIndentedString(promptVersionUuid)).append("\n");

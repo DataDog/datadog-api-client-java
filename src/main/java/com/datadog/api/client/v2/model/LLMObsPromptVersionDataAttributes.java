@@ -20,9 +20,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a specific version of an Agent Observability prompt. */
+/**
+ * Attributes of a specific version of an Agent Observability prompt. Empty <code>config</code> is
+ * omitted when configuration authoring is disabled for the organization. Non-empty saved
+ * configuration is always returned.
+ */
 @JsonPropertyOrder({
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_AUTHOR,
+  LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CONFIG,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CREATED_AT,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_DATASETS,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -44,6 +49,9 @@ public class LLMObsPromptVersionDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private String author;
+
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private Map<String, Object> config = null;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -121,6 +129,39 @@ public class LLMObsPromptVersionDataAttributes {
 
   public void setAuthor(String author) {
     this.author = author;
+  }
+
+  public LLMObsPromptVersionDataAttributes config(Map<String, Object> config) {
+    this.config = config;
+    return this;
+  }
+
+  public LLMObsPromptVersionDataAttributes putConfigItem(String key, Object configItem) {
+    if (this.config == null) {
+      this.config = new HashMap<>();
+    }
+    this.config.put(key, configItem);
+    return this;
+  }
+
+  /**
+   * Versioned prompt configuration is in Preview. To request access, contact <a
+   * href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer Success Manager.
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the
+   * object without interpolating it, validating provider-specific keys, or applying it to model
+   * calls. Do not include secrets.
+   *
+   * @return config
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
   }
 
   public LLMObsPromptVersionDataAttributes createdAt(OffsetDateTime createdAt) {
@@ -385,7 +426,10 @@ public class LLMObsPromptVersionDataAttributes {
   }
 
   /**
-   * A text template or a list of chat messages.
+   * A text template or a list of chat messages and named message placeholders.
+   * <strong>Preview:</strong> Message placeholders are available in Preview. To request access,
+   * contact <a href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer
+   * Success Manager.
    *
    * @return template
    */
@@ -522,6 +566,7 @@ public class LLMObsPromptVersionDataAttributes {
     LLMObsPromptVersionDataAttributes llmObsPromptVersionDataAttributes =
         (LLMObsPromptVersionDataAttributes) o;
     return Objects.equals(this.author, llmObsPromptVersionDataAttributes.author)
+        && Objects.equals(this.config, llmObsPromptVersionDataAttributes.config)
         && Objects.equals(this.createdAt, llmObsPromptVersionDataAttributes.createdAt)
         && Objects.equals(this.datasets, llmObsPromptVersionDataAttributes.datasets)
         && Objects.equals(this.description, llmObsPromptVersionDataAttributes.description)
@@ -544,6 +589,7 @@ public class LLMObsPromptVersionDataAttributes {
   public int hashCode() {
     return Objects.hash(
         author,
+        config,
         createdAt,
         datasets,
         description,
@@ -566,6 +612,7 @@ public class LLMObsPromptVersionDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPromptVersionDataAttributes {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    datasets: ").append(toIndentedString(datasets)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

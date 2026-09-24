@@ -16,16 +16,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A chat prompt template. */
+/**
+ * A chat prompt template containing messages and optional named message placeholders.
+ * <strong>Preview:</strong> Message placeholders are available in Preview. To request access,
+ * contact <a href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer Success
+ * Manager.
+ */
 @JsonPropertyOrder({})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatMessage> {
+public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatTemplateItem> {
   @JsonIgnore public boolean unparsed = false;
 
   public LLMObsPromptChatTemplate() {}
 
-  public LLMObsPromptChatTemplate(List<LLMObsPromptChatMessage> items) {
+  public LLMObsPromptChatTemplate(List<LLMObsPromptChatTemplateItem> items) {
     super(items);
   }
 
