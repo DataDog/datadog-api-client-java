@@ -59,7 +59,9 @@ public class LLMObsPromptSDKData {
 
   /**
    * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of <code>
-   * template</code> and <code>chat_template</code> is returned.
+   * template</code> and <code>chat_template</code> is returned. Empty <code>config</code> is
+   * omitted when configuration authoring is disabled for the organization. Non-empty saved
+   * configuration is always returned.
    *
    * @return attributes
    */

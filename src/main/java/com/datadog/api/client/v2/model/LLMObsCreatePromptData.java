@@ -53,7 +53,10 @@ public class LLMObsCreatePromptData {
 
   /**
    * Attributes for creating an Agent Observability prompt and its first version. <code>prompt_id
-   * </code> and <code>template</code> are required; all other attributes are optional.
+   * </code> and <code>template</code> are required; all other attributes are optional. If <code>
+   * config</code> is omitted, the first version stores an empty object. Configuration authoring
+   * must be enabled for your organization to supply <code>config</code>. Otherwise, supplying it,
+   * including an empty object, returns HTTP 403.
    *
    * @return attributes
    */
