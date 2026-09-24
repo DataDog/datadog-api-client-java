@@ -17,33 +17,33 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for a specific version of an Agent Observability prompt. */
+/** Data object returned after creating an Agent Observability prompt. */
 @JsonPropertyOrder({
-  LLMObsPromptVersionData.JSON_PROPERTY_ATTRIBUTES,
-  LLMObsPromptVersionData.JSON_PROPERTY_ID,
-  LLMObsPromptVersionData.JSON_PROPERTY_TYPE
+  LLMObsCreatePromptResponseData.JSON_PROPERTY_ATTRIBUTES,
+  LLMObsCreatePromptResponseData.JSON_PROPERTY_ID,
+  LLMObsCreatePromptResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsPromptVersionData {
+public class LLMObsCreatePromptResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private LLMObsPromptVersionDataAttributes attributes;
+  private LLMObsCreatePromptResponseDataAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private LLMObsPromptVersionType type;
+  private LLMObsPromptType type;
 
-  public LLMObsPromptVersionData() {}
+  public LLMObsCreatePromptResponseData() {}
 
   @JsonCreator
-  public LLMObsPromptVersionData(
+  public LLMObsCreatePromptResponseData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          LLMObsPromptVersionDataAttributes attributes,
+          LLMObsCreatePromptResponseDataAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsPromptVersionType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsPromptType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.id = id;
@@ -51,39 +51,40 @@ public class LLMObsPromptVersionData {
     this.unparsed |= !type.isValid();
   }
 
-  public LLMObsPromptVersionData attributes(LLMObsPromptVersionDataAttributes attributes) {
+  public LLMObsCreatePromptResponseData attributes(
+      LLMObsCreatePromptResponseDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes of a specific version of an Agent Observability prompt. Empty <code>config</code> is
-   * omitted when configuration authoring is disabled for the organization. Non-empty saved
-   * configuration is always returned.
+   * Attributes returned after creating an Agent Observability prompt and its first version. Empty
+   * <code>config</code> is omitted when configuration authoring is disabled for the organization.
+   * Non-empty saved configuration is always returned.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsPromptVersionDataAttributes getAttributes() {
+  public LLMObsCreatePromptResponseDataAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(LLMObsPromptVersionDataAttributes attributes) {
+  public void setAttributes(LLMObsCreatePromptResponseDataAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public LLMObsPromptVersionData id(String id) {
+  public LLMObsCreatePromptResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique identifier of the prompt version.
+   * Unique identifier of the prompt.
    *
    * @return id
    */
@@ -97,24 +98,24 @@ public class LLMObsPromptVersionData {
     this.id = id;
   }
 
-  public LLMObsPromptVersionData type(LLMObsPromptVersionType type) {
+  public LLMObsCreatePromptResponseData type(LLMObsPromptType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Resource type of an Agent Observability prompt version.
+   * Resource type of an Agent Observability prompt.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsPromptVersionType getType() {
+  public LLMObsPromptType getType() {
     return type;
   }
 
-  public void setType(LLMObsPromptVersionType type) {
+  public void setType(LLMObsPromptType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -133,10 +134,10 @@ public class LLMObsPromptVersionData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return LLMObsPromptVersionData
+   * @return LLMObsCreatePromptResponseData
    */
   @JsonAnySetter
-  public LLMObsPromptVersionData putAdditionalProperty(String key, Object value) {
+  public LLMObsCreatePromptResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -167,7 +168,7 @@ public class LLMObsPromptVersionData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsPromptVersionData object is equal to o. */
+  /** Return true if this LLMObsCreatePromptResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -176,11 +177,13 @@ public class LLMObsPromptVersionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsPromptVersionData llmObsPromptVersionData = (LLMObsPromptVersionData) o;
-    return Objects.equals(this.attributes, llmObsPromptVersionData.attributes)
-        && Objects.equals(this.id, llmObsPromptVersionData.id)
-        && Objects.equals(this.type, llmObsPromptVersionData.type)
-        && Objects.equals(this.additionalProperties, llmObsPromptVersionData.additionalProperties);
+    LLMObsCreatePromptResponseData llmObsCreatePromptResponseData =
+        (LLMObsCreatePromptResponseData) o;
+    return Objects.equals(this.attributes, llmObsCreatePromptResponseData.attributes)
+        && Objects.equals(this.id, llmObsCreatePromptResponseData.id)
+        && Objects.equals(this.type, llmObsCreatePromptResponseData.type)
+        && Objects.equals(
+            this.additionalProperties, llmObsCreatePromptResponseData.additionalProperties);
   }
 
   @Override
@@ -191,7 +194,7 @@ public class LLMObsPromptVersionData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LLMObsPromptVersionData {\n");
+    sb.append("class LLMObsCreatePromptResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

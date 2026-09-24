@@ -54,7 +54,11 @@ public class LLMObsCreatePromptVersionData {
 
   /**
    * Attributes for creating a new version of an Agent Observability prompt. <code>template</code>
-   * is required; all other attributes are optional.
+   * is required; all other attributes are optional. If <code>config</code> is omitted, the latest
+   * version's configuration is carried forward. An explicit empty object clears it. Configuration
+   * authoring must be enabled for your organization to supply <code>config</code>. Otherwise,
+   * supplying it, including an empty object, returns HTTP 403. Omitting <code>config</code> still
+   * carries forward the latest configuration.
    *
    * @return attributes
    */
