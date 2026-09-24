@@ -1,5 +1,71 @@
 # CHANGELOG
 
+## 2.61.0/2026-09-24
+
+### Added
+* Add bearer auth to endpoints that support api app key auth [#4362](https://github.com/DataDog/datadog-api-client-java/pull/4362)
+* Document Deployment Gate evaluation APIs [#4361](https://github.com/DataDog/datadog-api-client-java/pull/4361)
+* Update GCP V2 API spec to support is_org_folder_resource_collection_enabled  [#4354](https://github.com/DataDog/datadog-api-client-java/pull/4354)
+* allow billing read for ListQuotas GET endpoint [#4346](https://github.com/DataDog/datadog-api-client-java/pull/4346)
+* Document run_as attribute and with_run_as param for downtime v2 API [#4340](https://github.com/DataDog/datadog-api-client-java/pull/4340)
+* Add sensitivePrivileges field to Workflow Automation spec [#4334](https://github.com/DataDog/datadog-api-client-java/pull/4334)
+* Add draft monitor permissions definition [#4333](https://github.com/DataDog/datadog-api-client-java/pull/4333)
+* Document NDM device tag sources [#4325](https://github.com/DataDog/datadog-api-client-java/pull/4325)
+* Document GetBudget response metadata [#4322](https://github.com/DataDog/datadog-api-client-java/pull/4322)
+* LLMObs Document version-pinned prompt composition [#4316](https://github.com/DataDog/datadog-api-client-java/pull/4316)
+* Add versioned prompt configuration [#4315](https://github.com/DataDog/datadog-api-client-java/pull/4315)
+* Document OAuth v2 OIDC discovery endpoint [#4314](https://github.com/DataDog/datadog-api-client-java/pull/4314)
+* Add prometheus remote write source and sink to obs-pipelines public api spec [#4310](https://github.com/DataDog/datadog-api-client-java/pull/4310)
+* Allow up to three timeseries anomaly investigation results [#4309](https://github.com/DataDog/datadog-api-client-java/pull/4309)
+* Security findings default and regular inbox rules API spec [#4307](https://github.com/DataDog/datadog-api-client-java/pull/4307)
+* Add Integration Accounts v2 API for Snowflake [#4306](https://github.com/DataDog/datadog-api-client-java/pull/4306)
+* Add downtime duration policy to Monitor Config Policy API spec [#4304](https://github.com/DataDog/datadog-api-client-java/pull/4304)
+* Add overflow and metrics destinations, deprecate generate_datadog_metrics, add custom auth for http_client [#4303](https://github.com/DataDog/datadog-api-client-java/pull/4303)
+* promote GET `/api/v2/on-call/schedules` to a public ListOnCallSchedules operation [#4302](https://github.com/DataDog/datadog-api-client-java/pull/4302)
+* Add documentation for name filter query parameter in ListStatusPages [#4301](https://github.com/DataDog/datadog-api-client-java/pull/4301)
+* Add embedded app widgets to the Dashboard API [#4297](https://github.com/DataDog/datadog-api-client-java/pull/4297)
+* Support frontend annotation display blocks [#4296](https://github.com/DataDog/datadog-api-client-java/pull/4296)
+* Accept the linear ticket creation target in security pipelines automation [#4295](https://github.com/DataDog/datadog-api-client-java/pull/4295)
+* Add timeseries anomaly investigations API [#4287](https://github.com/DataDog/datadog-api-client-java/pull/4287)
+* Add monitor IDs to deployment rules [#4285](https://github.com/DataDog/datadog-api-client-java/pull/4285)
+* Change usage quotas public APIs to only required billing_edit [#4284](https://github.com/DataDog/datadog-api-client-java/pull/4284)
+* Add `sensitive_data` and `serverless_function_code_vulnerability` to security finding notification API spec [#4283](https://github.com/DataDog/datadog-api-client-java/pull/4283)
+* Add Integration Accounts v2 API for Databricks [#4279](https://github.com/DataDog/datadog-api-client-java/pull/4279)
+* Add source to target and model configuration options to data quality monitors [#4276](https://github.com/DataDog/datadog-api-client-java/pull/4276)
+* Publish product catalog SKUs and pricing API in preview [#4275](https://github.com/DataDog/datadog-api-client-java/pull/4275)
+* Add unit cost ROI endpoints to Cloud Cost Management [#4274](https://github.com/DataDog/datadog-api-client-java/pull/4274)
+* Update Observability Pipelines Splunk TCP source in OpenAPI spec [#4273](https://github.com/DataDog/datadog-api-client-java/pull/4273)
+* Add annotated interaction details endpoint [#4267](https://github.com/DataDog/datadog-api-client-java/pull/4267)
+* [DEM-68] - Publish DEM Journey APIs [#4265](https://github.com/DataDog/datadog-api-client-java/pull/4265)
+* Add canceled_description to maintenance response attributes [#4263](https://github.com/DataDog/datadog-api-client-java/pull/4263)
+* Add Feature Flag creation options [#4258](https://github.com/DataDog/datadog-api-client-java/pull/4258)
+* Add workflow run as configuration [#4242](https://github.com/DataDog/datadog-api-client-java/pull/4242)
+* Document NDM device tag sources [#4223](https://github.com/DataDog/datadog-api-client-java/pull/4223)
+* Promote Code Coverage v2 endpoints to stable [#4195](https://github.com/DataDog/datadog-api-client-java/pull/4195)
+* Document include_scopes query param on GET /api/v2/permissions [#4157](https://github.com/DataDog/datadog-api-client-java/pull/4157)
+
+### Removed
+* Remove deprecated queried_tags_window_seconds and related_asset_tags fields [#4357](https://github.com/DataDog/datadog-api-client-java/pull/4357)
+* Deprecate POST incidents /cases/page endpoint [#4347](https://github.com/DataDog/datadog-api-client-java/pull/4347)
+* Remove actor_handle and actor_type from the CSM ownership feedback request [#4280](https://github.com/DataDog/datadog-api-client-java/pull/4280)
+
+### Fixed
+* Fix static analysis OpenAPI drift [#4356](https://github.com/DataDog/datadog-api-client-java/pull/4356)
+* Allow SDS configuration metadata extensions [#4353](https://github.com/DataDog/datadog-api-client-java/pull/4353)
+* Fix cost recommendations JSON API request schema [#4341](https://github.com/DataDog/datadog-api-client-java/pull/4341)
+* Add Private Action Runner flag to API key schemas [#4338](https://github.com/DataDog/datadog-api-client-java/pull/4338)
+* Document monitor scope for investigations [#4311](https://github.com/DataDog/datadog-api-client-java/pull/4311)
+* Fix static-analysis-api spec drift [#4299](https://github.com/DataDog/datadog-api-client-java/pull/4299)
+
+### Changed
+* Normalize Twilio and Elastic Cloud integration account specs [#4332](https://github.com/DataDog/datadog-api-client-java/pull/4332)
+* Use JSONAPI error schema for cost tag endpoints [#4328](https://github.com/DataDog/datadog-api-client-java/pull/4328)
+* Fix GetBudget costs_unit.id type to integer [#4324](https://github.com/DataDog/datadog-api-client-java/pull/4324)
+* Add role policy type to org group policies [#4277](https://github.com/DataDog/datadog-api-client-java/pull/4277)
+
+### Deprecated
+* Deprecate OCI config listing endpoint [#4259](https://github.com/DataDog/datadog-api-client-java/pull/4259)
+
 ## 2.60.0/2026-09-02
 
 ### Added
