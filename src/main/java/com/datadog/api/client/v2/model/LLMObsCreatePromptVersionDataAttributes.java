@@ -21,9 +21,14 @@ import java.util.Objects;
 
 /**
  * Attributes for creating a new version of an Agent Observability prompt. <code>template</code> is
- * required; all other attributes are optional.
+ * required; all other attributes are optional. If <code>config</code> is omitted, the latest
+ * version's configuration is carried forward. An explicit empty object clears it. Configuration
+ * authoring must be enabled for your organization to supply <code>config</code>. Otherwise,
+ * supplying it, including an empty object, returns HTTP 403. Omitting <code>config</code> still
+ * carries forward the latest configuration.
  */
 @JsonPropertyOrder({
+  LLMObsCreatePromptVersionDataAttributes.JSON_PROPERTY_CONFIG,
   LLMObsCreatePromptVersionDataAttributes.JSON_PROPERTY_DESCRIPTION,
   LLMObsCreatePromptVersionDataAttributes.JSON_PROPERTY_ENV_IDS,
   LLMObsCreatePromptVersionDataAttributes.JSON_PROPERTY_LABELS,
@@ -34,6 +39,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsCreatePromptVersionDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private Map<String, Object> config = null;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -57,6 +65,39 @@ public class LLMObsCreatePromptVersionDataAttributes {
           LLMObsPromptTemplate template) {
     this.template = template;
     this.unparsed |= template.unparsed;
+  }
+
+  public LLMObsCreatePromptVersionDataAttributes config(Map<String, Object> config) {
+    this.config = config;
+    return this;
+  }
+
+  public LLMObsCreatePromptVersionDataAttributes putConfigItem(String key, Object configItem) {
+    if (this.config == null) {
+      this.config = new HashMap<>();
+    }
+    this.config.put(key, configItem);
+    return this;
+  }
+
+  /**
+   * Versioned prompt configuration is in Preview. To request access, contact <a
+   * href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer Success Manager.
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the
+   * object without interpolating it, validating provider-specific keys, or applying it to model
+   * calls. Do not include secrets.
+   *
+   * @return config
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
   }
 
   public LLMObsCreatePromptVersionDataAttributes description(String description) {
@@ -246,7 +287,8 @@ public class LLMObsCreatePromptVersionDataAttributes {
     }
     LLMObsCreatePromptVersionDataAttributes llmObsCreatePromptVersionDataAttributes =
         (LLMObsCreatePromptVersionDataAttributes) o;
-    return Objects.equals(this.description, llmObsCreatePromptVersionDataAttributes.description)
+    return Objects.equals(this.config, llmObsCreatePromptVersionDataAttributes.config)
+        && Objects.equals(this.description, llmObsCreatePromptVersionDataAttributes.description)
         && Objects.equals(this.envIds, llmObsCreatePromptVersionDataAttributes.envIds)
         && Objects.equals(this.labels, llmObsCreatePromptVersionDataAttributes.labels)
         && Objects.equals(this.template, llmObsCreatePromptVersionDataAttributes.template)
@@ -258,13 +300,15 @@ public class LLMObsCreatePromptVersionDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, envIds, labels, template, userVersion, additionalProperties);
+    return Objects.hash(
+        config, description, envIds, labels, template, userVersion, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsCreatePromptVersionDataAttributes {\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envIds: ").append(toIndentedString(envIds)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
