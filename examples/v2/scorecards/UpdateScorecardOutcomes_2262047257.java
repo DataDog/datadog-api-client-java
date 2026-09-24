@@ -14,6 +14,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ScorecardsApi apiInstance = new ScorecardsApi(defaultClient);
 
     // there is a valid "create_scorecard_rule" in the system

@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.GlobalOrgData;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     try {

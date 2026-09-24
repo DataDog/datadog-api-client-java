@@ -7,6 +7,7 @@ import com.datadog.api.client.v1.api.NotebooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     NotebooksApi apiInstance = new NotebooksApi(defaultClient);
 
     // there is a valid "notebook" in the system

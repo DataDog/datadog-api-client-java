@@ -8,6 +8,7 @@ import com.datadog.api.client.v1.model.MetricMetadata;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     MetricMetadata body = new MetricMetadata().perUnit("second").type("count").unit("byte");

@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.RumMetricsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumMetricsApi apiInstance = new RumMetricsApi(defaultClient);
 
     // there is a valid "rum_metric" in the system

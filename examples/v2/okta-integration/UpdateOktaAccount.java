@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.OktaAccountUpdateRequestData;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     OktaIntegrationApi apiInstance = new OktaIntegrationApi(defaultClient);
 
     // there is a valid "okta_account" in the system

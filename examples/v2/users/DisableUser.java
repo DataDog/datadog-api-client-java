@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     // there is a valid "user" in the system

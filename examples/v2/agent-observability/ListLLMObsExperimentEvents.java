@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.LLMObsExperimentEventsV2Response;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listLLMObsExperimentEvents", true);
     AgentObservabilityApi apiInstance = new AgentObservabilityApi(defaultClient);
 

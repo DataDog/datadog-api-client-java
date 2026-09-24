@@ -13,6 +13,7 @@ import java.util.Arrays;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
     // there is a valid "service_account_user" in the system

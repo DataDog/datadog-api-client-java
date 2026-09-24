@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.MaintenanceWindowUpdateRequest;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     MaintenanceWindowUpdateRequest body =

@@ -13,6 +13,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
 
     // there is a valid "gcp_sts_account" in the system

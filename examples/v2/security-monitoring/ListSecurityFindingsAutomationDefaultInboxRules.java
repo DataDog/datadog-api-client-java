@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.DefaultInboxRulesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled(
         "v2.listSecurityFindingsAutomationDefaultInboxRules", true);
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.ApplicationSecurityWafExclusionFilterResp
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ApplicationSecurityApi apiInstance = new ApplicationSecurityApi(defaultClient);
 
     // there is a valid "exclusion_filter" in the system

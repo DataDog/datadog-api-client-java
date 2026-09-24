@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.AWSLogsAsyncResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
 
     AWSAccountAndLambdaRequest body =

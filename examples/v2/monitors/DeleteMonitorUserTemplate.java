@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.MonitorsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.deleteMonitorUserTemplate", true);
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 

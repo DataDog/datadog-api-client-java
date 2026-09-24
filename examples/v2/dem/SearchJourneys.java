@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DemJourneysListResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     DemApi apiInstance = new DemApi(defaultClient);
 
     try {

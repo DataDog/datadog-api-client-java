@@ -15,6 +15,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     // there is a valid "dashboard" in the system

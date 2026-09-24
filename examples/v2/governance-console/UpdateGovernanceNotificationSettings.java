@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.GovernanceNotificationSettingsUpdateReque
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.updateGovernanceNotificationSettings", true);
     GovernanceConsoleApi apiInstance = new GovernanceConsoleApi(defaultClient);
 

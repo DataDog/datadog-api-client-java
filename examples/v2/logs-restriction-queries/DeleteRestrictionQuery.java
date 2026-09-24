@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.LogsRestrictionQueriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.deleteRestrictionQuery", true);
     LogsRestrictionQueriesApi apiInstance = new LogsRestrictionQueriesApi(defaultClient);
 

@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.CloudflareIntegrationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CloudflareIntegrationApi apiInstance = new CloudflareIntegrationApi(defaultClient);
 
     try {

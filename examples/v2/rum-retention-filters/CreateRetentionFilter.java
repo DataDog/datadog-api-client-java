@@ -13,6 +13,7 @@ import com.datadog.api.client.v2.model.RumRetentionFilterType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
     RumRetentionFilterCreateRequest body =

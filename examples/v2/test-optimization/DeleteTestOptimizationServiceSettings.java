@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.TestOptimizationDeleteServiceSettingsRequ
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     TestOptimizationApi apiInstance = new TestOptimizationApi(defaultClient);
 
     TestOptimizationDeleteServiceSettingsRequest body =

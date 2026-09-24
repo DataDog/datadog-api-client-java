@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.IncidentNotificationTemplateArray;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listIncidentNotificationTemplates", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 

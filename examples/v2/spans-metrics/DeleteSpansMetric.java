@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.SpansMetricsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     SpansMetricsApi apiInstance = new SpansMetricsApi(defaultClient);
 
     // there is a valid "spans_metric" in the system

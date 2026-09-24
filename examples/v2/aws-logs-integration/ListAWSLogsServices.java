@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.AWSLogsServicesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
 
     try {

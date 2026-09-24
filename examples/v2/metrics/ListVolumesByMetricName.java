@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.MetricVolumesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {

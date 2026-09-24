@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.RUMApplicationResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumApi apiInstance = new RumApi(defaultClient);
 
     // there is a valid "rum_application" in the system

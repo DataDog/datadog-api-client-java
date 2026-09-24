@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.OrgGroupMembershipListResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listOrgGroupMemberships", true);
     OrgGroupsApi apiInstance = new OrgGroupsApi(defaultClient);
 

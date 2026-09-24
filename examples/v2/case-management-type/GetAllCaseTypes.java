@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.CaseTypesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CaseManagementTypeApi apiInstance = new CaseManagementTypeApi(defaultClient);
 
     try {

@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.CsmThreatsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
     // there is a valid "policy_rc" in the system

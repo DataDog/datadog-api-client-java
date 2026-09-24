@@ -10,6 +10,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionSort;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     // there is a valid "suppression" in the system

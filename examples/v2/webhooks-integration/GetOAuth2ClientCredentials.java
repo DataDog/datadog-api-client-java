@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.WebhooksOAuth2ClientCredentialsResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
 
     try {

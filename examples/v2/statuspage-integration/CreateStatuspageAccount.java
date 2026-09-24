@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.StatuspageAccountType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     StatuspageIntegrationApi apiInstance = new StatuspageIntegrationApi(defaultClient);
 
     StatuspageAccountCreateRequest body =

@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DatabricksIntegrationAccountsResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     defaultClient.setUnstableOperationEnabled("v2.listDatabricksIntegrationAccounts", true);
     DatabricksIntegrationApi apiInstance = new DatabricksIntegrationApi(defaultClient);
 

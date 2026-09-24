@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
     // there is a valid "agent_rule_rc" in the system

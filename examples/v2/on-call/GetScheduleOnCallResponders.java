@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.ScheduleOnCallResponders;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     OnCallApi apiInstance = new OnCallApi(defaultClient);
 
     // there is a valid "schedule" in the system

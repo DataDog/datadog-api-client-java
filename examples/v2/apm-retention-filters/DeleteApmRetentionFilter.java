@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.ApmRetentionFiltersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ApmRetentionFiltersApi apiInstance = new ApmRetentionFiltersApi(defaultClient);
 
     // there is a valid "retention_filter" in the system

@@ -15,6 +15,7 @@ import java.util.UUID;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     OrgConnectionsApi apiInstance = new OrgConnectionsApi(defaultClient);
 
     // there is a valid "org_connection" in the system

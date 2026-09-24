@@ -8,6 +8,7 @@ import java.io.File;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
     try {

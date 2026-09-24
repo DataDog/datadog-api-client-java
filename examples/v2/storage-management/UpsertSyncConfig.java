@@ -16,6 +16,7 @@ import com.datadog.api.client.v2.model.UpsertCloudInventorySyncConfigRequestData
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     StorageManagementApi apiInstance = new StorageManagementApi(defaultClient);
 
     UpsertCloudInventorySyncConfigRequest body =

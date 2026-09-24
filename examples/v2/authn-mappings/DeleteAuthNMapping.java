@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.AuthNMappingsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     AuthNMappingsApi apiInstance = new AuthNMappingsApi(defaultClient);
 
     // there is a valid "authn_mapping" in the system

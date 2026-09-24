@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.CloudflareAccountResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CloudflareIntegrationApi apiInstance = new CloudflareIntegrationApi(defaultClient);
 
     // there is a valid "cloudflare_account" in the system
