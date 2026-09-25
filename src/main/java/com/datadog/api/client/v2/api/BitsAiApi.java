@@ -507,8 +507,9 @@ public class BitsAiApi {
   }
 
   /**
-   * Trigger a new Bits AI investigation based on a monitor alert. The <code>monitors_read</code>
-   * permission is required when the trigger type is <code>monitor_alert_trigger</code>.
+   * Trigger a Bits AI investigation from a monitor alert or a general investigation. The <code>
+   * monitors_read</code> permission is required when the trigger type is <code>
+   * monitor_alert_trigger</code>.
    *
    * @param body Trigger investigation request body. (required)
    * @return ApiResponse&lt;TriggerInvestigationResponse&gt;

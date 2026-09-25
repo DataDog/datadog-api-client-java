@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,6 +18,7 @@ import java.util.Objects;
 
 /** The trigger definition for starting an investigation. */
 @JsonPropertyOrder({
+  TriggerAttributes.JSON_PROPERTY_GENERAL_INVESTIGATION,
   TriggerAttributes.JSON_PROPERTY_MONITOR_ALERT_TRIGGER,
   TriggerAttributes.JSON_PROPERTY_TYPE
 })
@@ -26,23 +26,39 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TriggerAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_GENERAL_INVESTIGATION = "general_investigation";
+  private GeneralInvestigationAttributes generalInvestigation;
+
   public static final String JSON_PROPERTY_MONITOR_ALERT_TRIGGER = "monitor_alert_trigger";
   private MonitorAlertTriggerAttributes monitorAlertTrigger;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TriggerType type;
 
-  public TriggerAttributes() {}
+  public TriggerAttributes generalInvestigation(
+      GeneralInvestigationAttributes generalInvestigation) {
+    this.generalInvestigation = generalInvestigation;
+    this.unparsed |= generalInvestigation.unparsed;
+    return this;
+  }
 
-  @JsonCreator
-  public TriggerAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MONITOR_ALERT_TRIGGER)
-          MonitorAlertTriggerAttributes monitorAlertTrigger,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TriggerType type) {
-    this.monitorAlertTrigger = monitorAlertTrigger;
-    this.unparsed |= monitorAlertTrigger.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  /**
+   * Attributes for a general investigation, not tied to a specific monitor alert.
+   *
+   * @return generalInvestigation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GENERAL_INVESTIGATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GeneralInvestigationAttributes getGeneralInvestigation() {
+    return generalInvestigation;
+  }
+
+  public void setGeneralInvestigation(GeneralInvestigationAttributes generalInvestigation) {
+    this.generalInvestigation = generalInvestigation;
+    if (generalInvestigation != null) {
+      this.unparsed |= generalInvestigation.unparsed;
+    }
   }
 
   public TriggerAttributes monitorAlertTrigger(MonitorAlertTriggerAttributes monitorAlertTrigger) {
@@ -56,8 +72,9 @@ public class TriggerAttributes {
    *
    * @return monitorAlertTrigger
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_ALERT_TRIGGER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorAlertTriggerAttributes getMonitorAlertTrigger() {
     return monitorAlertTrigger;
   }
@@ -80,8 +97,9 @@ public class TriggerAttributes {
    *
    * @return type
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TriggerType getType() {
     return type;
   }
@@ -149,20 +167,24 @@ public class TriggerAttributes {
       return false;
     }
     TriggerAttributes triggerAttributes = (TriggerAttributes) o;
-    return Objects.equals(this.monitorAlertTrigger, triggerAttributes.monitorAlertTrigger)
+    return Objects.equals(this.generalInvestigation, triggerAttributes.generalInvestigation)
+        && Objects.equals(this.monitorAlertTrigger, triggerAttributes.monitorAlertTrigger)
         && Objects.equals(this.type, triggerAttributes.type)
         && Objects.equals(this.additionalProperties, triggerAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(monitorAlertTrigger, type, additionalProperties);
+    return Objects.hash(generalInvestigation, monitorAlertTrigger, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TriggerAttributes {\n");
+    sb.append("    generalInvestigation: ")
+        .append(toIndentedString(generalInvestigation))
+        .append("\n");
     sb.append("    monitorAlertTrigger: ")
         .append(toIndentedString(monitorAlertTrigger))
         .append("\n");
