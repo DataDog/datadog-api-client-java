@@ -21,7 +21,8 @@ import java.util.Objects;
   DashboardUsageUser.JSON_PROPERTY_HANDLE,
   DashboardUsageUser.JSON_PROPERTY_ID,
   DashboardUsageUser.JSON_PROPERTY_IS_DISABLED,
-  DashboardUsageUser.JSON_PROPERTY_NAME
+  DashboardUsageUser.JSON_PROPERTY_NAME,
+  DashboardUsageUser.JSON_PROPERTY_TEST
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +39,9 @@ public class DashboardUsageUser {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_TEST = "test";
+  private Boolean test;
 
   public DashboardUsageUser handle(String handle) {
     this.handle = handle;
@@ -123,6 +127,27 @@ public class DashboardUsageUser {
     this.name = name;
   }
 
+  public DashboardUsageUser test(Boolean test) {
+    this.test = test;
+    return this;
+  }
+
+  /**
+   * just testing generation
+   *
+   * @return test
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getTest() {
+    return test;
+  }
+
+  public void setTest(Boolean test) {
+    this.test = test;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -183,12 +208,13 @@ public class DashboardUsageUser {
         && Objects.equals(this.id, dashboardUsageUser.id)
         && Objects.equals(this.isDisabled, dashboardUsageUser.isDisabled)
         && Objects.equals(this.name, dashboardUsageUser.name)
+        && Objects.equals(this.test, dashboardUsageUser.test)
         && Objects.equals(this.additionalProperties, dashboardUsageUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(handle, id, isDisabled, name, additionalProperties);
+    return Objects.hash(handle, id, isDisabled, name, test, additionalProperties);
   }
 
   @Override
@@ -199,6 +225,7 @@ public class DashboardUsageUser {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    test: ").append(toIndentedString(test)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
