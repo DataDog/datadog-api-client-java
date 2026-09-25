@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,55 +17,66 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Datadog access token, including the token key. */
+/** Datadog access token returned by the update endpoint. */
 @JsonPropertyOrder({
-  FullPersonalAccessToken.JSON_PROPERTY_ATTRIBUTES,
-  FullPersonalAccessToken.JSON_PROPERTY_ID,
-  FullPersonalAccessToken.JSON_PROPERTY_RELATIONSHIPS,
-  FullPersonalAccessToken.JSON_PROPERTY_TYPE
+  UpdatedServiceAccessToken.JSON_PROPERTY_ATTRIBUTES,
+  UpdatedServiceAccessToken.JSON_PROPERTY_ID,
+  UpdatedServiceAccessToken.JSON_PROPERTY_RELATIONSHIPS,
+  UpdatedServiceAccessToken.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FullPersonalAccessToken {
+public class UpdatedServiceAccessToken {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private FullPersonalAccessTokenAttributes attributes;
+  private ServiceAccessTokenAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private FullPersonalAccessTokenRelationships relationships;
+  private UpdatedServiceAccessTokenRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private PersonalAccessTokensType type = PersonalAccessTokensType.PERSONAL_ACCESS_TOKENS;
+  private ServiceAccessTokensType type = ServiceAccessTokensType.SERVICE_ACCESS_TOKENS;
 
-  public FullPersonalAccessToken attributes(FullPersonalAccessTokenAttributes attributes) {
+  public UpdatedServiceAccessToken() {}
+
+  @JsonCreator
+  public UpdatedServiceAccessToken(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ServiceAccessTokensType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public UpdatedServiceAccessToken attributes(ServiceAccessTokenAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes of a full access token, including the token key.
+   * Attributes of an access token.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FullPersonalAccessTokenAttributes getAttributes() {
+  public ServiceAccessTokenAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(FullPersonalAccessTokenAttributes attributes) {
+  public void setAttributes(ServiceAccessTokenAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public FullPersonalAccessToken id(String id) {
+  public UpdatedServiceAccessToken id(String id) {
     this.id = id;
     return this;
   }
@@ -74,9 +86,8 @@ public class FullPersonalAccessToken {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -85,7 +96,8 @@ public class FullPersonalAccessToken {
     this.id = id;
   }
 
-  public FullPersonalAccessToken relationships(FullPersonalAccessTokenRelationships relationships) {
+  public UpdatedServiceAccessToken relationships(
+      UpdatedServiceAccessTokenRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
     return this;
@@ -99,36 +111,35 @@ public class FullPersonalAccessToken {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FullPersonalAccessTokenRelationships getRelationships() {
+  public UpdatedServiceAccessTokenRelationships getRelationships() {
     return relationships;
   }
 
-  public void setRelationships(FullPersonalAccessTokenRelationships relationships) {
+  public void setRelationships(UpdatedServiceAccessTokenRelationships relationships) {
     this.relationships = relationships;
     if (relationships != null) {
       this.unparsed |= relationships.unparsed;
     }
   }
 
-  public FullPersonalAccessToken type(PersonalAccessTokensType type) {
+  public UpdatedServiceAccessToken type(ServiceAccessTokensType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Personal access tokens resource type.
+   * Service access tokens resource type.
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PersonalAccessTokensType getType() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ServiceAccessTokensType getType() {
     return type;
   }
 
-  public void setType(PersonalAccessTokensType type) {
+  public void setType(ServiceAccessTokensType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -147,10 +158,10 @@ public class FullPersonalAccessToken {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FullPersonalAccessToken
+   * @return UpdatedServiceAccessToken
    */
   @JsonAnySetter
-  public FullPersonalAccessToken putAdditionalProperty(String key, Object value) {
+  public UpdatedServiceAccessToken putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -181,7 +192,7 @@ public class FullPersonalAccessToken {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FullPersonalAccessToken object is equal to o. */
+  /** Return true if this UpdatedServiceAccessToken object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -190,12 +201,13 @@ public class FullPersonalAccessToken {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FullPersonalAccessToken fullPersonalAccessToken = (FullPersonalAccessToken) o;
-    return Objects.equals(this.attributes, fullPersonalAccessToken.attributes)
-        && Objects.equals(this.id, fullPersonalAccessToken.id)
-        && Objects.equals(this.relationships, fullPersonalAccessToken.relationships)
-        && Objects.equals(this.type, fullPersonalAccessToken.type)
-        && Objects.equals(this.additionalProperties, fullPersonalAccessToken.additionalProperties);
+    UpdatedServiceAccessToken updatedServiceAccessToken = (UpdatedServiceAccessToken) o;
+    return Objects.equals(this.attributes, updatedServiceAccessToken.attributes)
+        && Objects.equals(this.id, updatedServiceAccessToken.id)
+        && Objects.equals(this.relationships, updatedServiceAccessToken.relationships)
+        && Objects.equals(this.type, updatedServiceAccessToken.type)
+        && Objects.equals(
+            this.additionalProperties, updatedServiceAccessToken.additionalProperties);
   }
 
   @Override
@@ -206,7 +218,7 @@ public class FullPersonalAccessToken {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FullPersonalAccessToken {\n");
+    sb.append("class UpdatedServiceAccessToken {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");

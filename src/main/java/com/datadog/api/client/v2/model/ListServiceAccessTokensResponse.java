@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Response for a list of access tokens. */
 @JsonPropertyOrder({
   ListServiceAccessTokensResponse.JSON_PROPERTY_DATA,
+  ListServiceAccessTokensResponse.JSON_PROPERTY_INCLUDED,
   ListServiceAccessTokensResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
@@ -29,6 +30,9 @@ public class ListServiceAccessTokensResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<ServiceAccessToken> data = null;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<AccessTokenResponseIncludedItem> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private ServiceAccessTokenResponseMeta meta;
@@ -68,6 +72,47 @@ public class ListServiceAccessTokensResponse {
     this.data = data;
     if (data != null) {
       for (ServiceAccessToken item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
+  public ListServiceAccessTokensResponse included(List<AccessTokenResponseIncludedItem> included) {
+    this.included = included;
+    if (included != null) {
+      for (AccessTokenResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public ListServiceAccessTokensResponse addIncludedItem(
+      AccessTokenResponseIncludedItem includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Array of objects related to the access tokens.
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AccessTokenResponseIncludedItem> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<AccessTokenResponseIncludedItem> included) {
+    this.included = included;
+    if (included != null) {
+      for (AccessTokenResponseIncludedItem item : included) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -156,6 +201,7 @@ public class ListServiceAccessTokensResponse {
     ListServiceAccessTokensResponse listServiceAccessTokensResponse =
         (ListServiceAccessTokensResponse) o;
     return Objects.equals(this.data, listServiceAccessTokensResponse.data)
+        && Objects.equals(this.included, listServiceAccessTokensResponse.included)
         && Objects.equals(this.meta, listServiceAccessTokensResponse.meta)
         && Objects.equals(
             this.additionalProperties, listServiceAccessTokensResponse.additionalProperties);
@@ -163,7 +209,7 @@ public class ListServiceAccessTokensResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, included, meta, additionalProperties);
   }
 
   @Override
@@ -171,6 +217,7 @@ public class ListServiceAccessTokensResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListServiceAccessTokensResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

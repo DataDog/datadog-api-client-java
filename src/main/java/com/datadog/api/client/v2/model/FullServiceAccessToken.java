@@ -34,7 +34,7 @@ public class FullServiceAccessToken {
   private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private ServiceAccessTokenRelationships relationships;
+  private FullServiceAccessTokenRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ServiceAccessTokensType type = ServiceAccessTokensType.SERVICE_ACCESS_TOKENS;
@@ -85,7 +85,7 @@ public class FullServiceAccessToken {
     this.id = id;
   }
 
-  public FullServiceAccessToken relationships(ServiceAccessTokenRelationships relationships) {
+  public FullServiceAccessToken relationships(FullServiceAccessTokenRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
     return this;
@@ -99,11 +99,11 @@ public class FullServiceAccessToken {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ServiceAccessTokenRelationships getRelationships() {
+  public FullServiceAccessTokenRelationships getRelationships() {
     return relationships;
   }
 
-  public void setRelationships(ServiceAccessTokenRelationships relationships) {
+  public void setRelationships(FullServiceAccessTokenRelationships relationships) {
     this.relationships = relationships;
     if (relationships != null) {
       this.unparsed |= relationships.unparsed;

@@ -8,93 +8,54 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for retrieving an access token. */
-@JsonPropertyOrder({
-  ServiceAccessTokenResponse.JSON_PROPERTY_DATA,
-  ServiceAccessTokenResponse.JSON_PROPERTY_INCLUDED
-})
+/** Response for updating an access token. */
+@JsonPropertyOrder({UpdatedPersonalAccessTokenResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ServiceAccessTokenResponse {
+public class UpdatedPersonalAccessTokenResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private ServiceAccessToken data;
+  private UpdatedPersonalAccessToken data;
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<AccessTokenResponseIncludedItem> included = null;
+  public UpdatedPersonalAccessTokenResponse() {}
 
-  public ServiceAccessTokenResponse data(ServiceAccessToken data) {
+  @JsonCreator
+  public UpdatedPersonalAccessTokenResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) UpdatedPersonalAccessToken data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public UpdatedPersonalAccessTokenResponse data(UpdatedPersonalAccessToken data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Datadog access token.
+   * Datadog access token returned by the update endpoint.
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ServiceAccessToken getData() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UpdatedPersonalAccessToken getData() {
     return data;
   }
 
-  public void setData(ServiceAccessToken data) {
+  public void setData(UpdatedPersonalAccessToken data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;
-    }
-  }
-
-  public ServiceAccessTokenResponse included(List<AccessTokenResponseIncludedItem> included) {
-    this.included = included;
-    if (included != null) {
-      for (AccessTokenResponseIncludedItem item : included) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    return this;
-  }
-
-  public ServiceAccessTokenResponse addIncludedItem(AccessTokenResponseIncludedItem includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Array of objects related to the access tokens.
-   *
-   * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AccessTokenResponseIncludedItem> getIncluded() {
-    return included;
-  }
-
-  public void setIncluded(List<AccessTokenResponseIncludedItem> included) {
-    this.included = included;
-    if (included != null) {
-      for (AccessTokenResponseIncludedItem item : included) {
-        this.unparsed |= item.unparsed;
-      }
     }
   }
 
@@ -110,10 +71,10 @@ public class ServiceAccessTokenResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ServiceAccessTokenResponse
+   * @return UpdatedPersonalAccessTokenResponse
    */
   @JsonAnySetter
-  public ServiceAccessTokenResponse putAdditionalProperty(String key, Object value) {
+  public UpdatedPersonalAccessTokenResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +105,7 @@ public class ServiceAccessTokenResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceAccessTokenResponse object is equal to o. */
+  /** Return true if this UpdatedPersonalAccessTokenResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,24 +114,23 @@ public class ServiceAccessTokenResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceAccessTokenResponse serviceAccessTokenResponse = (ServiceAccessTokenResponse) o;
-    return Objects.equals(this.data, serviceAccessTokenResponse.data)
-        && Objects.equals(this.included, serviceAccessTokenResponse.included)
+    UpdatedPersonalAccessTokenResponse updatedPersonalAccessTokenResponse =
+        (UpdatedPersonalAccessTokenResponse) o;
+    return Objects.equals(this.data, updatedPersonalAccessTokenResponse.data)
         && Objects.equals(
-            this.additionalProperties, serviceAccessTokenResponse.additionalProperties);
+            this.additionalProperties, updatedPersonalAccessTokenResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceAccessTokenResponse {\n");
+    sb.append("class UpdatedPersonalAccessTokenResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
