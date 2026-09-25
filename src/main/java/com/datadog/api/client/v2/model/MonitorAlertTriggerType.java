@@ -18,38 +18,40 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of trigger for the investigation. */
-@JsonSerialize(using = TriggerType.TriggerTypeSerializer.class)
-public class TriggerType extends ModelEnum<String> {
+/** The type of monitor alert trigger. */
+@JsonSerialize(using = MonitorAlertTriggerType.MonitorAlertTriggerTypeSerializer.class)
+public class MonitorAlertTriggerType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("monitor_alert_trigger", "general_investigation"));
+      new HashSet<String>(Arrays.asList("monitor_alert_trigger"));
 
-  public static final TriggerType MONITOR_ALERT_TRIGGER = new TriggerType("monitor_alert_trigger");
-  public static final TriggerType GENERAL_INVESTIGATION = new TriggerType("general_investigation");
+  public static final MonitorAlertTriggerType MONITOR_ALERT_TRIGGER =
+      new MonitorAlertTriggerType("monitor_alert_trigger");
 
-  TriggerType(String value) {
+  MonitorAlertTriggerType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TriggerTypeSerializer extends StdSerializer<TriggerType> {
-    public TriggerTypeSerializer(Class<TriggerType> t) {
+  public static class MonitorAlertTriggerTypeSerializer
+      extends StdSerializer<MonitorAlertTriggerType> {
+    public MonitorAlertTriggerTypeSerializer(Class<MonitorAlertTriggerType> t) {
       super(t);
     }
 
-    public TriggerTypeSerializer() {
+    public MonitorAlertTriggerTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(TriggerType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        MonitorAlertTriggerType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TriggerType fromValue(String value) {
-    return new TriggerType(value);
+  public static MonitorAlertTriggerType fromValue(String value) {
+    return new MonitorAlertTriggerType(value);
   }
 }

@@ -18,38 +18,41 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of trigger for the investigation. */
-@JsonSerialize(using = TriggerType.TriggerTypeSerializer.class)
-public class TriggerType extends ModelEnum<String> {
+/** The type of general investigation trigger. */
+@JsonSerialize(
+    using = GeneralInvestigationTriggerType.GeneralInvestigationTriggerTypeSerializer.class)
+public class GeneralInvestigationTriggerType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("monitor_alert_trigger", "general_investigation"));
+      new HashSet<String>(Arrays.asList("general_investigation"));
 
-  public static final TriggerType MONITOR_ALERT_TRIGGER = new TriggerType("monitor_alert_trigger");
-  public static final TriggerType GENERAL_INVESTIGATION = new TriggerType("general_investigation");
+  public static final GeneralInvestigationTriggerType GENERAL_INVESTIGATION =
+      new GeneralInvestigationTriggerType("general_investigation");
 
-  TriggerType(String value) {
+  GeneralInvestigationTriggerType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TriggerTypeSerializer extends StdSerializer<TriggerType> {
-    public TriggerTypeSerializer(Class<TriggerType> t) {
+  public static class GeneralInvestigationTriggerTypeSerializer
+      extends StdSerializer<GeneralInvestigationTriggerType> {
+    public GeneralInvestigationTriggerTypeSerializer(Class<GeneralInvestigationTriggerType> t) {
       super(t);
     }
 
-    public TriggerTypeSerializer() {
+    public GeneralInvestigationTriggerTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(TriggerType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        GeneralInvestigationTriggerType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TriggerType fromValue(String value) {
-    return new TriggerType(value);
+  public static GeneralInvestigationTriggerType fromValue(String value) {
+    return new GeneralInvestigationTriggerType(value);
   }
 }
