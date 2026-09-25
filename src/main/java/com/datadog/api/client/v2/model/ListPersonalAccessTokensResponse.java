@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Response for a list of access tokens. Includes both personal and service access tokens. */
 @JsonPropertyOrder({
   ListPersonalAccessTokensResponse.JSON_PROPERTY_DATA,
+  ListPersonalAccessTokensResponse.JSON_PROPERTY_INCLUDED,
   ListPersonalAccessTokensResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
@@ -29,6 +30,9 @@ public class ListPersonalAccessTokensResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<AccessTokenListItem> data = null;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<AccessTokenResponseIncludedItem> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private PersonalAccessTokenResponseMeta meta;
@@ -68,6 +72,47 @@ public class ListPersonalAccessTokensResponse {
     this.data = data;
     if (data != null) {
       for (AccessTokenListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
+  public ListPersonalAccessTokensResponse included(List<AccessTokenResponseIncludedItem> included) {
+    this.included = included;
+    if (included != null) {
+      for (AccessTokenResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public ListPersonalAccessTokensResponse addIncludedItem(
+      AccessTokenResponseIncludedItem includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Array of objects related to the access tokens.
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AccessTokenResponseIncludedItem> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<AccessTokenResponseIncludedItem> included) {
+    this.included = included;
+    if (included != null) {
+      for (AccessTokenResponseIncludedItem item : included) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -156,6 +201,7 @@ public class ListPersonalAccessTokensResponse {
     ListPersonalAccessTokensResponse listPersonalAccessTokensResponse =
         (ListPersonalAccessTokensResponse) o;
     return Objects.equals(this.data, listPersonalAccessTokensResponse.data)
+        && Objects.equals(this.included, listPersonalAccessTokensResponse.included)
         && Objects.equals(this.meta, listPersonalAccessTokensResponse.meta)
         && Objects.equals(
             this.additionalProperties, listPersonalAccessTokensResponse.additionalProperties);
@@ -163,7 +209,7 @@ public class ListPersonalAccessTokensResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, included, meta, additionalProperties);
   }
 
   @Override
@@ -171,6 +217,7 @@ public class ListPersonalAccessTokensResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListPersonalAccessTokensResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

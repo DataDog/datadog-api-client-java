@@ -8,94 +8,83 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for retrieving an access token. */
+/** Relationship to the leak the access token was found in. */
 @JsonPropertyOrder({
-  ServiceAccessTokenResponse.JSON_PROPERTY_DATA,
-  ServiceAccessTokenResponse.JSON_PROPERTY_INCLUDED
+  RelationshipToLeakedKeyData.JSON_PROPERTY_ID,
+  RelationshipToLeakedKeyData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ServiceAccessTokenResponse {
+public class RelationshipToLeakedKeyData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private ServiceAccessToken data;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<AccessTokenResponseIncludedItem> included = null;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LeakedKeyType type = LeakedKeyType.LEAKED_KEYS;
 
-  public ServiceAccessTokenResponse data(ServiceAccessToken data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public RelationshipToLeakedKeyData() {}
+
+  @JsonCreator
+  public RelationshipToLeakedKeyData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LeakedKeyType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public RelationshipToLeakedKeyData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Datadog access token.
+   * A unique identifier that represents the leak.
    *
-   * @return data
+   * @return id
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ServiceAccessToken getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
   }
 
-  public void setData(ServiceAccessToken data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
-    }
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public ServiceAccessTokenResponse included(List<AccessTokenResponseIncludedItem> included) {
-    this.included = included;
-    if (included != null) {
-      for (AccessTokenResponseIncludedItem item : included) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    return this;
-  }
-
-  public ServiceAccessTokenResponse addIncludedItem(AccessTokenResponseIncludedItem includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
+  public RelationshipToLeakedKeyData type(LeakedKeyType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Array of objects related to the access tokens.
+   * The definition of LeakedKeyType object.
    *
-   * @return included
+   * @return type
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AccessTokenResponseIncludedItem> getIncluded() {
-    return included;
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LeakedKeyType getType() {
+    return type;
   }
 
-  public void setIncluded(List<AccessTokenResponseIncludedItem> included) {
-    this.included = included;
-    if (included != null) {
-      for (AccessTokenResponseIncludedItem item : included) {
-        this.unparsed |= item.unparsed;
-      }
+  public void setType(LeakedKeyType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
   }
 
   /**
@@ -110,10 +99,10 @@ public class ServiceAccessTokenResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ServiceAccessTokenResponse
+   * @return RelationshipToLeakedKeyData
    */
   @JsonAnySetter
-  public ServiceAccessTokenResponse putAdditionalProperty(String key, Object value) {
+  public RelationshipToLeakedKeyData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +133,7 @@ public class ServiceAccessTokenResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceAccessTokenResponse object is equal to o. */
+  /** Return true if this RelationshipToLeakedKeyData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,24 +142,24 @@ public class ServiceAccessTokenResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceAccessTokenResponse serviceAccessTokenResponse = (ServiceAccessTokenResponse) o;
-    return Objects.equals(this.data, serviceAccessTokenResponse.data)
-        && Objects.equals(this.included, serviceAccessTokenResponse.included)
+    RelationshipToLeakedKeyData relationshipToLeakedKeyData = (RelationshipToLeakedKeyData) o;
+    return Objects.equals(this.id, relationshipToLeakedKeyData.id)
+        && Objects.equals(this.type, relationshipToLeakedKeyData.type)
         && Objects.equals(
-            this.additionalProperties, serviceAccessTokenResponse.additionalProperties);
+            this.additionalProperties, relationshipToLeakedKeyData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceAccessTokenResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("class RelationshipToLeakedKeyData {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
