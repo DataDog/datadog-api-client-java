@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** The Private Action Runner authentication method configured on the account. */
 @JsonPropertyOrder({
@@ -33,13 +34,13 @@ public class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
       DatabricksIntegrationAccountPrivateActionRunnerAuthType.PRIVATE_ACTION_RUNNER;
 
   public static final String JSON_PROPERTY_CONNECTION_ID = "connection_id";
-  private String connectionId;
+  private UUID connectionId;
 
   public static final String JSON_PROPERTY_SECRET_PATH = "secret_path";
   private String secretPath;
 
   public static final String JSON_PROPERTY_USER_UUID = "user_uuid";
-  private String userUuid;
+  private UUID userUuid;
 
   public DatabricksIntegrationAccountPrivateActionRunnerAuthResponse() {}
 
@@ -47,8 +48,8 @@ public class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
   public DatabricksIntegrationAccountPrivateActionRunnerAuthResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_TYPE)
           DatabricksIntegrationAccountPrivateActionRunnerAuthType authType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONNECTION_ID) String connectionId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_USER_UUID) String userUuid) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONNECTION_ID) UUID connectionId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_USER_UUID) UUID userUuid) {
     this.authType = authType;
     this.unparsed |= !authType.isValid();
     this.connectionId = connectionId;
@@ -81,7 +82,7 @@ public class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
   }
 
   public DatabricksIntegrationAccountPrivateActionRunnerAuthResponse connectionId(
-      String connectionId) {
+      UUID connectionId) {
     this.connectionId = connectionId;
     return this;
   }
@@ -93,11 +94,11 @@ public class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
    */
   @JsonProperty(JSON_PROPERTY_CONNECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getConnectionId() {
+  public UUID getConnectionId() {
     return connectionId;
   }
 
-  public void setConnectionId(String connectionId) {
+  public void setConnectionId(UUID connectionId) {
     this.connectionId = connectionId;
   }
 
@@ -122,7 +123,7 @@ public class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
     this.secretPath = secretPath;
   }
 
-  public DatabricksIntegrationAccountPrivateActionRunnerAuthResponse userUuid(String userUuid) {
+  public DatabricksIntegrationAccountPrivateActionRunnerAuthResponse userUuid(UUID userUuid) {
     this.userUuid = userUuid;
     return this;
   }
@@ -134,11 +135,11 @@ public class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
    */
   @JsonProperty(JSON_PROPERTY_USER_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUserUuid() {
+  public UUID getUserUuid() {
     return userUuid;
   }
 
-  public void setUserUuid(String userUuid) {
+  public void setUserUuid(UUID userUuid) {
     this.userUuid = userUuid;
   }
 
