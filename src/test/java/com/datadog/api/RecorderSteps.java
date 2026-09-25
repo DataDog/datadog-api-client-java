@@ -198,13 +198,13 @@ public class RecorderSteps {
     return world.getName() + ".json";
   }
 
-  @Given("the request uses {string} compression")
-  public void theRequestUsesCompression(String compression) {
-    // The generated replay server validates the Content-Encoding header and compressed body.
+  @Given("the request and response use {string} compression")
+  public void theRequestAndResponseUseCompression(String compression) {
+    // The generated replay server validates the request and compresses the recorded response.
   }
 
-  @Given("the user selects {string} compression")
-  public void theUserSelectsCompression(String compression) {
+  @Given("the client selects {string} compression")
+  public void theClientSelectsCompression(String compression) {
     // The generated request plan passes the selected compression to the client call.
   }
 
