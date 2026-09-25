@@ -228,6 +228,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <doclint>none</doclint>
                     <tags>
                         <tag>
                             <name>http.response.details</name>
