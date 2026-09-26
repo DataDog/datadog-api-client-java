@@ -34,7 +34,7 @@ import java.util.Objects;
 public class MetricTagConfigurationAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
-  private List<MetricCustomAggregation> aggregations = null;
+  private MetricCustomAggregations aggregations;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -54,23 +54,9 @@ public class MetricTagConfigurationAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-  public MetricTagConfigurationAttributes aggregations(List<MetricCustomAggregation> aggregations) {
+  public MetricTagConfigurationAttributes aggregations(MetricCustomAggregations aggregations) {
     this.aggregations = aggregations;
-    if (aggregations != null) {
-      for (MetricCustomAggregation item : aggregations) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    return this;
-  }
-
-  public MetricTagConfigurationAttributes addAggregationsItem(
-      MetricCustomAggregation aggregationsItem) {
-    if (this.aggregations == null) {
-      this.aggregations = new ArrayList<>();
-    }
-    this.aggregations.add(aggregationsItem);
-    this.unparsed |= aggregationsItem.unparsed;
+    this.unparsed |= aggregations.unparsed;
     return this;
   }
 
@@ -83,16 +69,14 @@ public class MetricTagConfigurationAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MetricCustomAggregation> getAggregations() {
+  public MetricCustomAggregations getAggregations() {
     return aggregations;
   }
 
-  public void setAggregations(List<MetricCustomAggregation> aggregations) {
+  public void setAggregations(MetricCustomAggregations aggregations) {
     this.aggregations = aggregations;
     if (aggregations != null) {
-      for (MetricCustomAggregation item : aggregations) {
-        this.unparsed |= item.unparsed;
-      }
+      this.unparsed |= aggregations.unparsed;
     }
   }
 
