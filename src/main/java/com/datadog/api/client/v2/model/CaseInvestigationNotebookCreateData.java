@@ -17,42 +17,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Notebook creation data */
-@JsonPropertyOrder({NotebookCreateData.JSON_PROPERTY_TYPE})
+/** Case investigation notebook creation data. */
+@JsonPropertyOrder({CaseInvestigationNotebookCreateData.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class NotebookCreateData {
+public class CaseInvestigationNotebookCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
-  private NotebookResourceType type;
+  private CaseInvestigationNotebookResourceType type;
 
-  public NotebookCreateData() {}
+  public CaseInvestigationNotebookCreateData() {}
 
   @JsonCreator
-  public NotebookCreateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) NotebookResourceType type) {
+  public CaseInvestigationNotebookCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          CaseInvestigationNotebookResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public NotebookCreateData type(NotebookResourceType type) {
+  public CaseInvestigationNotebookCreateData type(CaseInvestigationNotebookResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Notebook resource type
+   * Case investigation notebook resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NotebookResourceType getType() {
+  public CaseInvestigationNotebookResourceType getType() {
     return type;
   }
 
-  public void setType(NotebookResourceType type) {
+  public void setType(CaseInvestigationNotebookResourceType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -71,10 +72,10 @@ public class NotebookCreateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return NotebookCreateData
+   * @return CaseInvestigationNotebookCreateData
    */
   @JsonAnySetter
-  public NotebookCreateData putAdditionalProperty(String key, Object value) {
+  public CaseInvestigationNotebookCreateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -105,7 +106,7 @@ public class NotebookCreateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this NotebookCreateData object is equal to o. */
+  /** Return true if this CaseInvestigationNotebookCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,9 +115,11 @@ public class NotebookCreateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookCreateData notebookCreateData = (NotebookCreateData) o;
-    return Objects.equals(this.type, notebookCreateData.type)
-        && Objects.equals(this.additionalProperties, notebookCreateData.additionalProperties);
+    CaseInvestigationNotebookCreateData caseInvestigationNotebookCreateData =
+        (CaseInvestigationNotebookCreateData) o;
+    return Objects.equals(this.type, caseInvestigationNotebookCreateData.type)
+        && Objects.equals(
+            this.additionalProperties, caseInvestigationNotebookCreateData.additionalProperties);
   }
 
   @Override
@@ -127,7 +130,7 @@ public class NotebookCreateData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NotebookCreateData {\n");
+    sb.append("class CaseInvestigationNotebookCreateData {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
