@@ -4447,6 +4447,7 @@ public class StatusPagesApi {
     private Long pageLimit;
     private String include;
     private String filterStatus;
+    private String filterSourceId;
     private String sort;
     private String filterSourceId;
 
@@ -4504,6 +4505,18 @@ public class StatusPagesApi {
      */
     public ListDegradationsOptionalParameters filterStatus(String filterStatus) {
       this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set filterSourceId.
+     *
+     * @param filterSourceId Optional source ID filter. Returns only degradations whose source
+     *     matches this ID (e.g. an incident ID). (optional)
+     * @return ListDegradationsOptionalParameters
+     */
+    public ListDegradationsOptionalParameters filterSourceId(String filterSourceId) {
+      this.filterSourceId = filterSourceId;
       return this;
     }
 
@@ -4591,7 +4604,7 @@ public class StatusPagesApi {
   }
 
   /**
-   * Lists all degradations for the organization. Optionally filter by status and page.
+   * Lists all degradations for the organization. Optionally filter by status, page, and source ID.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DegradationArray&gt;
@@ -4612,6 +4625,7 @@ public class StatusPagesApi {
     Long pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
+    String filterSourceId = parameters.filterSourceId;
     String sort = parameters.sort;
     String filterSourceId = parameters.filterSourceId;
     // create path and map variables
@@ -4625,6 +4639,7 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[source_id]", filterSourceId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[source_id]", filterSourceId));
 
@@ -4664,6 +4679,7 @@ public class StatusPagesApi {
     Long pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
+    String filterSourceId = parameters.filterSourceId;
     String sort = parameters.sort;
     String filterSourceId = parameters.filterSourceId;
     // create path and map variables
@@ -4677,6 +4693,7 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[source_id]", filterSourceId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[source_id]", filterSourceId));
 
