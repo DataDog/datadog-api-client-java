@@ -119,7 +119,7 @@ public class ClientSteps {
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
     apiName = apiName.replace("-", "");
-    world.setupAPI(apiVersion, World.toClassName(apiName));
+    world.setupAPI(world.getOperationVersion(), World.toClassName(apiName));
   }
 
   @Given("operation {string} enabled")
@@ -163,6 +163,20 @@ public class ClientSteps {
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
     if (!TestRunner.runnerEnabled()) world.newRequest(methodName);
+  }
+
+  @Given("new {string} with version {string} request")
+  public void newVersionedRequest(String methodName, String version)
+      throws java.lang.ClassNotFoundException,
+          java.lang.InstantiationException,
+          java.lang.IllegalAccessException,
+          java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException {
+    world.setOperationVersion(version);
+    if (!TestRunner.runnerEnabled()) {
+      world.setupAPI(world.getOperationVersion(), world.apiName);
+      world.newRequest(methodName);
+    }
   }
 
   @Given("request contains {string} parameter from {string}")
@@ -306,8 +320,15 @@ public class ClientSteps {
           java.lang.ClassNotFoundException,
           java.lang.NoSuchFieldException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
-    assertEquals(
-        World.lookup(world.context, fixturePath), World.lookup(responseData, responsePath));
+    Object expected = World.lookup(world.context, fixturePath);
+    Object actual = World.lookup(responseData, responsePath);
+    if (expected instanceof AbstractOpenApiSchema) {
+      expected = ((AbstractOpenApiSchema) expected).getActualInstanceRecursively();
+    }
+    if (actual instanceof AbstractOpenApiSchema) {
+      actual = ((AbstractOpenApiSchema) actual).getActualInstanceRecursively();
+    }
+    assertEquals(expected, actual);
   }
 
   @Then("the response {string} has length {long}")
