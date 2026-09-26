@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The status of a RUM operation strong link. */
+/** The status of a RUM operation link. */
 @JsonSerialize(using = RUMOperationStrongLinkStatus.RUMOperationStrongLinkStatusSerializer.class)
 public class RUMOperationStrongLinkStatus extends ModelEnum<String> {
 
