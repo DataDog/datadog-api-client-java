@@ -55,7 +55,8 @@ public class BatchDeleteRowsRequestArray {
   }
 
   /**
-   * List of row resources to delete from the reference table.
+   * List of row resources to delete from the reference table. The request payload can be up to 1
+   * MiB.
    *
    * @return data
    */
