@@ -81,6 +81,13 @@ public class DdsqlApi {
    * query_id</code> for the client to poll, or a <code>completed</code> state with the column-major
    * result set inlined when the query finishes quickly enough to be served synchronously.
    *
+   * <p>For a scoped application key, include <code>timeseries_query</code> in its scopes. A query
+   * that does not read a data source, such as <code>SELECT 1</code>, requires no additional
+   * data-source permissions. Queries that read data sources also require the user or service
+   * account that owns the application key to have the corresponding data access permissions through
+   * their roles. The <code>timeseries_query</code> permission does not grant access to the
+   * underlying data sources.
+   *
    * @param body (required)
    * @return ApiResponse&lt;DdsqlTabularQueryResponse&gt;
    * @throws ApiException if fails to make API call
@@ -218,6 +225,11 @@ public class DdsqlApi {
    * FetchDdsqlTabularQuery</code> that returned <code>state: running</code>) and the server returns
    * either a <code>running</code> state to poll again or a <code>completed</code> state with the
    * column-major result set inlined.
+   *
+   * <p>For a scoped application key, include <code>timeseries_query</code> in its scopes. Fetch
+   * results as the same user and organization that submitted the query. The user or service account
+   * that owns the application key must have the data access permissions required by the queried
+   * data sources through their roles.
    *
    * @param body (required)
    * @return ApiResponse&lt;DdsqlTabularQueryResponse&gt;
