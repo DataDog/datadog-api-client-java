@@ -32,7 +32,9 @@ public class PersonalAccessTokensSort extends ModelEnum<String> {
               "expires_at",
               "-expires_at",
               "last_used_at",
-              "-last_used_at"));
+              "-last_used_at",
+              "leaked",
+              "-leaked"));
 
   public static final PersonalAccessTokensSort NAME_ASCENDING =
       new PersonalAccessTokensSort("name");
@@ -50,6 +52,10 @@ public class PersonalAccessTokensSort extends ModelEnum<String> {
       new PersonalAccessTokensSort("last_used_at");
   public static final PersonalAccessTokensSort LAST_USED_AT_DESCENDING =
       new PersonalAccessTokensSort("-last_used_at");
+  public static final PersonalAccessTokensSort LEAKED_ASCENDING =
+      new PersonalAccessTokensSort("leaked");
+  public static final PersonalAccessTokensSort LEAKED_DESCENDING =
+      new PersonalAccessTokensSort("-leaked");
 
   PersonalAccessTokensSort(String value) {
     super(value, allowedValues);

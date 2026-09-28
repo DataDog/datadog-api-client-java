@@ -3,11 +3,11 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceAccountsApi;
-import com.datadog.api.client.v2.model.ServiceAccessTokenResponse;
 import com.datadog.api.client.v2.model.ServiceAccessTokensType;
 import com.datadog.api.client.v2.model.ServiceAccountAccessTokenUpdateAttributes;
 import com.datadog.api.client.v2.model.ServiceAccountAccessTokenUpdateData;
 import com.datadog.api.client.v2.model.ServiceAccountAccessTokenUpdateRequest;
+import com.datadog.api.client.v2.model.UpdatedServiceAccessTokenResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class Example {
                             .name("My Access Token-updated")));
 
     try {
-      ServiceAccessTokenResponse result =
+      UpdatedServiceAccessTokenResponse result =
           apiInstance.updateServiceAccountAccessToken(
               SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID, body);
       System.out.println(result);

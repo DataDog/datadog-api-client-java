@@ -12,89 +12,41 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for retrieving an access token. */
-@JsonPropertyOrder({
-  ServiceAccessTokenResponse.JSON_PROPERTY_DATA,
-  ServiceAccessTokenResponse.JSON_PROPERTY_INCLUDED
-})
+/** Resources related to the access token. */
+@JsonPropertyOrder({FullPersonalAccessTokenRelationships.JSON_PROPERTY_OWNED_BY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ServiceAccessTokenResponse {
+public class FullPersonalAccessTokenRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private ServiceAccessToken data;
+  public static final String JSON_PROPERTY_OWNED_BY = "owned_by";
+  private RelationshipToUser ownedBy;
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<AccessTokenResponseIncludedItem> included = null;
-
-  public ServiceAccessTokenResponse data(ServiceAccessToken data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public FullPersonalAccessTokenRelationships ownedBy(RelationshipToUser ownedBy) {
+    this.ownedBy = ownedBy;
+    this.unparsed |= ownedBy.unparsed;
     return this;
   }
 
   /**
-   * Datadog access token.
+   * Relationship to user.
    *
-   * @return data
+   * @return ownedBy
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_OWNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ServiceAccessToken getData() {
-    return data;
+  public RelationshipToUser getOwnedBy() {
+    return ownedBy;
   }
 
-  public void setData(ServiceAccessToken data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
-    }
-  }
-
-  public ServiceAccessTokenResponse included(List<AccessTokenResponseIncludedItem> included) {
-    this.included = included;
-    if (included != null) {
-      for (AccessTokenResponseIncludedItem item : included) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-    return this;
-  }
-
-  public ServiceAccessTokenResponse addIncludedItem(AccessTokenResponseIncludedItem includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Array of objects related to the access tokens.
-   *
-   * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AccessTokenResponseIncludedItem> getIncluded() {
-    return included;
-  }
-
-  public void setIncluded(List<AccessTokenResponseIncludedItem> included) {
-    this.included = included;
-    if (included != null) {
-      for (AccessTokenResponseIncludedItem item : included) {
-        this.unparsed |= item.unparsed;
-      }
+  public void setOwnedBy(RelationshipToUser ownedBy) {
+    this.ownedBy = ownedBy;
+    if (ownedBy != null) {
+      this.unparsed |= ownedBy.unparsed;
     }
   }
 
@@ -110,10 +62,10 @@ public class ServiceAccessTokenResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ServiceAccessTokenResponse
+   * @return FullPersonalAccessTokenRelationships
    */
   @JsonAnySetter
-  public ServiceAccessTokenResponse putAdditionalProperty(String key, Object value) {
+  public FullPersonalAccessTokenRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +96,7 @@ public class ServiceAccessTokenResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceAccessTokenResponse object is equal to o. */
+  /** Return true if this FullPersonalAccessTokenRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,24 +105,23 @@ public class ServiceAccessTokenResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceAccessTokenResponse serviceAccessTokenResponse = (ServiceAccessTokenResponse) o;
-    return Objects.equals(this.data, serviceAccessTokenResponse.data)
-        && Objects.equals(this.included, serviceAccessTokenResponse.included)
+    FullPersonalAccessTokenRelationships fullPersonalAccessTokenRelationships =
+        (FullPersonalAccessTokenRelationships) o;
+    return Objects.equals(this.ownedBy, fullPersonalAccessTokenRelationships.ownedBy)
         && Objects.equals(
-            this.additionalProperties, serviceAccessTokenResponse.additionalProperties);
+            this.additionalProperties, fullPersonalAccessTokenRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(ownedBy, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceAccessTokenResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("class FullPersonalAccessTokenRelationships {\n");
+    sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

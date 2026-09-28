@@ -19,7 +19,9 @@ import com.datadog.api.client.v2.model.PersonalAccessTokenCreateRequest;
 import com.datadog.api.client.v2.model.PersonalAccessTokenCreateResponse;
 import com.datadog.api.client.v2.model.PersonalAccessTokenResponse;
 import com.datadog.api.client.v2.model.PersonalAccessTokenUpdateRequest;
+import com.datadog.api.client.v2.model.PersonalAccessTokensIncludeQueryParameterItem;
 import com.datadog.api.client.v2.model.PersonalAccessTokensSort;
+import com.datadog.api.client.v2.model.UpdatedPersonalAccessTokenResponse;
 import com.datadog.api.client.v2.model.ValidateAPIKeyResponse;
 import com.datadog.api.client.v2.model.ValidateV2Response;
 import jakarta.ws.rs.client.Invocation;
@@ -1399,6 +1401,24 @@ public class KeyManagementApi {
         new GenericType<ApplicationKeyResponse>() {});
   }
 
+  /** Manage optional parameters to getPersonalAccessToken. */
+  public static class GetPersonalAccessTokenOptionalParameters {
+    private List<PersonalAccessTokensIncludeQueryParameterItem> include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of relationship objects that should be included in the
+     *     response. (optional)
+     * @return GetPersonalAccessTokenOptionalParameters
+     */
+    public GetPersonalAccessTokenOptionalParameters include(
+        List<PersonalAccessTokensIncludeQueryParameterItem> include) {
+      this.include = include;
+      return this;
+    }
+  }
+
   /**
    * Get a personal access token.
    *
@@ -1409,7 +1429,9 @@ public class KeyManagementApi {
    * @throws ApiException if fails to make API call
    */
   public PersonalAccessTokenResponse getPersonalAccessToken(String tokenId) throws ApiException {
-    return getPersonalAccessTokenWithHttpInfo(tokenId).getData();
+    return getPersonalAccessTokenWithHttpInfo(
+            tokenId, new GetPersonalAccessTokenOptionalParameters())
+        .getData();
   }
 
   /**
@@ -1422,7 +1444,41 @@ public class KeyManagementApi {
    */
   public CompletableFuture<PersonalAccessTokenResponse> getPersonalAccessTokenAsync(
       String tokenId) {
-    return getPersonalAccessTokenWithHttpInfoAsync(tokenId)
+    return getPersonalAccessTokenWithHttpInfoAsync(
+            tokenId, new GetPersonalAccessTokenOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a personal access token.
+   *
+   * <p>See {@link #getPersonalAccessTokenWithHttpInfo}.
+   *
+   * @param tokenId The ID of the access token. (required)
+   * @param parameters Optional parameters for the request.
+   * @return PersonalAccessTokenResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokenResponse getPersonalAccessToken(
+      String tokenId, GetPersonalAccessTokenOptionalParameters parameters) throws ApiException {
+    return getPersonalAccessTokenWithHttpInfo(tokenId, parameters).getData();
+  }
+
+  /**
+   * Get a personal access token.
+   *
+   * <p>See {@link #getPersonalAccessTokenWithHttpInfoAsync}.
+   *
+   * @param tokenId The ID of the access token. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;PersonalAccessTokenResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokenResponse> getPersonalAccessTokenAsync(
+      String tokenId, GetPersonalAccessTokenOptionalParameters parameters) {
+    return getPersonalAccessTokenWithHttpInfoAsync(tokenId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1433,6 +1489,7 @@ public class KeyManagementApi {
    * Get a specific personal access token by its ID.
    *
    * @param tokenId The ID of the access token. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;PersonalAccessTokenResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1445,8 +1502,8 @@ public class KeyManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PersonalAccessTokenResponse> getPersonalAccessTokenWithHttpInfo(String tokenId)
-      throws ApiException {
+  public ApiResponse<PersonalAccessTokenResponse> getPersonalAccessTokenWithHttpInfo(
+      String tokenId, GetPersonalAccessTokenOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'tokenId' is set
@@ -1454,18 +1511,22 @@ public class KeyManagementApi {
       throw new ApiException(
           400, "Missing the required parameter 'tokenId' when calling getPersonalAccessToken");
     }
+    List<PersonalAccessTokensIncludeQueryParameterItem> include = parameters.include;
     // create path and map variables
     String localVarPath =
         "/api/v2/personal_access_tokens/{token_id}"
             .replaceAll("\\{" + "token_id" + "\\}", apiClient.escapeString(tokenId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.KeyManagementApi.getPersonalAccessToken",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -1487,10 +1548,12 @@ public class KeyManagementApi {
    * <p>See {@link #getPersonalAccessTokenWithHttpInfo}.
    *
    * @param tokenId The ID of the access token. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PersonalAccessTokenResponse>>
-      getPersonalAccessTokenWithHttpInfoAsync(String tokenId) {
+      getPersonalAccessTokenWithHttpInfoAsync(
+          String tokenId, GetPersonalAccessTokenOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'tokenId' is set
@@ -1502,12 +1565,16 @@ public class KeyManagementApi {
               400, "Missing the required parameter 'tokenId' when calling getPersonalAccessToken"));
       return result;
     }
+    List<PersonalAccessTokensIncludeQueryParameterItem> include = parameters.include;
     // create path and map variables
     String localVarPath =
         "/api/v2/personal_access_tokens/{token_id}"
             .replaceAll("\\{" + "token_id" + "\\}", apiClient.escapeString(tokenId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     Invocation.Builder builder;
     try {
@@ -1515,7 +1582,7 @@ public class KeyManagementApi {
           apiClient.createBuilder(
               "v2.KeyManagementApi.getPersonalAccessToken",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -2471,6 +2538,8 @@ public class KeyManagementApi {
     private PersonalAccessTokensSort sort;
     private String filter;
     private List<String> filterOwnedBy;
+    private Boolean filterLeaked;
+    private List<PersonalAccessTokensIncludeQueryParameterItem> include;
 
     /**
      * Set pageSize.
@@ -2528,6 +2597,31 @@ public class KeyManagementApi {
      */
     public ListPersonalAccessTokensOptionalParameters filterOwnedBy(List<String> filterOwnedBy) {
       this.filterOwnedBy = filterOwnedBy;
+      return this;
+    }
+
+    /**
+     * Set filterLeaked.
+     *
+     * @param filterLeaked When true, only return access tokens that have been detected as leaked.
+     *     Has no effect when false. (optional)
+     * @return ListPersonalAccessTokensOptionalParameters
+     */
+    public ListPersonalAccessTokensOptionalParameters filterLeaked(Boolean filterLeaked) {
+      this.filterLeaked = filterLeaked;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of relationship objects that should be included in the
+     *     response. (optional)
+     * @return ListPersonalAccessTokensOptionalParameters
+     */
+    public ListPersonalAccessTokensOptionalParameters include(
+        List<PersonalAccessTokensIncludeQueryParameterItem> include) {
+      this.include = include;
       return this;
     }
   }
@@ -2616,6 +2710,8 @@ public class KeyManagementApi {
     PersonalAccessTokensSort sort = parameters.sort;
     String filter = parameters.filter;
     List<String> filterOwnedBy = parameters.filterOwnedBy;
+    Boolean filterLeaked = parameters.filterLeaked;
+    List<PersonalAccessTokensIncludeQueryParameterItem> include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/personal_access_tokens";
 
@@ -2628,6 +2724,8 @@ public class KeyManagementApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[owned_by]", filterOwnedBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[leaked]", filterLeaked));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2666,6 +2764,8 @@ public class KeyManagementApi {
     PersonalAccessTokensSort sort = parameters.sort;
     String filter = parameters.filter;
     List<String> filterOwnedBy = parameters.filterOwnedBy;
+    Boolean filterLeaked = parameters.filterLeaked;
+    List<PersonalAccessTokensIncludeQueryParameterItem> include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/personal_access_tokens";
 
@@ -2678,6 +2778,8 @@ public class KeyManagementApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[owned_by]", filterOwnedBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[leaked]", filterLeaked));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     Invocation.Builder builder;
     try {
@@ -3329,10 +3431,10 @@ public class KeyManagementApi {
    *
    * @param tokenId The ID of the access token. (required)
    * @param body (required)
-   * @return PersonalAccessTokenResponse
+   * @return UpdatedPersonalAccessTokenResponse
    * @throws ApiException if fails to make API call
    */
-  public PersonalAccessTokenResponse updatePersonalAccessToken(
+  public UpdatedPersonalAccessTokenResponse updatePersonalAccessToken(
       String tokenId, PersonalAccessTokenUpdateRequest body) throws ApiException {
     return updatePersonalAccessTokenWithHttpInfo(tokenId, body).getData();
   }
@@ -3344,9 +3446,9 @@ public class KeyManagementApi {
    *
    * @param tokenId The ID of the access token. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;PersonalAccessTokenResponse&gt;
+   * @return CompletableFuture&lt;UpdatedPersonalAccessTokenResponse&gt;
    */
-  public CompletableFuture<PersonalAccessTokenResponse> updatePersonalAccessTokenAsync(
+  public CompletableFuture<UpdatedPersonalAccessTokenResponse> updatePersonalAccessTokenAsync(
       String tokenId, PersonalAccessTokenUpdateRequest body) {
     return updatePersonalAccessTokenWithHttpInfoAsync(tokenId, body)
         .thenApply(
@@ -3360,7 +3462,7 @@ public class KeyManagementApi {
    *
    * @param tokenId The ID of the access token. (required)
    * @param body (required)
-   * @return ApiResponse&lt;PersonalAccessTokenResponse&gt;
+   * @return ApiResponse&lt;UpdatedPersonalAccessTokenResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -3373,7 +3475,7 @@ public class KeyManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PersonalAccessTokenResponse> updatePersonalAccessTokenWithHttpInfo(
+  public ApiResponse<UpdatedPersonalAccessTokenResponse> updatePersonalAccessTokenWithHttpInfo(
       String tokenId, PersonalAccessTokenUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -3412,7 +3514,7 @@ public class KeyManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<PersonalAccessTokenResponse>() {});
+        new GenericType<UpdatedPersonalAccessTokenResponse>() {});
   }
 
   /**
@@ -3422,16 +3524,16 @@ public class KeyManagementApi {
    *
    * @param tokenId The ID of the access token. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;UpdatedPersonalAccessTokenResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<PersonalAccessTokenResponse>>
+  public CompletableFuture<ApiResponse<UpdatedPersonalAccessTokenResponse>>
       updatePersonalAccessTokenWithHttpInfoAsync(
           String tokenId, PersonalAccessTokenUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'tokenId' is set
     if (tokenId == null) {
-      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+      CompletableFuture<ApiResponse<UpdatedPersonalAccessTokenResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
@@ -3442,7 +3544,7 @@ public class KeyManagementApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+      CompletableFuture<ApiResponse<UpdatedPersonalAccessTokenResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
@@ -3468,7 +3570,7 @@ public class KeyManagementApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+      CompletableFuture<ApiResponse<UpdatedPersonalAccessTokenResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -3481,7 +3583,7 @@ public class KeyManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<PersonalAccessTokenResponse>() {});
+        new GenericType<UpdatedPersonalAccessTokenResponse>() {});
   }
 
   /**

@@ -17,13 +17,45 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Resources related to the access token entry in the mixed list response. */
-@JsonPropertyOrder({AccessTokenListItemRelationships.JSON_PROPERTY_OWNED_BY})
+@JsonPropertyOrder({
+  AccessTokenListItemRelationships.JSON_PROPERTY_LEAK_INFORMATION,
+  AccessTokenListItemRelationships.JSON_PROPERTY_OWNED_BY
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AccessTokenListItemRelationships {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LEAK_INFORMATION = "leak_information";
+  private RelationshipToLeakedKey leakInformation;
+
   public static final String JSON_PROPERTY_OWNED_BY = "owned_by";
   private RelationshipToAccessTokenOwner ownedBy;
+
+  public AccessTokenListItemRelationships leakInformation(RelationshipToLeakedKey leakInformation) {
+    this.leakInformation = leakInformation;
+    this.unparsed |= leakInformation.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to the leak the access token was found in. <code>data</code> is null when the
+   * access token has not been detected as leaked.
+   *
+   * @return leakInformation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LEAK_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToLeakedKey getLeakInformation() {
+    return leakInformation;
+  }
+
+  public void setLeakInformation(RelationshipToLeakedKey leakInformation) {
+    this.leakInformation = leakInformation;
+    if (leakInformation != null) {
+      this.unparsed |= leakInformation.unparsed;
+    }
+  }
 
   public AccessTokenListItemRelationships ownedBy(RelationshipToAccessTokenOwner ownedBy) {
     this.ownedBy = ownedBy;
@@ -107,20 +139,22 @@ public class AccessTokenListItemRelationships {
     }
     AccessTokenListItemRelationships accessTokenListItemRelationships =
         (AccessTokenListItemRelationships) o;
-    return Objects.equals(this.ownedBy, accessTokenListItemRelationships.ownedBy)
+    return Objects.equals(this.leakInformation, accessTokenListItemRelationships.leakInformation)
+        && Objects.equals(this.ownedBy, accessTokenListItemRelationships.ownedBy)
         && Objects.equals(
             this.additionalProperties, accessTokenListItemRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ownedBy, additionalProperties);
+    return Objects.hash(leakInformation, ownedBy, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccessTokenListItemRelationships {\n");
+    sb.append("    leakInformation: ").append(toIndentedString(leakInformation)).append("\n");
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
