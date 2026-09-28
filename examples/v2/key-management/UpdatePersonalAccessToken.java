@@ -3,11 +3,11 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.KeyManagementApi;
-import com.datadog.api.client.v2.model.PersonalAccessTokenResponse;
 import com.datadog.api.client.v2.model.PersonalAccessTokenUpdateAttributes;
 import com.datadog.api.client.v2.model.PersonalAccessTokenUpdateData;
 import com.datadog.api.client.v2.model.PersonalAccessTokenUpdateRequest;
 import com.datadog.api.client.v2.model.PersonalAccessTokensType;
+import com.datadog.api.client.v2.model.UpdatedPersonalAccessTokenResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class Example {
                             .name("Example-Key-Management-updated")));
 
     try {
-      PersonalAccessTokenResponse result =
+      UpdatedPersonalAccessTokenResponse result =
           apiInstance.updatePersonalAccessToken(PERSONAL_ACCESS_TOKEN_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
