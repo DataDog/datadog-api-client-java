@@ -4450,7 +4450,7 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams with a test.
    *
    * <p>See {@link #listTeamsWithHttpInfo}.
    *
@@ -4462,7 +4462,7 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams with a test.
    *
    * <p>See {@link #listTeamsWithHttpInfoAsync}.
    *
@@ -4477,7 +4477,7 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams with a test.
    *
    * <p>See {@link #listTeamsWithHttpInfo}.
    *
@@ -4490,7 +4490,7 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams with a test.
    *
    * <p>See {@link #listTeamsWithHttpInfoAsync}.
    *
@@ -4506,7 +4506,7 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams with a test.
    *
    * <p>See {@link #listTeamsWithHttpInfo}.
    *
@@ -4518,7 +4518,7 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams with a test.
    *
    * <p>See {@link #listTeamsWithHttpInfo}.
    *
@@ -4620,7 +4620,7 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams with a test.
    *
    * <p>See {@link #listTeamsWithHttpInfo}.
    *
