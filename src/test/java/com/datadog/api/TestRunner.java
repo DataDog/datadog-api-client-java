@@ -148,8 +148,7 @@ public final class TestRunner {
       throw new IllegalStateException("Generated test-server session has not been started");
     }
     Map<String, Object> result =
-        controlRequest(
-            "GET", "/sessions/" + world.testServerSession + "/last-request", null);
+        controlRequest("GET", "/sessions/" + world.testServerSession + "/last-request", null);
     Map<String, Object> request = (Map<String, Object>) result.get("request");
     if (request == null) {
       throw new AssertionError("Generated test server has not received a request");
