@@ -99,7 +99,7 @@ public class ConfluentAccountResourceAttributes {
 
   /**
    * The resource type of the Resource. Can be <code>kafka</code>, <code>connector</code>, <code>
-   * ksql</code>, or <code>schema_registry</code>.
+   * ksql</code>, <code>schema_registry</code>, or <code>flink</code>.
    *
    * @return resourceType
    */
