@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsMobileTestOptions.JSON_PROPERTY_ALLOW_APPLICATION_CRASH,
   SyntheticsMobileTestOptions.JSON_PROPERTY_BINDINGS,
+  SyntheticsMobileTestOptions.JSON_PROPERTY_BITS_AI_AUTO_INVESTIGATE,
   SyntheticsMobileTestOptions.JSON_PROPERTY_CI,
   SyntheticsMobileTestOptions.JSON_PROPERTY_DEFAULT_STEP_TIMEOUT,
   SyntheticsMobileTestOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -48,6 +49,9 @@ public class SyntheticsMobileTestOptions {
 
   public static final String JSON_PROPERTY_BINDINGS = "bindings";
   private List<SyntheticsTestRestrictionPolicyBinding> bindings = null;
+
+  public static final String JSON_PROPERTY_BITS_AI_AUTO_INVESTIGATE = "bits_ai_auto_investigate";
+  private Boolean bitsAiAutoInvestigate;
 
   public static final String JSON_PROPERTY_CI = "ci";
   private SyntheticsTestCiOptions ci;
@@ -169,6 +173,27 @@ public class SyntheticsMobileTestOptions {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public SyntheticsMobileTestOptions bitsAiAutoInvestigate(Boolean bitsAiAutoInvestigate) {
+    this.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
+    return this;
+  }
+
+  /**
+   * Whether Bits AI automatically investigates alerts from the test monitor.
+   *
+   * @return bitsAiAutoInvestigate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BITS_AI_AUTO_INVESTIGATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getBitsAiAutoInvestigate() {
+    return bitsAiAutoInvestigate;
+  }
+
+  public void setBitsAiAutoInvestigate(Boolean bitsAiAutoInvestigate) {
+    this.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
   }
 
   public SyntheticsMobileTestOptions ci(SyntheticsTestCiOptions ci) {
@@ -583,6 +608,8 @@ public class SyntheticsMobileTestOptions {
     return Objects.equals(
             this.allowApplicationCrash, syntheticsMobileTestOptions.allowApplicationCrash)
         && Objects.equals(this.bindings, syntheticsMobileTestOptions.bindings)
+        && Objects.equals(
+            this.bitsAiAutoInvestigate, syntheticsMobileTestOptions.bitsAiAutoInvestigate)
         && Objects.equals(this.ci, syntheticsMobileTestOptions.ci)
         && Objects.equals(this.defaultStepTimeout, syntheticsMobileTestOptions.defaultStepTimeout)
         && Objects.equals(this.deviceIds, syntheticsMobileTestOptions.deviceIds)
@@ -608,6 +635,7 @@ public class SyntheticsMobileTestOptions {
     return Objects.hash(
         allowApplicationCrash,
         bindings,
+        bitsAiAutoInvestigate,
         ci,
         defaultStepTimeout,
         deviceIds,
@@ -634,6 +662,9 @@ public class SyntheticsMobileTestOptions {
         .append(toIndentedString(allowApplicationCrash))
         .append("\n");
     sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
+    sb.append("    bitsAiAutoInvestigate: ")
+        .append(toIndentedString(bitsAiAutoInvestigate))
+        .append("\n");
     sb.append("    ci: ").append(toIndentedString(ci)).append("\n");
     sb.append("    defaultStepTimeout: ").append(toIndentedString(defaultStepTimeout)).append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
