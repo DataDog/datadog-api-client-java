@@ -138,6 +138,29 @@ public final class TestRunner {
     world.testServerSession = null;
   }
 
+  @SuppressWarnings("unchecked")
+  public static void assertLastRequestContentEncoding(World world, String expected)
+      throws Exception {
+    if (!serverEnabled()) {
+      return;
+    }
+    if (world.testServerSession == null) {
+      throw new IllegalStateException("Generated test-server session has not been started");
+    }
+    Map<String, Object> result =
+        controlRequest("GET", "/sessions/" + world.testServerSession + "/last-request", null);
+    Map<String, Object> request = (Map<String, Object>) result.get("request");
+    if (request == null) {
+      throw new AssertionError("Generated test server has not received a request");
+    }
+    Map<String, Object> headers = (Map<String, Object>) request.get("headers");
+    String actual = headers == null ? null : (String) headers.get("content-encoding");
+    if (actual == null || !actual.equalsIgnoreCase(expected)) {
+      throw new AssertionError(
+          String.format("Expected Content-Encoding %s, got %s", expected, actual));
+    }
+  }
+
   public static void applyPlan(World world, boolean pagination) throws Exception {
     if (!runnerEnabled()) {
       return;
@@ -166,6 +189,10 @@ public final class TestRunner {
     if (body != null) {
       Object value = materialize(body.get("value"), world);
       world.addMaterializedRequestParameter("body", MAPPER.writeValueAsString(value));
+    }
+    if (request.get("selected_compression") != null) {
+      world.addMaterializedRequestParameter(
+          "Content-Encoding", MAPPER.writeValueAsString(request.get("selected_compression")));
     }
     for (Map<String, Object> parameter : parameters) {
       if (!"path".equals(parameter.get("in")) && !Boolean.TRUE.equals(parameter.get("required"))) {
@@ -254,9 +281,14 @@ public final class TestRunner {
 
   private static Map<String, Object> controlRequest(String endpoint, Map<String, Object> payload)
       throws Exception {
+    return controlRequest("POST", endpoint, payload);
+  }
+
+  private static Map<String, Object> controlRequest(
+      String method, String endpoint, Map<String, Object> payload) throws Exception {
     URL url = new URL(serverUrl() + CONTROL_ROOT + endpoint);
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-    connection.setRequestMethod("POST");
+    connection.setRequestMethod(method);
     connection.setRequestProperty("Connection", "close");
     if (payload != null) {
       byte[] body = MAPPER.writeValueAsBytes(payload);
@@ -283,7 +315,7 @@ public final class TestRunner {
     }
     if (status >= HttpURLConnection.HTTP_BAD_REQUEST) {
       throw new IllegalStateException(
-          String.format("Test server POST %s failed (%d): %s", endpoint, status, response));
+          String.format("Test server %s %s failed (%d): %s", method, endpoint, status, response));
     }
     return MAPPER.readValue(response.toString(), new TypeReference<Map<String, Object>>() {});
   }

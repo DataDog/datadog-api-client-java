@@ -6,6 +6,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.Status;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.io.File;
 import java.io.IOException;
@@ -195,6 +197,16 @@ public class RecorderSteps {
 
   public String getCassetteName() {
     return world.getName() + ".json";
+  }
+
+  @Then("the request uses {string} compression")
+  public void theRequestUsesCompression(String compression) throws Exception {
+    TestRunner.assertLastRequestContentEncoding(world, compression);
+  }
+
+  @Given("the client selects {string} compression")
+  public void theClientSelectsCompression(String compression) {
+    // The generated request plan passes the selected compression to the client call.
   }
 
   @When("the request is sent")
