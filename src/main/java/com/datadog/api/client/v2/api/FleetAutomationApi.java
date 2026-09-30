@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.FleetAgentDetailV2Response;
 import com.datadog.api.client.v2.model.FleetAgentVersionsV2Response;
 import com.datadog.api.client.v2.model.FleetAgentsV2Response;
+import com.datadog.api.client.v2.model.FleetConfigFileSchemaV2Response;
 import com.datadog.api.client.v2.model.FleetDeploymentConfigureV2CreateRequest;
 import com.datadog.api.client.v2.model.FleetDeploymentConfigureV2DryRunResponse;
 import com.datadog.api.client.v2.model.FleetDeploymentPackageUpgradeV2CreateRequest;
@@ -1059,6 +1060,158 @@ public class FleetAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FleetAgentDetailV2Response>() {});
+  }
+
+  /**
+   * Get a configuration file&#39;s schema by path.
+   *
+   * <p>See {@link #getFleetConfigFileSchemaV2WithHttpInfo}.
+   *
+   * @param filePath The configuration file path reported by the Datadog Agent (for example, <code>
+   *     conf.d/postgres.d/conf.yaml</code> or <code>datadog.yaml</code>). (required)
+   * @return FleetConfigFileSchemaV2Response
+   * @throws ApiException if fails to make API call
+   */
+  public FleetConfigFileSchemaV2Response getFleetConfigFileSchemaV2(String filePath)
+      throws ApiException {
+    return getFleetConfigFileSchemaV2WithHttpInfo(filePath).getData();
+  }
+
+  /**
+   * Get a configuration file&#39;s schema by path.
+   *
+   * <p>See {@link #getFleetConfigFileSchemaV2WithHttpInfoAsync}.
+   *
+   * @param filePath The configuration file path reported by the Datadog Agent (for example, <code>
+   *     conf.d/postgres.d/conf.yaml</code> or <code>datadog.yaml</code>). (required)
+   * @return CompletableFuture&lt;FleetConfigFileSchemaV2Response&gt;
+   */
+  public CompletableFuture<FleetConfigFileSchemaV2Response> getFleetConfigFileSchemaV2Async(
+      String filePath) {
+    return getFleetConfigFileSchemaV2WithHttpInfoAsync(filePath)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the schema for a configuration file, identified by the file path reported by the
+   * Datadog Agent. A schema describes the structure and options of a configuration file. Works for
+   * both integration configuration files and core Agent configuration files.
+   *
+   * <p>The schema defines which fields can be edited remotely from Fleet Automation using <code>
+   * POST /api/v2/fleet/deployments/configure</code>.
+   *
+   * @param filePath The configuration file path reported by the Datadog Agent (for example, <code>
+   *     conf.d/postgres.d/conf.yaml</code> or <code>datadog.yaml</code>). (required)
+   * @return ApiResponse&lt;FleetConfigFileSchemaV2Response&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetConfigFileSchemaV2Response> getFleetConfigFileSchemaV2WithHttpInfo(
+      String filePath) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filePath' is set
+    if (filePath == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filePath' when calling getFleetConfigFileSchemaV2");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/fleet/schemas/config-file";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "file_path", filePath));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.getFleetConfigFileSchemaV2",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetConfigFileSchemaV2Response>() {});
+  }
+
+  /**
+   * Get a configuration file&#39;s schema by path.
+   *
+   * <p>See {@link #getFleetConfigFileSchemaV2WithHttpInfo}.
+   *
+   * @param filePath The configuration file path reported by the Datadog Agent (for example, <code>
+   *     conf.d/postgres.d/conf.yaml</code> or <code>datadog.yaml</code>). (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetConfigFileSchemaV2Response&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetConfigFileSchemaV2Response>>
+      getFleetConfigFileSchemaV2WithHttpInfoAsync(String filePath) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filePath' is set
+    if (filePath == null) {
+      CompletableFuture<ApiResponse<FleetConfigFileSchemaV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filePath' when calling getFleetConfigFileSchemaV2"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/fleet/schemas/config-file";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "file_path", filePath));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.getFleetConfigFileSchemaV2",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetConfigFileSchemaV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetConfigFileSchemaV2Response>() {});
   }
 
   /**
