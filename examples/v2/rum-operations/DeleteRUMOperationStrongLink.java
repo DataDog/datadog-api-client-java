@@ -12,7 +12,7 @@ public class Example {
     RumOperationsApi apiInstance = new RumOperationsApi(defaultClient);
 
     try {
-      apiInstance.deleteRUMOperationStrongLink("rum_operation_id", "feature_id");
+      apiInstance.deleteRUMOperationStrongLink("rum_operation_id", "journey_id");
     } catch (ApiException e) {
       System.err.println("Exception when calling RumOperationsApi#deleteRUMOperationStrongLink");
       System.err.println("Status code: " + e.getCode());
