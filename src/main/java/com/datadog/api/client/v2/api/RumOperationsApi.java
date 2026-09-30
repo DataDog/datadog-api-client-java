@@ -521,12 +521,12 @@ public class RumOperationsApi {
    * <p>See {@link #deleteRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteRUMOperationStrongLink(String rumOperationId, String featureId)
+  public void deleteRUMOperationStrongLink(String rumOperationId, String journeyId)
       throws ApiException {
-    deleteRUMOperationStrongLinkWithHttpInfo(rumOperationId, featureId);
+    deleteRUMOperationStrongLinkWithHttpInfo(rumOperationId, journeyId);
   }
 
   /**
@@ -535,12 +535,12 @@ public class RumOperationsApi {
    * <p>See {@link #deleteRUMOperationStrongLinkWithHttpInfoAsync}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRUMOperationStrongLinkAsync(
-      String rumOperationId, String featureId) {
-    return deleteRUMOperationStrongLinkWithHttpInfoAsync(rumOperationId, featureId)
+      String rumOperationId, String journeyId) {
+    return deleteRUMOperationStrongLinkWithHttpInfoAsync(rumOperationId, journeyId)
         .thenApply(
             response -> {
               return response.getData();
@@ -551,7 +551,7 @@ public class RumOperationsApi {
    * Delete the strong link between a RUM operation and a feature.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -564,7 +564,7 @@ public class RumOperationsApi {
    *     </table>
    */
   public ApiResponse<Void> deleteRUMOperationStrongLinkWithHttpInfo(
-      String rumOperationId, String featureId) throws ApiException {
+      String rumOperationId, String journeyId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteRUMOperationStrongLink";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -582,19 +582,19 @@ public class RumOperationsApi {
               + " deleteRUMOperationStrongLink");
     }
 
-    // verify the required parameter 'featureId' is set
-    if (featureId == null) {
+    // verify the required parameter 'journeyId' is set
+    if (journeyId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'featureId' when calling deleteRUMOperationStrongLink");
+          "Missing the required parameter 'journeyId' when calling deleteRUMOperationStrongLink");
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}"
+        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}"
             .replaceAll(
                 "\\{" + "rum_operation_id" + "\\}",
                 apiClient.escapeString(rumOperationId.toString()))
-            .replaceAll("\\{" + "feature_id" + "\\}", apiClient.escapeString(featureId.toString()));
+            .replaceAll("\\{" + "journey_id" + "\\}", apiClient.escapeString(journeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -624,11 +624,11 @@ public class RumOperationsApi {
    * <p>See {@link #deleteRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRUMOperationStrongLinkWithHttpInfoAsync(
-      String rumOperationId, String featureId) {
+      String rumOperationId, String journeyId) {
     // Check if unstable operation is enabled
     String operationId = "deleteRUMOperationStrongLink";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -652,23 +652,23 @@ public class RumOperationsApi {
       return result;
     }
 
-    // verify the required parameter 'featureId' is set
-    if (featureId == null) {
+    // verify the required parameter 'journeyId' is set
+    if (journeyId == null) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'featureId' when calling"
+              "Missing the required parameter 'journeyId' when calling"
                   + " deleteRUMOperationStrongLink"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}"
+        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}"
             .replaceAll(
                 "\\{" + "rum_operation_id" + "\\}",
                 apiClient.escapeString(rumOperationId.toString()))
-            .replaceAll("\\{" + "feature_id" + "\\}", apiClient.escapeString(featureId.toString()));
+            .replaceAll("\\{" + "journey_id" + "\\}", apiClient.escapeString(journeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1699,15 +1699,15 @@ public class RumOperationsApi {
    * <p>See {@link #updateRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @param body (required)
    * @return RUMOperationStrongLinkResponse
    * @throws ApiException if fails to make API call
    */
   public RUMOperationStrongLinkResponse updateRUMOperationStrongLink(
-      String rumOperationId, String featureId, RUMOperationStrongLinkUpdateRequest body)
+      String rumOperationId, String journeyId, RUMOperationStrongLinkUpdateRequest body)
       throws ApiException {
-    return updateRUMOperationStrongLinkWithHttpInfo(rumOperationId, featureId, body).getData();
+    return updateRUMOperationStrongLinkWithHttpInfo(rumOperationId, journeyId, body).getData();
   }
 
   /**
@@ -1716,13 +1716,13 @@ public class RumOperationsApi {
    * <p>See {@link #updateRUMOperationStrongLinkWithHttpInfoAsync}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @param body (required)
    * @return CompletableFuture&lt;RUMOperationStrongLinkResponse&gt;
    */
   public CompletableFuture<RUMOperationStrongLinkResponse> updateRUMOperationStrongLinkAsync(
-      String rumOperationId, String featureId, RUMOperationStrongLinkUpdateRequest body) {
-    return updateRUMOperationStrongLinkWithHttpInfoAsync(rumOperationId, featureId, body)
+      String rumOperationId, String journeyId, RUMOperationStrongLinkUpdateRequest body) {
+    return updateRUMOperationStrongLinkWithHttpInfoAsync(rumOperationId, journeyId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -1733,7 +1733,7 @@ public class RumOperationsApi {
    * Update the status of a strong link between a RUM operation and a feature.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @param body (required)
    * @return ApiResponse&lt;RUMOperationStrongLinkResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1748,7 +1748,7 @@ public class RumOperationsApi {
    *     </table>
    */
   public ApiResponse<RUMOperationStrongLinkResponse> updateRUMOperationStrongLinkWithHttpInfo(
-      String rumOperationId, String featureId, RUMOperationStrongLinkUpdateRequest body)
+      String rumOperationId, String journeyId, RUMOperationStrongLinkUpdateRequest body)
       throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "updateRUMOperationStrongLink";
@@ -1767,11 +1767,11 @@ public class RumOperationsApi {
               + " updateRUMOperationStrongLink");
     }
 
-    // verify the required parameter 'featureId' is set
-    if (featureId == null) {
+    // verify the required parameter 'journeyId' is set
+    if (journeyId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'featureId' when calling updateRUMOperationStrongLink");
+          "Missing the required parameter 'journeyId' when calling updateRUMOperationStrongLink");
     }
 
     // verify the required parameter 'body' is set
@@ -1781,11 +1781,11 @@ public class RumOperationsApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}"
+        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}"
             .replaceAll(
                 "\\{" + "rum_operation_id" + "\\}",
                 apiClient.escapeString(rumOperationId.toString()))
-            .replaceAll("\\{" + "feature_id" + "\\}", apiClient.escapeString(featureId.toString()));
+            .replaceAll("\\{" + "journey_id" + "\\}", apiClient.escapeString(journeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1815,13 +1815,13 @@ public class RumOperationsApi {
    * <p>See {@link #updateRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param journeyId The unique identifier of the journey. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RUMOperationStrongLinkResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RUMOperationStrongLinkResponse>>
       updateRUMOperationStrongLinkWithHttpInfoAsync(
-          String rumOperationId, String featureId, RUMOperationStrongLinkUpdateRequest body) {
+          String rumOperationId, String journeyId, RUMOperationStrongLinkUpdateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "updateRUMOperationStrongLink";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1847,14 +1847,14 @@ public class RumOperationsApi {
       return result;
     }
 
-    // verify the required parameter 'featureId' is set
-    if (featureId == null) {
+    // verify the required parameter 'journeyId' is set
+    if (journeyId == null) {
       CompletableFuture<ApiResponse<RUMOperationStrongLinkResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'featureId' when calling"
+              "Missing the required parameter 'journeyId' when calling"
                   + " updateRUMOperationStrongLink"));
       return result;
     }
@@ -1871,11 +1871,11 @@ public class RumOperationsApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}"
+        "/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}"
             .replaceAll(
                 "\\{" + "rum_operation_id" + "\\}",
                 apiClient.escapeString(rumOperationId.toString()))
-            .replaceAll("\\{" + "feature_id" + "\\}", apiClient.escapeString(featureId.toString()));
+            .replaceAll("\\{" + "journey_id" + "\\}", apiClient.escapeString(journeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

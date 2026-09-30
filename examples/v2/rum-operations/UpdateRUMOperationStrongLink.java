@@ -28,7 +28,7 @@ public class Example {
 
     try {
       RUMOperationStrongLinkResponse result =
-          apiInstance.updateRUMOperationStrongLink("rum_operation_id", "feature_id", body);
+          apiInstance.updateRUMOperationStrongLink("rum_operation_id", "journey_id", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumOperationsApi#updateRUMOperationStrongLink");
