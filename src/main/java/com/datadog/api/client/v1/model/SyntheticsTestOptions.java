@@ -22,6 +22,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
+  SyntheticsTestOptions.JSON_PROPERTY_BITS_AI_AUTO_INVESTIGATE,
   SyntheticsTestOptions.JSON_PROPERTY_BLOCKED_REQUEST_PATTERNS,
   SyntheticsTestOptions.JSON_PROPERTY_CAPTURE_NETWORK_PAYLOADS,
   SyntheticsTestOptions.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
@@ -58,6 +59,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
   private Boolean allowInsecure;
+
+  public static final String JSON_PROPERTY_BITS_AI_AUTO_INVESTIGATE = "bits_ai_auto_investigate";
+  private Boolean bitsAiAutoInvestigate;
 
   public static final String JSON_PROPERTY_BLOCKED_REQUEST_PATTERNS = "blockedRequestPatterns";
   private List<String> blockedRequestPatterns = null;
@@ -181,6 +185,27 @@ public class SyntheticsTestOptions {
 
   public void setAllowInsecure(Boolean allowInsecure) {
     this.allowInsecure = allowInsecure;
+  }
+
+  public SyntheticsTestOptions bitsAiAutoInvestigate(Boolean bitsAiAutoInvestigate) {
+    this.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
+    return this;
+  }
+
+  /**
+   * Whether Bits AI automatically investigates alerts from the test monitor.
+   *
+   * @return bitsAiAutoInvestigate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BITS_AI_AUTO_INVESTIGATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getBitsAiAutoInvestigate() {
+    return bitsAiAutoInvestigate;
+  }
+
+  public void setBitsAiAutoInvestigate(Boolean bitsAiAutoInvestigate) {
+    this.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
   }
 
   public SyntheticsTestOptions blockedRequestPatterns(List<String> blockedRequestPatterns) {
@@ -856,6 +881,7 @@ public class SyntheticsTestOptions {
     SyntheticsTestOptions syntheticsTestOptions = (SyntheticsTestOptions) o;
     return Objects.equals(this.acceptSelfSigned, syntheticsTestOptions.acceptSelfSigned)
         && Objects.equals(this.allowInsecure, syntheticsTestOptions.allowInsecure)
+        && Objects.equals(this.bitsAiAutoInvestigate, syntheticsTestOptions.bitsAiAutoInvestigate)
         && Objects.equals(this.blockedRequestPatterns, syntheticsTestOptions.blockedRequestPatterns)
         && Objects.equals(this.captureNetworkPayloads, syntheticsTestOptions.captureNetworkPayloads)
         && Objects.equals(
@@ -896,6 +922,7 @@ public class SyntheticsTestOptions {
     return Objects.hash(
         acceptSelfSigned,
         allowInsecure,
+        bitsAiAutoInvestigate,
         blockedRequestPatterns,
         captureNetworkPayloads,
         checkCertificateRevocation,
@@ -931,6 +958,9 @@ public class SyntheticsTestOptions {
     sb.append("class SyntheticsTestOptions {\n");
     sb.append("    acceptSelfSigned: ").append(toIndentedString(acceptSelfSigned)).append("\n");
     sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
+    sb.append("    bitsAiAutoInvestigate: ")
+        .append(toIndentedString(bitsAiAutoInvestigate))
+        .append("\n");
     sb.append("    blockedRequestPatterns: ")
         .append(toIndentedString(blockedRequestPatterns))
         .append("\n");
