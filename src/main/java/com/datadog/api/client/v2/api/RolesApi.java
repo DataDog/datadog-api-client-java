@@ -553,21 +553,11 @@ public class RolesApi {
   /**
    * Create a new role for your organization.
    *
-   * <p>The following read permissions are automatically added to every new role, even if they are
-   * not included in the request:
-   *
-   * <ul>
-   *   <li>Dashboards Read
-   *   <li>Notebooks Read
-   *   <li>Monitors Read
-   *   <li>APM Read
-   *   <li>Vulnerability Management Read
-   *   <li>RUM Apps Read
-   *   <li>Incidents Read
-   *   <li>SLOs Read
-   *   <li>CI Visibility Read
-   *   <li>CD Visibility Read
-   * </ul>
+   * <p><a
+   * href="https://docs.datadoghq.com/account_management/rbac/permissions/#restricted-permissions">Restricted
+   * permissions</a>, such as Dashboards Read and Monitors Read, are added to every new role by
+   * default, even if they are omitted from the request. To exclude them, set <code>
+   * default_permissions_opt_out</code> to <code>true</code>.
    *
    * @param body (required)
    * @return ApiResponse&lt;RoleCreateResponse&gt;
@@ -2188,6 +2178,12 @@ public class RolesApi {
 
   /**
    * Edit a role. Can only be used with application keys belonging to administrators.
+   *
+   * <p><a
+   * href="https://docs.datadoghq.com/account_management/rbac/permissions/#restricted-permissions">Restricted
+   * permissions</a>, such as Dashboards Read and Monitors Read, remain on the role by default, even
+   * if they are omitted from the request. To exclude them, set <code>default_permissions_opt_out
+   * </code> to <code>true</code>.
    *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
