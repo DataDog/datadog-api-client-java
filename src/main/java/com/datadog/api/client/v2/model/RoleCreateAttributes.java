@@ -23,6 +23,7 @@ import java.util.Objects;
 /** Attributes of the created role. */
 @JsonPropertyOrder({
   RoleCreateAttributes.JSON_PROPERTY_CREATED_AT,
+  RoleCreateAttributes.JSON_PROPERTY_DEFAULT_PERMISSIONS_OPT_OUT,
   RoleCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleCreateAttributes.JSON_PROPERTY_NAME,
   RoleCreateAttributes.JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM
@@ -33,6 +34,10 @@ public class RoleCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_DEFAULT_PERMISSIONS_OPT_OUT =
+      "default_permissions_opt_out";
+  private Boolean defaultPermissionsOptOut;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -61,6 +66,30 @@ public class RoleCreateAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+  public RoleCreateAttributes defaultPermissionsOptOut(Boolean defaultPermissionsOptOut) {
+    this.defaultPermissionsOptOut = defaultPermissionsOptOut;
+    return this;
+  }
+
+  /**
+   * Whether to exclude restricted default permissions from this role. Restricted default
+   * permissions are automatically assigned to every role by default. Set this field to <code>true
+   * </code> to exclude them. Some of these permissions can only be excluded after Minimal Access
+   * Roles is enabled for the organization.
+   *
+   * @return defaultPermissionsOptOut
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_PERMISSIONS_OPT_OUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDefaultPermissionsOptOut() {
+    return defaultPermissionsOptOut;
+  }
+
+  public void setDefaultPermissionsOptOut(Boolean defaultPermissionsOptOut) {
+    this.defaultPermissionsOptOut = defaultPermissionsOptOut;
   }
 
   /**
@@ -184,6 +213,8 @@ public class RoleCreateAttributes {
     }
     RoleCreateAttributes roleCreateAttributes = (RoleCreateAttributes) o;
     return Objects.equals(this.createdAt, roleCreateAttributes.createdAt)
+        && Objects.equals(
+            this.defaultPermissionsOptOut, roleCreateAttributes.defaultPermissionsOptOut)
         && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt)
         && Objects.equals(this.name, roleCreateAttributes.name)
         && Objects.equals(
@@ -193,7 +224,13 @@ public class RoleCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, modifiedAt, name, receivesPermissionsFrom, additionalProperties);
+    return Objects.hash(
+        createdAt,
+        defaultPermissionsOptOut,
+        modifiedAt,
+        name,
+        receivesPermissionsFrom,
+        additionalProperties);
   }
 
   @Override
@@ -201,6 +238,9 @@ public class RoleCreateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleCreateAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    defaultPermissionsOptOut: ")
+        .append(toIndentedString(defaultPermissionsOptOut))
+        .append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    receivesPermissionsFrom: ")
