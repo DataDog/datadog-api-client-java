@@ -144,14 +144,16 @@ public class LLMObsPromptVersionDataAttributes {
   }
 
   /**
-   * A text template, a list of chat messages, or an authored chat object. Text can include an exact
-   * prompt version with <code>{{&gt;prompt-id version=N}}</code>; other text, including <code>
-   * {{&gt;...}}</code> sequences without a version, remains literal. Use an authored chat object
-   * when including prompts as chat messages. <strong>Preview</strong>: Prompt composition is
-   * available in Preview. To request access, contact <a
+   * A text template, a list of chat messages and named message placeholders, or an authored chat
+   * object. Text can include an exact prompt version with <code>{{&gt;prompt-id version=N}}</code>;
+   * other text, including <code>{{&gt;...}}</code> sequences without a version, remains literal.
+   * Use an authored chat object when including prompts as chat messages. <strong>Preview</strong>:
+   * Prompt composition is available in Preview. To request access, contact <a
    * href="https://docs.datadoghq.com/help/">Datadog Support</a> or your Customer Success Manager.
    * Without access, inline references remain literal text and structured includes are unsupported.
-   * Previously compiled prompt versions remain available for execution.
+   * Previously compiled prompt versions remain available for execution. <strong>Preview:</strong>
+   * Message placeholders are available in Preview. To request access, contact <a
+   * href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer Success Manager.
    *
    * @return authoringTemplate
    */
@@ -464,14 +466,16 @@ public class LLMObsPromptVersionDataAttributes {
   }
 
   /**
-   * A text template, a list of chat messages, or an authored chat object. Text can include an exact
-   * prompt version with <code>{{&gt;prompt-id version=N}}</code>; other text, including <code>
-   * {{&gt;...}}</code> sequences without a version, remains literal. Use an authored chat object
-   * when including prompts as chat messages. <strong>Preview</strong>: Prompt composition is
-   * available in Preview. To request access, contact <a
+   * A text template, a list of chat messages and named message placeholders, or an authored chat
+   * object. Text can include an exact prompt version with <code>{{&gt;prompt-id version=N}}</code>;
+   * other text, including <code>{{&gt;...}}</code> sequences without a version, remains literal.
+   * Use an authored chat object when including prompts as chat messages. <strong>Preview</strong>:
+   * Prompt composition is available in Preview. To request access, contact <a
    * href="https://docs.datadoghq.com/help/">Datadog Support</a> or your Customer Success Manager.
    * Without access, inline references remain literal text and structured includes are unsupported.
-   * Previously compiled prompt versions remain available for execution.
+   * Previously compiled prompt versions remain available for execution. <strong>Preview:</strong>
+   * Message placeholders are available in Preview. To request access, contact <a
+   * href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer Success Manager.
    *
    * @return template
    */
