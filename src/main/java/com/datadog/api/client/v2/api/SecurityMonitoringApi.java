@@ -34,7 +34,9 @@ import com.datadog.api.client.v2.model.DueDateRuleReorderRequest;
 import com.datadog.api.client.v2.model.DueDateRuleResponse;
 import com.datadog.api.client.v2.model.DueDateRuleUpdateRequest;
 import com.datadog.api.client.v2.model.DueDateRulesResponse;
+import com.datadog.api.client.v2.model.EntityContextEntityType;
 import com.datadog.api.client.v2.model.EntityContextResponse;
+import com.datadog.api.client.v2.model.EntityContextRevisionsMode;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingCaseResponse;
 import com.datadog.api.client.v2.model.FindingCaseResponseArray;
@@ -83,6 +85,7 @@ import com.datadog.api.client.v2.model.NotificationRulePreviewResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
 import com.datadog.api.client.v2.model.NotificationRulesListResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
+import com.datadog.api.client.v2.model.RecentlyUpdatedEntitiesResponse;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
 import com.datadog.api.client.v2.model.SBOMFormat;
@@ -11187,6 +11190,7 @@ public class SecurityMonitoringApi {
   /** Manage optional parameters to getEntityContext. */
   public static class GetEntityContextOptionalParameters {
     private String query;
+    private EntityContextEntityType entityType;
     private String from;
     private String to;
     private String asOf;
@@ -11202,6 +11206,19 @@ public class SecurityMonitoringApi {
      */
     public GetEntityContextOptionalParameters query(String query) {
       this.query = query;
+      return this;
+    }
+
+    /**
+     * Set entityType.
+     *
+     * @param entityType The type of entity to retrieve. Only <code>siem_entity_identity</code> is
+     *     currently supported. Defaults to <code>siem_entity_identity</code>. (optional, default to
+     *     "siem_entity_identity")
+     * @return GetEntityContextOptionalParameters
+     */
+    public GetEntityContextOptionalParameters entityType(EntityContextEntityType entityType) {
+      this.entityType = entityType;
       return this;
     }
 
@@ -11357,6 +11374,7 @@ public class SecurityMonitoringApi {
     }
     Object localVarPostBody = null;
     String query = parameters.query;
+    EntityContextEntityType entityType = parameters.entityType;
     String from = parameters.from;
     String to = parameters.to;
     String asOf = parameters.asOf;
@@ -11369,6 +11387,7 @@ public class SecurityMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "entity_type", entityType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
@@ -11417,6 +11436,7 @@ public class SecurityMonitoringApi {
     }
     Object localVarPostBody = null;
     String query = parameters.query;
+    EntityContextEntityType entityType = parameters.entityType;
     String from = parameters.from;
     String to = parameters.to;
     String asOf = parameters.asOf;
@@ -11429,6 +11449,7 @@ public class SecurityMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "entity_type", entityType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
@@ -11460,6 +11481,292 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EntityContextResponse>() {});
+  }
+
+  /** Manage optional parameters to getEntityContextRecentlyUpdated. */
+  public static class GetEntityContextRecentlyUpdatedOptionalParameters {
+    private String query;
+    private EntityContextEntityType entityType;
+    private String from;
+    private String to;
+    private Long limit;
+    private EntityContextRevisionsMode revisions;
+
+    /**
+     * Set query.
+     *
+     * @param query A free-text query (for example, an email address or principal ID) used to filter
+     *     the entities returned. (optional)
+     * @return GetEntityContextRecentlyUpdatedOptionalParameters
+     */
+    public GetEntityContextRecentlyUpdatedOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Set entityType.
+     *
+     * @param entityType The type of entity to retrieve. Only <code>siem_entity_identity</code> is
+     *     currently supported. Defaults to <code>siem_entity_identity</code>. (optional, default to
+     *     "siem_entity_identity")
+     * @return GetEntityContextRecentlyUpdatedOptionalParameters
+     */
+    public GetEntityContextRecentlyUpdatedOptionalParameters entityType(
+        EntityContextEntityType entityType) {
+      this.entityType = entityType;
+      return this;
+    }
+
+    /**
+     * Set from.
+     *
+     * @param from The start of the time range to query, as an RFC3339 timestamp or a relative time
+     *     (for example, <code>now-7d</code>). Defaults to <code>now-7d</code>. (optional, default
+     *     to "now-7d")
+     * @return GetEntityContextRecentlyUpdatedOptionalParameters
+     */
+    public GetEntityContextRecentlyUpdatedOptionalParameters from(String from) {
+      this.from = from;
+      return this;
+    }
+
+    /**
+     * Set to.
+     *
+     * @param to The end of the time range to query, as an RFC3339 timestamp or a relative time (for
+     *     example, <code>now</code>). Defaults to <code>now</code>. Entities are ranked by their
+     *     most recent revision within <code>[from, to]</code>. (optional, default to "now")
+     * @return GetEntityContextRecentlyUpdatedOptionalParameters
+     */
+    public GetEntityContextRecentlyUpdatedOptionalParameters to(String to) {
+      this.to = to;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit The number of entities to return. Must be between 1 and 100. (optional, default
+     *     to 50)
+     * @return GetEntityContextRecentlyUpdatedOptionalParameters
+     */
+    public GetEntityContextRecentlyUpdatedOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set revisions.
+     *
+     * @param revisions Which revisions to return for each entity: <code>latest</code> returns only
+     *     the latest revision of each entity as of <code>to</code>, and <code>all</code> returns
+     *     every revision in the requested time range. (optional, default to "latest")
+     * @return GetEntityContextRecentlyUpdatedOptionalParameters
+     */
+    public GetEntityContextRecentlyUpdatedOptionalParameters revisions(
+        EntityContextRevisionsMode revisions) {
+      this.revisions = revisions;
+      return this;
+    }
+  }
+
+  /**
+   * Get recently updated entity context.
+   *
+   * <p>See {@link #getEntityContextRecentlyUpdatedWithHttpInfo}.
+   *
+   * @return RecentlyUpdatedEntitiesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RecentlyUpdatedEntitiesResponse getEntityContextRecentlyUpdated() throws ApiException {
+    return getEntityContextRecentlyUpdatedWithHttpInfo(
+            new GetEntityContextRecentlyUpdatedOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get recently updated entity context.
+   *
+   * <p>See {@link #getEntityContextRecentlyUpdatedWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;RecentlyUpdatedEntitiesResponse&gt;
+   */
+  public CompletableFuture<RecentlyUpdatedEntitiesResponse> getEntityContextRecentlyUpdatedAsync() {
+    return getEntityContextRecentlyUpdatedWithHttpInfoAsync(
+            new GetEntityContextRecentlyUpdatedOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get recently updated entity context.
+   *
+   * <p>See {@link #getEntityContextRecentlyUpdatedWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return RecentlyUpdatedEntitiesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RecentlyUpdatedEntitiesResponse getEntityContextRecentlyUpdated(
+      GetEntityContextRecentlyUpdatedOptionalParameters parameters) throws ApiException {
+    return getEntityContextRecentlyUpdatedWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get recently updated entity context.
+   *
+   * <p>See {@link #getEntityContextRecentlyUpdatedWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;RecentlyUpdatedEntitiesResponse&gt;
+   */
+  public CompletableFuture<RecentlyUpdatedEntitiesResponse> getEntityContextRecentlyUpdatedAsync(
+      GetEntityContextRecentlyUpdatedOptionalParameters parameters) {
+    return getEntityContextRecentlyUpdatedWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the entities with the most recent updates in the Cloud SIEM entity context store. Entities
+   * are ranked by the time of their most recent revision in the requested time range, and the top
+   * <code>limit</code> entities are returned in that order. This endpoint is not paginated.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;RecentlyUpdatedEntitiesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RecentlyUpdatedEntitiesResponse> getEntityContextRecentlyUpdatedWithHttpInfo(
+      GetEntityContextRecentlyUpdatedOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getEntityContextRecentlyUpdated";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    EntityContextEntityType entityType = parameters.entityType;
+    String from = parameters.from;
+    String to = parameters.to;
+    Long limit = parameters.limit;
+    EntityContextRevisionsMode revisions = parameters.revisions;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/entity_context/recently_updated";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "entity_type", entityType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "revisions", revisions));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getEntityContextRecentlyUpdated",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RecentlyUpdatedEntitiesResponse>() {});
+  }
+
+  /**
+   * Get recently updated entity context.
+   *
+   * <p>See {@link #getEntityContextRecentlyUpdatedWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;RecentlyUpdatedEntitiesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RecentlyUpdatedEntitiesResponse>>
+      getEntityContextRecentlyUpdatedWithHttpInfoAsync(
+          GetEntityContextRecentlyUpdatedOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getEntityContextRecentlyUpdated";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<RecentlyUpdatedEntitiesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    EntityContextEntityType entityType = parameters.entityType;
+    String from = parameters.from;
+    String to = parameters.to;
+    Long limit = parameters.limit;
+    EntityContextRevisionsMode revisions = parameters.revisions;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/entity_context/recently_updated";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "entity_type", entityType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "revisions", revisions));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getEntityContextRecentlyUpdated",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RecentlyUpdatedEntitiesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RecentlyUpdatedEntitiesResponse>() {});
   }
 
   /**
@@ -16788,9 +17095,23 @@ public class SecurityMonitoringApi {
 
   /** Manage optional parameters to getSingleEntityContext. */
   public static class GetSingleEntityContextOptionalParameters {
+    private EntityContextEntityType entityType;
     private String from;
     private String to;
     private String asOf;
+
+    /**
+     * Set entityType.
+     *
+     * @param entityType The type of entity to retrieve. Only <code>siem_entity_identity</code> is
+     *     currently supported. Defaults to <code>siem_entity_identity</code>. (optional, default to
+     *     "siem_entity_identity")
+     * @return GetSingleEntityContextOptionalParameters
+     */
+    public GetSingleEntityContextOptionalParameters entityType(EntityContextEntityType entityType) {
+      this.entityType = entityType;
+      return this;
+    }
 
     /**
      * Set from.
@@ -16934,6 +17255,7 @@ public class SecurityMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'id' when calling getSingleEntityContext");
     }
+    EntityContextEntityType entityType = parameters.entityType;
     String from = parameters.from;
     String to = parameters.to;
     String asOf = parameters.asOf;
@@ -16945,6 +17267,7 @@ public class SecurityMonitoringApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "entity_type", entityType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
@@ -17003,6 +17326,7 @@ public class SecurityMonitoringApi {
               400, "Missing the required parameter 'id' when calling getSingleEntityContext"));
       return result;
     }
+    EntityContextEntityType entityType = parameters.entityType;
     String from = parameters.from;
     String to = parameters.to;
     String asOf = parameters.asOf;
@@ -17014,6 +17338,7 @@ public class SecurityMonitoringApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "entity_type", entityType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));

@@ -8,7 +8,10 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,21 +20,60 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * A chat prompt template containing messages and optional named message placeholders.
- * <strong>Preview:</strong> Message placeholders are available in Preview. To request access,
- * contact <a href="https://www.datadoghq.com/support/">Datadog Support</a> or your Customer Success
- * Manager.
+ * Response from the recently updated entities endpoint, containing the entities with the most
+ * recent updates in the requested time range, ordered from most to least recently updated.
  */
-@JsonPropertyOrder({})
+@JsonPropertyOrder({RecentlyUpdatedEntitiesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatTemplateItem> {
+public class RecentlyUpdatedEntitiesResponse {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<EntityContextEntity> data = new ArrayList<>();
 
-  public LLMObsPromptChatTemplate() {}
+  public RecentlyUpdatedEntitiesResponse() {}
 
-  public LLMObsPromptChatTemplate(List<LLMObsPromptChatTemplateItem> items) {
-    super(items);
+  @JsonCreator
+  public RecentlyUpdatedEntitiesResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<EntityContextEntity> data) {
+    this.data = data;
+    for (EntityContextEntity item : data) {
+      this.unparsed |= item.unparsed;
+    }
+  }
+
+  public RecentlyUpdatedEntitiesResponse data(List<EntityContextEntity> data) {
+    this.data = data;
+    for (EntityContextEntity item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public RecentlyUpdatedEntitiesResponse addDataItem(EntityContextEntity dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The list of entities with the most recent updates, ordered from most to least recently updated.
+   *
+   * @return data
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<EntityContextEntity> getData() {
+    return data;
+  }
+
+  public void setData(List<EntityContextEntity> data) {
+    this.data = data;
+    if (data != null) {
+      for (EntityContextEntity item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -46,10 +88,10 @@ public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatTemplate
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return LLMObsPromptChatTemplate
+   * @return RecentlyUpdatedEntitiesResponse
    */
   @JsonAnySetter
-  public LLMObsPromptChatTemplate putAdditionalProperty(String key, Object value) {
+  public RecentlyUpdatedEntitiesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -80,7 +122,7 @@ public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatTemplate
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsPromptChatTemplate object is equal to o. */
+  /** Return true if this RecentlyUpdatedEntitiesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,19 +131,23 @@ public class LLMObsPromptChatTemplate extends ArrayList<LLMObsPromptChatTemplate
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    RecentlyUpdatedEntitiesResponse recentlyUpdatedEntitiesResponse =
+        (RecentlyUpdatedEntitiesResponse) o;
+    return Objects.equals(this.data, recentlyUpdatedEntitiesResponse.data)
+        && Objects.equals(
+            this.additionalProperties, recentlyUpdatedEntitiesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, super.hashCode());
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LLMObsPromptChatTemplate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("class RecentlyUpdatedEntitiesResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
