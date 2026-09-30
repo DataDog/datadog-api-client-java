@@ -1053,6 +1053,7 @@ public class ApiClient {
           put("v2.exportSecurityMonitoringTerraformResource", false);
           put("v2.getContentPacksStates", false);
           put("v2.getEntityContext", false);
+          put("v2.getEntityContextRecentlyUpdated", false);
           put("v2.getEntraIdAzureAppRegistrations", false);
           put("v2.getFinding", false);
           put("v2.getHistoricalJob", false);
