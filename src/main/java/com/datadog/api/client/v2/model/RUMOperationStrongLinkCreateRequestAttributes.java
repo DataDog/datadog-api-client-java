@@ -21,7 +21,7 @@ import java.util.Objects;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating a RUM operation strong link. */
+/** Attributes for creating a RUM operation link. */
 @JsonPropertyOrder({
   RUMOperationStrongLinkCreateRequestAttributes.JSON_PROPERTY_APPLICATION_ID,
   RUMOperationStrongLinkCreateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -91,7 +91,7 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
   }
 
   /**
-   * A description of the strong link.
+   * A description of the link.
    *
    * @return description
    */
@@ -122,7 +122,7 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
   }
 
   /**
-   * The unique identifier of the feature to link.
+   * The unique identifier of the journey to link.
    *
    * @return featureId
    */
@@ -187,7 +187,7 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
   }
 
   /**
-   * The status of a RUM operation strong link.
+   * The status of a RUM operation link.
    *
    * @return status
    */
@@ -219,7 +219,7 @@ public class RUMOperationStrongLinkCreateRequestAttributes {
   }
 
   /**
-   * A list of tags associated with the strong link.
+   * A list of tags associated with the link.
    *
    * @return tags
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data object in a RUM operation strong link response. */
+/** The data object in a RUM operation link response. */
 @JsonPropertyOrder({
   RUMOperationStrongLinkResponseData.JSON_PROPERTY_ATTRIBUTES,
   RUMOperationStrongLinkResponseData.JSON_PROPERTY_ID,
@@ -59,7 +59,7 @@ public class RUMOperationStrongLinkResponseData {
   }
 
   /**
-   * Attributes of a RUM operation strong link response.
+   * Attributes of a RUM operation link response.
    *
    * @return attributes
    */
@@ -77,8 +77,8 @@ public class RUMOperationStrongLinkResponseData {
   }
 
   /**
-   * The unique identifier of the strong link, formatted as <code>
-   * &lt;operation_id&gt;:&lt;feature_id&gt;</code>.
+   * The unique identifier of the link, formatted as <code>&lt;operation_id&gt;:&lt;feature_id&gt;
+   * </code>.
    *
    * @return id
    */
@@ -95,7 +95,7 @@ public class RUMOperationStrongLinkResponseData {
   }
 
   /**
-   * The JSON:API type for RUM operation strong link resources.
+   * The JSON:API type for RUM operation link resources.
    *
    * @return type
    */

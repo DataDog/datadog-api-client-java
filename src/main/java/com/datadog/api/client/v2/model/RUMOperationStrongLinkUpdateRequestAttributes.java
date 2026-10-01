@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for updating a RUM operation strong link. */
+/** Attributes for updating a RUM operation link. */
 @JsonPropertyOrder({RUMOperationStrongLinkUpdateRequestAttributes.JSON_PROPERTY_STATUS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,8 +44,8 @@ public class RUMOperationStrongLinkUpdateRequestAttributes {
   }
 
   /**
-   * The status of a RUM operation strong link. Can only be set to <code>CONFIRMED</code> or <code>
-   * REJECTED</code>.
+   * The status of a RUM operation link. Can only be set to <code>CONFIRMED</code> or <code>REJECTED
+   * </code>.
    *
    * @return status
    */

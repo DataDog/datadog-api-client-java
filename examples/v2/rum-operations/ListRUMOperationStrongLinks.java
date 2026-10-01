@@ -1,4 +1,4 @@
-// List RUM operation strong links returns "OK" response
+// List RUM operation links returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

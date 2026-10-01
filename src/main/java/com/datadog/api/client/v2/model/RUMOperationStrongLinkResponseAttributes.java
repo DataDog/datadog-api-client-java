@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a RUM operation strong link response. */
+/** Attributes of a RUM operation link response. */
 @JsonPropertyOrder({
   RUMOperationStrongLinkResponseAttributes.JSON_PROPERTY_CREATED_AT,
   RUMOperationStrongLinkResponseAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -71,7 +71,7 @@ public class RUMOperationStrongLinkResponseAttributes {
   }
 
   /**
-   * The timestamp when the strong link was created.
+   * The timestamp when the link was created.
    *
    * @return createdAt
    */
@@ -88,7 +88,7 @@ public class RUMOperationStrongLinkResponseAttributes {
   }
 
   /**
-   * A description of the strong link.
+   * A description of the link.
    *
    * @return description
    */
@@ -114,7 +114,7 @@ public class RUMOperationStrongLinkResponseAttributes {
   }
 
   /**
-   * The unique identifier of the linked feature.
+   * The unique identifier of the linked journey.
    *
    * @return featureId
    */
@@ -142,7 +142,7 @@ public class RUMOperationStrongLinkResponseAttributes {
   }
 
   /**
-   * The status of a RUM operation strong link.
+   * The status of a RUM operation link.
    *
    * @return status
    */
@@ -173,7 +173,7 @@ public class RUMOperationStrongLinkResponseAttributes {
   }
 
   /**
-   * A list of tags associated with the strong link.
+   * A list of tags associated with the link.
    *
    * @return tags
    */
@@ -189,7 +189,7 @@ public class RUMOperationStrongLinkResponseAttributes {
   }
 
   /**
-   * The timestamp when the strong link was last updated.
+   * The timestamp when the link was last updated.
    *
    * @return updatedAt
    */

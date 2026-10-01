@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The response for a list of RUM operation strong links. */
+/** The response for a list of RUM operation links. */
 @JsonPropertyOrder({
   RUMOperationStrongLinksListResponse.JSON_PROPERTY_DATA,
   RUMOperationStrongLinksListResponse.JSON_PROPERTY_META
@@ -88,7 +88,7 @@ public class RUMOperationStrongLinksListResponse {
   }
 
   /**
-   * Metadata for a list of RUM operation strong links.
+   * Metadata for a list of RUM operation links.
    *
    * @return meta
    */

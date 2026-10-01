@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata for a list of RUM operation strong links. */
+/** Metadata for a list of RUM operation links. */
 @JsonPropertyOrder({
   RUMOperationStrongLinksListResponseMeta.JSON_PROPERTY_LIMIT,
   RUMOperationStrongLinksListResponseMeta.JSON_PROPERTY_OFFSET,
@@ -83,7 +83,7 @@ public class RUMOperationStrongLinksListResponseMeta {
   }
 
   /**
-   * The total number of strong links matching the request.
+   * The total number of links matching the request.
    *
    * @return total
    */

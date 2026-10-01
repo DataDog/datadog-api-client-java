@@ -203,7 +203,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * Create a RUM operation strong link.
+   * Create a RUM operation link.
    *
    * <p>See {@link #createRUMOperationStrongLinkWithHttpInfo}.
    *
@@ -217,7 +217,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * Create a RUM operation strong link.
+   * Create a RUM operation link.
    *
    * <p>See {@link #createRUMOperationStrongLinkWithHttpInfoAsync}.
    *
@@ -234,10 +234,10 @@ public class RumOperationsApi {
   }
 
   /**
-   * Create a strong link between a RUM operation and a feature, confirming that the feature belongs
-   * to the operation. The operation can be identified by <code>operation_id</code> or <code>
-   * operation_name</code>; if <code>operation_name</code> does not match an existing operation, a
-   * stub operation is created.
+   * Create a link between a RUM operation and a journey, confirming that the journey belongs to the
+   * operation. The operation can be identified by <code>operation_id</code> or <code>operation_name
+   * </code>; if <code>operation_name</code> does not match an existing operation, a stub operation
+   * is created.
    *
    * @param body (required)
    * @return ApiResponse&lt;RUMOperationStrongLinkResponse&gt;
@@ -249,7 +249,7 @@ public class RumOperationsApi {
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found. The referenced &#x60;operation_id&#x60; does not exist. </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict. A strong link between this operation and feature already exists. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict. A link between this operation and journey already exists. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -295,7 +295,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * Create a RUM operation strong link.
+   * Create a RUM operation link.
    *
    * <p>See {@link #createRUMOperationStrongLinkWithHttpInfo}.
    *
@@ -516,12 +516,12 @@ public class RumOperationsApi {
   }
 
   /**
-   * Delete a RUM operation strong link.
+   * Delete a RUM operation link.
    *
    * <p>See {@link #deleteRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRUMOperationStrongLink(String rumOperationId, String featureId)
@@ -530,12 +530,12 @@ public class RumOperationsApi {
   }
 
   /**
-   * Delete a RUM operation strong link.
+   * Delete a RUM operation link.
    *
    * <p>See {@link #deleteRUMOperationStrongLinkWithHttpInfoAsync}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRUMOperationStrongLinkAsync(
@@ -548,10 +548,10 @@ public class RumOperationsApi {
   }
 
   /**
-   * Delete the strong link between a RUM operation and a feature.
+   * Delete the link between a RUM operation and a journey.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -619,12 +619,12 @@ public class RumOperationsApi {
   }
 
   /**
-   * Delete a RUM operation strong link.
+   * Delete a RUM operation link.
    *
    * <p>See {@link #deleteRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRUMOperationStrongLinkWithHttpInfoAsync(
@@ -1074,7 +1074,7 @@ public class RumOperationsApi {
     /**
      * Set featureId.
      *
-     * @param featureId Filter operations by feature ID. Accepts a comma-separated list of feature
+     * @param featureId Filter operations by journey ID. Accepts a comma-separated list of journey
      *     IDs. (optional)
      * @return ListRUMOperationsOptionalParameters
      */
@@ -1155,7 +1155,7 @@ public class RumOperationsApi {
 
   /**
    * Search RUM operations for your organization. Supports filtering by query, creator, team,
-   * feature, and application.
+   * journey, and application.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RUMOperationsListResponse&gt;
@@ -1299,7 +1299,7 @@ public class RumOperationsApi {
     /**
      * Set operationId.
      *
-     * @param operationId Filter strong links by RUM operation ID. (optional)
+     * @param operationId Filter links by RUM operation ID. (optional)
      * @return ListRUMOperationStrongLinksOptionalParameters
      */
     public ListRUMOperationStrongLinksOptionalParameters operationId(String operationId) {
@@ -1310,7 +1310,7 @@ public class RumOperationsApi {
     /**
      * Set featureId.
      *
-     * @param featureId Filter strong links by feature ID. (optional)
+     * @param featureId Filter links by journey (feature) ID. (optional)
      * @return ListRUMOperationStrongLinksOptionalParameters
      */
     public ListRUMOperationStrongLinksOptionalParameters featureId(String featureId) {
@@ -1342,7 +1342,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * List RUM operation strong links.
+   * List RUM operation links.
    *
    * <p>See {@link #listRUMOperationStrongLinksWithHttpInfo}.
    *
@@ -1356,7 +1356,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * List RUM operation strong links.
+   * List RUM operation links.
    *
    * <p>See {@link #listRUMOperationStrongLinksWithHttpInfoAsync}.
    *
@@ -1372,7 +1372,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * List RUM operation strong links.
+   * List RUM operation links.
    *
    * <p>See {@link #listRUMOperationStrongLinksWithHttpInfo}.
    *
@@ -1386,7 +1386,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * List RUM operation strong links.
+   * List RUM operation links.
    *
    * <p>See {@link #listRUMOperationStrongLinksWithHttpInfoAsync}.
    *
@@ -1403,8 +1403,8 @@ public class RumOperationsApi {
   }
 
   /**
-   * List strong links between RUM operations and features. A strong link confirms that a feature
-   * belongs to an operation. Provide <code>operation_id</code>, <code>feature_id</code>, or both to
+   * List links between RUM operations and journeys. A link confirms that a journey belongs to an
+   * operation. Provide <code>operation_id</code>, <code>feature_id</code> (journey ID), or both to
    * filter results; at least one is required.
    *
    * @param parameters Optional parameters for the request.
@@ -1458,7 +1458,7 @@ public class RumOperationsApi {
   }
 
   /**
-   * List RUM operation strong links.
+   * List RUM operation links.
    *
    * <p>See {@link #listRUMOperationStrongLinksWithHttpInfo}.
    *
@@ -1694,12 +1694,12 @@ public class RumOperationsApi {
   }
 
   /**
-   * Update a RUM operation strong link.
+   * Update a RUM operation link.
    *
    * <p>See {@link #updateRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @param body (required)
    * @return RUMOperationStrongLinkResponse
    * @throws ApiException if fails to make API call
@@ -1711,12 +1711,12 @@ public class RumOperationsApi {
   }
 
   /**
-   * Update a RUM operation strong link.
+   * Update a RUM operation link.
    *
    * <p>See {@link #updateRUMOperationStrongLinkWithHttpInfoAsync}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @param body (required)
    * @return CompletableFuture&lt;RUMOperationStrongLinkResponse&gt;
    */
@@ -1730,10 +1730,10 @@ public class RumOperationsApi {
   }
 
   /**
-   * Update the status of a strong link between a RUM operation and a feature.
+   * Update the status of a link between a RUM operation and a journey.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @param body (required)
    * @return ApiResponse&lt;RUMOperationStrongLinkResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1810,12 +1810,12 @@ public class RumOperationsApi {
   }
 
   /**
-   * Update a RUM operation strong link.
+   * Update a RUM operation link.
    *
    * <p>See {@link #updateRUMOperationStrongLinkWithHttpInfo}.
    *
    * @param rumOperationId The unique identifier of the RUM operation. (required)
-   * @param featureId The unique identifier of the feature. (required)
+   * @param featureId The unique identifier of the journey. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RUMOperationStrongLinkResponse&gt;&gt;
    */

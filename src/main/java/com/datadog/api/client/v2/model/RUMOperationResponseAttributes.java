@@ -260,7 +260,7 @@ public class RUMOperationResponseAttributes {
   }
 
   /**
-   * The list of feature IDs associated with the RUM operation.
+   * The list of journey IDs associated with the RUM operation.
    *
    * @return featureIds
    */
