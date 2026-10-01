@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.model.AutomationRuleScope;
 import com.datadog.api.client.v2.model.SecurityFindingType;
 import com.datadog.api.client.v2.model.TicketCreationRuleAction;
 import com.datadog.api.client.v2.model.TicketCreationRuleAttributesCreate;
-import com.datadog.api.client.v2.model.TicketCreationRuleDataCreate;
+import com.datadog.api.client.v2.model.TicketCreationRuleDataUpdate;
 import com.datadog.api.client.v2.model.TicketCreationRuleResponse;
 import com.datadog.api.client.v2.model.TicketCreationRuleType;
 import com.datadog.api.client.v2.model.TicketCreationRuleUpdateRequest;
@@ -35,7 +35,7 @@ public class Example {
     TicketCreationRuleUpdateRequest body =
         new TicketCreationRuleUpdateRequest()
             .data(
-                new TicketCreationRuleDataCreate()
+                new TicketCreationRuleDataUpdate()
                     .attributes(
                         new TicketCreationRuleAttributesCreate()
                             .action(
@@ -52,6 +52,7 @@ public class Example {
                                         Collections.singletonList(
                                             SecurityFindingType.MISCONFIGURATION))
                                     .query("env:staging")))
+                    .id(VALID_TICKET_CREATION_RULE_DATA_ID)
                     .type(TicketCreationRuleType.TICKET_CREATION_RULES));
 
     try {

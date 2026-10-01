@@ -24,36 +24,37 @@ import java.util.Objects;
 public class SeverityModifierRuleUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private SeverityModifierRuleDataCreate data;
+  private SeverityModifierRuleDataUpdate data;
 
   public SeverityModifierRuleUpdateRequest() {}
 
   @JsonCreator
   public SeverityModifierRuleUpdateRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          SeverityModifierRuleDataCreate data) {
+          SeverityModifierRuleDataUpdate data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public SeverityModifierRuleUpdateRequest data(SeverityModifierRuleDataCreate data) {
+  public SeverityModifierRuleUpdateRequest data(SeverityModifierRuleDataUpdate data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The data object for a severity modifier rule create or update request.
+   * The data object for a severity modifier rule update request. The <code>id</code> must match the
+   * <code>rule_id</code> path parameter.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SeverityModifierRuleDataCreate getData() {
+  public SeverityModifierRuleDataUpdate getData() {
     return data;
   }
 
-  public void setData(SeverityModifierRuleDataCreate data) {
+  public void setData(SeverityModifierRuleDataUpdate data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;

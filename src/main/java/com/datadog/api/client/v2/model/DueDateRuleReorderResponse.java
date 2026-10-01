@@ -13,85 +13,65 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data object for a severity modifier rule create request. */
-@JsonPropertyOrder({
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_TYPE
-})
+/** The response of a due date rule reorder request. */
+@JsonPropertyOrder({DueDateRuleReorderResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SeverityModifierRuleDataCreate {
+public class DueDateRuleReorderResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SeverityModifierRuleAttributesCreate attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<DueDateRuleReorderItem> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SeverityModifierRuleType type;
-
-  public SeverityModifierRuleDataCreate() {}
+  public DueDateRuleReorderResponse() {}
 
   @JsonCreator
-  public SeverityModifierRuleDataCreate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          SeverityModifierRuleAttributesCreate attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeverityModifierRuleType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public DueDateRuleReorderResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<DueDateRuleReorderItem> data) {
+    this.data = data;
+    for (DueDateRuleReorderItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
-  public SeverityModifierRuleDataCreate attributes(
-      SeverityModifierRuleAttributesCreate attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public DueDateRuleReorderResponse data(List<DueDateRuleReorderItem> data) {
+    this.data = data;
+    for (DueDateRuleReorderItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public DueDateRuleReorderResponse addDataItem(DueDateRuleReorderItem dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating or updating a severity modifier rule.
+   * The ordered list of all due date rules. Every rule must be included.
    *
-   * @return attributes
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SeverityModifierRuleAttributesCreate getAttributes() {
-    return attributes;
+  public List<DueDateRuleReorderItem> getData() {
+    return data;
   }
 
-  public void setAttributes(SeverityModifierRuleAttributesCreate attributes) {
-    this.attributes = attributes;
-    if (attributes != null) {
-      this.unparsed |= attributes.unparsed;
+  public void setData(List<DueDateRuleReorderItem> data) {
+    this.data = data;
+    if (data != null) {
+      for (DueDateRuleReorderItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
-  }
-
-  public SeverityModifierRuleDataCreate type(SeverityModifierRuleType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The JSON:API type for severity modifier rules.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SeverityModifierRuleType getType() {
-    return type;
-  }
-
-  public void setType(SeverityModifierRuleType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
   }
 
   /**
@@ -106,10 +86,10 @@ public class SeverityModifierRuleDataCreate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SeverityModifierRuleDataCreate
+   * @return DueDateRuleReorderResponse
    */
   @JsonAnySetter
-  public SeverityModifierRuleDataCreate putAdditionalProperty(String key, Object value) {
+  public DueDateRuleReorderResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -140,7 +120,7 @@ public class SeverityModifierRuleDataCreate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SeverityModifierRuleDataCreate object is equal to o. */
+  /** Return true if this DueDateRuleReorderResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,25 +129,22 @@ public class SeverityModifierRuleDataCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SeverityModifierRuleDataCreate severityModifierRuleDataCreate =
-        (SeverityModifierRuleDataCreate) o;
-    return Objects.equals(this.attributes, severityModifierRuleDataCreate.attributes)
-        && Objects.equals(this.type, severityModifierRuleDataCreate.type)
+    DueDateRuleReorderResponse dueDateRuleReorderResponse = (DueDateRuleReorderResponse) o;
+    return Objects.equals(this.data, dueDateRuleReorderResponse.data)
         && Objects.equals(
-            this.additionalProperties, severityModifierRuleDataCreate.additionalProperties);
+            this.additionalProperties, dueDateRuleReorderResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SeverityModifierRuleDataCreate {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class DueDateRuleReorderResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

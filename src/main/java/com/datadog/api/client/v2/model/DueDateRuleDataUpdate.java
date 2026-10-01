@@ -16,78 +16,107 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The data object for a severity modifier rule create request. */
+/**
+ * The data object for a due date rule update request. The <code>id</code> must match the <code>
+ * rule_id</code> path parameter.
+ */
 @JsonPropertyOrder({
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_TYPE
+  DueDateRuleDataUpdate.JSON_PROPERTY_ATTRIBUTES,
+  DueDateRuleDataUpdate.JSON_PROPERTY_ID,
+  DueDateRuleDataUpdate.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SeverityModifierRuleDataCreate {
+public class DueDateRuleDataUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SeverityModifierRuleAttributesCreate attributes;
+  private DueDateRuleAttributesCreate attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SeverityModifierRuleType type;
+  private DueDateRuleType type;
 
-  public SeverityModifierRuleDataCreate() {}
+  public DueDateRuleDataUpdate() {}
 
   @JsonCreator
-  public SeverityModifierRuleDataCreate(
+  public DueDateRuleDataUpdate(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          SeverityModifierRuleAttributesCreate attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeverityModifierRuleType type) {
+          DueDateRuleAttributesCreate attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DueDateRuleType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public SeverityModifierRuleDataCreate attributes(
-      SeverityModifierRuleAttributesCreate attributes) {
+  public DueDateRuleDataUpdate attributes(DueDateRuleAttributesCreate attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating or updating a severity modifier rule.
+   * Attributes for creating or updating a due date rule.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SeverityModifierRuleAttributesCreate getAttributes() {
+  public DueDateRuleAttributesCreate getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(SeverityModifierRuleAttributesCreate attributes) {
+  public void setAttributes(DueDateRuleAttributesCreate attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public SeverityModifierRuleDataCreate type(SeverityModifierRuleType type) {
+  public DueDateRuleDataUpdate id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the due date rule to update.
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public DueDateRuleDataUpdate type(DueDateRuleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The JSON:API type for severity modifier rules.
+   * The JSON:API type for due date rules.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SeverityModifierRuleType getType() {
+  public DueDateRuleType getType() {
     return type;
   }
 
-  public void setType(SeverityModifierRuleType type) {
+  public void setType(DueDateRuleType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -106,10 +135,10 @@ public class SeverityModifierRuleDataCreate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SeverityModifierRuleDataCreate
+   * @return DueDateRuleDataUpdate
    */
   @JsonAnySetter
-  public SeverityModifierRuleDataCreate putAdditionalProperty(String key, Object value) {
+  public DueDateRuleDataUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -140,7 +169,7 @@ public class SeverityModifierRuleDataCreate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SeverityModifierRuleDataCreate object is equal to o. */
+  /** Return true if this DueDateRuleDataUpdate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,24 +178,24 @@ public class SeverityModifierRuleDataCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SeverityModifierRuleDataCreate severityModifierRuleDataCreate =
-        (SeverityModifierRuleDataCreate) o;
-    return Objects.equals(this.attributes, severityModifierRuleDataCreate.attributes)
-        && Objects.equals(this.type, severityModifierRuleDataCreate.type)
-        && Objects.equals(
-            this.additionalProperties, severityModifierRuleDataCreate.additionalProperties);
+    DueDateRuleDataUpdate dueDateRuleDataUpdate = (DueDateRuleDataUpdate) o;
+    return Objects.equals(this.attributes, dueDateRuleDataUpdate.attributes)
+        && Objects.equals(this.id, dueDateRuleDataUpdate.id)
+        && Objects.equals(this.type, dueDateRuleDataUpdate.type)
+        && Objects.equals(this.additionalProperties, dueDateRuleDataUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SeverityModifierRuleDataCreate {\n");
+    sb.append("class DueDateRuleDataUpdate {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

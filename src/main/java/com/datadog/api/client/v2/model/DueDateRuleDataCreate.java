@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data object for a due date rule create or update request. */
+/** The data object for a due date rule create request. */
 @JsonPropertyOrder({
   DueDateRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
   DueDateRuleDataCreate.JSON_PROPERTY_TYPE
