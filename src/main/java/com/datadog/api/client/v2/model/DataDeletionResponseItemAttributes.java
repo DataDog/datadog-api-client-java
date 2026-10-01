@@ -32,6 +32,7 @@ import java.util.Objects;
   DataDeletionResponseItemAttributes.JSON_PROPERTY_ORG_ID,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_PRODUCT,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_QUERY,
+  DataDeletionResponseItemAttributes.JSON_PROPERTY_SOURCE,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_STARTING_AT,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_STATUS,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_TO_TIME,
@@ -74,6 +75,9 @@ public class DataDeletionResponseItemAttributes {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private String source;
 
   public static final String JSON_PROPERTY_STARTING_AT = "starting_at";
   private String startingAt;
@@ -355,6 +359,27 @@ public class DataDeletionResponseItemAttributes {
     this.query = query;
   }
 
+  public DataDeletionResponseItemAttributes source(String source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * The source of the deletion request.
+   *
+   * @return source
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   public DataDeletionResponseItemAttributes startingAt(String startingAt) {
     this.startingAt = startingAt;
     return this;
@@ -524,6 +549,7 @@ public class DataDeletionResponseItemAttributes {
         && Objects.equals(this.orgId, dataDeletionResponseItemAttributes.orgId)
         && Objects.equals(this.product, dataDeletionResponseItemAttributes.product)
         && Objects.equals(this.query, dataDeletionResponseItemAttributes.query)
+        && Objects.equals(this.source, dataDeletionResponseItemAttributes.source)
         && Objects.equals(this.startingAt, dataDeletionResponseItemAttributes.startingAt)
         && Objects.equals(this.status, dataDeletionResponseItemAttributes.status)
         && Objects.equals(this.toTime, dataDeletionResponseItemAttributes.toTime)
@@ -548,6 +574,7 @@ public class DataDeletionResponseItemAttributes {
         orgId,
         product,
         query,
+        source,
         startingAt,
         status,
         toTime,
@@ -571,6 +598,7 @@ public class DataDeletionResponseItemAttributes {
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    startingAt: ").append(toIndentedString(startingAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    toTime: ").append(toIndentedString(toTime)).append("\n");
