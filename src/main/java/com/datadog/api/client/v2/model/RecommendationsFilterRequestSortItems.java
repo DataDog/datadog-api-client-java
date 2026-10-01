@@ -37,7 +37,7 @@ public class RecommendationsFilterRequestSortItems {
   }
 
   /**
-   * Field to sort by (for example, <code>potential_daily_savings.amount</code>).
+   * Field to sort by (for example, <code>@potential_daily_savings</code>).
    *
    * @return expression
    */

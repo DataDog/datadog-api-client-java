@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Attributes used to filter and sort cost recommendations. */
 @JsonPropertyOrder({
+  RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_FILTER,
   RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_SCOPE,
   RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_SORT,
   RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_VIEW
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RecommendationsFilterRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FILTER = "filter";
+  private String filter;
+
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private RecommendationsFilterRequestScope scope;
 
@@ -36,6 +40,30 @@ public class RecommendationsFilterRequestDataAttributes {
 
   public static final String JSON_PROPERTY_VIEW = "view";
   private String view;
+
+  public RecommendationsFilterRequestDataAttributes filter(String filter) {
+    this.filter = filter;
+    return this;
+  }
+
+  /**
+   * Filter expression applied to the recommendations. When supplied, this attribute overrides
+   * <code>data.id</code>, including when empty. When omitted, <code>data.id</code> is used. If the
+   * resulting filter is empty, it defaults to <code>*</code>. Scope, view, and pagination still
+   * apply.
+   *
+   * @return filter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFilter() {
+    return filter;
+  }
+
+  public void setFilter(String filter) {
+    this.filter = filter;
+  }
 
   public RecommendationsFilterRequestDataAttributes scope(RecommendationsFilterRequestScope scope) {
     this.scope = scope;
@@ -185,7 +213,8 @@ public class RecommendationsFilterRequestDataAttributes {
     }
     RecommendationsFilterRequestDataAttributes recommendationsFilterRequestDataAttributes =
         (RecommendationsFilterRequestDataAttributes) o;
-    return Objects.equals(this.scope, recommendationsFilterRequestDataAttributes.scope)
+    return Objects.equals(this.filter, recommendationsFilterRequestDataAttributes.filter)
+        && Objects.equals(this.scope, recommendationsFilterRequestDataAttributes.scope)
         && Objects.equals(this.sort, recommendationsFilterRequestDataAttributes.sort)
         && Objects.equals(this.view, recommendationsFilterRequestDataAttributes.view)
         && Objects.equals(
@@ -195,13 +224,14 @@ public class RecommendationsFilterRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(scope, sort, view, additionalProperties);
+    return Objects.hash(filter, scope, sort, view, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecommendationsFilterRequestDataAttributes {\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    view: ").append(toIndentedString(view)).append("\n");
