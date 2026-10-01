@@ -1311,6 +1311,63 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineMetricEnrichmentTableProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Long.class)
+            || ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Float.class)
+            || ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Double.class)
+            || ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineMetricEnrichmentTableProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineMetricEnrichmentTableProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineMetricEnrichmentTableProcessor) tmp).unparsed
+              && !(((ObservabilityPipelineMetricEnrichmentTableProcessor) tmp).getActualInstance()
+                  instanceof UnparsedObject)) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineMetricEnrichmentTableProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'ObservabilityPipelineMetricEnrichmentTableProcessor'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineMetricTagsProcessor
       try {
         boolean attemptParsing = true;
@@ -1621,6 +1678,12 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(
+      ObservabilityPipelineMetricEnrichmentTableProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineMetricTagsProcessor o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1712,6 +1775,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
         "ObservabilityPipelineAggregateProcessor",
         new GenericType<ObservabilityPipelineAggregateProcessor>() {});
     schemas.put(
+        "ObservabilityPipelineMetricEnrichmentTableProcessor",
+        new GenericType<ObservabilityPipelineMetricEnrichmentTableProcessor>() {});
+    schemas.put(
         "ObservabilityPipelineMetricTagsProcessor",
         new GenericType<ObservabilityPipelineMetricTagsProcessor>() {});
     schemas.put(
@@ -1743,8 +1809,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineSplitArrayProcessor,
    * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineAddMetricTagsProcessor,
-   * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricTagsProcessor,
-   * ObservabilityPipelineRenameMetricTagsProcessor,
+   * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricEnrichmentTableProcessor,
+   * ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
    * ObservabilityPipelineTagCardinalityLimitProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
@@ -1875,6 +1941,13 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
       return;
     }
     if (JSON.isInstanceOf(
+        ObservabilityPipelineMetricEnrichmentTableProcessor.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
         ObservabilityPipelineMetricTagsProcessor.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1912,7 +1985,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineSensitiveDataScannerProcessor,"
             + " ObservabilityPipelineSplitArrayProcessor, ObservabilityPipelineThrottleProcessor,"
             + " ObservabilityPipelineAddMetricTagsProcessor,"
-            + " ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricTagsProcessor,"
+            + " ObservabilityPipelineAggregateProcessor,"
+            + " ObservabilityPipelineMetricEnrichmentTableProcessor,"
+            + " ObservabilityPipelineMetricTagsProcessor,"
             + " ObservabilityPipelineRenameMetricTagsProcessor,"
             + " ObservabilityPipelineTagCardinalityLimitProcessor");
   }
@@ -1930,8 +2005,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineSplitArrayProcessor,
    * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineAddMetricTagsProcessor,
-   * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricTagsProcessor,
-   * ObservabilityPipelineRenameMetricTagsProcessor,
+   * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricEnrichmentTableProcessor,
+   * ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
    * ObservabilityPipelineTagCardinalityLimitProcessor
    *
    * @return The actual instance (ObservabilityPipelineFilterProcessor,
@@ -1948,6 +2023,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    *     ObservabilityPipelineSensitiveDataScannerProcessor,
    *     ObservabilityPipelineSplitArrayProcessor, ObservabilityPipelineThrottleProcessor,
    *     ObservabilityPipelineAddMetricTagsProcessor, ObservabilityPipelineAggregateProcessor,
+   *     ObservabilityPipelineMetricEnrichmentTableProcessor,
    *     ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
    *     ObservabilityPipelineTagCardinalityLimitProcessor)
    */
@@ -2251,6 +2327,20 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineAggregateProcessor getObservabilityPipelineAggregateProcessor()
       throws ClassCastException {
     return (ObservabilityPipelineAggregateProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineMetricEnrichmentTableProcessor`. If the actual
+   * instance is not `ObservabilityPipelineMetricEnrichmentTableProcessor`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineMetricEnrichmentTableProcessor`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineMetricEnrichmentTableProcessor`
+   */
+  public ObservabilityPipelineMetricEnrichmentTableProcessor
+      getObservabilityPipelineMetricEnrichmentTableProcessor() throws ClassCastException {
+    return (ObservabilityPipelineMetricEnrichmentTableProcessor) super.getActualInstance();
   }
 
   /**
