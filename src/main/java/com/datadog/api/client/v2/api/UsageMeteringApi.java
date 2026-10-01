@@ -166,8 +166,11 @@ public class UsageMeteringApi {
 
   /**
    * Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied
-   * scope, it is updated; otherwise, a new quota is created. Requires the <code>billing_edit</code>
-   * permission.
+   * scope, it is updated. Otherwise, a quota is created only when <code>usage_limit</code> and
+   * <code>enforced</code> are provided. For the organization-wide quota, <code>pending_usage_limit
+   * </code> schedules a limit for the next usage period and can accompany an immediate limit or
+   * update an existing quota by itself. Scheduled changes follow <code>include_descendants</code>
+   * like the other fields. Requires the <code>billing_edit</code> permission.
    *
    * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
    *     (required)
@@ -180,7 +183,7 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK. The response includes each item&#39;s result; see each item&#39;s &#x60;error&#x60; attribute for any that failed to write. </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request. Returned if the request is malformed, including when an item sets &#x60;pending_usage_limit&#x60; on a scoped quota, provides &#x60;enforced&#x60; without &#x60;usage_limit&#x60;, or provides neither limit. A pending-only item for a quota that does not exist is reported in that item&#39;s &#x60;error&#x60;; when only the caller&#39;s organization is targeted, this failure returns &#x60;400&#x60;. </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Internal Server Error. Every item in the batch failed to write. </td><td>  -  </td></tr>
@@ -327,6 +330,197 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageQuotasBulkResponse>() {});
+  }
+
+  /**
+   * Cancel a scheduled usage quota limit.
+   *
+   * <p>See {@link #deletePendingQuotaWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deletePendingQuota(String quotaNamespace, String id) throws ApiException {
+    deletePendingQuotaWithHttpInfo(quotaNamespace, id);
+  }
+
+  /**
+   * Cancel a scheduled usage quota limit.
+   *
+   * <p>See {@link #deletePendingQuotaWithHttpInfoAsync}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deletePendingQuotaAsync(String quotaNamespace, String id) {
+    return deletePendingQuotaWithHttpInfoAsync(quotaNamespace, id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Cancels the limit change scheduled to take effect at the start of the next usage period,
+   * leaving the usage quota and its current limit unchanged. Returns <code>404</code> when the
+   * quota does not exist, has no scheduled change, or its scheduled change has already taken
+   * effect; in every case the quota is left unchanged. The quota must belong to the caller's
+   * organization or one of its descendants, and its opaque identifier must belong to the requested
+   * quota namespace. Requires the <code>billing_edit</code> permission.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request. Returned if the &#x60;id&#x60; is malformed or does not belong to the requested quota namespace. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deletePendingQuotaWithHttpInfo(String quotaNamespace, String id)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deletePendingQuota";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'quotaNamespace' when calling deletePendingQuota");
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deletePendingQuota");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}/{id}/pending"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.deletePendingQuota",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Cancel a scheduled usage quota limit.
+   *
+   * <p>See {@link #deletePendingQuotaWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deletePendingQuotaWithHttpInfoAsync(
+      String quotaNamespace, String id) {
+    // Check if unstable operation is enabled
+    String operationId = "deletePendingQuota";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'quotaNamespace' when calling deletePendingQuota"));
+      return result;
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling deletePendingQuota"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}/{id}/pending"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.deletePendingQuota",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -3980,10 +4174,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. The quota
-   * must belong to the caller's organization or one of its descendants, and its opaque identifier
-   * must belong to the requested quota namespace. Requires the <code>billing_edit</code>
-   * permission.
+   * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. For an
+   * organization-wide quota, <code>pending_usage_limit</code> schedules a limit for the next usage
+   * period. The quota must belong to the caller's organization or one of its descendants, and its
+   * opaque identifier must belong to the requested quota namespace. Requires the <code>billing_edit
+   * </code> permission.
    *
    * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
    *     (required)
@@ -3998,7 +4193,7 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request. Returned if the request is malformed, or if the &#x60;id&#x60; in the request body does not match the &#x60;id&#x60; in the request path. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request. Returned if the request is malformed, if the &#x60;id&#x60; in the request body does not match the &#x60;id&#x60; in the request path, if none of &#x60;usage_limit&#x60;, &#x60;enforced&#x60;, or &#x60;pending_usage_limit&#x60; is provided, or if &#x60;pending_usage_limit&#x60; is set on a scoped quota. </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
