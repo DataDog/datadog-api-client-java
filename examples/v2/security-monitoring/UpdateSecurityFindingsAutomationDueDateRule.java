@@ -8,7 +8,7 @@ import com.datadog.api.client.v2.model.DueDateFrom;
 import com.datadog.api.client.v2.model.DueDatePerSeverityItem;
 import com.datadog.api.client.v2.model.DueDateRuleAction;
 import com.datadog.api.client.v2.model.DueDateRuleAttributesCreate;
-import com.datadog.api.client.v2.model.DueDateRuleDataCreate;
+import com.datadog.api.client.v2.model.DueDateRuleDataUpdate;
 import com.datadog.api.client.v2.model.DueDateRuleResponse;
 import com.datadog.api.client.v2.model.DueDateRuleType;
 import com.datadog.api.client.v2.model.DueDateRuleUpdateRequest;
@@ -36,7 +36,7 @@ public class Example {
     DueDateRuleUpdateRequest body =
         new DueDateRuleUpdateRequest()
             .data(
-                new DueDateRuleDataCreate()
+                new DueDateRuleDataUpdate()
                     .attributes(
                         new DueDateRuleAttributesCreate()
                             .action(
@@ -55,6 +55,7 @@ public class Example {
                                         Collections.singletonList(
                                             SecurityFindingType.MISCONFIGURATION))
                                     .query("env:staging")))
+                    .id(VALID_DUE_DATE_RULE_DATA_ID)
                     .type(DueDateRuleType.DUE_DATE_RULES));
 
     try {

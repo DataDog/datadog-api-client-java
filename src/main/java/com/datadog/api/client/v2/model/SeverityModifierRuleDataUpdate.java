@@ -16,36 +16,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The data object for a severity modifier rule create request. */
+/**
+ * The data object for a severity modifier rule update request. The <code>id</code> must match the
+ * <code>rule_id</code> path parameter.
+ */
 @JsonPropertyOrder({
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_TYPE
+  SeverityModifierRuleDataUpdate.JSON_PROPERTY_ATTRIBUTES,
+  SeverityModifierRuleDataUpdate.JSON_PROPERTY_ID,
+  SeverityModifierRuleDataUpdate.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SeverityModifierRuleDataCreate {
+public class SeverityModifierRuleDataUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SeverityModifierRuleAttributesCreate attributes;
 
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private SeverityModifierRuleType type;
 
-  public SeverityModifierRuleDataCreate() {}
+  public SeverityModifierRuleDataUpdate() {}
 
   @JsonCreator
-  public SeverityModifierRuleDataCreate(
+  public SeverityModifierRuleDataUpdate(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           SeverityModifierRuleAttributesCreate attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeverityModifierRuleType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public SeverityModifierRuleDataCreate attributes(
+  public SeverityModifierRuleDataUpdate attributes(
       SeverityModifierRuleAttributesCreate attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -70,7 +80,27 @@ public class SeverityModifierRuleDataCreate {
     }
   }
 
-  public SeverityModifierRuleDataCreate type(SeverityModifierRuleType type) {
+  public SeverityModifierRuleDataUpdate id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the severity modifier rule to update.
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public SeverityModifierRuleDataUpdate type(SeverityModifierRuleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -106,10 +136,10 @@ public class SeverityModifierRuleDataCreate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SeverityModifierRuleDataCreate
+   * @return SeverityModifierRuleDataUpdate
    */
   @JsonAnySetter
-  public SeverityModifierRuleDataCreate putAdditionalProperty(String key, Object value) {
+  public SeverityModifierRuleDataUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -140,7 +170,7 @@ public class SeverityModifierRuleDataCreate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SeverityModifierRuleDataCreate object is equal to o. */
+  /** Return true if this SeverityModifierRuleDataUpdate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,24 +179,26 @@ public class SeverityModifierRuleDataCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SeverityModifierRuleDataCreate severityModifierRuleDataCreate =
-        (SeverityModifierRuleDataCreate) o;
-    return Objects.equals(this.attributes, severityModifierRuleDataCreate.attributes)
-        && Objects.equals(this.type, severityModifierRuleDataCreate.type)
+    SeverityModifierRuleDataUpdate severityModifierRuleDataUpdate =
+        (SeverityModifierRuleDataUpdate) o;
+    return Objects.equals(this.attributes, severityModifierRuleDataUpdate.attributes)
+        && Objects.equals(this.id, severityModifierRuleDataUpdate.id)
+        && Objects.equals(this.type, severityModifierRuleDataUpdate.type)
         && Objects.equals(
-            this.additionalProperties, severityModifierRuleDataCreate.additionalProperties);
+            this.additionalProperties, severityModifierRuleDataUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SeverityModifierRuleDataCreate {\n");
+    sb.append("class SeverityModifierRuleDataUpdate {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

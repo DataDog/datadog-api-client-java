@@ -24,36 +24,37 @@ import java.util.Objects;
 public class TicketCreationRuleUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TicketCreationRuleDataCreate data;
+  private TicketCreationRuleDataUpdate data;
 
   public TicketCreationRuleUpdateRequest() {}
 
   @JsonCreator
   public TicketCreationRuleUpdateRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          TicketCreationRuleDataCreate data) {
+          TicketCreationRuleDataUpdate data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public TicketCreationRuleUpdateRequest data(TicketCreationRuleDataCreate data) {
+  public TicketCreationRuleUpdateRequest data(TicketCreationRuleDataUpdate data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The data object for a ticket creation rule create or update request.
+   * The data object for a ticket creation rule update request. The <code>id</code> must match the
+   * <code>rule_id</code> path parameter.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TicketCreationRuleDataCreate getData() {
+  public TicketCreationRuleDataUpdate getData() {
     return data;
   }
 
-  public void setData(TicketCreationRuleDataCreate data) {
+  public void setData(TicketCreationRuleDataUpdate data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;

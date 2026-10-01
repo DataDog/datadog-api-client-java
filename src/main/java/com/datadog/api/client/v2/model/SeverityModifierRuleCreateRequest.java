@@ -43,7 +43,7 @@ public class SeverityModifierRuleCreateRequest {
   }
 
   /**
-   * The data object for a severity modifier rule create or update request.
+   * The data object for a severity modifier rule create request.
    *
    * @return data
    */

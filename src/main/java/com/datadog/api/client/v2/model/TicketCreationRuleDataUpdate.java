@@ -16,78 +16,107 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The data object for a severity modifier rule create request. */
+/**
+ * The data object for a ticket creation rule update request. The <code>id</code> must match the
+ * <code>rule_id</code> path parameter.
+ */
 @JsonPropertyOrder({
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
-  SeverityModifierRuleDataCreate.JSON_PROPERTY_TYPE
+  TicketCreationRuleDataUpdate.JSON_PROPERTY_ATTRIBUTES,
+  TicketCreationRuleDataUpdate.JSON_PROPERTY_ID,
+  TicketCreationRuleDataUpdate.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SeverityModifierRuleDataCreate {
+public class TicketCreationRuleDataUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SeverityModifierRuleAttributesCreate attributes;
+  private TicketCreationRuleAttributesCreate attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SeverityModifierRuleType type;
+  private TicketCreationRuleType type;
 
-  public SeverityModifierRuleDataCreate() {}
+  public TicketCreationRuleDataUpdate() {}
 
   @JsonCreator
-  public SeverityModifierRuleDataCreate(
+  public TicketCreationRuleDataUpdate(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          SeverityModifierRuleAttributesCreate attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeverityModifierRuleType type) {
+          TicketCreationRuleAttributesCreate attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TicketCreationRuleType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public SeverityModifierRuleDataCreate attributes(
-      SeverityModifierRuleAttributesCreate attributes) {
+  public TicketCreationRuleDataUpdate attributes(TicketCreationRuleAttributesCreate attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating or updating a severity modifier rule.
+   * Attributes for creating or updating a ticket creation rule.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SeverityModifierRuleAttributesCreate getAttributes() {
+  public TicketCreationRuleAttributesCreate getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(SeverityModifierRuleAttributesCreate attributes) {
+  public void setAttributes(TicketCreationRuleAttributesCreate attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public SeverityModifierRuleDataCreate type(SeverityModifierRuleType type) {
+  public TicketCreationRuleDataUpdate id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the ticket creation rule to update.
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public TicketCreationRuleDataUpdate type(TicketCreationRuleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The JSON:API type for severity modifier rules.
+   * The JSON:API type for ticket creation rules.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SeverityModifierRuleType getType() {
+  public TicketCreationRuleType getType() {
     return type;
   }
 
-  public void setType(SeverityModifierRuleType type) {
+  public void setType(TicketCreationRuleType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -106,10 +135,10 @@ public class SeverityModifierRuleDataCreate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SeverityModifierRuleDataCreate
+   * @return TicketCreationRuleDataUpdate
    */
   @JsonAnySetter
-  public SeverityModifierRuleDataCreate putAdditionalProperty(String key, Object value) {
+  public TicketCreationRuleDataUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -140,7 +169,7 @@ public class SeverityModifierRuleDataCreate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SeverityModifierRuleDataCreate object is equal to o. */
+  /** Return true if this TicketCreationRuleDataUpdate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,24 +178,25 @@ public class SeverityModifierRuleDataCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SeverityModifierRuleDataCreate severityModifierRuleDataCreate =
-        (SeverityModifierRuleDataCreate) o;
-    return Objects.equals(this.attributes, severityModifierRuleDataCreate.attributes)
-        && Objects.equals(this.type, severityModifierRuleDataCreate.type)
+    TicketCreationRuleDataUpdate ticketCreationRuleDataUpdate = (TicketCreationRuleDataUpdate) o;
+    return Objects.equals(this.attributes, ticketCreationRuleDataUpdate.attributes)
+        && Objects.equals(this.id, ticketCreationRuleDataUpdate.id)
+        && Objects.equals(this.type, ticketCreationRuleDataUpdate.type)
         && Objects.equals(
-            this.additionalProperties, severityModifierRuleDataCreate.additionalProperties);
+            this.additionalProperties, ticketCreationRuleDataUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SeverityModifierRuleDataCreate {\n");
+    sb.append("class TicketCreationRuleDataUpdate {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

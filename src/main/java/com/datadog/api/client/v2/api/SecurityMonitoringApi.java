@@ -31,6 +31,7 @@ import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
 import com.datadog.api.client.v2.model.DueDateRuleCreateRequest;
 import com.datadog.api.client.v2.model.DueDateRuleReorderRequest;
+import com.datadog.api.client.v2.model.DueDateRuleReorderResponse;
 import com.datadog.api.client.v2.model.DueDateRuleResponse;
 import com.datadog.api.client.v2.model.DueDateRuleUpdateRequest;
 import com.datadog.api.client.v2.model.DueDateRulesResponse;
@@ -77,6 +78,7 @@ import com.datadog.api.client.v2.model.MuteFindingsRequest;
 import com.datadog.api.client.v2.model.MuteFindingsResponse;
 import com.datadog.api.client.v2.model.MuteRuleCreateRequest;
 import com.datadog.api.client.v2.model.MuteRuleReorderRequest;
+import com.datadog.api.client.v2.model.MuteRuleReorderResponse;
 import com.datadog.api.client.v2.model.MuteRuleResponse;
 import com.datadog.api.client.v2.model.MuteRuleUpdateRequest;
 import com.datadog.api.client.v2.model.MuteRulesResponse;
@@ -181,6 +183,7 @@ import com.datadog.api.client.v2.model.SignalEntitiesResponse;
 import com.datadog.api.client.v2.model.SingleEntityContextResponse;
 import com.datadog.api.client.v2.model.TicketCreationRuleCreateRequest;
 import com.datadog.api.client.v2.model.TicketCreationRuleReorderRequest;
+import com.datadog.api.client.v2.model.TicketCreationRuleReorderResponse;
 import com.datadog.api.client.v2.model.TicketCreationRuleResponse;
 import com.datadog.api.client.v2.model.TicketCreationRuleUpdateRequest;
 import com.datadog.api.client.v2.model.TicketCreationRulesResponse;
@@ -26859,10 +26862,10 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
    *
    * @param body (required)
-   * @return DueDateRuleReorderRequest
+   * @return DueDateRuleReorderResponse
    * @throws ApiException if fails to make API call
    */
-  public DueDateRuleReorderRequest reorderSecurityFindingsAutomationDueDateRules(
+  public DueDateRuleReorderResponse reorderSecurityFindingsAutomationDueDateRules(
       DueDateRuleReorderRequest body) throws ApiException {
     return reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo(body).getData();
   }
@@ -26873,9 +26876,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;DueDateRuleReorderRequest&gt;
+   * @return CompletableFuture&lt;DueDateRuleReorderResponse&gt;
    */
-  public CompletableFuture<DueDateRuleReorderRequest>
+  public CompletableFuture<DueDateRuleReorderResponse>
       reorderSecurityFindingsAutomationDueDateRulesAsync(DueDateRuleReorderRequest body) {
     return reorderSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync(body)
         .thenApply(
@@ -26888,7 +26891,7 @@ public class SecurityMonitoringApi {
    * Reorder the list of due date rules for the current organization.
    *
    * @param body (required)
-   * @return ApiResponse&lt;DueDateRuleReorderRequest&gt;
+   * @return ApiResponse&lt;DueDateRuleReorderResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -26901,7 +26904,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DueDateRuleReorderRequest>
+  public ApiResponse<DueDateRuleReorderResponse>
       reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo(DueDateRuleReorderRequest body)
           throws ApiException {
     // Check if unstable operation is enabled
@@ -26942,7 +26945,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DueDateRuleReorderRequest>() {});
+        new GenericType<DueDateRuleReorderResponse>() {});
   }
 
   /**
@@ -26951,9 +26954,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleReorderRequest&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleReorderResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DueDateRuleReorderRequest>>
+  public CompletableFuture<ApiResponse<DueDateRuleReorderResponse>>
       reorderSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync(
           DueDateRuleReorderRequest body) {
     // Check if unstable operation is enabled
@@ -26961,7 +26964,7 @@ public class SecurityMonitoringApi {
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<DueDateRuleReorderRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DueDateRuleReorderResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -26970,7 +26973,7 @@ public class SecurityMonitoringApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<DueDateRuleReorderRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DueDateRuleReorderResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -26995,7 +26998,7 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DueDateRuleReorderRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DueDateRuleReorderResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -27007,7 +27010,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DueDateRuleReorderRequest>() {});
+        new GenericType<DueDateRuleReorderResponse>() {});
   }
 
   /**
@@ -27172,10 +27175,10 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationMuteRulesWithHttpInfo}.
    *
    * @param body (required)
-   * @return MuteRuleReorderRequest
+   * @return MuteRuleReorderResponse
    * @throws ApiException if fails to make API call
    */
-  public MuteRuleReorderRequest reorderSecurityFindingsAutomationMuteRules(
+  public MuteRuleReorderResponse reorderSecurityFindingsAutomationMuteRules(
       MuteRuleReorderRequest body) throws ApiException {
     return reorderSecurityFindingsAutomationMuteRulesWithHttpInfo(body).getData();
   }
@@ -27186,9 +27189,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationMuteRulesWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;MuteRuleReorderRequest&gt;
+   * @return CompletableFuture&lt;MuteRuleReorderResponse&gt;
    */
-  public CompletableFuture<MuteRuleReorderRequest> reorderSecurityFindingsAutomationMuteRulesAsync(
+  public CompletableFuture<MuteRuleReorderResponse> reorderSecurityFindingsAutomationMuteRulesAsync(
       MuteRuleReorderRequest body) {
     return reorderSecurityFindingsAutomationMuteRulesWithHttpInfoAsync(body)
         .thenApply(
@@ -27201,7 +27204,7 @@ public class SecurityMonitoringApi {
    * Reorder the list of mute rules for the current organization.
    *
    * @param body (required)
-   * @return ApiResponse&lt;MuteRuleReorderRequest&gt;
+   * @return ApiResponse&lt;MuteRuleReorderResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -27214,8 +27217,9 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MuteRuleReorderRequest> reorderSecurityFindingsAutomationMuteRulesWithHttpInfo(
-      MuteRuleReorderRequest body) throws ApiException {
+  public ApiResponse<MuteRuleReorderResponse>
+      reorderSecurityFindingsAutomationMuteRulesWithHttpInfo(MuteRuleReorderRequest body)
+          throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "reorderSecurityFindingsAutomationMuteRules";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -27254,7 +27258,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MuteRuleReorderRequest>() {});
+        new GenericType<MuteRuleReorderResponse>() {});
   }
 
   /**
@@ -27263,16 +27267,16 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationMuteRulesWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleReorderRequest&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleReorderResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MuteRuleReorderRequest>>
+  public CompletableFuture<ApiResponse<MuteRuleReorderResponse>>
       reorderSecurityFindingsAutomationMuteRulesWithHttpInfoAsync(MuteRuleReorderRequest body) {
     // Check if unstable operation is enabled
     String operationId = "reorderSecurityFindingsAutomationMuteRules";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<MuteRuleReorderRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MuteRuleReorderResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -27281,7 +27285,7 @@ public class SecurityMonitoringApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MuteRuleReorderRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MuteRuleReorderResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -27306,7 +27310,7 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MuteRuleReorderRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MuteRuleReorderResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -27318,7 +27322,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MuteRuleReorderRequest>() {});
+        new GenericType<MuteRuleReorderResponse>() {});
   }
 
   /**
@@ -27488,10 +27492,10 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo}.
    *
    * @param body (required)
-   * @return TicketCreationRuleReorderRequest
+   * @return TicketCreationRuleReorderResponse
    * @throws ApiException if fails to make API call
    */
-  public TicketCreationRuleReorderRequest reorderSecurityFindingsAutomationTicketCreationRules(
+  public TicketCreationRuleReorderResponse reorderSecurityFindingsAutomationTicketCreationRules(
       TicketCreationRuleReorderRequest body) throws ApiException {
     return reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo(body).getData();
   }
@@ -27502,9 +27506,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;TicketCreationRuleReorderRequest&gt;
+   * @return CompletableFuture&lt;TicketCreationRuleReorderResponse&gt;
    */
-  public CompletableFuture<TicketCreationRuleReorderRequest>
+  public CompletableFuture<TicketCreationRuleReorderResponse>
       reorderSecurityFindingsAutomationTicketCreationRulesAsync(
           TicketCreationRuleReorderRequest body) {
     return reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync(body)
@@ -27518,7 +27522,7 @@ public class SecurityMonitoringApi {
    * Reorder the list of ticket creation rules for the current organization.
    *
    * @param body (required)
-   * @return ApiResponse&lt;TicketCreationRuleReorderRequest&gt;
+   * @return ApiResponse&lt;TicketCreationRuleReorderResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -27531,7 +27535,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TicketCreationRuleReorderRequest>
+  public ApiResponse<TicketCreationRuleReorderResponse>
       reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo(
           TicketCreationRuleReorderRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -27572,7 +27576,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TicketCreationRuleReorderRequest>() {});
+        new GenericType<TicketCreationRuleReorderResponse>() {});
   }
 
   /**
@@ -27581,9 +27585,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleReorderRequest&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleReorderResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>>
+  public CompletableFuture<ApiResponse<TicketCreationRuleReorderResponse>>
       reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync(
           TicketCreationRuleReorderRequest body) {
     // Check if unstable operation is enabled
@@ -27591,7 +27595,7 @@ public class SecurityMonitoringApi {
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>> result =
+      CompletableFuture<ApiResponse<TicketCreationRuleReorderResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
@@ -27601,7 +27605,7 @@ public class SecurityMonitoringApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>> result =
+      CompletableFuture<ApiResponse<TicketCreationRuleReorderResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
@@ -27627,7 +27631,7 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>> result =
+      CompletableFuture<ApiResponse<TicketCreationRuleReorderResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -27640,7 +27644,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TicketCreationRuleReorderRequest>() {});
+        new GenericType<TicketCreationRuleReorderResponse>() {});
   }
 
   /**

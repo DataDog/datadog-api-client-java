@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data object for a ticket creation rule create or update request. */
+/** The data object for a ticket creation rule create request. */
 @JsonPropertyOrder({
   TicketCreationRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
   TicketCreationRuleDataCreate.JSON_PROPERTY_TYPE

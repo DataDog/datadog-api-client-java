@@ -24,35 +24,36 @@ import java.util.Objects;
 public class DueDateRuleUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private DueDateRuleDataCreate data;
+  private DueDateRuleDataUpdate data;
 
   public DueDateRuleUpdateRequest() {}
 
   @JsonCreator
   public DueDateRuleUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) DueDateRuleDataCreate data) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) DueDateRuleDataUpdate data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public DueDateRuleUpdateRequest data(DueDateRuleDataCreate data) {
+  public DueDateRuleUpdateRequest data(DueDateRuleDataUpdate data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The data object for a due date rule create or update request.
+   * The data object for a due date rule update request. The <code>id</code> must match the <code>
+   * rule_id</code> path parameter.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DueDateRuleDataCreate getData() {
+  public DueDateRuleDataUpdate getData() {
     return data;
   }
 
-  public void setData(DueDateRuleDataCreate data) {
+  public void setData(DueDateRuleDataUpdate data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;

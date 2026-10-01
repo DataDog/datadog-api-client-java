@@ -8,7 +8,7 @@ import com.datadog.api.client.v2.model.AutomationRuleScope;
 import com.datadog.api.client.v2.model.SecurityFindingType;
 import com.datadog.api.client.v2.model.SeverityModifierRuleAction;
 import com.datadog.api.client.v2.model.SeverityModifierRuleAttributesCreate;
-import com.datadog.api.client.v2.model.SeverityModifierRuleDataCreate;
+import com.datadog.api.client.v2.model.SeverityModifierRuleDataUpdate;
 import com.datadog.api.client.v2.model.SeverityModifierRuleResponse;
 import com.datadog.api.client.v2.model.SeverityModifierRuleSetAction;
 import com.datadog.api.client.v2.model.SeverityModifierRuleSetActionType;
@@ -38,7 +38,7 @@ public class Example {
     SeverityModifierRuleUpdateRequest body =
         new SeverityModifierRuleUpdateRequest()
             .data(
-                new SeverityModifierRuleDataCreate()
+                new SeverityModifierRuleDataUpdate()
                     .attributes(
                         new SeverityModifierRuleAttributesCreate()
                             .action(
@@ -55,6 +55,7 @@ public class Example {
                                         Collections.singletonList(
                                             SecurityFindingType.MISCONFIGURATION))
                                     .query("env:prod team:platform")))
+                    .id(VALID_SEVERITY_MODIFIER_RULE_DATA_ID)
                     .type(SeverityModifierRuleType.SEVERITY_MODIFIER_RULES));
 
     try {

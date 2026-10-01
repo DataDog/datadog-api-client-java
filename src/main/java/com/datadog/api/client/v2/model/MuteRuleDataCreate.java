@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data object for a mute rule create or update request. */
+/** The data object for a mute rule create request. */
 @JsonPropertyOrder({
   MuteRuleDataCreate.JSON_PROPERTY_ATTRIBUTES,
   MuteRuleDataCreate.JSON_PROPERTY_TYPE

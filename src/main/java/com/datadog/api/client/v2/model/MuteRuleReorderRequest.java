@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The body of the mute rule reorder request. */
+/** The body of a mute rule reorder request. */
 @JsonPropertyOrder({MuteRuleReorderRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

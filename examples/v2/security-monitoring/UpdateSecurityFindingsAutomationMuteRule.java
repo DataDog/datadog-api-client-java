@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.model.AutomationRuleScope;
 import com.datadog.api.client.v2.model.MuteReason;
 import com.datadog.api.client.v2.model.MuteRuleAction;
 import com.datadog.api.client.v2.model.MuteRuleAttributesCreate;
-import com.datadog.api.client.v2.model.MuteRuleDataCreate;
+import com.datadog.api.client.v2.model.MuteRuleDataUpdate;
 import com.datadog.api.client.v2.model.MuteRuleResponse;
 import com.datadog.api.client.v2.model.MuteRuleType;
 import com.datadog.api.client.v2.model.MuteRuleUpdateRequest;
@@ -33,7 +33,7 @@ public class Example {
     MuteRuleUpdateRequest body =
         new MuteRuleUpdateRequest()
             .data(
-                new MuteRuleDataCreate()
+                new MuteRuleDataUpdate()
                     .attributes(
                         new MuteRuleAttributesCreate()
                             .action(new MuteRuleAction().reason(MuteReason.FALSE_POSITIVE))
@@ -45,6 +45,7 @@ public class Example {
                                         Collections.singletonList(
                                             SecurityFindingType.MISCONFIGURATION))
                                     .query("env:staging")))
+                    .id(VALID_MUTE_RULE_DATA_ID)
                     .type(MuteRuleType.MUTE_RULES));
 
     try {
