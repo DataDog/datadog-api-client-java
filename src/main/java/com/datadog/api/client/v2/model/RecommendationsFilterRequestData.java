@@ -82,8 +82,10 @@ public class RecommendationsFilterRequestData {
   }
 
   /**
-   * Filter expression applied to the recommendations. The server treats an omitted ID as <code>*
-   * </code> and returns all recommendations.
+   * Filter expression applied to the recommendations when <code>attributes.filter</code> is
+   * omitted. When supplied, <code>attributes.filter</code> overrides this value, including when
+   * empty. If the resulting filter is empty, it defaults to <code>*</code>. Scope, view, and
+   * pagination still apply.
    *
    * @return id
    */

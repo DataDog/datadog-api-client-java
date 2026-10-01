@@ -29,7 +29,7 @@ public class Example {
                             .sort(
                                 Collections.singletonList(
                                     new RecommendationsFilterRequestSortItems()
-                                        .expression("potential_daily_savings.amount")
+                                        .expression("@potential_daily_savings")
                                         .order("DESC"))))
                     .id("@resource_table:aws_ec2_instance")
                     .type(RecommendationsFilterRequestDataType.RECOMMENDATIONS_FILTER));
