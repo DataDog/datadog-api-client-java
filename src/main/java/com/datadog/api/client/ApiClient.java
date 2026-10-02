@@ -1479,7 +1479,6 @@ public class ApiClient {
           put("v2.updateRUMOperation", false);
           put("v2.updateRUMOperationStrongLink", false);
           put("v2.queryAggregatedLongTasks", false);
-          put("v2.queryAggregatedSignalsProblems", false);
           put("v2.queryAggregatedWaterfall", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.getEntityRiskScore", false);
