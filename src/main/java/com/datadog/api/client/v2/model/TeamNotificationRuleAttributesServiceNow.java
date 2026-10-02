@@ -12,66 +12,48 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Email notification settings for the team */
-@JsonPropertyOrder({
-  TeamNotificationRuleAttributesEmail.JSON_PROPERTY_ENABLED,
-  TeamNotificationRuleAttributesEmail.JSON_PROPERTY_RECIPIENT_EMAIL
-})
+/** ServiceNow notification settings for the team. */
+@JsonPropertyOrder({TeamNotificationRuleAttributesServiceNow.JSON_PROPERTY_TEMPLATES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamNotificationRuleAttributesEmail {
+public class TeamNotificationRuleAttributesServiceNow {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
+  public static final String JSON_PROPERTY_TEMPLATES = "templates";
+  private List<String> templates = null;
 
-  public static final String JSON_PROPERTY_RECIPIENT_EMAIL = "recipient_email";
-  private String recipientEmail;
+  public TeamNotificationRuleAttributesServiceNow templates(List<String> templates) {
+    this.templates = templates;
+    return this;
+  }
 
-  public TeamNotificationRuleAttributesEmail enabled(Boolean enabled) {
-    this.enabled = enabled;
+  public TeamNotificationRuleAttributesServiceNow addTemplatesItem(String templatesItem) {
+    if (this.templates == null) {
+      this.templates = new ArrayList<>();
+    }
+    this.templates.add(templatesItem);
     return this;
   }
 
   /**
-   * Flag indicating email notification
+   * ServiceNow template handle names to use for notifications.
    *
-   * @return enabled
+   * @return templates
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(JSON_PROPERTY_TEMPLATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
+  public List<String> getTemplates() {
+    return templates;
   }
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
-  }
-
-  public TeamNotificationRuleAttributesEmail recipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
-    return this;
-  }
-
-  /**
-   * Email address to notify. When omitted and email notifications are enabled, notifications are
-   * sent to all team members.
-   *
-   * @return recipientEmail
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECIPIENT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRecipientEmail() {
-    return recipientEmail;
-  }
-
-  public void setRecipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public void setTemplates(List<String> templates) {
+    this.templates = templates;
   }
 
   /**
@@ -86,10 +68,10 @@ public class TeamNotificationRuleAttributesEmail {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamNotificationRuleAttributesEmail
+   * @return TeamNotificationRuleAttributesServiceNow
    */
   @JsonAnySetter
-  public TeamNotificationRuleAttributesEmail putAdditionalProperty(String key, Object value) {
+  public TeamNotificationRuleAttributesServiceNow putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +102,7 @@ public class TeamNotificationRuleAttributesEmail {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamNotificationRuleAttributesEmail object is equal to o. */
+  /** Return true if this TeamNotificationRuleAttributesServiceNow object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,25 +111,24 @@ public class TeamNotificationRuleAttributesEmail {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamNotificationRuleAttributesEmail teamNotificationRuleAttributesEmail =
-        (TeamNotificationRuleAttributesEmail) o;
-    return Objects.equals(this.enabled, teamNotificationRuleAttributesEmail.enabled)
-        && Objects.equals(this.recipientEmail, teamNotificationRuleAttributesEmail.recipientEmail)
+    TeamNotificationRuleAttributesServiceNow teamNotificationRuleAttributesServiceNow =
+        (TeamNotificationRuleAttributesServiceNow) o;
+    return Objects.equals(this.templates, teamNotificationRuleAttributesServiceNow.templates)
         && Objects.equals(
-            this.additionalProperties, teamNotificationRuleAttributesEmail.additionalProperties);
+            this.additionalProperties,
+            teamNotificationRuleAttributesServiceNow.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, recipientEmail, additionalProperties);
+    return Objects.hash(templates, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamNotificationRuleAttributesEmail {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    recipientEmail: ").append(toIndentedString(recipientEmail)).append("\n");
+    sb.append("class TeamNotificationRuleAttributesServiceNow {\n");
+    sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
