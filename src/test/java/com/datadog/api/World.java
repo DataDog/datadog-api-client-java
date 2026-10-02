@@ -35,6 +35,8 @@ public class World {
   // Specific API information
   Class<?> apiClass;
   public Object api;
+  String apiName;
+  String operationVersion;
 
   // Templating context
   public Map<String, Object> context;
@@ -143,6 +145,14 @@ public class World {
     throw new IllegalStateException("API version not found in " + scenario.getUri());
   }
 
+  public void setOperationVersion(String version) {
+    operationVersion = getVersion() + "_" + version.replace("-", "");
+  }
+
+  public String getOperationVersion() {
+    return operationVersion == null ? getVersion() : operationVersion;
+  }
+
   private void configureClient(Class<?> clientClass, Object client)
       throws java.lang.reflect.InvocationTargetException,
           java.lang.IllegalAccessException,
@@ -236,6 +246,7 @@ public class World {
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
     // import com.datadog.api.{{ apiVersion }}.client.api.{{ apiName }}Api
+    this.apiName = apiName;
     apiClass = Class.forName("com.datadog.api.client." + apiVersion + ".api." + apiName + "Api");
     // api = new {{ apiName }}Api(client)
     api = apiClass.getConstructor(clientClass).newInstance(client);
