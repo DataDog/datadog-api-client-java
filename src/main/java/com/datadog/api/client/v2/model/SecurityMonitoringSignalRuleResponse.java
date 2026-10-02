@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Rule. */
 @JsonPropertyOrder({
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CASES,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_COMPATIBLE_VERSION,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CUSTOM_MESSAGE,
@@ -47,6 +48,9 @@ public class SecurityMonitoringSignalRuleResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
+
+  public static final String JSON_PROPERTY_COMPATIBLE_VERSION = "compatibleVersion";
+  private Long compatibleVersion;
 
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private Long createdAt;
@@ -143,6 +147,28 @@ public class SecurityMonitoringSignalRuleResponse {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public SecurityMonitoringSignalRuleResponse compatibleVersion(Long compatibleVersion) {
+    this.compatibleVersion = compatibleVersion;
+    return this;
+  }
+
+  /**
+   * The version of the rule at which its detection logic last changed. Updates that only change the
+   * name, message, tags, or notifications do not change this value.
+   *
+   * @return compatibleVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPATIBLE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCompatibleVersion() {
+    return compatibleVersion;
+  }
+
+  public void setCompatibleVersion(Long compatibleVersion) {
+    this.compatibleVersion = compatibleVersion;
   }
 
   public SecurityMonitoringSignalRuleResponse createdAt(Long createdAt) {
@@ -659,6 +685,8 @@ public class SecurityMonitoringSignalRuleResponse {
     SecurityMonitoringSignalRuleResponse securityMonitoringSignalRuleResponse =
         (SecurityMonitoringSignalRuleResponse) o;
     return Objects.equals(this.cases, securityMonitoringSignalRuleResponse.cases)
+        && Objects.equals(
+            this.compatibleVersion, securityMonitoringSignalRuleResponse.compatibleVersion)
         && Objects.equals(this.createdAt, securityMonitoringSignalRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringSignalRuleResponse.creationAuthorId)
@@ -689,6 +717,7 @@ public class SecurityMonitoringSignalRuleResponse {
   public int hashCode() {
     return Objects.hash(
         cases,
+        compatibleVersion,
         createdAt,
         creationAuthorId,
         customMessage,
@@ -716,6 +745,7 @@ public class SecurityMonitoringSignalRuleResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringSignalRuleResponse {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
+    sb.append("    compatibleVersion: ").append(toIndentedString(compatibleVersion)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
     sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
