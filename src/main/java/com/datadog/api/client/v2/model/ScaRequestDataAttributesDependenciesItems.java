@@ -20,8 +20,8 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * A dependency found in the repository, including its identity, location, and reachability
- * metadata.
+ * A dependency found in the repository, including its identity, location, and <code>
+ * reachability metadata</code>.
  */
 @JsonPropertyOrder({
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_EXCLUSIONS,
