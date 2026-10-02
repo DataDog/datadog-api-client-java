@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.RecommendationDocument;
+import com.datadog.api.client.v2.model.RecommendationV2RequestBody;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -255,6 +256,184 @@ public class SpaApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RecommendationDocument>() {});
+  }
+
+  /**
+   * Get SPA recommendations v2.
+   *
+   * <p>See {@link #getSPARecommendationsV2WithHttpInfo}.
+   *
+   * @param service The service name for a Spark job (required)
+   * @param body (required)
+   * @return RecommendationDocument
+   * @throws ApiException if fails to make API call
+   */
+  public RecommendationDocument getSPARecommendationsV2(
+      String service, RecommendationV2RequestBody body) throws ApiException {
+    return getSPARecommendationsV2WithHttpInfo(service, body).getData();
+  }
+
+  /**
+   * Get SPA recommendations v2.
+   *
+   * <p>See {@link #getSPARecommendationsV2WithHttpInfoAsync}.
+   *
+   * @param service The service name for a Spark job (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;RecommendationDocument&gt;
+   */
+  public CompletableFuture<RecommendationDocument> getSPARecommendationsV2Async(
+      String service, RecommendationV2RequestBody body) {
+    return getSPARecommendationsV2WithHttpInfoAsync(service, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * This endpoint is experimental and restricted to Datadog internal use only. Retrieve resource
+   * recommendations for a Spark job. The caller (Spark Gateway) provides a service name and the
+   * job's raw arguments. SPA determines which arguments are relevant for the service and returns
+   * structured recommendations for driver and executor resources.
+   *
+   * @param service The service name for a Spark job (required)
+   * @param body (required)
+   * @return ApiResponse&lt;RecommendationDocument&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RecommendationDocument> getSPARecommendationsV2WithHttpInfo(
+      String service, RecommendationV2RequestBody body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSPARecommendationsV2";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'service' is set
+    if (service == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'service' when calling getSPARecommendationsV2");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling getSPARecommendationsV2");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/spa/recommendations-v2/{service}"
+            .replaceAll("\\{" + "service" + "\\}", apiClient.escapeString(service.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SpaApi.getSPARecommendationsV2",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RecommendationDocument>() {});
+  }
+
+  /**
+   * Get SPA recommendations v2.
+   *
+   * <p>See {@link #getSPARecommendationsV2WithHttpInfo}.
+   *
+   * @param service The service name for a Spark job (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RecommendationDocument&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RecommendationDocument>>
+      getSPARecommendationsV2WithHttpInfoAsync(String service, RecommendationV2RequestBody body) {
+    // Check if unstable operation is enabled
+    String operationId = "getSPARecommendationsV2";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<RecommendationDocument>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'service' is set
+    if (service == null) {
+      CompletableFuture<ApiResponse<RecommendationDocument>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'service' when calling getSPARecommendationsV2"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RecommendationDocument>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling getSPARecommendationsV2"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/spa/recommendations-v2/{service}"
+            .replaceAll("\\{" + "service" + "\\}", apiClient.escapeString(service.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SpaApi.getSPARecommendationsV2",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RecommendationDocument>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
