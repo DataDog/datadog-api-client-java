@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /**
  * Attributes of a maintenance window, including its schedule and the query that determines which
- * cases are affected.
+ * work items are affected.
  */
 @JsonPropertyOrder({
   MaintenanceWindowAttributes.JSON_PROPERTY_CREATED_BY,
@@ -126,8 +126,8 @@ public class MaintenanceWindowAttributes {
   }
 
   /**
-   * A case search query that determines which cases are affected during the maintenance window.
-   * Uses the same syntax as the Case Management search bar.
+   * A work item search query that determines which work items are affected during the maintenance
+   * window. Uses the same syntax as the Work Management search bar.
    *
    * @return query
    */

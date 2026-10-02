@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationships formed with the case on creation */
+/** Relationships formed with the work item on creation */
 @JsonPropertyOrder({
   CaseCreateRelationships.JSON_PROPERTY_ASSIGNEE,
   CaseCreateRelationships.JSON_PROPERTY_PROJECT

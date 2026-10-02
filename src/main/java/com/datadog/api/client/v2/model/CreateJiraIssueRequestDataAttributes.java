@@ -124,7 +124,7 @@ public class CreateJiraIssueRequestDataAttributes {
   }
 
   /**
-   * Case priority
+   * Work item priority
    *
    * @return priority
    */

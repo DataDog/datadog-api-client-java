@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for case views. */
+/** JSON:API resource type for work item views. */
 @JsonSerialize(using = CaseViewResourceType.CaseViewResourceTypeSerializer.class)
 public class CaseViewResourceType extends ModelEnum<String> {
 

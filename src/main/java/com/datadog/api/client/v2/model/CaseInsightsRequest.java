@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request payload for adding or removing case insights. */
+/** Request payload for adding or removing work item insights. */
 @JsonPropertyOrder({CaseInsightsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

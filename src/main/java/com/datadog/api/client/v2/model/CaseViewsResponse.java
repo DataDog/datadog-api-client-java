@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a list of case views. */
+/** Response containing a list of work item views. */
 @JsonPropertyOrder({CaseViewsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -54,7 +54,7 @@ public class CaseViewsResponse {
   }
 
   /**
-   * A list of case views.
+   * A list of work item views.
    *
    * @return data
    */

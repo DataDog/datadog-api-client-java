@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing aggregated case counts grouped by the requested fields. */
+/** Response containing aggregated work item counts grouped by the requested fields. */
 @JsonPropertyOrder({CaseAggregateResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

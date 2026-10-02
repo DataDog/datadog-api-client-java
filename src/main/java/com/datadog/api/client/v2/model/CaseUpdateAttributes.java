@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case update attributes */
+/** Work item update attributes */
 @JsonPropertyOrder({
   CaseUpdateAttributes.JSON_PROPERTY_ATTRIBUTES,
   CaseUpdateAttributes.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class CaseUpdateAttributes {
   }
 
   /**
-   * Case update attributes attributes
+   * Work item update attributes.
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class CaseUpdateAttributes {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

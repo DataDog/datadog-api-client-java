@@ -76,7 +76,7 @@ public class CaseAggregateRequestData {
   }
 
   /**
-   * JSON:API resource type for case aggregation requests.
+   * JSON:API resource type for work item aggregation requests.
    *
    * @return type
    */

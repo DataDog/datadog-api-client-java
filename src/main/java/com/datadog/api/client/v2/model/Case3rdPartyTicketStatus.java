@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Case status */
+/** Work item status */
 @JsonSerialize(using = Case3rdPartyTicketStatus.Case3rdPartyTicketStatusSerializer.class)
 public class Case3rdPartyTicketStatus extends ModelEnum<String> {
 

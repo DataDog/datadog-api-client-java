@@ -20,8 +20,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * A facet group containing counts broken down by the distinct values of a case field (for example,
- * status or priority).
+ * A facet group containing counts broken down by the distinct values of a work item field (for
+ * example, status or priority).
  */
 @JsonPropertyOrder({CaseCountGroup.JSON_PROPERTY_GROUP, CaseCountGroup.JSON_PROPERTY_GROUP_VALUES})
 @jakarta.annotation.Generated(

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for adding or removing insights from a case. */
+/** Attributes for adding or removing insights from a work item. */
 @JsonPropertyOrder({CaseInsightsAttributes.JSON_PROPERTY_INSIGHTS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -54,7 +54,7 @@ public class CaseInsightsAttributes {
   }
 
   /**
-   * Array of insights to add to or remove from a case.
+   * Array of insights to add to or remove from a work item.
    *
    * @return insights
    */

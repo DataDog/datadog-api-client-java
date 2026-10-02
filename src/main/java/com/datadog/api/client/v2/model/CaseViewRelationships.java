@@ -18,7 +18,7 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * Related resources for the case view, including the creator, last modifier, and associated
+ * Related resources for the work item view, including the creator, last modifier, and associated
  * project.
  */
 @JsonPropertyOrder({

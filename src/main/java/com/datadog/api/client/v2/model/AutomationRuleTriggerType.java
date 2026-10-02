@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The case event that activates the automation rule. */
+/** The work item event that activates the automation rule. */
 @JsonSerialize(using = AutomationRuleTriggerType.AutomationRuleTriggerTypeSerializer.class)
 public class AutomationRuleTriggerType extends ModelEnum<String> {
 

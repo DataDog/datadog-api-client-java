@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case update attributes attributes */
+/** Work item update attributes. */
 @JsonPropertyOrder({CaseUpdateAttributesAttributes.JSON_PROPERTY_ATTRIBUTES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class CaseUpdateAttributesAttributes {
   }
 
   /**
-   * Key-value pairs of case attributes. Each key maps to an array of string values, used for
+   * Key-value pairs of work item attributes. Each key maps to an array of string values, used for
    * flexible metadata such as labels or tags.
    *
    * @return attributes

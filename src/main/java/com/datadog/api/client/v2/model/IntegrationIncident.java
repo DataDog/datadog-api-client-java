@@ -135,7 +135,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * List of mappings between incident fields and case fields.
+   * List of mappings between incident fields and work item fields.
    *
    * @return fieldMappings
    */
@@ -183,7 +183,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * Severity configuration for mapping incident priorities to case priorities.
+   * Severity configuration for mapping incident priorities to work item priorities.
    *
    * @return severityConfig
    */

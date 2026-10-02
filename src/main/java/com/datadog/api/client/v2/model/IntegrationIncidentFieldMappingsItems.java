@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Mapping between an incident user-defined field and a case field. */
+/** Mapping between an incident user-defined field and a work item field. */
 @JsonPropertyOrder({
   IntegrationIncidentFieldMappingsItems.JSON_PROPERTY_CASE_FIELD,
   IntegrationIncidentFieldMappingsItems.JSON_PROPERTY_INCIDENT_USER_DEFINED_FIELD_ID
@@ -38,7 +38,7 @@ public class IntegrationIncidentFieldMappingsItems {
   }
 
   /**
-   * The case field to map the incident field value to.
+   * The work item field to map the incident field value to.
    *
    * @return caseField
    */

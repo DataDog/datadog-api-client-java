@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Defines when the rule activates. Combines a trigger type (the case event to listen for) with
+ * Defines when the rule activates. Combines a trigger type (the work item event to listen for) with
  * optional trigger data (conditions that narrow when the trigger fires).
  */
 @JsonPropertyOrder({
@@ -79,7 +79,7 @@ public class AutomationRuleTrigger {
   }
 
   /**
-   * The case event that activates the automation rule.
+   * The work item event that activates the automation rule.
    *
    * @return type
    */
