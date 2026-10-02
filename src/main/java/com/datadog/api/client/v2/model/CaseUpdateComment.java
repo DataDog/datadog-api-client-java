@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating a case comment. */
+/** Data object for updating a work item comment. */
 @JsonPropertyOrder({
   CaseUpdateComment.JSON_PROPERTY_ATTRIBUTES,
   CaseUpdateComment.JSON_PROPERTY_TYPE
@@ -76,7 +76,7 @@ public class CaseUpdateComment {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

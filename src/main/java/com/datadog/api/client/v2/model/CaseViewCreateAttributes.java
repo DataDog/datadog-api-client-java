@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes required to create a case view. */
+/** Attributes required to create a work item view. */
 @JsonPropertyOrder({
   CaseViewCreateAttributes.JSON_PROPERTY_NAME,
   CaseViewCreateAttributes.JSON_PROPERTY_NP_RULE_ID,
@@ -79,7 +79,7 @@ public class CaseViewCreateAttributes {
 
   /**
    * The identifier of a notification rule linked to this view. When set, users subscribed to the
-   * view receive alerts for matching cases.
+   * view receive alerts for matching work items.
    *
    * @return npRuleId
    */
@@ -120,7 +120,7 @@ public class CaseViewCreateAttributes {
   }
 
   /**
-   * The query used to filter cases in this view.
+   * The query used to filter work items in this view.
    *
    * @return query
    */

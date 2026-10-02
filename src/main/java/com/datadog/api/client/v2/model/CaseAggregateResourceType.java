@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for case aggregation requests. */
+/** JSON:API resource type for work item aggregation requests. */
 @JsonSerialize(using = CaseAggregateResourceType.CaseAggregateResourceTypeSerializer.class)
 public class CaseAggregateResourceType extends ModelEnum<String> {
 

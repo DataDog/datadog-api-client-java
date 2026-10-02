@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case update custom attribute */
+/** Work item update custom attribute */
 @JsonPropertyOrder({
   CaseUpdateCustomAttribute.JSON_PROPERTY_ATTRIBUTES,
   CaseUpdateCustomAttribute.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class CaseUpdateCustomAttribute {
   }
 
   /**
-   * A typed value for a custom attribute on a specific case.
+   * A typed value for a custom attribute on a specific work item.
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class CaseUpdateCustomAttribute {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

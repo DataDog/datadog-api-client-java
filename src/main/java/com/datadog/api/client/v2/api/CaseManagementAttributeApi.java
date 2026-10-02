@@ -51,7 +51,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #createCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @param body Custom attribute config payload (required)
    * @return CustomAttributeConfigResponse
    * @throws ApiException if fails to make API call
@@ -66,7 +66,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #createCustomAttributeConfigWithHttpInfoAsync}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @param body Custom attribute config payload (required)
    * @return CompletableFuture&lt;CustomAttributeConfigResponse&gt;
    */
@@ -80,9 +80,9 @@ public class CaseManagementAttributeApi {
   }
 
   /**
-   * Create custom attribute config for a case type
+   * Create a custom attribute configuration for a work item type.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @param body Custom attribute config payload (required)
    * @return ApiResponse&lt;CustomAttributeConfigResponse&gt;
    * @throws ApiException if fails to make API call
@@ -147,7 +147,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #createCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @param body Custom attribute config payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CustomAttributeConfigResponse&gt;&gt;
    */
@@ -219,8 +219,8 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #deleteCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCustomAttributeConfig(String caseTypeId, String customAttributeId)
@@ -233,8 +233,8 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #deleteCustomAttributeConfigWithHttpInfoAsync}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCustomAttributeConfigAsync(
@@ -249,8 +249,8 @@ public class CaseManagementAttributeApi {
   /**
    * Delete custom attribute config
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -318,8 +318,8 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #deleteCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCustomAttributeConfigWithHttpInfoAsync(
@@ -390,7 +390,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #getAllCustomAttributeConfigsByCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @return CustomAttributeConfigsResponse
    * @throws ApiException if fails to make API call
    */
@@ -404,7 +404,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #getAllCustomAttributeConfigsByCaseTypeWithHttpInfoAsync}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @return CompletableFuture&lt;CustomAttributeConfigsResponse&gt;
    */
   public CompletableFuture<CustomAttributeConfigsResponse>
@@ -417,9 +417,9 @@ public class CaseManagementAttributeApi {
   }
 
   /**
-   * Get all custom attribute config of case type
+   * Get custom attribute configurations for a work item type.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @return ApiResponse&lt;CustomAttributeConfigsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -477,7 +477,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #getAllCustomAttributeConfigsByCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CustomAttributeConfigsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CustomAttributeConfigsResponse>>
@@ -649,8 +649,8 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #updateCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @param body Custom attribute config payload. (required)
    * @return CustomAttributeConfigResponse
    * @throws ApiException if fails to make API call
@@ -666,8 +666,8 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #updateCustomAttributeConfigWithHttpInfoAsync}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @param body Custom attribute config payload. (required)
    * @return CompletableFuture&lt;CustomAttributeConfigResponse&gt;
    */
@@ -682,10 +682,10 @@ public class CaseManagementAttributeApi {
 
   /**
    * Updates the display name, description, type, or options of an existing custom attribute
-   * configuration for a case type.
+   * configuration for a work item type.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @param body Custom attribute config payload. (required)
    * @return ApiResponse&lt;CustomAttributeConfigResponse&gt;
    * @throws ApiException if fails to make API call
@@ -762,8 +762,8 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #updateCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param customAttributeId Work item custom attribute's UUID. (required)
    * @param body Custom attribute config payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CustomAttributeConfigResponse&gt;&gt;
    */

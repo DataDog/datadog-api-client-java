@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Configuration for grouping aggregated results by one or more case fields. */
+/** Configuration for grouping aggregated results by one or more work item fields. */
 @JsonPropertyOrder({
   CaseAggregateGroupBy.JSON_PROPERTY_GROUPS,
   CaseAggregateGroupBy.JSON_PROPERTY_LIMIT

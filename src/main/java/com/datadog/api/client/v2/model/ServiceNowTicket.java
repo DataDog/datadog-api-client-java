@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** ServiceNow ticket attached to case */
+/** ServiceNow ticket attached to work item */
 @JsonPropertyOrder({ServiceNowTicket.JSON_PROPERTY_RESULT, ServiceNowTicket.JSON_PROPERTY_STATUS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -54,7 +54,7 @@ public class ServiceNowTicket {
   }
 
   /**
-   * Case status
+   * Work item status
    *
    * @return status
    */

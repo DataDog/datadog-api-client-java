@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a case view, including the filter query and optional notification rule. */
+/** Attributes of a work item view, including the filter query and optional notification rule. */
 @JsonPropertyOrder({
   CaseViewAttributes.JSON_PROPERTY_CREATED_AT,
   CaseViewAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -86,7 +86,7 @@ public class CaseViewAttributes {
   }
 
   /**
-   * A human-readable name for the view, displayed in the Case Management UI.
+   * A human-readable name for the view, displayed in the Work Management UI.
    *
    * @return name
    */
@@ -107,7 +107,7 @@ public class CaseViewAttributes {
 
   /**
    * The identifier of a notification rule linked to this view. When set, users subscribed to the
-   * view receive alerts for matching cases.
+   * view receive alerts for matching work items.
    *
    * @return npRuleId
    */
@@ -128,8 +128,8 @@ public class CaseViewAttributes {
   }
 
   /**
-   * The search query that determines which cases appear in this view. Uses the same syntax as the
-   * Case Management search bar (for example, <code>status:open priority:P1</code>).
+   * The search query that determines which work items appear in this view. Uses the same syntax as
+   * the Work Management search bar (for example, <code>status:open priority:P1</code>).
    *
    * @return query
    */

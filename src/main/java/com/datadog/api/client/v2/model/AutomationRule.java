@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * An automation rule that executes an action (such as running a Datadog workflow or assigning an AI
- * agent) when a specified case event occurs within a project.
+ * agent) when a specified work item event occurs within a project.
  */
 @JsonPropertyOrder({
   AutomationRule.JSON_PROPERTY_ATTRIBUTES,
@@ -137,7 +137,7 @@ public class AutomationRule {
   }
 
   /**
-   * JSON:API resource type for case automation rules.
+   * JSON:API resource type for work item automation rules.
    *
    * @return type
    */

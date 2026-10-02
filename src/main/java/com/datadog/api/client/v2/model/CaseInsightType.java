@@ -19,9 +19,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The type of Datadog resource linked to the case as contextual evidence. Each type corresponds to
- * a different Datadog product signal (for example, a security finding, a monitor alert, or an
- * incident).
+ * The type of Datadog resource linked to the work item as contextual evidence. Each type
+ * corresponds to a different Datadog product signal (for example, a security finding, a monitor
+ * alert, or an incident).
  */
 @JsonSerialize(using = CaseInsightType.CaseInsightTypeSerializer.class)
 public class CaseInsightType extends ModelEnum<String> {

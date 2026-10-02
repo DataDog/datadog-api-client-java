@@ -101,7 +101,7 @@ public class IntegrationOnCall {
   }
 
   /**
-   * List of escalation queries for routing cases to on-call responders.
+   * List of escalation queries for routing work items to on-call responders.
    *
    * @return escalationQueries
    */

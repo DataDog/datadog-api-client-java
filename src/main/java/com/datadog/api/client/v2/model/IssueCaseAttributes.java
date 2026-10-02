@@ -351,7 +351,7 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Case priority
+   * Work item priority
    *
    * @return priority
    */
@@ -376,7 +376,7 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and
+   * Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and
    * CLOSED statuses. Use <code>status_name</code> instead.
    *
    * @return status

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case comment attributes */
+/** Work item comment attributes */
 @JsonPropertyOrder({CaseCommentAttributes.JSON_PROPERTY_COMMENT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

@@ -76,7 +76,7 @@ public class CaseAggregateGroup {
   }
 
   /**
-   * The count of cases in this group.
+   * The count of work items in this group.
    *
    * @return value
    */

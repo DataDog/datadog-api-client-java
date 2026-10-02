@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating a case's resolved reason. */
+/** Data object for updating a work item's resolved reason. */
 @JsonPropertyOrder({
   CaseUpdateResolvedReason.JSON_PROPERTY_ATTRIBUTES,
   CaseUpdateResolvedReason.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class CaseUpdateResolvedReason {
   }
 
   /**
-   * Attributes for setting the resolution reason on a security case.
+   * Attributes for setting the resolution reason on a security work item.
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class CaseUpdateResolvedReason {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

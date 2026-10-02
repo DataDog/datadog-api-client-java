@@ -32,7 +32,7 @@ public class CaseNotificationRuleResponse {
   }
 
   /**
-   * A notification rule for case management
+   * A notification rule for Work Management
    *
    * @return data
    */

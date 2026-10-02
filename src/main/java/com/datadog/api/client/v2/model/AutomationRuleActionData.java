@@ -62,8 +62,8 @@ public class AutomationRuleActionData {
   }
 
   /**
-   * The identifier of the AI agent to assign to the case. Required when the action type is <code>
-   * ASSIGN_AGENT</code>.
+   * The identifier of the AI agent to assign to the work item. Required when the action type is
+   * <code>ASSIGN_AGENT</code>.
    *
    * @return assignedAgentId
    */

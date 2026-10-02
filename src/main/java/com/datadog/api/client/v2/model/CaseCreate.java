@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case creation data */
+/** Work item creation data */
 @JsonPropertyOrder({
   CaseCreate.JSON_PROPERTY_ATTRIBUTES,
   CaseCreate.JSON_PROPERTY_RELATIONSHIPS,
@@ -56,7 +56,7 @@ public class CaseCreate {
   }
 
   /**
-   * Case creation attributes
+   * Work item creation attributes
    *
    * @return attributes
    */
@@ -80,7 +80,7 @@ public class CaseCreate {
   }
 
   /**
-   * Relationships formed with the case on creation
+   * Relationships formed with the work item on creation
    *
    * @return relationships
    */
@@ -105,7 +105,7 @@ public class CaseCreate {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

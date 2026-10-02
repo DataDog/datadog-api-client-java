@@ -98,8 +98,8 @@ public class AutomationRuleTriggerData {
   }
 
   /**
-   * The case attribute field name to monitor for changes. Used with <code>ATTRIBUTE_VALUE_CHANGED
-   * </code> triggers.
+   * The work item attribute field name to monitor for changes. Used with <code>
+   * ATTRIBUTE_VALUE_CHANGED</code> triggers.
    *
    * @return field
    */

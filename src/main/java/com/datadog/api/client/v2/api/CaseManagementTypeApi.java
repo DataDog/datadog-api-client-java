@@ -51,7 +51,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #createCaseTypeWithHttpInfo}.
    *
-   * @param body Case type payload (required)
+   * @param body Work item type payload (required)
    * @return CaseTypeResponse
    * @throws ApiException if fails to make API call
    */
@@ -64,7 +64,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #createCaseTypeWithHttpInfoAsync}.
    *
-   * @param body Case type payload (required)
+   * @param body Work item type payload (required)
    * @return CompletableFuture&lt;CaseTypeResponse&gt;
    */
   public CompletableFuture<CaseTypeResponse> createCaseTypeAsync(CaseTypeCreateRequest body) {
@@ -76,9 +76,9 @@ public class CaseManagementTypeApi {
   }
 
   /**
-   * Create a Case Type
+   * Create a work item type.
    *
-   * @param body Case type payload (required)
+   * @param body Work item type payload (required)
    * @return ApiResponse&lt;CaseTypeResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -131,7 +131,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #createCaseTypeWithHttpInfo}.
    *
-   * @param body Case type payload (required)
+   * @param body Work item type payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseTypeResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseTypeResponse>> createCaseTypeWithHttpInfoAsync(
@@ -183,7 +183,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #deleteCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCaseType(String caseTypeId) throws ApiException {
@@ -195,7 +195,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #deleteCaseTypeWithHttpInfoAsync}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCaseTypeAsync(String caseTypeId) {
@@ -207,9 +207,9 @@ public class CaseManagementTypeApi {
   }
 
   /**
-   * Delete a case type
+   * Delete a work item type
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -263,7 +263,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #deleteCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCaseTypeWithHttpInfoAsync(String caseTypeId) {
@@ -340,7 +340,7 @@ public class CaseManagementTypeApi {
   }
 
   /**
-   * Get all case types
+   * Get all work item types
    *
    * @return ApiResponse&lt;CaseTypesResponse&gt;
    * @throws ApiException if fails to make API call
@@ -427,8 +427,8 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #updateCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param body Case type payload. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param body Work item type payload. (required)
    * @return CaseTypeResponse
    * @throws ApiException if fails to make API call
    */
@@ -442,8 +442,8 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #updateCaseTypeWithHttpInfoAsync}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param body Case type payload. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param body Work item type payload. (required)
    * @return CompletableFuture&lt;CaseTypeResponse&gt;
    */
   public CompletableFuture<CaseTypeResponse> updateCaseTypeAsync(
@@ -456,10 +456,10 @@ public class CaseManagementTypeApi {
   }
 
   /**
-   * Updates the name, emoji, or description of an existing case type.
+   * Updates the name, emoji, or description of an existing work item type.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param body Case type payload. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param body Work item type payload. (required)
    * @return ApiResponse&lt;CaseTypeResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -522,8 +522,8 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #updateCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId The UUID of the case type. (required)
-   * @param body Case type payload. (required)
+   * @param caseTypeId The UUID of the work item type. (required)
+   * @param body Work item type payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseTypeResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseTypeResponse>> updateCaseTypeWithHttpInfoAsync(

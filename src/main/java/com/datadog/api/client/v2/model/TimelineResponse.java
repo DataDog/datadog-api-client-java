@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing the chronological list of timeline cells for a case. */
+/** Response containing the chronological list of timeline cells for a work item. */
 @JsonPropertyOrder({TimelineResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
