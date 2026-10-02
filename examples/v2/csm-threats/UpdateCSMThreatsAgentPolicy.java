@@ -16,8 +16,8 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
-    // there is a valid "policy_rc" in the system
-    String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
+    // there is a valid "policy_rc_disabled" in the system
+    String POLICY_DISABLED_DATA_ID = System.getenv("POLICY_DISABLED_DATA_ID");
 
     CloudWorkloadSecurityAgentPolicyUpdateRequest body =
         new CloudWorkloadSecurityAgentPolicyUpdateRequest()
@@ -26,16 +26,16 @@ public class Example {
                     .attributes(
                         new CloudWorkloadSecurityAgentPolicyUpdateAttributes()
                             .description("Updated agent policy")
-                            .enabled(true)
+                            .enabled(false)
                             .hostTagsLists(
                                 Collections.singletonList(Collections.singletonList("env:test")))
                             .name("updated_agent_policy"))
-                    .id(POLICY_DATA_ID)
+                    .id(POLICY_DISABLED_DATA_ID)
                     .type(CloudWorkloadSecurityAgentPolicyType.POLICY));
 
     try {
       CloudWorkloadSecurityAgentPolicyResponse result =
-          apiInstance.updateCSMThreatsAgentPolicy(POLICY_DATA_ID, body);
+          apiInstance.updateCSMThreatsAgentPolicy(POLICY_DISABLED_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CsmThreatsApi#updateCSMThreatsAgentPolicy");
