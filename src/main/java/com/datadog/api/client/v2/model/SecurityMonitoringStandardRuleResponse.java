@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CALCULATED_FIELDS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CASES,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_COMPATIBLE_VERSION,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
@@ -59,6 +60,9 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
+
+  public static final String JSON_PROPERTY_COMPATIBLE_VERSION = "compatibleVersion";
+  private Long compatibleVersion;
 
   public static final String JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS = "complianceSignalOptions";
   private CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions;
@@ -220,6 +224,28 @@ public class SecurityMonitoringStandardRuleResponse {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public SecurityMonitoringStandardRuleResponse compatibleVersion(Long compatibleVersion) {
+    this.compatibleVersion = compatibleVersion;
+    return this;
+  }
+
+  /**
+   * The version of the rule at which its detection logic last changed. Updates that only change the
+   * name, message, tags, or notifications do not change this value.
+   *
+   * @return compatibleVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPATIBLE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCompatibleVersion() {
+    return compatibleVersion;
+  }
+
+  public void setCompatibleVersion(Long compatibleVersion) {
+    this.compatibleVersion = compatibleVersion;
   }
 
   public SecurityMonitoringStandardRuleResponse complianceSignalOptions(
@@ -967,6 +993,8 @@ public class SecurityMonitoringStandardRuleResponse {
             this.calculatedFields, securityMonitoringStandardRuleResponse.calculatedFields)
         && Objects.equals(this.cases, securityMonitoringStandardRuleResponse.cases)
         && Objects.equals(
+            this.compatibleVersion, securityMonitoringStandardRuleResponse.compatibleVersion)
+        && Objects.equals(
             this.complianceSignalOptions,
             securityMonitoringStandardRuleResponse.complianceSignalOptions)
         && Objects.equals(this.createdAt, securityMonitoringStandardRuleResponse.createdAt)
@@ -1011,6 +1039,7 @@ public class SecurityMonitoringStandardRuleResponse {
     return Objects.hash(
         calculatedFields,
         cases,
+        compatibleVersion,
         complianceSignalOptions,
         createdAt,
         creationAuthorId,
@@ -1046,6 +1075,7 @@ public class SecurityMonitoringStandardRuleResponse {
     sb.append("class SecurityMonitoringStandardRuleResponse {\n");
     sb.append("    calculatedFields: ").append(toIndentedString(calculatedFields)).append("\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
+    sb.append("    compatibleVersion: ").append(toIndentedString(compatibleVersion)).append("\n");
     sb.append("    complianceSignalOptions: ")
         .append(toIndentedString(complianceSignalOptions))
         .append("\n");
