@@ -1,4 +1,4 @@
-// Patch a deployment event by version returns "Accepted" response
+// Mark a deployment as failed by version returns "Accepted" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -15,7 +15,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
-    defaultClient.setUnstableOperationEnabled("v2.patchDORADeploymentByVersion", true);
     DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
 
     DORADeploymentPatchByVersionRequest body =

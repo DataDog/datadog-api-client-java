@@ -1445,7 +1445,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Patch a deployment event by version.
+   * Mark a deployment as failed by version.
    *
    * <p>See {@link #patchDORADeploymentByVersionWithHttpInfo}.
    *
@@ -1458,7 +1458,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Patch a deployment event by version.
+   * Mark a deployment as failed by version.
    *
    * <p>See {@link #patchDORADeploymentByVersionWithHttpInfoAsync}.
    *
@@ -1496,13 +1496,6 @@ public class DoraMetricsApi {
    */
   public ApiResponse<Void> patchDORADeploymentByVersionWithHttpInfo(
       DORADeploymentPatchByVersionRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "patchDORADeploymentByVersion";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1536,7 +1529,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Patch a deployment event by version.
+   * Mark a deployment as failed by version.
    *
    * <p>See {@link #patchDORADeploymentByVersionWithHttpInfo}.
    *
@@ -1545,16 +1538,6 @@ public class DoraMetricsApi {
    */
   public CompletableFuture<ApiResponse<Void>> patchDORADeploymentByVersionWithHttpInfoAsync(
       DORADeploymentPatchByVersionRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "patchDORADeploymentByVersion";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
