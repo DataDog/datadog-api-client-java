@@ -21,6 +21,7 @@ import java.util.Objects;
   TeamNotificationRuleAttributes.JSON_PROPERTY_EMAIL,
   TeamNotificationRuleAttributes.JSON_PROPERTY_MS_TEAMS,
   TeamNotificationRuleAttributes.JSON_PROPERTY_PAGERDUTY,
+  TeamNotificationRuleAttributes.JSON_PROPERTY_SERVICENOW,
   TeamNotificationRuleAttributes.JSON_PROPERTY_SLACK
 })
 @jakarta.annotation.Generated(
@@ -35,6 +36,9 @@ public class TeamNotificationRuleAttributes {
 
   public static final String JSON_PROPERTY_PAGERDUTY = "pagerduty";
   private TeamNotificationRuleAttributesPagerduty pagerduty;
+
+  public static final String JSON_PROPERTY_SERVICENOW = "servicenow";
+  private TeamNotificationRuleAttributesServiceNow servicenow;
 
   public static final String JSON_PROPERTY_SLACK = "slack";
   private TeamNotificationRuleAttributesSlack slack;
@@ -112,6 +116,32 @@ public class TeamNotificationRuleAttributes {
     this.pagerduty = pagerduty;
     if (pagerduty != null) {
       this.unparsed |= pagerduty.unparsed;
+    }
+  }
+
+  public TeamNotificationRuleAttributes servicenow(
+      TeamNotificationRuleAttributesServiceNow servicenow) {
+    this.servicenow = servicenow;
+    this.unparsed |= servicenow.unparsed;
+    return this;
+  }
+
+  /**
+   * ServiceNow notification settings for the team.
+   *
+   * @return servicenow
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICENOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamNotificationRuleAttributesServiceNow getServicenow() {
+    return servicenow;
+  }
+
+  public void setServicenow(TeamNotificationRuleAttributesServiceNow servicenow) {
+    this.servicenow = servicenow;
+    if (servicenow != null) {
+      this.unparsed |= servicenow.unparsed;
     }
   }
 
@@ -200,6 +230,7 @@ public class TeamNotificationRuleAttributes {
     return Objects.equals(this.email, teamNotificationRuleAttributes.email)
         && Objects.equals(this.msTeams, teamNotificationRuleAttributes.msTeams)
         && Objects.equals(this.pagerduty, teamNotificationRuleAttributes.pagerduty)
+        && Objects.equals(this.servicenow, teamNotificationRuleAttributes.servicenow)
         && Objects.equals(this.slack, teamNotificationRuleAttributes.slack)
         && Objects.equals(
             this.additionalProperties, teamNotificationRuleAttributes.additionalProperties);
@@ -207,7 +238,7 @@ public class TeamNotificationRuleAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, msTeams, pagerduty, slack, additionalProperties);
+    return Objects.hash(email, msTeams, pagerduty, servicenow, slack, additionalProperties);
   }
 
   @Override
@@ -217,6 +248,7 @@ public class TeamNotificationRuleAttributes {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    msTeams: ").append(toIndentedString(msTeams)).append("\n");
     sb.append("    pagerduty: ").append(toIndentedString(pagerduty)).append("\n");
+    sb.append("    servicenow: ").append(toIndentedString(servicenow)).append("\n");
     sb.append("    slack: ").append(toIndentedString(slack)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
