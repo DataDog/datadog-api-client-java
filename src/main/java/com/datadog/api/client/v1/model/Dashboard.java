@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_CREATED_AT,
   Dashboard.JSON_PROPERTY_DEFAULT_TIMEFRAME,
   Dashboard.JSON_PROPERTY_DESCRIPTION,
+  Dashboard.JSON_PROPERTY_EXPERIENCE_TYPE,
   Dashboard.JSON_PROPERTY_ID,
   Dashboard.JSON_PROPERTY_IS_READ_ONLY,
   Dashboard.JSON_PROPERTY_LAYOUT_TYPE,
@@ -64,6 +65,9 @@ public class Dashboard {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_EXPERIENCE_TYPE = "experience_type";
+  private DashboardExperienceType experienceType;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -231,6 +235,18 @@ public class Dashboard {
 
   public void setDescription(String description) {
     this.description = JsonNullable.<String>of(description);
+  }
+
+  /**
+   * The experience type of the dashboard.
+   *
+   * @return experienceType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPERIENCE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DashboardExperienceType getExperienceType() {
+    return experienceType;
   }
 
   /**
@@ -718,6 +734,7 @@ public class Dashboard {
         && Objects.equals(this.createdAt, dashboard.createdAt)
         && Objects.equals(this.defaultTimeframe, dashboard.defaultTimeframe)
         && Objects.equals(this.description, dashboard.description)
+        && Objects.equals(this.experienceType, dashboard.experienceType)
         && Objects.equals(this.id, dashboard.id)
         && Objects.equals(this.isReadOnly, dashboard.isReadOnly)
         && Objects.equals(this.layoutType, dashboard.layoutType)
@@ -743,6 +760,7 @@ public class Dashboard {
         createdAt,
         defaultTimeframe,
         description,
+        experienceType,
         id,
         isReadOnly,
         layoutType,
@@ -769,6 +787,7 @@ public class Dashboard {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    defaultTimeframe: ").append(toIndentedString(defaultTimeframe)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    experienceType: ").append(toIndentedString(experienceType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isReadOnly: ").append(toIndentedString(isReadOnly)).append("\n");
     sb.append("    layoutType: ").append(toIndentedString(layoutType)).append("\n");
