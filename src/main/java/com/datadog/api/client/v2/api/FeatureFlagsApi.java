@@ -3206,6 +3206,11 @@ public class FeatureFlagsApi {
    * Updates an existing feature flag's metadata such as name and description. Does not modify
    * targeting rules or allocations.
    *
+   * <p>To change the owning team, update <code>tags</code> and include a tag of the form <code>
+   * team:&lt;team-handle&gt;</code> in the array. <code>tags</code> is a full replacement of the
+   * existing tag set (including any <code>team:</code> tag), so include every tag you want to keep,
+   * not just the ones you're adding.
+   *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param body (required)
    * @return ApiResponse&lt;FeatureFlagResponse&gt;

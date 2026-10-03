@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -21,7 +23,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   UpdateFeatureFlagAttributes.JSON_PROPERTY_DESCRIPTION,
   UpdateFeatureFlagAttributes.JSON_PROPERTY_JSON_SCHEMA,
-  UpdateFeatureFlagAttributes.JSON_PROPERTY_NAME
+  UpdateFeatureFlagAttributes.JSON_PROPERTY_NAME,
+  UpdateFeatureFlagAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,6 +38,9 @@ public class UpdateFeatureFlagAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public UpdateFeatureFlagAttributes description(String description) {
     this.description = description;
@@ -109,6 +115,37 @@ public class UpdateFeatureFlagAttributes {
     this.name = name;
   }
 
+  public UpdateFeatureFlagAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UpdateFeatureFlagAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Tags associated with the feature flag. This field replaces the full set of existing tags; omit
+   * it to leave tags unchanged, or pass an empty array to clear all tags. The owning team is set by
+   * including a tag of the form <code>team:&lt;team-handle&gt;</code> in this array.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -168,13 +205,14 @@ public class UpdateFeatureFlagAttributes {
     return Objects.equals(this.description, updateFeatureFlagAttributes.description)
         && Objects.equals(this.jsonSchema, updateFeatureFlagAttributes.jsonSchema)
         && Objects.equals(this.name, updateFeatureFlagAttributes.name)
+        && Objects.equals(this.tags, updateFeatureFlagAttributes.tags)
         && Objects.equals(
             this.additionalProperties, updateFeatureFlagAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, jsonSchema, name, additionalProperties);
+    return Objects.hash(description, jsonSchema, name, tags, additionalProperties);
   }
 
   @Override
@@ -184,6 +222,7 @@ public class UpdateFeatureFlagAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    jsonSchema: ").append(toIndentedString(jsonSchema)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
