@@ -1285,7 +1285,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Patch a deployment event.
+   * Mark a deployment as failed by ID.
    *
    * <p>See {@link #patchDORADeploymentWithHttpInfo}.
    *
@@ -1299,7 +1299,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Patch a deployment event.
+   * Mark a deployment as failed by ID.
    *
    * <p>See {@link #patchDORADeploymentWithHttpInfoAsync}.
    *
@@ -1379,7 +1379,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Patch a deployment event.
+   * Mark a deployment as failed by ID.
    *
    * <p>See {@link #patchDORADeploymentWithHttpInfo}.
    *
