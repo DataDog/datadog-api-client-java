@@ -58,8 +58,9 @@ public class UsageQuotaBulkResultData {
   }
 
   /**
-   * Attributes of a usage quota bulk write result. On success, all fields except <code>error</code>
-   * are present. On failure, only <code>error</code> is present and the other fields are omitted.
+   * Attributes of a usage quota bulk write result. On success, quota fields are present as
+   * applicable, and pending fields are present only when a change is scheduled. On failure, only
+   * <code>error</code> is present and the other fields are omitted.
    *
    * @return attributes
    */

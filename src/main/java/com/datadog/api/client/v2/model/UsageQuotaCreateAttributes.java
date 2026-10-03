@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,9 +16,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for creating or updating a usage quota by scope. */
+/**
+ * Attributes for creating or updating a usage quota by scope. Each item must provide <code>
+ * usage_limit</code>, <code>pending_usage_limit</code>, or both. Providing only <code>
+ * pending_usage_limit</code> updates an existing organization-wide quota, never creates one,
+ * requires <code>enforced</code> to be omitted, and fails if the quota does not exist.
+ */
 @JsonPropertyOrder({
   UsageQuotaCreateAttributes.JSON_PROPERTY_ENFORCED,
+  UsageQuotaCreateAttributes.JSON_PROPERTY_PENDING_USAGE_LIMIT,
   UsageQuotaCreateAttributes.JSON_PROPERTY_SCOPE,
   UsageQuotaCreateAttributes.JSON_PROPERTY_USAGE_LIMIT
 })
@@ -30,21 +35,14 @@ public class UsageQuotaCreateAttributes {
   public static final String JSON_PROPERTY_ENFORCED = "enforced";
   private Boolean enforced;
 
+  public static final String JSON_PROPERTY_PENDING_USAGE_LIMIT = "pending_usage_limit";
+  private Long pendingUsageLimit;
+
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private Map<String, String> scope = null;
 
   public static final String JSON_PROPERTY_USAGE_LIMIT = "usage_limit";
   private Long usageLimit;
-
-  public UsageQuotaCreateAttributes() {}
-
-  @JsonCreator
-  public UsageQuotaCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENFORCED) Boolean enforced,
-      @JsonProperty(required = true, value = JSON_PROPERTY_USAGE_LIMIT) Long usageLimit) {
-    this.enforced = enforced;
-    this.usageLimit = usageLimit;
-  }
 
   public UsageQuotaCreateAttributes enforced(Boolean enforced) {
     this.enforced = enforced;
@@ -52,18 +50,48 @@ public class UsageQuotaCreateAttributes {
   }
 
   /**
-   * Whether to actively block usage above the limit instead of only tracking or alerting on it.
+   * Whether to actively block usage above <code>usage_limit</code> instead of only tracking or
+   * alerting on it. Required when <code>usage_limit</code> is provided and must be omitted when
+   * only <code>pending_usage_limit</code> is provided.
    *
    * @return enforced
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENFORCED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnforced() {
     return enforced;
   }
 
   public void setEnforced(Boolean enforced) {
     this.enforced = enforced;
+  }
+
+  public UsageQuotaCreateAttributes pendingUsageLimit(Long pendingUsageLimit) {
+    this.pendingUsageLimit = pendingUsageLimit;
+    return this;
+  }
+
+  /**
+   * The non-negative, whole-number limit to schedule for the organization-wide quota in the usage
+   * units defined by the quota namespace. It is not checked against current usage. Each write
+   * schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any
+   * previously scheduled change; the server computes <code>pending_effective_from</code>. Omit this
+   * field to leave any scheduled change unchanged, including when raising <code>usage_limit</code>.
+   * Cancel a scheduled change only by deleting the quota's <code>/pending</code> sub-resource.
+   * minimum: 0
+   *
+   * @return pendingUsageLimit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PENDING_USAGE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPendingUsageLimit() {
+    return pendingUsageLimit;
+  }
+
+  public void setPendingUsageLimit(Long pendingUsageLimit) {
+    this.pendingUsageLimit = pendingUsageLimit;
   }
 
   public UsageQuotaCreateAttributes scope(Map<String, String> scope) {
@@ -108,14 +136,16 @@ public class UsageQuotaCreateAttributes {
   }
 
   /**
-   * The quota limit to set in the usage units defined by the quota namespace. For an
-   * organization-wide quota (scope omitted), the limit must be greater than the usage already
-   * recorded in the current period. minimum: 0
+   * The non-negative, whole-number quota limit to set in the usage units defined by the quota
+   * namespace. For an organization-wide quota (scope omitted), the limit must be greater than usage
+   * already recorded in the current period. When this field is provided, <code>enforced</code> is
+   * required. minimum: 0
    *
    * @return usageLimit
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getUsageLimit() {
     return usageLimit;
   }
@@ -181,6 +211,7 @@ public class UsageQuotaCreateAttributes {
     }
     UsageQuotaCreateAttributes usageQuotaCreateAttributes = (UsageQuotaCreateAttributes) o;
     return Objects.equals(this.enforced, usageQuotaCreateAttributes.enforced)
+        && Objects.equals(this.pendingUsageLimit, usageQuotaCreateAttributes.pendingUsageLimit)
         && Objects.equals(this.scope, usageQuotaCreateAttributes.scope)
         && Objects.equals(this.usageLimit, usageQuotaCreateAttributes.usageLimit)
         && Objects.equals(
@@ -189,7 +220,7 @@ public class UsageQuotaCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enforced, scope, usageLimit, additionalProperties);
+    return Objects.hash(enforced, pendingUsageLimit, scope, usageLimit, additionalProperties);
   }
 
   @Override
@@ -197,6 +228,7 @@ public class UsageQuotaCreateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageQuotaCreateAttributes {\n");
     sb.append("    enforced: ").append(toIndentedString(enforced)).append("\n");
+    sb.append("    pendingUsageLimit: ").append(toIndentedString(pendingUsageLimit)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    usageLimit: ").append(toIndentedString(usageLimit)).append("\n");
     sb.append("    additionalProperties: ")
