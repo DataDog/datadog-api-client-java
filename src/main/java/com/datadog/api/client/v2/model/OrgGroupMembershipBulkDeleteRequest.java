@@ -19,56 +19,59 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for bulk updating org group memberships. */
-@JsonPropertyOrder({OrgGroupMembershipBulkUpdateAttributes.JSON_PROPERTY_ORGS})
+/** Request to delete a batch of org group memberships. */
+@JsonPropertyOrder({OrgGroupMembershipBulkDeleteRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class OrgGroupMembershipBulkUpdateAttributes {
+public class OrgGroupMembershipBulkDeleteRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ORGS = "orgs";
-  private List<GlobalOrgIdentifier> orgs = new ArrayList<>();
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<OrgGroupMembershipBulkDeleteRequestData> data = new ArrayList<>();
 
-  public OrgGroupMembershipBulkUpdateAttributes() {}
+  public OrgGroupMembershipBulkDeleteRequest() {}
 
   @JsonCreator
-  public OrgGroupMembershipBulkUpdateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ORGS) List<GlobalOrgIdentifier> orgs) {
-    this.orgs = orgs;
-    for (GlobalOrgIdentifier item : orgs) {
+  public OrgGroupMembershipBulkDeleteRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<OrgGroupMembershipBulkDeleteRequestData> data) {
+    this.data = data;
+    for (OrgGroupMembershipBulkDeleteRequestData item : data) {
       this.unparsed |= item.unparsed;
     }
   }
 
-  public OrgGroupMembershipBulkUpdateAttributes orgs(List<GlobalOrgIdentifier> orgs) {
-    this.orgs = orgs;
-    for (GlobalOrgIdentifier item : orgs) {
+  public OrgGroupMembershipBulkDeleteRequest data(
+      List<OrgGroupMembershipBulkDeleteRequestData> data) {
+    this.data = data;
+    for (OrgGroupMembershipBulkDeleteRequestData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public OrgGroupMembershipBulkUpdateAttributes addOrgsItem(GlobalOrgIdentifier orgsItem) {
-    this.orgs.add(orgsItem);
-    this.unparsed |= orgsItem.unparsed;
+  public OrgGroupMembershipBulkDeleteRequest addDataItem(
+      OrgGroupMembershipBulkDeleteRequestData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * List of organizations to move. Between 1 and 100 per request. Each <code>org_uuid</code> and
-   * <code>org_site</code> pair must be unique.
+   * The memberships to delete, as membership resource identifiers. Between 1 and 100 unique
+   * membership IDs per request.
    *
-   * @return orgs
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_ORGS)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<GlobalOrgIdentifier> getOrgs() {
-    return orgs;
+  public List<OrgGroupMembershipBulkDeleteRequestData> getData() {
+    return data;
   }
 
-  public void setOrgs(List<GlobalOrgIdentifier> orgs) {
-    this.orgs = orgs;
-    if (orgs != null) {
-      for (GlobalOrgIdentifier item : orgs) {
+  public void setData(List<OrgGroupMembershipBulkDeleteRequestData> data) {
+    this.data = data;
+    if (data != null) {
+      for (OrgGroupMembershipBulkDeleteRequestData item : data) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -86,10 +89,10 @@ public class OrgGroupMembershipBulkUpdateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return OrgGroupMembershipBulkUpdateAttributes
+   * @return OrgGroupMembershipBulkDeleteRequest
    */
   @JsonAnySetter
-  public OrgGroupMembershipBulkUpdateAttributes putAdditionalProperty(String key, Object value) {
+  public OrgGroupMembershipBulkDeleteRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +123,7 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this OrgGroupMembershipBulkUpdateAttributes object is equal to o. */
+  /** Return true if this OrgGroupMembershipBulkDeleteRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,23 +132,23 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrgGroupMembershipBulkUpdateAttributes orgGroupMembershipBulkUpdateAttributes =
-        (OrgGroupMembershipBulkUpdateAttributes) o;
-    return Objects.equals(this.orgs, orgGroupMembershipBulkUpdateAttributes.orgs)
+    OrgGroupMembershipBulkDeleteRequest orgGroupMembershipBulkDeleteRequest =
+        (OrgGroupMembershipBulkDeleteRequest) o;
+    return Objects.equals(this.data, orgGroupMembershipBulkDeleteRequest.data)
         && Objects.equals(
-            this.additionalProperties, orgGroupMembershipBulkUpdateAttributes.additionalProperties);
+            this.additionalProperties, orgGroupMembershipBulkDeleteRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgs, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrgGroupMembershipBulkUpdateAttributes {\n");
-    sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
+    sb.append("class OrgGroupMembershipBulkDeleteRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -1400,11 +1400,14 @@ public class ApiClient {
           put("v2.registerOAuthClient", false);
           put("v2.upsertScopesRestriction", false);
           put("v2.disableCustomerOrg", false);
+          put("v2.bulkDeleteOrgGroupMemberships", false);
           put("v2.bulkUpdateOrgGroupMemberships", false);
           put("v2.createOrgGroup", false);
+          put("v2.createOrgGroupMemberships", false);
           put("v2.createOrgGroupPolicy", false);
           put("v2.createOrgGroupPolicyOverride", false);
           put("v2.deleteOrgGroup", false);
+          put("v2.deleteOrgGroupMembership", false);
           put("v2.deleteOrgGroupPolicy", false);
           put("v2.deleteOrgGroupPolicyOverride", false);
           put("v2.getOrgGroup", false);
