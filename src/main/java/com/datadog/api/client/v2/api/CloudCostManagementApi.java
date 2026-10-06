@@ -22,6 +22,7 @@ import com.datadog.api.client.v2.model.BudgetArray;
 import com.datadog.api.client.v2.model.BudgetValidationRequest;
 import com.datadog.api.client.v2.model.BudgetValidationResponse;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
+import com.datadog.api.client.v2.model.CloudCostAccountsResponse;
 import com.datadog.api.client.v2.model.CommitmentsCommitmentType;
 import com.datadog.api.client.v2.model.CommitmentsCoverageScalarResponse;
 import com.datadog.api.client.v2.model.CommitmentsCoverageTimeseriesResponse;
@@ -8169,6 +8170,188 @@ public class CloudCostManagementApi {
         new GenericType<AzureUCConfigsResponse>() {});
   }
 
+  /** Manage optional parameters to listCostCloudAccountsV2. */
+  public static class ListCostCloudAccountsV2OptionalParameters {
+    private String filterCloud;
+
+    /**
+     * Set filterCloud.
+     *
+     * @param filterCloud Filter by cloud, either <code>oci</code> or <code>aws_cur2</code> (case
+     *     insensitive). Omit or leave empty to return both. (optional)
+     * @return ListCostCloudAccountsV2OptionalParameters
+     */
+    public ListCostCloudAccountsV2OptionalParameters filterCloud(String filterCloud) {
+      this.filterCloud = filterCloud;
+      return this;
+    }
+  }
+
+  /**
+   * List Cloud Cost Management cloud accounts.
+   *
+   * <p>See {@link #listCostCloudAccountsV2WithHttpInfo}.
+   *
+   * @return CloudCostAccountsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CloudCostAccountsResponse listCostCloudAccountsV2() throws ApiException {
+    return listCostCloudAccountsV2WithHttpInfo(new ListCostCloudAccountsV2OptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Cloud Cost Management cloud accounts.
+   *
+   * <p>See {@link #listCostCloudAccountsV2WithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CloudCostAccountsResponse&gt;
+   */
+  public CompletableFuture<CloudCostAccountsResponse> listCostCloudAccountsV2Async() {
+    return listCostCloudAccountsV2WithHttpInfoAsync(new ListCostCloudAccountsV2OptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management cloud accounts.
+   *
+   * <p>See {@link #listCostCloudAccountsV2WithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CloudCostAccountsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CloudCostAccountsResponse listCostCloudAccountsV2(
+      ListCostCloudAccountsV2OptionalParameters parameters) throws ApiException {
+    return listCostCloudAccountsV2WithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Cloud Cost Management cloud accounts.
+   *
+   * <p>See {@link #listCostCloudAccountsV2WithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CloudCostAccountsResponse&gt;
+   */
+  public CompletableFuture<CloudCostAccountsResponse> listCostCloudAccountsV2Async(
+      ListCostCloudAccountsV2OptionalParameters parameters) {
+    return listCostCloudAccountsV2WithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the OCI and AWS CUR 2.0 cloud accounts for your organization, including account IDs,
+   * status, and validation errors. Use <code>filter[cloud]=oci</code> or <code>
+   * filter[cloud]=aws_cur2</code> to return a single cloud. When omitted or empty, both clouds are
+   * returned. AWS CUR 1.0, Azure, and GCP accounts are available through their dedicated
+   * configuration endpoints. Archived accounts are excluded. The response contains all matching
+   * accounts and is not paginated.
+   *
+   * <p>This endpoint replaces <code>GET /api/v2/cost/oci_config</code>. To migrate, use <code>
+   * filter[cloud]=oci</code> and update clients to accept the <code>cloud_account</code> resource
+   * type instead of <code>oci_config</code>. Account IDs and the existing attributes are preserved;
+   * each account also includes the <code>cloud</code> attribute.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CloudCostAccountsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CloudCostAccountsResponse> listCostCloudAccountsV2WithHttpInfo(
+      ListCostCloudAccountsV2OptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterCloud = parameters.filterCloud;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/cloud_accounts";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[cloud]", filterCloud));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostCloudAccountsV2",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudCostAccountsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management cloud accounts.
+   *
+   * <p>See {@link #listCostCloudAccountsV2WithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CloudCostAccountsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CloudCostAccountsResponse>>
+      listCostCloudAccountsV2WithHttpInfoAsync(
+          ListCostCloudAccountsV2OptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterCloud = parameters.filterCloud;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/cloud_accounts";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[cloud]", filterCloud));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostCloudAccountsV2",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CloudCostAccountsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudCostAccountsResponse>() {});
+  }
+
   /**
    * List Google Cloud Usage Cost configs.
    *
@@ -8313,8 +8496,12 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * <strong>Note</strong>: This endpoint is deprecated. View OCI accounts in Cloud Cost Settings in
-   * the Datadog web application instead.
+   * <strong>Note</strong>: This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/cloud-cost-management/#list-cloud-cost-management-cloud-accounts">List
+   * Cloud Cost Management cloud accounts</a> with <code>filter[cloud]=oci</code> instead. Update
+   * clients to accept the <code>cloud_account</code> resource type instead of <code>oci_config
+   * </code>. Account IDs and the existing attributes are preserved; each account also includes the
+   * <code>cloud</code> attribute.
    *
    * <p>List the OCI configs.
    *
