@@ -1460,7 +1460,6 @@ public class ApiClient {
           put("v2.updateMonitorUserTemplate", false);
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
-          put("v2.listNetworkHealthInsights", false);
           put("v2.deleteScopesRestriction", false);
           put("v2.getOAuth2WellKnownSites", false);
           put("v2.getOIDCDiscoveryDocument", false);
