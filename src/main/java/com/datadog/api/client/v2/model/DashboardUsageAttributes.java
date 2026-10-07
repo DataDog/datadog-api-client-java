@@ -162,7 +162,23 @@ public class DashboardUsageAttributes {
   }
 
   /**
-   * The dashboard quality score, or <code>null</code> when no score is available.
+   * The dashboard quality score ranges from 0 to 1, with higher scores indicating stronger signals
+   * of quality and usefulness. The value is <code>null</code> when no score is available.
+   *
+   * <p>The score considers the following factors:
+   *
+   * <ul>
+   *   <li>Dashboard and widget naming, including whether the dashboard uses a default or templated
+   *       name
+   *   <li>The number of data widgets, excluding container and text widgets
+   *   <li>Confirmed broken queries
+   *   <li>Recent activity, based on the last view date or, when no view date is available, the last
+   *       edit or creation date
+   * </ul>
+   *
+   * <p>Dashboards linked from monitors do not receive lower scores because of their naming or lack
+   * of recent activity. An age-based adjustment helps prevent newly created dashboards from
+   * receiving disproportionately low scores. Queries lower the score only when confirmed broken.
    *
    * @return dashboardQualityScore
    */
