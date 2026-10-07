@@ -1,4 +1,4 @@
-// Patch a deployment event returns "Accepted" response
+// Mark a deployment as failed by ID returns "Accepted" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
