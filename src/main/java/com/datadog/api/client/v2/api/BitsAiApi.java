@@ -8,6 +8,8 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.GetInvestigationResponse;
 import com.datadog.api.client.v2.model.ListInvestigationsResponse;
 import com.datadog.api.client.v2.model.ListInvestigationsResponseData;
+import com.datadog.api.client.v2.model.MonitorAutomationRequest;
+import com.datadog.api.client.v2.model.MonitorAutomationResponse;
 import com.datadog.api.client.v2.model.TriggerInvestigationRequest;
 import com.datadog.api.client.v2.model.TriggerInvestigationResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -200,6 +202,162 @@ public class BitsAiApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GetInvestigationResponse>() {});
+  }
+
+  /**
+   * Get automatic investigation settings for a monitor.
+   *
+   * <p>See {@link #getMonitorAutomationWithHttpInfo}.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @return MonitorAutomationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorAutomationResponse getMonitorAutomation(Long monitorId) throws ApiException {
+    return getMonitorAutomationWithHttpInfo(monitorId).getData();
+  }
+
+  /**
+   * Get automatic investigation settings for a monitor.
+   *
+   * <p>See {@link #getMonitorAutomationWithHttpInfoAsync}.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @return CompletableFuture&lt;MonitorAutomationResponse&gt;
+   */
+  public CompletableFuture<MonitorAutomationResponse> getMonitorAutomationAsync(Long monitorId) {
+    return getMonitorAutomationWithHttpInfoAsync(monitorId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Manage the Bits automatic investigation setting independently of the monitor definition.
+   * Requires access to the monitor and the specified permissions. A newly created monitor and
+   * updated settings can take time to appear in reads.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @return ApiResponse&lt;MonitorAutomationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or unsupported monitor type. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Missing permission or automatic investigation API access is not enabled. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Monitor not found or not visible to the caller. </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> The monitor setting could not be updated. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorAutomationResponse> getMonitorAutomationWithHttpInfo(Long monitorId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorAutomation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'monitorId' when calling getMonitorAutomation");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/bits-ai/monitors/{monitor_id}/automation"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsAiApi.getMonitorAutomation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorAutomationResponse>() {});
+  }
+
+  /**
+   * Get automatic investigation settings for a monitor.
+   *
+   * <p>See {@link #getMonitorAutomationWithHttpInfo}.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorAutomationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorAutomationResponse>>
+      getMonitorAutomationWithHttpInfoAsync(Long monitorId) {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorAutomation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorAutomationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      CompletableFuture<ApiResponse<MonitorAutomationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'monitorId' when calling getMonitorAutomation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/bits-ai/monitors/{monitor_id}/automation"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsAiApi.getMonitorAutomation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorAutomationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorAutomationResponse>() {});
   }
 
   /** Manage optional parameters to listInvestigations. */
@@ -627,5 +785,185 @@ public class BitsAiApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TriggerInvestigationResponse>() {});
+  }
+
+  /**
+   * Update monitor automatic investigation settings.
+   *
+   * <p>See {@link #updateMonitorAutomationWithHttpInfo}.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @param body Automatic investigation settings to apply. (required)
+   * @return MonitorAutomationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorAutomationResponse updateMonitorAutomation(
+      Long monitorId, MonitorAutomationRequest body) throws ApiException {
+    return updateMonitorAutomationWithHttpInfo(monitorId, body).getData();
+  }
+
+  /**
+   * Update monitor automatic investigation settings.
+   *
+   * <p>See {@link #updateMonitorAutomationWithHttpInfoAsync}.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @param body Automatic investigation settings to apply. (required)
+   * @return CompletableFuture&lt;MonitorAutomationResponse&gt;
+   */
+  public CompletableFuture<MonitorAutomationResponse> updateMonitorAutomationAsync(
+      Long monitorId, MonitorAutomationRequest body) {
+    return updateMonitorAutomationWithHttpInfoAsync(monitorId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Manage the Bits automatic investigation setting independently of the monitor definition.
+   * Requires access to the monitor and the specified permissions. A newly created monitor and
+   * updated settings can take time to appear in reads. The enabled attribute is required; false
+   * disables automatic investigations. Repeated requests set the same desired state. This operation
+   * does not create or delete the monitor.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @param body Automatic investigation settings to apply. (required)
+   * @return ApiResponse&lt;MonitorAutomationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or unsupported monitor type. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Missing permission or automatic investigation API access is not enabled. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Monitor not found or not visible to the caller. </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> The monitor setting could not be updated. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorAutomationResponse> updateMonitorAutomationWithHttpInfo(
+      Long monitorId, MonitorAutomationRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateMonitorAutomation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'monitorId' when calling updateMonitorAutomation");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateMonitorAutomation");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/bits-ai/monitors/{monitor_id}/automation"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsAiApi.updateMonitorAutomation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorAutomationResponse>() {});
+  }
+
+  /**
+   * Update monitor automatic investigation settings.
+   *
+   * <p>See {@link #updateMonitorAutomationWithHttpInfo}.
+   *
+   * @param monitorId The monitor ID. (required)
+   * @param body Automatic investigation settings to apply. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorAutomationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorAutomationResponse>>
+      updateMonitorAutomationWithHttpInfoAsync(Long monitorId, MonitorAutomationRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateMonitorAutomation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorAutomationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      CompletableFuture<ApiResponse<MonitorAutomationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'monitorId' when calling updateMonitorAutomation"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MonitorAutomationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateMonitorAutomation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/bits-ai/monitors/{monitor_id}/automation"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsAiApi.updateMonitorAutomation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorAutomationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorAutomationResponse>() {});
   }
 }
