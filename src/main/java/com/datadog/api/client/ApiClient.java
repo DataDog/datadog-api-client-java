@@ -1074,9 +1074,6 @@ public class ApiClient {
           put("v2.getOpenAPI", false);
           put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
-          put("v2.getInvestigation", false);
-          put("v2.listInvestigations", false);
-          put("v2.triggerInvestigation", false);
           put("v2.createChangeRequest", false);
           put("v2.createChangeRequestBranch", false);
           put("v2.deleteChangeRequestDecision", false);
