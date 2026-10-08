@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * Request body for retrieving SPA recommendations by forwarding a Spark job's raw arguments instead
- * of a precomputed shard.
+ * of a pre-computed shard.
  */
 @JsonPropertyOrder({RecommendationV2RequestBody.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(

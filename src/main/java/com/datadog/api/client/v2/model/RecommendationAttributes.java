@@ -24,7 +24,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   RecommendationAttributes.JSON_PROPERTY_CONFIDENCE_LEVEL,
   RecommendationAttributes.JSON_PROPERTY_DRIVER,
-  RecommendationAttributes.JSON_PROPERTY_EXECUTOR
+  RecommendationAttributes.JSON_PROPERTY_EXECUTOR,
+  RecommendationAttributes.JSON_PROPERTY_MATCHED_PARAMS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +39,9 @@ public class RecommendationAttributes {
 
   public static final String JSON_PROPERTY_EXECUTOR = "executor";
   private ComponentRecommendation executor;
+
+  public static final String JSON_PROPERTY_MATCHED_PARAMS = "matched_params";
+  private String matchedParams;
 
   public RecommendationAttributes() {}
 
@@ -124,6 +128,29 @@ public class RecommendationAttributes {
     }
   }
 
+  public RecommendationAttributes matchedParams(String matchedParams) {
+    this.matchedParams = matchedParams;
+    return this;
+  }
+
+  /**
+   * Only returned by the v2 endpoint. The job parameters whose values the recommendation was
+   * matched on, as <code>parameter=value</code> pairs joined by <code>|</code>. An empty string
+   * means the service-wide (coarse) recommendation was used.
+   *
+   * @return matchedParams
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MATCHED_PARAMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMatchedParams() {
+    return matchedParams;
+  }
+
+  public void setMatchedParams(String matchedParams) {
+    this.matchedParams = matchedParams;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -183,12 +210,13 @@ public class RecommendationAttributes {
     return Objects.equals(this.confidenceLevel, recommendationAttributes.confidenceLevel)
         && Objects.equals(this.driver, recommendationAttributes.driver)
         && Objects.equals(this.executor, recommendationAttributes.executor)
+        && Objects.equals(this.matchedParams, recommendationAttributes.matchedParams)
         && Objects.equals(this.additionalProperties, recommendationAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(confidenceLevel, driver, executor, additionalProperties);
+    return Objects.hash(confidenceLevel, driver, executor, matchedParams, additionalProperties);
   }
 
   @Override
@@ -198,6 +226,7 @@ public class RecommendationAttributes {
     sb.append("    confidenceLevel: ").append(toIndentedString(confidenceLevel)).append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    executor: ").append(toIndentedString(executor)).append("\n");
+    sb.append("    matchedParams: ").append(toIndentedString(matchedParams)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
