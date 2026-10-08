@@ -259,6 +259,52 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
             Level.FINER, "Input data does not match schema 'RoutingRuleEscalationPolicyAction'", e);
       }
 
+      // deserialize RoutingRuleRerouteToTeamAction
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (RoutingRuleRerouteToTeamAction.class.equals(Integer.class)
+            || RoutingRuleRerouteToTeamAction.class.equals(Long.class)
+            || RoutingRuleRerouteToTeamAction.class.equals(Float.class)
+            || RoutingRuleRerouteToTeamAction.class.equals(Double.class)
+            || RoutingRuleRerouteToTeamAction.class.equals(Boolean.class)
+            || RoutingRuleRerouteToTeamAction.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((RoutingRuleRerouteToTeamAction.class.equals(Integer.class)
+                        || RoutingRuleRerouteToTeamAction.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((RoutingRuleRerouteToTeamAction.class.equals(Float.class)
+                        || RoutingRuleRerouteToTeamAction.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (RoutingRuleRerouteToTeamAction.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (RoutingRuleRerouteToTeamAction.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(RoutingRuleRerouteToTeamAction.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((RoutingRuleRerouteToTeamAction) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'RoutingRuleRerouteToTeamAction'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'RoutingRuleRerouteToTeamAction'", e);
+      }
+
       RoutingRuleAction ret = new RoutingRuleAction();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -307,6 +353,11 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public RoutingRuleAction(RoutingRuleRerouteToTeamAction o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SendSlackMessageAction", new GenericType<SendSlackMessageAction>() {});
     schemas.put("SendTeamsMessageAction", new GenericType<SendTeamsMessageAction>() {});
@@ -315,6 +366,8 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
     schemas.put(
         "RoutingRuleEscalationPolicyAction",
         new GenericType<RoutingRuleEscalationPolicyAction>() {});
+    schemas.put(
+        "RoutingRuleRerouteToTeamAction", new GenericType<RoutingRuleRerouteToTeamAction>() {});
     JSON.registerDescendants(RoutingRuleAction.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -326,7 +379,8 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: SendSlackMessageAction, SendTeamsMessageAction,
-   * TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction
+   * TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction,
+   * RoutingRuleRerouteToTeamAction
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -351,6 +405,11 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        RoutingRuleRerouteToTeamAction.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -358,15 +417,18 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be SendSlackMessageAction, SendTeamsMessageAction,"
-            + " TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction");
+            + " TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction,"
+            + " RoutingRuleRerouteToTeamAction");
   }
 
   /**
    * Get the actual instance, which can be the following: SendSlackMessageAction,
-   * SendTeamsMessageAction, TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction
+   * SendTeamsMessageAction, TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction,
+   * RoutingRuleRerouteToTeamAction
    *
    * @return The actual instance (SendSlackMessageAction, SendTeamsMessageAction,
-   *     TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction)
+   *     TriggerWorkflowAutomationAction, RoutingRuleEscalationPolicyAction,
+   *     RoutingRuleRerouteToTeamAction)
    */
   @Override
   public Object getActualInstance() {
@@ -417,5 +479,17 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
   public RoutingRuleEscalationPolicyAction getRoutingRuleEscalationPolicyAction()
       throws ClassCastException {
     return (RoutingRuleEscalationPolicyAction) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `RoutingRuleRerouteToTeamAction`. If the actual instance is not
+   * `RoutingRuleRerouteToTeamAction`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `RoutingRuleRerouteToTeamAction`
+   * @throws ClassCastException if the instance is not `RoutingRuleRerouteToTeamAction`
+   */
+  public RoutingRuleRerouteToTeamAction getRoutingRuleRerouteToTeamAction()
+      throws ClassCastException {
+    return (RoutingRuleRerouteToTeamAction) super.getActualInstance();
   }
 }
