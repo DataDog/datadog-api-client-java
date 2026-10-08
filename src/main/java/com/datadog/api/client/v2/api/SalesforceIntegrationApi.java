@@ -55,7 +55,9 @@ public class SalesforceIntegrationApi {
    * @param body Salesforce incident template payload. (required)
    * @return SalesforceIncidentsTemplateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SalesforceIncidentsTemplateResponse createIncidentTemplate(
       SalesforceIncidentsTemplateCreateRequest body) throws ApiException {
     return createIncidentTemplateWithHttpInfo(body).getData();
@@ -68,7 +70,9 @@ public class SalesforceIntegrationApi {
    *
    * @param body Salesforce incident template payload. (required)
    * @return CompletableFuture&lt;SalesforceIncidentsTemplateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SalesforceIncidentsTemplateResponse> createIncidentTemplateAsync(
       SalesforceIncidentsTemplateCreateRequest body) {
     return createIncidentTemplateWithHttpInfoAsync(body)
@@ -96,7 +100,10 @@ public class SalesforceIntegrationApi {
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SalesforceIncidentsTemplateResponse> createIncidentTemplateWithHttpInfo(
       SalesforceIncidentsTemplateCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -138,7 +145,9 @@ public class SalesforceIntegrationApi {
    *
    * @param body Salesforce incident template payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SalesforceIncidentsTemplateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SalesforceIncidentsTemplateResponse>>
       createIncidentTemplateWithHttpInfoAsync(SalesforceIncidentsTemplateCreateRequest body) {
     Object localVarPostBody = body;
@@ -192,7 +201,9 @@ public class SalesforceIntegrationApi {
    *
    * @param incidentTemplateId The ID of the Salesforce incident template. (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void deleteIncidentTemplate(String incidentTemplateId) throws ApiException {
     deleteIncidentTemplateWithHttpInfo(incidentTemplateId);
   }
@@ -204,7 +215,9 @@ public class SalesforceIntegrationApi {
    *
    * @param incidentTemplateId The ID of the Salesforce incident template. (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> deleteIncidentTemplateAsync(String incidentTemplateId) {
     return deleteIncidentTemplateWithHttpInfoAsync(incidentTemplateId)
         .thenApply(
@@ -228,7 +241,10 @@ public class SalesforceIntegrationApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> deleteIncidentTemplateWithHttpInfo(String incidentTemplateId)
       throws ApiException {
     Object localVarPostBody = null;
@@ -276,7 +292,9 @@ public class SalesforceIntegrationApi {
    *
    * @param incidentTemplateId The ID of the Salesforce incident template. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> deleteIncidentTemplateWithHttpInfoAsync(
       String incidentTemplateId) {
     Object localVarPostBody = null;
@@ -335,7 +353,9 @@ public class SalesforceIntegrationApi {
    * @param salesforceOrgId The Datadog-assigned ID of the connected Salesforce organization.
    *     (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void deleteSalesforceOrganization(String salesforceOrgId) throws ApiException {
     deleteSalesforceOrganizationWithHttpInfo(salesforceOrgId);
   }
@@ -348,7 +368,9 @@ public class SalesforceIntegrationApi {
    * @param salesforceOrgId The Datadog-assigned ID of the connected Salesforce organization.
    *     (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> deleteSalesforceOrganizationAsync(String salesforceOrgId) {
     return deleteSalesforceOrganizationWithHttpInfoAsync(salesforceOrgId)
         .thenApply(
@@ -375,7 +397,10 @@ public class SalesforceIntegrationApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> deleteSalesforceOrganizationWithHttpInfo(String salesforceOrgId)
       throws ApiException {
     Object localVarPostBody = null;
@@ -424,7 +449,9 @@ public class SalesforceIntegrationApi {
    * @param salesforceOrgId The Datadog-assigned ID of the connected Salesforce organization.
    *     (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> deleteSalesforceOrganizationWithHttpInfoAsync(
       String salesforceOrgId) {
     Object localVarPostBody = null;
@@ -482,7 +509,9 @@ public class SalesforceIntegrationApi {
    *
    * @return SalesforceIncidentsTemplatesResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SalesforceIncidentsTemplatesResponse getIncidentTemplates() throws ApiException {
     return getIncidentTemplatesWithHttpInfo().getData();
   }
@@ -493,7 +522,9 @@ public class SalesforceIntegrationApi {
    * <p>See {@link #getIncidentTemplatesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;SalesforceIncidentsTemplatesResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SalesforceIncidentsTemplatesResponse> getIncidentTemplatesAsync() {
     return getIncidentTemplatesWithHttpInfoAsync()
         .thenApply(
@@ -515,7 +546,10 @@ public class SalesforceIntegrationApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SalesforceIncidentsTemplatesResponse> getIncidentTemplatesWithHttpInfo()
       throws ApiException {
     Object localVarPostBody = null;
@@ -550,7 +584,9 @@ public class SalesforceIntegrationApi {
    * <p>See {@link #getIncidentTemplatesWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;SalesforceIncidentsTemplatesResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SalesforceIncidentsTemplatesResponse>>
       getIncidentTemplatesWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -594,7 +630,9 @@ public class SalesforceIntegrationApi {
    *
    * @return SalesforceIncidentsOrganizationsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SalesforceIncidentsOrganizationsResponse getSalesforceOrganizations() throws ApiException {
     return getSalesforceOrganizationsWithHttpInfo().getData();
   }
@@ -605,7 +643,9 @@ public class SalesforceIntegrationApi {
    * <p>See {@link #getSalesforceOrganizationsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;SalesforceIncidentsOrganizationsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SalesforceIncidentsOrganizationsResponse>
       getSalesforceOrganizationsAsync() {
     return getSalesforceOrganizationsWithHttpInfoAsync()
@@ -632,7 +672,10 @@ public class SalesforceIntegrationApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SalesforceIncidentsOrganizationsResponse>
       getSalesforceOrganizationsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
@@ -667,7 +710,9 @@ public class SalesforceIntegrationApi {
    * <p>See {@link #getSalesforceOrganizationsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;SalesforceIncidentsOrganizationsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SalesforceIncidentsOrganizationsResponse>>
       getSalesforceOrganizationsWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -713,7 +758,9 @@ public class SalesforceIntegrationApi {
    * @param body Salesforce incident template payload. (required)
    * @return SalesforceIncidentsTemplateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SalesforceIncidentsTemplateResponse updateIncidentTemplate(
       String incidentTemplateId, SalesforceIncidentsTemplateUpdateRequest body)
       throws ApiException {
@@ -728,7 +775,9 @@ public class SalesforceIntegrationApi {
    * @param incidentTemplateId The ID of the Salesforce incident template. (required)
    * @param body Salesforce incident template payload. (required)
    * @return CompletableFuture&lt;SalesforceIncidentsTemplateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SalesforceIncidentsTemplateResponse> updateIncidentTemplateAsync(
       String incidentTemplateId, SalesforceIncidentsTemplateUpdateRequest body) {
     return updateIncidentTemplateWithHttpInfoAsync(incidentTemplateId, body)
@@ -756,7 +805,10 @@ public class SalesforceIntegrationApi {
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SalesforceIncidentsTemplateResponse> updateIncidentTemplateWithHttpInfo(
       String incidentTemplateId, SalesforceIncidentsTemplateUpdateRequest body)
       throws ApiException {
@@ -812,7 +864,9 @@ public class SalesforceIntegrationApi {
    * @param incidentTemplateId The ID of the Salesforce incident template. (required)
    * @param body Salesforce incident template payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SalesforceIncidentsTemplateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SalesforceIncidentsTemplateResponse>>
       updateIncidentTemplateWithHttpInfoAsync(
           String incidentTemplateId, SalesforceIncidentsTemplateUpdateRequest body) {
