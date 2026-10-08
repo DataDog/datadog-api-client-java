@@ -97,13 +97,6 @@ public class BitsAiApi {
    */
   public ApiResponse<GetInvestigationResponse> getInvestigationWithHttpInfo(String id)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getInvestigation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -148,16 +141,6 @@ public class BitsAiApi {
    */
   public CompletableFuture<ApiResponse<GetInvestigationResponse>> getInvestigationWithHttpInfoAsync(
       String id) {
-    // Check if unstable operation is enabled
-    String operationId = "getInvestigation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<GetInvestigationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -371,13 +354,6 @@ public class BitsAiApi {
    */
   public ApiResponse<ListInvestigationsResponse> listInvestigationsWithHttpInfo(
       ListInvestigationsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listInvestigations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
@@ -423,16 +399,6 @@ public class BitsAiApi {
    */
   public CompletableFuture<ApiResponse<ListInvestigationsResponse>>
       listInvestigationsWithHttpInfoAsync(ListInvestigationsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listInvestigations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListInvestigationsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
@@ -507,9 +473,9 @@ public class BitsAiApi {
   }
 
   /**
-   * Trigger a Bits AI investigation from a monitor alert or a general investigation. The <code>
-   * monitors_read</code> permission is required when the trigger type is <code>
-   * monitor_alert_trigger</code>.
+   * Trigger a Bits AI investigation from a monitor alert or a general investigation. This endpoint
+   * requires the <code>bits_investigations_write</code> permission. When the trigger type is <code>
+   * monitor_alert_trigger</code>, the <code>monitors_read</code> permission is also required.
    *
    * @param body Trigger investigation request body. (required)
    * @return ApiResponse&lt;TriggerInvestigationResponse&gt;
@@ -525,13 +491,6 @@ public class BitsAiApi {
    */
   public ApiResponse<TriggerInvestigationResponse> triggerInvestigationWithHttpInfo(
       TriggerInvestigationRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "triggerInvestigation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -574,17 +533,6 @@ public class BitsAiApi {
    */
   public CompletableFuture<ApiResponse<TriggerInvestigationResponse>>
       triggerInvestigationWithHttpInfoAsync(TriggerInvestigationRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "triggerInvestigation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TriggerInvestigationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
