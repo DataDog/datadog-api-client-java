@@ -53,7 +53,7 @@ public class RecommendationV2RequestData {
 
   /**
    * Attributes for requesting SPA recommendations by forwarding a Spark job's raw arguments instead
-   * of a precomputed shard.
+   * of a pre-computed shard.
    *
    * @return attributes
    */
