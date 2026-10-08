@@ -24,6 +24,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> metrics
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineAggregateProcessor.JSON_PROPERTY_AGGREGATION_TIMING,
   ObservabilityPipelineAggregateProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineAggregateProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineAggregateProcessor.JSON_PROPERTY_ID,
@@ -36,6 +37,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineAggregateProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATION_TIMING = "aggregation_timing";
+  private ObservabilityPipelineAggregateProcessorAggregationTiming aggregationTiming;
+
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
   private String displayName;
 
@@ -78,6 +82,34 @@ public class ObservabilityPipelineAggregateProcessor {
     this.unparsed |= !mode.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineAggregateProcessor aggregationTiming(
+      ObservabilityPipelineAggregateProcessorAggregationTiming aggregationTiming) {
+    this.aggregationTiming = aggregationTiming;
+    this.unparsed |= aggregationTiming.unparsed;
+    return this;
+  }
+
+  /**
+   * Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped
+   * using system time.
+   *
+   * @return aggregationTiming
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGGREGATION_TIMING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineAggregateProcessorAggregationTiming getAggregationTiming() {
+    return aggregationTiming;
+  }
+
+  public void setAggregationTiming(
+      ObservabilityPipelineAggregateProcessorAggregationTiming aggregationTiming) {
+    this.aggregationTiming = aggregationTiming;
+    if (aggregationTiming != null) {
+      this.unparsed |= aggregationTiming.unparsed;
+    }
   }
 
   public ObservabilityPipelineAggregateProcessor displayName(String displayName) {
@@ -289,7 +321,9 @@ public class ObservabilityPipelineAggregateProcessor {
     }
     ObservabilityPipelineAggregateProcessor observabilityPipelineAggregateProcessor =
         (ObservabilityPipelineAggregateProcessor) o;
-    return Objects.equals(this.displayName, observabilityPipelineAggregateProcessor.displayName)
+    return Objects.equals(
+            this.aggregationTiming, observabilityPipelineAggregateProcessor.aggregationTiming)
+        && Objects.equals(this.displayName, observabilityPipelineAggregateProcessor.displayName)
         && Objects.equals(this.enabled, observabilityPipelineAggregateProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineAggregateProcessor.id)
         && Objects.equals(this.include, observabilityPipelineAggregateProcessor.include)
@@ -304,13 +338,22 @@ public class ObservabilityPipelineAggregateProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        displayName, enabled, id, include, intervalSecs, mode, type, additionalProperties);
+        aggregationTiming,
+        displayName,
+        enabled,
+        id,
+        include,
+        intervalSecs,
+        mode,
+        type,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineAggregateProcessor {\n");
+    sb.append("    aggregationTiming: ").append(toIndentedString(aggregationTiming)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
