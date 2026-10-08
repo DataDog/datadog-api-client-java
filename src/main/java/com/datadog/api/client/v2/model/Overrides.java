@@ -13,110 +13,107 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Represents a user object in the context of a schedule, including their <code>id</code>, type, and
- * basic attributes.
- */
-@JsonPropertyOrder({
-  ScheduleUser.JSON_PROPERTY_ATTRIBUTES,
-  ScheduleUser.JSON_PROPERTY_ID,
-  ScheduleUser.JSON_PROPERTY_TYPE
-})
+/** A list of on-call schedule overrides and any related included resources (such as users). */
+@JsonPropertyOrder({Overrides.JSON_PROPERTY_DATA, Overrides.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUser {
+public class Overrides {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ScheduleUserAttributes attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<OverrideData> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<OverrideIncluded> included = null;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ScheduleUserType type = ScheduleUserType.USERS;
-
-  public ScheduleUser() {}
+  public Overrides() {}
 
   @JsonCreator
-  public ScheduleUser(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleUserType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public Overrides(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OverrideData> data) {
+    this.data = data;
+    for (OverrideData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
-  public ScheduleUser attributes(ScheduleUserAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public Overrides data(List<OverrideData> data) {
+    this.data = data;
+    for (OverrideData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public Overrides addDataItem(OverrideData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Provides basic user information for a schedule, including a name and email address.
+   * A list of on-call schedule overrides.
    *
-   * @return attributes
+   * @return data
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<OverrideData> getData() {
+    return data;
+  }
+
+  public void setData(List<OverrideData> data) {
+    this.data = data;
+    if (data != null) {
+      for (OverrideData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
+  public Overrides included(List<OverrideIncluded> included) {
+    this.included = included;
+    if (included != null) {
+      for (OverrideIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public Overrides addIncludedItem(OverrideIncluded includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Related resources referenced in the overrides' relationships, such as users.
+   *
+   * @return included
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScheduleUserAttributes getAttributes() {
-    return attributes;
+  public List<OverrideIncluded> getIncluded() {
+    return included;
   }
 
-  public void setAttributes(ScheduleUserAttributes attributes) {
-    this.attributes = attributes;
-    if (attributes != null) {
-      this.unparsed |= attributes.unparsed;
+  public void setIncluded(List<OverrideIncluded> included) {
+    this.included = included;
+    if (included != null) {
+      for (OverrideIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
-  }
-
-  public ScheduleUser id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The unique user identifier.
-   *
-   * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ScheduleUser type(ScheduleUserType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Users resource type.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleUserType getType() {
-    return type;
-  }
-
-  public void setType(ScheduleUserType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
   }
 
   /**
@@ -131,10 +128,10 @@ public class ScheduleUser {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUser
+   * @return Overrides
    */
   @JsonAnySetter
-  public ScheduleUser putAdditionalProperty(String key, Object value) {
+  public Overrides putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -165,7 +162,7 @@ public class ScheduleUser {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleUser object is equal to o. */
+  /** Return true if this Overrides object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,25 +171,23 @@ public class ScheduleUser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUser scheduleUser = (ScheduleUser) o;
-    return Objects.equals(this.attributes, scheduleUser.attributes)
-        && Objects.equals(this.id, scheduleUser.id)
-        && Objects.equals(this.type, scheduleUser.type)
-        && Objects.equals(this.additionalProperties, scheduleUser.additionalProperties);
+    Overrides overrides = (Overrides) o;
+    return Objects.equals(this.data, overrides.data)
+        && Objects.equals(this.included, overrides.included)
+        && Objects.equals(this.additionalProperties, overrides.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUser {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class Overrides {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -16,116 +16,98 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Provides basic user information for a schedule, including a name and email address. */
+/** Relationships for an on-call schedule override. */
 @JsonPropertyOrder({
-  ScheduleUserAttributes.JSON_PROPERTY_COLOR,
-  ScheduleUserAttributes.JSON_PROPERTY_EMAIL,
-  ScheduleUserAttributes.JSON_PROPERTY_NAME,
-  ScheduleUserAttributes.JSON_PROPERTY_STATUS
+  OverrideRelationships.JSON_PROPERTY_OVERRIDDEN_USER,
+  OverrideRelationships.JSON_PROPERTY_SCHEDULE,
+  OverrideRelationships.JSON_PROPERTY_USER
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUserAttributes {
+public class OverrideRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COLOR = "color";
-  private String color;
+  public static final String JSON_PROPERTY_OVERRIDDEN_USER = "overridden_user";
+  private OverrideRelationshipsUser overriddenUser;
 
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  private String email;
+  public static final String JSON_PROPERTY_SCHEDULE = "schedule";
+  private OverrideRelationshipsSchedule schedule;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_USER = "user";
+  private OverrideRelationshipsUser user;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private UserAttributesStatus status;
-
-  public ScheduleUserAttributes color(String color) {
-    this.color = color;
+  public OverrideRelationships overriddenUser(OverrideRelationshipsUser overriddenUser) {
+    this.overriddenUser = overriddenUser;
+    this.unparsed |= overriddenUser.unparsed;
     return this;
   }
 
   /**
-   * The user's on-call color, as a hex code (for example, <code>#FF0000</code>). Included only when
-   * <code>user.color</code> is requested in the <code>include</code> parameter.
+   * Defines the relationship between an override and one of its associated users.
    *
-   * @return color
+   * @return overriddenUser
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COLOR)
+  @JsonProperty(JSON_PROPERTY_OVERRIDDEN_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getColor() {
-    return color;
+  public OverrideRelationshipsUser getOverriddenUser() {
+    return overriddenUser;
   }
 
-  public void setColor(String color) {
-    this.color = color;
-  }
-
-  public ScheduleUserAttributes email(String email) {
-    this.email = email;
-    return this;
-  }
-
-  /**
-   * The user's email address.
-   *
-   * @return email
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public ScheduleUserAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The user's name.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ScheduleUserAttributes status(UserAttributesStatus status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
-  /**
-   * The user's status.
-   *
-   * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UserAttributesStatus getStatus() {
-    return status;
-  }
-
-  public void setStatus(UserAttributesStatus status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
+  public void setOverriddenUser(OverrideRelationshipsUser overriddenUser) {
+    this.overriddenUser = overriddenUser;
+    if (overriddenUser != null) {
+      this.unparsed |= overriddenUser.unparsed;
     }
-    this.status = status;
+  }
+
+  public OverrideRelationships schedule(OverrideRelationshipsSchedule schedule) {
+    this.schedule = schedule;
+    this.unparsed |= schedule.unparsed;
+    return this;
+  }
+
+  /**
+   * Defines the relationship between an override and the schedule it belongs to.
+   *
+   * @return schedule
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEDULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OverrideRelationshipsSchedule getSchedule() {
+    return schedule;
+  }
+
+  public void setSchedule(OverrideRelationshipsSchedule schedule) {
+    this.schedule = schedule;
+    if (schedule != null) {
+      this.unparsed |= schedule.unparsed;
+    }
+  }
+
+  public OverrideRelationships user(OverrideRelationshipsUser user) {
+    this.user = user;
+    this.unparsed |= user.unparsed;
+    return this;
+  }
+
+  /**
+   * Defines the relationship between an override and one of its associated users.
+   *
+   * @return user
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OverrideRelationshipsUser getUser() {
+    return user;
+  }
+
+  public void setUser(OverrideRelationshipsUser user) {
+    this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**
@@ -140,10 +122,10 @@ public class ScheduleUserAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUserAttributes
+   * @return OverrideRelationships
    */
   @JsonAnySetter
-  public ScheduleUserAttributes putAdditionalProperty(String key, Object value) {
+  public OverrideRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -174,7 +156,7 @@ public class ScheduleUserAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleUserAttributes object is equal to o. */
+  /** Return true if this OverrideRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -183,27 +165,25 @@ public class ScheduleUserAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUserAttributes scheduleUserAttributes = (ScheduleUserAttributes) o;
-    return Objects.equals(this.color, scheduleUserAttributes.color)
-        && Objects.equals(this.email, scheduleUserAttributes.email)
-        && Objects.equals(this.name, scheduleUserAttributes.name)
-        && Objects.equals(this.status, scheduleUserAttributes.status)
-        && Objects.equals(this.additionalProperties, scheduleUserAttributes.additionalProperties);
+    OverrideRelationships overrideRelationships = (OverrideRelationships) o;
+    return Objects.equals(this.overriddenUser, overrideRelationships.overriddenUser)
+        && Objects.equals(this.schedule, overrideRelationships.schedule)
+        && Objects.equals(this.user, overrideRelationships.user)
+        && Objects.equals(this.additionalProperties, overrideRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(color, email, name, status, additionalProperties);
+    return Objects.hash(overriddenUser, schedule, user, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUserAttributes {\n");
-    sb.append("    color: ").append(toIndentedString(color)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class OverrideRelationships {\n");
+    sb.append("    overriddenUser: ").append(toIndentedString(overriddenUser)).append("\n");
+    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
