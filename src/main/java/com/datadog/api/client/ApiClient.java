@@ -1215,6 +1215,7 @@ public class ApiClient {
           put("v2.searchCostRecommendations", false);
           put("v2.updateUnitCost", false);
           put("v2.createQuotas", false);
+          put("v2.deletePendingQuota", false);
           put("v2.deleteQuota", false);
           put("v2.listQuotas", false);
           put("v2.updateQuota", false);
