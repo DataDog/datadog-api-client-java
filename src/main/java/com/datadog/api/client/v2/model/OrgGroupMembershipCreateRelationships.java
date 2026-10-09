@@ -13,64 +13,50 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for bulk updating org group memberships. */
-@JsonPropertyOrder({OrgGroupMembershipBulkUpdateAttributes.JSON_PROPERTY_ORGS})
+/** Relationships for adding organizations to an org group. */
+@JsonPropertyOrder({OrgGroupMembershipCreateRelationships.JSON_PROPERTY_ORG_GROUP})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class OrgGroupMembershipBulkUpdateAttributes {
+public class OrgGroupMembershipCreateRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ORGS = "orgs";
-  private List<GlobalOrgIdentifier> orgs = new ArrayList<>();
+  public static final String JSON_PROPERTY_ORG_GROUP = "org_group";
+  private OrgGroupRelationshipToOne orgGroup;
 
-  public OrgGroupMembershipBulkUpdateAttributes() {}
+  public OrgGroupMembershipCreateRelationships() {}
 
   @JsonCreator
-  public OrgGroupMembershipBulkUpdateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ORGS) List<GlobalOrgIdentifier> orgs) {
-    this.orgs = orgs;
-    for (GlobalOrgIdentifier item : orgs) {
-      this.unparsed |= item.unparsed;
-    }
+  public OrgGroupMembershipCreateRelationships(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ORG_GROUP)
+          OrgGroupRelationshipToOne orgGroup) {
+    this.orgGroup = orgGroup;
+    this.unparsed |= orgGroup.unparsed;
   }
 
-  public OrgGroupMembershipBulkUpdateAttributes orgs(List<GlobalOrgIdentifier> orgs) {
-    this.orgs = orgs;
-    for (GlobalOrgIdentifier item : orgs) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public OrgGroupMembershipBulkUpdateAttributes addOrgsItem(GlobalOrgIdentifier orgsItem) {
-    this.orgs.add(orgsItem);
-    this.unparsed |= orgsItem.unparsed;
+  public OrgGroupMembershipCreateRelationships orgGroup(OrgGroupRelationshipToOne orgGroup) {
+    this.orgGroup = orgGroup;
+    this.unparsed |= orgGroup.unparsed;
     return this;
   }
 
   /**
-   * List of organizations to move. Between 1 and 100 per request. Each <code>org_uuid</code> and
-   * <code>org_site</code> pair must be unique.
+   * Relationship to a single org group.
    *
-   * @return orgs
+   * @return orgGroup
    */
-  @JsonProperty(JSON_PROPERTY_ORGS)
+  @JsonProperty(JSON_PROPERTY_ORG_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<GlobalOrgIdentifier> getOrgs() {
-    return orgs;
+  public OrgGroupRelationshipToOne getOrgGroup() {
+    return orgGroup;
   }
 
-  public void setOrgs(List<GlobalOrgIdentifier> orgs) {
-    this.orgs = orgs;
-    if (orgs != null) {
-      for (GlobalOrgIdentifier item : orgs) {
-        this.unparsed |= item.unparsed;
-      }
+  public void setOrgGroup(OrgGroupRelationshipToOne orgGroup) {
+    this.orgGroup = orgGroup;
+    if (orgGroup != null) {
+      this.unparsed |= orgGroup.unparsed;
     }
   }
 
@@ -86,10 +72,10 @@ public class OrgGroupMembershipBulkUpdateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return OrgGroupMembershipBulkUpdateAttributes
+   * @return OrgGroupMembershipCreateRelationships
    */
   @JsonAnySetter
-  public OrgGroupMembershipBulkUpdateAttributes putAdditionalProperty(String key, Object value) {
+  public OrgGroupMembershipCreateRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +106,7 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this OrgGroupMembershipBulkUpdateAttributes object is equal to o. */
+  /** Return true if this OrgGroupMembershipCreateRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,23 +115,23 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrgGroupMembershipBulkUpdateAttributes orgGroupMembershipBulkUpdateAttributes =
-        (OrgGroupMembershipBulkUpdateAttributes) o;
-    return Objects.equals(this.orgs, orgGroupMembershipBulkUpdateAttributes.orgs)
+    OrgGroupMembershipCreateRelationships orgGroupMembershipCreateRelationships =
+        (OrgGroupMembershipCreateRelationships) o;
+    return Objects.equals(this.orgGroup, orgGroupMembershipCreateRelationships.orgGroup)
         && Objects.equals(
-            this.additionalProperties, orgGroupMembershipBulkUpdateAttributes.additionalProperties);
+            this.additionalProperties, orgGroupMembershipCreateRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgs, additionalProperties);
+    return Objects.hash(orgGroup, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrgGroupMembershipBulkUpdateAttributes {\n");
-    sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
+    sb.append("class OrgGroupMembershipCreateRelationships {\n");
+    sb.append("    orgGroup: ").append(toIndentedString(orgGroup)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

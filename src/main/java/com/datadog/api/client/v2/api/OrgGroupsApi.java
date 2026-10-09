@@ -6,7 +6,9 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.OrgGroupCreateRequest;
 import com.datadog.api.client.v2.model.OrgGroupListResponse;
+import com.datadog.api.client.v2.model.OrgGroupMembershipBulkDeleteRequest;
 import com.datadog.api.client.v2.model.OrgGroupMembershipBulkUpdateRequest;
+import com.datadog.api.client.v2.model.OrgGroupMembershipCreateRequest;
 import com.datadog.api.client.v2.model.OrgGroupMembershipListResponse;
 import com.datadog.api.client.v2.model.OrgGroupMembershipResponse;
 import com.datadog.api.client.v2.model.OrgGroupMembershipSortOption;
@@ -68,6 +70,194 @@ public class OrgGroupsApi {
   }
 
   /**
+   * Bulk delete org group memberships.
+   *
+   * <p>See {@link #bulkDeleteOrgGroupMembershipsWithHttpInfo}.
+   *
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void bulkDeleteOrgGroupMemberships(
+      UUID filterOrgGroupId, OrgGroupMembershipBulkDeleteRequest body) throws ApiException {
+    bulkDeleteOrgGroupMembershipsWithHttpInfo(filterOrgGroupId, body);
+  }
+
+  /**
+   * Bulk delete org group memberships.
+   *
+   * <p>See {@link #bulkDeleteOrgGroupMembershipsWithHttpInfoAsync}.
+   *
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> bulkDeleteOrgGroupMembershipsAsync(
+      UUID filterOrgGroupId, OrgGroupMembershipBulkDeleteRequest body) {
+    return bulkDeleteOrgGroupMembershipsWithHttpInfoAsync(filterOrgGroupId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a batch of memberships from an org group. The memberships to delete are provided as
+   * membership resource identifiers, and the org group they belong to must be provided with <code>
+   * filter[org_group_id]</code>. Between 1 and 100 unique membership IDs may be provided per
+   * request, and the requesting organization must own the org group. Membership IDs that were
+   * already deleted, do not exist, or do not belong to the org group do not cause the request to
+   * fail.
+   *
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> bulkDeleteOrgGroupMembershipsWithHttpInfo(
+      UUID filterOrgGroupId, OrgGroupMembershipBulkDeleteRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "bulkDeleteOrgGroupMemberships";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'filterOrgGroupId' is set
+    if (filterOrgGroupId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterOrgGroupId' when calling"
+              + " bulkDeleteOrgGroupMemberships");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling bulkDeleteOrgGroupMemberships");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org_group_memberships/bulk_delete";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrgGroupsApi.bulkDeleteOrgGroupMemberships",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Bulk delete org group memberships.
+   *
+   * <p>See {@link #bulkDeleteOrgGroupMembershipsWithHttpInfo}.
+   *
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> bulkDeleteOrgGroupMembershipsWithHttpInfoAsync(
+      UUID filterOrgGroupId, OrgGroupMembershipBulkDeleteRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "bulkDeleteOrgGroupMemberships";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'filterOrgGroupId' is set
+    if (filterOrgGroupId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterOrgGroupId' when calling"
+                  + " bulkDeleteOrgGroupMemberships"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling bulkDeleteOrgGroupMemberships"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org_group_memberships/bulk_delete";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrgGroupsApi.bulkDeleteOrgGroupMemberships",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Bulk update org group memberships.
    *
    * <p>See {@link #bulkUpdateOrgGroupMembershipsWithHttpInfo}.
@@ -100,7 +290,9 @@ public class OrgGroupsApi {
 
   /**
    * Move a batch of organizations from one org group to another. This is an atomic operation.
-   * Maximum 100 orgs per request.
+   * Between 1 and 100 organizations may be provided per request. Each organization must be
+   * identified by a unique <code>org_uuid</code> and <code>org_site</code> pair, and must be in the
+   * same site as the requesting organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;OrgGroupMembershipListResponse&gt;
@@ -372,6 +564,160 @@ public class OrgGroupsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OrgGroupResponse>() {});
+  }
+
+  /**
+   * Create org group memberships.
+   *
+   * <p>See {@link #createOrgGroupMembershipsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createOrgGroupMemberships(OrgGroupMembershipCreateRequest body) throws ApiException {
+    createOrgGroupMembershipsWithHttpInfo(body);
+  }
+
+  /**
+   * Create org group memberships.
+   *
+   * <p>See {@link #createOrgGroupMembershipsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createOrgGroupMembershipsAsync(
+      OrgGroupMembershipCreateRequest body) {
+    return createOrgGroupMembershipsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add a batch of organizations to an existing org group. This is an atomic operation: either all
+   * organizations are added or none are. Between 1 and 100 organizations may be provided per
+   * request. Each organization must be identified by a unique <code>org_uuid</code> and <code>
+   * org_site</code> pair, and must be in the same site as the requesting organization. The
+   * requesting organization must own the org group.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createOrgGroupMembershipsWithHttpInfo(
+      OrgGroupMembershipCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createOrgGroupMemberships";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createOrgGroupMemberships");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org_group_memberships";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrgGroupsApi.createOrgGroupMemberships",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create org group memberships.
+   *
+   * <p>See {@link #createOrgGroupMembershipsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createOrgGroupMembershipsWithHttpInfoAsync(
+      OrgGroupMembershipCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createOrgGroupMemberships";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createOrgGroupMemberships"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org_group_memberships";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrgGroupsApi.createOrgGroupMemberships",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -815,6 +1161,203 @@ public class OrgGroupsApi {
               "v2.OrgGroupsApi.deleteOrgGroup",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an org group membership.
+   *
+   * <p>See {@link #deleteOrgGroupMembershipWithHttpInfo}.
+   *
+   * @param orgGroupMembershipId The ID of the org group membership. (required)
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteOrgGroupMembership(UUID orgGroupMembershipId, UUID filterOrgGroupId)
+      throws ApiException {
+    deleteOrgGroupMembershipWithHttpInfo(orgGroupMembershipId, filterOrgGroupId);
+  }
+
+  /**
+   * Delete an org group membership.
+   *
+   * <p>See {@link #deleteOrgGroupMembershipWithHttpInfoAsync}.
+   *
+   * @param orgGroupMembershipId The ID of the org group membership. (required)
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteOrgGroupMembershipAsync(
+      UUID orgGroupMembershipId, UUID filterOrgGroupId) {
+    return deleteOrgGroupMembershipWithHttpInfoAsync(orgGroupMembershipId, filterOrgGroupId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove an organization from an org group by deleting its membership. The org group the
+   * membership belongs to must be provided with <code>filter[org_group_id]</code>, and the
+   * requesting organization must own that org group. Returns <code>404</code> if the membership
+   * does not exist, was already removed, or does not belong to the org group.
+   *
+   * @param orgGroupMembershipId The ID of the org group membership. (required)
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteOrgGroupMembershipWithHttpInfo(
+      UUID orgGroupMembershipId, UUID filterOrgGroupId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteOrgGroupMembership";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgGroupMembershipId' is set
+    if (orgGroupMembershipId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'orgGroupMembershipId' when calling"
+              + " deleteOrgGroupMembership");
+    }
+
+    // verify the required parameter 'filterOrgGroupId' is set
+    if (filterOrgGroupId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterOrgGroupId' when calling"
+              + " deleteOrgGroupMembership");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/org_group_memberships/{org_group_membership_id}"
+            .replaceAll(
+                "\\{" + "org_group_membership_id" + "\\}",
+                apiClient.escapeString(orgGroupMembershipId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrgGroupsApi.deleteOrgGroupMembership",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an org group membership.
+   *
+   * <p>See {@link #deleteOrgGroupMembershipWithHttpInfo}.
+   *
+   * @param orgGroupMembershipId The ID of the org group membership. (required)
+   * @param filterOrgGroupId The ID of the org group the memberships belong to. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteOrgGroupMembershipWithHttpInfoAsync(
+      UUID orgGroupMembershipId, UUID filterOrgGroupId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteOrgGroupMembership";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgGroupMembershipId' is set
+    if (orgGroupMembershipId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'orgGroupMembershipId' when calling"
+                  + " deleteOrgGroupMembership"));
+      return result;
+    }
+
+    // verify the required parameter 'filterOrgGroupId' is set
+    if (filterOrgGroupId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterOrgGroupId' when calling"
+                  + " deleteOrgGroupMembership"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/org_group_memberships/{org_group_membership_id}"
+            .replaceAll(
+                "\\{" + "org_group_membership_id" + "\\}",
+                apiClient.escapeString(orgGroupMembershipId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrgGroupsApi.deleteOrgGroupMembership",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},

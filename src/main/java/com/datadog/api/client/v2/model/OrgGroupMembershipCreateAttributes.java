@@ -19,19 +19,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for bulk updating org group memberships. */
-@JsonPropertyOrder({OrgGroupMembershipBulkUpdateAttributes.JSON_PROPERTY_ORGS})
+/** Attributes for adding organizations to an org group. */
+@JsonPropertyOrder({OrgGroupMembershipCreateAttributes.JSON_PROPERTY_ORGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class OrgGroupMembershipBulkUpdateAttributes {
+public class OrgGroupMembershipCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<GlobalOrgIdentifier> orgs = new ArrayList<>();
 
-  public OrgGroupMembershipBulkUpdateAttributes() {}
+  public OrgGroupMembershipCreateAttributes() {}
 
   @JsonCreator
-  public OrgGroupMembershipBulkUpdateAttributes(
+  public OrgGroupMembershipCreateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_ORGS) List<GlobalOrgIdentifier> orgs) {
     this.orgs = orgs;
     for (GlobalOrgIdentifier item : orgs) {
@@ -39,7 +39,7 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     }
   }
 
-  public OrgGroupMembershipBulkUpdateAttributes orgs(List<GlobalOrgIdentifier> orgs) {
+  public OrgGroupMembershipCreateAttributes orgs(List<GlobalOrgIdentifier> orgs) {
     this.orgs = orgs;
     for (GlobalOrgIdentifier item : orgs) {
       this.unparsed |= item.unparsed;
@@ -47,14 +47,14 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     return this;
   }
 
-  public OrgGroupMembershipBulkUpdateAttributes addOrgsItem(GlobalOrgIdentifier orgsItem) {
+  public OrgGroupMembershipCreateAttributes addOrgsItem(GlobalOrgIdentifier orgsItem) {
     this.orgs.add(orgsItem);
     this.unparsed |= orgsItem.unparsed;
     return this;
   }
 
   /**
-   * List of organizations to move. Between 1 and 100 per request. Each <code>org_uuid</code> and
+   * List of organizations to add. Between 1 and 100 per request. Each <code>org_uuid</code> and
    * <code>org_site</code> pair must be unique.
    *
    * @return orgs
@@ -86,10 +86,10 @@ public class OrgGroupMembershipBulkUpdateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return OrgGroupMembershipBulkUpdateAttributes
+   * @return OrgGroupMembershipCreateAttributes
    */
   @JsonAnySetter
-  public OrgGroupMembershipBulkUpdateAttributes putAdditionalProperty(String key, Object value) {
+  public OrgGroupMembershipCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +120,7 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this OrgGroupMembershipBulkUpdateAttributes object is equal to o. */
+  /** Return true if this OrgGroupMembershipCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,11 +129,11 @@ public class OrgGroupMembershipBulkUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrgGroupMembershipBulkUpdateAttributes orgGroupMembershipBulkUpdateAttributes =
-        (OrgGroupMembershipBulkUpdateAttributes) o;
-    return Objects.equals(this.orgs, orgGroupMembershipBulkUpdateAttributes.orgs)
+    OrgGroupMembershipCreateAttributes orgGroupMembershipCreateAttributes =
+        (OrgGroupMembershipCreateAttributes) o;
+    return Objects.equals(this.orgs, orgGroupMembershipCreateAttributes.orgs)
         && Objects.equals(
-            this.additionalProperties, orgGroupMembershipBulkUpdateAttributes.additionalProperties);
+            this.additionalProperties, orgGroupMembershipCreateAttributes.additionalProperties);
   }
 
   @Override
@@ -144,7 +144,7 @@ public class OrgGroupMembershipBulkUpdateAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrgGroupMembershipBulkUpdateAttributes {\n");
+    sb.append("class OrgGroupMembershipCreateAttributes {\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
