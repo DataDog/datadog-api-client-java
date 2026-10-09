@@ -758,6 +758,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'GroupWidgetDefinition'", e);
       }
 
+      // deserialize HeatgridWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (HeatgridWidgetDefinition.class.equals(Integer.class)
+            || HeatgridWidgetDefinition.class.equals(Long.class)
+            || HeatgridWidgetDefinition.class.equals(Float.class)
+            || HeatgridWidgetDefinition.class.equals(Double.class)
+            || HeatgridWidgetDefinition.class.equals(Boolean.class)
+            || HeatgridWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((HeatgridWidgetDefinition.class.equals(Integer.class)
+                        || HeatgridWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((HeatgridWidgetDefinition.class.equals(Float.class)
+                        || HeatgridWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (HeatgridWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (HeatgridWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(HeatgridWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((HeatgridWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'HeatgridWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'HeatgridWidgetDefinition'", e);
+      }
+
       // deserialize HeatMapWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -2080,6 +2125,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(HeatgridWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(HeatMapWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -2234,6 +2284,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         new GenericType<ProductAnalyticsFunnelWidgetDefinition>() {});
     schemas.put("GeomapWidgetDefinition", new GenericType<GeomapWidgetDefinition>() {});
     schemas.put("GroupWidgetDefinition", new GenericType<GroupWidgetDefinition>() {});
+    schemas.put("HeatgridWidgetDefinition", new GenericType<HeatgridWidgetDefinition>() {});
     schemas.put("HeatMapWidgetDefinition", new GenericType<HeatMapWidgetDefinition>() {});
     schemas.put("HostMapWidgetDefinition", new GenericType<HostMapWidgetDefinition>() {});
     schemas.put("IFrameWidgetDefinition", new GenericType<IFrameWidgetDefinition>() {});
@@ -2279,16 +2330,16 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * CohortWidgetDefinition, DistributionWidgetDefinition, EmbeddedAppWidgetDefinition,
    * EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
    * FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,
-   * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
-   * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
-   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * PowerpackWidgetDefinition, PointPlotWidgetDefinition, QueryValueWidgetDefinition,
-   * RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition, SLOListWidgetDefinition,
-   * SLOWidgetDefinition, ScatterPlotWidgetDefinition, SankeyWidgetDefinition,
-   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition,
-   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
-   * ToplistWidgetDefinition, TopologyMapWidgetDefinition, TreeMapWidgetDefinition,
-   * WildcardWidgetDefinition
+   * GroupWidgetDefinition, HeatgridWidgetDefinition, HeatMapWidgetDefinition,
+   * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
+   * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
+   * NoteWidgetDefinition, PowerpackWidgetDefinition, PointPlotWidgetDefinition,
+   * QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
+   * SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
+   * SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   * SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
+   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
+   * TreeMapWidgetDefinition, WildcardWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -2353,6 +2404,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
     if (JSON.isInstanceOf(GroupWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(HeatgridWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -2479,10 +2534,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             + " EventStreamWidgetDefinition, EventTimelineWidgetDefinition,"
             + " FreeTextWidgetDefinition, FunnelWidgetDefinition,"
             + " ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,"
-            + " GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,"
-            + " IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,"
-            + " LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,"
-            + " PowerpackWidgetDefinition, PointPlotWidgetDefinition, QueryValueWidgetDefinition,"
+            + " GroupWidgetDefinition, HeatgridWidgetDefinition, HeatMapWidgetDefinition,"
+            + " HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,"
+            + " ListStreamWidgetDefinition, LogStreamWidgetDefinition,"
+            + " MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,"
+            + " PointPlotWidgetDefinition, QueryValueWidgetDefinition,"
             + " RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,"
             + " SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,"
             + " SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
@@ -2497,32 +2553,32 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * CheckStatusWidgetDefinition, CohortWidgetDefinition, DistributionWidgetDefinition,
    * EmbeddedAppWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition,
    * FreeTextWidgetDefinition, FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition,
-   * GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
-   * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
-   * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
-   * NoteWidgetDefinition, PowerpackWidgetDefinition, PointPlotWidgetDefinition,
-   * QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
-   * SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   * SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
-   * TreeMapWidgetDefinition, WildcardWidgetDefinition
+   * GeomapWidgetDefinition, GroupWidgetDefinition, HeatgridWidgetDefinition,
+   * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
+   * ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
+   * MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,
+   * PointPlotWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
+   * RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
+   * ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
+   * ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
+   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   * TopologyMapWidgetDefinition, TreeMapWidgetDefinition, WildcardWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
    *     CohortWidgetDefinition, DistributionWidgetDefinition, EmbeddedAppWidgetDefinition,
    *     EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
    *     FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,
-   *     GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
-   *     IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
-   *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   *     PowerpackWidgetDefinition, PointPlotWidgetDefinition, QueryValueWidgetDefinition,
-   *     RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition, SLOListWidgetDefinition,
-   *     SLOWidgetDefinition, ScatterPlotWidgetDefinition, SankeyWidgetDefinition,
-   *     ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition,
-   *     SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
-   *     ToplistWidgetDefinition, TopologyMapWidgetDefinition, TreeMapWidgetDefinition,
-   *     WildcardWidgetDefinition)
+   *     GroupWidgetDefinition, HeatgridWidgetDefinition, HeatMapWidgetDefinition,
+   *     HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
+   *     ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
+   *     NoteWidgetDefinition, PowerpackWidgetDefinition, PointPlotWidgetDefinition,
+   *     QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
+   *     SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
+   *     SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   *     SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
+   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
+   *     TreeMapWidgetDefinition, WildcardWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -2694,6 +2750,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public GroupWidgetDefinition getGroupWidgetDefinition() throws ClassCastException {
     return (GroupWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `HeatgridWidgetDefinition`. If the actual instance is not
+   * `HeatgridWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `HeatgridWidgetDefinition`
+   * @throws ClassCastException if the instance is not `HeatgridWidgetDefinition`
+   */
+  public HeatgridWidgetDefinition getHeatgridWidgetDefinition() throws ClassCastException {
+    return (HeatgridWidgetDefinition) super.getActualInstance();
   }
 
   /**
