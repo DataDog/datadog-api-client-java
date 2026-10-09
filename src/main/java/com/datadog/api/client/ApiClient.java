@@ -1254,7 +1254,9 @@ public class ApiClient {
           put("v2.getDeploymentGateRules", false);
           put("v2.getDeploymentGatesEvaluationResult", false);
           put("v2.getDeploymentRule", false);
+          put("v2.listDeploymentGateEvaluations", false);
           put("v2.listDeploymentGates", false);
+          put("v2.listDeploymentRuleEvaluations", false);
           put("v2.triggerDeploymentGatesEvaluation", false);
           put("v2.updateDeploymentGate", false);
           put("v2.updateDeploymentRule", false);
