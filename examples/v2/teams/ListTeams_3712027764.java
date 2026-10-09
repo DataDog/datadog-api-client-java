@@ -1,4 +1,4 @@
-// List all teams returns "OK" response
+// Get all teams returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
