@@ -1181,6 +1181,7 @@ public class ApiClient {
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.updateFindingsAssignee", false);
+          put("v2.updateFindingsSeverity", false);
           put("v2.updateSecurityFindingsAutomationDueDateRule", false);
           put("v2.updateSecurityFindingsAutomationInboxRule", false);
           put("v2.updateSecurityFindingsAutomationMuteRule", false);
