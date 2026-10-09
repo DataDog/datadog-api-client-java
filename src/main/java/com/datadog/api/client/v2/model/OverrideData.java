@@ -17,71 +17,72 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Represents a user object in the context of a schedule, including their <code>id</code>, type, and
- * basic attributes.
- */
+/** Data for an on-call schedule override. */
 @JsonPropertyOrder({
-  ScheduleUser.JSON_PROPERTY_ATTRIBUTES,
-  ScheduleUser.JSON_PROPERTY_ID,
-  ScheduleUser.JSON_PROPERTY_TYPE
+  OverrideData.JSON_PROPERTY_ATTRIBUTES,
+  OverrideData.JSON_PROPERTY_ID,
+  OverrideData.JSON_PROPERTY_RELATIONSHIPS,
+  OverrideData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUser {
+public class OverrideData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ScheduleUserAttributes attributes;
+  private OverrideAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ScheduleUserType type = ScheduleUserType.USERS;
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private OverrideRelationships relationships;
 
-  public ScheduleUser() {}
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private OverrideDataType type = OverrideDataType.OVERRIDES;
+
+  public OverrideData() {}
 
   @JsonCreator
-  public ScheduleUser(
+  public OverrideData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleUserType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) OverrideDataType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ScheduleUser attributes(ScheduleUserAttributes attributes) {
+  public OverrideData attributes(OverrideAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Provides basic user information for a schedule, including a name and email address.
+   * Attributes for an on-call schedule override.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScheduleUserAttributes getAttributes() {
+  public OverrideAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(ScheduleUserAttributes attributes) {
+  public void setAttributes(OverrideAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public ScheduleUser id(String id) {
+  public OverrideData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique user identifier.
+   * The unique identifier of the override.
    *
    * @return id
    */
@@ -95,24 +96,49 @@ public class ScheduleUser {
     this.id = id;
   }
 
-  public ScheduleUser type(ScheduleUserType type) {
+  public OverrideData relationships(OverrideRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships for an on-call schedule override.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OverrideRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(OverrideRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
+  }
+
+  public OverrideData type(OverrideDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Users resource type.
+   * Indicates that the resource is of type 'overrides'.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleUserType getType() {
+  public OverrideDataType getType() {
     return type;
   }
 
-  public void setType(ScheduleUserType type) {
+  public void setType(OverrideDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -131,10 +157,10 @@ public class ScheduleUser {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUser
+   * @return OverrideData
    */
   @JsonAnySetter
-  public ScheduleUser putAdditionalProperty(String key, Object value) {
+  public OverrideData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -165,7 +191,7 @@ public class ScheduleUser {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleUser object is equal to o. */
+  /** Return true if this OverrideData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,24 +200,26 @@ public class ScheduleUser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUser scheduleUser = (ScheduleUser) o;
-    return Objects.equals(this.attributes, scheduleUser.attributes)
-        && Objects.equals(this.id, scheduleUser.id)
-        && Objects.equals(this.type, scheduleUser.type)
-        && Objects.equals(this.additionalProperties, scheduleUser.additionalProperties);
+    OverrideData overrideData = (OverrideData) o;
+    return Objects.equals(this.attributes, overrideData.attributes)
+        && Objects.equals(this.id, overrideData.id)
+        && Objects.equals(this.relationships, overrideData.relationships)
+        && Objects.equals(this.type, overrideData.type)
+        && Objects.equals(this.additionalProperties, overrideData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUser {\n");
+    sb.append("class OverrideData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

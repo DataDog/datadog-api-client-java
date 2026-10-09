@@ -8,115 +8,95 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Represents a user object in the context of a schedule, including their <code>id</code>, type, and
- * basic attributes.
- */
+/** Attributes for an on-call schedule override. */
 @JsonPropertyOrder({
-  ScheduleUser.JSON_PROPERTY_ATTRIBUTES,
-  ScheduleUser.JSON_PROPERTY_ID,
-  ScheduleUser.JSON_PROPERTY_TYPE
+  OverrideAttributes.JSON_PROPERTY_END,
+  OverrideAttributes.JSON_PROPERTY_INACTIVE,
+  OverrideAttributes.JSON_PROPERTY_START
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUser {
+public class OverrideAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ScheduleUserAttributes attributes;
+  public static final String JSON_PROPERTY_END = "end";
+  private OffsetDateTime end;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_INACTIVE = "inactive";
+  private Boolean inactive;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ScheduleUserType type = ScheduleUserType.USERS;
+  public static final String JSON_PROPERTY_START = "start";
+  private OffsetDateTime start;
 
-  public ScheduleUser() {}
-
-  @JsonCreator
-  public ScheduleUser(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleUserType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public ScheduleUser attributes(ScheduleUserAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public OverrideAttributes end(OffsetDateTime end) {
+    this.end = end;
     return this;
   }
 
   /**
-   * Provides basic user information for a schedule, including a name and email address.
+   * The end time of the override.
    *
-   * @return attributes
+   * @return end
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScheduleUserAttributes getAttributes() {
-    return attributes;
+  public OffsetDateTime getEnd() {
+    return end;
   }
 
-  public void setAttributes(ScheduleUserAttributes attributes) {
-    this.attributes = attributes;
-    if (attributes != null) {
-      this.unparsed |= attributes.unparsed;
-    }
+  public void setEnd(OffsetDateTime end) {
+    this.end = end;
   }
 
-  public ScheduleUser id(String id) {
-    this.id = id;
+  public OverrideAttributes inactive(Boolean inactive) {
+    this.inactive = inactive;
     return this;
   }
 
   /**
-   * The unique user identifier.
+   * Whether the override is inactive (for example, because its time range has ended).
    *
-   * @return id
+   * @return inactive
    */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getInactive() {
+    return inactive;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setInactive(Boolean inactive) {
+    this.inactive = inactive;
   }
 
-  public ScheduleUser type(ScheduleUserType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public OverrideAttributes start(OffsetDateTime start) {
+    this.start = start;
     return this;
   }
 
   /**
-   * Users resource type.
+   * The start time of the override.
    *
-   * @return type
+   * @return start
    */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleUserType getType() {
-    return type;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getStart() {
+    return start;
   }
 
-  public void setType(ScheduleUserType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setStart(OffsetDateTime start) {
+    this.start = start;
   }
 
   /**
@@ -131,10 +111,10 @@ public class ScheduleUser {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUser
+   * @return OverrideAttributes
    */
   @JsonAnySetter
-  public ScheduleUser putAdditionalProperty(String key, Object value) {
+  public OverrideAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -165,7 +145,7 @@ public class ScheduleUser {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleUser object is equal to o. */
+  /** Return true if this OverrideAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,25 +154,25 @@ public class ScheduleUser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUser scheduleUser = (ScheduleUser) o;
-    return Objects.equals(this.attributes, scheduleUser.attributes)
-        && Objects.equals(this.id, scheduleUser.id)
-        && Objects.equals(this.type, scheduleUser.type)
-        && Objects.equals(this.additionalProperties, scheduleUser.additionalProperties);
+    OverrideAttributes overrideAttributes = (OverrideAttributes) o;
+    return Objects.equals(this.end, overrideAttributes.end)
+        && Objects.equals(this.inactive, overrideAttributes.inactive)
+        && Objects.equals(this.start, overrideAttributes.start)
+        && Objects.equals(this.additionalProperties, overrideAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(end, inactive, start, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUser {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class OverrideAttributes {\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    inactive: ").append(toIndentedString(inactive)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
