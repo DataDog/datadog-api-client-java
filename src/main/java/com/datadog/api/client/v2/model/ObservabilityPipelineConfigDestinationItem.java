@@ -451,6 +451,60 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         log.log(Level.FINER, "Input data does not match schema 'AzureStorageDestination'", e);
       }
 
+      // deserialize ObservabilityPipelineAzureDataExplorerDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineAzureDataExplorerDestination.class.equals(Integer.class)
+            || ObservabilityPipelineAzureDataExplorerDestination.class.equals(Long.class)
+            || ObservabilityPipelineAzureDataExplorerDestination.class.equals(Float.class)
+            || ObservabilityPipelineAzureDataExplorerDestination.class.equals(Double.class)
+            || ObservabilityPipelineAzureDataExplorerDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineAzureDataExplorerDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineAzureDataExplorerDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineAzureDataExplorerDestination.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineAzureDataExplorerDestination.class.equals(Float.class)
+                        || ObservabilityPipelineAzureDataExplorerDestination.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineAzureDataExplorerDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineAzureDataExplorerDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineAzureDataExplorerDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineAzureDataExplorerDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineAzureDataExplorerDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineAzureDataExplorerDestination'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineClickhouseDestination
       try {
         boolean attemptParsing = true;
@@ -1665,6 +1719,12 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineAzureDataExplorerDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineClickhouseDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1805,6 +1865,9 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         new GenericType<ObservabilityPipelineAmazonSecurityLakeDestination>() {});
     schemas.put("AzureStorageDestination", new GenericType<AzureStorageDestination>() {});
     schemas.put(
+        "ObservabilityPipelineAzureDataExplorerDestination",
+        new GenericType<ObservabilityPipelineAzureDataExplorerDestination>() {});
+    schemas.put(
         "ObservabilityPipelineClickhouseDestination",
         new GenericType<ObservabilityPipelineClickhouseDestination>() {});
     schemas.put(
@@ -1883,7 +1946,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineHttpClientDestination, ObservabilityPipelineAmazonOpenSearchDestination,
    * ObservabilityPipelineAmazonS3Destination, ObservabilityPipelineAmazonS3GenericDestination,
    * ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
-   * ObservabilityPipelineClickhouseDestination, ObservabilityPipelineCloudPremDestination,
+   * ObservabilityPipelineAzureDataExplorerDestination, ObservabilityPipelineClickhouseDestination,
+   * ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
    * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineGoogleChronicleDestination,
    * ObservabilityPipelineGoogleCloudStorageDestination,
@@ -1938,6 +2002,13 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       return;
     }
     if (JSON.isInstanceOf(AzureStorageDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineAzureDataExplorerDestination.class,
+        instance,
+        new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -2074,6 +2145,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             + " ObservabilityPipelineAmazonS3Destination,"
             + " ObservabilityPipelineAmazonS3GenericDestination,"
             + " ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,"
+            + " ObservabilityPipelineAzureDataExplorerDestination,"
             + " ObservabilityPipelineClickhouseDestination,"
             + " ObservabilityPipelineCloudPremDestination,"
             + " ObservabilityPipelineCrowdStrikeNextGenSiemDestination,"
@@ -2102,7 +2174,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
    * ObservabilityPipelineAmazonS3GenericDestination,
    * ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
-   * ObservabilityPipelineClickhouseDestination, ObservabilityPipelineCloudPremDestination,
+   * ObservabilityPipelineAzureDataExplorerDestination, ObservabilityPipelineClickhouseDestination,
+   * ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
    * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineGoogleChronicleDestination,
    * ObservabilityPipelineGoogleCloudStorageDestination,
@@ -2122,6 +2195,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    *     ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
    *     ObservabilityPipelineAmazonS3GenericDestination,
    *     ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
+   *     ObservabilityPipelineAzureDataExplorerDestination,
    *     ObservabilityPipelineClickhouseDestination, ObservabilityPipelineCloudPremDestination,
    *     ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
    *     ObservabilityPipelineDatadogLogsDestination,
@@ -2233,6 +2307,20 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    */
   public AzureStorageDestination getAzureStorageDestination() throws ClassCastException {
     return (AzureStorageDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineAzureDataExplorerDestination`. If the actual
+   * instance is not `ObservabilityPipelineAzureDataExplorerDestination`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineAzureDataExplorerDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineAzureDataExplorerDestination`
+   */
+  public ObservabilityPipelineAzureDataExplorerDestination
+      getObservabilityPipelineAzureDataExplorerDestination() throws ClassCastException {
+    return (ObservabilityPipelineAzureDataExplorerDestination) super.getActualInstance();
   }
 
   /**
