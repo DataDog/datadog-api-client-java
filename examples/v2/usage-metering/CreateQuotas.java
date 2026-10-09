@@ -11,7 +11,6 @@ import com.datadog.api.client.v2.model.UsageQuotaType;
 import com.datadog.api.client.v2.model.UsageQuotasBulkResponse;
 import com.datadog.api.client.v2.model.UsageQuotasCreateRequest;
 import java.util.Collections;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -28,8 +27,8 @@ public class Example {
                         .attributes(
                             new UsageQuotaCreateAttributes()
                                 .enforced(true)
-                                .scope(Map.ofEntries(Map.entry("user_handle", "jane@example.com")))
-                                .usageLimit(100000L))
+                                .pendingUsageLimit(100000L)
+                                .usageLimit(600000L))
                         .type(UsageQuotaType.QUOTAS)));
 
     try {

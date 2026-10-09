@@ -1,4 +1,4 @@
-// Delete a usage quota returns "No Content" response
+// Cancel a scheduled usage quota limit returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -8,13 +8,14 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
-    defaultClient.setUnstableOperationEnabled("v2.deleteQuota", true);
+    defaultClient.setUnstableOperationEnabled("v2.deletePendingQuota", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {
-      apiInstance.deleteQuota("ai_credits", "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18");
+      apiInstance.deletePendingQuota(
+          "ai_credits", "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18");
     } catch (ApiException e) {
-      System.err.println("Exception when calling UsageMeteringApi#deleteQuota");
+      System.err.println("Exception when calling UsageMeteringApi#deletePendingQuota");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

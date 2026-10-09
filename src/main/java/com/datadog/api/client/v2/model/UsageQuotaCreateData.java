@@ -52,7 +52,10 @@ public class UsageQuotaCreateData {
   }
 
   /**
-   * Attributes for creating or updating a usage quota by scope.
+   * Attributes for creating or updating a usage quota by scope. Each item must provide <code>
+   * usage_limit</code>, <code>pending_usage_limit</code>, or both. Providing only <code>
+   * pending_usage_limit</code> updates an existing organization-wide quota, never creates one,
+   * requires <code>enforced</code> to be omitted, and fails if the quota does not exist.
    *
    * @return attributes
    */

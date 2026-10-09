@@ -21,6 +21,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageQuotaResponseAttributes.JSON_PROPERTY_ENFORCED,
   UsageQuotaResponseAttributes.JSON_PROPERTY_ORG_PUBLIC_ID,
+  UsageQuotaResponseAttributes.JSON_PROPERTY_PENDING_EFFECTIVE_FROM,
+  UsageQuotaResponseAttributes.JSON_PROPERTY_PENDING_USAGE_LIMIT,
   UsageQuotaResponseAttributes.JSON_PROPERTY_SCOPE,
   UsageQuotaResponseAttributes.JSON_PROPERTY_USAGE_LIMIT
 })
@@ -33,6 +35,12 @@ public class UsageQuotaResponseAttributes {
 
   public static final String JSON_PROPERTY_ORG_PUBLIC_ID = "org_public_id";
   private String orgPublicId;
+
+  public static final String JSON_PROPERTY_PENDING_EFFECTIVE_FROM = "pending_effective_from";
+  private String pendingEffectiveFrom;
+
+  public static final String JSON_PROPERTY_PENDING_USAGE_LIMIT = "pending_usage_limit";
+  private Double pendingUsageLimit;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private Map<String, String> scope = null;
@@ -90,6 +98,53 @@ public class UsageQuotaResponseAttributes {
 
   public void setOrgPublicId(String orgPublicId) {
     this.orgPublicId = orgPublicId;
+  }
+
+  public UsageQuotaResponseAttributes pendingEffectiveFrom(String pendingEffectiveFrom) {
+    this.pendingEffectiveFrom = pendingEffectiveFrom;
+    return this;
+  }
+
+  /**
+   * The future UTC month when the scheduled limit takes effect, formatted as <code>YYYY-MM</code>,
+   * starting at 00:00 UTC on its first day. Present only together with <code>pending_usage_limit
+   * </code> and omitted when no change is scheduled.
+   *
+   * @return pendingEffectiveFrom
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PENDING_EFFECTIVE_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPendingEffectiveFrom() {
+    return pendingEffectiveFrom;
+  }
+
+  public void setPendingEffectiveFrom(String pendingEffectiveFrom) {
+    this.pendingEffectiveFrom = pendingEffectiveFrom;
+  }
+
+  public UsageQuotaResponseAttributes pendingUsageLimit(Double pendingUsageLimit) {
+    this.pendingUsageLimit = pendingUsageLimit;
+    return this;
+  }
+
+  /**
+   * The usage limit scheduled for the organization-wide quota in the usage units defined by the
+   * quota namespace. A value of <code>0</code> is valid. At the start of the effective month, this
+   * value becomes <code>usage_limit</code> and both pending fields are omitted. Omitted when no
+   * change is scheduled.
+   *
+   * @return pendingUsageLimit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PENDING_USAGE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getPendingUsageLimit() {
+    return pendingUsageLimit;
+  }
+
+  public void setPendingUsageLimit(Double pendingUsageLimit) {
+    this.pendingUsageLimit = pendingUsageLimit;
   }
 
   public UsageQuotaResponseAttributes scope(Map<String, String> scope) {
@@ -203,6 +258,9 @@ public class UsageQuotaResponseAttributes {
     UsageQuotaResponseAttributes usageQuotaResponseAttributes = (UsageQuotaResponseAttributes) o;
     return Objects.equals(this.enforced, usageQuotaResponseAttributes.enforced)
         && Objects.equals(this.orgPublicId, usageQuotaResponseAttributes.orgPublicId)
+        && Objects.equals(
+            this.pendingEffectiveFrom, usageQuotaResponseAttributes.pendingEffectiveFrom)
+        && Objects.equals(this.pendingUsageLimit, usageQuotaResponseAttributes.pendingUsageLimit)
         && Objects.equals(this.scope, usageQuotaResponseAttributes.scope)
         && Objects.equals(this.usageLimit, usageQuotaResponseAttributes.usageLimit)
         && Objects.equals(
@@ -211,7 +269,14 @@ public class UsageQuotaResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enforced, orgPublicId, scope, usageLimit, additionalProperties);
+    return Objects.hash(
+        enforced,
+        orgPublicId,
+        pendingEffectiveFrom,
+        pendingUsageLimit,
+        scope,
+        usageLimit,
+        additionalProperties);
   }
 
   @Override
@@ -220,6 +285,10 @@ public class UsageQuotaResponseAttributes {
     sb.append("class UsageQuotaResponseAttributes {\n");
     sb.append("    enforced: ").append(toIndentedString(enforced)).append("\n");
     sb.append("    orgPublicId: ").append(toIndentedString(orgPublicId)).append("\n");
+    sb.append("    pendingEffectiveFrom: ")
+        .append(toIndentedString(pendingEffectiveFrom))
+        .append("\n");
+    sb.append("    pendingUsageLimit: ").append(toIndentedString(pendingUsageLimit)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    usageLimit: ").append(toIndentedString(usageLimit)).append("\n");
     sb.append("    additionalProperties: ")

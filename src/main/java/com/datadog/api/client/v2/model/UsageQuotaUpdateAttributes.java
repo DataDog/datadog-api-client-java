@@ -18,10 +18,13 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * Attributes to update on a usage quota. Omitting a property leaves its current value unchanged.
+ * Attributes to update on a usage quota. At least one of <code>usage_limit</code>, <code>enforced
+ * </code>, or <code>pending_usage_limit</code> must be provided. Omitting a property leaves its
+ * current value unchanged.
  */
 @JsonPropertyOrder({
   UsageQuotaUpdateAttributes.JSON_PROPERTY_ENFORCED,
+  UsageQuotaUpdateAttributes.JSON_PROPERTY_PENDING_USAGE_LIMIT,
   UsageQuotaUpdateAttributes.JSON_PROPERTY_USAGE_LIMIT
 })
 @jakarta.annotation.Generated(
@@ -30,6 +33,9 @@ public class UsageQuotaUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENFORCED = "enforced";
   private JsonNullable<Boolean> enforced = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_PENDING_USAGE_LIMIT = "pending_usage_limit";
+  private JsonNullable<Long> pendingUsageLimit = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_USAGE_LIMIT = "usage_limit";
   private JsonNullable<Long> usageLimit = JsonNullable.<Long>undefined();
@@ -64,6 +70,43 @@ public class UsageQuotaUpdateAttributes {
 
   public void setEnforced(Boolean enforced) {
     this.enforced = JsonNullable.<Boolean>of(enforced);
+  }
+
+  public UsageQuotaUpdateAttributes pendingUsageLimit(Long pendingUsageLimit) {
+    this.pendingUsageLimit = JsonNullable.<Long>of(pendingUsageLimit);
+    return this;
+  }
+
+  /**
+   * The non-negative, whole-number limit to schedule for the organization-wide quota in the usage
+   * units defined by the quota namespace. It is not checked against current usage. Each write
+   * schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any
+   * previously scheduled change; the server computes <code>pending_effective_from</code>. Omit this
+   * field to leave any scheduled change unchanged, including when raising <code>usage_limit</code>;
+   * use <code>DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending</code> to cancel one.
+   * minimum: 0
+   *
+   * @return pendingUsageLimit
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getPendingUsageLimit() {
+    return pendingUsageLimit.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PENDING_USAGE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getPendingUsageLimit_JsonNullable() {
+    return pendingUsageLimit;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PENDING_USAGE_LIMIT)
+  public void setPendingUsageLimit_JsonNullable(JsonNullable<Long> pendingUsageLimit) {
+    this.pendingUsageLimit = pendingUsageLimit;
+  }
+
+  public void setPendingUsageLimit(Long pendingUsageLimit) {
+    this.pendingUsageLimit = JsonNullable.<Long>of(pendingUsageLimit);
   }
 
   public UsageQuotaUpdateAttributes usageLimit(Long usageLimit) {
@@ -156,6 +199,7 @@ public class UsageQuotaUpdateAttributes {
     }
     UsageQuotaUpdateAttributes usageQuotaUpdateAttributes = (UsageQuotaUpdateAttributes) o;
     return Objects.equals(this.enforced, usageQuotaUpdateAttributes.enforced)
+        && Objects.equals(this.pendingUsageLimit, usageQuotaUpdateAttributes.pendingUsageLimit)
         && Objects.equals(this.usageLimit, usageQuotaUpdateAttributes.usageLimit)
         && Objects.equals(
             this.additionalProperties, usageQuotaUpdateAttributes.additionalProperties);
@@ -163,7 +207,7 @@ public class UsageQuotaUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enforced, usageLimit, additionalProperties);
+    return Objects.hash(enforced, pendingUsageLimit, usageLimit, additionalProperties);
   }
 
   @Override
@@ -171,6 +215,7 @@ public class UsageQuotaUpdateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageQuotaUpdateAttributes {\n");
     sb.append("    enforced: ").append(toIndentedString(enforced)).append("\n");
+    sb.append("    pendingUsageLimit: ").append(toIndentedString(pendingUsageLimit)).append("\n");
     sb.append("    usageLimit: ").append(toIndentedString(usageLimit)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
