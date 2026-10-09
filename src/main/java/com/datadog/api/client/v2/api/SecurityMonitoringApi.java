@@ -179,6 +179,8 @@ import com.datadog.api.client.v2.model.SeverityModifierRuleReorderResponse;
 import com.datadog.api.client.v2.model.SeverityModifierRuleResponse;
 import com.datadog.api.client.v2.model.SeverityModifierRuleUpdateRequest;
 import com.datadog.api.client.v2.model.SeverityModifierRulesResponse;
+import com.datadog.api.client.v2.model.SeverityOverrideRequest;
+import com.datadog.api.client.v2.model.SeverityOverrideResponse;
 import com.datadog.api.client.v2.model.SignalEntitiesResponse;
 import com.datadog.api.client.v2.model.SingleEntityContextResponse;
 import com.datadog.api.client.v2.model.TicketCreationRuleCreateRequest;
@@ -29396,6 +29398,173 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AssigneeResponse>() {});
+  }
+
+  /**
+   * Override the severity of security findings.
+   *
+   * <p>See {@link #updateFindingsSeverityWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SeverityOverrideResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SeverityOverrideResponse updateFindingsSeverity(SeverityOverrideRequest body)
+      throws ApiException {
+    return updateFindingsSeverityWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Override the severity of security findings.
+   *
+   * <p>See {@link #updateFindingsSeverityWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SeverityOverrideResponse&gt;
+   */
+  public CompletableFuture<SeverityOverrideResponse> updateFindingsSeverityAsync(
+      SeverityOverrideRequest body) {
+    return updateFindingsSeverityWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Set or clear the manual severity override of security findings.
+   *
+   * <p>You can update up to 100 security findings per request. Use the <code>set</code> action with
+   * a <code>value</code> to apply a manual severity override. <code>value</code> is required for
+   * <code>set</code> and must be omitted for <code>clear</code>. The <code>info</code> value sets
+   * the lowest severity the finding type allows. Use the <code>clear</code> action to remove a
+   * manual severity override. <code>clear</code> does not remove a severity set by an automation
+   * rule. The optional <code>description</code> is accepted with both actions and has a limit of
+   * 280 characters.
+   *
+   * <p>Auto-closed findings are excluded. Findings whose severity was set by an automation rule are
+   * skipped and listed in the response <code>meta.warnings</code>. If every finding is skipped this
+   * way, the request fails with a <code>400</code> error. Findings that cannot be found are skipped
+   * without a warning. The request fails with a <code>404</code> error only if none of the findings
+   * can be found.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SeverityOverrideResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SeverityOverrideResponse> updateFindingsSeverityWithHttpInfo(
+      SeverityOverrideRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateFindingsSeverity";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateFindingsSeverity");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/severity";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateFindingsSeverity",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SeverityOverrideResponse>() {});
+  }
+
+  /**
+   * Override the severity of security findings.
+   *
+   * <p>See {@link #updateFindingsSeverityWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SeverityOverrideResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SeverityOverrideResponse>>
+      updateFindingsSeverityWithHttpInfoAsync(SeverityOverrideRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateFindingsSeverity";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SeverityOverrideResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SeverityOverrideResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateFindingsSeverity"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/severity";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateFindingsSeverity",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SeverityOverrideResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SeverityOverrideResponse>() {});
   }
 
   /**
