@@ -24,6 +24,7 @@ import java.util.Objects;
   JSSourcemapAttributes.JSON_PROPERTY_BLOB_STORAGE_SOURCEMAP_PATH,
   JSSourcemapAttributes.JSON_PROPERTY_BUILD_ID,
   JSSourcemapAttributes.JSON_PROPERTY_CREATED_AT,
+  JSSourcemapAttributes.JSON_PROPERTY_DEBUG_ID,
   JSSourcemapAttributes.JSON_PROPERTY_DOMAIN,
   JSSourcemapAttributes.JSON_PROPERTY_FILE_NAME,
   JSSourcemapAttributes.JSON_PROPERTY_MAPKIND,
@@ -49,6 +50,9 @@ public class JSSourcemapAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_DEBUG_ID = "debug_id";
+  private String debugId;
 
   public static final String JSON_PROPERTY_DOMAIN = "domain";
   private String domain;
@@ -167,6 +171,28 @@ public class JSSourcemapAttributes {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public JSSourcemapAttributes debugId(String debugId) {
+    this.debugId = debugId;
+    return this;
+  }
+
+  /**
+   * The debug identifier (UUID format) that uniquely identifies this JavaScript source map.
+   * Returned for source maps indexed by debug ID.
+   *
+   * @return debugId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEBUG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDebugId() {
+    return debugId;
+  }
+
+  public void setDebugId(String debugId) {
+    this.debugId = debugId;
   }
 
   public JSSourcemapAttributes domain(String domain) {
@@ -396,6 +422,7 @@ public class JSSourcemapAttributes {
             this.blobStorageSourcemapPath, jsSourcemapAttributes.blobStorageSourcemapPath)
         && Objects.equals(this.buildId, jsSourcemapAttributes.buildId)
         && Objects.equals(this.createdAt, jsSourcemapAttributes.createdAt)
+        && Objects.equals(this.debugId, jsSourcemapAttributes.debugId)
         && Objects.equals(this.domain, jsSourcemapAttributes.domain)
         && Objects.equals(this.fileName, jsSourcemapAttributes.fileName)
         && Objects.equals(this.mapkind, jsSourcemapAttributes.mapkind)
@@ -414,6 +441,7 @@ public class JSSourcemapAttributes {
         blobStorageSourcemapPath,
         buildId,
         createdAt,
+        debugId,
         domain,
         fileName,
         mapkind,
@@ -435,6 +463,7 @@ public class JSSourcemapAttributes {
         .append("\n");
     sb.append("    buildId: ").append(toIndentedString(buildId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    debugId: ").append(toIndentedString(debugId)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    mapkind: ").append(toIndentedString(mapkind)).append("\n");

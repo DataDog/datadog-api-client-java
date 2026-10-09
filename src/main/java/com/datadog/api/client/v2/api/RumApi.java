@@ -21,6 +21,7 @@ import com.datadog.api.client.v2.model.ServiceRepositoryInfoRequest;
 import com.datadog.api.client.v2.model.ServiceRepositoryInfoResponse;
 import com.datadog.api.client.v2.model.SourcemapFileResponse;
 import com.datadog.api.client.v2.model.SourcemapMapKind;
+import com.datadog.api.client.v2.model.SourcemapSearchBy;
 import com.datadog.api.client.v2.model.SourcemapsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -1947,7 +1949,9 @@ public class RumApi {
 
   /** Manage optional parameters to listSourcemaps. */
   public static class ListSourcemapsOptionalParameters {
+    private SourcemapSearchBy searchBy;
     private SourcemapMapKind mapkind;
+    private String pageAfter;
     private Long pageSize;
     private Long pageNumber;
     private List<String> filterService;
@@ -1964,10 +1968,24 @@ public class RumApi {
     private List<String> filterOrigin;
     private List<String> filterOriginVersion;
     private String filterFilename;
-    private String filterDebugId;
+    private UUID filterDebugId;
     private String filterGnuBuildId;
     private String filterGoBuildId;
     private String filterFileHash;
+
+    /**
+     * Set searchBy.
+     *
+     * @param searchBy Set to <code>debug_id</code> to browse JavaScript source maps indexed by
+     *     debug ID. Only supported for <code>mapkind=js</code>. Omit for service/version searches
+     *     or a specific <code>filter[debug_id]</code> lookup. In debug-ID browse mode, service,
+     *     version, and filename filters are not supported. (optional)
+     * @return ListSourcemapsOptionalParameters
+     */
+    public ListSourcemapsOptionalParameters searchBy(SourcemapSearchBy searchBy) {
+      this.searchBy = searchBy;
+      return this;
+    }
 
     /**
      * Set mapkind.
@@ -1981,10 +1999,24 @@ public class RumApi {
     }
 
     /**
+     * Set pageAfter.
+     *
+     * @param pageAfter Cursor for the next page of a JavaScript listing. Use the value from <code>
+     *     meta.page.next_cursor</code> and keep the same search mode and filters. Omit on the first
+     *     request. Not supported for other map kinds or for a specific <code>filter[debug_id]
+     *     </code> lookup without <code>search_by=debug_id</code>. (optional)
+     * @return ListSourcemapsOptionalParameters
+     */
+    public ListSourcemapsOptionalParameters pageAfter(String pageAfter) {
+      this.pageAfter = pageAfter;
+      return this;
+    }
+
+    /**
      * Set pageSize.
      *
-     * @param pageSize The number of results to return per page. Must be at least 1. (optional,
-     *     default to 20)
+     * @param pageSize The number of results per page. Defaults to 100. Must be at least 1; values
+     *     above 1000 are capped at 1000. (optional, default to 100)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters pageSize(Long pageSize) {
@@ -1995,7 +2027,9 @@ public class RumApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber The page number to retrieve, starting from 1. (optional, default to 1)
+     * @param pageNumber Legacy page number, starting from 1. Prefer <code>page[after]</code> for
+     *     JavaScript listings. Not supported with <code>search_by=debug_id</code>. Other map kinds
+     *     default to page 1 when pagination parameters are omitted. (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters pageNumber(Long pageNumber) {
@@ -2006,9 +2040,10 @@ public class RumApi {
     /**
      * Set filterService.
      *
-     * @param filterService Filter by service names (multiple values allowed). Required for <code>js
-     *     </code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map kinds.
-     *     (optional)
+     * @param filterService Filter by service names (multiple values allowed). Required for <code>
+     *     jvm</code>, <code>react</code>, and <code>flutter</code> map kinds. Also required for
+     *     <code>js</code> unless searching by <code>filter[debug_id]</code> or browsing with <code>
+     *     search_by=debug_id</code>. (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters filterService(List<String> filterService) {
@@ -2020,8 +2055,9 @@ public class RumApi {
      * Set filterVersion.
      *
      * @param filterVersion Filter by version values (multiple values allowed). Required for <code>
-     *     js</code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map kinds.
-     *     (optional)
+     *     jvm</code>, <code>react</code>, and <code>flutter</code> map kinds. Also required for
+     *     <code>js</code> unless searching by <code>filter[debug_id]</code> or browsing with <code>
+     *     search_by=debug_id</code>. (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters filterVersion(List<String> filterVersion) {
@@ -2176,11 +2212,14 @@ public class RumApi {
     /**
      * Set filterDebugId.
      *
-     * @param filterDebugId Filter by debug ID (single value). Supported for <code>react</code>.
-     *     (optional)
+     * @param filterDebugId Filter by a single debug ID in UUID format. Supported for <code>js
+     *     </code> and <code>react</code>. For <code>js</code>, a debug ID identifies exactly one
+     *     source map, so the lookup returns at most one result and does not require service/version
+     *     filters. For <code>react</code>, a debug ID can match multiple files, and service/version
+     *     filters remain required. (optional)
      * @return ListSourcemapsOptionalParameters
      */
-    public ListSourcemapsOptionalParameters filterDebugId(String filterDebugId) {
+    public ListSourcemapsOptionalParameters filterDebugId(UUID filterDebugId) {
       this.filterDebugId = filterDebugId;
       return this;
     }
@@ -2281,7 +2320,76 @@ public class RumApi {
   }
 
   /**
-   * Retrieves a paginated list of source maps matching the specified filter criteria.
+   * Retrieves a paginated list of source maps. Send filters as query parameters, not in a JSON
+   * request body. <code>mapkind</code> defaults to <code>js</code>.
+   *
+   * <p>For JavaScript source maps, choose one of these searches:
+   *
+   * <ul>
+   *   <li><strong>Service and version:</strong> provide both <code>filter[service]</code> and
+   *       <code>filter[version]</code>. This searches source maps indexed by service and version.
+   *   <li><strong>One debug ID:</strong> provide <code>filter[debug_id]</code> with a UUID to look
+   *       up the single source map with that debug ID. Service and version are not required for
+   *       this JavaScript search.
+   *   <li><strong>Browse debug IDs:</strong> set <code>search_by=debug_id</code> to list source
+   *       maps indexed by debug ID without specifying an ID. Do not send service, version, or
+   *       filename filters in this mode.
+   * </ul>
+   *
+   * <p><strong>Pagination:</strong> for JavaScript listings, omit <code>page[after]</code> and
+   * <code>page[number]</code> to start at the first page. Copy <code>meta.page.next_cursor</code>
+   * into <code>page[after]</code> on the next request, keeping the same search mode and filters.
+   * Continue until <code>meta.page.has_more_results</code> is <code>false</code>. Do not decode or
+   * modify the cursor. Debug-ID browsing requires cursor pagination; <code>page[number]</code> is
+   * not supported. A specific <code>filter[debug_id]</code> lookup without <code>search_by=debug_id
+   * </code> does not support <code>page[after]</code>. Other map kinds use <code>page[number]
+   * </code>, starting at 1.
+   *
+   * <p><strong>Examples:</strong> the following commands use the US1 API host. Replace the host
+   * with the API host for your site, and the service, version, debug ID, and cursor with values
+   * from your organization. Use <code>--get</code> so curl sends the filters in the query string;
+   * <code>-X GET</code> with <code>--data-urlencode</code> sends them in the request body instead.
+   *
+   * <p><strong>List by service and version</strong>
+   *
+   * <p><code>bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "filter[service]=my-web-service" \
+   *   --data-urlencode "filter[version]=1.0.0" \
+   *   --data-urlencode "page[size]=10"</code>
+   *
+   * <p><strong>Find a specific JavaScript debug ID</strong>
+   *
+   * <p><code>bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "filter[debug_id]=00000000-0000-4000-8000-000000000001"</code>
+   *
+   * <p><strong>Browse debug-ID source maps from the first page</strong>
+   *
+   * <p><code>bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "search_by=debug_id" \
+   *   --data-urlencode "page[size]=10"</code>
+   *
+   * <p><strong>Get the next page of debug-ID source maps</strong>
+   *
+   * <p><code>bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "search_by=debug_id" \
+   *   --data-urlencode "page[size]=10" \
+   *   --data-urlencode "page[after]=&lt;meta.page.next_cursor&gt;"</code>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListSourcemapsResponse&gt;
@@ -2307,7 +2415,9 @@ public class RumApi {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
+    SourcemapSearchBy searchBy = parameters.searchBy;
     SourcemapMapKind mapkind = parameters.mapkind;
+    String pageAfter = parameters.pageAfter;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     List<String> filterService = parameters.filterService;
@@ -2324,7 +2434,7 @@ public class RumApi {
     List<String> filterOrigin = parameters.filterOrigin;
     List<String> filterOriginVersion = parameters.filterOriginVersion;
     String filterFilename = parameters.filterFilename;
-    String filterDebugId = parameters.filterDebugId;
+    UUID filterDebugId = parameters.filterDebugId;
     String filterGnuBuildId = parameters.filterGnuBuildId;
     String filterGoBuildId = parameters.filterGoBuildId;
     String filterFileHash = parameters.filterFileHash;
@@ -2334,7 +2444,9 @@ public class RumApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_by", searchBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[after]", pageAfter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(
@@ -2408,7 +2520,9 @@ public class RumApi {
       return result;
     }
     Object localVarPostBody = null;
+    SourcemapSearchBy searchBy = parameters.searchBy;
     SourcemapMapKind mapkind = parameters.mapkind;
+    String pageAfter = parameters.pageAfter;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     List<String> filterService = parameters.filterService;
@@ -2425,7 +2539,7 @@ public class RumApi {
     List<String> filterOrigin = parameters.filterOrigin;
     List<String> filterOriginVersion = parameters.filterOriginVersion;
     String filterFilename = parameters.filterFilename;
-    String filterDebugId = parameters.filterDebugId;
+    UUID filterDebugId = parameters.filterDebugId;
     String filterGnuBuildId = parameters.filterGnuBuildId;
     String filterGoBuildId = parameters.filterGoBuildId;
     String filterFileHash = parameters.filterFileHash;
@@ -2435,7 +2549,9 @@ public class RumApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_by", searchBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[after]", pageAfter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(
