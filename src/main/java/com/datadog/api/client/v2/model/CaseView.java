@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * A saved case view that provides a filtered, reusable list of cases matching a specific query.
- * Views act as persistent dashboards for monitoring case subsets.
+ * A saved work item view that provides a filtered, reusable list of work items matching a specific
+ * query. Views act as persistent dashboards for monitoring work item subsets.
  */
 @JsonPropertyOrder({
   CaseView.JSON_PROPERTY_ATTRIBUTES,
@@ -65,7 +65,7 @@ public class CaseView {
   }
 
   /**
-   * Attributes of a case view, including the filter query and optional notification rule.
+   * Attributes of a work item view, including the filter query and optional notification rule.
    *
    * @return attributes
    */
@@ -109,7 +109,7 @@ public class CaseView {
   }
 
   /**
-   * Related resources for the case view, including the creator, last modifier, and associated
+   * Related resources for the work item view, including the creator, last modifier, and associated
    * project.
    *
    * @return relationships
@@ -135,7 +135,7 @@ public class CaseView {
   }
 
   /**
-   * JSON:API resource type for case views.
+   * JSON:API resource type for work item views.
    *
    * @return type
    */

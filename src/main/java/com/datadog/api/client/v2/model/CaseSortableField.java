@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Case field that can be sorted on */
+/** Work item field that can be sorted on */
 @JsonSerialize(using = CaseSortableField.CaseSortableFieldSerializer.class)
 public class CaseSortableField extends ModelEnum<String> {
 

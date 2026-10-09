@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A notification rule for case management */
+/** A notification rule for Work Management */
 @JsonPropertyOrder({
   CaseNotificationRule.JSON_PROPERTY_ATTRIBUTES,
   CaseNotificationRule.JSON_PROPERTY_ID,

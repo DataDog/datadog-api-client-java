@@ -68,7 +68,7 @@ public class CaseNotificationRuleAttributes {
   }
 
   /**
-   * Query to filter cases for this notification rule
+   * Query to filter work items for this notification rule
    *
    * @return query
    */

@@ -19,8 +19,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED
- * statuses. Use <code>status_name</code> instead.
+ * Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and
+ * CLOSED statuses. Use <code>status_name</code> instead.
  */
 @JsonSerialize(using = CaseStatus.CaseStatusSerializer.class)
 public class CaseStatus extends ModelEnum<String> {

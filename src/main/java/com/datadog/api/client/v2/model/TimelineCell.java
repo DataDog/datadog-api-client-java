@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes of a timeline cell, representing a single event in a case's chronological activity log
- * (for example, a comment, status change, or assignment update).
+ * Attributes of a timeline cell, representing a single event in a work item's chronological
+ * activity log (for example, a comment, status change, or assignment update).
  */
 @JsonPropertyOrder({
   TimelineCell.JSON_PROPERTY_AUTHOR,

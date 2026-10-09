@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata for connecting a case management project to a Jira project. */
+/** Metadata for connecting a Work Management project to a Jira project. */
 @JsonPropertyOrder({
   IntegrationJiraMetadata.JSON_PROPERTY_ACCOUNT_ID,
   IntegrationJiraMetadata.JSON_PROPERTY_ISSUE_TYPE_ID,
@@ -83,7 +83,7 @@ public class IntegrationJiraMetadata {
   }
 
   /**
-   * The Jira project identifier to associate with this case project.
+   * The Jira project identifier to associate with this Work Management project.
    *
    * @return projectId
    */

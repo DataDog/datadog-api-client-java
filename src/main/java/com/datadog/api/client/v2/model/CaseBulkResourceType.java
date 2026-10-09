@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for bulk case operations. */
+/** JSON:API resource type for bulk work item operations. */
 @JsonSerialize(using = CaseBulkResourceType.CaseBulkResourceTypeSerializer.class)
 public class CaseBulkResourceType extends ModelEnum<String> {
 

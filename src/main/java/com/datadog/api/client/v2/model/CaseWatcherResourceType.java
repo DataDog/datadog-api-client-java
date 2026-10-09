@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for case watchers. */
+/** JSON:API resource type for work item watchers. */
 @JsonSerialize(using = CaseWatcherResourceType.CaseWatcherResourceTypeSerializer.class)
 public class CaseWatcherResourceType extends ModelEnum<String> {
 

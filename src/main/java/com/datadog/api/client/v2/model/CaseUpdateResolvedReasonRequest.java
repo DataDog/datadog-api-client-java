@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request payload for updating the resolution reason on a closed security case. */
+/** Request payload for updating the resolution reason on a closed security work item. */
 @JsonPropertyOrder({CaseUpdateResolvedReasonRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class CaseUpdateResolvedReasonRequest {
   }
 
   /**
-   * Data object for updating a case's resolved reason.
+   * Data object for updating a work item's resolved reason.
    *
    * @return data
    */

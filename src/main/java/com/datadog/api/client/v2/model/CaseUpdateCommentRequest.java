@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request payload for updating a comment on a case timeline. */
+/** Request payload for updating a comment on a work item timeline. */
 @JsonPropertyOrder({CaseUpdateCommentRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class CaseUpdateCommentRequest {
   }
 
   /**
-   * Data object for updating a case comment.
+   * Data object for updating a work item comment.
    *
    * @return data
    */

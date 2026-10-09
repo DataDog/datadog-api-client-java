@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case assign */
+/** Work item assign */
 @JsonPropertyOrder({CaseAssign.JSON_PROPERTY_ATTRIBUTES, CaseAssign.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -49,7 +49,7 @@ public class CaseAssign {
   }
 
   /**
-   * Case assign attributes
+   * Work item assign attributes
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class CaseAssign {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

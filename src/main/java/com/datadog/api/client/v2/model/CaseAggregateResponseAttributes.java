@@ -90,7 +90,7 @@ public class CaseAggregateResponseAttributes {
   }
 
   /**
-   * Total count of aggregated cases.
+   * Total count of aggregated work items.
    *
    * @return total
    */

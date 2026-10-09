@@ -20,7 +20,7 @@ import java.util.Set;
 
 /**
  * The type of automated action to perform when the rule triggers. <code>EXECUTE_WORKFLOW</code>
- * runs a Datadog workflow; <code>ASSIGN_AGENT</code> assigns an AI agent to the case.
+ * runs a Datadog workflow; <code>ASSIGN_AGENT</code> assigns an AI agent to the work item.
  */
 @JsonSerialize(using = AutomationRuleActionType.AutomationRuleActionTypeSerializer.class)
 public class AutomationRuleActionType extends ModelEnum<String> {

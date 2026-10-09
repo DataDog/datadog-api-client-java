@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for case automation rules. */
+/** JSON:API resource type for work item automation rules. */
 @JsonSerialize(
     using = CaseAutomationRuleResourceType.CaseAutomationRuleResourceTypeSerializer.class)
 public class CaseAutomationRuleResourceType extends ModelEnum<String> {

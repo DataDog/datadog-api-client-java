@@ -88,7 +88,7 @@ public class ProjectAttributes {
   }
 
   /**
-   * List of enabled custom case type IDs.
+   * List of enabled custom work item type IDs.
    *
    * @return enabledCustomCaseTypes
    */

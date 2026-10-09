@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for setting or clearing a case's due date. */
+/** Attributes for setting or clearing a work item's due date. */
 @JsonPropertyOrder({CaseUpdateDueDateAttributes.JSON_PROPERTY_DUE_DATE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,8 +40,8 @@ public class CaseUpdateDueDateAttributes {
   }
 
   /**
-   * The target resolution date for the case, in <code>YYYY-MM-DD</code> format. Set to <code>null
-   * </code> to clear the due date.
+   * The target resolution date for the work item, in <code>YYYY-MM-DD</code> format. Set to <code>
+   * null</code> to clear the due date.
    *
    * @return dueDate
    */

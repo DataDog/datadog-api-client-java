@@ -150,7 +150,7 @@ public class CreateLinearIssueRequestDataAttributes {
   }
 
   /**
-   * Case priority
+   * Work item priority
    *
    * @return priority
    */

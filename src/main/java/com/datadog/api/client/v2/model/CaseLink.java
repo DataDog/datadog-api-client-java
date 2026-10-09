@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * A directional link representing a relationship between two entities. At least one entity must be
- * a case.
+ * a work item.
  */
 @JsonPropertyOrder({
   CaseLink.JSON_PROPERTY_ATTRIBUTES,
@@ -61,8 +61,8 @@ public class CaseLink {
   }
 
   /**
-   * Attributes describing a directional relationship between two entities (cases, incidents, or
-   * pages).
+   * Attributes describing a directional relationship between two entities (work items, incidents,
+   * or pages).
    *
    * @return attributes
    */
@@ -85,7 +85,7 @@ public class CaseLink {
   }
 
   /**
-   * The case link identifier.
+   * The work item link identifier.
    *
    * @return id
    */
@@ -106,7 +106,7 @@ public class CaseLink {
   }
 
   /**
-   * JSON:API resource type for case links.
+   * JSON:API resource type for work item links.
    *
    * @return type
    */

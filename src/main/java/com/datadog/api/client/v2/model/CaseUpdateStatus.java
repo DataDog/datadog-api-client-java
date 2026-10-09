@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case update status */
+/** Work item update status */
 @JsonPropertyOrder({CaseUpdateStatus.JSON_PROPERTY_ATTRIBUTES, CaseUpdateStatus.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -49,7 +49,7 @@ public class CaseUpdateStatus {
   }
 
   /**
-   * Case update status attributes
+   * Work item update status attributes
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class CaseUpdateStatus {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */
