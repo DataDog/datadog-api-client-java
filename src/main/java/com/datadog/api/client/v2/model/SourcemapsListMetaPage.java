@@ -20,6 +20,7 @@ import java.util.Objects;
 /** Page information for the source maps list response. */
 @JsonPropertyOrder({
   SourcemapsListMetaPage.JSON_PROPERTY_HAS_MORE_RESULTS,
+  SourcemapsListMetaPage.JSON_PROPERTY_NEXT_CURSOR,
   SourcemapsListMetaPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class SourcemapsListMetaPage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_MORE_RESULTS = "has_more_results";
   private Boolean hasMoreResults;
+
+  public static final String JSON_PROPERTY_NEXT_CURSOR = "next_cursor";
+  private String nextCursor;
 
   public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
   private Long totalFilteredCount;
@@ -63,13 +67,38 @@ public class SourcemapsListMetaPage {
     this.hasMoreResults = hasMoreResults;
   }
 
+  public SourcemapsListMetaPage nextCursor(String nextCursor) {
+    this.nextCursor = nextCursor;
+    return this;
+  }
+
+  /**
+   * Cursor for the next page of a JavaScript cursor-based listing. Pass this value as <code>
+   * page[after]</code> with the same search mode and filters. Only returned when another page is
+   * available.
+   *
+   * @return nextCursor
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NEXT_CURSOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNextCursor() {
+    return nextCursor;
+  }
+
+  public void setNextCursor(String nextCursor) {
+    this.nextCursor = nextCursor;
+  }
+
   public SourcemapsListMetaPage totalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
     return this;
   }
 
   /**
-   * Total number of source maps matching the filter criteria.
+   * Total number of matching source maps for legacy page-number pagination. Cursor-based listings
+   * do not compute a total; this field may be zero even when records are returned. Use <code>
+   * has_more_results</code> to continue.
    *
    * @return totalFilteredCount
    */
@@ -140,13 +169,14 @@ public class SourcemapsListMetaPage {
     }
     SourcemapsListMetaPage sourcemapsListMetaPage = (SourcemapsListMetaPage) o;
     return Objects.equals(this.hasMoreResults, sourcemapsListMetaPage.hasMoreResults)
+        && Objects.equals(this.nextCursor, sourcemapsListMetaPage.nextCursor)
         && Objects.equals(this.totalFilteredCount, sourcemapsListMetaPage.totalFilteredCount)
         && Objects.equals(this.additionalProperties, sourcemapsListMetaPage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasMoreResults, totalFilteredCount, additionalProperties);
+    return Objects.hash(hasMoreResults, nextCursor, totalFilteredCount, additionalProperties);
   }
 
   @Override
@@ -154,6 +184,7 @@ public class SourcemapsListMetaPage {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourcemapsListMetaPage {\n");
     sb.append("    hasMoreResults: ").append(toIndentedString(hasMoreResults)).append("\n");
+    sb.append("    nextCursor: ").append(toIndentedString(nextCursor)).append("\n");
     sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
