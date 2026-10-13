@@ -1,5 +1,64 @@
 # CHANGELOG
 
+## 2.62.0/2026-10-13
+
+### Added
+* Clarify JavaScript source map listing and pagination [#4443](https://github.com/DataDog/datadog-api-client-java/pull/4443)
+* Document public Deployment Gate and rule evaluation endpoints [#4442](https://github.com/DataDog/datadog-api-client-java/pull/4442)
+* Add Heatgrid dashboard widget support [#4439](https://github.com/DataDog/datadog-api-client-java/pull/4439)
+* Mark Bits Investigation endpoints as stable [#4438](https://github.com/DataDog/datadog-api-client-java/pull/4438)
+* Add endpoint to override the severity of security findings [#4435](https://github.com/DataDog/datadog-api-client-java/pull/4435)
+* Add reroute_to_team action to On-Call team routing rules [#4434](https://github.com/DataDog/datadog-api-client-java/pull/4434)
+* Include the matched shard in the SPA v2 response [#4433](https://github.com/DataDog/datadog-api-client-java/pull/4433)
+* Add aggregate event-time configuration to Observability Pipelines [#4427](https://github.com/DataDog/datadog-api-client-java/pull/4427)
+* Publish Cloud Cost Management cloud account listing [#4426](https://github.com/DataDog/datadog-api-client-java/pull/4426)
+* Add AI Impact user activity endpoint [#4418](https://github.com/DataDog/datadog-api-client-java/pull/4418)
+* Rename Patch a deployment event to Mark a deployment as failed by ID [#4417](https://github.com/DataDog/datadog-api-client-java/pull/4417)
+* Promote Mark a deployment as failed by version endpoint to GA [#4416](https://github.com/DataDog/datadog-api-client-java/pull/4416)
+* Document Supply Chain Firewall reports API [#4415](https://github.com/DataDog/datadog-api-client-java/pull/4415)
+* Add compatibleVersion to security monitoring rule responses [#4413](https://github.com/DataDog/datadog-api-client-java/pull/4413)
+* Add CI job logs intake API [#4411](https://github.com/DataDog/datadog-api-client-java/pull/4411)
+* Add Archive Search endpoints to the public API [#4409](https://github.com/DataDog/datadog-api-client-java/pull/4409)
+* Add SPA recommendations v2 endpoint [#4408](https://github.com/DataDog/datadog-api-client-java/pull/4408)
+* Add dashboard experience type to API responses [#4407](https://github.com/DataDog/datadog-api-client-java/pull/4407)
+* Extend Cloud Auth Config endpoints to support new GitHub provider [#4406](https://github.com/DataDog/datadog-api-client-java/pull/4406)
+* Add case_stream to dashboard list stream sources [#4401](https://github.com/DataDog/datadog-api-client-java/pull/4401)
+* Add metrics enrichment table processor to Observability Pipelines [#4400](https://github.com/DataDog/datadog-api-client-java/pull/4400)
+* Add bits_ai_auto_investigate to synthetics test options [#4397](https://github.com/DataDog/datadog-api-client-java/pull/4397)
+* Document `source` field in DataDeletionResponseItemAttributes [#4396](https://github.com/DataDog/datadog-api-client-java/pull/4396)
+* Document Flink as a Confluent Cloud resource type [#4392](https://github.com/DataDog/datadog-api-client-java/pull/4392)
+* Document recently updated entities endpoint and entity_type parameter [#4391](https://github.com/DataDog/datadog-api-client-java/pull/4391)
+* Publish stable Experiments v2 APIs [#4388](https://github.com/DataDog/datadog-api-client-java/pull/4388)
+* Document leak information on personal and service access tokens [#4384](https://github.com/DataDog/datadog-api-client-java/pull/4384)
+* Increase Reference Tables Upsert/DeleteRows payload limit to 1 MiB [#4372](https://github.com/DataDog/datadog-api-client-java/pull/4372)
+* add recipient_email and servicenow to team notification rule [#4369](https://github.com/DataDog/datadog-api-client-java/pull/4369)
+* Document the meta object returned by Reference Tables Get rows by id [#4352](https://github.com/DataDog/datadog-api-client-java/pull/4352)
+* Add support for general investigations to Bits Investigations trigger API [#4345](https://github.com/DataDog/datadog-api-client-java/pull/4345)
+* Document managed prompt message placeholders [#4317](https://github.com/DataDog/datadog-api-client-java/pull/4317)
+
+### Changed
+* Document AI Impact user activity endpoint under DORA Metrics [#4437](https://github.com/DataDog/datadog-api-client-java/pull/4437)
+* Document dashboard quality scores in usage APIs [#4424](https://github.com/DataDog/datadog-api-client-java/pull/4424)
+* Update signalsDetected description to reflect risk-contributing signals [#4339](https://github.com/DataDog/datadog-api-client-java/pull/4339)
+
+### Fixed
+* Allow null default_value in governance control parameter definitions [#4436](https://github.com/DataDog/datadog-api-client-java/pull/4436)
+* Remove bearer token auth from the CreateEvent intake endpoint [#4432](https://github.com/DataDog/datadog-api-client-java/pull/4432)
+* Clarify the Archive Search tag description [#4419](https://github.com/DataDog/datadog-api-client-java/pull/4419)
+* Fix Workload Protection policy creation success response to 201 Created [#4412](https://github.com/DataDog/datadog-api-client-java/pull/4412)
+* Document DDSQL query permissions and OAuth scope [#4390](https://github.com/DataDog/datadog-api-client-java/pull/4390)
+* Specify UUID format for Databricks Private Action Runner connection fields [#4374](https://github.com/DataDog/datadog-api-client-java/pull/4374)
+* CCM Recommendations API - Re-add filter request attribute and fix sort examples [#4358](https://github.com/DataDog/datadog-api-client-java/pull/4358)
+* Automation pipelines require ID in updates and use different request/response schemas [#4290](https://github.com/DataDog/datadog-api-client-java/pull/4290)
+* RUM Rename feature to journey strong link to link in comments and desc [#4262](https://github.com/DataDog/datadog-api-client-java/pull/4262)
+* Document missing limitations and 409 response for org disable endpoint [#4108](https://github.com/DataDog/datadog-api-client-java/pull/4108)
+
+### Deprecated
+* Deprecate Salesforce Incidents API endpoints [#4429](https://github.com/DataDog/datadog-api-client-java/pull/4429)
+
+### Removed
+* Retire the RUM aggregated signals and problems endpoint [#4393](https://github.com/DataDog/datadog-api-client-java/pull/4393)
+
 ## 2.61.0/2026-09-24
 
 ### Added
