@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.AiImpactApi;
+import com.datadog.api.client.v2.api.DoraMetricsApi;
 import com.datadog.api.client.v2.model.AIImpactUserActivityAttributes;
 import com.datadog.api.client.v2.model.AIImpactUserActivityData;
 import com.datadog.api.client.v2.model.AIImpactUserActivityRequest;
@@ -13,7 +13,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    AiImpactApi apiInstance = new AiImpactApi(defaultClient);
+    DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
 
     AIImpactUserActivityRequest body =
         new AIImpactUserActivityRequest()
@@ -32,7 +32,7 @@ public class Example {
     try {
       apiInstance.createAIImpactUserActivity(body);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AiImpactApi#createAIImpactUserActivity");
+      System.err.println("Exception when calling DoraMetricsApi#createAIImpactUserActivity");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
