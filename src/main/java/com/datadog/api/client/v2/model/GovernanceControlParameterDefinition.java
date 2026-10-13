@@ -67,6 +67,7 @@ public class GovernanceControlParameterDefinition {
           List<GovernanceControlSupportedValue> supportedValues,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
     this.defaultValue = defaultValue;
+    if (defaultValue != null) {}
     this.description = description;
     this.displayName = displayName;
     this.name = name;
@@ -82,14 +83,17 @@ public class GovernanceControlParameterDefinition {
 
   public GovernanceControlParameterDefinition defaultValue(Object defaultValue) {
     this.defaultValue = defaultValue;
+    if (defaultValue != null) {}
     return this;
   }
 
   /**
    * The default value of the parameter. The JSON type depends on the parameter's <code>type</code>.
+   * <code>null</code> when the parameter has no default.
    *
    * @return defaultValue
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Object getDefaultValue() {
