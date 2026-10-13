@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreateOnCallNotificationRuleRequest;
+import com.datadog.api.client.v2.model.CreateOverridesRequest;
 import com.datadog.api.client.v2.model.CreateUserNotificationChannelRequest;
 import com.datadog.api.client.v2.model.EscalationPolicy;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequest;
@@ -14,6 +15,9 @@ import com.datadog.api.client.v2.model.ListNotificationChannelsResponse;
 import com.datadog.api.client.v2.model.ListOnCallNotificationRulesResponse;
 import com.datadog.api.client.v2.model.NotificationChannel;
 import com.datadog.api.client.v2.model.OnCallNotificationRule;
+import com.datadog.api.client.v2.model.OverrideCreateResponse;
+import com.datadog.api.client.v2.model.OverrideData;
+import com.datadog.api.client.v2.model.Overrides;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ScheduleListItem;
@@ -27,6 +31,7 @@ import com.datadog.api.client.v2.model.TeamRoutingRulesRequest;
 import com.datadog.api.client.v2.model.UpdateOnCallNotificationRuleRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -462,6 +467,243 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Schedule>() {});
+  }
+
+  /** Manage optional parameters to createScheduleOverrides. */
+  public static class CreateScheduleOverridesOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>user</code>, <code>overridden_user</code>, <code>user.color</code>. (optional)
+     * @return CreateScheduleOverridesOptionalParameters
+     */
+    public CreateScheduleOverridesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create On-Call schedule overrides.
+   *
+   * <p>See {@link #createScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param body (required)
+   * @return OverrideCreateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OverrideCreateResponse createScheduleOverrides(
+      String scheduleId, CreateOverridesRequest body) throws ApiException {
+    return createScheduleOverridesWithHttpInfo(
+            scheduleId, body, new CreateScheduleOverridesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create On-Call schedule overrides.
+   *
+   * <p>See {@link #createScheduleOverridesWithHttpInfoAsync}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;OverrideCreateResponse&gt;
+   */
+  public CompletableFuture<OverrideCreateResponse> createScheduleOverridesAsync(
+      String scheduleId, CreateOverridesRequest body) {
+    return createScheduleOverridesWithHttpInfoAsync(
+            scheduleId, body, new CreateScheduleOverridesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create On-Call schedule overrides.
+   *
+   * <p>See {@link #createScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return OverrideCreateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OverrideCreateResponse createScheduleOverrides(
+      String scheduleId,
+      CreateOverridesRequest body,
+      CreateScheduleOverridesOptionalParameters parameters)
+      throws ApiException {
+    return createScheduleOverridesWithHttpInfo(scheduleId, body, parameters).getData();
+  }
+
+  /**
+   * Create On-Call schedule overrides.
+   *
+   * <p>See {@link #createScheduleOverridesWithHttpInfoAsync}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;OverrideCreateResponse&gt;
+   */
+  public CompletableFuture<OverrideCreateResponse> createScheduleOverridesAsync(
+      String scheduleId,
+      CreateOverridesRequest body,
+      CreateScheduleOverridesOptionalParameters parameters) {
+    return createScheduleOverridesWithHttpInfoAsync(scheduleId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create one or more overrides for the specified On-Call schedule.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;OverrideCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OverrideCreateResponse> createScheduleOverridesWithHttpInfo(
+      String scheduleId,
+      CreateOverridesRequest body,
+      CreateScheduleOverridesOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'scheduleId' when calling createScheduleOverrides");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createScheduleOverrides");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/overrides"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.createScheduleOverrides",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OverrideCreateResponse>() {});
+  }
+
+  /**
+   * Create On-Call schedule overrides.
+   *
+   * <p>See {@link #createScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;OverrideCreateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OverrideCreateResponse>>
+      createScheduleOverridesWithHttpInfoAsync(
+          String scheduleId,
+          CreateOverridesRequest body,
+          CreateScheduleOverridesOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      CompletableFuture<ApiResponse<OverrideCreateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'scheduleId' when calling createScheduleOverrides"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OverrideCreateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createScheduleOverrides"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/overrides"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.createScheduleOverrides",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OverrideCreateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OverrideCreateResponse>() {});
   }
 
   /**
@@ -1043,6 +1285,169 @@ public class OnCallApi {
       builder =
           apiClient.createBuilder(
               "v2.OnCallApi.deleteOnCallSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete On-Call schedule override.
+   *
+   * <p>See {@link #deleteScheduleOverrideWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param overrideId The ID of the override. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteScheduleOverride(String scheduleId, String overrideId) throws ApiException {
+    deleteScheduleOverrideWithHttpInfo(scheduleId, overrideId);
+  }
+
+  /**
+   * Delete On-Call schedule override.
+   *
+   * <p>See {@link #deleteScheduleOverrideWithHttpInfoAsync}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param overrideId The ID of the override. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteScheduleOverrideAsync(String scheduleId, String overrideId) {
+    return deleteScheduleOverrideWithHttpInfoAsync(scheduleId, overrideId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an override from the specified On-Call schedule.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param overrideId The ID of the override. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteScheduleOverrideWithHttpInfo(String scheduleId, String overrideId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'scheduleId' when calling deleteScheduleOverride");
+    }
+
+    // verify the required parameter 'overrideId' is set
+    if (overrideId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'overrideId' when calling deleteScheduleOverride");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/overrides/{override_id}"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()))
+            .replaceAll(
+                "\\{" + "override_id" + "\\}", apiClient.escapeString(overrideId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.deleteScheduleOverride",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete On-Call schedule override.
+   *
+   * <p>See {@link #deleteScheduleOverrideWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param overrideId The ID of the override. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteScheduleOverrideWithHttpInfoAsync(
+      String scheduleId, String overrideId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'scheduleId' when calling deleteScheduleOverride"));
+      return result;
+    }
+
+    // verify the required parameter 'overrideId' is set
+    if (overrideId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'overrideId' when calling deleteScheduleOverride"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/overrides/{override_id}"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()))
+            .replaceAll(
+                "\\{" + "override_id" + "\\}", apiClient.escapeString(overrideId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.deleteScheduleOverride",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2027,9 +2432,8 @@ public class OnCallApi {
      *
      * @param filterAtTs Retrieves the on-call responders at the given timestamp in RFC3339 format
      *     (for example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>
-     *     ). When using timezone offsets with <code>+</code> or <code>-</code>, ensure proper URL
-     *     encoding (<code>+</code> should be encoded as <code>%2B</code>). Defaults to the current
-     *     time if omitted. (optional)
+     *     ). If you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as
+     *     <code>%2B</code>. Defaults to the current time if omitted. (optional)
      * @return GetScheduleOnCallRespondersOptionalParameters
      */
     public GetScheduleOnCallRespondersOptionalParameters filterAtTs(String filterAtTs) {
@@ -2262,10 +2666,9 @@ public class OnCallApi {
      * Set filterAtTs.
      *
      * @param filterAtTs Retrieves the on-call user at the given timestamp in RFC3339 format (for
-     *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>).
-     *     When using timezone offsets with <code>+</code> or <code>-</code>, ensure proper URL
-     *     encoding (<code>+</code> should be encoded as <code>%2B</code>). Defaults to the current
-     *     time if omitted. (optional)
+     *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+     *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>
+     *     %2B</code>. Defaults to the current time if omitted. (optional)
      * @return GetScheduleOnCallUserOptionalParameters
      */
     public GetScheduleOnCallUserOptionalParameters filterAtTs(String filterAtTs) {
@@ -3349,6 +3752,425 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Schedules>() {});
+  }
+
+  /** Manage optional parameters to listScheduleOverrides. */
+  public static class ListScheduleOverridesOptionalParameters {
+    private String include;
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response. Allowed
+     *     values: <code>user</code>, <code>overridden_user</code>, <code>user.color</code>.
+     *     (optional)
+     * @return ListScheduleOverridesOptionalParameters
+     */
+    public ListScheduleOverridesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of overrides to return per page. The maximum allowed value is 50.
+     *     (optional, default to 10)
+     * @return ListScheduleOverridesOptionalParameters
+     */
+    public ListScheduleOverridesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListScheduleOverridesOptionalParameters
+     */
+    public ListScheduleOverridesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * List On-Call schedule overrides.
+   *
+   * <p>See {@link #listScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @return Overrides
+   * @throws ApiException if fails to make API call
+   */
+  public Overrides listScheduleOverrides(
+      String scheduleId, OffsetDateTime filterStart, OffsetDateTime filterEnd) throws ApiException {
+    return listScheduleOverridesWithHttpInfo(
+            scheduleId, filterStart, filterEnd, new ListScheduleOverridesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List On-Call schedule overrides.
+   *
+   * <p>See {@link #listScheduleOverridesWithHttpInfoAsync}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @return CompletableFuture&lt;Overrides&gt;
+   */
+  public CompletableFuture<Overrides> listScheduleOverridesAsync(
+      String scheduleId, OffsetDateTime filterStart, OffsetDateTime filterEnd) {
+    return listScheduleOverridesWithHttpInfoAsync(
+            scheduleId, filterStart, filterEnd, new ListScheduleOverridesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call schedule overrides.
+   *
+   * <p>See {@link #listScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @param parameters Optional parameters for the request.
+   * @return Overrides
+   * @throws ApiException if fails to make API call
+   */
+  public Overrides listScheduleOverrides(
+      String scheduleId,
+      OffsetDateTime filterStart,
+      OffsetDateTime filterEnd,
+      ListScheduleOverridesOptionalParameters parameters)
+      throws ApiException {
+    return listScheduleOverridesWithHttpInfo(scheduleId, filterStart, filterEnd, parameters)
+        .getData();
+  }
+
+  /**
+   * List On-Call schedule overrides.
+   *
+   * <p>See {@link #listScheduleOverridesWithHttpInfoAsync}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Overrides&gt;
+   */
+  public CompletableFuture<Overrides> listScheduleOverridesAsync(
+      String scheduleId,
+      OffsetDateTime filterStart,
+      OffsetDateTime filterEnd,
+      ListScheduleOverridesOptionalParameters parameters) {
+    return listScheduleOverridesWithHttpInfoAsync(scheduleId, filterStart, filterEnd, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call schedule overrides.
+   *
+   * <p>See {@link #listScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @return PaginationIterable&lt;OverrideData&gt;
+   */
+  public PaginationIterable<OverrideData> listScheduleOverridesWithPagination(
+      String scheduleId, OffsetDateTime filterStart, OffsetDateTime filterEnd) {
+    ListScheduleOverridesOptionalParameters parameters =
+        new ListScheduleOverridesOptionalParameters();
+    return listScheduleOverridesWithPagination(scheduleId, filterStart, filterEnd, parameters);
+  }
+
+  /**
+   * List On-Call schedule overrides.
+   *
+   * <p>See {@link #listScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @return Overrides
+   */
+  public PaginationIterable<OverrideData> listScheduleOverridesWithPagination(
+      String scheduleId,
+      OffsetDateTime filterStart,
+      OffsetDateTime filterEnd,
+      ListScheduleOverridesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("scheduleId", scheduleId);
+    args.put("filterStart", filterStart);
+    args.put("filterEnd", filterEnd);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listScheduleOverrides",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Retrieve a list of overrides for the specified On-Call schedule within a given time range.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Overrides&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Overrides> listScheduleOverridesWithHttpInfo(
+      String scheduleId,
+      OffsetDateTime filterStart,
+      OffsetDateTime filterEnd,
+      ListScheduleOverridesOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'scheduleId' when calling listScheduleOverrides");
+    }
+
+    // verify the required parameter 'filterStart' is set
+    if (filterStart == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterStart' when calling listScheduleOverrides");
+    }
+
+    // verify the required parameter 'filterEnd' is set
+    if (filterEnd == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterEnd' when calling listScheduleOverrides");
+    }
+    String include = parameters.include;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/overrides"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[start]", filterStart));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[end]", filterEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.listScheduleOverrides",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Overrides>() {});
+  }
+
+  /**
+   * List On-Call schedule overrides.
+   *
+   * <p>See {@link #listScheduleOverridesWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param filterStart Start of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. (required)
+   * @param filterEnd End of the time range to retrieve overrides for, in RFC3339 format (for
+   *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>). If
+   *     you use a time zone offset with <code>+</code>, URL-encode the <code>+</code> as <code>%2B
+   *     </code>. The time range cannot exceed 45 days. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Overrides&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Overrides>> listScheduleOverridesWithHttpInfoAsync(
+      String scheduleId,
+      OffsetDateTime filterStart,
+      OffsetDateTime filterEnd,
+      ListScheduleOverridesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      CompletableFuture<ApiResponse<Overrides>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'scheduleId' when calling listScheduleOverrides"));
+      return result;
+    }
+
+    // verify the required parameter 'filterStart' is set
+    if (filterStart == null) {
+      CompletableFuture<ApiResponse<Overrides>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterStart' when calling listScheduleOverrides"));
+      return result;
+    }
+
+    // verify the required parameter 'filterEnd' is set
+    if (filterEnd == null) {
+      CompletableFuture<ApiResponse<Overrides>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterEnd' when calling listScheduleOverrides"));
+      return result;
+    }
+    String include = parameters.include;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/overrides"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[start]", filterStart));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[end]", filterEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.listScheduleOverrides",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Overrides>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Overrides>() {});
   }
 
   /**
