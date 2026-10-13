@@ -1,4 +1,4 @@
-// Create a Workload Protection policy returns "OK" response
+// Create a Workload Protection policy returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -23,7 +23,7 @@ public class Example {
                     .attributes(
                         new CloudWorkloadSecurityAgentPolicyCreateAttributes()
                             .description("My agent policy")
-                            .enabled(true)
+                            .enabled(false)
                             .hostTagsLists(
                                 Collections.singletonList(Collections.singletonList("env:test")))
                             .name("my_agent_policy_2"))

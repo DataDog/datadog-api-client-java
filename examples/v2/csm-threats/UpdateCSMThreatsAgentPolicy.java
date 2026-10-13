@@ -26,7 +26,7 @@ public class Example {
                     .attributes(
                         new CloudWorkloadSecurityAgentPolicyUpdateAttributes()
                             .description("Updated agent policy")
-                            .enabled(true)
+                            .enabled(false)
                             .hostTagsLists(
                                 Collections.singletonList(Collections.singletonList("env:test")))
                             .name("updated_agent_policy"))
