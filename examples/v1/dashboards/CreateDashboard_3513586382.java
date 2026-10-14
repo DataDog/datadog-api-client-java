@@ -72,9 +72,6 @@ public class Example {
                                                             .width(ListStreamColumnWidth.AUTO),
                                                         new ListStreamColumn()
                                                             .field("classic")
-                                                            .width(ListStreamColumnWidth.AUTO),
-                                                        new ListStreamColumn()
-                                                            .field("")
                                                             .width(ListStreamColumnWidth.AUTO)))))
                                     .style(
                                         new GeomapWidgetDefinitionStyle()
