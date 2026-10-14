@@ -41,7 +41,10 @@ public class WidgetLiveSpan extends ModelEnum<String> {
               "week_to_date",
               "month_to_date",
               "1y",
-              "alert"));
+              "alert",
+              "full_week",
+              "full_month",
+              "year_to_date"));
 
   public static final WidgetLiveSpan PAST_ONE_MINUTE = new WidgetLiveSpan("1m");
   public static final WidgetLiveSpan PAST_FIVE_MINUTES = new WidgetLiveSpan("5m");
@@ -60,6 +63,9 @@ public class WidgetLiveSpan extends ModelEnum<String> {
   public static final WidgetLiveSpan MONTH_TO_DATE = new WidgetLiveSpan("month_to_date");
   public static final WidgetLiveSpan PAST_ONE_YEAR = new WidgetLiveSpan("1y");
   public static final WidgetLiveSpan ALERT = new WidgetLiveSpan("alert");
+  public static final WidgetLiveSpan FULL_WEEK = new WidgetLiveSpan("full_week");
+  public static final WidgetLiveSpan FULL_MONTH = new WidgetLiveSpan("full_month");
+  public static final WidgetLiveSpan YEAR_TO_DATE = new WidgetLiveSpan("year_to_date");
 
   WidgetLiveSpan(String value) {
     super(value, allowedValues);
