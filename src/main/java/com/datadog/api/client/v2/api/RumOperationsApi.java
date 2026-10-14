@@ -101,13 +101,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<RUMOperationResponse> createRUMOperationWithHttpInfo(
       RUMOperationCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -150,16 +143,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<RUMOperationResponse>> createRUMOperationWithHttpInfoAsync(
       RUMOperationCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RUMOperationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -255,13 +238,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<RUMOperationStrongLinkResponse> createRUMOperationStrongLinkWithHttpInfo(
       RUMOperationStrongLinkCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createRUMOperationStrongLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -304,17 +280,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<RUMOperationStrongLinkResponse>>
       createRUMOperationStrongLinkWithHttpInfoAsync(RUMOperationStrongLinkCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createRUMOperationStrongLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RUMOperationStrongLinkResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -405,13 +370,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<Void> deleteRUMOperationWithHttpInfo(String rumOperationId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'rumOperationId' is set
@@ -458,16 +416,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteRUMOperationWithHttpInfoAsync(
       String rumOperationId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'rumOperationId' is set
@@ -565,13 +513,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<Void> deleteRUMOperationStrongLinkWithHttpInfo(
       String rumOperationId, String featureId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteRUMOperationStrongLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'rumOperationId' is set
@@ -629,16 +570,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteRUMOperationStrongLinkWithHttpInfoAsync(
       String rumOperationId, String featureId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteRUMOperationStrongLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'rumOperationId' is set
@@ -745,13 +676,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<RUMOperationResponse> getRUMOperationWithHttpInfo(String rumOperationId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'rumOperationId' is set
@@ -798,16 +722,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<RUMOperationResponse>> getRUMOperationWithHttpInfoAsync(
       String rumOperationId) {
-    // Check if unstable operation is enabled
-    String operationId = "getRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RUMOperationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'rumOperationId' is set
@@ -901,13 +815,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<RUMOperationResponse> getRUMOperationByNameWithHttpInfo(String name)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getRUMOperationByName";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'name' is set
@@ -952,16 +859,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<RUMOperationResponse>>
       getRUMOperationByNameWithHttpInfoAsync(String name) {
-    // Check if unstable operation is enabled
-    String operationId = "getRUMOperationByName";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RUMOperationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'name' is set
@@ -1171,13 +1068,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<RUMOperationsListResponse> listRUMOperationsWithHttpInfo(
       ListRUMOperationsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listRUMOperations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String query = parameters.query;
     Long pageOffset = parameters.pageOffset;
@@ -1230,16 +1120,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<RUMOperationsListResponse>>
       listRUMOperationsWithHttpInfoAsync(ListRUMOperationsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listRUMOperations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RUMOperationsListResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String query = parameters.query;
     Long pageOffset = parameters.pageOffset;
@@ -1567,13 +1447,6 @@ public class RumOperationsApi {
    */
   public ApiResponse<RUMOperationResponse> updateRUMOperationWithHttpInfo(
       String rumOperationId, RUMOperationUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'rumOperationId' is set
@@ -1627,16 +1500,6 @@ public class RumOperationsApi {
    */
   public CompletableFuture<ApiResponse<RUMOperationResponse>> updateRUMOperationWithHttpInfoAsync(
       String rumOperationId, RUMOperationUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateRUMOperation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RUMOperationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'rumOperationId' is set
@@ -1750,13 +1613,6 @@ public class RumOperationsApi {
   public ApiResponse<RUMOperationStrongLinkResponse> updateRUMOperationStrongLinkWithHttpInfo(
       String rumOperationId, String featureId, RUMOperationStrongLinkUpdateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateRUMOperationStrongLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'rumOperationId' is set
@@ -1822,17 +1678,6 @@ public class RumOperationsApi {
   public CompletableFuture<ApiResponse<RUMOperationStrongLinkResponse>>
       updateRUMOperationStrongLinkWithHttpInfoAsync(
           String rumOperationId, String featureId, RUMOperationStrongLinkUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateRUMOperationStrongLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RUMOperationStrongLinkResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'rumOperationId' is set

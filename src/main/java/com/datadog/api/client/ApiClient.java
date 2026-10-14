@@ -1546,15 +1546,6 @@ public class ApiClient {
           put("v2.getTeamsOwnershipMapping", false);
           put("v2.listTeamsOwnershipMappings", false);
           put("v2.listTeamsOwnershipRules", false);
-          put("v2.createRUMOperation", false);
-          put("v2.createRUMOperationStrongLink", false);
-          put("v2.deleteRUMOperation", false);
-          put("v2.deleteRUMOperationStrongLink", false);
-          put("v2.getRUMOperation", false);
-          put("v2.getRUMOperationByName", false);
-          put("v2.listRUMOperations", false);
-          put("v2.updateRUMOperation", false);
-          put("v2.updateRUMOperationStrongLink", false);
           put("v2.queryAggregatedLongTasks", false);
           put("v2.queryAggregatedWaterfall", false);
           put("v2.createScorecardOutcomesBatch", false);
