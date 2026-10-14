@@ -34,14 +34,10 @@ public class ExperimentsDatadogEntryPointFilter {
   private String column;
 
   public static final String JSON_PROPERTY_COLUMN_TYPE = "column_type";
-  private
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-      columnType;
+  private ExperimentsDatadogEntryPointFilterColumnType columnType;
 
   public static final String JSON_PROPERTY_OPERATION = "operation";
-  private
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation
-      operation;
+  private ExperimentsDatadogEntryPointFilterOperation operation;
 
   public static final String JSON_PROPERTY_VALUES = "values";
   private List<String> values = new ArrayList<>();
@@ -52,11 +48,9 @@ public class ExperimentsDatadogEntryPointFilter {
   public ExperimentsDatadogEntryPointFilter(
       @JsonProperty(required = true, value = JSON_PROPERTY_COLUMN) String column,
       @JsonProperty(required = true, value = JSON_PROPERTY_COLUMN_TYPE)
-          ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-              columnType,
+          ExperimentsDatadogEntryPointFilterColumnType columnType,
       @JsonProperty(required = true, value = JSON_PROPERTY_OPERATION)
-          ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation
-              operation,
+          ExperimentsDatadogEntryPointFilterOperation operation,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUES) List<String> values) {
     this.column = column;
     this.columnType = columnType;
@@ -87,8 +81,7 @@ public class ExperimentsDatadogEntryPointFilter {
   }
 
   public ExperimentsDatadogEntryPointFilter columnType(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-          columnType) {
+      ExperimentsDatadogEntryPointFilterColumnType columnType) {
     this.columnType = columnType;
     this.unparsed |= !columnType.isValid();
     return this;
@@ -101,15 +94,11 @@ public class ExperimentsDatadogEntryPointFilter {
    */
   @JsonProperty(JSON_PROPERTY_COLUMN_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-      getColumnType() {
+  public ExperimentsDatadogEntryPointFilterColumnType getColumnType() {
     return columnType;
   }
 
-  public void setColumnType(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-          columnType) {
+  public void setColumnType(ExperimentsDatadogEntryPointFilterColumnType columnType) {
     if (!columnType.isValid()) {
       this.unparsed = true;
     }
@@ -117,8 +106,7 @@ public class ExperimentsDatadogEntryPointFilter {
   }
 
   public ExperimentsDatadogEntryPointFilter operation(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation
-          operation) {
+      ExperimentsDatadogEntryPointFilterOperation operation) {
     this.operation = operation;
     this.unparsed |= !operation.isValid();
     return this;
@@ -131,15 +119,11 @@ public class ExperimentsDatadogEntryPointFilter {
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation
-      getOperation() {
+  public ExperimentsDatadogEntryPointFilterOperation getOperation() {
     return operation;
   }
 
-  public void setOperation(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation
-          operation) {
+  public void setOperation(ExperimentsDatadogEntryPointFilterOperation operation) {
     if (!operation.isValid()) {
       this.unparsed = true;
     }

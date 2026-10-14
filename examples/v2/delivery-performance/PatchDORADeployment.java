@@ -1,0 +1,43 @@
+// Mark a deployment as failed by ID returns "Accepted" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.DeliveryPerformanceApi;
+import com.datadog.api.client.v2.model.DORADeploymentPatchRemediation;
+import com.datadog.api.client.v2.model.DORADeploymentPatchRemediationType;
+import com.datadog.api.client.v2.model.DORADeploymentPatchRequest;
+import com.datadog.api.client.v2.model.DORADeploymentPatchRequestAttributes;
+import com.datadog.api.client.v2.model.DORADeploymentPatchRequestData;
+import com.datadog.api.client.v2.model.DORADeploymentPatchRequestDataType;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    DeliveryPerformanceApi apiInstance = new DeliveryPerformanceApi(defaultClient);
+
+    DORADeploymentPatchRequest body =
+        new DORADeploymentPatchRequest()
+            .data(
+                new DORADeploymentPatchRequestData()
+                    .attributes(
+                        new DORADeploymentPatchRequestAttributes()
+                            .changeFailure(true)
+                            .remediation(
+                                new DORADeploymentPatchRemediation()
+                                    .id("eG42zNIkVjM")
+                                    .type(DORADeploymentPatchRemediationType.ROLLBACK)))
+                    .id("z_RwVLi7v4Y")
+                    .type(DORADeploymentPatchRequestDataType.DORA_DEPLOYMENT_PATCH_REQUEST));
+
+    try {
+      apiInstance.patchDORADeployment("deployment_id", body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryPerformanceApi#patchDORADeployment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}

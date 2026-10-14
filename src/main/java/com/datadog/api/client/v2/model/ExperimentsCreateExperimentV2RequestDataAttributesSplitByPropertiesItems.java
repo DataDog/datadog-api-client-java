@@ -36,9 +36,7 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesSplitByProperties
   private String columnName;
 
   public static final String JSON_PROPERTY_COLUMN_TYPE = "column_type";
-  private
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-      columnType;
+  private ExperimentsDatadogEntryPointFilterColumnType columnType;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -73,8 +71,7 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesSplitByProperties
   }
 
   public ExperimentsCreateExperimentV2RequestDataAttributesSplitByPropertiesItems columnType(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-          columnType) {
+      ExperimentsDatadogEntryPointFilterColumnType columnType) {
     this.columnType = columnType;
     this.unparsed |= !columnType.isValid();
     return this;
@@ -88,15 +85,11 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesSplitByProperties
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLUMN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-      getColumnType() {
+  public ExperimentsDatadogEntryPointFilterColumnType getColumnType() {
     return columnType;
   }
 
-  public void setColumnType(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType
-          columnType) {
+  public void setColumnType(ExperimentsDatadogEntryPointFilterColumnType columnType) {
     if (!columnType.isValid()) {
       this.unparsed = true;
     }

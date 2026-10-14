@@ -95,8 +95,7 @@ public class ExperimentsWarehouseMetricAggregationInput {
   private String timeframeUnit;
 
   public static final String JSON_PROPERTY_WAREHOUSE_METRIC_MEASURE = "warehouse_metric_measure";
-  private ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-      warehouseMetricMeasure;
+  private ExperimentsWarehouseMetricMeasure warehouseMetricMeasure;
 
   public static final String JSON_PROPERTY_WINSOR_LOWER_FIXED_VALUE = "winsor_lower_fixed_value";
   private Double winsorLowerFixedValue;
@@ -119,8 +118,7 @@ public class ExperimentsWarehouseMetricAggregationInput {
   public ExperimentsWarehouseMetricAggregationInput(
       @JsonProperty(required = true, value = JSON_PROPERTY_OPERATION) String operation,
       @JsonProperty(required = true, value = JSON_PROPERTY_WAREHOUSE_METRIC_MEASURE)
-          ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-              warehouseMetricMeasure) {
+          ExperimentsWarehouseMetricMeasure warehouseMetricMeasure) {
     this.operation = operation;
     this.warehouseMetricMeasure = warehouseMetricMeasure;
     this.unparsed |= warehouseMetricMeasure.unparsed;
@@ -455,8 +453,7 @@ public class ExperimentsWarehouseMetricAggregationInput {
   }
 
   public ExperimentsWarehouseMetricAggregationInput warehouseMetricMeasure(
-      ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-          warehouseMetricMeasure) {
+      ExperimentsWarehouseMetricMeasure warehouseMetricMeasure) {
     this.warehouseMetricMeasure = warehouseMetricMeasure;
     this.unparsed |= warehouseMetricMeasure.unparsed;
     return this;
@@ -469,14 +466,11 @@ public class ExperimentsWarehouseMetricAggregationInput {
    */
   @JsonProperty(JSON_PROPERTY_WAREHOUSE_METRIC_MEASURE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-      getWarehouseMetricMeasure() {
+  public ExperimentsWarehouseMetricMeasure getWarehouseMetricMeasure() {
     return warehouseMetricMeasure;
   }
 
-  public void setWarehouseMetricMeasure(
-      ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-          warehouseMetricMeasure) {
+  public void setWarehouseMetricMeasure(ExperimentsWarehouseMetricMeasure warehouseMetricMeasure) {
     this.warehouseMetricMeasure = warehouseMetricMeasure;
     if (warehouseMetricMeasure != null) {
       this.unparsed |= warehouseMetricMeasure.unparsed;

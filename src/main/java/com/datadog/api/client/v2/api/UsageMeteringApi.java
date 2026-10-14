@@ -3528,12 +3528,12 @@ public class UsageMeteringApi {
    * fields.Data.GetAttributes()
    *
    * <p>// resp is the *UsageSummaryResponse returned by api.GetUsageSummary(ctx, ...) // Layer 1:
-   * UsageSummaryResponse for <em>, key := range attr.GetResponseFields() { if val, ok :=
+   * UsageSummaryResponse for _, key := range attr.GetResponseFields() { if val, ok :=
    * resp.AdditionalProperties[key]; ok { fmt.Println(key, val.(json.Number)) } } // Layer 2:
-   * UsageSummaryDate (per month) for </em>, date := range resp.GetUsage() { for <em>, key := range
+   * UsageSummaryDate (per month) for _, date := range resp.GetUsage() { for _, key := range
    * attr.GetDateFields() { if val, ok := date.AdditionalProperties[key]; ok { fmt.Println(key,
-   * val.(json.Number)) } } // Layer 3: UsageSummaryDateOrg (per org per month) for </em>, org :=
-   * range date.GetOrgs() { for _, key := range attr.GetDateOrgFields() { if val, ok :=
+   * val.(json.Number)) } } // Layer 3: UsageSummaryDateOrg (per org per month) for _, org := range
+   * date.GetOrgs() { for _, key := range attr.GetDateOrgFields() { if val, ok :=
    * org.AdditionalProperties[key]; ok { fmt.Println(key, val.(json.Number)) } } } } ```
    *
    * @return ApiResponse&lt;UsageSummaryAvailableFieldsResponse&gt;
