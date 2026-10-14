@@ -295,6 +295,50 @@ public class EntityV3 extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'EntityV3API'", e);
       }
 
+      // deserialize EntityV3Repository
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (EntityV3Repository.class.equals(Integer.class)
+            || EntityV3Repository.class.equals(Long.class)
+            || EntityV3Repository.class.equals(Float.class)
+            || EntityV3Repository.class.equals(Double.class)
+            || EntityV3Repository.class.equals(Boolean.class)
+            || EntityV3Repository.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((EntityV3Repository.class.equals(Integer.class)
+                        || EntityV3Repository.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((EntityV3Repository.class.equals(Float.class)
+                        || EntityV3Repository.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (EntityV3Repository.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (EntityV3Repository.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(EntityV3Repository.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((EntityV3Repository) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'EntityV3Repository'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'EntityV3Repository'", e);
+      }
+
       EntityV3 ret = new EntityV3();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -348,12 +392,18 @@ public class EntityV3 extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public EntityV3(EntityV3Repository o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("EntityV3Service", new GenericType<EntityV3Service>() {});
     schemas.put("EntityV3Datastore", new GenericType<EntityV3Datastore>() {});
     schemas.put("EntityV3Queue", new GenericType<EntityV3Queue>() {});
     schemas.put("EntityV3System", new GenericType<EntityV3System>() {});
     schemas.put("EntityV3API", new GenericType<EntityV3API>() {});
+    schemas.put("EntityV3Repository", new GenericType<EntityV3Repository>() {});
     JSON.registerDescendants(EntityV3.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -365,7 +415,7 @@ public class EntityV3 extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: EntityV3Service, EntityV3Datastore, EntityV3Queue,
-   * EntityV3System, EntityV3API
+   * EntityV3System, EntityV3API, EntityV3Repository
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -392,6 +442,10 @@ public class EntityV3 extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(EntityV3Repository.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -399,15 +453,15 @@ public class EntityV3 extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be EntityV3Service, EntityV3Datastore, EntityV3Queue,"
-            + " EntityV3System, EntityV3API");
+            + " EntityV3System, EntityV3API, EntityV3Repository");
   }
 
   /**
    * Get the actual instance, which can be the following: EntityV3Service, EntityV3Datastore,
-   * EntityV3Queue, EntityV3System, EntityV3API
+   * EntityV3Queue, EntityV3System, EntityV3API, EntityV3Repository
    *
    * @return The actual instance (EntityV3Service, EntityV3Datastore, EntityV3Queue, EntityV3System,
-   *     EntityV3API)
+   *     EntityV3API, EntityV3Repository)
    */
   @Override
   public Object getActualInstance() {
@@ -467,5 +521,16 @@ public class EntityV3 extends AbstractOpenApiSchema {
    */
   public EntityV3API getEntityV3API() throws ClassCastException {
     return (EntityV3API) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `EntityV3Repository`. If the actual instance is not
+   * `EntityV3Repository`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `EntityV3Repository`
+   * @throws ClassCastException if the instance is not `EntityV3Repository`
+   */
+  public EntityV3Repository getEntityV3Repository() throws ClassCastException {
+    return (EntityV3Repository) super.getActualInstance();
   }
 }
