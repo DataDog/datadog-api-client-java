@@ -1,19 +1,21 @@
-// Delete a deployment event returns "Accepted" response
+// Get a deployment event returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.DoraMetricsApi;
+import com.datadog.api.client.v2.api.DeliveryPerformanceApi;
+import com.datadog.api.client.v2.model.DORADeploymentFetchResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
-    DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
+    DeliveryPerformanceApi apiInstance = new DeliveryPerformanceApi(defaultClient);
 
     try {
-      apiInstance.deleteDORADeployment("NO_VALUE");
+      DORADeploymentFetchResponse result = apiInstance.getDORADeployment("deployment_id");
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DoraMetricsApi#deleteDORADeployment");
+      System.err.println("Exception when calling DeliveryPerformanceApi#getDORADeployment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

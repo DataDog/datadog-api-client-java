@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.DoraMetricsApi;
+import com.datadog.api.client.v2.api.DeliveryPerformanceApi;
 import com.datadog.api.client.v2.model.DORAFailuresListResponse;
 import com.datadog.api.client.v2.model.DORAListFailuresRequest;
 import com.datadog.api.client.v2.model.DORAListFailuresRequestAttributes;
@@ -14,7 +14,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
-    DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
+    DeliveryPerformanceApi apiInstance = new DeliveryPerformanceApi(defaultClient);
 
     DORAListFailuresRequest body =
         new DORAListFailuresRequest()
@@ -33,7 +33,7 @@ public class Example {
       DORAFailuresListResponse result = apiInstance.listDORAFailures(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DoraMetricsApi#listDORAFailures");
+      System.err.println("Exception when calling DeliveryPerformanceApi#listDORAFailures");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

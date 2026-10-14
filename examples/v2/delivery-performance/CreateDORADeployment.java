@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.DoraMetricsApi;
+import com.datadog.api.client.v2.api.DeliveryPerformanceApi;
 import com.datadog.api.client.v2.model.DORADeploymentRequest;
 import com.datadog.api.client.v2.model.DORADeploymentRequestAttributes;
 import com.datadog.api.client.v2.model.DORADeploymentRequestData;
@@ -12,7 +12,7 @@ import com.datadog.api.client.v2.model.DORAGitInfo;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
+    DeliveryPerformanceApi apiInstance = new DeliveryPerformanceApi(defaultClient);
 
     DORADeploymentRequest body =
         new DORADeploymentRequest()
@@ -34,7 +34,7 @@ public class Example {
       DORADeploymentResponse result = apiInstance.createDORADeployment(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DoraMetricsApi#createDORADeployment");
+      System.err.println("Exception when calling DeliveryPerformanceApi#createDORADeployment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

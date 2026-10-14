@@ -26,14 +26,14 @@ import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DoraMetricsApi {
+public class DeliveryPerformanceApi {
   private ApiClient apiClient;
 
-  public DoraMetricsApi() {
+  public DeliveryPerformanceApi() {
     this(ApiClient.getDefaultApiClient());
   }
 
-  public DoraMetricsApi(ApiClient apiClient) {
+  public DeliveryPerformanceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -117,7 +117,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.createAIImpactUserActivity",
+            "v2.DeliveryPerformanceApi.createAIImpactUserActivity",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -165,7 +165,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.createAIImpactUserActivity",
+              "v2.DeliveryPerformanceApi.createAIImpactUserActivity",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -255,7 +255,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.createDORADeployment",
+            "v2.DeliveryPerformanceApi.createDORADeployment",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -302,7 +302,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.createDORADeployment",
+              "v2.DeliveryPerformanceApi.createDORADeployment",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -391,7 +391,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.createDORAFailure",
+            "v2.DeliveryPerformanceApi.createDORAFailure",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -438,7 +438,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.createDORAFailure",
+              "v2.DeliveryPerformanceApi.createDORAFailure",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -534,7 +534,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.createDORAIncident",
+            "v2.DeliveryPerformanceApi.createDORAIncident",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -583,7 +583,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.createDORAIncident",
+              "v2.DeliveryPerformanceApi.createDORAIncident",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -669,7 +669,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.deleteDORADeployment",
+            "v2.DeliveryPerformanceApi.deleteDORADeployment",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -720,7 +720,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.deleteDORADeployment",
+              "v2.DeliveryPerformanceApi.deleteDORADeployment",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -804,7 +804,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.deleteDORAFailure",
+            "v2.DeliveryPerformanceApi.deleteDORAFailure",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -852,7 +852,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.deleteDORAFailure",
+              "v2.DeliveryPerformanceApi.deleteDORAFailure",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -940,7 +940,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.getDORADeployment",
+            "v2.DeliveryPerformanceApi.getDORADeployment",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -991,7 +991,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.getDORADeployment",
+              "v2.DeliveryPerformanceApi.getDORADeployment",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1078,7 +1078,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.getDORAFailure",
+            "v2.DeliveryPerformanceApi.getDORAFailure",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1127,7 +1127,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.getDORAFailure",
+              "v2.DeliveryPerformanceApi.getDORAFailure",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1213,7 +1213,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.listDORADeployments",
+            "v2.DeliveryPerformanceApi.listDORADeployments",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1261,7 +1261,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.listDORADeployments",
+              "v2.DeliveryPerformanceApi.listDORADeployments",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1348,7 +1348,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.listDORAFailures",
+            "v2.DeliveryPerformanceApi.listDORAFailures",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1395,7 +1395,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.listDORAFailures",
+              "v2.DeliveryPerformanceApi.listDORAFailures",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1494,7 +1494,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.patchDORADeployment",
+            "v2.DeliveryPerformanceApi.patchDORADeployment",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1555,7 +1555,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.patchDORADeployment",
+              "v2.DeliveryPerformanceApi.patchDORADeployment",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1644,7 +1644,7 @@ public class DoraMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DoraMetricsApi.patchDORADeploymentByVersion",
+            "v2.DeliveryPerformanceApi.patchDORADeploymentByVersion",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1692,7 +1692,7 @@ public class DoraMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DoraMetricsApi.patchDORADeploymentByVersion",
+              "v2.DeliveryPerformanceApi.patchDORADeploymentByVersion",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

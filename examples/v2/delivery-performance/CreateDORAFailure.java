@@ -1,8 +1,8 @@
-// Send an incident event (legacy) returns "OK" response
+// Send an incident event returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.DoraMetricsApi;
+import com.datadog.api.client.v2.api.DeliveryPerformanceApi;
 import com.datadog.api.client.v2.model.DORAFailureRequest;
 import com.datadog.api.client.v2.model.DORAFailureRequestAttributes;
 import com.datadog.api.client.v2.model.DORAFailureRequestData;
@@ -14,7 +14,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
+    DeliveryPerformanceApi apiInstance = new DeliveryPerformanceApi(defaultClient);
 
     DORAFailureRequest body =
         new DORAFailureRequest()
@@ -38,10 +38,10 @@ public class Example {
                             .version("v1.12.07")));
 
     try {
-      DORAFailureResponse result = apiInstance.createDORAIncident(body);
+      DORAFailureResponse result = apiInstance.createDORAFailure(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DoraMetricsApi#createDORAIncident");
+      System.err.println("Exception when calling DeliveryPerformanceApi#createDORAFailure");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

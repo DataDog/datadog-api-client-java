@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.DoraMetricsApi;
+import com.datadog.api.client.v2.api.DeliveryPerformanceApi;
 import com.datadog.api.client.v2.model.DORADeploymentPatchRemediation;
 import com.datadog.api.client.v2.model.DORADeploymentPatchRemediationType;
 import com.datadog.api.client.v2.model.DORADeploymentPatchRequest;
@@ -14,7 +14,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
-    DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
+    DeliveryPerformanceApi apiInstance = new DeliveryPerformanceApi(defaultClient);
 
     DORADeploymentPatchRequest body =
         new DORADeploymentPatchRequest()
@@ -33,7 +33,7 @@ public class Example {
     try {
       apiInstance.patchDORADeployment("deployment_id", body);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DoraMetricsApi#patchDORADeployment");
+      System.err.println("Exception when calling DeliveryPerformanceApi#patchDORADeployment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
