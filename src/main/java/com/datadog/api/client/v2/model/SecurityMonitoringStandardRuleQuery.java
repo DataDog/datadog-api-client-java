@@ -23,6 +23,8 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_AGGREGATION,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_CUSTOM_QUERY_EXTENSION,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DATA_SOURCE,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DATASET_IDS,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DATASET_VERSIONS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
@@ -31,7 +33,8 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRIC,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRICS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_NAME,
-  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_QUERY
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_QUERY,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_QUERY_LANGUAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -46,6 +49,12 @@ public class SecurityMonitoringStandardRuleQuery {
   public static final String JSON_PROPERTY_DATA_SOURCE = "dataSource";
   private SecurityMonitoringStandardDataSource dataSource =
       SecurityMonitoringStandardDataSource.LOGS;
+
+  public static final String JSON_PROPERTY_DATASET_IDS = "datasetIds";
+  private List<String> datasetIds = null;
+
+  public static final String JSON_PROPERTY_DATASET_VERSIONS = "datasetVersions";
+  private Map<String, Long> datasetVersions = null;
 
   public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
   private List<String> distinctFields = null;
@@ -74,6 +83,9 @@ public class SecurityMonitoringStandardRuleQuery {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_QUERY_LANGUAGE = "queryLanguage";
+  private String queryLanguage;
 
   public SecurityMonitoringStandardRuleQuery aggregation(
       SecurityMonitoringRuleQueryAggregation aggregation) {
@@ -147,6 +159,67 @@ public class SecurityMonitoringStandardRuleQuery {
       this.unparsed = true;
     }
     this.dataSource = dataSource;
+  }
+
+  public SecurityMonitoringStandardRuleQuery datasetIds(List<String> datasetIds) {
+    this.datasetIds = datasetIds;
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleQuery addDatasetIdsItem(String datasetIdsItem) {
+    if (this.datasetIds == null) {
+      this.datasetIds = new ArrayList<>();
+    }
+    this.datasetIds.add(datasetIdsItem);
+    return this;
+  }
+
+  /**
+   * IDs of the datasets queried by the rule. Only used when <code>queryLanguage</code> is <code>sql
+   * </code>.
+   *
+   * @return datasetIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATASET_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDatasetIds() {
+    return datasetIds;
+  }
+
+  public void setDatasetIds(List<String> datasetIds) {
+    this.datasetIds = datasetIds;
+  }
+
+  public SecurityMonitoringStandardRuleQuery datasetVersions(Map<String, Long> datasetVersions) {
+    this.datasetVersions = datasetVersions;
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleQuery putDatasetVersionsItem(
+      String key, Long datasetVersionsItem) {
+    if (this.datasetVersions == null) {
+      this.datasetVersions = new HashMap<>();
+    }
+    this.datasetVersions.put(key, datasetVersionsItem);
+    return this;
+  }
+
+  /**
+   * Version of each dataset used by the rule, keyed by dataset ID. Only used when <code>
+   * queryLanguage</code> is <code>sql</code>.
+   *
+   * @return datasetVersions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATASET_VERSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Long> getDatasetVersions() {
+    return datasetVersions;
+  }
+
+  public void setDatasetVersions(Map<String, Long> datasetVersions) {
+    this.datasetVersions = datasetVersions;
   }
 
   public SecurityMonitoringStandardRuleQuery distinctFields(List<String> distinctFields) {
@@ -383,6 +456,28 @@ public class SecurityMonitoringStandardRuleQuery {
     this.query = query;
   }
 
+  public SecurityMonitoringStandardRuleQuery queryLanguage(String queryLanguage) {
+    this.queryLanguage = queryLanguage;
+    return this;
+  }
+
+  /**
+   * Language of the query. Use <code>sql</code> for SQL-based rules over datasets. Defaults to
+   * <code>event_query</code>.
+   *
+   * @return queryLanguage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQueryLanguage() {
+    return queryLanguage;
+  }
+
+  public void setQueryLanguage(String queryLanguage) {
+    this.queryLanguage = queryLanguage;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -444,6 +539,8 @@ public class SecurityMonitoringStandardRuleQuery {
         && Objects.equals(
             this.customQueryExtension, securityMonitoringStandardRuleQuery.customQueryExtension)
         && Objects.equals(this.dataSource, securityMonitoringStandardRuleQuery.dataSource)
+        && Objects.equals(this.datasetIds, securityMonitoringStandardRuleQuery.datasetIds)
+        && Objects.equals(this.datasetVersions, securityMonitoringStandardRuleQuery.datasetVersions)
         && Objects.equals(this.distinctFields, securityMonitoringStandardRuleQuery.distinctFields)
         && Objects.equals(this.groupByFields, securityMonitoringStandardRuleQuery.groupByFields)
         && Objects.equals(
@@ -455,6 +552,7 @@ public class SecurityMonitoringStandardRuleQuery {
         && Objects.equals(this.metrics, securityMonitoringStandardRuleQuery.metrics)
         && Objects.equals(this.name, securityMonitoringStandardRuleQuery.name)
         && Objects.equals(this.query, securityMonitoringStandardRuleQuery.query)
+        && Objects.equals(this.queryLanguage, securityMonitoringStandardRuleQuery.queryLanguage)
         && Objects.equals(
             this.additionalProperties, securityMonitoringStandardRuleQuery.additionalProperties);
   }
@@ -465,6 +563,8 @@ public class SecurityMonitoringStandardRuleQuery {
         aggregation,
         customQueryExtension,
         dataSource,
+        datasetIds,
+        datasetVersions,
         distinctFields,
         groupByFields,
         hasOptionalGroupByFields,
@@ -474,6 +574,7 @@ public class SecurityMonitoringStandardRuleQuery {
         metrics,
         name,
         query,
+        queryLanguage,
         additionalProperties);
   }
 
@@ -486,6 +587,8 @@ public class SecurityMonitoringStandardRuleQuery {
         .append(toIndentedString(customQueryExtension))
         .append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    datasetIds: ").append(toIndentedString(datasetIds)).append("\n");
+    sb.append("    datasetVersions: ").append(toIndentedString(datasetVersions)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    hasOptionalGroupByFields: ")
@@ -497,6 +600,7 @@ public class SecurityMonitoringStandardRuleQuery {
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    queryLanguage: ").append(toIndentedString(queryLanguage)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
