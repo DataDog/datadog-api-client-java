@@ -33,6 +33,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineGenerateMetricsV2Processor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineGenerateMetricsV2Processor.JSON_PROPERTY_ENABLED,
+  ObservabilityPipelineGenerateMetricsV2Processor.JSON_PROPERTY_ENABLED_METRIC_AGGREGATION,
   ObservabilityPipelineGenerateMetricsV2Processor.JSON_PROPERTY_ID,
   ObservabilityPipelineGenerateMetricsV2Processor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineGenerateMetricsV2Processor.JSON_PROPERTY_METRICS,
@@ -47,6 +48,10 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
+
+  public static final String JSON_PROPERTY_ENABLED_METRIC_AGGREGATION =
+      "enabled_metric_aggregation";
+  private Boolean enabledMetricAggregation = true;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -114,6 +119,29 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public ObservabilityPipelineGenerateMetricsV2Processor enabledMetricAggregation(
+      Boolean enabledMetricAggregation) {
+    this.enabledMetricAggregation = enabledMetricAggregation;
+    return this;
+  }
+
+  /**
+   * [Recommended] Indicates whether generated metrics are automatically aggregated and enriched
+   * with the <code>worker_uuid</code> tag before being sent to the metric destination.
+   *
+   * @return enabledMetricAggregation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED_METRIC_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabledMetricAggregation() {
+    return enabledMetricAggregation;
+  }
+
+  public void setEnabledMetricAggregation(Boolean enabledMetricAggregation) {
+    this.enabledMetricAggregation = enabledMetricAggregation;
   }
 
   public ObservabilityPipelineGenerateMetricsV2Processor id(String id) {
@@ -287,6 +315,9 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
     return Objects.equals(
             this.displayName, observabilityPipelineGenerateMetricsV2Processor.displayName)
         && Objects.equals(this.enabled, observabilityPipelineGenerateMetricsV2Processor.enabled)
+        && Objects.equals(
+            this.enabledMetricAggregation,
+            observabilityPipelineGenerateMetricsV2Processor.enabledMetricAggregation)
         && Objects.equals(this.id, observabilityPipelineGenerateMetricsV2Processor.id)
         && Objects.equals(this.include, observabilityPipelineGenerateMetricsV2Processor.include)
         && Objects.equals(this.metrics, observabilityPipelineGenerateMetricsV2Processor.metrics)
@@ -298,7 +329,15 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, enabled, id, include, metrics, type, additionalProperties);
+    return Objects.hash(
+        displayName,
+        enabled,
+        enabledMetricAggregation,
+        id,
+        include,
+        metrics,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -307,6 +346,9 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
     sb.append("class ObservabilityPipelineGenerateMetricsV2Processor {\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    enabledMetricAggregation: ")
+        .append(toIndentedString(enabledMetricAggregation))
+        .append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");

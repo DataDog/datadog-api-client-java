@@ -36,9 +36,7 @@ public class ExperimentsPropertyFilterInput {
   private JsonNullable<String> measureId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OPERATION = "operation";
-  private
-  ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation
-      operation;
+  private ExperimentsWarehouseEntryPointFilterOperation operation;
 
   public static final String JSON_PROPERTY_PROPERTY_ID = "property_id";
   private UUID propertyId;
@@ -51,8 +49,7 @@ public class ExperimentsPropertyFilterInput {
   @JsonCreator
   public ExperimentsPropertyFilterInput(
       @JsonProperty(required = true, value = JSON_PROPERTY_OPERATION)
-          ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation
-              operation,
+          ExperimentsWarehouseEntryPointFilterOperation operation,
       @JsonProperty(required = true, value = JSON_PROPERTY_PROPERTY_ID) UUID propertyId,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUES) List<String> values) {
     this.operation = operation;
@@ -93,8 +90,7 @@ public class ExperimentsPropertyFilterInput {
   }
 
   public ExperimentsPropertyFilterInput operation(
-      ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation
-          operation) {
+      ExperimentsWarehouseEntryPointFilterOperation operation) {
     this.operation = operation;
     this.unparsed |= !operation.isValid();
     return this;
@@ -107,15 +103,11 @@ public class ExperimentsPropertyFilterInput {
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public
-  ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation
-      getOperation() {
+  public ExperimentsWarehouseEntryPointFilterOperation getOperation() {
     return operation;
   }
 
-  public void setOperation(
-      ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation
-          operation) {
+  public void setOperation(ExperimentsWarehouseEntryPointFilterOperation operation) {
     if (!operation.isValid()) {
       this.unparsed = true;
     }

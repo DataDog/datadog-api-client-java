@@ -52,9 +52,7 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
   private Boolean resetOnFeatureFlagChange;
 
   public static final String JSON_PROPERTY_TARGETING_RULES = "targeting_rules";
-  private List<
-          ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-      targetingRules = new ArrayList<>();
+  private List<ExperimentsTargetingRule> targetingRules = new ArrayList<>();
 
   public ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration() {}
 
@@ -66,9 +64,7 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
       @JsonProperty(required = true, value = JSON_PROPERTY_ENVIRONMENT_ID) UUID environmentId,
       @JsonProperty(required = true, value = JSON_PROPERTY_FEATURE_FLAG_ID) UUID featureFlagId,
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGETING_RULES)
-          List<
-                  ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-              targetingRules) {
+          List<ExperimentsTargetingRule> targetingRules) {
     this.entryPoint = entryPoint;
     if (entryPoint != null) {
       this.unparsed |= entryPoint.unparsed;
@@ -76,8 +72,7 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
     this.environmentId = environmentId;
     this.featureFlagId = featureFlagId;
     this.targetingRules = targetingRules;
-    for (ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-        item : targetingRules) {
+    for (ExperimentsTargetingRule item : targetingRules) {
       this.unparsed |= item.unparsed;
     }
   }
@@ -179,21 +174,16 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
   }
 
   public ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration targetingRules(
-      List<
-              ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-          targetingRules) {
+      List<ExperimentsTargetingRule> targetingRules) {
     this.targetingRules = targetingRules;
-    for (ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-        item : targetingRules) {
+    for (ExperimentsTargetingRule item : targetingRules) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration
-      addTargetingRulesItem(
-          ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-              targetingRulesItem) {
+      addTargetingRulesItem(ExperimentsTargetingRule targetingRulesItem) {
     this.targetingRules.add(targetingRulesItem);
     this.unparsed |= targetingRulesItem.unparsed;
     return this;
@@ -206,20 +196,14 @@ public class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
    */
   @JsonProperty(JSON_PROPERTY_TARGETING_RULES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<
-          ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-      getTargetingRules() {
+  public List<ExperimentsTargetingRule> getTargetingRules() {
     return targetingRules;
   }
 
-  public void setTargetingRules(
-      List<
-              ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-          targetingRules) {
+  public void setTargetingRules(List<ExperimentsTargetingRule> targetingRules) {
     this.targetingRules = targetingRules;
     if (targetingRules != null) {
-      for (ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-          item : targetingRules) {
+      for (ExperimentsTargetingRule item : targetingRules) {
         this.unparsed |= item.unparsed;
       }
     }

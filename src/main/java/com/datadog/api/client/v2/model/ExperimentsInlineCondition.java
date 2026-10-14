@@ -33,9 +33,7 @@ public class ExperimentsInlineCondition {
   private String attribute;
 
   public static final String JSON_PROPERTY_OPERATOR = "operator";
-  private
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator
-      operator;
+  private ExperimentsTargetingRuleOperator operator;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private List<String> value = new ArrayList<>();
@@ -46,8 +44,7 @@ public class ExperimentsInlineCondition {
   public ExperimentsInlineCondition(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTE) String attribute,
       @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR)
-          ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator
-              operator,
+          ExperimentsTargetingRuleOperator operator,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) List<String> value) {
     this.attribute = attribute;
     this.operator = operator;
@@ -75,9 +72,7 @@ public class ExperimentsInlineCondition {
     this.attribute = attribute;
   }
 
-  public ExperimentsInlineCondition operator(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator
-          operator) {
+  public ExperimentsInlineCondition operator(ExperimentsTargetingRuleOperator operator) {
     this.operator = operator;
     this.unparsed |= !operator.isValid();
     return this;
@@ -90,15 +85,11 @@ public class ExperimentsInlineCondition {
    */
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public
-  ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator
-      getOperator() {
+  public ExperimentsTargetingRuleOperator getOperator() {
     return operator;
   }
 
-  public void setOperator(
-      ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator
-          operator) {
+  public void setOperator(ExperimentsTargetingRuleOperator operator) {
     if (!operator.isValid()) {
       this.unparsed = true;
     }
