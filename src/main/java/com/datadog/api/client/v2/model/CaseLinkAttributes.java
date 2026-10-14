@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes describing a directional relationship between two entities (cases, incidents, or
+ * Attributes describing a directional relationship between two entities (work items, incidents, or
  * pages).
  */
 @JsonPropertyOrder({

@@ -32,9 +32,9 @@ public class CustomAttributeConfigResponse {
   }
 
   /**
-   * A custom attribute configuration that defines an organization-specific metadata field on cases.
-   * Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined
-   * select options.
+   * A custom attribute configuration that defines an organization-specific metadata field on work
+   * items. Custom attributes are scoped to a work item type and can hold text, URLs, numbers, or
+   * predefined select options.
    *
    * @return data
    */

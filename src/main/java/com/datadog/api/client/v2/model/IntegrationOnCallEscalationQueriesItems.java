@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An On-Call escalation query entry used to route cases to on-call responders. */
+/** An On-Call escalation query entry used to route work items to on-call responders. */
 @JsonPropertyOrder({
   IntegrationOnCallEscalationQueriesItems.JSON_PROPERTY_ENABLED,
   IntegrationOnCallEscalationQueriesItems.JSON_PROPERTY_ID,
@@ -87,7 +87,7 @@ public class IntegrationOnCallEscalationQueriesItems {
   }
 
   /**
-   * The query used to match cases for escalation.
+   * The query used to match work items for escalation.
    *
    * @return query
    */

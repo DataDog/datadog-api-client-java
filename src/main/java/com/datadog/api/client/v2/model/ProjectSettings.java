@@ -63,7 +63,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Auto-close inactive cases settings.
+   * Auto-close inactive work items settings.
    *
    * @return autoCloseInactiveCases
    */
@@ -89,7 +89,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Auto-transition assigned cases settings.
+   * Auto-transition assigned work items settings.
    *
    * @return autoTransitionAssignedCases
    */

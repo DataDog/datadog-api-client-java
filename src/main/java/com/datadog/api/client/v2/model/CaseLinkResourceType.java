@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for case links. */
+/** JSON:API resource type for work item links. */
 @JsonSerialize(using = CaseLinkResourceType.CaseLinkResourceTypeSerializer.class)
 public class CaseLinkResourceType extends ModelEnum<String> {
 

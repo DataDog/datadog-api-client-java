@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A case */
+/** A work item */
 @JsonPropertyOrder({
   Case.JSON_PROPERTY_ATTRIBUTES,
   Case.JSON_PROPERTY_ID,
@@ -61,7 +61,7 @@ public class Case {
   }
 
   /**
-   * Case resource attributes
+   * Work item resource attributes
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class Case {
   }
 
   /**
-   * Case's identifier
+   * Work item's identifier
    *
    * @return id
    */
@@ -105,7 +105,7 @@ public class Case {
   }
 
   /**
-   * Resources related to a case
+   * Resources related to a work item
    *
    * @return relationships
    */
@@ -130,7 +130,7 @@ public class Case {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case update status attributes */
+/** Work item update status attributes */
 @JsonPropertyOrder({
   CaseUpdateStatusAttributes.JSON_PROPERTY_STATUS,
   CaseUpdateStatusAttributes.JSON_PROPERTY_STATUS_NAME
@@ -38,7 +38,7 @@ public class CaseUpdateStatusAttributes {
   }
 
   /**
-   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and
+   * Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and
    * CLOSED statuses. Use <code>status_name</code> instead.
    *
    * @return status
@@ -66,7 +66,7 @@ public class CaseUpdateStatusAttributes {
   }
 
   /**
-   * Status of the case. Must be one of the existing statuses for the case's type.
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
    *
    * @return statusName
    */

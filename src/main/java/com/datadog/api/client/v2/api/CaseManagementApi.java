@@ -104,8 +104,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #addCaseInsightsWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -118,8 +118,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #addCaseInsightsWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> addCaseInsightsAsync(
@@ -132,14 +132,14 @@ public class CaseManagementApi {
   }
 
   /**
-   * Adds one or more insights to a case. Insights are references to related Datadog resources (such
-   * as monitors, security signals, incidents, or error tracking issues) that provide investigative
-   * context. Up to 100 insights can be added per request. Each insight requires a type (see <code>
-   * CaseInsightType</code> for allowed values), a ref (URL path to the resource), and a
-   * resource_id.
+   * Adds one or more insights to a work item. Insights are references to related Datadog resources
+   * (such as monitors, security signals, incidents, or error tracking issues) that provide
+   * investigative context. Up to 100 insights can be added per request. Each insight requires a
+   * type (see <code>CaseInsightType</code> for allowed values), a ref (URL path to the resource),
+   * and a resource_id.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -201,8 +201,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #addCaseInsightsWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> addCaseInsightsWithHttpInfoAsync(
@@ -265,7 +265,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #aggregateCasesWithHttpInfo}.
    *
-   * @param body Case aggregate request payload. (required)
+   * @param body Work item aggregate request payload. (required)
    * @return CaseAggregateResponse
    * @throws ApiException if fails to make API call
    */
@@ -278,7 +278,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #aggregateCasesWithHttpInfoAsync}.
    *
-   * @param body Case aggregate request payload. (required)
+   * @param body Work item aggregate request payload. (required)
    * @return CompletableFuture&lt;CaseAggregateResponse&gt;
    */
   public CompletableFuture<CaseAggregateResponse> aggregateCasesAsync(CaseAggregateRequest body) {
@@ -290,10 +290,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Performs an aggregation query over cases, grouping results by specified fields and returning
-   * counts per group along with a total. Useful for dashboards and analytics.
+   * Performs an aggregation query over work items, grouping results by specified fields and
+   * returning counts per group along with a total. Useful for dashboards and analytics.
    *
-   * @param body Case aggregate request payload. (required)
+   * @param body Work item aggregate request payload. (required)
    * @return ApiResponse&lt;CaseAggregateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -347,7 +347,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #aggregateCasesWithHttpInfo}.
    *
-   * @param body Case aggregate request payload. (required)
+   * @param body Work item aggregate request payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseAggregateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseAggregateResponse>> aggregateCasesWithHttpInfoAsync(
@@ -399,8 +399,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #archiveCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Archive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Archive work item payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -413,8 +413,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #archiveCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Archive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Archive work item payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> archiveCaseAsync(String caseId, CaseEmptyRequest body) {
@@ -426,10 +426,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Archive case
+   * Archive work item
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Archive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Archive work item payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -490,8 +490,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #archiveCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Archive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Archive work item payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> archiveCaseWithHttpInfoAsync(
@@ -553,8 +553,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #assignCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Assign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Assign work item payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -567,8 +567,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #assignCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Assign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Assign work item payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> assignCaseAsync(String caseId, CaseAssignRequest body) {
@@ -580,10 +580,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Assign case to a user
+   * Assign work item to a user
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Assign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Assign work item payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -644,8 +644,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #assignCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Assign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Assign work item payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> assignCaseWithHttpInfoAsync(
@@ -706,7 +706,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #bulkUpdateCasesWithHttpInfo}.
    *
-   * @param body Case bulk update request payload. (required)
+   * @param body Work item bulk update request payload. (required)
    * @throws ApiException if fails to make API call
    */
   public void bulkUpdateCases(CaseBulkUpdateRequest body) throws ApiException {
@@ -718,7 +718,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #bulkUpdateCasesWithHttpInfoAsync}.
    *
-   * @param body Case bulk update request payload. (required)
+   * @param body Work item bulk update request payload. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> bulkUpdateCasesAsync(CaseBulkUpdateRequest body) {
@@ -731,10 +731,10 @@ public class CaseManagementApi {
 
   /**
    * Applies a single action (such as changing priority, status, assignment, or archiving) to
-   * multiple cases at once. The list of case IDs and the action type with its payload are specified
-   * in the request body.
+   * multiple work items at once. The list of work item IDs and the action type with its payload are
+   * specified in the request body.
    *
-   * @param body Case bulk update request payload. (required)
+   * @param body Work item bulk update request payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -788,7 +788,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #bulkUpdateCasesWithHttpInfo}.
    *
-   * @param body Case bulk update request payload. (required)
+   * @param body Work item bulk update request payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> bulkUpdateCasesWithHttpInfoAsync(
@@ -840,8 +840,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #commentCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case comment payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item comment payload (required)
    * @return TimelineResponse
    * @throws ApiException if fails to make API call
    */
@@ -854,8 +854,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #commentCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case comment payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item comment payload (required)
    * @return CompletableFuture&lt;TimelineResponse&gt;
    */
   public CompletableFuture<TimelineResponse> commentCaseAsync(
@@ -868,10 +868,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Comment case
+   * Add a comment to a work item.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case comment payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item comment payload (required)
    * @return ApiResponse&lt;TimelineResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -932,8 +932,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #commentCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case comment payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item comment payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TimelineResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<TimelineResponse>> commentCaseWithHttpInfoAsync(
@@ -999,7 +999,7 @@ public class CaseManagementApi {
     /**
      * Set queryFilter.
      *
-     * @param queryFilter Filter query for cases. (optional)
+     * @param queryFilter Filter query for work items. (optional)
      * @return CountCasesOptionalParameters
      */
     public CountCasesOptionalParameters queryFilter(String queryFilter) {
@@ -1088,8 +1088,8 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns case counts, optionally grouped by one or more fields (for example, status, priority).
-   * Supports a query filter to narrow the scope.
+   * Returns work item counts, optionally grouped by one or more fields (for example, status,
+   * priority). Supports a query filter to narrow the scope.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CaseCountResponse&gt;
@@ -1198,7 +1198,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseWithHttpInfo}.
    *
-   * @param body Case payload (required)
+   * @param body Work item payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -1211,7 +1211,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseWithHttpInfoAsync}.
    *
-   * @param body Case payload (required)
+   * @param body Work item payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> createCaseAsync(CaseCreateRequest body) {
@@ -1223,9 +1223,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Create a Case
+   * Create a work item
    *
-   * @param body Case payload (required)
+   * @param body Work item payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1278,7 +1278,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseWithHttpInfo}.
    *
-   * @param body Case payload (required)
+   * @param body Work item payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> createCaseWithHttpInfoAsync(
@@ -1358,8 +1358,8 @@ public class CaseManagementApi {
   }
 
   /**
-   * Creates an automation rule for a project. The rule defines a trigger event (for example, case
-   * created, status transitioned) and an action to execute.
+   * Creates an automation rule for a project. The rule defines a trigger event (for example, work
+   * item created, status transitioned) and an action to execute.
    *
    * @param projectId The UUID of the project that owns the automation rules. (required)
    * @param body Automation rule payload. (required)
@@ -1490,7 +1490,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseJiraIssueWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue creation request (required)
    * @throws ApiException if fails to make API call
    */
@@ -1503,7 +1503,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseJiraIssueWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue creation request (required)
    * @return CompletableFuture
    */
@@ -1517,9 +1517,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Create a new Jira issue and link it to a case
+   * Create a new Jira issue and link it to a work item
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue creation request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1582,7 +1582,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseJiraIssueWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue creation request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -1646,7 +1646,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseLinkWithHttpInfo}.
    *
-   * @param body Case link create request. (required)
+   * @param body Work item link create request. (required)
    * @return CaseLinkResponse
    * @throws ApiException if fails to make API call
    */
@@ -1659,7 +1659,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseLinkWithHttpInfoAsync}.
    *
-   * @param body Case link create request. (required)
+   * @param body Work item link create request. (required)
    * @return CompletableFuture&lt;CaseLinkResponse&gt;
    */
   public CompletableFuture<CaseLinkResponse> createCaseLinkAsync(CaseLinkCreateRequest body) {
@@ -1671,10 +1671,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Creates a directional link between two cases (for example, case A blocks case B). The parent
-   * and child cases and their relationship type must be specified.
+   * Creates a directional link between two work items (for example, work item A blocks work item
+   * B). The parent and child work items and their relationship type must be specified.
    *
-   * @param body Case link create request. (required)
+   * @param body Work item link create request. (required)
    * @return ApiResponse&lt;CaseLinkResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1728,7 +1728,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseLinkWithHttpInfo}.
    *
-   * @param body Case link create request. (required)
+   * @param body Work item link create request. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseLinkResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseLinkResponse>> createCaseLinkWithHttpInfoAsync(
@@ -1780,7 +1780,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseNotebookWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Notebook creation request (required)
    * @throws ApiException if fails to make API call
    */
@@ -1793,7 +1793,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseNotebookWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Notebook creation request (required)
    * @return CompletableFuture
    */
@@ -1807,9 +1807,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Create a new investigation notebook and link it to a case
+   * Create a new investigation notebook and link it to a work item
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Notebook creation request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1872,7 +1872,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseNotebookWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Notebook creation request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -1936,7 +1936,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseServiceNowTicketWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body ServiceNow ticket creation request (required)
    * @throws ApiException if fails to make API call
    */
@@ -1950,7 +1950,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseServiceNowTicketWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body ServiceNow ticket creation request (required)
    * @return CompletableFuture
    */
@@ -1964,9 +1964,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Create a new ServiceNow incident ticket and link it to a case
+   * Create a new ServiceNow incident ticket and link it to a work item
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body ServiceNow ticket creation request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -2029,7 +2029,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseServiceNowTicketWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body ServiceNow ticket creation request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -2095,7 +2095,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseViewWithHttpInfo}.
    *
-   * @param body Case view payload. (required)
+   * @param body Work item view payload. (required)
    * @return CaseViewResponse
    * @throws ApiException if fails to make API call
    */
@@ -2108,7 +2108,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseViewWithHttpInfoAsync}.
    *
-   * @param body Case view payload. (required)
+   * @param body Work item view payload. (required)
    * @return CompletableFuture&lt;CaseViewResponse&gt;
    */
   public CompletableFuture<CaseViewResponse> createCaseViewAsync(CaseViewCreateRequest body) {
@@ -2120,10 +2120,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Creates a new saved case view with a name, filter query, and associated project. Optionally, a
-   * notification rule can be linked to the view.
+   * Creates a new saved work item view with a name, filter query, and associated project.
+   * Optionally, a notification rule can be linked to the view.
    *
-   * @param body Case view payload. (required)
+   * @param body Work item view payload. (required)
    * @return ApiResponse&lt;CaseViewResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2177,7 +2177,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createCaseViewWithHttpInfo}.
    *
-   * @param body Case view payload. (required)
+   * @param body Work item view payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseViewResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseViewResponse>> createCaseViewWithHttpInfoAsync(
@@ -2256,8 +2256,8 @@ public class CaseManagementApi {
   }
 
   /**
-   * Creates a maintenance window for event management cases with a name, case filter query, and
-   * time range (start and end).
+   * Creates a maintenance window for event management work items with a name, work item filter
+   * query, and time range (start and end).
    *
    * @param body Maintenance window payload. (required)
    * @return ApiResponse&lt;MaintenanceWindowResponse&gt;
@@ -2821,7 +2821,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseCommentWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
    * @throws ApiException if fails to make API call
    */
@@ -2834,7 +2834,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseCommentWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
    * @return CompletableFuture
    */
@@ -2847,9 +2847,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Delete case comment
+   * Delete work item comment
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -2913,7 +2913,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseCommentWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -2978,8 +2978,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseCustomAttributeWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -2993,8 +2993,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseCustomAttributeWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> deleteCaseCustomAttributeAsync(
@@ -3007,10 +3007,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Delete custom attribute from case
+   * Delete custom attribute from work item
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3076,8 +3076,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseCustomAttributeWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> deleteCaseCustomAttributeWithHttpInfoAsync(
@@ -3146,7 +3146,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseLinkWithHttpInfo}.
    *
-   * @param linkId The UUID of the case link. (required)
+   * @param linkId The UUID of the work item link. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCaseLink(String linkId) throws ApiException {
@@ -3158,7 +3158,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseLinkWithHttpInfoAsync}.
    *
-   * @param linkId The UUID of the case link. (required)
+   * @param linkId The UUID of the work item link. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCaseLinkAsync(String linkId) {
@@ -3170,9 +3170,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Deletes an existing link between cases by link ID.
+   * Deletes an existing link between work items by link ID.
    *
-   * @param linkId The UUID of the case link. (required)
+   * @param linkId The UUID of the work item link. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3227,7 +3227,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseLinkWithHttpInfo}.
    *
-   * @param linkId The UUID of the case link. (required)
+   * @param linkId The UUID of the work item link. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCaseLinkWithHttpInfoAsync(String linkId) {
@@ -3280,7 +3280,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseViewWithHttpInfo}.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCaseView(String viewId) throws ApiException {
@@ -3292,7 +3292,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseViewWithHttpInfoAsync}.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCaseViewAsync(String viewId) {
@@ -3304,9 +3304,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Permanently deletes a saved case view.
+   * Permanently deletes a saved work item view.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3361,7 +3361,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteCaseViewWithHttpInfo}.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCaseViewWithHttpInfoAsync(String viewId) {
@@ -3887,8 +3887,8 @@ public class CaseManagementApi {
   }
 
   /**
-   * Disables an automation rule so it no longer triggers on case events. The rule configuration is
-   * preserved.
+   * Disables an automation rule so it no longer triggers on work item events. The rule
+   * configuration is preserved.
    *
    * @param projectId The UUID of the project that owns the automation rules. (required)
    * @param ruleId The UUID of the automation rule. (required)
@@ -4050,7 +4050,7 @@ public class CaseManagementApi {
   }
 
   /**
-   * Enables a previously disabled automation rule so it triggers on matching case events.
+   * Enables a previously disabled automation rule so it triggers on matching work item events.
    *
    * @param projectId The UUID of the project that owns the automation rules. (required)
    * @param ruleId The UUID of the automation rule. (required)
@@ -4207,7 +4207,7 @@ public class CaseManagementApi {
   }
 
   /**
-   * Marks a case project as a favorite for the current authenticated user.
+   * Marks a Work Management project as a favorite for the current authenticated user.
    *
    * @param projectId Project UUID. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -4318,7 +4318,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -4331,7 +4331,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> getCaseAsync(String caseId) {
@@ -4343,9 +4343,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Get the details of case by <code>case_id</code>
+   * Get the details of a work item by <code>case_id</code>.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -4399,7 +4399,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> getCaseWithHttpInfoAsync(String caseId) {
@@ -4613,7 +4613,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getCaseViewWithHttpInfo}.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @return CaseViewResponse
    * @throws ApiException if fails to make API call
    */
@@ -4626,7 +4626,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getCaseViewWithHttpInfoAsync}.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @return CompletableFuture&lt;CaseViewResponse&gt;
    */
   public CompletableFuture<CaseViewResponse> getCaseViewAsync(String viewId) {
@@ -4638,10 +4638,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns a single saved case view identified by its UUID, including its query, associated
+   * Returns a single saved work item view identified by its UUID, including its query, associated
    * project, and timestamps.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @return ApiResponse&lt;CaseViewResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -4696,7 +4696,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getCaseViewWithHttpInfo}.
    *
-   * @param viewId The UUID of the case view. (required)
+   * @param viewId The UUID of the work item view. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseViewResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseViewResponse>> getCaseViewWithHttpInfoAsync(
@@ -5142,7 +5142,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #linkIncidentWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Incident link request (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
@@ -5157,7 +5157,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #linkIncidentWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Incident link request (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
@@ -5171,9 +5171,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Link an incident to a case
+   * Link an incident to a work item
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Incident link request (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
@@ -5236,7 +5236,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #linkIncidentWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Incident link request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
@@ -5299,7 +5299,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #linkJiraIssueToCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue link request (required)
    * @throws ApiException if fails to make API call
    */
@@ -5312,7 +5312,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #linkJiraIssueToCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue link request (required)
    * @return CompletableFuture
    */
@@ -5326,9 +5326,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Link an existing Jira issue to a case
+   * Link an existing Jira issue to a work item
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue link request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -5392,7 +5392,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #linkJiraIssueToCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Jira issue link request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -5482,7 +5482,7 @@ public class CaseManagementApi {
 
   /**
    * Returns all automation rules configured for a project. Automation rules allow automatic actions
-   * to be triggered by case events like creation, status transitions, or attribute changes.
+   * to be triggered by work item events like creation, status transitions, or attribute changes.
    *
    * @param projectId The UUID of the project that owns the automation rules. (required)
    * @return ApiResponse&lt;AutomationRulesResponse&gt;
@@ -5613,7 +5613,7 @@ public class CaseManagementApi {
    * <p>See {@link #listCaseLinksWithHttpInfo}.
    *
    * @param entityType The entity type to look up links for. Use <code>CASE</code> to find links for
-   *     a specific case. (required)
+   *     a specific work item. (required)
    * @param entityId The UUID of the entity to look up links for. (required)
    * @return CaseLinksResponse
    * @throws ApiException if fails to make API call
@@ -5629,7 +5629,7 @@ public class CaseManagementApi {
    * <p>See {@link #listCaseLinksWithHttpInfoAsync}.
    *
    * @param entityType The entity type to look up links for. Use <code>CASE</code> to find links for
-   *     a specific case. (required)
+   *     a specific work item. (required)
    * @param entityId The UUID of the entity to look up links for. (required)
    * @return CompletableFuture&lt;CaseLinksResponse&gt;
    */
@@ -5649,7 +5649,7 @@ public class CaseManagementApi {
    * <p>See {@link #listCaseLinksWithHttpInfo}.
    *
    * @param entityType The entity type to look up links for. Use <code>CASE</code> to find links for
-   *     a specific case. (required)
+   *     a specific work item. (required)
    * @param entityId The UUID of the entity to look up links for. (required)
    * @param parameters Optional parameters for the request.
    * @return CaseLinksResponse
@@ -5667,7 +5667,7 @@ public class CaseManagementApi {
    * <p>See {@link #listCaseLinksWithHttpInfoAsync}.
    *
    * @param entityType The entity type to look up links for. Use <code>CASE</code> to find links for
-   *     a specific case. (required)
+   *     a specific work item. (required)
    * @param entityId The UUID of the entity to look up links for. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;CaseLinksResponse&gt;
@@ -5682,11 +5682,11 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns all links associated with a case. Links define relationships (for example, BLOCKS)
-   * between cases. Requires entity_type and entity_id query parameters.
+   * Returns all links associated with a work item. Links define relationships (for example, BLOCKS)
+   * between work items. Requires entity_type and entity_id query parameters.
    *
    * @param entityType The entity type to look up links for. Use <code>CASE</code> to find links for
-   *     a specific case. (required)
+   *     a specific work item. (required)
    * @param entityId The UUID of the entity to look up links for. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CaseLinksResponse&gt;
@@ -5756,7 +5756,7 @@ public class CaseManagementApi {
    * <p>See {@link #listCaseLinksWithHttpInfo}.
    *
    * @param entityType The entity type to look up links for. Use <code>CASE</code> to find links for
-   *     a specific case. (required)
+   *     a specific work item. (required)
    * @param entityId The UUID of the entity to look up links for. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CaseLinksResponse&gt;&gt;
@@ -5867,7 +5867,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseTimelineWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return TimelineResponse
    * @throws ApiException if fails to make API call
    */
@@ -5880,7 +5880,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseTimelineWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CompletableFuture&lt;TimelineResponse&gt;
    */
   public CompletableFuture<TimelineResponse> listCaseTimelineAsync(String caseId) {
@@ -5896,7 +5896,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseTimelineWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param parameters Optional parameters for the request.
    * @return TimelineResponse
    * @throws ApiException if fails to make API call
@@ -5911,7 +5911,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseTimelineWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;TimelineResponse&gt;
    */
@@ -5925,10 +5925,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns the timeline of events for a case, including comments, status changes, and other
+   * Returns the timeline of events for a work item, including comments, status changes, and other
    * activity. Supports pagination and sort order.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TimelineResponse&gt;
    * @throws ApiException if fails to make API call
@@ -5993,7 +5993,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseTimelineWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;TimelineResponse&gt;&gt;
    */
@@ -6081,8 +6081,8 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns all saved case views for a given project. Views are saved search queries that allow
-   * quick access to filtered lists of cases.
+   * Returns all saved work item views for a given project. Views are saved search queries that
+   * allow quick access to filtered lists of work items.
    *
    * @param projectId Filter views by project identifier. (required)
    * @return ApiResponse&lt;CaseViewsResponse&gt;
@@ -6196,7 +6196,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseWatchersWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CaseWatchersResponse
    * @throws ApiException if fails to make API call
    */
@@ -6209,7 +6209,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseWatchersWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CompletableFuture&lt;CaseWatchersResponse&gt;
    */
   public CompletableFuture<CaseWatchersResponse> listCaseWatchersAsync(String caseId) {
@@ -6221,10 +6221,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns the list of users who are watching a case. Watchers receive notifications about updates
-   * to the case.
+   * Returns the list of users who are watching a work item. Watchers receive notifications about
+   * updates to the work item.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return ApiResponse&lt;CaseWatchersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -6280,7 +6280,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #listCaseWatchersWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseWatchersResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseWatchersResponse>> listCaseWatchersWithHttpInfoAsync(
@@ -6357,9 +6357,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns all configured maintenance windows for event management cases. Maintenance windows
-   * define time periods during which case notifications and automation rules are suppressed for
-   * cases matching a given query.
+   * Returns all configured maintenance windows for event management work items. Maintenance windows
+   * define time periods during which work item notifications and automation rules are suppressed
+   * for work items matching a given query.
    *
    * @return ApiResponse&lt;MaintenanceWindowsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -6473,7 +6473,8 @@ public class CaseManagementApi {
   }
 
   /**
-   * Returns the list of case projects that the current authenticated user has marked as favorites.
+   * Returns the list of Work Management projects that the current authenticated user has marked as
+   * favorites.
    *
    * @return ApiResponse&lt;ProjectFavoritesResponse&gt;
    * @throws ApiException if fails to make API call
@@ -6564,7 +6565,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #moveCaseToProjectWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Project update request (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
@@ -6579,7 +6580,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #moveCaseToProjectWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Project update request (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
@@ -6593,9 +6594,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update the project associated with a case
+   * Update the project associated with a work item
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Project update request (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
@@ -6658,7 +6659,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #moveCaseToProjectWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param body Project update request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
@@ -6722,8 +6723,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #removeCaseInsightsWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -6737,8 +6738,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #removeCaseInsightsWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> removeCaseInsightsAsync(
@@ -6751,11 +6752,11 @@ public class CaseManagementApi {
   }
 
   /**
-   * Removes one or more previously added insights from a case by specifying their type and resource
-   * identifier in the request body.
+   * Removes one or more previously added insights from a work item by specifying their type and
+   * resource identifier in the request body.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -6817,8 +6818,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #removeCaseInsightsWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case insights request. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item insights request. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> removeCaseInsightsWithHttpInfoAsync(
@@ -7054,7 +7055,7 @@ public class CaseManagementApi {
   }
 
   /**
-   * Search cases.
+   * Search work items.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CasesResponse&gt;
@@ -7171,8 +7172,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unarchiveCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unarchive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unarchive work item payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -7185,8 +7186,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unarchiveCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unarchive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unarchive work item payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> unarchiveCaseAsync(String caseId, CaseEmptyRequest body) {
@@ -7198,10 +7199,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Unarchive case
+   * Unarchive work item
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unarchive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unarchive work item payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -7263,8 +7264,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unarchiveCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unarchive case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unarchive work item payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> unarchiveCaseWithHttpInfoAsync(
@@ -7327,8 +7328,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unassignCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unassign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unassign work item payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -7341,8 +7342,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unassignCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unassign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unassign work item payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> unassignCaseAsync(String caseId, CaseEmptyRequest body) {
@@ -7354,10 +7355,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Unassign case
+   * Unassign work item
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unassign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unassign work item payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -7419,8 +7420,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unassignCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unassign case payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Unassign work item payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> unassignCaseWithHttpInfoAsync(
@@ -7506,7 +7507,7 @@ public class CaseManagementApi {
   }
 
   /**
-   * Removes a case project from the current user's favorites list.
+   * Removes a Work Management project from the current user's favorites list.
    *
    * @param projectId Project UUID. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -7618,7 +7619,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unlinkJiraIssueWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @throws ApiException if fails to make API call
    */
   public void unlinkJiraIssue(String caseId) throws ApiException {
@@ -7630,7 +7631,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unlinkJiraIssueWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> unlinkJiraIssueAsync(String caseId) {
@@ -7642,9 +7643,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Remove the link between a Jira issue and a case
+   * Remove the link between a Jira issue and a work item
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -7699,7 +7700,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unlinkJiraIssueWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> unlinkJiraIssueWithHttpInfoAsync(String caseId) {
@@ -7752,7 +7753,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unwatchCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @throws ApiException if fails to make API call
    */
@@ -7765,7 +7766,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unwatchCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @return CompletableFuture
    */
@@ -7778,10 +7779,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Removes a user from the watchers list of a case. The user no longer receives notifications
-   * about updates to the case.
+   * Removes a user from the watchers list of a work item. The user no longer receives notifications
+   * about updates to the work item.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -7845,7 +7846,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #unwatchCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -7910,8 +7911,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateAttributesWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case attributes update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item attributes update payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -7925,8 +7926,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateAttributesWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case attributes update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item attributes update payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updateAttributesAsync(
@@ -7939,10 +7940,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update case attributes
+   * Update work item attributes
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case attributes update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item attributes update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8004,8 +8005,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateAttributesWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case attributes update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item attributes update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateAttributesWithHttpInfoAsync(
@@ -8250,9 +8251,9 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseCommentWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
-   * @param body Case update comment payload. (required)
+   * @param body Work item update comment payload. (required)
    * @throws ApiException if fails to make API call
    */
   public void updateCaseComment(String caseId, String cellId, CaseUpdateCommentRequest body)
@@ -8265,9 +8266,9 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseCommentWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
-   * @param body Case update comment payload. (required)
+   * @param body Work item update comment payload. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> updateCaseCommentAsync(
@@ -8280,12 +8281,12 @@ public class CaseManagementApi {
   }
 
   /**
-   * Updates the text content of an existing comment on a case timeline. The comment is identified
-   * by its cell ID.
+   * Updates the text content of an existing comment on a work item timeline. The comment is
+   * identified by its cell ID.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
-   * @param body Case update comment payload. (required)
+   * @param body Work item update comment payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8354,9 +8355,9 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseCommentWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param cellId The UUID of the timeline cell (comment) to update. (required)
-   * @param body Case update comment payload. (required)
+   * @param body Work item update comment payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> updateCaseCommentWithHttpInfoAsync(
@@ -8429,9 +8430,9 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseCustomAttributeWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @param body Update case custom attribute payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
+   * @param body Update work item custom attribute payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -8446,9 +8447,9 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseCustomAttributeWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @param body Update case custom attribute payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
+   * @param body Update work item custom attribute payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updateCaseCustomAttributeAsync(
@@ -8461,11 +8462,11 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update case custom attribute
+   * Update work item custom attribute
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @param body Update case custom attribute payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
+   * @param body Update work item custom attribute payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8539,9 +8540,9 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseCustomAttributeWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @param body Update case custom attribute payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param customAttributeKey Work item custom attribute's key. (required)
+   * @param body Update work item custom attribute payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateCaseCustomAttributeWithHttpInfoAsync(
@@ -8619,8 +8620,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseDescriptionWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case description update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item description update payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -8634,8 +8635,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseDescriptionWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case description update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item description update payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updateCaseDescriptionAsync(
@@ -8648,10 +8649,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update case description
+   * Update work item description
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case description update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item description update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8713,8 +8714,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseDescriptionWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case description update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item description update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateCaseDescriptionWithHttpInfoAsync(
@@ -8777,8 +8778,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseDueDateWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case due date update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item due date update payload. (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -8792,8 +8793,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseDueDateWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case due date update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item due date update payload. (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updateCaseDueDateAsync(
@@ -8806,11 +8807,11 @@ public class CaseManagementApi {
   }
 
   /**
-   * Sets or updates the due date for a case. The due date is a calendar date (without a time
-   * component) indicating when the case should be resolved.
+   * Sets or updates the due date for a work item. The due date is a calendar date (without a time
+   * component) indicating when the work item should be resolved.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case due date update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item due date update payload. (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8872,8 +8873,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseDueDateWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case due date update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item due date update payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateCaseDueDateWithHttpInfoAsync(
@@ -8936,8 +8937,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseResolvedReasonWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case resolved reason update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item resolved reason update payload. (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -8951,8 +8952,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseResolvedReasonWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case resolved reason update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item resolved reason update payload. (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updateCaseResolvedReasonAsync(
@@ -8965,11 +8966,11 @@ public class CaseManagementApi {
   }
 
   /**
-   * Sets the resolved reason for a security case (for example, FALSE_POSITIVE, TRUE_POSITIVE).
-   * Applicable to security-type cases.
+   * Sets the resolved reason for a security work item (for example, FALSE_POSITIVE, TRUE_POSITIVE).
+   * Applicable to security-type work items.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case resolved reason update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item resolved reason update payload. (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -9031,8 +9032,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseResolvedReasonWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case resolved reason update payload. (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item resolved reason update payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateCaseResolvedReasonWithHttpInfoAsync(
@@ -9096,8 +9097,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseTitleWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case title update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item title update payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -9111,8 +9112,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseTitleWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case title update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item title update payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updateCaseTitleAsync(
@@ -9125,10 +9126,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update case title
+   * Update work item title
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case title update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item title update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -9190,8 +9191,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseTitleWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case title update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item title update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateCaseTitleWithHttpInfoAsync(
@@ -9254,8 +9255,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseViewWithHttpInfo}.
    *
-   * @param viewId The UUID of the case view. (required)
-   * @param body Case view payload. (required)
+   * @param viewId The UUID of the work item view. (required)
+   * @param body Work item view payload. (required)
    * @return CaseViewResponse
    * @throws ApiException if fails to make API call
    */
@@ -9269,8 +9270,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseViewWithHttpInfoAsync}.
    *
-   * @param viewId The UUID of the case view. (required)
-   * @param body Case view payload. (required)
+   * @param viewId The UUID of the work item view. (required)
+   * @param body Work item view payload. (required)
    * @return CompletableFuture&lt;CaseViewResponse&gt;
    */
   public CompletableFuture<CaseViewResponse> updateCaseViewAsync(
@@ -9283,10 +9284,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Updates the name, query, or notification rule of an existing case view.
+   * Updates the name, query, or notification rule of an existing work item view.
    *
-   * @param viewId The UUID of the case view. (required)
-   * @param body Case view payload. (required)
+   * @param viewId The UUID of the work item view. (required)
+   * @param body Work item view payload. (required)
    * @return ApiResponse&lt;CaseViewResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -9348,8 +9349,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateCaseViewWithHttpInfo}.
    *
-   * @param viewId The UUID of the case view. (required)
-   * @param body Case view payload. (required)
+   * @param viewId The UUID of the work item view. (required)
+   * @param body Work item view payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseViewResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseViewResponse>> updateCaseViewWithHttpInfoAsync(
@@ -9579,8 +9580,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updatePriorityWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case priority update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item priority update payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -9594,8 +9595,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updatePriorityWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case priority update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item priority update payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updatePriorityAsync(
@@ -9608,10 +9609,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update case priority
+   * Update work item priority
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case priority update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item priority update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -9673,8 +9674,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updatePriorityWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case priority update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item priority update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updatePriorityWithHttpInfoAsync(
@@ -10087,8 +10088,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateStatusWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case status update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item status update payload (required)
    * @return CaseResponse
    * @throws ApiException if fails to make API call
    */
@@ -10102,8 +10103,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateStatusWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case status update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item status update payload (required)
    * @return CompletableFuture&lt;CaseResponse&gt;
    */
   public CompletableFuture<CaseResponse> updateStatusAsync(
@@ -10116,10 +10117,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update case status
+   * Update work item status
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case status update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item status update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -10181,8 +10182,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateStatusWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case status update payload (required)
+   * @param caseId Work item's UUID or key (required)
+   * @param body Work item status update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateStatusWithHttpInfoAsync(
@@ -10244,7 +10245,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #watchCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @throws ApiException if fails to make API call
    */
@@ -10257,7 +10258,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #watchCaseWithHttpInfoAsync}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @return CompletableFuture
    */
@@ -10270,10 +10271,10 @@ public class CaseManagementApi {
   }
 
   /**
-   * Adds a user (identified by their UUID) as a watcher of a case. The user receives notifications
-   * about subsequent updates to the case.
+   * Adds a user (identified by their UUID) as a watcher of a work item. The user receives
+   * notifications about subsequent updates to the work item.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -10336,7 +10337,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #watchCaseWithHttpInfo}.
    *
-   * @param caseId Case's UUID or key (required)
+   * @param caseId Work item's UUID or key (required)
    * @param userUuid The UUID of the user to add or remove as a watcher. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */

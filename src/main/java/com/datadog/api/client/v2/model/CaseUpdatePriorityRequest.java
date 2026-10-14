@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case update priority request */
+/** Work item update priority request */
 @JsonPropertyOrder({CaseUpdatePriorityRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class CaseUpdatePriorityRequest {
   }
 
   /**
-   * Case priority status
+   * Work item priority status
    *
    * @return data
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case priority status */
+/** Work item priority status */
 @JsonPropertyOrder({
   CaseUpdatePriority.JSON_PROPERTY_ATTRIBUTES,
   CaseUpdatePriority.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class CaseUpdatePriority {
   }
 
   /**
-   * Case update priority attributes
+   * Work item update priority attributes
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class CaseUpdatePriority {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

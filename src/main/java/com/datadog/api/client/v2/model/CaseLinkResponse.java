@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a single case link. */
+/** Response containing a single work item link. */
 @JsonPropertyOrder({CaseLinkResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class CaseLinkResponse {
 
   /**
    * A directional link representing a relationship between two entities. At least one entity must
-   * be a case.
+   * be a work item.
    *
    * @return data
    */

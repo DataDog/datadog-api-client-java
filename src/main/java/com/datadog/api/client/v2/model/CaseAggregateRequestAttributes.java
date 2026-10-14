@@ -52,7 +52,7 @@ public class CaseAggregateRequestAttributes {
   }
 
   /**
-   * Configuration for grouping aggregated results by one or more case fields.
+   * Configuration for grouping aggregated results by one or more work item fields.
    *
    * @return groupBy
    */
@@ -75,8 +75,8 @@ public class CaseAggregateRequestAttributes {
   }
 
   /**
-   * A search query to filter which cases are included in the aggregation. Uses the same syntax as
-   * the Case Management search bar.
+   * A search query to filter which work items are included in the aggregation. Uses the same syntax
+   * as the Work Management search bar.
    *
    * @return queryFilter
    */

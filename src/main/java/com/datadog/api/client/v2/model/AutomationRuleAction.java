@@ -79,7 +79,7 @@ public class AutomationRuleAction {
 
   /**
    * The type of automated action to perform when the rule triggers. <code>EXECUTE_WORKFLOW</code>
-   * runs a Datadog workflow; <code>ASSIGN_AGENT</code> assigns an AI agent to the case.
+   * runs a Datadog workflow; <code>ASSIGN_AGENT</code> assigns an AI agent to the work item.
    *
    * @return type
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Auto-creation settings for Jira issues from cases. */
+/** Auto-creation settings for Jira issues from work items. */
 @JsonPropertyOrder({IntegrationJiraAutoCreation.JSON_PROPERTY_ENABLED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

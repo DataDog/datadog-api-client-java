@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for creating a case view. */
+/** Data object for creating a work item view. */
 @JsonPropertyOrder({CaseViewCreate.JSON_PROPERTY_ATTRIBUTES, CaseViewCreate.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -49,7 +49,7 @@ public class CaseViewCreate {
   }
 
   /**
-   * Attributes required to create a case view.
+   * Attributes required to create a work item view.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class CaseViewCreate {
   }
 
   /**
-   * JSON:API resource type for case views.
+   * JSON:API resource type for work item views.
    *
    * @return type
    */

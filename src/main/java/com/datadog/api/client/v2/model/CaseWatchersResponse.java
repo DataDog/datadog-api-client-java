@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing the list of users watching a case. */
+/** Response containing the list of users watching a work item. */
 @JsonPropertyOrder({CaseWatchersResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -54,7 +54,7 @@ public class CaseWatchersResponse {
   }
 
   /**
-   * List of case watchers.
+   * List of work item watchers.
    *
    * @return data
    */

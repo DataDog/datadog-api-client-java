@@ -46,7 +46,7 @@ public class IntegrationJira {
   }
 
   /**
-   * Auto-creation settings for Jira issues from cases.
+   * Auto-creation settings for Jira issues from work items.
    *
    * @return autoCreation
    */
@@ -92,7 +92,7 @@ public class IntegrationJira {
   }
 
   /**
-   * Metadata for connecting a case management project to a Jira project.
+   * Metadata for connecting a Work Management project to a Jira project.
    *
    * @return metadata
    */

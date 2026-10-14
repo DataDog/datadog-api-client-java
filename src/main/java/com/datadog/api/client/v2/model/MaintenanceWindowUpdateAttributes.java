@@ -91,7 +91,7 @@ public class MaintenanceWindowUpdateAttributes {
   }
 
   /**
-   * The query to filter event management cases for this maintenance window.
+   * The query to filter event management work items for this maintenance window.
    *
    * @return query
    */

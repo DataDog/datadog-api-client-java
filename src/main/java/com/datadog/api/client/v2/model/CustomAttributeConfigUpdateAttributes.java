@@ -73,7 +73,7 @@ public class CustomAttributeConfigUpdateAttributes {
   }
 
   /**
-   * The human-readable label shown in the Case Management UI for this custom attribute.
+   * The human-readable label shown in the Work Management UI for this custom attribute.
    *
    * @return displayName
    */

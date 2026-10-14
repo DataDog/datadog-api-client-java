@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * A single value within a count group, representing the number of cases with that specific field
- * value.
+ * A single value within a count group, representing the number of work items with that specific
+ * field value.
  */
 @JsonPropertyOrder({
   CaseCountGroupValue.JSON_PROPERTY_COUNT,
@@ -51,7 +51,7 @@ public class CaseCountGroupValue {
   }
 
   /**
-   * Count of cases for this value.
+   * Count of work items for this value.
    *
    * @return count
    */

@@ -89,7 +89,7 @@ public class CreateServiceNowTicketRequestDataAttributes {
   }
 
   /**
-   * Case priority
+   * Work item priority
    *
    * @return priority
    */

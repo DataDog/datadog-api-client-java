@@ -88,7 +88,7 @@ public class CreateCaseRequestDataAttributes {
   }
 
   /**
-   * Case priority
+   * Work item priority
    *
    * @return priority
    */

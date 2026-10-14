@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for creating a case link. */
+/** Data object for creating a work item link. */
 @JsonPropertyOrder({CaseLinkCreate.JSON_PROPERTY_ATTRIBUTES, CaseLinkCreate.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -49,8 +49,8 @@ public class CaseLinkCreate {
   }
 
   /**
-   * Attributes describing a directional relationship between two entities (cases, incidents, or
-   * pages).
+   * Attributes describing a directional relationship between two entities (work items, incidents,
+   * or pages).
    *
    * @return attributes
    */
@@ -74,7 +74,7 @@ public class CaseLinkCreate {
   }
 
   /**
-   * JSON:API resource type for case links.
+   * JSON:API resource type for work item links.
    *
    * @return type
    */

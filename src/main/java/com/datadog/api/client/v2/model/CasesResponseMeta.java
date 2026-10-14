@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Cases response metadata */
+/** Work items response metadata */
 @JsonPropertyOrder({CasesResponseMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

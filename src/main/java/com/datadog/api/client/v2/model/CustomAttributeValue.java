@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A typed value for a custom attribute on a specific case. */
+/** A typed value for a custom attribute on a specific work item. */
 @JsonPropertyOrder({
   CustomAttributeValue.JSON_PROPERTY_IS_MULTI,
   CustomAttributeValue.JSON_PROPERTY_TYPE,
