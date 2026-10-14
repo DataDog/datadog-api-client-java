@@ -20,24 +20,18 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Use an empty array when no targeting rules apply. */
-@JsonPropertyOrder({
-  ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-      .JSON_PROPERTY_CONDITIONS
-})
+@JsonPropertyOrder({ExperimentsTargetingRule.JSON_PROPERTY_CONDITIONS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public
-class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems {
+public class ExperimentsTargetingRule {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
   private List<ExperimentsTargetingRuleCondition> conditions = new ArrayList<>();
 
-  public
-  ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems() {}
+  public ExperimentsTargetingRule() {}
 
   @JsonCreator
-  public
-  ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems(
+  public ExperimentsTargetingRule(
       @JsonProperty(required = true, value = JSON_PROPERTY_CONDITIONS)
           List<ExperimentsTargetingRuleCondition> conditions) {
     this.conditions = conditions;
@@ -46,9 +40,7 @@ class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration
     }
   }
 
-  public
-  ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-      conditions(List<ExperimentsTargetingRuleCondition> conditions) {
+  public ExperimentsTargetingRule conditions(List<ExperimentsTargetingRuleCondition> conditions) {
     this.conditions = conditions;
     for (ExperimentsTargetingRuleCondition item : conditions) {
       this.unparsed |= item.unparsed;
@@ -56,9 +48,8 @@ class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration
     return this;
   }
 
-  public
-  ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-      addConditionsItem(ExperimentsTargetingRuleCondition conditionsItem) {
+  public ExperimentsTargetingRule addConditionsItem(
+      ExperimentsTargetingRuleCondition conditionsItem) {
     this.conditions.add(conditionsItem);
     this.unparsed |= conditionsItem.unparsed;
     return this;
@@ -97,13 +88,10 @@ class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return
-   *     ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
+   * @return ExperimentsTargetingRule
    */
   @JsonAnySetter
-  public
-  ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-      putAdditionalProperty(String key, Object value) {
+  public ExperimentsTargetingRule putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,11 +122,7 @@ class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this
-   * ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-   * object is equal to o.
-   */
+  /** Return true if this ExperimentsTargetingRule object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,18 +131,9 @@ class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-        experimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems =
-            (ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems)
-                o;
-    return Objects.equals(
-            this.conditions,
-            experimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-                .conditions)
-        && Objects.equals(
-            this.additionalProperties,
-            experimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-                .additionalProperties);
+    ExperimentsTargetingRule experimentsTargetingRule = (ExperimentsTargetingRule) o;
+    return Objects.equals(this.conditions, experimentsTargetingRule.conditions)
+        && Objects.equals(this.additionalProperties, experimentsTargetingRule.additionalProperties);
   }
 
   @Override
@@ -169,10 +144,7 @@ class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append(
-        "class"
-            + " ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems"
-            + " {\n");
+    sb.append("class ExperimentsTargetingRule {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

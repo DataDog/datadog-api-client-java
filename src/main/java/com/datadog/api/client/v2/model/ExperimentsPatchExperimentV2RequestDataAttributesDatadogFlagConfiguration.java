@@ -55,9 +55,7 @@ public class ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfigu
   private Boolean resetOnFeatureFlagChange;
 
   public static final String JSON_PROPERTY_TARGETING_RULES = "targeting_rules";
-  private List<
-          ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-      targetingRules = null;
+  private List<ExperimentsTargetingRule> targetingRules = null;
 
   public ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfiguration entryPoint(
       ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint
@@ -174,13 +172,10 @@ public class ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfigu
   }
 
   public ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfiguration targetingRules(
-      List<
-              ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-          targetingRules) {
+      List<ExperimentsTargetingRule> targetingRules) {
     this.targetingRules = targetingRules;
     if (targetingRules != null) {
-      for (ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-          item : targetingRules) {
+      for (ExperimentsTargetingRule item : targetingRules) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -188,9 +183,7 @@ public class ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfigu
   }
 
   public ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfiguration
-      addTargetingRulesItem(
-          ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-              targetingRulesItem) {
+      addTargetingRulesItem(ExperimentsTargetingRule targetingRulesItem) {
     if (this.targetingRules == null) {
       this.targetingRules = new ArrayList<>();
     }
@@ -207,20 +200,14 @@ public class ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfigu
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGETING_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<
-          ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-      getTargetingRules() {
+  public List<ExperimentsTargetingRule> getTargetingRules() {
     return targetingRules;
   }
 
-  public void setTargetingRules(
-      List<
-              ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>
-          targetingRules) {
+  public void setTargetingRules(List<ExperimentsTargetingRule> targetingRules) {
     this.targetingRules = targetingRules;
     if (targetingRules != null) {
-      for (ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems
-          item : targetingRules) {
+      for (ExperimentsTargetingRule item : targetingRules) {
         this.unparsed |= item.unparsed;
       }
     }

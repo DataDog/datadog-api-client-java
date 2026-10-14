@@ -46,8 +46,7 @@ public class ExperimentsWarehousePercentileAggregationInput {
       JsonNullable.<List<List<ExperimentsPropertyFilterInput>>>undefined();
 
   public static final String JSON_PROPERTY_WAREHOUSE_METRIC_MEASURE = "warehouse_metric_measure";
-  private ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-      warehouseMetricMeasure;
+  private ExperimentsWarehouseMetricMeasure warehouseMetricMeasure;
 
   public ExperimentsWarehousePercentileAggregationInput() {}
 
@@ -55,8 +54,7 @@ public class ExperimentsWarehousePercentileAggregationInput {
   public ExperimentsWarehousePercentileAggregationInput(
       @JsonProperty(required = true, value = JSON_PROPERTY_PERCENTILE) Double percentile,
       @JsonProperty(required = true, value = JSON_PROPERTY_WAREHOUSE_METRIC_MEASURE)
-          ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-              warehouseMetricMeasure) {
+          ExperimentsWarehouseMetricMeasure warehouseMetricMeasure) {
     this.percentile = percentile;
     this.warehouseMetricMeasure = warehouseMetricMeasure;
     this.unparsed |= warehouseMetricMeasure.unparsed;
@@ -170,8 +168,7 @@ public class ExperimentsWarehousePercentileAggregationInput {
   }
 
   public ExperimentsWarehousePercentileAggregationInput warehouseMetricMeasure(
-      ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-          warehouseMetricMeasure) {
+      ExperimentsWarehouseMetricMeasure warehouseMetricMeasure) {
     this.warehouseMetricMeasure = warehouseMetricMeasure;
     this.unparsed |= warehouseMetricMeasure.unparsed;
     return this;
@@ -184,14 +181,11 @@ public class ExperimentsWarehousePercentileAggregationInput {
    */
   @JsonProperty(JSON_PROPERTY_WAREHOUSE_METRIC_MEASURE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-      getWarehouseMetricMeasure() {
+  public ExperimentsWarehouseMetricMeasure getWarehouseMetricMeasure() {
     return warehouseMetricMeasure;
   }
 
-  public void setWarehouseMetricMeasure(
-      ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-          warehouseMetricMeasure) {
+  public void setWarehouseMetricMeasure(ExperimentsWarehouseMetricMeasure warehouseMetricMeasure) {
     this.warehouseMetricMeasure = warehouseMetricMeasure;
     if (warehouseMetricMeasure != null) {
       this.unparsed |= warehouseMetricMeasure.unparsed;

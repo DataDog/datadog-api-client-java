@@ -21,15 +21,12 @@ import java.util.Objects;
 
 /** Optional Warehouse measure that scopes analyzed subjects. */
 @JsonPropertyOrder({
-  ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      .JSON_PROPERTY_FILTERS,
-  ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      .JSON_PROPERTY_MEASURE_ID
+  ExperimentsWarehouseEntryPoint.JSON_PROPERTY_FILTERS,
+  ExperimentsWarehouseEntryPoint.JSON_PROPERTY_MEASURE_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public
-class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint {
+public class ExperimentsWarehouseEntryPoint {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<ExperimentsWarehouseExposureFilter> filters = new ArrayList<>();
@@ -37,11 +34,10 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
   public static final String JSON_PROPERTY_MEASURE_ID = "measure_id";
   private String measureId;
 
-  public
-  ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint() {}
+  public ExperimentsWarehouseEntryPoint() {}
 
   @JsonCreator
-  public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint(
+  public ExperimentsWarehouseEntryPoint(
       @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS)
           List<ExperimentsWarehouseExposureFilter> filters,
       @JsonProperty(required = true, value = JSON_PROPERTY_MEASURE_ID) String measureId) {
@@ -52,8 +48,7 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
     this.measureId = measureId;
   }
 
-  public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      filters(List<ExperimentsWarehouseExposureFilter> filters) {
+  public ExperimentsWarehouseEntryPoint filters(List<ExperimentsWarehouseExposureFilter> filters) {
     this.filters = filters;
     for (ExperimentsWarehouseExposureFilter item : filters) {
       this.unparsed |= item.unparsed;
@@ -61,8 +56,8 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
     return this;
   }
 
-  public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      addFiltersItem(ExperimentsWarehouseExposureFilter filtersItem) {
+  public ExperimentsWarehouseEntryPoint addFiltersItem(
+      ExperimentsWarehouseExposureFilter filtersItem) {
     this.filters.add(filtersItem);
     this.unparsed |= filtersItem.unparsed;
     return this;
@@ -88,8 +83,7 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
     }
   }
 
-  public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      measureId(String measureId) {
+  public ExperimentsWarehouseEntryPoint measureId(String measureId) {
     this.measureId = measureId;
     return this;
   }
@@ -121,12 +115,10 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return
-   *     ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
+   * @return ExperimentsWarehouseEntryPoint
    */
   @JsonAnySetter
-  public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      putAdditionalProperty(String key, Object value) {
+  public ExperimentsWarehouseEntryPoint putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -157,11 +149,7 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this
-   * ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-   * object is equal to o.
-   */
+  /** Return true if this ExperimentsWarehouseEntryPoint object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -170,22 +158,12 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-        experimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint =
-            (ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint)
-                o;
-    return Objects.equals(
-            this.filters,
-            experimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-                .filters)
+    ExperimentsWarehouseEntryPoint experimentsWarehouseEntryPoint =
+        (ExperimentsWarehouseEntryPoint) o;
+    return Objects.equals(this.filters, experimentsWarehouseEntryPoint.filters)
+        && Objects.equals(this.measureId, experimentsWarehouseEntryPoint.measureId)
         && Objects.equals(
-            this.measureId,
-            experimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-                .measureId)
-        && Objects.equals(
-            this.additionalProperties,
-            experimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-                .additionalProperties);
+            this.additionalProperties, experimentsWarehouseEntryPoint.additionalProperties);
   }
 
   @Override
@@ -196,10 +174,7 @@ class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigu
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append(
-        "class"
-            + " ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint"
-            + " {\n");
+    sb.append("class ExperimentsWarehouseEntryPoint {\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    measureId: ").append(toIndentedString(measureId)).append("\n");
     sb.append("    additionalProperties: ")

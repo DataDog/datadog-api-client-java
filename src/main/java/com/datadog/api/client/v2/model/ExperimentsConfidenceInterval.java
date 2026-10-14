@@ -18,15 +18,12 @@ import java.util.Objects;
 
 /** Lower and upper bounds of the reported statistical interval. */
 @JsonPropertyOrder({
-  ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-      .JSON_PROPERTY_LOWER,
-  ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-      .JSON_PROPERTY_UPPER
+  ExperimentsConfidenceInterval.JSON_PROPERTY_LOWER,
+  ExperimentsConfidenceInterval.JSON_PROPERTY_UPPER
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public
-class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval {
+public class ExperimentsConfidenceInterval {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOWER = "lower";
   private Double lower;
@@ -34,8 +31,7 @@ class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfi
   public static final String JSON_PROPERTY_UPPER = "upper";
   private Double upper;
 
-  public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-      lower(Double lower) {
+  public ExperimentsConfidenceInterval lower(Double lower) {
     this.lower = lower;
     return this;
   }
@@ -56,8 +52,7 @@ class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfi
     this.lower = lower;
   }
 
-  public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-      upper(Double upper) {
+  public ExperimentsConfidenceInterval upper(Double upper) {
     this.upper = upper;
     return this;
   }
@@ -90,11 +85,10 @@ class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfi
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
+   * @return ExperimentsConfidenceInterval
    */
   @JsonAnySetter
-  public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-      putAdditionalProperty(String key, Object value) {
+  public ExperimentsConfidenceInterval putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -125,11 +119,7 @@ class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfi
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this
-   * ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval object
-   * is equal to o.
-   */
+  /** Return true if this ExperimentsConfidenceInterval object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,22 +128,11 @@ class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfi
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-        experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItemsConfidenceInterval =
-            (ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval)
-                o;
-    return Objects.equals(
-            this.lower,
-            experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-                .lower)
+    ExperimentsConfidenceInterval experimentsConfidenceInterval = (ExperimentsConfidenceInterval) o;
+    return Objects.equals(this.lower, experimentsConfidenceInterval.lower)
+        && Objects.equals(this.upper, experimentsConfidenceInterval.upper)
         && Objects.equals(
-            this.upper,
-            experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-                .upper)
-        && Objects.equals(
-            this.additionalProperties,
-            experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-                .additionalProperties);
+            this.additionalProperties, experimentsConfidenceInterval.additionalProperties);
   }
 
   @Override
@@ -164,10 +143,7 @@ class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfi
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append(
-        "class"
-            + " ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval"
-            + " {\n");
+    sb.append("class ExperimentsConfidenceInterval {\n");
     sb.append("    lower: ").append(toIndentedString(lower)).append("\n");
     sb.append("    upper: ").append(toIndentedString(upper)).append("\n");
     sb.append("    additionalProperties: ")

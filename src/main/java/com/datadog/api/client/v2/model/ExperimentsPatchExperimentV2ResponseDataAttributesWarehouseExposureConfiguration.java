@@ -31,8 +31,7 @@ import java.util.Objects;
 public class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfiguration {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENTRY_POINT = "entry_point";
-  private ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      entryPoint;
+  private ExperimentsWarehouseEntryPoint entryPoint;
 
   public static final String JSON_PROPERTY_EXPERIMENT_KEY = "experiment_key";
   private String experimentKey;
@@ -45,8 +44,7 @@ public class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
   @JsonCreator
   public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfiguration(
       @JsonProperty(required = true, value = JSON_PROPERTY_ENTRY_POINT)
-          ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-              entryPoint,
+          ExperimentsWarehouseEntryPoint entryPoint,
       @JsonProperty(required = true, value = JSON_PROPERTY_EXPERIMENT_KEY) String experimentKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_EXPOSURE_SQL_MODEL_ID)
           String exposureSqlModelId) {
@@ -60,9 +58,7 @@ public class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
   }
 
   public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfiguration
-      entryPoint(
-          ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-              entryPoint) {
+      entryPoint(ExperimentsWarehouseEntryPoint entryPoint) {
     this.entryPoint = entryPoint;
     if (entryPoint != null) {
       this.unparsed |= entryPoint.unparsed;
@@ -78,14 +74,11 @@ public class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENTRY_POINT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-      getEntryPoint() {
+  public ExperimentsWarehouseEntryPoint getEntryPoint() {
     return entryPoint;
   }
 
-  public void setEntryPoint(
-      ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint
-          entryPoint) {
+  public void setEntryPoint(ExperimentsWarehouseEntryPoint entryPoint) {
     this.entryPoint = entryPoint;
     if (entryPoint != null) {
       this.unparsed |= entryPoint.unparsed;
