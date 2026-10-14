@@ -38,6 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagAttributes.JSON_PROPERTY_REQUIRE_APPROVAL,
   FeatureFlagAttributes.JSON_PROPERTY_STALENESS_DETAILS,
   FeatureFlagAttributes.JSON_PROPERTY_STALENESS_STATUS,
+  FeatureFlagAttributes.JSON_PROPERTY_STALENESS_STATUS_OVERRIDE,
   FeatureFlagAttributes.JSON_PROPERTY_TAGS,
   FeatureFlagAttributes.JSON_PROPERTY_UPDATED_AT,
   FeatureFlagAttributes.JSON_PROPERTY_VALUE_TYPE,
@@ -88,6 +89,9 @@ public class FeatureFlagAttributes {
 
   public static final String JSON_PROPERTY_STALENESS_STATUS = "staleness_status";
   private String stalenessStatus;
+
+  public static final String JSON_PROPERTY_STALENESS_STATUS_OVERRIDE = "staleness_status_override";
+  private FeatureFlagStalenessStatusOverride stalenessStatusOverride;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -457,6 +461,33 @@ public class FeatureFlagAttributes {
     this.stalenessStatus = stalenessStatus;
   }
 
+  public FeatureFlagAttributes stalenessStatusOverride(
+      FeatureFlagStalenessStatusOverride stalenessStatusOverride) {
+    this.stalenessStatusOverride = stalenessStatusOverride;
+    this.unparsed |= !stalenessStatusOverride.isValid();
+    return this;
+  }
+
+  /**
+   * An explicit staleness status override. Omitted when no override is set.
+   *
+   * @return stalenessStatusOverride
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STALENESS_STATUS_OVERRIDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FeatureFlagStalenessStatusOverride getStalenessStatusOverride() {
+    return stalenessStatusOverride;
+  }
+
+  public void setStalenessStatusOverride(
+      FeatureFlagStalenessStatusOverride stalenessStatusOverride) {
+    if (!stalenessStatusOverride.isValid()) {
+      this.unparsed = true;
+    }
+    this.stalenessStatusOverride = stalenessStatusOverride;
+  }
+
   public FeatureFlagAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -636,6 +667,8 @@ public class FeatureFlagAttributes {
         && Objects.equals(this.requireApproval, featureFlagAttributes.requireApproval)
         && Objects.equals(this.stalenessDetails, featureFlagAttributes.stalenessDetails)
         && Objects.equals(this.stalenessStatus, featureFlagAttributes.stalenessStatus)
+        && Objects.equals(
+            this.stalenessStatusOverride, featureFlagAttributes.stalenessStatusOverride)
         && Objects.equals(this.tags, featureFlagAttributes.tags)
         && Objects.equals(this.updatedAt, featureFlagAttributes.updatedAt)
         && Objects.equals(this.valueType, featureFlagAttributes.valueType)
@@ -660,6 +693,7 @@ public class FeatureFlagAttributes {
         requireApproval,
         stalenessDetails,
         stalenessStatus,
+        stalenessStatusOverride,
         tags,
         updatedAt,
         valueType,
@@ -689,6 +723,9 @@ public class FeatureFlagAttributes {
     sb.append("    requireApproval: ").append(toIndentedString(requireApproval)).append("\n");
     sb.append("    stalenessDetails: ").append(toIndentedString(stalenessDetails)).append("\n");
     sb.append("    stalenessStatus: ").append(toIndentedString(stalenessStatus)).append("\n");
+    sb.append("    stalenessStatusOverride: ")
+        .append(toIndentedString(stalenessStatusOverride))
+        .append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    valueType: ").append(toIndentedString(valueType)).append("\n");

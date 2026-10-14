@@ -1,0 +1,28 @@
+// List feature flags applies default pagination
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.FeatureFlagsApi;
+import com.datadog.api.client.v2.api.FeatureFlagsApi.ListFeatureFlagsOptionalParameters;
+import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    FeatureFlagsApi apiInstance = new FeatureFlagsApi(defaultClient);
+
+    try {
+      ListFeatureFlagsResponse result =
+          apiInstance.listFeatureFlags(
+              new ListFeatureFlagsOptionalParameters().key("missing-example-feature-flag"));
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FeatureFlagsApi#listFeatureFlags");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
