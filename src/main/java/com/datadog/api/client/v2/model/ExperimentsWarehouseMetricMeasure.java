@@ -19,29 +19,23 @@ import java.util.Objects;
 import java.util.UUID;
 
 /** Reference to a measure defined in a warehouse metric SQL model. */
-@JsonPropertyOrder({
-  ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-      .JSON_PROPERTY_ID
-})
+@JsonPropertyOrder({ExperimentsWarehouseMetricMeasure.JSON_PROPERTY_ID})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public
-class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure {
+public class ExperimentsWarehouseMetricMeasure {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public
-  ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure() {}
+  public ExperimentsWarehouseMetricMeasure() {}
 
   @JsonCreator
-  public ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure(
+  public ExperimentsWarehouseMetricMeasure(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id) {
     this.id = id;
   }
 
-  public ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-      id(UUID id) {
+  public ExperimentsWarehouseMetricMeasure id(UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +67,10 @@ class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehou
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return
-   *     ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
+   * @return ExperimentsWarehouseMetricMeasure
    */
   @JsonAnySetter
-  public ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-      putAdditionalProperty(String key, Object value) {
+  public ExperimentsWarehouseMetricMeasure putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -109,11 +101,7 @@ class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehou
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this
-   * ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-   * object is equal to o.
-   */
+  /** Return true if this ExperimentsWarehouseMetricMeasure object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -122,18 +110,11 @@ class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehou
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-        experimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure =
-            (ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure)
-                o;
-    return Objects.equals(
-            this.id,
-            experimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-                .id)
+    ExperimentsWarehouseMetricMeasure experimentsWarehouseMetricMeasure =
+        (ExperimentsWarehouseMetricMeasure) o;
+    return Objects.equals(this.id, experimentsWarehouseMetricMeasure.id)
         && Objects.equals(
-            this.additionalProperties,
-            experimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure
-                .additionalProperties);
+            this.additionalProperties, experimentsWarehouseMetricMeasure.additionalProperties);
   }
 
   @Override
@@ -144,10 +125,7 @@ class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehou
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append(
-        "class"
-            + " ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure"
-            + " {\n");
+    sb.append("class ExperimentsWarehouseMetricMeasure {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

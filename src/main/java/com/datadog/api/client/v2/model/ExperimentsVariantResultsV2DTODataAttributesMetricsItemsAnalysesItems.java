@@ -60,8 +60,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIDENCE_INTERVAL = "confidence_interval";
-  private ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-      confidenceInterval;
+  private ExperimentsConfidenceInterval confidenceInterval;
 
   public static final String JSON_PROPERTY_CONFIDENCE_LEVEL = "confidence_level";
   private Double confidenceLevel;
@@ -125,8 +124,7 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
   private Double zScore;
 
   public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems confidenceInterval(
-      ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-          confidenceInterval) {
+      ExperimentsConfidenceInterval confidenceInterval) {
     this.confidenceInterval = confidenceInterval;
     this.unparsed |= confidenceInterval.unparsed;
     return this;
@@ -140,14 +138,11 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIDENCE_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-      getConfidenceInterval() {
+  public ExperimentsConfidenceInterval getConfidenceInterval() {
     return confidenceInterval;
   }
 
-  public void setConfidenceInterval(
-      ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval
-          confidenceInterval) {
+  public void setConfidenceInterval(ExperimentsConfidenceInterval confidenceInterval) {
     this.confidenceInterval = confidenceInterval;
     if (confidenceInterval != null) {
       this.unparsed |= confidenceInterval.unparsed;
