@@ -22,25 +22,25 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
  */
 @JsonPropertyOrder({
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       .JSON_PROPERTY_AZURE_CREDENTIAL_KIND,
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       .JSON_PROPERTY_CLIENT_ASSERTION_CLIENT_ID,
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       .JSON_PROPERTY_CLIENT_ASSERTION_TENANT_ID,
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       .JSON_PROPERTY_USER_ASSIGNED_MANAGED_IDENTITY_ID,
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       .JSON_PROPERTY_USER_ASSIGNED_MANAGED_IDENTITY_ID_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion {
+public class ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AZURE_CREDENTIAL_KIND = "azure_credential_kind";
-  private ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+  private ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
       azureCredentialKind =
-          ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+          ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
               .MANAGED_IDENTITY_CLIENT_ASSERTION;
 
   public static final String JSON_PROPERTY_CLIENT_ASSERTION_CLIENT_ID =
@@ -60,12 +60,12 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
   private ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType
       userAssignedManagedIdentityIdType;
 
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion() {}
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion() {}
 
   @JsonCreator
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion(
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion(
       @JsonProperty(required = true, value = JSON_PROPERTY_AZURE_CREDENTIAL_KIND)
-          ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+          ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
               azureCredentialKind,
       @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_ASSERTION_CLIENT_ID)
           String clientAssertionClientId,
@@ -77,10 +77,9 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
     this.clientAssertionTenantId = clientAssertionTenantId;
   }
 
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-      azureCredentialKind(
-          ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
-              azureCredentialKind) {
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion azureCredentialKind(
+      ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
+          azureCredentialKind) {
     this.azureCredentialKind = azureCredentialKind;
     this.unparsed |= !azureCredentialKind.isValid();
     return this;
@@ -94,13 +93,13 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
    */
   @JsonProperty(JSON_PROPERTY_AZURE_CREDENTIAL_KIND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
       getAzureCredentialKind() {
     return azureCredentialKind;
   }
 
   public void setAzureCredentialKind(
-      ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+      ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
           azureCredentialKind) {
     if (!azureCredentialKind.isValid()) {
       this.unparsed = true;
@@ -108,7 +107,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
     this.azureCredentialKind = azureCredentialKind;
   }
 
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       clientAssertionClientId(String clientAssertionClientId) {
     this.clientAssertionClientId = clientAssertionClientId;
     return this;
@@ -129,7 +128,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
     this.clientAssertionClientId = clientAssertionClientId;
   }
 
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       clientAssertionTenantId(String clientAssertionTenantId) {
     this.clientAssertionTenantId = clientAssertionTenantId;
     return this;
@@ -150,7 +149,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
     this.clientAssertionTenantId = clientAssertionTenantId;
   }
 
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       userAssignedManagedIdentityId(String userAssignedManagedIdentityId) {
     this.userAssignedManagedIdentityId = JsonNullable.<String>of(userAssignedManagedIdentityId);
     return this;
@@ -184,7 +183,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
     this.userAssignedManagedIdentityId = JsonNullable.<String>of(userAssignedManagedIdentityId);
   }
 
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       userAssignedManagedIdentityIdType(
           ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType
               userAssignedManagedIdentityIdType) {
@@ -227,11 +226,11 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+   * @return ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
    */
   @JsonAnySetter
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-      putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -263,9 +262,8 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
   }
 
   /**
-   * Return true if this
-   * ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion object is
-   * equal to o.
+   * Return true if this ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion object
+   * is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -275,32 +273,32 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-        observabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion =
-            (ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion) o;
+    ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
+        observabilityPipelineAzureDataExplorerManagedIdentityClientAssertion =
+            (ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion) o;
     return Objects.equals(
             this.azureCredentialKind,
-            observabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+            observabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                 .azureCredentialKind)
         && Objects.equals(
             this.clientAssertionClientId,
-            observabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+            observabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                 .clientAssertionClientId)
         && Objects.equals(
             this.clientAssertionTenantId,
-            observabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+            observabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                 .clientAssertionTenantId)
         && Objects.equals(
             this.userAssignedManagedIdentityId,
-            observabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+            observabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                 .userAssignedManagedIdentityId)
         && Objects.equals(
             this.userAssignedManagedIdentityIdType,
-            observabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+            observabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                 .userAssignedManagedIdentityIdType)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+            observabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                 .additionalProperties);
   }
 
@@ -318,9 +316,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append(
-        "class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion"
-            + " {\n");
+    sb.append("class ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion {\n");
     sb.append("    azureCredentialKind: ")
         .append(toIndentedString(azureCredentialKind))
         .append("\n");

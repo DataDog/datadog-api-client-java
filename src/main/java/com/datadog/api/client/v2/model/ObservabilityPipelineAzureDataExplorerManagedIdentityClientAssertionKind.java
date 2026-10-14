@@ -24,47 +24,40 @@ import java.util.Set;
  */
 @JsonSerialize(
     using =
-        ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
-            .ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKindSerializer
+        ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
+            .ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKindSerializer
             .class)
-public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+public class ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
     extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("managed_identity_client_assertion"));
 
-  public static final
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
+  public static final ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind
       MANAGED_IDENTITY_CLIENT_ASSERTION =
-          new ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind(
+          new ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind(
               "managed_identity_client_assertion");
 
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind(
-      String value) {
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind(String value) {
     super(value, allowedValues);
   }
 
   public static
-  class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKindSerializer
+  class ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKindSerializer
       extends StdSerializer<
-          ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind> {
-    public
-    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKindSerializer(
-        Class<
-                ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind>
-            t) {
+          ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind> {
+    public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKindSerializer(
+        Class<ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind> t) {
       super(t);
     }
 
-    public
-    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKindSerializer() {
+    public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKindSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind
-            value,
+        ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind value,
         JsonGenerator jgen,
         SerializerProvider provider)
         throws IOException, JsonProcessingException {
@@ -73,10 +66,8 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
   }
 
   @JsonCreator
-  public static
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind fromValue(
+  public static ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind fromValue(
       String value) {
-    return new ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind(
-        value);
+    return new ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind(value);
   }
 }
