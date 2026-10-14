@@ -11,7 +11,10 @@ import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
 import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
 import com.datadog.api.client.v2.model.CreateVariant;
 import com.datadog.api.client.v2.model.EnvironmentResponse;
+import com.datadog.api.client.v2.model.FeatureFlagDistributionChannel;
+import com.datadog.api.client.v2.model.FeatureFlagProductionStatus;
 import com.datadog.api.client.v2.model.FeatureFlagResponse;
+import com.datadog.api.client.v2.model.FeatureFlagStalenessStatus;
 import com.datadog.api.client.v2.model.ListAllocationsResponse;
 import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
@@ -19,6 +22,7 @@ import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
 import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
 import com.datadog.api.client.v2.model.UpdateVariantRequest;
+import com.datadog.api.client.v2.model.ValueType;
 import com.datadog.api.client.v2.model.Variant;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -1781,11 +1785,25 @@ public class FeatureFlagsApi {
     private Boolean isArchived;
     private Long limit;
     private Long offset;
+    private List<String> tags;
+    private List<String> teams;
+    private List<FeatureFlagProductionStatus> productionStatus;
+    private FeatureFlagDistributionChannel distributionChannel;
+    private String search;
+    private List<ValueType> valueType;
+    private List<UUID> createdBy;
+    private List<UUID> flagIds;
+    private FeatureFlagStalenessStatus stalenessStatus;
+    private UUID savedFilterId;
+    private String sort;
+    private Long pageLimit;
+    private Long pageOffset;
 
     /**
      * Set key.
      *
-     * @param key Filter feature flags by key (partial matching). (optional)
+     * @param key Filter feature flags by an exact, case-sensitive key. Use <code>search</code> for
+     *     partial matching. (optional)
      * @return ListFeatureFlagsOptionalParameters
      */
     public ListFeatureFlagsOptionalParameters key(String key) {
@@ -1796,7 +1814,9 @@ public class FeatureFlagsApi {
     /**
      * Set isArchived.
      *
-     * @param isArchived Filter by archived status. (optional)
+     * @param isArchived Filter by archived status. If <code>true</code>, return only archived
+     *     flags. If <code>false</code>, return only flags that are not archived. If omitted, return
+     *     both. (optional)
      * @return ListFeatureFlagsOptionalParameters
      */
     public ListFeatureFlagsOptionalParameters isArchived(Boolean isArchived) {
@@ -1807,7 +1827,11 @@ public class FeatureFlagsApi {
     /**
      * Set limit.
      *
-     * @param limit Maximum number of results to return. (optional, default to 100)
+     * @param limit Deprecated alias for <code>page[limit]</code>. Use <code>page[limit]</code> for
+     *     new requests. Used only when <code>page[limit]</code> is absent. When both parameters are
+     *     omitted, the server defaults to <code>25</code>. Values that exceed <code>50</code> are
+     *     set to <code>50</code>; non-positive or empty values use the server default. (optional,
+     *     default to 100)
      * @return ListFeatureFlagsOptionalParameters
      */
     public ListFeatureFlagsOptionalParameters limit(Long limit) {
@@ -1818,11 +1842,209 @@ public class FeatureFlagsApi {
     /**
      * Set offset.
      *
-     * @param offset Number of results to skip. (optional, default to 0)
+     * @param offset Deprecated alias for <code>page[offset]</code>. Used only when <code>
+     *     page[offset]</code> is absent. Defaults to <code>0</code>. Negative or empty values are
+     *     set to <code>0</code>. (optional, default to 0)
      * @return ListFeatureFlagsOptionalParameters
      */
     public ListFeatureFlagsOptionalParameters offset(Long offset) {
       this.offset = offset;
+      return this;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param tags Filter by exact tag values using repeated parameters, such as <code>
+     *     tags=env:prod&amp;tags=purpose:sitemap</code>. A flag must have all ordinary tags. Values
+     *     of the form <code>team:&lt;handle&gt;</code> match any selected team and are combined
+     *     with <code>teams</code> into one set. The result must match all ordinary tags, any
+     *     selected team, and all other filters. Empty values are ignored. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters tags(List<String> tags) {
+      this.tags = tags;
+      return this;
+    }
+
+    /**
+     * Set teams.
+     *
+     * @param teams Filter by team handles without the <code>team:</code> prefix. Use repeated
+     *     parameters to filter by multiple team handles, such as <code>
+     *     teams=checkout&amp;teams=payments</code>. A flag must belong to at least one selected
+     *     team. Team handles from <code>teams</code> and <code>team:&lt;handle&gt;</code> values
+     *     from tags are treated as a single set and combined with ordinary tags and other filters
+     *     using AND logic. Duplicate handles do not duplicate results. Unknown handles do not match
+     *     any flags. Empty handles, surrounding white space, or using the <code>team:</code> prefix
+     *     return a bad request error. Response tags are unchanged. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters teams(List<String> teams) {
+      this.teams = teams;
+      return this;
+    }
+
+    /**
+     * Set productionStatus.
+     *
+     * @param productionStatus Filter by status across production environments. Use repeated
+     *     parameters to match any selected status. <code>ENABLED</code> matches at least one
+     *     enabled production environment without a variant override. <code>OVERRIDDEN</code>
+     *     matches at least one enabled production environment with a variant override. <code>
+     *     DISABLED</code> matches flags whose associated production environments are all disabled.
+     *     A flag can match both <code>ENABLED</code> and <code>OVERRIDDEN</code> in different
+     *     environments. Flags without associated production environments do not match. This does
+     *     not filter by a specific environment. Unknown values do not match any status. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters productionStatus(
+        List<FeatureFlagProductionStatus> productionStatus) {
+      this.productionStatus = productionStatus;
+      return this;
+    }
+
+    /**
+     * Set distributionChannel.
+     *
+     * @param distributionChannel Filter by SDK availability. <code>CLIENT</code> returns flags with
+     *     channel <code>CLIENT</code> or <code>ALL</code>. <code>SERVER</code> returns flags with
+     *     channel <code>SERVER</code> or <code>ALL</code>. <code>ALL</code>, an empty value, or
+     *     omission applies no channel restriction; it does not select only flags whose channel is
+     *     <code>ALL</code>. Values are case-insensitive and surrounding white space is ignored.
+     *     Invalid values return a bad request error. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters distributionChannel(
+        FeatureFlagDistributionChannel distributionChannel) {
+      this.distributionChannel = distributionChannel;
+      return this;
+    }
+
+    /**
+     * Set search.
+     *
+     * @param search Case-insensitive substring search on flag names, keys, and tag names. Combined
+     *     with all other filters. An empty value applies no search restriction. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters search(String search) {
+      this.search = search;
+      return this;
+    }
+
+    /**
+     * Set valueType.
+     *
+     * @param valueType Filter by variant value types using repeated parameters. A flag must match
+     *     at least one selected type. Empty values are ignored. Invalid types return a bad request
+     *     error. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters valueType(List<ValueType> valueType) {
+      this.valueType = valueType;
+      return this;
+    }
+
+    /**
+     * Set createdBy.
+     *
+     * @param createdBy Filter by creator UUIDs using repeated parameters. A flag must match at
+     *     least one creator. Empty values are ignored. Invalid UUIDs return a bad request error.
+     *     (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters createdBy(List<UUID> createdBy) {
+      this.createdBy = createdBy;
+      return this;
+    }
+
+    /**
+     * Set flagIds.
+     *
+     * @param flagIds Filter by feature flag UUIDs using repeated parameters. A flag must match at
+     *     least one ID and all other filters. Duplicate IDs return each flag once. Unknown IDs and
+     *     IDs from other organizations do not match any flags. Empty or invalid UUIDs return a bad
+     *     request error. Pagination still applies. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters flagIds(List<UUID> flagIds) {
+      this.flagIds = flagIds;
+      return this;
+    }
+
+    /**
+     * Set stalenessStatus.
+     *
+     * @param stalenessStatus Filter by the computed staleness status: <code>ACTIVE</code>, <code>
+     *     STALE</code>, or <code>PERMANENT</code>. Values are case-insensitive and surrounding
+     *     white space is ignored. An empty value or omission applies no restriction. Invalid values
+     *     return a bad request error. Read the computed result from <code>
+     *     staleness_details.staleness_status</code>, not the legacy <code>staleness_status</code>
+     *     response field. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters stalenessStatus(
+        FeatureFlagStalenessStatus stalenessStatus) {
+      this.stalenessStatus = stalenessStatus;
+      return this;
+    }
+
+    /**
+     * Set savedFilterId.
+     *
+     * @param savedFilterId Filter to flags that reference this saved filter in their targeting
+     *     conditions. An empty value or omission applies no restriction. An invalid UUID returns a
+     *     bad request error. (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters savedFilterId(UUID savedFilterId) {
+      this.savedFilterId = savedFilterId;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort by <code>name</code>, <code>updated_at</code>, <code>created_at</code>, or
+     *     <code>evaluations</code>. Use a comma-separated list for multiple sort fields and prefix
+     *     a field with <code>-</code> for descending order. The default is <code>updated_at</code>
+     *     descending. When favorites are enabled, the authenticated user's favorite flags take
+     *     precedence over the selected ordering. Unknown fields return a bad request error.
+     *     (optional)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of flags to return. Defaults to <code>25</code> and is capped
+     *     at <code>50</code>. Values that exceed <code>50</code> are set to <code>50</code>.
+     *     Non-positive or empty values use the default. A non-integer value returns a bad request
+     *     error. Takes precedence over <code>limit</code> when both are present. Pagination applies
+     *     even when no pagination parameters are supplied. (optional, default to 25)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Number of matching flags to skip before returning results. Defaults to
+     *     <code>0</code>. Negative or empty values are set to <code>0</code>. A non-integer value
+     *     returns a bad request error. Takes precedence over <code>offset</code> when both are
+     *     present. (optional, default to 0)
+     * @return ListFeatureFlagsOptionalParameters
+     */
+    public ListFeatureFlagsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
       return this;
     }
   }
@@ -1886,8 +2108,10 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Returns a list of feature flags for the organization. Supports filtering by key and archived
-   * status.
+   * Returns a paginated list of feature flags for the organization. Supports filtering by key,
+   * tags, teams, SDK availability, production status, and other flag properties. Use <code>
+   * page[limit]</code> and <code>page[offset]</code> to paginate, or follow the <code>next</code>
+   * link in the response.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListFeatureFlagsResponse&gt;
@@ -1897,6 +2121,7 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1908,6 +2133,19 @@ public class FeatureFlagsApi {
     Boolean isArchived = parameters.isArchived;
     Long limit = parameters.limit;
     Long offset = parameters.offset;
+    List<String> tags = parameters.tags;
+    List<String> teams = parameters.teams;
+    List<FeatureFlagProductionStatus> productionStatus = parameters.productionStatus;
+    FeatureFlagDistributionChannel distributionChannel = parameters.distributionChannel;
+    String search = parameters.search;
+    List<ValueType> valueType = parameters.valueType;
+    List<UUID> createdBy = parameters.createdBy;
+    List<UUID> flagIds = parameters.flagIds;
+    FeatureFlagStalenessStatus stalenessStatus = parameters.stalenessStatus;
+    UUID savedFilterId = parameters.savedFilterId;
+    String sort = parameters.sort;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
@@ -1918,6 +2156,21 @@ public class FeatureFlagsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_archived", isArchived));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "teams", teams));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "production_status", productionStatus));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "distribution_channel", distributionChannel));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search", search));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "value_type", valueType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "created_by", createdBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "flag_ids", flagIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "staleness_status", stalenessStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "saved_filter_id", savedFilterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1954,6 +2207,19 @@ public class FeatureFlagsApi {
     Boolean isArchived = parameters.isArchived;
     Long limit = parameters.limit;
     Long offset = parameters.offset;
+    List<String> tags = parameters.tags;
+    List<String> teams = parameters.teams;
+    List<FeatureFlagProductionStatus> productionStatus = parameters.productionStatus;
+    FeatureFlagDistributionChannel distributionChannel = parameters.distributionChannel;
+    String search = parameters.search;
+    List<ValueType> valueType = parameters.valueType;
+    List<UUID> createdBy = parameters.createdBy;
+    List<UUID> flagIds = parameters.flagIds;
+    FeatureFlagStalenessStatus stalenessStatus = parameters.stalenessStatus;
+    UUID savedFilterId = parameters.savedFilterId;
+    String sort = parameters.sort;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
@@ -1964,6 +2230,21 @@ public class FeatureFlagsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_archived", isArchived));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "teams", teams));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "production_status", productionStatus));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "distribution_channel", distributionChannel));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search", search));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "value_type", valueType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "created_by", createdBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "flag_ids", flagIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "staleness_status", stalenessStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "saved_filter_id", savedFilterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder;
     try {

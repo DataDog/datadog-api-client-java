@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Response containing a list of feature flags. */
 @JsonPropertyOrder({
   ListFeatureFlagsResponse.JSON_PROPERTY_DATA,
+  ListFeatureFlagsResponse.JSON_PROPERTY_LINKS,
   ListFeatureFlagsResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
@@ -30,6 +31,9 @@ public class ListFeatureFlagsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<FeatureFlagListItem> data = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private FeatureFlagsPaginationLinks links;
 
   public static final String JSON_PROPERTY_META = "meta";
   private FeatureFlagsPaginationMeta meta;
@@ -76,6 +80,33 @@ public class ListFeatureFlagsResponse {
       for (FeatureFlagListItem item : data) {
         this.unparsed |= item.unparsed;
       }
+    }
+  }
+
+  public ListFeatureFlagsResponse links(FeatureFlagsPaginationLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination links. Follow <code>next</code> with the same authentication to retrieve the next
+   * page. Links use <code>page[limit]</code> and <code>page[offset]</code> and preserve the
+   * filters. Navigation links are omitted when not applicable.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FeatureFlagsPaginationLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(FeatureFlagsPaginationLinks links) {
+    this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
     }
   }
 
@@ -161,13 +192,14 @@ public class ListFeatureFlagsResponse {
     }
     ListFeatureFlagsResponse listFeatureFlagsResponse = (ListFeatureFlagsResponse) o;
     return Objects.equals(this.data, listFeatureFlagsResponse.data)
+        && Objects.equals(this.links, listFeatureFlagsResponse.links)
         && Objects.equals(this.meta, listFeatureFlagsResponse.meta)
         && Objects.equals(this.additionalProperties, listFeatureFlagsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
@@ -175,6 +207,7 @@ public class ListFeatureFlagsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListFeatureFlagsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -38,6 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagListItemAttributes.JSON_PROPERTY_REQUIRE_APPROVAL,
   FeatureFlagListItemAttributes.JSON_PROPERTY_STALENESS_DETAILS,
   FeatureFlagListItemAttributes.JSON_PROPERTY_STALENESS_STATUS,
+  FeatureFlagListItemAttributes.JSON_PROPERTY_STALENESS_STATUS_OVERRIDE,
   FeatureFlagListItemAttributes.JSON_PROPERTY_TAGS,
   FeatureFlagListItemAttributes.JSON_PROPERTY_UPDATED_AT,
   FeatureFlagListItemAttributes.JSON_PROPERTY_VALUE_TYPE,
@@ -88,6 +89,9 @@ public class FeatureFlagListItemAttributes {
 
   public static final String JSON_PROPERTY_STALENESS_STATUS = "staleness_status";
   private String stalenessStatus;
+
+  public static final String JSON_PROPERTY_STALENESS_STATUS_OVERRIDE = "staleness_status_override";
+  private FeatureFlagStalenessStatusOverride stalenessStatusOverride;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -444,10 +448,13 @@ public class FeatureFlagListItemAttributes {
   }
 
   /**
-   * Indicates the staleness status of the feature flag.
+   * Legacy status retained for compatibility. This field is always <code>ACTIVE</code>; use <code>
+   * staleness_details.staleness_status</code> for the computed status.
    *
    * @return stalenessStatus
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STALENESS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -455,8 +462,36 @@ public class FeatureFlagListItemAttributes {
     return stalenessStatus;
   }
 
+  @Deprecated
   public void setStalenessStatus(String stalenessStatus) {
     this.stalenessStatus = stalenessStatus;
+  }
+
+  public FeatureFlagListItemAttributes stalenessStatusOverride(
+      FeatureFlagStalenessStatusOverride stalenessStatusOverride) {
+    this.stalenessStatusOverride = stalenessStatusOverride;
+    this.unparsed |= !stalenessStatusOverride.isValid();
+    return this;
+  }
+
+  /**
+   * An explicit staleness status override. Omitted when no override is set.
+   *
+   * @return stalenessStatusOverride
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STALENESS_STATUS_OVERRIDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FeatureFlagStalenessStatusOverride getStalenessStatusOverride() {
+    return stalenessStatusOverride;
+  }
+
+  public void setStalenessStatusOverride(
+      FeatureFlagStalenessStatusOverride stalenessStatusOverride) {
+    if (!stalenessStatusOverride.isValid()) {
+      this.unparsed = true;
+    }
+    this.stalenessStatusOverride = stalenessStatusOverride;
   }
 
   public FeatureFlagListItemAttributes tags(List<String> tags) {
@@ -639,6 +674,8 @@ public class FeatureFlagListItemAttributes {
         && Objects.equals(this.requireApproval, featureFlagListItemAttributes.requireApproval)
         && Objects.equals(this.stalenessDetails, featureFlagListItemAttributes.stalenessDetails)
         && Objects.equals(this.stalenessStatus, featureFlagListItemAttributes.stalenessStatus)
+        && Objects.equals(
+            this.stalenessStatusOverride, featureFlagListItemAttributes.stalenessStatusOverride)
         && Objects.equals(this.tags, featureFlagListItemAttributes.tags)
         && Objects.equals(this.updatedAt, featureFlagListItemAttributes.updatedAt)
         && Objects.equals(this.valueType, featureFlagListItemAttributes.valueType)
@@ -664,6 +701,7 @@ public class FeatureFlagListItemAttributes {
         requireApproval,
         stalenessDetails,
         stalenessStatus,
+        stalenessStatusOverride,
         tags,
         updatedAt,
         valueType,
@@ -693,6 +731,9 @@ public class FeatureFlagListItemAttributes {
     sb.append("    requireApproval: ").append(toIndentedString(requireApproval)).append("\n");
     sb.append("    stalenessDetails: ").append(toIndentedString(stalenessDetails)).append("\n");
     sb.append("    stalenessStatus: ").append(toIndentedString(stalenessStatus)).append("\n");
+    sb.append("    stalenessStatusOverride: ")
+        .append(toIndentedString(stalenessStatusOverride))
+        .append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    valueType: ").append(toIndentedString(valueType)).append("\n");
