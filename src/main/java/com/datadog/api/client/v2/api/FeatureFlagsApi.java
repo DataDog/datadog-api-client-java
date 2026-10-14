@@ -3006,7 +3006,12 @@ public class FeatureFlagsApi {
 
   /**
    * Updates targeting rules (allocations) for a specific feature flag in a specific environment.
-   * This operation replaces the existing allocation set with the request payload.
+   * This operation replaces the existing allocation set with the request payload. Creating,
+   * updating, or deleting a standard experiment allocation—an allocation with <code>
+   * type: FEATURE_GATE</code> and a non-null <code>experiment_id</code>—also requires the <code>
+   * product_analytics_experiments_write</code> permission. This additional permission is not
+   * required for <code>CANARY</code> allocations, exposure schedules, or guardrail metrics unless
+   * the same operation also mutates a standard experiment allocation.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
@@ -3020,7 +3025,7 @@ public class FeatureFlagsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden. The caller is missing the &#x60;feature_flag_config_write&#x60; permission. This error is also returned when the operation mutates a standard experiment allocation and the caller is missing the &#x60;product_analytics_experiments_write&#x60; permission. </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
