@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Case resource attributes */
+/** Work item resource attributes */
 @JsonPropertyOrder({
   CaseAttributes.JSON_PROPERTY_ARCHIVED_AT,
   CaseAttributes.JSON_PROPERTY_ATTRIBUTES,
@@ -96,7 +96,7 @@ public class CaseAttributes {
   private String typeId;
 
   /**
-   * Timestamp of when the case was archived
+   * Timestamp of when the work item was archived
    *
    * @return archivedAt
    */
@@ -135,7 +135,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Key-value pairs of case attributes. Each key maps to an array of string values, used for
+   * Key-value pairs of work item attributes. Each key maps to an array of string values, used for
    * flexible metadata such as labels or tags.
    *
    * @return attributes
@@ -152,7 +152,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Timestamp of when the case was closed
+   * Timestamp of when the work item was closed
    *
    * @return closedAt
    */
@@ -178,7 +178,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Timestamp of when the case was created
+   * Timestamp of when the work item was created
    *
    * @return createdAt
    */
@@ -204,7 +204,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Case custom attributes
+   * Work item custom attributes
    *
    * @return customAttributes
    */
@@ -241,7 +241,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Jira issue attached to case
+   * Jira issue attached to work item
    *
    * @return jiraIssue
    */
@@ -288,7 +288,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Timestamp of when the case was last modified
+   * Timestamp of when the work item was last modified
    *
    * @return modifiedAt
    */
@@ -320,7 +320,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Case priority
+   * Work item priority
    *
    * @return priority
    */
@@ -339,7 +339,7 @@ public class CaseAttributes {
   }
 
   /**
-   * ServiceNow ticket attached to case
+   * ServiceNow ticket attached to work item
    *
    * @return serviceNowTicket
    */
@@ -371,7 +371,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and
+   * Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and
    * CLOSED statuses. Use <code>status_name</code> instead.
    *
    * @return status
@@ -400,7 +400,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Status group of the case.
+   * Status group of the work item.
    *
    * @return statusGroup
    */
@@ -424,7 +424,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Status of the case. Must be one of the existing statuses for the case's type.
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
    *
    * @return statusName
    */
@@ -467,7 +467,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Case type
+   * Work item type
    *
    * @return type
    * @deprecated
@@ -494,7 +494,7 @@ public class CaseAttributes {
   }
 
   /**
-   * Case type UUID
+   * Work item type UUID
    *
    * @return typeId
    */

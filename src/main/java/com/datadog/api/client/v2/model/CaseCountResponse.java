@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Response containing the total number of cases matching a query, optionally grouped by specified
- * fields.
+ * Response containing the total number of work items matching a query, optionally grouped by
+ * specified fields.
  */
 @JsonPropertyOrder({CaseCountResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(

@@ -50,7 +50,7 @@ public class IntegrationServiceNowSyncConfigPriority {
   }
 
   /**
-   * Mapping of case priority values to ServiceNow impact values.
+   * Mapping of work item priority values to ServiceNow impact values.
    *
    * @return impactMapping
    */
@@ -102,7 +102,7 @@ public class IntegrationServiceNowSyncConfigPriority {
   }
 
   /**
-   * Mapping of case priority values to ServiceNow urgency values.
+   * Mapping of work item priority values to ServiceNow urgency values.
    *
    * @return urgencyMapping
    */

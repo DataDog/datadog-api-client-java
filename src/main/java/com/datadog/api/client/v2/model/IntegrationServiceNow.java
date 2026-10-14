@@ -71,7 +71,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * Auto-creation settings for ServiceNow incidents from cases.
+   * Auto-creation settings for ServiceNow incidents from work items.
    *
    * @return autoCreation
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case creation attributes */
+/** Work item creation attributes */
 @JsonPropertyOrder({
   CaseCreateAttributes.JSON_PROPERTY_CUSTOM_ATTRIBUTES,
   CaseCreateAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -73,7 +73,7 @@ public class CaseCreateAttributes {
   }
 
   /**
-   * Case custom attributes
+   * Work item custom attributes
    *
    * @return customAttributes
    */
@@ -116,7 +116,7 @@ public class CaseCreateAttributes {
   }
 
   /**
-   * Case priority
+   * Work item priority
    *
    * @return priority
    */
@@ -140,7 +140,7 @@ public class CaseCreateAttributes {
   }
 
   /**
-   * Status of the case. Must be one of the existing statuses for the case's type.
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
    *
    * @return statusName
    */
@@ -181,7 +181,7 @@ public class CaseCreateAttributes {
   }
 
   /**
-   * Case type UUID
+   * Work item type UUID
    *
    * @return typeId
    */

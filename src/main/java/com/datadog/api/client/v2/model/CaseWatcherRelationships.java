@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Relationships for a case watcher, linking to the underlying user resource. */
+/** Relationships for a work item watcher, linking to the underlying user resource. */
 @JsonPropertyOrder({CaseWatcherRelationships.JSON_PROPERTY_USER})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class CaseWatcherRelationships {
   }
 
   /**
-   * The user relationship for a case watcher.
+   * The user relationship for a work item watcher.
    *
    * @return user
    */

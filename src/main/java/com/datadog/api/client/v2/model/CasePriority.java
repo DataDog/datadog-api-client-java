@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Case priority */
+/** Work item priority */
 @JsonSerialize(using = CasePriority.CasePrioritySerializer.class)
 public class CasePriority extends ModelEnum<String> {
 

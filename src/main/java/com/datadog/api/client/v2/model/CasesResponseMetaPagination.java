@@ -62,7 +62,7 @@ public class CasesResponseMetaPagination {
   }
 
   /**
-   * Number of cases in current page
+   * Number of work items in current page
    *
    * @return size
    */

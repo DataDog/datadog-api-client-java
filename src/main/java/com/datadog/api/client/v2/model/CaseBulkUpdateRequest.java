@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * Request payload for applying a single action (such as changing priority, status, or assignment)
- * to multiple cases at once.
+ * to multiple work items at once.
  */
 @JsonPropertyOrder({CaseBulkUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(

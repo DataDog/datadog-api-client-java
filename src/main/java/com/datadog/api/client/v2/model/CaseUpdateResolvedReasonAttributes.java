@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for setting the resolution reason on a security case. */
+/** Attributes for setting the resolution reason on a security work item. */
 @JsonPropertyOrder({CaseUpdateResolvedReasonAttributes.JSON_PROPERTY_SECURITY_RESOLVED_REASON})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,8 +41,8 @@ public class CaseUpdateResolvedReasonAttributes {
   }
 
   /**
-   * The reason the security case was resolved (for example, <code>FALSE_POSITIVE</code>, <code>
-   * TRUE_POSITIVE</code>, <code>BENIGN_POSITIVE</code>).
+   * The reason the security work item was resolved (for example, <code>FALSE_POSITIVE</code>,
+   * <code>TRUE_POSITIVE</code>, <code>BENIGN_POSITIVE</code>).
    *
    * @return securityResolvedReason
    */

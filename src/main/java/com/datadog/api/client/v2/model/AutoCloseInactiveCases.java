@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Auto-close inactive cases settings. */
+/** Auto-close inactive work items settings. */
 @JsonPropertyOrder({
   AutoCloseInactiveCases.JSON_PROPERTY_ENABLED,
   AutoCloseInactiveCases.JSON_PROPERTY_MAX_INACTIVE_TIME_IN_SECS

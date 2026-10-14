@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Status group of the case. */
+/** Status group of the work item. */
 @JsonSerialize(using = CaseStatusGroup.CaseStatusGroupSerializer.class)
 public class CaseStatusGroup extends ModelEnum<String> {
 

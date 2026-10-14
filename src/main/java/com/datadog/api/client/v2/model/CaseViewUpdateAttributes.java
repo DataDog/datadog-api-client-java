@@ -17,8 +17,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes that can be updated on a case view. All fields are optional; only provided fields are
- * changed.
+ * Attributes that can be updated on a work item view. All fields are optional; only provided fields
+ * are changed.
  */
 @JsonPropertyOrder({
   CaseViewUpdateAttributes.JSON_PROPERTY_NAME,
@@ -66,7 +66,7 @@ public class CaseViewUpdateAttributes {
 
   /**
    * The identifier of a notification rule linked to this view. When set, users subscribed to the
-   * view receive alerts for matching cases.
+   * view receive alerts for matching work items.
    *
    * @return npRuleId
    */
@@ -87,7 +87,7 @@ public class CaseViewUpdateAttributes {
   }
 
   /**
-   * The query used to filter cases in this view.
+   * The query used to filter work items in this view.
    *
    * @return query
    */

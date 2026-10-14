@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Case type */
+/** Work item type */
 @JsonSerialize(using = CaseType.CaseTypeSerializer.class)
 public class CaseType extends ModelEnum<String> {
 

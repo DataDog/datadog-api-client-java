@@ -42,7 +42,7 @@ public class CaseLinkCreateRequest {
   }
 
   /**
-   * Data object for creating a case link.
+   * Data object for creating a work item link.
    *
    * @return data
    */

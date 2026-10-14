@@ -77,7 +77,7 @@ public class AutomationRuleCreate {
   }
 
   /**
-   * JSON:API resource type for case automation rules.
+   * JSON:API resource type for work item automation rules.
    *
    * @return type
    */

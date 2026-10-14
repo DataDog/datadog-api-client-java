@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating a case type. */
+/** Data object for updating a work item type. */
 @JsonPropertyOrder({CaseTypeUpdate.JSON_PROPERTY_ATTRIBUTES, CaseTypeUpdate.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,9 +45,9 @@ public class CaseTypeUpdate {
   }
 
   /**
-   * Attributes of a case type, which define a classification category for cases. Organizations use
-   * case types to model different workflows (for example, Security Incident, Bug Report, Change
-   * Request).
+   * Attributes of a work item type, which define a classification category for work items.
+   * Organizations use work item types to model different workflows (for example, Security Incident,
+   * Bug Report, Change Request).
    *
    * @return attributes
    */
@@ -72,7 +72,7 @@ public class CaseTypeUpdate {
   }
 
   /**
-   * JSON:API resource type for case types.
+   * JSON:API resource type for work item types.
    *
    * @return type
    */

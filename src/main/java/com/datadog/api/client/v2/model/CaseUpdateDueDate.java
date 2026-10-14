@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating a case's due date. */
+/** Data object for updating a work item's due date. */
 @JsonPropertyOrder({
   CaseUpdateDueDate.JSON_PROPERTY_ATTRIBUTES,
   CaseUpdateDueDate.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class CaseUpdateDueDate {
   }
 
   /**
-   * Attributes for setting or clearing a case's due date.
+   * Attributes for setting or clearing a work item's due date.
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class CaseUpdateDueDate {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    *
    * @return type
    */

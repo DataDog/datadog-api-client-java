@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Represents a user who is subscribed to notifications for a case. Watchers receive updates when
- * the case's status, priority, assignee, or comments change.
+ * Represents a user who is subscribed to notifications for a work item. Watchers receive updates
+ * when the work item's status, priority, assignee, or comments change.
  */
 @JsonPropertyOrder({
   CaseWatcher.JSON_PROPERTY_ID,
@@ -60,7 +60,7 @@ public class CaseWatcher {
   }
 
   /**
-   * The primary identifier of the case watcher.
+   * The primary identifier of the work item watcher.
    *
    * @return id
    */
@@ -81,7 +81,7 @@ public class CaseWatcher {
   }
 
   /**
-   * Relationships for a case watcher, linking to the underlying user resource.
+   * Relationships for a work item watcher, linking to the underlying user resource.
    *
    * @return relationships
    */
@@ -105,7 +105,7 @@ public class CaseWatcher {
   }
 
   /**
-   * JSON:API resource type for case watchers.
+   * JSON:API resource type for work item watchers.
    *
    * @return type
    */

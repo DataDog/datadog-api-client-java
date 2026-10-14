@@ -66,7 +66,7 @@ public class IntegrationMonitor {
   }
 
   /**
-   * Case type ID for monitor integration.
+   * Work item type ID for monitor integration.
    *
    * @return caseTypeId
    */

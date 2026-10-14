@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for case types. */
+/** JSON:API resource type for work item types. */
 @JsonSerialize(using = CaseTypeResourceType.CaseTypeResourceTypeSerializer.class)
 public class CaseTypeResourceType extends ModelEnum<String> {
 

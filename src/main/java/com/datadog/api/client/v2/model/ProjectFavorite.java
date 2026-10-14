@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Represents a case project that the current user has bookmarked for quick access. Favorited
- * projects appear prominently in the Case Management UI.
+ * Represents a Work Management project that the current user has bookmarked for quick access.
+ * Favorited projects appear prominently in the Work Management UI.
  */
 @JsonPropertyOrder({ProjectFavorite.JSON_PROPERTY_ID, ProjectFavorite.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(

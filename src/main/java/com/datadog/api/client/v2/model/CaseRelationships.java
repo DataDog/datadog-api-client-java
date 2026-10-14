@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Resources related to a case */
+/** Resources related to a work item */
 @JsonPropertyOrder({
   CaseRelationships.JSON_PROPERTY_ASSIGNEE,
   CaseRelationships.JSON_PROPERTY_CREATED_BY,

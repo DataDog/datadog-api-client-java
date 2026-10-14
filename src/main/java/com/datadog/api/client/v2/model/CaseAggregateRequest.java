@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Request payload for aggregating case counts with grouping. Use this to get faceted breakdowns of
- * cases (for example, count of cases grouped by priority and status).
+ * Request payload for aggregating work item counts with grouping. Use this to get faceted
+ * breakdowns of work items (for example, count of work items grouped by priority and status).
  */
 @JsonPropertyOrder({CaseAggregateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(

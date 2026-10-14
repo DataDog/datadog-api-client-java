@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Jira issue attached to case */
+/** Jira issue attached to work item */
 @JsonPropertyOrder({JiraIssue.JSON_PROPERTY_RESULT, JiraIssue.JSON_PROPERTY_STATUS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -54,7 +54,7 @@ public class JiraIssue {
   }
 
   /**
-   * Case status
+   * Work item status
    *
    * @return status
    */
