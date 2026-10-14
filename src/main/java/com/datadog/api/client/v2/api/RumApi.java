@@ -1439,20 +1439,72 @@ public class RumApi {
         new GenericType<ServiceRepositoryInfoResponse>() {});
   }
 
+  /** Manage optional parameters to getSourcemaps. */
+  public static class GetSourcemapsOptionalParameters {
+    private UUID debugId;
+    private String filename;
+    private String service;
+    private String version;
+
+    /**
+     * Set debugId.
+     *
+     * @param debugId The debug ID of the JavaScript source map, in UUID format. When provided,
+     *     filename, service, and version are not required and are ignored. (optional)
+     * @return GetSourcemapsOptionalParameters
+     */
+    public GetSourcemapsOptionalParameters debugId(UUID debugId) {
+      this.debugId = debugId;
+      return this;
+    }
+
+    /**
+     * Set filename.
+     *
+     * @param filename The path to the source map file. Required when <code>debug_id</code> is
+     *     omitted. (optional)
+     * @return GetSourcemapsOptionalParameters
+     */
+    public GetSourcemapsOptionalParameters filename(String filename) {
+      this.filename = filename;
+      return this;
+    }
+
+    /**
+     * Set service.
+     *
+     * @param service The service name associated with the source map. Required when <code>debug_id
+     *     </code> is omitted. (optional)
+     * @return GetSourcemapsOptionalParameters
+     */
+    public GetSourcemapsOptionalParameters service(String service) {
+      this.service = service;
+      return this;
+    }
+
+    /**
+     * Set version.
+     *
+     * @param version The version of the service associated with the source map. Required when
+     *     <code>debug_id</code> is omitted. (optional)
+     * @return GetSourcemapsOptionalParameters
+     */
+    public GetSourcemapsOptionalParameters version(String version) {
+      this.version = version;
+      return this;
+    }
+  }
+
   /**
    * Get a JavaScript source map.
    *
    * <p>See {@link #getSourcemapsWithHttpInfo}.
    *
-   * @param filename The path to the source map file. (required)
-   * @param service The service name associated with the source map. (required)
-   * @param version The version of the service associated with the source map. (required)
    * @return SourcemapFileResponse
    * @throws ApiException if fails to make API call
    */
-  public SourcemapFileResponse getSourcemaps(String filename, String service, String version)
-      throws ApiException {
-    return getSourcemapsWithHttpInfo(filename, service, version).getData();
+  public SourcemapFileResponse getSourcemaps() throws ApiException {
+    return getSourcemapsWithHttpInfo(new GetSourcemapsOptionalParameters()).getData();
   }
 
   /**
@@ -1460,14 +1512,10 @@ public class RumApi {
    *
    * <p>See {@link #getSourcemapsWithHttpInfoAsync}.
    *
-   * @param filename The path to the source map file. (required)
-   * @param service The service name associated with the source map. (required)
-   * @param version The version of the service associated with the source map. (required)
    * @return CompletableFuture&lt;SourcemapFileResponse&gt;
    */
-  public CompletableFuture<SourcemapFileResponse> getSourcemapsAsync(
-      String filename, String service, String version) {
-    return getSourcemapsWithHttpInfoAsync(filename, service, version)
+  public CompletableFuture<SourcemapFileResponse> getSourcemapsAsync() {
+    return getSourcemapsWithHttpInfoAsync(new GetSourcemapsOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -1475,12 +1523,70 @@ public class RumApi {
   }
 
   /**
-   * Retrieves the content of a specific JavaScript source map file by its filename, service name,
-   * and version.
+   * Get a JavaScript source map.
    *
-   * @param filename The path to the source map file. (required)
-   * @param service The service name associated with the source map. (required)
-   * @param version The version of the service associated with the source map. (required)
+   * <p>See {@link #getSourcemapsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SourcemapFileResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SourcemapFileResponse getSourcemaps(GetSourcemapsOptionalParameters parameters)
+      throws ApiException {
+    return getSourcemapsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get a JavaScript source map.
+   *
+   * <p>See {@link #getSourcemapsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SourcemapFileResponse&gt;
+   */
+  public CompletableFuture<SourcemapFileResponse> getSourcemapsAsync(
+      GetSourcemapsOptionalParameters parameters) {
+    return getSourcemapsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieves the content of a specific JavaScript source map file. Provide either <code>debug_id
+   * </code> with a UUID, or all three of <code>filename</code>, <code>service</code>, and <code>
+   * version</code>. When <code>debug_id</code> is provided, filename, service, and version are not
+   * required and are ignored.
+   *
+   * <p><strong>Examples:</strong> the following commands use the US1 API host. Replace the host
+   * with the API host for your site, and the filename, service, version, and debug ID with values
+   * from your organization. Use <code>--get</code> so curl sends the parameters in the query
+   * string.
+   *
+   * <p><strong>1. Retrieve a source map by debug ID</strong>
+   *
+   * <p>Provide <code>debug_id</code> with a UUID. No filename, service, or version is required.
+   *
+   * <p><code>bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "debug_id=00000000-0000-4000-8000-000000000001"</code>
+   *
+   * <p><strong>2. Retrieve a source map by service and version</strong>
+   *
+   * <p>Provide <code>filename</code> together with <code>service</code> and <code>version</code>.
+   *
+   * <p><code>bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "filename=js/bundle.min.js.map" \
+   *   --data-urlencode "service=my-web-service" \
+   *   --data-urlencode "version=1.0.0"</code>
+   *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SourcemapFileResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1495,7 +1601,7 @@ public class RumApi {
    *     </table>
    */
   public ApiResponse<SourcemapFileResponse> getSourcemapsWithHttpInfo(
-      String filename, String service, String version) throws ApiException {
+      GetSourcemapsOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getSourcemaps";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1504,30 +1610,17 @@ public class RumApi {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
-
-    // verify the required parameter 'filename' is set
-    if (filename == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'filename' when calling getSourcemaps");
-    }
-
-    // verify the required parameter 'service' is set
-    if (service == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'service' when calling getSourcemaps");
-    }
-
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'version' when calling getSourcemaps");
-    }
+    UUID debugId = parameters.debugId;
+    String filename = parameters.filename;
+    String service = parameters.service;
+    String version = parameters.version;
     // create path and map variables
     String localVarPath = "/api/v2/sourcemaps";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "debug_id", debugId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filename", filename));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "service", service));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
@@ -1557,13 +1650,11 @@ public class RumApi {
    *
    * <p>See {@link #getSourcemapsWithHttpInfo}.
    *
-   * @param filename The path to the source map file. (required)
-   * @param service The service name associated with the source map. (required)
-   * @param version The version of the service associated with the source map. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SourcemapFileResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SourcemapFileResponse>> getSourcemapsWithHttpInfoAsync(
-      String filename, String service, String version) {
+      GetSourcemapsOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "getSourcemaps";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1575,39 +1666,17 @@ public class RumApi {
       return result;
     }
     Object localVarPostBody = null;
-
-    // verify the required parameter 'filename' is set
-    if (filename == null) {
-      CompletableFuture<ApiResponse<SourcemapFileResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'filename' when calling getSourcemaps"));
-      return result;
-    }
-
-    // verify the required parameter 'service' is set
-    if (service == null) {
-      CompletableFuture<ApiResponse<SourcemapFileResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'service' when calling getSourcemaps"));
-      return result;
-    }
-
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      CompletableFuture<ApiResponse<SourcemapFileResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'version' when calling getSourcemaps"));
-      return result;
-    }
+    UUID debugId = parameters.debugId;
+    String filename = parameters.filename;
+    String service = parameters.service;
+    String version = parameters.version;
     // create path and map variables
     String localVarPath = "/api/v2/sourcemaps";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "debug_id", debugId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filename", filename));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "service", service));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
