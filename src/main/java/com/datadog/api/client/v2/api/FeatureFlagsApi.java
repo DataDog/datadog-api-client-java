@@ -19,6 +19,7 @@ import com.datadog.api.client.v2.model.ListAllocationsResponse;
 import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
 import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
+import com.datadog.api.client.v2.model.SavedFilterResponse;
 import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
 import com.datadog.api.client.v2.model.UpdateVariantRequest;
@@ -1777,6 +1778,150 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EnvironmentResponse>() {});
+  }
+
+  /**
+   * Get a saved filter.
+   *
+   * <p>See {@link #getSavedFilterWithHttpInfo}.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @return SavedFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SavedFilterResponse getSavedFilter(UUID savedFilterId) throws ApiException {
+    return getSavedFilterWithHttpInfo(savedFilterId).getData();
+  }
+
+  /**
+   * Get a saved filter.
+   *
+   * <p>See {@link #getSavedFilterWithHttpInfoAsync}.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @return CompletableFuture&lt;SavedFilterResponse&gt;
+   */
+  public CompletableFuture<SavedFilterResponse> getSavedFilterAsync(UUID savedFilterId) {
+    return getSavedFilterWithHttpInfoAsync(savedFilterId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a saved filter by ID, including its full targeting rules, conditions, and values.
+   * Supports both saved lists and saved rules. Targeting rules are combined with OR, and conditions
+   * within each rule are combined with AND. Returns the stored filter definition rather than
+   * evaluating it against users or organizations. Archived filters can be retrieved. Filters that
+   * are deleted or belong to another organization return a not found error.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @return ApiResponse&lt;SavedFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SavedFilterResponse> getSavedFilterWithHttpInfo(UUID savedFilterId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'savedFilterId' is set
+    if (savedFilterId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'savedFilterId' when calling getSavedFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/saved-filters/{saved_filter_id}"
+            .replaceAll(
+                "\\{" + "saved_filter_id" + "\\}",
+                apiClient.escapeString(savedFilterId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.getSavedFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SavedFilterResponse>() {});
+  }
+
+  /**
+   * Get a saved filter.
+   *
+   * <p>See {@link #getSavedFilterWithHttpInfo}.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SavedFilterResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SavedFilterResponse>> getSavedFilterWithHttpInfoAsync(
+      UUID savedFilterId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'savedFilterId' is set
+    if (savedFilterId == null) {
+      CompletableFuture<ApiResponse<SavedFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'savedFilterId' when calling getSavedFilter"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/saved-filters/{saved_filter_id}"
+            .replaceAll(
+                "\\{" + "saved_filter_id" + "\\}",
+                apiClient.escapeString(savedFilterId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.getSavedFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SavedFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SavedFilterResponse>() {});
   }
 
   /** Manage optional parameters to listFeatureFlags. */
