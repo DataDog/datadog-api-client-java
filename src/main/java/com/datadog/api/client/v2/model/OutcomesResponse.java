@@ -22,7 +22,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   OutcomesResponse.JSON_PROPERTY_DATA,
   OutcomesResponse.JSON_PROPERTY_INCLUDED,
-  OutcomesResponse.JSON_PROPERTY_LINKS
+  OutcomesResponse.JSON_PROPERTY_LINKS,
+  OutcomesResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -36,6 +37,9 @@ public class OutcomesResponse {
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private OutcomesResponseLinks links;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private PaginatedResponseMeta meta;
 
   public OutcomesResponse data(List<OutcomesResponseDataItem> data) {
     this.data = data;
@@ -124,7 +128,7 @@ public class OutcomesResponse {
   }
 
   /**
-   * Links attributes.
+   * Pagination links for rule outcomes.
    *
    * @return links
    */
@@ -139,6 +143,31 @@ public class OutcomesResponse {
     this.links = links;
     if (links != null) {
       this.unparsed |= links.unparsed;
+    }
+  }
+
+  public OutcomesResponse meta(PaginatedResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination metadata.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PaginatedResponseMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(PaginatedResponseMeta meta) {
+    this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
     }
   }
 
@@ -201,12 +230,13 @@ public class OutcomesResponse {
     return Objects.equals(this.data, outcomesResponse.data)
         && Objects.equals(this.included, outcomesResponse.included)
         && Objects.equals(this.links, outcomesResponse.links)
+        && Objects.equals(this.meta, outcomesResponse.meta)
         && Objects.equals(this.additionalProperties, outcomesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, links, additionalProperties);
+    return Objects.hash(data, included, links, meta, additionalProperties);
   }
 
   @Override
@@ -216,6 +246,7 @@ public class OutcomesResponse {
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
