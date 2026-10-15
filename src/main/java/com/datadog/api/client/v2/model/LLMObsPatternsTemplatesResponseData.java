@@ -17,79 +17,73 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A user relationship to the requested team. */
+/** Data object of a list of Agent Observability patterns templates. */
 @JsonPropertyOrder({
-  TeamHierarchyMember.JSON_PROPERTY_ATTRIBUTES,
-  TeamHierarchyMember.JSON_PROPERTY_ID,
-  TeamHierarchyMember.JSON_PROPERTY_RELATIONSHIPS,
-  TeamHierarchyMember.JSON_PROPERTY_TYPE
+  LLMObsPatternsTemplatesResponseData.JSON_PROPERTY_ATTRIBUTES,
+  LLMObsPatternsTemplatesResponseData.JSON_PROPERTY_ID,
+  LLMObsPatternsTemplatesResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamHierarchyMember {
+public class LLMObsPatternsTemplatesResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private TeamHierarchyMemberAttributes attributes;
+  private LLMObsPatternsTemplatesResponseAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private TeamHierarchyMemberRelationships relationships;
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TeamHierarchyMemberType type = TeamHierarchyMemberType.USER_TEAM_RELATIONSHIP;
+  private LLMObsPatternsTemplatesListType type;
 
-  public TeamHierarchyMember() {}
+  public LLMObsPatternsTemplatesResponseData() {}
 
   @JsonCreator
-  public TeamHierarchyMember(
+  public LLMObsPatternsTemplatesResponseData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          TeamHierarchyMemberAttributes attributes,
+          LLMObsPatternsTemplatesResponseAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RELATIONSHIPS)
-          TeamHierarchyMemberRelationships relationships,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TeamHierarchyMemberType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          LLMObsPatternsTemplatesListType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.id = id;
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public TeamHierarchyMember attributes(TeamHierarchyMemberAttributes attributes) {
+  public LLMObsPatternsTemplatesResponseData attributes(
+      LLMObsPatternsTemplatesResponseAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Membership attributes relative to the requested team.
+   * Attributes of a list of Agent Observability patterns templates.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamHierarchyMemberAttributes getAttributes() {
+  public LLMObsPatternsTemplatesResponseAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(TeamHierarchyMemberAttributes attributes) {
+  public void setAttributes(LLMObsPatternsTemplatesResponseAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public TeamHierarchyMember id(String id) {
+  public LLMObsPatternsTemplatesResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Relationship identifier containing the team UUID and user UUID.
+   * Identifier of the list response.
    *
    * @return id
    */
@@ -103,48 +97,24 @@ public class TeamHierarchyMember {
     this.id = id;
   }
 
-  public TeamHierarchyMember relationships(TeamHierarchyMemberRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * User and requested team linkage.
-   *
-   * @return relationships
-   */
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamHierarchyMemberRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(TeamHierarchyMemberRelationships relationships) {
-    this.relationships = relationships;
-    if (relationships != null) {
-      this.unparsed |= relationships.unparsed;
-    }
-  }
-
-  public TeamHierarchyMember type(TeamHierarchyMemberType type) {
+  public LLMObsPatternsTemplatesResponseData type(LLMObsPatternsTemplatesListType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Team hierarchy membership resource type.
+   * Resource type of a list of Agent Observability patterns templates.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamHierarchyMemberType getType() {
+  public LLMObsPatternsTemplatesListType getType() {
     return type;
   }
 
-  public void setType(TeamHierarchyMemberType type) {
+  public void setType(LLMObsPatternsTemplatesListType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -163,10 +133,10 @@ public class TeamHierarchyMember {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamHierarchyMember
+   * @return LLMObsPatternsTemplatesResponseData
    */
   @JsonAnySetter
-  public TeamHierarchyMember putAdditionalProperty(String key, Object value) {
+  public LLMObsPatternsTemplatesResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -197,7 +167,7 @@ public class TeamHierarchyMember {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamHierarchyMember object is equal to o. */
+  /** Return true if this LLMObsPatternsTemplatesResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -206,26 +176,26 @@ public class TeamHierarchyMember {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamHierarchyMember teamHierarchyMember = (TeamHierarchyMember) o;
-    return Objects.equals(this.attributes, teamHierarchyMember.attributes)
-        && Objects.equals(this.id, teamHierarchyMember.id)
-        && Objects.equals(this.relationships, teamHierarchyMember.relationships)
-        && Objects.equals(this.type, teamHierarchyMember.type)
-        && Objects.equals(this.additionalProperties, teamHierarchyMember.additionalProperties);
+    LLMObsPatternsTemplatesResponseData llmObsPatternsTemplatesResponseData =
+        (LLMObsPatternsTemplatesResponseData) o;
+    return Objects.equals(this.attributes, llmObsPatternsTemplatesResponseData.attributes)
+        && Objects.equals(this.id, llmObsPatternsTemplatesResponseData.id)
+        && Objects.equals(this.type, llmObsPatternsTemplatesResponseData.type)
+        && Objects.equals(
+            this.additionalProperties, llmObsPatternsTemplatesResponseData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamHierarchyMember {\n");
+    sb.append("class LLMObsPatternsTemplatesResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

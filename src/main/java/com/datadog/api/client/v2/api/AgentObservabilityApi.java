@@ -71,6 +71,7 @@ import com.datadog.api.client.v2.model.LLMObsPatternsConfigUpsertRequest;
 import com.datadog.api.client.v2.model.LLMObsPatternsConfigsResponse;
 import com.datadog.api.client.v2.model.LLMObsPatternsRunStatusResponse;
 import com.datadog.api.client.v2.model.LLMObsPatternsRunsResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsTemplatesResponse;
 import com.datadog.api.client.v2.model.LLMObsPatternsTopicsResponse;
 import com.datadog.api.client.v2.model.LLMObsPatternsTopicsWithClusteredPointsResponse;
 import com.datadog.api.client.v2.model.LLMObsPatternsTriggerRequest;
@@ -9360,6 +9361,135 @@ public class AgentObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsPatternsRunsResponse>() {});
+  }
+
+  /**
+   * List patterns templates.
+   *
+   * <p>See {@link #listLLMObsPatternsTemplatesWithHttpInfo}.
+   *
+   * @return LLMObsPatternsTemplatesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsTemplatesResponse listLLMObsPatternsTemplates() throws ApiException {
+    return listLLMObsPatternsTemplatesWithHttpInfo().getData();
+  }
+
+  /**
+   * List patterns templates.
+   *
+   * <p>See {@link #listLLMObsPatternsTemplatesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LLMObsPatternsTemplatesResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsTemplatesResponse> listLLMObsPatternsTemplatesAsync() {
+    return listLLMObsPatternsTemplatesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all enabled patterns templates.
+   *
+   * @return ApiResponse&lt;LLMObsPatternsTemplatesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsTemplatesResponse> listLLMObsPatternsTemplatesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentObservabilityApi.listLLMObsPatternsTemplates",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTemplatesResponse>() {});
+  }
+
+  /**
+   * List patterns templates.
+   *
+   * <p>See {@link #listLLMObsPatternsTemplatesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsTemplatesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsTemplatesResponse>>
+      listLLMObsPatternsTemplatesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsTemplatesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentObservabilityApi.listLLMObsPatternsTemplates",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsTemplatesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTemplatesResponse>() {});
   }
 
   /** Manage optional parameters to listLLMObsPatternsTopics. */
