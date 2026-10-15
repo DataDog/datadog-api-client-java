@@ -29,6 +29,7 @@ public class FormulaAndFunctionEventsDataSource extends ModelEnum<String> {
               "logs",
               "spans",
               "network",
+              "network_device_flows",
               "rum",
               "security_signals",
               "profiles",
@@ -48,6 +49,8 @@ public class FormulaAndFunctionEventsDataSource extends ModelEnum<String> {
       new FormulaAndFunctionEventsDataSource("spans");
   public static final FormulaAndFunctionEventsDataSource NETWORK =
       new FormulaAndFunctionEventsDataSource("network");
+  public static final FormulaAndFunctionEventsDataSource NETWORK_DEVICE_FLOWS =
+      new FormulaAndFunctionEventsDataSource("network_device_flows");
   public static final FormulaAndFunctionEventsDataSource RUM =
       new FormulaAndFunctionEventsDataSource("rum");
   public static final FormulaAndFunctionEventsDataSource SECURITY_SIGNALS =
