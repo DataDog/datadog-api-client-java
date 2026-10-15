@@ -363,57 +363,46 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
             e);
       }
 
-      // deserialize
-      // ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+      // deserialize ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                .class
-                .equals(Integer.class)
-            || ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                .class
-                .equals(Long.class)
-            || ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                .class
-                .equals(Float.class)
-            || ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                .class
-                .equals(Double.class)
-            || ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                .class
-                .equals(Boolean.class)
-            || ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                .class
-                .equals(String.class)) {
+        if (ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                Integer.class)
+            || ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                Long.class)
+            || ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                Float.class)
+            || ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                Double.class)
+            || ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                Boolean.class)
+            || ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                            .class
-                            .equals(Integer.class)
-                        || ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+                ((ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                            Integer.class)
+                        || ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                             .class
                             .equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                            .class
-                            .equals(Float.class)
-                        || ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+                ((ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                            Float.class)
+                        || ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
                             .class
                             .equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                        .class
-                        .equals(Boolean.class)
+                (ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                        Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                        .class
-                        .equals(String.class)
+                (ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class.equals(
+                        String.class)
                     && token == JsonToken.VALUE_STRING);
           }
         }
@@ -421,13 +410,11 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
           tmp =
               tree.traverse(jp.getCodec())
                   .readValueAs(
-                      ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-                          .class);
+                      ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion)
-                  tmp)
+          if (!((ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion) tmp)
               .unparsed) {
             deserialized = tmp;
             match++;
@@ -435,14 +422,14 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
           log.log(
               Level.FINER,
               "Input data matches schema"
-                  + " 'ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion'");
+                  + " 'ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(
             Level.FINER,
             "Input data does not match schema"
-                + " 'ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion'",
+                + " 'ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion'",
             e);
       }
 
@@ -572,7 +559,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
   }
 
   public ObservabilityPipelineAzureDataExplorerDestinationAuth(
-      ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion o) {
+      ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -598,9 +585,8 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
         "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity",
         new GenericType<ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity>() {});
     schemas.put(
-        "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion",
-        new GenericType<
-            ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion>() {});
+        "ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion",
+        new GenericType<ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion>() {});
     schemas.put(
         "ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity",
         new GenericType<
@@ -621,7 +607,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
    * ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,
    * ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate,
    * ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,
-   * ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion,
+   * ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion,
    * ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
@@ -658,7 +644,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
       return;
     }
     if (JSON.isInstanceOf(
-        ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion.class,
+        ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.class,
         instance,
         new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -682,7 +668,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
             + " ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,"
             + " ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate,"
             + " ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,"
-            + " ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion,"
+            + " ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion,"
             + " ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity");
   }
 
@@ -692,14 +678,14 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
    * ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,
    * ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate,
    * ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,
-   * ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion,
+   * ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion,
    * ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity
    *
    * @return The actual instance (ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli,
    *     ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,
    *     ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate,
    *     ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,
-   *     ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion,
+   *     ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion,
    *     ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity)
    */
   @Override
@@ -778,20 +764,19 @@ public class ObservabilityPipelineAzureDataExplorerDestinationAuth extends Abstr
 
   /**
    * Get the actual instance of
-   * `ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion`. If the
-   * actual instance is not
-   * `ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion`, the
+   * `ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion`. If the actual instance
+   * is not `ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion`, the
    * ClassCastException will be thrown.
    *
    * @return The actual instance of
-   *     `ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion`
+   *     `ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion`
    * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion`
+   *     `ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion`
    */
-  public ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
-      getObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion()
+  public ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
+      getObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion()
           throws ClassCastException {
-    return (ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion)
+    return (ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion)
         super.getActualInstance();
   }
 
