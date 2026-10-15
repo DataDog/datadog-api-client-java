@@ -54,7 +54,8 @@ public class OrgGroupMembershipBulkUpdateAttributes {
   }
 
   /**
-   * List of organizations to move. Maximum 100 per request.
+   * List of organizations to move. Each request must include between 1 and 100 organizations. Each
+   * <code>org_uuid</code> and <code>org_site</code> pair must be unique.
    *
    * @return orgs
    */
