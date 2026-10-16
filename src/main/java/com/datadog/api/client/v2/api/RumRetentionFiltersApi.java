@@ -109,13 +109,6 @@ public class RumRetentionFiltersApi {
    */
   public ApiResponse<RumExclusionFilterResponse> createExclusionFilterWithHttpInfo(
       String appId, RumExclusionFilterCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
@@ -167,16 +160,6 @@ public class RumRetentionFiltersApi {
    */
   public CompletableFuture<ApiResponse<RumExclusionFilterResponse>>
       createExclusionFilterWithHttpInfoAsync(String appId, RumExclusionFilterCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
@@ -439,13 +422,6 @@ public class RumRetentionFiltersApi {
    */
   public ApiResponse<Void> deleteExclusionFilterWithHttpInfo(String appId, String efId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -498,16 +474,6 @@ public class RumRetentionFiltersApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteExclusionFilterWithHttpInfoAsync(
       String appId, String efId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -769,13 +735,6 @@ public class RumRetentionFiltersApi {
    */
   public ApiResponse<RumExclusionFilterResponse> getExclusionFilterWithHttpInfo(
       String appId, String efId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -828,16 +787,6 @@ public class RumRetentionFiltersApi {
    */
   public CompletableFuture<ApiResponse<RumExclusionFilterResponse>>
       getExclusionFilterWithHttpInfoAsync(String appId, String efId) {
-    // Check if unstable operation is enabled
-    String operationId = "getExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -1268,13 +1217,6 @@ public class RumRetentionFiltersApi {
    */
   public ApiResponse<RumExclusionFiltersResponse> listExclusionFiltersWithHttpInfo(String appId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listExclusionFilters";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -1319,17 +1261,6 @@ public class RumRetentionFiltersApi {
    */
   public CompletableFuture<ApiResponse<RumExclusionFiltersResponse>>
       listExclusionFiltersWithHttpInfoAsync(String appId) {
-    // Check if unstable operation is enabled
-    String operationId = "listExclusionFilters";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RumExclusionFiltersResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -1873,13 +1804,6 @@ public class RumRetentionFiltersApi {
    */
   public ApiResponse<RumExclusionFilterResponse> updateExclusionFilterWithHttpInfo(
       String appId, String efId, RumExclusionFilterUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
@@ -1940,16 +1864,6 @@ public class RumRetentionFiltersApi {
   public CompletableFuture<ApiResponse<RumExclusionFilterResponse>>
       updateExclusionFilterWithHttpInfoAsync(
           String appId, String efId, RumExclusionFilterUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateExclusionFilter";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<RumExclusionFilterResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
