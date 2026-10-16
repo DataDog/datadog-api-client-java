@@ -3,14 +3,15 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.BitsAiApi;
+import com.datadog.api.client.v2.model.MonitorAlertTrigger;
 import com.datadog.api.client.v2.model.MonitorAlertTriggerAttributes;
+import com.datadog.api.client.v2.model.MonitorAlertTriggerType;
 import com.datadog.api.client.v2.model.TriggerAttributes;
 import com.datadog.api.client.v2.model.TriggerInvestigationRequest;
 import com.datadog.api.client.v2.model.TriggerInvestigationRequestData;
 import com.datadog.api.client.v2.model.TriggerInvestigationRequestDataAttributes;
 import com.datadog.api.client.v2.model.TriggerInvestigationRequestType;
 import com.datadog.api.client.v2.model.TriggerInvestigationResponse;
-import com.datadog.api.client.v2.model.TriggerType;
 
 public class Example {
   public static void main(String[] args) {
@@ -25,13 +26,14 @@ public class Example {
                     .attributes(
                         new TriggerInvestigationRequestDataAttributes()
                             .trigger(
-                                new TriggerAttributes()
-                                    .monitorAlertTrigger(
-                                        new MonitorAlertTriggerAttributes()
-                                            .eventId("1234567890123456789")
-                                            .eventTs(1700000000000L)
-                                            .monitorId(12345678L))
-                                    .type(TriggerType.MONITOR_ALERT_TRIGGER)))
+                                new TriggerAttributes(
+                                    new MonitorAlertTrigger()
+                                        .monitorAlertTrigger(
+                                            new MonitorAlertTriggerAttributes()
+                                                .eventId("1234567890123456789")
+                                                .eventTs(1700000000000L)
+                                                .monitorId(12345678L))
+                                        .type(MonitorAlertTriggerType.MONITOR_ALERT_TRIGGER))))
                     .type(TriggerInvestigationRequestType.TRIGGER_INVESTIGATION_REQUEST));
 
     try {

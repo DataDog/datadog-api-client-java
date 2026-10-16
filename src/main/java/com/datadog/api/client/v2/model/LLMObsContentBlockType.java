@@ -28,14 +28,14 @@ public class LLMObsContentBlockType extends ModelEnum<String> {
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
-              "markdown", "header", "text", "json", "image", "widget", "llmobs_trace", "frontend"));
+              "markdown", "header", "text", "json", "image", "univiz", "llmobs_trace", "frontend"));
 
   public static final LLMObsContentBlockType MARKDOWN = new LLMObsContentBlockType("markdown");
   public static final LLMObsContentBlockType HEADER = new LLMObsContentBlockType("header");
   public static final LLMObsContentBlockType TEXT = new LLMObsContentBlockType("text");
   public static final LLMObsContentBlockType JSON = new LLMObsContentBlockType("json");
   public static final LLMObsContentBlockType IMAGE = new LLMObsContentBlockType("image");
-  public static final LLMObsContentBlockType WIDGET = new LLMObsContentBlockType("widget");
+  public static final LLMObsContentBlockType UNIVIZ = new LLMObsContentBlockType("univiz");
   public static final LLMObsContentBlockType LLMOBS_TRACE =
       new LLMObsContentBlockType("llmobs_trace");
   public static final LLMObsContentBlockType FRONTEND = new LLMObsContentBlockType("frontend");
