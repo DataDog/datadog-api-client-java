@@ -18,42 +18,41 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Pagination mode. */
+/** Resource type of a list of Agent Observability patterns templates. */
 @JsonSerialize(
-    using = TeamHierarchyMembersOffsetPageType.TeamHierarchyMembersOffsetPageTypeSerializer.class)
-public class TeamHierarchyMembersOffsetPageType extends ModelEnum<String> {
+    using = LLMObsPatternsTemplatesListType.LLMObsPatternsTemplatesListTypeSerializer.class)
+public class LLMObsPatternsTemplatesListType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("offset_limit"));
+      new HashSet<String>(Arrays.asList("list_topic_discovery_templates_response"));
 
-  public static final TeamHierarchyMembersOffsetPageType OFFSET_LIMIT =
-      new TeamHierarchyMembersOffsetPageType("offset_limit");
+  public static final LLMObsPatternsTemplatesListType LIST_TOPIC_DISCOVERY_TEMPLATES_RESPONSE =
+      new LLMObsPatternsTemplatesListType("list_topic_discovery_templates_response");
 
-  TeamHierarchyMembersOffsetPageType(String value) {
+  LLMObsPatternsTemplatesListType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TeamHierarchyMembersOffsetPageTypeSerializer
-      extends StdSerializer<TeamHierarchyMembersOffsetPageType> {
-    public TeamHierarchyMembersOffsetPageTypeSerializer(
-        Class<TeamHierarchyMembersOffsetPageType> t) {
+  public static class LLMObsPatternsTemplatesListTypeSerializer
+      extends StdSerializer<LLMObsPatternsTemplatesListType> {
+    public LLMObsPatternsTemplatesListTypeSerializer(Class<LLMObsPatternsTemplatesListType> t) {
       super(t);
     }
 
-    public TeamHierarchyMembersOffsetPageTypeSerializer() {
+    public LLMObsPatternsTemplatesListTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        TeamHierarchyMembersOffsetPageType value, JsonGenerator jgen, SerializerProvider provider)
+        LLMObsPatternsTemplatesListType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TeamHierarchyMembersOffsetPageType fromValue(String value) {
-    return new TeamHierarchyMembersOffsetPageType(value);
+  public static LLMObsPatternsTemplatesListType fromValue(String value) {
+    return new LLMObsPatternsTemplatesListType(value);
   }
 }

@@ -17,42 +17,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Linkage to the requested team. */
-@JsonPropertyOrder({TeamHierarchyMemberTeamRelationship.JSON_PROPERTY_DATA})
+/** Response containing a list of Agent Observability patterns templates. */
+@JsonPropertyOrder({LLMObsPatternsTemplatesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamHierarchyMemberTeamRelationship {
+public class LLMObsPatternsTemplatesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TeamHierarchyMemberTeamData data;
+  private LLMObsPatternsTemplatesResponseData data;
 
-  public TeamHierarchyMemberTeamRelationship() {}
+  public LLMObsPatternsTemplatesResponse() {}
 
   @JsonCreator
-  public TeamHierarchyMemberTeamRelationship(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) TeamHierarchyMemberTeamData data) {
+  public LLMObsPatternsTemplatesResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          LLMObsPatternsTemplatesResponseData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public TeamHierarchyMemberTeamRelationship data(TeamHierarchyMemberTeamData data) {
+  public LLMObsPatternsTemplatesResponse data(LLMObsPatternsTemplatesResponseData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Team resource identifier.
+   * Data object of a list of Agent Observability patterns templates.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamHierarchyMemberTeamData getData() {
+  public LLMObsPatternsTemplatesResponseData getData() {
     return data;
   }
 
-  public void setData(TeamHierarchyMemberTeamData data) {
+  public void setData(LLMObsPatternsTemplatesResponseData data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;
@@ -71,10 +72,10 @@ public class TeamHierarchyMemberTeamRelationship {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamHierarchyMemberTeamRelationship
+   * @return LLMObsPatternsTemplatesResponse
    */
   @JsonAnySetter
-  public TeamHierarchyMemberTeamRelationship putAdditionalProperty(String key, Object value) {
+  public LLMObsPatternsTemplatesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -105,7 +106,7 @@ public class TeamHierarchyMemberTeamRelationship {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamHierarchyMemberTeamRelationship object is equal to o. */
+  /** Return true if this LLMObsPatternsTemplatesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,11 +115,11 @@ public class TeamHierarchyMemberTeamRelationship {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamHierarchyMemberTeamRelationship teamHierarchyMemberTeamRelationship =
-        (TeamHierarchyMemberTeamRelationship) o;
-    return Objects.equals(this.data, teamHierarchyMemberTeamRelationship.data)
+    LLMObsPatternsTemplatesResponse llmObsPatternsTemplatesResponse =
+        (LLMObsPatternsTemplatesResponse) o;
+    return Objects.equals(this.data, llmObsPatternsTemplatesResponse.data)
         && Objects.equals(
-            this.additionalProperties, teamHierarchyMemberTeamRelationship.additionalProperties);
+            this.additionalProperties, llmObsPatternsTemplatesResponse.additionalProperties);
   }
 
   @Override
@@ -129,7 +130,7 @@ public class TeamHierarchyMemberTeamRelationship {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamHierarchyMemberTeamRelationship {\n");
+    sb.append("class LLMObsPatternsTemplatesResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

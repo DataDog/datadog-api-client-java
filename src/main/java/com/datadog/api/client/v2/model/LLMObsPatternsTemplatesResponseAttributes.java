@@ -8,69 +8,72 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Available attributes of the requested team. */
-@JsonPropertyOrder({
-  TeamHierarchyMemberTeamAttributes.JSON_PROPERTY_HANDLE,
-  TeamHierarchyMemberTeamAttributes.JSON_PROPERTY_NAME
-})
+/** Attributes of a list of Agent Observability patterns templates. */
+@JsonPropertyOrder({LLMObsPatternsTemplatesResponseAttributes.JSON_PROPERTY_TEMPLATES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamHierarchyMemberTeamAttributes {
+public class LLMObsPatternsTemplatesResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_HANDLE = "handle";
-  private String handle;
+  public static final String JSON_PROPERTY_TEMPLATES = "templates";
+  private List<LLMObsPatternsTemplateItem> templates = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public LLMObsPatternsTemplatesResponseAttributes() {}
 
-  public TeamHierarchyMemberTeamAttributes handle(String handle) {
-    this.handle = handle;
+  @JsonCreator
+  public LLMObsPatternsTemplatesResponseAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TEMPLATES)
+          List<LLMObsPatternsTemplateItem> templates) {
+    this.templates = templates;
+    for (LLMObsPatternsTemplateItem item : templates) {
+      this.unparsed |= item.unparsed;
+    }
+  }
+
+  public LLMObsPatternsTemplatesResponseAttributes templates(
+      List<LLMObsPatternsTemplateItem> templates) {
+    this.templates = templates;
+    for (LLMObsPatternsTemplateItem item : templates) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public LLMObsPatternsTemplatesResponseAttributes addTemplatesItem(
+      LLMObsPatternsTemplateItem templatesItem) {
+    this.templates.add(templatesItem);
+    this.unparsed |= templatesItem.unparsed;
     return this;
   }
 
   /**
-   * Handle of the team.
+   * List of patterns templates.
    *
-   * @return handle
+   * @return templates
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHandle() {
-    return handle;
+  @JsonProperty(JSON_PROPERTY_TEMPLATES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsPatternsTemplateItem> getTemplates() {
+    return templates;
   }
 
-  public void setHandle(String handle) {
-    this.handle = handle;
-  }
-
-  public TeamHierarchyMemberTeamAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the team.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setTemplates(List<LLMObsPatternsTemplateItem> templates) {
+    this.templates = templates;
+    if (templates != null) {
+      for (LLMObsPatternsTemplateItem item : templates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -85,10 +88,10 @@ public class TeamHierarchyMemberTeamAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamHierarchyMemberTeamAttributes
+   * @return LLMObsPatternsTemplatesResponseAttributes
    */
   @JsonAnySetter
-  public TeamHierarchyMemberTeamAttributes putAdditionalProperty(String key, Object value) {
+  public LLMObsPatternsTemplatesResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +122,7 @@ public class TeamHierarchyMemberTeamAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamHierarchyMemberTeamAttributes object is equal to o. */
+  /** Return true if this LLMObsPatternsTemplatesResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,25 +131,24 @@ public class TeamHierarchyMemberTeamAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamHierarchyMemberTeamAttributes teamHierarchyMemberTeamAttributes =
-        (TeamHierarchyMemberTeamAttributes) o;
-    return Objects.equals(this.handle, teamHierarchyMemberTeamAttributes.handle)
-        && Objects.equals(this.name, teamHierarchyMemberTeamAttributes.name)
+    LLMObsPatternsTemplatesResponseAttributes llmObsPatternsTemplatesResponseAttributes =
+        (LLMObsPatternsTemplatesResponseAttributes) o;
+    return Objects.equals(this.templates, llmObsPatternsTemplatesResponseAttributes.templates)
         && Objects.equals(
-            this.additionalProperties, teamHierarchyMemberTeamAttributes.additionalProperties);
+            this.additionalProperties,
+            llmObsPatternsTemplatesResponseAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(handle, name, additionalProperties);
+    return Objects.hash(templates, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamHierarchyMemberTeamAttributes {\n");
-    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("class LLMObsPatternsTemplatesResponseAttributes {\n");
+    sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
