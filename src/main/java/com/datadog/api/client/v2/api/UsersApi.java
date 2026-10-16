@@ -1407,6 +1407,7 @@ public class UsersApi {
     private QuerySortOrder sortDir;
     private String filter;
     private String filterStatus;
+    private String filterHandle;
 
     /**
      * Set pageSize.
@@ -1478,6 +1479,18 @@ public class UsersApi {
      */
     public ListUsersOptionalParameters filterStatus(String filterStatus) {
       this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set filterHandle.
+     *
+     * @param filterHandle Filter on the exact user handle. Also returns Datadog-managed users,
+     *     which are otherwise excluded from this list. Defaults to no filtering. (optional)
+     * @return ListUsersOptionalParameters
+     */
+    public ListUsersOptionalParameters filterHandle(String filterHandle) {
+      this.filterHandle = filterHandle;
       return this;
     }
   }
@@ -1618,6 +1631,7 @@ public class UsersApi {
     QuerySortOrder sortDir = parameters.sortDir;
     String filter = parameters.filter;
     String filterStatus = parameters.filterStatus;
+    String filterHandle = parameters.filterHandle;
     // create path and map variables
     String localVarPath = "/api/v2/users";
 
@@ -1630,6 +1644,7 @@ public class UsersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[handle]", filterHandle));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1668,6 +1683,7 @@ public class UsersApi {
     QuerySortOrder sortDir = parameters.sortDir;
     String filter = parameters.filter;
     String filterStatus = parameters.filterStatus;
+    String filterHandle = parameters.filterHandle;
     // create path and map variables
     String localVarPath = "/api/v2/users";
 
@@ -1680,6 +1696,7 @@ public class UsersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[handle]", filterHandle));
 
     Invocation.Builder builder;
     try {
