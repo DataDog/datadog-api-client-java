@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.DerivedMetricCreateRequest;
+import com.datadog.api.client.v2.model.DerivedMetricResponse;
 import com.datadog.api.client.v2.model.HistoricalMetricsConfigurationCreateRequest;
 import com.datadog.api.client.v2.model.HistoricalMetricsConfigurationResponse;
 import com.datadog.api.client.v2.model.IntakePayloadAccepted;
@@ -234,6 +236,142 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricBulkTagConfigResponse>() {});
+  }
+
+  /**
+   * Create a derived metric.
+   *
+   * <p>See {@link #createDerivedMetricWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return DerivedMetricResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DerivedMetricResponse createDerivedMetric(DerivedMetricCreateRequest body)
+      throws ApiException {
+    return createDerivedMetricWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a derived metric.
+   *
+   * <p>See {@link #createDerivedMetricWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;DerivedMetricResponse&gt;
+   */
+  public CompletableFuture<DerivedMetricResponse> createDerivedMetricAsync(
+      DerivedMetricCreateRequest body) {
+    return createDerivedMetricWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a derived metric for the org. The metric name is supplied as the resource <code>id
+   * </code>, and the <code>definition</code> sets the formula and the queries the formula is
+   * computed from. Requires the <code>Manage Tags for Metrics</code> permission.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;DerivedMetricResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DerivedMetricResponse> createDerivedMetricWithHttpInfo(
+      DerivedMetricCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createDerivedMetric");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/derived-metrics";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.createDerivedMetric",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DerivedMetricResponse>() {});
+  }
+
+  /**
+   * Create a derived metric.
+   *
+   * <p>See {@link #createDerivedMetricWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DerivedMetricResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DerivedMetricResponse>> createDerivedMetricWithHttpInfoAsync(
+      DerivedMetricCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DerivedMetricResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createDerivedMetric"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/derived-metrics";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.createDerivedMetric",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DerivedMetricResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DerivedMetricResponse>() {});
   }
 
   /**
@@ -1059,6 +1197,141 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricBulkTagConfigResponse>() {});
+  }
+
+  /**
+   * Delete a derived metric.
+   *
+   * <p>See {@link #deleteDerivedMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteDerivedMetric(String metricName) throws ApiException {
+    deleteDerivedMetricWithHttpInfo(metricName);
+  }
+
+  /**
+   * Delete a derived metric.
+   *
+   * <p>See {@link #deleteDerivedMetricWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteDerivedMetricAsync(String metricName) {
+    return deleteDerivedMetricWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a derived metric by name. Idempotent: returns 204 regardless of whether the derived
+   * metric existed. Requires the <code>Manage Tags for Metrics</code> permission.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteDerivedMetricWithHttpInfo(String metricName) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'metricName' when calling deleteDerivedMetric");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/derived-metrics/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.deleteDerivedMetric",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a derived metric.
+   *
+   * <p>See {@link #deleteDerivedMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteDerivedMetricWithHttpInfoAsync(
+      String metricName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'metricName' when calling deleteDerivedMetric"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/derived-metrics/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.deleteDerivedMetric",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -1967,6 +2240,143 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricEstimateResponse>() {});
+  }
+
+  /**
+   * Get a derived metric.
+   *
+   * <p>See {@link #getDerivedMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return DerivedMetricResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DerivedMetricResponse getDerivedMetric(String metricName) throws ApiException {
+    return getDerivedMetricWithHttpInfo(metricName).getData();
+  }
+
+  /**
+   * Get a derived metric.
+   *
+   * <p>See {@link #getDerivedMetricWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;DerivedMetricResponse&gt;
+   */
+  public CompletableFuture<DerivedMetricResponse> getDerivedMetricAsync(String metricName) {
+    return getDerivedMetricWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the definition of a derived metric by name.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;DerivedMetricResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DerivedMetricResponse> getDerivedMetricWithHttpInfo(String metricName)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'metricName' when calling getDerivedMetric");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/derived-metrics/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.getDerivedMetric",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DerivedMetricResponse>() {});
+  }
+
+  /**
+   * Get a derived metric.
+   *
+   * <p>See {@link #getDerivedMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DerivedMetricResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DerivedMetricResponse>> getDerivedMetricWithHttpInfoAsync(
+      String metricName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<DerivedMetricResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'metricName' when calling getDerivedMetric"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/derived-metrics/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.getDerivedMetric",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DerivedMetricResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DerivedMetricResponse>() {});
   }
 
   /**
@@ -5104,6 +5514,166 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IntakePayloadAccepted>() {});
+  }
+
+  /**
+   * Update a derived metric.
+   *
+   * <p>See {@link #updateDerivedMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return DerivedMetricResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DerivedMetricResponse updateDerivedMetric(
+      String metricName, DerivedMetricCreateRequest body) throws ApiException {
+    return updateDerivedMetricWithHttpInfo(metricName, body).getData();
+  }
+
+  /**
+   * Update a derived metric.
+   *
+   * <p>See {@link #updateDerivedMetricWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;DerivedMetricResponse&gt;
+   */
+  public CompletableFuture<DerivedMetricResponse> updateDerivedMetricAsync(
+      String metricName, DerivedMetricCreateRequest body) {
+    return updateDerivedMetricWithHttpInfoAsync(metricName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the definition of an existing derived metric. The <code>id</code> in the request body
+   * must match the <code>metric_name</code> path parameter. Requires the <code>
+   * Manage Tags for Metrics</code> permission.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;DerivedMetricResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DerivedMetricResponse> updateDerivedMetricWithHttpInfo(
+      String metricName, DerivedMetricCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'metricName' when calling updateDerivedMetric");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateDerivedMetric");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/derived-metrics/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.updateDerivedMetric",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DerivedMetricResponse>() {});
+  }
+
+  /**
+   * Update a derived metric.
+   *
+   * <p>See {@link #updateDerivedMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DerivedMetricResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DerivedMetricResponse>> updateDerivedMetricWithHttpInfoAsync(
+      String metricName, DerivedMetricCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<DerivedMetricResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'metricName' when calling updateDerivedMetric"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DerivedMetricResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateDerivedMetric"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/derived-metrics/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.updateDerivedMetric",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DerivedMetricResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DerivedMetricResponse>() {});
   }
 
   /**
