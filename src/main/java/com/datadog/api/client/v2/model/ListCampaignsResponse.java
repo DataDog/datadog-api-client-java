@@ -89,7 +89,7 @@ public class ListCampaignsResponse {
   }
 
   /**
-   * Metadata for scores response.
+   * Pagination metadata.
    *
    * @return meta
    */

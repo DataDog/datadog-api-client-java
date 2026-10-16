@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata for scores response. */
+/** Pagination metadata. */
 @JsonPropertyOrder({
   PaginatedResponseMeta.JSON_PROPERTY_COUNT,
   PaginatedResponseMeta.JSON_PROPERTY_LIMIT,
@@ -60,7 +60,7 @@ public class PaginatedResponseMeta {
   }
 
   /**
-   * Number of entities in this response.
+   * Number of results in this response.
    *
    * @return count
    */
@@ -120,7 +120,7 @@ public class PaginatedResponseMeta {
   }
 
   /**
-   * Total number of entities available.
+   * Total number of results matching the filters.
    *
    * @return total
    */
