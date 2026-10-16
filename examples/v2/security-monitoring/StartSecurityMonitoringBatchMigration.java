@@ -1,0 +1,27 @@
+// Start a batch migration returns "Accepted" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import java.util.UUID;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    defaultClient.setUnstableOperationEnabled("v2.startSecurityMonitoringBatchMigration", true);
+    SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
+
+    try {
+      apiInstance.startSecurityMonitoringBatchMigration(
+          UUID.fromString("7cdb3a75-64fb-46ce-9445-41969e78fe8e"));
+    } catch (ApiException e) {
+      System.err.println(
+          "Exception when calling SecurityMonitoringApi#startSecurityMonitoringBatchMigration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
