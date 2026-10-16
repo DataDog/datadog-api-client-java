@@ -21,14 +21,17 @@ public class Example {
             .data(
                 new UsageQuotaUpdateData()
                     .attributes(
-                        new UsageQuotaUpdateAttributes().enforced(false).usageLimit(120000L))
-                    .id("MjAfYWlfY3JlZGl0c1911c2VyX2hhbmRsZTpfX0FMTF9f")
+                        new UsageQuotaUpdateAttributes()
+                            .enforced(false)
+                            .pendingUsageLimit(50000L)
+                            .usageLimit(120000L))
+                    .id("MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18")
                     .type(UsageQuotaType.QUOTAS));
 
     try {
       UsageQuotaResponse result =
           apiInstance.updateQuota(
-              "ai_credits", "MjAfYWlfY3JlZGl0c1911c2VyX2hhbmRsZTpfX0FMTF9f", body);
+              "ai_credits", "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#updateQuota");
