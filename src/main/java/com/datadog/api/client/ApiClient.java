@@ -1100,6 +1100,7 @@ public class ApiClient {
           put("v2.bulkCreateSampleLogGenerationSubscriptions", false);
           put("v2.bulkExportSecurityMonitoringTerraformResources", false);
           put("v2.cancelHistoricalJob", false);
+          put("v2.cancelSecurityMonitoringBatchMigration", false);
           put("v2.convertJobResultToSignal", false);
           put("v2.convertSecurityMonitoringTerraformResource", false);
           put("v2.createIoCTriageState", false);
@@ -1109,6 +1110,8 @@ public class ApiClient {
           put("v2.createSecurityFindingsAutomationMuteRule", false);
           put("v2.createSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.createSecurityFindingsAutomationTicketCreationRule", false);
+          put("v2.createSecurityMonitoringBatchMigration", false);
+          put("v2.createSecurityMonitoringBatchMigrationResources", false);
           put("v2.createSecurityMonitoringDataset", false);
           put("v2.createSecurityMonitoringIntegrationConfig", false);
           put("v2.createStaticAnalysisAst", false);
@@ -1122,6 +1125,8 @@ public class ApiClient {
           put("v2.deleteSecurityFindingsAutomationMuteRule", false);
           put("v2.deleteSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.deleteSecurityFindingsAutomationTicketCreationRule", false);
+          put("v2.deleteSecurityMonitoringBatchMigration", false);
+          put("v2.deleteSecurityMonitoringBatchMigrationResources", false);
           put("v2.deleteSecurityMonitoringDataset", false);
           put("v2.deleteSecurityMonitoringIntegrationConfig", false);
           put("v2.disableSecurityFindingsAutomationDefaultInboxRule", false);
@@ -1168,12 +1173,15 @@ public class ApiClient {
           put("v2.listSecurityFindingsAutomationMuteRules", false);
           put("v2.listSecurityFindingsAutomationSeverityModifierRules", false);
           put("v2.listSecurityFindingsAutomationTicketCreationRules", false);
+          put("v2.listSecurityMonitoringBatchMigrationResources", false);
+          put("v2.listSecurityMonitoringBatchMigrations", false);
           put("v2.listSecurityMonitoringDatasets", false);
           put("v2.listSecurityMonitoringHistsignals", false);
           put("v2.listSecurityMonitoringIntegrationConfigs", false);
           put("v2.listStaticAnalysisCodegenRulesets", false);
           put("v2.listVulnerabilities", false);
           put("v2.listVulnerableAssets", false);
+          put("v2.publishSecurityMonitoringBatchMigration", false);
           put("v2.reorderSecurityFindingsAutomationDueDateRules", false);
           put("v2.reorderSecurityFindingsAutomationInboxRules", false);
           put("v2.reorderSecurityFindingsAutomationMuteRules", false);
@@ -1182,6 +1190,7 @@ public class ApiClient {
           put("v2.restoreSecurityMonitoringRule", false);
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
+          put("v2.startSecurityMonitoringBatchMigration", false);
           put("v2.updateFindingsAssignee", false);
           put("v2.updateFindingsSeverity", false);
           put("v2.updateSecurityFindingsAutomationDueDateRule", false);
@@ -1189,6 +1198,8 @@ public class ApiClient {
           put("v2.updateSecurityFindingsAutomationMuteRule", false);
           put("v2.updateSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.updateSecurityFindingsAutomationTicketCreationRule", false);
+          put("v2.updateSecurityMonitoringBatchMigration", false);
+          put("v2.updateSecurityMonitoringBatchMigrationResource", false);
           put("v2.updateSecurityMonitoringDataset", false);
           put("v2.updateSecurityMonitoringIntegrationConfig", false);
           put("v2.validateSecurityMonitoringIntegrationConfig", false);

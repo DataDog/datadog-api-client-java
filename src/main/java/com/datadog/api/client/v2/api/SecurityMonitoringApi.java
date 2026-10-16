@@ -112,6 +112,18 @@ import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestData;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestDataAttributes;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestPage;
 import com.datadog.api.client.v2.model.SecurityFindingsSort;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationCreateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationPublishRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationPublishResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationResourceResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationResourceUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationResourcesCreateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationResourcesCreateResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationResourcesDeleteRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationResourcesListResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringBatchMigrationsListResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringContentPackStatesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetCreateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetResponse;
@@ -2731,6 +2743,169 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Cancel a batch migration.
+   *
+   * <p>See {@link #cancelSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void cancelSecurityMonitoringBatchMigration(UUID batchId) throws ApiException {
+    cancelSecurityMonitoringBatchMigrationWithHttpInfo(batchId);
+  }
+
+  /**
+   * Cancel a batch migration.
+   *
+   * <p>See {@link #cancelSecurityMonitoringBatchMigrationWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> cancelSecurityMonitoringBatchMigrationAsync(UUID batchId) {
+    return cancelSecurityMonitoringBatchMigrationWithHttpInfoAsync(batchId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Cancel an <code>in_progress</code> batch migration. Resources that are <code>pending</code> or
+   * <code>in_progress</code> become <code>canceled</code>. Resources that are already <code>
+   * completed</code> or <code>failed</code> keep their status and output, so completed resources
+   * can still be published. Canceling a <code>canceled</code> batch migration succeeds, so the
+   * request can be safely retried. Returns <code>409 Conflict</code> if the batch migration is
+   * <code>draft</code> or <code>completed</code>.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> cancelSecurityMonitoringBatchMigrationWithHttpInfo(UUID batchId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "cancelSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " cancelSecurityMonitoringBatchMigration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/cancel"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.cancelSecurityMonitoringBatchMigration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Cancel a batch migration.
+   *
+   * <p>See {@link #cancelSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      cancelSecurityMonitoringBatchMigrationWithHttpInfoAsync(UUID batchId) {
+    // Check if unstable operation is enabled
+    String operationId = "cancelSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " cancelSecurityMonitoringBatchMigration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/cancel"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.cancelSecurityMonitoringBatchMigration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Convert an existing rule from JSON to Terraform.
    *
    * <p>See {@link #convertExistingSecurityMonitoringRuleWithHttpInfo}.
@@ -5166,6 +5341,368 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TicketCreationRuleResponse>() {});
+  }
+
+  /**
+   * Create a batch migration.
+   *
+   * <p>See {@link #createSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringBatchMigrationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationResponse createSecurityMonitoringBatchMigration(
+      SecurityMonitoringBatchMigrationCreateRequest body) throws ApiException {
+    return createSecurityMonitoringBatchMigrationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a batch migration.
+   *
+   * <p>See {@link #createSecurityMonitoringBatchMigrationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationResponse>
+      createSecurityMonitoringBatchMigrationAsync(
+          SecurityMonitoringBatchMigrationCreateRequest body) {
+    return createSecurityMonitoringBatchMigrationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a batch migration in the <code>draft</code> status, together with 1 to 100 initial
+   * resources. Each resource holds one source rule to translate into a Cloud SIEM detection rule.
+   * To load more rules, add them with the add resources endpoint before starting the batch
+   * migration. A batch migration can hold up to 1000 resources. The response does not include the
+   * created resources: list the resources of the batch migration to retrieve them.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringBatchMigrationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringBatchMigrationResponse>
+      createSecurityMonitoringBatchMigrationWithHttpInfo(
+          SecurityMonitoringBatchMigrationCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityMonitoringBatchMigration");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/batch-migrations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityMonitoringBatchMigration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResponse>() {});
+  }
+
+  /**
+   * Create a batch migration.
+   *
+   * <p>See {@link #createSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringBatchMigrationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>>
+      createSecurityMonitoringBatchMigrationWithHttpInfoAsync(
+          SecurityMonitoringBatchMigrationCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityMonitoringBatchMigration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/batch-migrations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityMonitoringBatchMigration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResponse>() {});
+  }
+
+  /**
+   * Add resources to a batch migration.
+   *
+   * <p>See {@link #createSecurityMonitoringBatchMigrationResourcesWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return SecurityMonitoringBatchMigrationResourcesCreateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationResourcesCreateResponse
+      createSecurityMonitoringBatchMigrationResources(
+          UUID batchId, SecurityMonitoringBatchMigrationResourcesCreateRequest body)
+          throws ApiException {
+    return createSecurityMonitoringBatchMigrationResourcesWithHttpInfo(batchId, body).getData();
+  }
+
+  /**
+   * Add resources to a batch migration.
+   *
+   * <p>See {@link #createSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationResourcesCreateResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationResourcesCreateResponse>
+      createSecurityMonitoringBatchMigrationResourcesAsync(
+          UUID batchId, SecurityMonitoringBatchMigrationResourcesCreateRequest body) {
+    return createSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync(batchId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add 1 to 1000 resources to a <code>draft</code> batch migration. Returns <code>409 Conflict
+   * </code> if the batch migration is not <code>draft</code>, and <code>400 Bad Request</code> if
+   * the batch migration would contain more than 1000 resources.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringBatchMigrationResourcesCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringBatchMigrationResourcesCreateResponse>
+      createSecurityMonitoringBatchMigrationResourcesWithHttpInfo(
+          UUID batchId, SecurityMonitoringBatchMigrationResourcesCreateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringBatchMigrationResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " createSecurityMonitoringBatchMigrationResources");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityMonitoringBatchMigrationResources");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityMonitoringBatchMigrationResources",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResourcesCreateResponse>() {});
+  }
+
+  /**
+   * Add resources to a batch migration.
+   *
+   * <p>See {@link #createSecurityMonitoringBatchMigrationResourcesWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringBatchMigrationResourcesCreateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesCreateResponse>>
+      createSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync(
+          UUID batchId, SecurityMonitoringBatchMigrationResourcesCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringBatchMigrationResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesCreateResponse>>
+          result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesCreateResponse>>
+          result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " createSecurityMonitoringBatchMigrationResources"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesCreateResponse>>
+          result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityMonitoringBatchMigrationResources"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityMonitoringBatchMigrationResources",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesCreateResponse>>
+          result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResourcesCreateResponse>() {});
   }
 
   /**
@@ -8367,6 +8904,357 @@ public class SecurityMonitoringApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a batch migration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityMonitoringBatchMigration(UUID batchId) throws ApiException {
+    deleteSecurityMonitoringBatchMigrationWithHttpInfo(batchId);
+  }
+
+  /**
+   * Delete a batch migration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringBatchMigrationWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityMonitoringBatchMigrationAsync(UUID batchId) {
+    return deleteSecurityMonitoringBatchMigrationWithHttpInfoAsync(batchId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a batch migration and its resources. Detection rules that were already published are not
+   * deleted. Returns <code>409 Conflict</code> while any resource is <code>in_progress</code> or
+   * <code>publishing</code>: cancel the batch migration, or wait for publishing to finish, and then
+   * try again.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityMonitoringBatchMigrationWithHttpInfo(UUID batchId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " deleteSecurityMonitoringBatchMigration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityMonitoringBatchMigration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a batch migration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityMonitoringBatchMigrationWithHttpInfoAsync(UUID batchId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " deleteSecurityMonitoringBatchMigration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityMonitoringBatchMigration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete resources from a batch migration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringBatchMigrationResourcesWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityMonitoringBatchMigrationResources(
+      UUID batchId, SecurityMonitoringBatchMigrationResourcesDeleteRequest body)
+      throws ApiException {
+    deleteSecurityMonitoringBatchMigrationResourcesWithHttpInfo(batchId, body);
+  }
+
+  /**
+   * Delete resources from a batch migration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityMonitoringBatchMigrationResourcesAsync(
+      UUID batchId, SecurityMonitoringBatchMigrationResourcesDeleteRequest body) {
+    return deleteSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync(batchId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete resources from a batch migration. The request is all-or-nothing: it returns <code>
+   * 404 Not Found</code> if any resource does not exist, and <code>409 Conflict</code> if any
+   * resource is <code>in_progress</code> or <code>publishing</code>. In both cases nothing is
+   * deleted. Duplicate resource IDs are ignored. Detection rules already published from the deleted
+   * resources are not deleted.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityMonitoringBatchMigrationResourcesWithHttpInfo(
+      UUID batchId, SecurityMonitoringBatchMigrationResourcesDeleteRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringBatchMigrationResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " deleteSecurityMonitoringBatchMigrationResources");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " deleteSecurityMonitoringBatchMigrationResources");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityMonitoringBatchMigrationResources",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete resources from a batch migration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringBatchMigrationResourcesWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync(
+          UUID batchId, SecurityMonitoringBatchMigrationResourcesDeleteRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringBatchMigrationResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " deleteSecurityMonitoringBatchMigrationResources"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " deleteSecurityMonitoringBatchMigrationResources"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityMonitoringBatchMigrationResources",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
@@ -23009,6 +23897,518 @@ public class SecurityMonitoringApi {
         new GenericType<TicketCreationRulesResponse>() {});
   }
 
+  /** Manage optional parameters to listSecurityMonitoringBatchMigrationResources. */
+  public static class ListSecurityMonitoringBatchMigrationResourcesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String filterQuery;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 500. (optional, default
+     *     to 50)
+     * @return ListSecurityMonitoringBatchMigrationResourcesOptionalParameters
+     */
+    public ListSecurityMonitoringBatchMigrationResourcesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return, starting at 1. (optional, default to 1)
+     * @return ListSecurityMonitoringBatchMigrationResourcesOptionalParameters
+     */
+    public ListSecurityMonitoringBatchMigrationResourcesOptionalParameters pageNumber(
+        Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery A search query in Datadog search syntax to filter resources, such as
+     *     <code>status:completed</code>. Filterable attributes are <code>id</code>, <code>name
+     *     </code>, <code>description</code>, <code>inputType</code>, <code>status</code>, <code>
+     *     input</code>, <code>createdBy</code>, and <code>lastUpdatedBy</code>. Free text matches
+     *     the resource name. (optional)
+     * @return ListSecurityMonitoringBatchMigrationResourcesOptionalParameters
+     */
+    public ListSecurityMonitoringBatchMigrationResourcesOptionalParameters filterQuery(
+        String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+  }
+
+  /**
+   * List batch migration resources.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationResourcesWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return SecurityMonitoringBatchMigrationResourcesListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationResourcesListResponse
+      listSecurityMonitoringBatchMigrationResources(UUID batchId) throws ApiException {
+    return listSecurityMonitoringBatchMigrationResourcesWithHttpInfo(
+            batchId, new ListSecurityMonitoringBatchMigrationResourcesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List batch migration resources.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationResourcesListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationResourcesListResponse>
+      listSecurityMonitoringBatchMigrationResourcesAsync(UUID batchId) {
+    return listSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync(
+            batchId, new ListSecurityMonitoringBatchMigrationResourcesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List batch migration resources.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationResourcesWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringBatchMigrationResourcesListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationResourcesListResponse
+      listSecurityMonitoringBatchMigrationResources(
+          UUID batchId, ListSecurityMonitoringBatchMigrationResourcesOptionalParameters parameters)
+          throws ApiException {
+    return listSecurityMonitoringBatchMigrationResourcesWithHttpInfo(batchId, parameters).getData();
+  }
+
+  /**
+   * List batch migration resources.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationResourcesListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationResourcesListResponse>
+      listSecurityMonitoringBatchMigrationResourcesAsync(
+          UUID batchId,
+          ListSecurityMonitoringBatchMigrationResourcesOptionalParameters parameters) {
+    return listSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync(batchId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the resources of a batch migration, including the input of each source rule and, once
+   * translated, the proposed Cloud SIEM detection rule in <code>output</code>.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringBatchMigrationResourcesListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringBatchMigrationResourcesListResponse>
+      listSecurityMonitoringBatchMigrationResourcesWithHttpInfo(
+          UUID batchId, ListSecurityMonitoringBatchMigrationResourcesOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringBatchMigrationResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " listSecurityMonitoringBatchMigrationResources");
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringBatchMigrationResources",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResourcesListResponse>() {});
+  }
+
+  /**
+   * List batch migration resources.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationResourcesWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringBatchMigrationResourcesListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesListResponse>>
+      listSecurityMonitoringBatchMigrationResourcesWithHttpInfoAsync(
+          UUID batchId,
+          ListSecurityMonitoringBatchMigrationResourcesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringBatchMigrationResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " listSecurityMonitoringBatchMigrationResources"));
+      return result;
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringBatchMigrationResources",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourcesListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResourcesListResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityMonitoringBatchMigrations. */
+  public static class ListSecurityMonitoringBatchMigrationsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String filterQuery;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 500. (optional, default
+     *     to 50)
+     * @return ListSecurityMonitoringBatchMigrationsOptionalParameters
+     */
+    public ListSecurityMonitoringBatchMigrationsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return, starting at 1. (optional, default to 1)
+     * @return ListSecurityMonitoringBatchMigrationsOptionalParameters
+     */
+    public ListSecurityMonitoringBatchMigrationsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery A search query in Datadog search syntax to filter batch migrations, such
+     *     as <code>status:completed</code>. Filterable attributes are <code>id</code>, <code>name
+     *     </code>, <code>description</code>, <code>status</code>, <code>createdBy</code>, and
+     *     <code>lastUpdatedBy</code>. Free text matches the batch migration name. (optional)
+     * @return ListSecurityMonitoringBatchMigrationsOptionalParameters
+     */
+    public ListSecurityMonitoringBatchMigrationsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+  }
+
+  /**
+   * List batch migrations.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringBatchMigrationsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationsListResponse listSecurityMonitoringBatchMigrations()
+      throws ApiException {
+    return listSecurityMonitoringBatchMigrationsWithHttpInfo(
+            new ListSecurityMonitoringBatchMigrationsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List batch migrations.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationsListResponse>
+      listSecurityMonitoringBatchMigrationsAsync() {
+    return listSecurityMonitoringBatchMigrationsWithHttpInfoAsync(
+            new ListSecurityMonitoringBatchMigrationsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List batch migrations.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringBatchMigrationsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationsListResponse listSecurityMonitoringBatchMigrations(
+      ListSecurityMonitoringBatchMigrationsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringBatchMigrationsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List batch migrations.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationsListResponse>
+      listSecurityMonitoringBatchMigrationsAsync(
+          ListSecurityMonitoringBatchMigrationsOptionalParameters parameters) {
+    return listSecurityMonitoringBatchMigrationsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the batch migrations of your organization. A batch migration groups detection rules from
+   * another SIEM that the Datadog Detection Agent translates into Cloud SIEM detection rules. To
+   * retrieve a single batch migration, filter by its ID with <code>
+   * filter[query]=id:&lt;batch_id&gt;</code>. Poll this endpoint to follow the progress of a batch
+   * migration through its <code>status</code> and <code>resourceStatusCounts</code>.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringBatchMigrationsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringBatchMigrationsListResponse>
+      listSecurityMonitoringBatchMigrationsWithHttpInfo(
+          ListSecurityMonitoringBatchMigrationsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringBatchMigrations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/batch-migrations";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringBatchMigrations",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationsListResponse>() {});
+  }
+
+  /**
+   * List batch migrations.
+   *
+   * <p>See {@link #listSecurityMonitoringBatchMigrationsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringBatchMigrationsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationsListResponse>>
+      listSecurityMonitoringBatchMigrationsWithHttpInfoAsync(
+          ListSecurityMonitoringBatchMigrationsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringBatchMigrations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/batch-migrations";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringBatchMigrations",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationsListResponse>() {});
+  }
+
   /**
    * Get all critical assets.
    *
@@ -26859,6 +28259,212 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Publish a batch migration.
+   *
+   * <p>See {@link #publishSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return SecurityMonitoringBatchMigrationPublishResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationPublishResponse publishSecurityMonitoringBatchMigration(
+      UUID batchId, SecurityMonitoringBatchMigrationPublishRequest body) throws ApiException {
+    return publishSecurityMonitoringBatchMigrationWithHttpInfo(batchId, body).getData();
+  }
+
+  /**
+   * Publish a batch migration.
+   *
+   * <p>See {@link #publishSecurityMonitoringBatchMigrationWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationPublishResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationPublishResponse>
+      publishSecurityMonitoringBatchMigrationAsync(
+          UUID batchId, SecurityMonitoringBatchMigrationPublishRequest body) {
+    return publishSecurityMonitoringBatchMigrationWithHttpInfoAsync(batchId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a Cloud SIEM detection rule from the <code>output</code> of each selected <code>
+   * completed</code> resource of a batch migration. Completed resources can be published while the
+   * rest of the batch migration is still being translated. When <code>resourceIds</code> is omitted
+   * or empty, every <code>completed</code> resource is published. Published rules are created
+   * disabled.
+   *
+   * <p>Every requested resource must be publishable: <code>completed</code>, or left in <code>
+   * publishing</code> for more than one minute after an uncertain result. Otherwise, the request
+   * returns <code>409 Conflict</code> and nothing is published. Already published resources are not
+   * publishable.
+   *
+   * <p>The response reports the outcome of each resource, and some resources can be published while
+   * others fail. A <code>failed</code> result that contains a <code>ruleId</code> means the rule
+   * was created: do not retry that resource. Publishing a rule with a <code>block_ip</code> or
+   * <code>block_user</code> action requires the <code>appsec_protect_write</code> permission.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringBatchMigrationPublishResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringBatchMigrationPublishResponse>
+      publishSecurityMonitoringBatchMigrationWithHttpInfo(
+          UUID batchId, SecurityMonitoringBatchMigrationPublishRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publishSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " publishSecurityMonitoringBatchMigration");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " publishSecurityMonitoringBatchMigration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/publish"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.publishSecurityMonitoringBatchMigration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationPublishResponse>() {});
+  }
+
+  /**
+   * Publish a batch migration.
+   *
+   * <p>See {@link #publishSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringBatchMigrationPublishResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationPublishResponse>>
+      publishSecurityMonitoringBatchMigrationWithHttpInfoAsync(
+          UUID batchId, SecurityMonitoringBatchMigrationPublishRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "publishSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationPublishResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationPublishResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " publishSecurityMonitoringBatchMigration"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationPublishResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " publishSecurityMonitoringBatchMigration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/publish"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.publishSecurityMonitoringBatchMigration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationPublishResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationPublishResponse>() {});
+  }
+
+  /**
    * Reorder due date rules.
    *
    * <p>See {@link #reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
@@ -28755,6 +30361,178 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<NotificationRulePreviewResponse>() {});
+  }
+
+  /**
+   * Start a batch migration.
+   *
+   * <p>See {@link #startSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void startSecurityMonitoringBatchMigration(UUID batchId) throws ApiException {
+    startSecurityMonitoringBatchMigrationWithHttpInfo(batchId);
+  }
+
+  /**
+   * Start a batch migration.
+   *
+   * <p>See {@link #startSecurityMonitoringBatchMigrationWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> startSecurityMonitoringBatchMigrationAsync(UUID batchId) {
+    return startSecurityMonitoringBatchMigrationWithHttpInfoAsync(batchId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Start translating the <code>pending</code> resources of a <code>draft</code> batch migration
+   * into Cloud SIEM detection rules. The batch migration moves to <code>in_progress</code>, and its
+   * resources are translated asynchronously. Once no resource is <code>pending</code> or <code>
+   * in_progress</code>, the batch migration moves to <code>completed</code>. Starting an <code>
+   * in_progress</code> batch migration again does not queue duplicate work, so the request can be
+   * safely retried, including after a timeout or a <code>5xx</code> error. Returns <code>
+   * 409 Conflict</code> if the batch migration is <code>completed</code> or <code>canceled</code>.
+   *
+   * <p>An organization can translate up to 2000 resources in total across all of its batch
+   * migrations. Resources that were already processed count toward this limit even after they are
+   * deleted, and <code>pending</code> resources of <code>in_progress</code> batch migrations
+   * reserve capacity. Returns <code>409 Conflict</code> if starting the batch migration would
+   * exceed this limit. To request a higher limit for your organization, contact <a
+   * href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> startSecurityMonitoringBatchMigrationWithHttpInfo(UUID batchId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "startSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " startSecurityMonitoringBatchMigration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/start"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.startSecurityMonitoringBatchMigration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Start a batch migration.
+   *
+   * <p>See {@link #startSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      startSecurityMonitoringBatchMigrationWithHttpInfoAsync(UUID batchId) {
+    // Check if unstable operation is enabled
+    String operationId = "startSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " startSecurityMonitoringBatchMigration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/start"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.startSecurityMonitoringBatchMigration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -30800,6 +32578,431 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TicketCreationRuleResponse>() {});
+  }
+
+  /**
+   * Update a batch migration.
+   *
+   * <p>See {@link #updateSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return SecurityMonitoringBatchMigrationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationResponse updateSecurityMonitoringBatchMigration(
+      UUID batchId, SecurityMonitoringBatchMigrationUpdateRequest body) throws ApiException {
+    return updateSecurityMonitoringBatchMigrationWithHttpInfo(batchId, body).getData();
+  }
+
+  /**
+   * Update a batch migration.
+   *
+   * <p>See {@link #updateSecurityMonitoringBatchMigrationWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationResponse>
+      updateSecurityMonitoringBatchMigrationAsync(
+          UUID batchId, SecurityMonitoringBatchMigrationUpdateRequest body) {
+    return updateSecurityMonitoringBatchMigrationWithHttpInfoAsync(batchId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the name, description, or tags of a batch migration, in any status. At least one of
+   * these attributes must be provided. Omitted attributes are left unchanged, and <code>tags</code>
+   * replaces the full list of tags.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringBatchMigrationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringBatchMigrationResponse>
+      updateSecurityMonitoringBatchMigrationWithHttpInfo(
+          UUID batchId, SecurityMonitoringBatchMigrationUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " updateSecurityMonitoringBatchMigration");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityMonitoringBatchMigration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityMonitoringBatchMigration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResponse>() {});
+  }
+
+  /**
+   * Update a batch migration.
+   *
+   * <p>See {@link #updateSecurityMonitoringBatchMigrationWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringBatchMigrationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>>
+      updateSecurityMonitoringBatchMigrationWithHttpInfoAsync(
+          UUID batchId, SecurityMonitoringBatchMigrationUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringBatchMigration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " updateSecurityMonitoringBatchMigration"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityMonitoringBatchMigration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityMonitoringBatchMigration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResponse>() {});
+  }
+
+  /**
+   * Update a batch migration resource.
+   *
+   * <p>See {@link #updateSecurityMonitoringBatchMigrationResourceWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param resourceId The UUID of the batch migration resource. (required)
+   * @param body (required)
+   * @return SecurityMonitoringBatchMigrationResourceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringBatchMigrationResourceResponse
+      updateSecurityMonitoringBatchMigrationResource(
+          UUID batchId, UUID resourceId, SecurityMonitoringBatchMigrationResourceUpdateRequest body)
+          throws ApiException {
+    return updateSecurityMonitoringBatchMigrationResourceWithHttpInfo(batchId, resourceId, body)
+        .getData();
+  }
+
+  /**
+   * Update a batch migration resource.
+   *
+   * <p>See {@link #updateSecurityMonitoringBatchMigrationResourceWithHttpInfoAsync}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param resourceId The UUID of the batch migration resource. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringBatchMigrationResourceResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringBatchMigrationResourceResponse>
+      updateSecurityMonitoringBatchMigrationResourceAsync(
+          UUID batchId,
+          UUID resourceId,
+          SecurityMonitoringBatchMigrationResourceUpdateRequest body) {
+    return updateSecurityMonitoringBatchMigrationResourceWithHttpInfoAsync(
+            batchId, resourceId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a resource of a batch migration. At least one of <code>name</code>, <code>description
+   * </code>, <code>inputType</code>, or <code>input</code> must be provided. <code>name</code> and
+   * <code>description</code> can be updated at any time. <code>inputType</code> and <code>input
+   * </code> can only be updated while the resource is <code>pending</code>; otherwise, the request
+   * returns <code>409 Conflict</code>. The translated <code>output</code> cannot be edited.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param resourceId The UUID of the batch migration resource. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringBatchMigrationResourceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringBatchMigrationResourceResponse>
+      updateSecurityMonitoringBatchMigrationResourceWithHttpInfo(
+          UUID batchId, UUID resourceId, SecurityMonitoringBatchMigrationResourceUpdateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringBatchMigrationResource";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'batchId' when calling"
+              + " updateSecurityMonitoringBatchMigrationResource");
+    }
+
+    // verify the required parameter 'resourceId' is set
+    if (resourceId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'resourceId' when calling"
+              + " updateSecurityMonitoringBatchMigrationResource");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityMonitoringBatchMigrationResource");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources/{resource_id}"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()))
+            .replaceAll(
+                "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityMonitoringBatchMigrationResource",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResourceResponse>() {});
+  }
+
+  /**
+   * Update a batch migration resource.
+   *
+   * <p>See {@link #updateSecurityMonitoringBatchMigrationResourceWithHttpInfo}.
+   *
+   * @param batchId The UUID of the batch migration. (required)
+   * @param resourceId The UUID of the batch migration resource. (required)
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringBatchMigrationResourceResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourceResponse>>
+      updateSecurityMonitoringBatchMigrationResourceWithHttpInfoAsync(
+          UUID batchId,
+          UUID resourceId,
+          SecurityMonitoringBatchMigrationResourceUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringBatchMigrationResource";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'batchId' when calling"
+                  + " updateSecurityMonitoringBatchMigrationResource"));
+      return result;
+    }
+
+    // verify the required parameter 'resourceId' is set
+    if (resourceId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resourceId' when calling"
+                  + " updateSecurityMonitoringBatchMigrationResource"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityMonitoringBatchMigrationResource"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources/{resource_id}"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()))
+            .replaceAll(
+                "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityMonitoringBatchMigrationResource",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringBatchMigrationResourceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringBatchMigrationResourceResponse>() {});
   }
 
   /**
