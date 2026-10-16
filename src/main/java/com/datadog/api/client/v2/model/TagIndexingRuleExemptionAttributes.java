@@ -14,15 +14,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a tag indexing rule exemption. */
 @JsonPropertyOrder({
   TagIndexingRuleExemptionAttributes.JSON_PROPERTY_CREATED_AT,
   TagIndexingRuleExemptionAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
+  TagIndexingRuleExemptionAttributes.JSON_PROPERTY_ESTIMATED_CHANGE_IN_VOLUME,
   TagIndexingRuleExemptionAttributes.JSON_PROPERTY_KIND,
-  TagIndexingRuleExemptionAttributes.JSON_PROPERTY_REASON
+  TagIndexingRuleExemptionAttributes.JSON_PROPERTY_MISSING_INDEXED_TAGS,
+  TagIndexingRuleExemptionAttributes.JSON_PROPERTY_REASON,
+  TagIndexingRuleExemptionAttributes.JSON_PROPERTY_VOLUME_STATUS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -34,11 +39,21 @@ public class TagIndexingRuleExemptionAttributes {
   public static final String JSON_PROPERTY_CREATED_BY_HANDLE = "created_by_handle";
   private String createdByHandle;
 
+  public static final String JSON_PROPERTY_ESTIMATED_CHANGE_IN_VOLUME =
+      "estimated_change_in_volume";
+  private JsonNullable<Long> estimatedChangeInVolume = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_KIND = "kind";
   private String kind;
 
+  public static final String JSON_PROPERTY_MISSING_INDEXED_TAGS = "missing_indexed_tags";
+  private List<String> missingIndexedTags = null;
+
   public static final String JSON_PROPERTY_REASON = "reason";
   private String reason;
+
+  public static final String JSON_PROPERTY_VOLUME_STATUS = "volume_status";
+  private TagIndexingRuleExemptionVolumeStatus volumeStatus;
 
   /**
    * Timestamp when the exemption was created.
@@ -64,6 +79,35 @@ public class TagIndexingRuleExemptionAttributes {
     return createdByHandle;
   }
 
+  /**
+   * Estimated change in indexed cardinality or points if the exemption is removed and the matching
+   * tag indexing rule applies to the metric. A negative value indicates a reduction in indexed
+   * volume, a positive value indicates an increase, and zero indicates no change. A <code>null
+   * </code> value indicates that the estimate is unavailable.
+   *
+   * @return estimatedChangeInVolume
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getEstimatedChangeInVolume() {
+
+    if (estimatedChangeInVolume == null) {
+      estimatedChangeInVolume = JsonNullable.<Long>undefined();
+    }
+    return estimatedChangeInVolume.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_CHANGE_IN_VOLUME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getEstimatedChangeInVolume_JsonNullable() {
+    return estimatedChangeInVolume;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_CHANGE_IN_VOLUME)
+  private void setEstimatedChangeInVolume_JsonNullable(JsonNullable<Long> estimatedChangeInVolume) {
+    this.estimatedChangeInVolume = estimatedChangeInVolume;
+  }
+
   public TagIndexingRuleExemptionAttributes kind(String kind) {
     this.kind = kind;
     return this;
@@ -86,6 +130,19 @@ public class TagIndexingRuleExemptionAttributes {
     this.kind = kind;
   }
 
+  /**
+   * Tag keys used to query this metric in monitors, dashboards, notebooks, and SLOs that the
+   * matching rule would remove or not include if the exemption is removed.
+   *
+   * @return missingIndexedTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MISSING_INDEXED_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMissingIndexedTags() {
+    return missingIndexedTags;
+  }
+
   public TagIndexingRuleExemptionAttributes reason(String reason) {
     this.reason = reason;
     return this;
@@ -105,6 +162,21 @@ public class TagIndexingRuleExemptionAttributes {
 
   public void setReason(String reason) {
     this.reason = reason;
+  }
+
+  /**
+   * Indicates whether <code>estimated_change_in_volume</code> is available and, if not, why. <code>
+   * ok</code> indicates a fresh estimate. <code>unindexed_tags</code> indicates that the matching
+   * rule uses tags that are not indexed for the metric. <code>unavailable</code> indicates that the
+   * estimate is stale, was not computed, or could not be retrieved.
+   *
+   * @return volumeStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VOLUME_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TagIndexingRuleExemptionVolumeStatus getVolumeStatus() {
+    return volumeStatus;
   }
 
   /**
@@ -166,15 +238,29 @@ public class TagIndexingRuleExemptionAttributes {
         (TagIndexingRuleExemptionAttributes) o;
     return Objects.equals(this.createdAt, tagIndexingRuleExemptionAttributes.createdAt)
         && Objects.equals(this.createdByHandle, tagIndexingRuleExemptionAttributes.createdByHandle)
+        && Objects.equals(
+            this.estimatedChangeInVolume,
+            tagIndexingRuleExemptionAttributes.estimatedChangeInVolume)
         && Objects.equals(this.kind, tagIndexingRuleExemptionAttributes.kind)
+        && Objects.equals(
+            this.missingIndexedTags, tagIndexingRuleExemptionAttributes.missingIndexedTags)
         && Objects.equals(this.reason, tagIndexingRuleExemptionAttributes.reason)
+        && Objects.equals(this.volumeStatus, tagIndexingRuleExemptionAttributes.volumeStatus)
         && Objects.equals(
             this.additionalProperties, tagIndexingRuleExemptionAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdByHandle, kind, reason, additionalProperties);
+    return Objects.hash(
+        createdAt,
+        createdByHandle,
+        estimatedChangeInVolume,
+        kind,
+        missingIndexedTags,
+        reason,
+        volumeStatus,
+        additionalProperties);
   }
 
   @Override
@@ -183,8 +269,13 @@ public class TagIndexingRuleExemptionAttributes {
     sb.append("class TagIndexingRuleExemptionAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByHandle: ").append(toIndentedString(createdByHandle)).append("\n");
+    sb.append("    estimatedChangeInVolume: ")
+        .append(toIndentedString(estimatedChangeInVolume))
+        .append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+    sb.append("    missingIndexedTags: ").append(toIndentedString(missingIndexedTags)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    volumeStatus: ").append(toIndentedString(volumeStatus)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
