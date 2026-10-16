@@ -44,7 +44,6 @@ public class Example {
                                                     .queriedWindowSeconds(3600L))
                                             .overridePreviousRules(false))
                                     .version(1L))
-                            .ruleOrder(2L)
                             .tags(Arrays.asList("env", "service")))
                     .type(TagIndexingRuleType.TAG_INDEXING_RULES));
 
