@@ -58,7 +58,9 @@ public class UsageQuotaUpdateData {
   }
 
   /**
-   * Attributes to update on a usage quota. Omitting a property leaves its current value unchanged.
+   * Attributes to update on a usage quota. At least one of <code>usage_limit</code>, <code>enforced
+   * </code>, or <code>pending_usage_limit</code> must be provided. Omitting a property leaves its
+   * current value unchanged.
    *
    * @return attributes
    */

@@ -12,7 +12,7 @@ public class Example {
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {
-      apiInstance.deleteQuota("ai_credits", "MjAfYWlfY3JlZGl0c1911c2VyX2hhbmRsZTpfX0FMTF9f");
+      apiInstance.deleteQuota("ai_credits", "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18");
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#deleteQuota");
       System.err.println("Status code: " + e.getCode());
