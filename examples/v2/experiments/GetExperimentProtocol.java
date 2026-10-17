@@ -12,10 +12,17 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     ExperimentsApi apiInstance = new ExperimentsApi(defaultClient);
 
+    // there is a valid "experiment_protocol" in the system
+    UUID EXPERIMENT_PROTOCOL_DATA_ID = null;
+    try {
+      EXPERIMENT_PROTOCOL_DATA_ID = UUID.fromString(System.getenv("EXPERIMENT_PROTOCOL_DATA_ID"));
+    } catch (IllegalArgumentException e) {
+      System.err.println("Error parsing UUID: " + e.getMessage());
+    }
+
     try {
       ExperimentsPublicProtocolResponse result =
-          apiInstance.getExperimentProtocol(
-              UUID.fromString("550e8400-e29b-41d4-a716-446655440000"));
+          apiInstance.getExperimentProtocol(EXPERIMENT_PROTOCOL_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExperimentsApi#getExperimentProtocol");
