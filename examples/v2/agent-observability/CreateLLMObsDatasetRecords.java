@@ -8,7 +8,7 @@ import com.datadog.api.client.v2.model.LLMObsDatasetRecordsDataAttributesRequest
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsDataRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsMutationResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsRequest;
-import com.datadog.api.client.v2.model.LLMObsRecordType;
+import com.datadog.api.client.v2.model.LLMObsDatasetType;
 import java.util.Collections;
 
 public class Example {
@@ -29,7 +29,7 @@ public class Example {
                                     new LLMObsDatasetRecordItem()
                                         .expectedOutput(null)
                                         .input(null))))
-                    .type(LLMObsRecordType.RECORDS));
+                    .type(LLMObsDatasetType.DATASETS));
 
     try {
       LLMObsDatasetRecordsMutationResponse result =
