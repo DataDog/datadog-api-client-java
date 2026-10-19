@@ -36,7 +36,7 @@ public class IL2CPPSourcemapAttributes {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_MAPKIND = "mapkind";
-  private String mapkind;
+  private IL2CPPSourcemapMapKind mapkind;
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -46,10 +46,11 @@ public class IL2CPPSourcemapAttributes {
   @JsonCreator
   public IL2CPPSourcemapAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) String mapkind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) IL2CPPSourcemapMapKind mapkind,
       @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) Long size) {
     this.createdAt = createdAt;
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     this.size = size;
   }
 
@@ -94,23 +95,27 @@ public class IL2CPPSourcemapAttributes {
     this.createdAt = createdAt;
   }
 
-  public IL2CPPSourcemapAttributes mapkind(String mapkind) {
+  public IL2CPPSourcemapAttributes mapkind(IL2CPPSourcemapMapKind mapkind) {
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     return this;
   }
 
   /**
-   * The type of source map.
+   * The type of source map. Always <code>il2cpp</code> for IL2CPP source maps.
    *
    * @return mapkind
    */
   @JsonProperty(JSON_PROPERTY_MAPKIND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMapkind() {
+  public IL2CPPSourcemapMapKind getMapkind() {
     return mapkind;
   }
 
-  public void setMapkind(String mapkind) {
+  public void setMapkind(IL2CPPSourcemapMapKind mapkind) {
+    if (!mapkind.isValid()) {
+      this.unparsed = true;
+    }
     this.mapkind = mapkind;
   }
 

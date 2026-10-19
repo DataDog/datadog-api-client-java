@@ -431,6 +431,95 @@ public class SourcemapItem extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'IL2CPPSourcemapData'", e);
       }
 
+      // deserialize WASMSourcemapData
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (WASMSourcemapData.class.equals(Integer.class)
+            || WASMSourcemapData.class.equals(Long.class)
+            || WASMSourcemapData.class.equals(Float.class)
+            || WASMSourcemapData.class.equals(Double.class)
+            || WASMSourcemapData.class.equals(Boolean.class)
+            || WASMSourcemapData.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((WASMSourcemapData.class.equals(Integer.class)
+                        || WASMSourcemapData.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((WASMSourcemapData.class.equals(Float.class)
+                        || WASMSourcemapData.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (WASMSourcemapData.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (WASMSourcemapData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(WASMSourcemapData.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((WASMSourcemapData) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'WASMSourcemapData'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'WASMSourcemapData'", e);
+      }
+
+      // deserialize PortablePdbSourcemapData
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (PortablePdbSourcemapData.class.equals(Integer.class)
+            || PortablePdbSourcemapData.class.equals(Long.class)
+            || PortablePdbSourcemapData.class.equals(Float.class)
+            || PortablePdbSourcemapData.class.equals(Double.class)
+            || PortablePdbSourcemapData.class.equals(Boolean.class)
+            || PortablePdbSourcemapData.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((PortablePdbSourcemapData.class.equals(Integer.class)
+                        || PortablePdbSourcemapData.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((PortablePdbSourcemapData.class.equals(Float.class)
+                        || PortablePdbSourcemapData.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (PortablePdbSourcemapData.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (PortablePdbSourcemapData.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(PortablePdbSourcemapData.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((PortablePdbSourcemapData) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'PortablePdbSourcemapData'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'PortablePdbSourcemapData'", e);
+      }
+
       SourcemapItem ret = new SourcemapItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -499,6 +588,16 @@ public class SourcemapItem extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SourcemapItem(WASMSourcemapData o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public SourcemapItem(PortablePdbSourcemapData o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("JSSourcemapData", new GenericType<JSSourcemapData>() {});
     schemas.put("ReactNativeSourcemapData", new GenericType<ReactNativeSourcemapData>() {});
@@ -508,6 +607,8 @@ public class SourcemapItem extends AbstractOpenApiSchema {
     schemas.put("ELFSourcemapData", new GenericType<ELFSourcemapData>() {});
     schemas.put("NDKSourcemapData", new GenericType<NDKSourcemapData>() {});
     schemas.put("IL2CPPSourcemapData", new GenericType<IL2CPPSourcemapData>() {});
+    schemas.put("WASMSourcemapData", new GenericType<WASMSourcemapData>() {});
+    schemas.put("PortablePdbSourcemapData", new GenericType<PortablePdbSourcemapData>() {});
     JSON.registerDescendants(SourcemapItem.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -519,7 +620,8 @@ public class SourcemapItem extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: JSSourcemapData, ReactNativeSourcemapData, IOSSourcemapData,
-   * JVMSourcemapData, FlutterSourcemapData, ELFSourcemapData, NDKSourcemapData, IL2CPPSourcemapData
+   * JVMSourcemapData, FlutterSourcemapData, ELFSourcemapData, NDKSourcemapData,
+   * IL2CPPSourcemapData, WASMSourcemapData, PortablePdbSourcemapData
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -558,6 +660,14 @@ public class SourcemapItem extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(WASMSourcemapData.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(PortablePdbSourcemapData.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -566,17 +676,18 @@ public class SourcemapItem extends AbstractOpenApiSchema {
     throw new RuntimeException(
         "Invalid instance type. Must be JSSourcemapData, ReactNativeSourcemapData,"
             + " IOSSourcemapData, JVMSourcemapData, FlutterSourcemapData, ELFSourcemapData,"
-            + " NDKSourcemapData, IL2CPPSourcemapData");
+            + " NDKSourcemapData, IL2CPPSourcemapData, WASMSourcemapData,"
+            + " PortablePdbSourcemapData");
   }
 
   /**
    * Get the actual instance, which can be the following: JSSourcemapData, ReactNativeSourcemapData,
    * IOSSourcemapData, JVMSourcemapData, FlutterSourcemapData, ELFSourcemapData, NDKSourcemapData,
-   * IL2CPPSourcemapData
+   * IL2CPPSourcemapData, WASMSourcemapData, PortablePdbSourcemapData
    *
    * @return The actual instance (JSSourcemapData, ReactNativeSourcemapData, IOSSourcemapData,
    *     JVMSourcemapData, FlutterSourcemapData, ELFSourcemapData, NDKSourcemapData,
-   *     IL2CPPSourcemapData)
+   *     IL2CPPSourcemapData, WASMSourcemapData, PortablePdbSourcemapData)
    */
   @Override
   public Object getActualInstance() {
@@ -669,5 +780,27 @@ public class SourcemapItem extends AbstractOpenApiSchema {
    */
   public IL2CPPSourcemapData getIL2CPPSourcemapData() throws ClassCastException {
     return (IL2CPPSourcemapData) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `WASMSourcemapData`. If the actual instance is not
+   * `WASMSourcemapData`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `WASMSourcemapData`
+   * @throws ClassCastException if the instance is not `WASMSourcemapData`
+   */
+  public WASMSourcemapData getWASMSourcemapData() throws ClassCastException {
+    return (WASMSourcemapData) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `PortablePdbSourcemapData`. If the actual instance is not
+   * `PortablePdbSourcemapData`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `PortablePdbSourcemapData`
+   * @throws ClassCastException if the instance is not `PortablePdbSourcemapData`
+   */
+  public PortablePdbSourcemapData getPortablePdbSourcemapData() throws ClassCastException {
+    return (PortablePdbSourcemapData) super.getActualInstance();
   }
 }

@@ -40,7 +40,7 @@ public class JVMSourcemapAttributes {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_MAPKIND = "mapkind";
-  private String mapkind;
+  private JVMSourcemapMapKind mapkind;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
@@ -62,10 +62,11 @@ public class JVMSourcemapAttributes {
   @JsonCreator
   public JVMSourcemapAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) String mapkind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) JVMSourcemapMapKind mapkind,
       @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) Long size) {
     this.createdAt = createdAt;
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     this.size = size;
   }
 
@@ -110,23 +111,27 @@ public class JVMSourcemapAttributes {
     this.createdAt = createdAt;
   }
 
-  public JVMSourcemapAttributes mapkind(String mapkind) {
+  public JVMSourcemapAttributes mapkind(JVMSourcemapMapKind mapkind) {
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     return this;
   }
 
   /**
-   * The type of source map.
+   * The type of source map. Always <code>jvm</code> for JVM source maps.
    *
    * @return mapkind
    */
   @JsonProperty(JSON_PROPERTY_MAPKIND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMapkind() {
+  public JVMSourcemapMapKind getMapkind() {
     return mapkind;
   }
 
-  public void setMapkind(String mapkind) {
+  public void setMapkind(JVMSourcemapMapKind mapkind) {
+    if (!mapkind.isValid()) {
+      this.unparsed = true;
+    }
     this.mapkind = mapkind;
   }
 
