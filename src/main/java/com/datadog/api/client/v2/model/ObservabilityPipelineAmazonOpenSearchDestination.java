@@ -28,6 +28,8 @@ import java.util.Objects;
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_BULK_INDEX,
+  ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_DATA_STREAM,
+  ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_TYPE
@@ -45,6 +47,12 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
   public static final String JSON_PROPERTY_BULK_INDEX = "bulk_index";
   private String bulkIndex;
 
+  public static final String JSON_PROPERTY_DATA_STREAM = "data_stream";
+  private ObservabilityPipelineOpenSearchDestinationDataStream dataStream;
+
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -59,14 +67,10 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   @JsonCreator
   public ObservabilityPipelineAmazonOpenSearchDestination(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH)
-          ObservabilityPipelineAmazonOpenSearchDestinationAuth auth,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineAmazonOpenSearchDestinationType type) {
-    this.auth = auth;
-    this.unparsed |= auth.unparsed;
     this.id = id;
     this.inputs = inputs;
     this.type = type;
@@ -82,12 +86,15 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   /**
    * Authentication settings for the Amazon OpenSearch destination. The <code>strategy</code> field
-   * determines whether basic or AWS-based authentication is used.
+   * determines whether basic or AWS-based authentication is used. When <code>strategy</code> is
+   * <code>basic</code>, use <code>username_key</code> and <code>password_key</code> to reference
+   * credentials stored in environment variables or secrets.
    *
    * @return auth
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth getAuth() {
     return auth;
   }
@@ -144,6 +151,53 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   public void setBulkIndex(String bulkIndex) {
     this.bulkIndex = bulkIndex;
+  }
+
+  public ObservabilityPipelineAmazonOpenSearchDestination dataStream(
+      ObservabilityPipelineOpenSearchDestinationDataStream dataStream) {
+    this.dataStream = dataStream;
+    this.unparsed |= dataStream.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+   *
+   * @return dataStream
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_STREAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineOpenSearchDestinationDataStream getDataStream() {
+    return dataStream;
+  }
+
+  public void setDataStream(ObservabilityPipelineOpenSearchDestinationDataStream dataStream) {
+    this.dataStream = dataStream;
+    if (dataStream != null) {
+      this.unparsed |= dataStream.unparsed;
+    }
+  }
+
+  public ObservabilityPipelineAmazonOpenSearchDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
   }
 
   public ObservabilityPipelineAmazonOpenSearchDestination id(String id) {
@@ -279,6 +333,10 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
         && Objects.equals(this.buffer, observabilityPipelineAmazonOpenSearchDestination.buffer)
         && Objects.equals(
             this.bulkIndex, observabilityPipelineAmazonOpenSearchDestination.bulkIndex)
+        && Objects.equals(
+            this.dataStream, observabilityPipelineAmazonOpenSearchDestination.dataStream)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineAmazonOpenSearchDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineAmazonOpenSearchDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineAmazonOpenSearchDestination.inputs)
         && Objects.equals(this.type, observabilityPipelineAmazonOpenSearchDestination.type)
@@ -289,7 +347,16 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, buffer, bulkIndex, id, inputs, type, additionalProperties);
+    return Objects.hash(
+        auth,
+        buffer,
+        bulkIndex,
+        dataStream,
+        endpointUrlKey,
+        id,
+        inputs,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -299,6 +366,8 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
+    sb.append("    dataStream: ").append(toIndentedString(dataStream)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
