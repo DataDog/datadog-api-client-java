@@ -33,7 +33,7 @@ public class IOSSourcemapAttributes {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_MAPKIND = "mapkind";
-  private String mapkind;
+  private IOSSourcemapMapKind mapkind;
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -46,10 +46,11 @@ public class IOSSourcemapAttributes {
   @JsonCreator
   public IOSSourcemapAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) String mapkind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) IOSSourcemapMapKind mapkind,
       @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) Long size) {
     this.createdAt = createdAt;
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     this.size = size;
   }
 
@@ -73,23 +74,27 @@ public class IOSSourcemapAttributes {
     this.createdAt = createdAt;
   }
 
-  public IOSSourcemapAttributes mapkind(String mapkind) {
+  public IOSSourcemapAttributes mapkind(IOSSourcemapMapKind mapkind) {
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     return this;
   }
 
   /**
-   * The type of source map.
+   * The type of source map. Always <code>ios</code> for iOS dSYM source maps.
    *
    * @return mapkind
    */
   @JsonProperty(JSON_PROPERTY_MAPKIND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMapkind() {
+  public IOSSourcemapMapKind getMapkind() {
     return mapkind;
   }
 
-  public void setMapkind(String mapkind) {
+  public void setMapkind(IOSSourcemapMapKind mapkind) {
+    if (!mapkind.isValid()) {
+      this.unparsed = true;
+    }
     this.mapkind = mapkind;
   }
 

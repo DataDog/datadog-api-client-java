@@ -44,7 +44,7 @@ public class NDKSourcemapAttributes {
   private String fileName;
 
   public static final String JSON_PROPERTY_MAPKIND = "mapkind";
-  private String mapkind;
+  private NDKSourcemapMapKind mapkind;
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -54,10 +54,11 @@ public class NDKSourcemapAttributes {
   @JsonCreator
   public NDKSourcemapAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) String mapkind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) NDKSourcemapMapKind mapkind,
       @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) Long size) {
     this.createdAt = createdAt;
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     this.size = size;
   }
 
@@ -144,23 +145,27 @@ public class NDKSourcemapAttributes {
     this.fileName = fileName;
   }
 
-  public NDKSourcemapAttributes mapkind(String mapkind) {
+  public NDKSourcemapAttributes mapkind(NDKSourcemapMapKind mapkind) {
     this.mapkind = mapkind;
+    this.unparsed |= !mapkind.isValid();
     return this;
   }
 
   /**
-   * The type of source map.
+   * The type of source map. Always <code>ndk</code> for Android NDK source maps.
    *
    * @return mapkind
    */
   @JsonProperty(JSON_PROPERTY_MAPKIND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMapkind() {
+  public NDKSourcemapMapKind getMapkind() {
     return mapkind;
   }
 
-  public void setMapkind(String mapkind) {
+  public void setMapkind(NDKSourcemapMapKind mapkind) {
+    if (!mapkind.isValid()) {
+      this.unparsed = true;
+    }
     this.mapkind = mapkind;
   }
 
