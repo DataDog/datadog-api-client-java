@@ -21,7 +21,9 @@ import java.util.Objects;
 /** Attributes for a process summary. */
 @JsonPropertyOrder({
   ProcessSummaryAttributes.JSON_PROPERTY_CMDLINE,
+  ProcessSummaryAttributes.JSON_PROPERTY_EXECUTABLE,
   ProcessSummaryAttributes.JSON_PROPERTY_HOST,
+  ProcessSummaryAttributes.JSON_PROPERTY_IDENTIFYING_TAGS,
   ProcessSummaryAttributes.JSON_PROPERTY_PID,
   ProcessSummaryAttributes.JSON_PROPERTY_PPID,
   ProcessSummaryAttributes.JSON_PROPERTY_START,
@@ -36,8 +38,14 @@ public class ProcessSummaryAttributes {
   public static final String JSON_PROPERTY_CMDLINE = "cmdline";
   private String cmdline;
 
+  public static final String JSON_PROPERTY_EXECUTABLE = "executable";
+  private String executable;
+
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
+
+  public static final String JSON_PROPERTY_IDENTIFYING_TAGS = "identifying_tags";
+  private List<String> identifyingTags = null;
 
   public static final String JSON_PROPERTY_PID = "pid";
   private Long pid;
@@ -78,6 +86,27 @@ public class ProcessSummaryAttributes {
     this.cmdline = cmdline;
   }
 
+  public ProcessSummaryAttributes executable(String executable) {
+    this.executable = executable;
+    return this;
+  }
+
+  /**
+   * Path to the process executable.
+   *
+   * @return executable
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXECUTABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getExecutable() {
+    return executable;
+  }
+
+  public void setExecutable(String executable) {
+    this.executable = executable;
+  }
+
   public ProcessSummaryAttributes host(String host) {
     this.host = host;
     return this;
@@ -97,6 +126,37 @@ public class ProcessSummaryAttributes {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public ProcessSummaryAttributes identifyingTags(List<String> identifyingTags) {
+    this.identifyingTags = identifyingTags;
+    return this;
+  }
+
+  public ProcessSummaryAttributes addIdentifyingTagsItem(String identifyingTagsItem) {
+    if (this.identifyingTags == null) {
+      this.identifyingTags = new ArrayList<>();
+    }
+    this.identifyingTags.add(identifyingTagsItem);
+    return this;
+  }
+
+  /**
+   * Tags that uniquely identify the process: a host identity tag (<code>host</code>, <code>task_arn
+   * </code>, or <code>eks_fargate_node</code>) and a <code>pid</code> tag. Omitted if either tag is
+   * unavailable.
+   *
+   * @return identifyingTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IDENTIFYING_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIdentifyingTags() {
+    return identifyingTags;
+  }
+
+  public void setIdentifyingTags(List<String> identifyingTags) {
+    this.identifyingTags = identifyingTags;
   }
 
   public ProcessSummaryAttributes pid(Long pid) {
@@ -290,7 +350,9 @@ public class ProcessSummaryAttributes {
     }
     ProcessSummaryAttributes processSummaryAttributes = (ProcessSummaryAttributes) o;
     return Objects.equals(this.cmdline, processSummaryAttributes.cmdline)
+        && Objects.equals(this.executable, processSummaryAttributes.executable)
         && Objects.equals(this.host, processSummaryAttributes.host)
+        && Objects.equals(this.identifyingTags, processSummaryAttributes.identifyingTags)
         && Objects.equals(this.pid, processSummaryAttributes.pid)
         && Objects.equals(this.ppid, processSummaryAttributes.ppid)
         && Objects.equals(this.start, processSummaryAttributes.start)
@@ -303,7 +365,17 @@ public class ProcessSummaryAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        cmdline, host, pid, ppid, start, tags, timestamp, user, additionalProperties);
+        cmdline,
+        executable,
+        host,
+        identifyingTags,
+        pid,
+        ppid,
+        start,
+        tags,
+        timestamp,
+        user,
+        additionalProperties);
   }
 
   @Override
@@ -311,7 +383,9 @@ public class ProcessSummaryAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessSummaryAttributes {\n");
     sb.append("    cmdline: ").append(toIndentedString(cmdline)).append("\n");
+    sb.append("    executable: ").append(toIndentedString(executable)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    identifyingTags: ").append(toIndentedString(identifyingTags)).append("\n");
     sb.append("    pid: ").append(toIndentedString(pid)).append("\n");
     sb.append("    ppid: ").append(toIndentedString(ppid)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
