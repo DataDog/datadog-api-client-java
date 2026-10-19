@@ -30,7 +30,7 @@ public class LLMObsExperimentEventsDataRequest {
   private LLMObsExperimentEventsDataAttributesRequest attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private LLMObsEventType type;
+  private LLMObsExperimentType type;
 
   public LLMObsExperimentEventsDataRequest() {}
 
@@ -38,7 +38,7 @@ public class LLMObsExperimentEventsDataRequest {
   public LLMObsExperimentEventsDataRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           LLMObsExperimentEventsDataAttributesRequest attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsEventType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsExperimentType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.type = type;
@@ -70,24 +70,24 @@ public class LLMObsExperimentEventsDataRequest {
     }
   }
 
-  public LLMObsExperimentEventsDataRequest type(LLMObsEventType type) {
+  public LLMObsExperimentEventsDataRequest type(LLMObsExperimentType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Resource type for Agent Observability experiment events.
+   * Resource type of an Agent Observability experiment.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsEventType getType() {
+  public LLMObsExperimentType getType() {
     return type;
   }
 
-  public void setType(LLMObsEventType type) {
+  public void setType(LLMObsExperimentType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

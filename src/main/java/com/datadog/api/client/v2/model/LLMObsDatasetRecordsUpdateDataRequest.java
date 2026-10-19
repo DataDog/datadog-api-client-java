@@ -30,7 +30,7 @@ public class LLMObsDatasetRecordsUpdateDataRequest {
   private LLMObsDatasetRecordsUpdateDataAttributesRequest attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private LLMObsRecordType type;
+  private LLMObsDatasetType type;
 
   public LLMObsDatasetRecordsUpdateDataRequest() {}
 
@@ -38,7 +38,7 @@ public class LLMObsDatasetRecordsUpdateDataRequest {
   public LLMObsDatasetRecordsUpdateDataRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           LLMObsDatasetRecordsUpdateDataAttributesRequest attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsRecordType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsDatasetType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.type = type;
@@ -70,24 +70,24 @@ public class LLMObsDatasetRecordsUpdateDataRequest {
     }
   }
 
-  public LLMObsDatasetRecordsUpdateDataRequest type(LLMObsRecordType type) {
+  public LLMObsDatasetRecordsUpdateDataRequest type(LLMObsDatasetType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Resource type of Agent Observability dataset records.
+   * Resource type of an Agent Observability dataset.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsRecordType getType() {
+  public LLMObsDatasetType getType() {
     return type;
   }
 
-  public void setType(LLMObsRecordType type) {
+  public void setType(LLMObsDatasetType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

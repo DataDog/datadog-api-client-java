@@ -3,10 +3,10 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AgentObservabilityApi;
+import com.datadog.api.client.v2.model.LLMObsDatasetType;
 import com.datadog.api.client.v2.model.LLMObsDeleteDatasetRecordsDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteDatasetRecordsDataRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteDatasetRecordsRequest;
-import com.datadog.api.client.v2.model.LLMObsRecordType;
 import java.util.Collections;
 
 public class Example {
@@ -25,7 +25,7 @@ public class Example {
                             .recordIds(
                                 Collections.singletonList(
                                     "rec-7c3f5a1b-9e2d-4f8a-b1c6-3d7e9f0a2b4c")))
-                    .type(LLMObsRecordType.RECORDS));
+                    .type(LLMObsDatasetType.DATASETS));
 
     try {
       apiInstance.deleteLLMObsDatasetRecords(

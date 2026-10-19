@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AgentObservabilityApi;
-import com.datadog.api.client.v2.model.LLMObsEventType;
 import com.datadog.api.client.v2.model.LLMObsExperimentEventsDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentEventsDataRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentEventsRequest;
@@ -13,6 +12,7 @@ import com.datadog.api.client.v2.model.LLMObsExperimentSpan;
 import com.datadog.api.client.v2.model.LLMObsExperimentSpanError;
 import com.datadog.api.client.v2.model.LLMObsExperimentSpanMeta;
 import com.datadog.api.client.v2.model.LLMObsExperimentSpanStatus;
+import com.datadog.api.client.v2.model.LLMObsExperimentType;
 import com.datadog.api.client.v2.model.LLMObsMetricAssessment;
 import com.datadog.api.client.v2.model.LLMObsMetricScoreType;
 import java.util.Collections;
@@ -67,7 +67,7 @@ TimeoutError: Model response timed out
                                         .startNs(1705314600000000000L)
                                         .status(LLMObsExperimentSpanStatus.OK)
                                         .traceId("abc123def456"))))
-                    .type(LLMObsEventType.EVENTS));
+                    .type(LLMObsExperimentType.EXPERIMENTS));
 
     try {
       apiInstance.createLLMObsExperimentEvents("3fd6b5e0-8910-4b1c-a7d0-5b84de329012", body);
