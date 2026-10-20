@@ -19,14 +19,18 @@ import java.util.Objects;
 
 /**
  * Authentication settings for the Amazon OpenSearch destination. The <code>strategy</code> field
- * determines whether basic or AWS-based authentication is used.
+ * determines whether basic or AWS-based authentication is used. When <code>strategy</code> is
+ * <code>basic</code>, use <code>username_key</code> and <code>password_key</code> to reference
+ * credentials stored in environment variables or secrets.
  */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_ASSUME_ROLE,
   ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_AWS_REGION,
   ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_EXTERNAL_ID,
+  ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_PASSWORD_KEY,
   ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_SESSION_NAME,
-  ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_STRATEGY
+  ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_STRATEGY,
+  ObservabilityPipelineAmazonOpenSearchDestinationAuth.JSON_PROPERTY_USERNAME_KEY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,11 +45,17 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
   public static final String JSON_PROPERTY_EXTERNAL_ID = "external_id";
   private String externalId;
 
+  public static final String JSON_PROPERTY_PASSWORD_KEY = "password_key";
+  private String passwordKey;
+
   public static final String JSON_PROPERTY_SESSION_NAME = "session_name";
   private String sessionName;
 
   public static final String JSON_PROPERTY_STRATEGY = "strategy";
   private ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy;
+
+  public static final String JSON_PROPERTY_USERNAME_KEY = "username_key";
+  private String usernameKey;
 
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth() {}
 
@@ -120,6 +130,28 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
     this.externalId = externalId;
   }
 
+  public ObservabilityPipelineAmazonOpenSearchDestinationAuth passwordKey(String passwordKey) {
+    this.passwordKey = passwordKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Amazon OpenSearch password (used when
+   * <code>strategy</code> is <code>basic</code>).
+   *
+   * @return passwordKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PASSWORD_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPasswordKey() {
+    return passwordKey;
+  }
+
+  public void setPasswordKey(String passwordKey) {
+    this.passwordKey = passwordKey;
+  }
+
   public ObservabilityPipelineAmazonOpenSearchDestinationAuth sessionName(String sessionName) {
     this.sessionName = sessionName;
     return this;
@@ -164,6 +196,28 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
       this.unparsed = true;
     }
     this.strategy = strategy;
+  }
+
+  public ObservabilityPipelineAmazonOpenSearchDestinationAuth usernameKey(String usernameKey) {
+    this.usernameKey = usernameKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Amazon OpenSearch username (used when
+   * <code>strategy</code> is <code>basic</code>).
+   *
+   * @return usernameKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USERNAME_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUsernameKey() {
+    return usernameKey;
+  }
+
+  public void setUsernameKey(String usernameKey) {
+    this.usernameKey = usernameKey;
   }
 
   /**
@@ -234,9 +288,13 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
         && Objects.equals(
             this.externalId, observabilityPipelineAmazonOpenSearchDestinationAuth.externalId)
         && Objects.equals(
+            this.passwordKey, observabilityPipelineAmazonOpenSearchDestinationAuth.passwordKey)
+        && Objects.equals(
             this.sessionName, observabilityPipelineAmazonOpenSearchDestinationAuth.sessionName)
         && Objects.equals(
             this.strategy, observabilityPipelineAmazonOpenSearchDestinationAuth.strategy)
+        && Objects.equals(
+            this.usernameKey, observabilityPipelineAmazonOpenSearchDestinationAuth.usernameKey)
         && Objects.equals(
             this.additionalProperties,
             observabilityPipelineAmazonOpenSearchDestinationAuth.additionalProperties);
@@ -245,7 +303,14 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
   @Override
   public int hashCode() {
     return Objects.hash(
-        assumeRole, awsRegion, externalId, sessionName, strategy, additionalProperties);
+        assumeRole,
+        awsRegion,
+        externalId,
+        passwordKey,
+        sessionName,
+        strategy,
+        usernameKey,
+        additionalProperties);
   }
 
   @Override
@@ -255,8 +320,10 @@ public class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
     sb.append("    assumeRole: ").append(toIndentedString(assumeRole)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    passwordKey: ").append(toIndentedString(passwordKey)).append("\n");
     sb.append("    sessionName: ").append(toIndentedString(sessionName)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
+    sb.append("    usernameKey: ").append(toIndentedString(usernameKey)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
