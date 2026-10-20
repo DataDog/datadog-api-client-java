@@ -19,6 +19,7 @@ import com.datadog.api.client.v2.model.ListAllocationsResponse;
 import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
 import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
+import com.datadog.api.client.v2.model.PatchSavedFilterRequest;
 import com.datadog.api.client.v2.model.SavedFilterResponse;
 import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
@@ -3921,6 +3922,182 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EnvironmentResponse>() {});
+  }
+
+  /**
+   * Patch a saved filter.
+   *
+   * <p>See {@link #updateSavedFilterAttributesWithHttpInfo}.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @param body (required)
+   * @return SavedFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SavedFilterResponse updateSavedFilterAttributes(
+      UUID savedFilterId, PatchSavedFilterRequest body) throws ApiException {
+    return updateSavedFilterAttributesWithHttpInfo(savedFilterId, body).getData();
+  }
+
+  /**
+   * Patch a saved filter.
+   *
+   * <p>See {@link #updateSavedFilterAttributesWithHttpInfoAsync}.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SavedFilterResponse&gt;
+   */
+  public CompletableFuture<SavedFilterResponse> updateSavedFilterAttributesAsync(
+      UUID savedFilterId, PatchSavedFilterRequest body) {
+    return updateSavedFilterAttributesWithHttpInfoAsync(savedFilterId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially updates a saved filter. Supports both <code>LIST</code> and <code>RULES</code>
+   * filters. Supply at least one of <code>name</code>, <code>description</code>, or <code>
+   * targeting_rules</code>. Omitted or null fields are preserved. Supplying <code>targeting_rules
+   * </code> replaces the entire collection and propagates changes to every feature flag that
+   * references the saved filter. Metadata-only updates do not require edit permission or approval
+   * on those feature flags. Rule updates require edit permission on all consumer flags and are
+   * rejected when approval is required, unless the caller has the <code>
+   * feature_flag_approvals_override</code> permission. The optional <code>last_updated_at</code>
+   * field detects stale updates. It does not set the update time.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SavedFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SavedFilterResponse> updateSavedFilterAttributesWithHttpInfo(
+      UUID savedFilterId, PatchSavedFilterRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'savedFilterId' is set
+    if (savedFilterId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'savedFilterId' when calling"
+              + " updateSavedFilterAttributes");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateSavedFilterAttributes");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/saved-filters/{saved_filter_id}"
+            .replaceAll(
+                "\\{" + "saved_filter_id" + "\\}",
+                apiClient.escapeString(savedFilterId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateSavedFilterAttributes",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SavedFilterResponse>() {});
+  }
+
+  /**
+   * Patch a saved filter.
+   *
+   * <p>See {@link #updateSavedFilterAttributesWithHttpInfo}.
+   *
+   * @param savedFilterId The ID of the saved filter. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SavedFilterResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SavedFilterResponse>>
+      updateSavedFilterAttributesWithHttpInfoAsync(
+          UUID savedFilterId, PatchSavedFilterRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'savedFilterId' is set
+    if (savedFilterId == null) {
+      CompletableFuture<ApiResponse<SavedFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'savedFilterId' when calling"
+                  + " updateSavedFilterAttributes"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SavedFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateSavedFilterAttributes"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/saved-filters/{saved_filter_id}"
+            .replaceAll(
+                "\\{" + "saved_filter_id" + "\\}",
+                apiClient.escapeString(savedFilterId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateSavedFilterAttributes",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SavedFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SavedFilterResponse>() {});
   }
 
   /**
