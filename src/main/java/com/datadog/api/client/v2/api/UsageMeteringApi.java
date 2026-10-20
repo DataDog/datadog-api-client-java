@@ -13,6 +13,12 @@ import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.MonthlyCostAttributionResponse;
 import com.datadog.api.client.v2.model.ProjectedCostResponse;
 import com.datadog.api.client.v2.model.SortDirection;
+import com.datadog.api.client.v2.model.TemporaryGrantRequestCreateRequest;
+import com.datadog.api.client.v2.model.TemporaryGrantRequestData;
+import com.datadog.api.client.v2.model.TemporaryGrantRequestDecisionRequest;
+import com.datadog.api.client.v2.model.TemporaryGrantRequestListResponse;
+import com.datadog.api.client.v2.model.TemporaryGrantRequestResponse;
+import com.datadog.api.client.v2.model.TemporaryGrantRequestStatus;
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
 import com.datadog.api.client.v2.model.UsageAttributionTypesResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
@@ -32,6 +38,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -4130,6 +4137,1619 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageQuotasListResponse>() {});
+  }
+
+  /**
+   * Cancel your temporary grant request.
+   *
+   * <p>See {@link #publicCancelTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void publicCancelTemporaryGrantRequest(UUID requestId) throws ApiException {
+    publicCancelTemporaryGrantRequestWithHttpInfo(requestId);
+  }
+
+  /**
+   * Cancel your temporary grant request.
+   *
+   * <p>See {@link #publicCancelTemporaryGrantRequestWithHttpInfoAsync}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> publicCancelTemporaryGrantRequestAsync(UUID requestId) {
+    return publicCancelTemporaryGrantRequestWithHttpInfoAsync(requestId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Cancel an owned pending request. Retains request history and does not create or revoke a grant.
+   * Requires an authenticated human user and the temporary-grants feature enabled for the
+   * organization. Service-account credentials are unsupported. Request status remains approved
+   * after expiry, revocation, or replacement.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> publicCancelTemporaryGrantRequestWithHttpInfo(UUID requestId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicCancelTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'requestId' when calling"
+              + " publicCancelTemporaryGrantRequest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/temporary-grant-requests/{request_id}"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicCancelTemporaryGrantRequest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Cancel your temporary grant request.
+   *
+   * <p>See {@link #publicCancelTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> publicCancelTemporaryGrantRequestWithHttpInfoAsync(
+      UUID requestId) {
+    // Check if unstable operation is enabled
+    String operationId = "publicCancelTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'requestId' when calling"
+                  + " publicCancelTemporaryGrantRequest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/temporary-grant-requests/{request_id}"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicCancelTemporaryGrantRequest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create a temporary grant request.
+   *
+   * <p>See {@link #publicCreateTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TemporaryGrantRequestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestResponse publicCreateTemporaryGrantRequest(
+      TemporaryGrantRequestCreateRequest body) throws ApiException {
+    return publicCreateTemporaryGrantRequestWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a temporary grant request.
+   *
+   * <p>See {@link #publicCreateTemporaryGrantRequestWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TemporaryGrantRequestResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestResponse> publicCreateTemporaryGrantRequestAsync(
+      TemporaryGrantRequestCreateRequest body) {
+    return publicCreateTemporaryGrantRequestWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Submit a request for the authenticated human user with a target monthly limit in positive whole
+   * AI credits, justification, and optional expiry. Fractional credits are not accepted. Requires
+   * an authenticated human user and the temporary-grants feature enabled for the organization.
+   * Service-account credentials are unsupported. Request status remains approved after expiry,
+   * revocation, or replacement.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TemporaryGrantRequestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TemporaryGrantRequestResponse> publicCreateTemporaryGrantRequestWithHttpInfo(
+      TemporaryGrantRequestCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicCreateTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling publicCreateTemporaryGrantRequest");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/temporary-grant-requests";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicCreateTemporaryGrantRequest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /**
+   * Create a temporary grant request.
+   *
+   * <p>See {@link #publicCreateTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TemporaryGrantRequestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>>
+      publicCreateTemporaryGrantRequestWithHttpInfoAsync(TemporaryGrantRequestCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "publicCreateTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " publicCreateTemporaryGrantRequest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/temporary-grant-requests";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicCreateTemporaryGrantRequest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /**
+   * Decide a temporary grant request.
+   *
+   * <p>See {@link #publicDecideTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @param body (required)
+   * @return TemporaryGrantRequestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestResponse publicDecideTemporaryGrantRequest(
+      UUID requestId, TemporaryGrantRequestDecisionRequest body) throws ApiException {
+    return publicDecideTemporaryGrantRequestWithHttpInfo(requestId, body).getData();
+  }
+
+  /**
+   * Decide a temporary grant request.
+   *
+   * <p>See {@link #publicDecideTemporaryGrantRequestWithHttpInfoAsync}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TemporaryGrantRequestResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestResponse> publicDecideTemporaryGrantRequestAsync(
+      UUID requestId, TemporaryGrantRequestDecisionRequest body) {
+    return publicDecideTemporaryGrantRequestWithHttpInfoAsync(requestId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Approve or deny the immutable submitted terms. Approval atomically writes the grant, audit, and
+   * request decision. An expired request cannot be approved. Requires Billing Edit. Requires an
+   * authenticated human user and the temporary-grants feature enabled for the organization.
+   * Service-account credentials are unsupported. Request status remains approved after expiry,
+   * revocation, or replacement.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;TemporaryGrantRequestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TemporaryGrantRequestResponse> publicDecideTemporaryGrantRequestWithHttpInfo(
+      UUID requestId, TemporaryGrantRequestDecisionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicDecideTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'requestId' when calling"
+              + " publicDecideTemporaryGrantRequest");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling publicDecideTemporaryGrantRequest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/admin/temporary-grant-requests/{request_id}/decision"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicDecideTemporaryGrantRequest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /**
+   * Decide a temporary grant request.
+   *
+   * <p>See {@link #publicDecideTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TemporaryGrantRequestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>>
+      publicDecideTemporaryGrantRequestWithHttpInfoAsync(
+          UUID requestId, TemporaryGrantRequestDecisionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "publicDecideTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'requestId' when calling"
+                  + " publicDecideTemporaryGrantRequest"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " publicDecideTemporaryGrantRequest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/admin/temporary-grant-requests/{request_id}/decision"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicDecideTemporaryGrantRequest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /**
+   * Get your temporary grant request.
+   *
+   * <p>See {@link #publicGetMyTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return TemporaryGrantRequestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestResponse publicGetMyTemporaryGrantRequest(UUID requestId)
+      throws ApiException {
+    return publicGetMyTemporaryGrantRequestWithHttpInfo(requestId).getData();
+  }
+
+  /**
+   * Get your temporary grant request.
+   *
+   * <p>See {@link #publicGetMyTemporaryGrantRequestWithHttpInfoAsync}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture&lt;TemporaryGrantRequestResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestResponse> publicGetMyTemporaryGrantRequestAsync(
+      UUID requestId) {
+    return publicGetMyTemporaryGrantRequestWithHttpInfoAsync(requestId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Read an owned request, its decision, and its linked grant state. Requires an authenticated
+   * human user and the temporary-grants feature enabled for the organization. Service-account
+   * credentials are unsupported. Request status remains approved after expiry, revocation, or
+   * replacement.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return ApiResponse&lt;TemporaryGrantRequestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TemporaryGrantRequestResponse> publicGetMyTemporaryGrantRequestWithHttpInfo(
+      UUID requestId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicGetMyTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'requestId' when calling"
+              + " publicGetMyTemporaryGrantRequest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/temporary-grant-requests/{request_id}"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicGetMyTemporaryGrantRequest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /**
+   * Get your temporary grant request.
+   *
+   * <p>See {@link #publicGetMyTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TemporaryGrantRequestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>>
+      publicGetMyTemporaryGrantRequestWithHttpInfoAsync(UUID requestId) {
+    // Check if unstable operation is enabled
+    String operationId = "publicGetMyTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'requestId' when calling"
+                  + " publicGetMyTemporaryGrantRequest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/temporary-grant-requests/{request_id}"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicGetMyTemporaryGrantRequest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /**
+   * Get an organization temporary grant request.
+   *
+   * <p>See {@link #publicGetTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return TemporaryGrantRequestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestResponse publicGetTemporaryGrantRequest(UUID requestId)
+      throws ApiException {
+    return publicGetTemporaryGrantRequestWithHttpInfo(requestId).getData();
+  }
+
+  /**
+   * Get an organization temporary grant request.
+   *
+   * <p>See {@link #publicGetTemporaryGrantRequestWithHttpInfoAsync}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture&lt;TemporaryGrantRequestResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestResponse> publicGetTemporaryGrantRequestAsync(
+      UUID requestId) {
+    return publicGetTemporaryGrantRequestWithHttpInfoAsync(requestId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Read an organization request, justification, decision, and linked grant state. Requires Billing
+   * Edit. Requires an authenticated human user and the temporary-grants feature enabled for the
+   * organization. Service-account credentials are unsupported. Request status remains approved
+   * after expiry, revocation, or replacement.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return ApiResponse&lt;TemporaryGrantRequestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TemporaryGrantRequestResponse> publicGetTemporaryGrantRequestWithHttpInfo(
+      UUID requestId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicGetTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'requestId' when calling publicGetTemporaryGrantRequest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/admin/temporary-grant-requests/{request_id}"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicGetTemporaryGrantRequest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /**
+   * Get an organization temporary grant request.
+   *
+   * <p>See {@link #publicGetTemporaryGrantRequestWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TemporaryGrantRequestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>>
+      publicGetTemporaryGrantRequestWithHttpInfoAsync(UUID requestId) {
+    // Check if unstable operation is enabled
+    String operationId = "publicGetTemporaryGrantRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'requestId' when calling"
+                  + " publicGetTemporaryGrantRequest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/admin/temporary-grant-requests/{request_id}"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicGetTemporaryGrantRequest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestResponse>() {});
+  }
+
+  /** Manage optional parameters to publicListMyTemporaryGrantRequests. */
+  public static class PublicListMyTemporaryGrantRequestsOptionalParameters {
+    private TemporaryGrantRequestStatus filterStatus;
+    private Long pageLimit;
+    private UUID pageCursor;
+
+    /**
+     * Set filterStatus.
+     *
+     * @param filterStatus Optional status; defaults to all statuses. (optional)
+     * @return PublicListMyTemporaryGrantRequestsOptionalParameters
+     */
+    public PublicListMyTemporaryGrantRequestsOptionalParameters filterStatus(
+        TemporaryGrantRequestStatus filterStatus) {
+      this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Page size, from 1 to 100. (optional, default to 50)
+     * @return PublicListMyTemporaryGrantRequestsOptionalParameters
+     */
+    public PublicListMyTemporaryGrantRequestsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor UUID cursor from meta.page.next_cursor. (optional)
+     * @return PublicListMyTemporaryGrantRequestsOptionalParameters
+     */
+    public PublicListMyTemporaryGrantRequestsOptionalParameters pageCursor(UUID pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+  }
+
+  /**
+   * List your temporary grant requests.
+   *
+   * <p>See {@link #publicListMyTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @return TemporaryGrantRequestListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestListResponse publicListMyTemporaryGrantRequests()
+      throws ApiException {
+    return publicListMyTemporaryGrantRequestsWithHttpInfo(
+            new PublicListMyTemporaryGrantRequestsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List your temporary grant requests.
+   *
+   * <p>See {@link #publicListMyTemporaryGrantRequestsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TemporaryGrantRequestListResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestListResponse>
+      publicListMyTemporaryGrantRequestsAsync() {
+    return publicListMyTemporaryGrantRequestsWithHttpInfoAsync(
+            new PublicListMyTemporaryGrantRequestsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List your temporary grant requests.
+   *
+   * <p>See {@link #publicListMyTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return TemporaryGrantRequestListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestListResponse publicListMyTemporaryGrantRequests(
+      PublicListMyTemporaryGrantRequestsOptionalParameters parameters) throws ApiException {
+    return publicListMyTemporaryGrantRequestsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List your temporary grant requests.
+   *
+   * <p>See {@link #publicListMyTemporaryGrantRequestsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TemporaryGrantRequestListResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestListResponse>
+      publicListMyTemporaryGrantRequestsAsync(
+          PublicListMyTemporaryGrantRequestsOptionalParameters parameters) {
+    return publicListMyTemporaryGrantRequestsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List your temporary grant requests.
+   *
+   * <p>See {@link #publicListMyTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;TemporaryGrantRequestData&gt;
+   */
+  public PaginationIterable<TemporaryGrantRequestData>
+      publicListMyTemporaryGrantRequestsWithPagination() {
+    PublicListMyTemporaryGrantRequestsOptionalParameters parameters =
+        new PublicListMyTemporaryGrantRequestsOptionalParameters();
+    return publicListMyTemporaryGrantRequestsWithPagination(parameters);
+  }
+
+  /**
+   * List your temporary grant requests.
+   *
+   * <p>See {@link #publicListMyTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @return TemporaryGrantRequestListResponse
+   */
+  public PaginationIterable<TemporaryGrantRequestData>
+      publicListMyTemporaryGrantRequestsWithPagination(
+          PublicListMyTemporaryGrantRequestsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getNextCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 50l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "publicListMyTemporaryGrantRequests",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            true,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * List the authenticated user's own requests, including decided requests. Other users' requests
+   * are never included. Requires an authenticated human user and the temporary-grants feature
+   * enabled for the organization. Service-account credentials are unsupported. Request status
+   * remains approved after expiry, revocation, or replacement.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TemporaryGrantRequestListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TemporaryGrantRequestListResponse>
+      publicListMyTemporaryGrantRequestsWithHttpInfo(
+          PublicListMyTemporaryGrantRequestsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicListMyTemporaryGrantRequests";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    TemporaryGrantRequestStatus filterStatus = parameters.filterStatus;
+    Long pageLimit = parameters.pageLimit;
+    UUID pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/temporary-grant-requests";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicListMyTemporaryGrantRequests",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestListResponse>() {});
+  }
+
+  /**
+   * List your temporary grant requests.
+   *
+   * <p>See {@link #publicListMyTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TemporaryGrantRequestListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TemporaryGrantRequestListResponse>>
+      publicListMyTemporaryGrantRequestsWithHttpInfoAsync(
+          PublicListMyTemporaryGrantRequestsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "publicListMyTemporaryGrantRequests";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    TemporaryGrantRequestStatus filterStatus = parameters.filterStatus;
+    Long pageLimit = parameters.pageLimit;
+    UUID pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/temporary-grant-requests";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicListMyTemporaryGrantRequests",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestListResponse>() {});
+  }
+
+  /** Manage optional parameters to publicListTemporaryGrantRequests. */
+  public static class PublicListTemporaryGrantRequestsOptionalParameters {
+    private TemporaryGrantRequestStatus filterStatus;
+    private Long pageLimit;
+    private UUID pageCursor;
+    private UUID filterRequestedByUserId;
+
+    /**
+     * Set filterStatus.
+     *
+     * @param filterStatus Optional status; defaults to all statuses. (optional)
+     * @return PublicListTemporaryGrantRequestsOptionalParameters
+     */
+    public PublicListTemporaryGrantRequestsOptionalParameters filterStatus(
+        TemporaryGrantRequestStatus filterStatus) {
+      this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Page size, from 1 to 100. (optional, default to 50)
+     * @return PublicListTemporaryGrantRequestsOptionalParameters
+     */
+    public PublicListTemporaryGrantRequestsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor UUID cursor from meta.page.next_cursor. (optional)
+     * @return PublicListTemporaryGrantRequestsOptionalParameters
+     */
+    public PublicListTemporaryGrantRequestsOptionalParameters pageCursor(UUID pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set filterRequestedByUserId.
+     *
+     * @param filterRequestedByUserId Filter by requester UUID within the authenticated
+     *     organization. (optional)
+     * @return PublicListTemporaryGrantRequestsOptionalParameters
+     */
+    public PublicListTemporaryGrantRequestsOptionalParameters filterRequestedByUserId(
+        UUID filterRequestedByUserId) {
+      this.filterRequestedByUserId = filterRequestedByUserId;
+      return this;
+    }
+  }
+
+  /**
+   * List organization temporary grant requests.
+   *
+   * <p>See {@link #publicListTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @return TemporaryGrantRequestListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestListResponse publicListTemporaryGrantRequests() throws ApiException {
+    return publicListTemporaryGrantRequestsWithHttpInfo(
+            new PublicListTemporaryGrantRequestsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List organization temporary grant requests.
+   *
+   * <p>See {@link #publicListTemporaryGrantRequestsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TemporaryGrantRequestListResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestListResponse>
+      publicListTemporaryGrantRequestsAsync() {
+    return publicListTemporaryGrantRequestsWithHttpInfoAsync(
+            new PublicListTemporaryGrantRequestsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List organization temporary grant requests.
+   *
+   * <p>See {@link #publicListTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return TemporaryGrantRequestListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TemporaryGrantRequestListResponse publicListTemporaryGrantRequests(
+      PublicListTemporaryGrantRequestsOptionalParameters parameters) throws ApiException {
+    return publicListTemporaryGrantRequestsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List organization temporary grant requests.
+   *
+   * <p>See {@link #publicListTemporaryGrantRequestsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TemporaryGrantRequestListResponse&gt;
+   */
+  public CompletableFuture<TemporaryGrantRequestListResponse> publicListTemporaryGrantRequestsAsync(
+      PublicListTemporaryGrantRequestsOptionalParameters parameters) {
+    return publicListTemporaryGrantRequestsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List organization temporary grant requests.
+   *
+   * <p>See {@link #publicListTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;TemporaryGrantRequestData&gt;
+   */
+  public PaginationIterable<TemporaryGrantRequestData>
+      publicListTemporaryGrantRequestsWithPagination() {
+    PublicListTemporaryGrantRequestsOptionalParameters parameters =
+        new PublicListTemporaryGrantRequestsOptionalParameters();
+    return publicListTemporaryGrantRequestsWithPagination(parameters);
+  }
+
+  /**
+   * List organization temporary grant requests.
+   *
+   * <p>See {@link #publicListTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @return TemporaryGrantRequestListResponse
+   */
+  public PaginationIterable<TemporaryGrantRequestData>
+      publicListTemporaryGrantRequestsWithPagination(
+          PublicListTemporaryGrantRequestsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getNextCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 50l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "publicListTemporaryGrantRequests",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            true,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * List all request statuses within the authenticated organization. Filter by pending status for
+   * the review queue. Requires Billing Edit, including for reads. Requires an authenticated human
+   * user and the temporary-grants feature enabled for the organization. Service-account credentials
+   * are unsupported. Request status remains approved after expiry, revocation, or replacement.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TemporaryGrantRequestListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TemporaryGrantRequestListResponse>
+      publicListTemporaryGrantRequestsWithHttpInfo(
+          PublicListTemporaryGrantRequestsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicListTemporaryGrantRequests";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    TemporaryGrantRequestStatus filterStatus = parameters.filterStatus;
+    Long pageLimit = parameters.pageLimit;
+    UUID pageCursor = parameters.pageCursor;
+    UUID filterRequestedByUserId = parameters.filterRequestedByUserId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/admin/temporary-grant-requests";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[requested_by_user_id]", filterRequestedByUserId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicListTemporaryGrantRequests",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestListResponse>() {});
+  }
+
+  /**
+   * List organization temporary grant requests.
+   *
+   * <p>See {@link #publicListTemporaryGrantRequestsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TemporaryGrantRequestListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TemporaryGrantRequestListResponse>>
+      publicListTemporaryGrantRequestsWithHttpInfoAsync(
+          PublicListTemporaryGrantRequestsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "publicListTemporaryGrantRequests";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    TemporaryGrantRequestStatus filterStatus = parameters.filterStatus;
+    Long pageLimit = parameters.pageLimit;
+    UUID pageCursor = parameters.pageCursor;
+    UUID filterRequestedByUserId = parameters.filterRequestedByUserId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/admin/temporary-grant-requests";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[requested_by_user_id]", filterRequestedByUserId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicListTemporaryGrantRequests",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TemporaryGrantRequestListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TemporaryGrantRequestListResponse>() {});
+  }
+
+  /**
+   * Revoke a requested temporary grant.
+   *
+   * <p>See {@link #publicRevokeRequestedTemporaryGrantWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void publicRevokeRequestedTemporaryGrant(UUID requestId) throws ApiException {
+    publicRevokeRequestedTemporaryGrantWithHttpInfo(requestId);
+  }
+
+  /**
+   * Revoke a requested temporary grant.
+   *
+   * <p>See {@link #publicRevokeRequestedTemporaryGrantWithHttpInfoAsync}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> publicRevokeRequestedTemporaryGrantAsync(UUID requestId) {
+    return publicRevokeRequestedTemporaryGrantWithHttpInfoAsync(requestId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Revoke only the grant still associated with this approved request. Request and audit history
+   * remain. A stale request cannot revoke a replacement grant. Requires Billing Edit. Requires an
+   * authenticated human user and the temporary-grants feature enabled for the organization.
+   * Service-account credentials are unsupported. Request status remains approved after expiry,
+   * revocation, or replacement.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> publicRevokeRequestedTemporaryGrantWithHttpInfo(UUID requestId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publicRevokeRequestedTemporaryGrant";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'requestId' when calling"
+              + " publicRevokeRequestedTemporaryGrant");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/admin/temporary-grant-requests/{request_id}/grant"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.publicRevokeRequestedTemporaryGrant",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Revoke a requested temporary grant.
+   *
+   * <p>See {@link #publicRevokeRequestedTemporaryGrantWithHttpInfo}.
+   *
+   * @param requestId The temporary grant request UUID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> publicRevokeRequestedTemporaryGrantWithHttpInfoAsync(
+      UUID requestId) {
+    // Check if unstable operation is enabled
+    String operationId = "publicRevokeRequestedTemporaryGrant";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'requestId' is set
+    if (requestId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'requestId' when calling"
+                  + " publicRevokeRequestedTemporaryGrant"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/admin/temporary-grant-requests/{request_id}/grant"
+            .replaceAll("\\{" + "request_id" + "\\}", apiClient.escapeString(requestId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.publicRevokeRequestedTemporaryGrant",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**

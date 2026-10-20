@@ -1231,6 +1231,14 @@ public class ApiClient {
           put("v2.deletePendingQuota", false);
           put("v2.deleteQuota", false);
           put("v2.listQuotas", false);
+          put("v2.publicCancelTemporaryGrantRequest", false);
+          put("v2.publicCreateTemporaryGrantRequest", false);
+          put("v2.publicDecideTemporaryGrantRequest", false);
+          put("v2.publicGetMyTemporaryGrantRequest", false);
+          put("v2.publicGetTemporaryGrantRequest", false);
+          put("v2.publicListMyTemporaryGrantRequests", false);
+          put("v2.publicListTemporaryGrantRequests", false);
+          put("v2.publicRevokeRequestedTemporaryGrant", false);
           put("v2.updateQuota", false);
           put("v2.createOwnershipFeedback", false);
           put("v2.getOwnershipEvidence", false);
