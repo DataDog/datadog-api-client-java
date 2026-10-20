@@ -45,7 +45,6 @@ public class Example {
                                             .managePreexistingMetrics(true)
                                             .overridePreviousRules(false))
                                     .version(1L))
-                            .ruleOrder(2L)
                             .tags(Arrays.asList("env", "service")))
                     .type(TagIndexingRuleType.TAG_INDEXING_RULES));
 
