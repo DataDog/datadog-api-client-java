@@ -992,6 +992,52 @@ public class Trigger extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'NotebookTriggerWrapper'", e);
       }
 
+      // deserialize OnCallShiftChangeTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (OnCallShiftChangeTriggerWrapper.class.equals(Integer.class)
+            || OnCallShiftChangeTriggerWrapper.class.equals(Long.class)
+            || OnCallShiftChangeTriggerWrapper.class.equals(Float.class)
+            || OnCallShiftChangeTriggerWrapper.class.equals(Double.class)
+            || OnCallShiftChangeTriggerWrapper.class.equals(Boolean.class)
+            || OnCallShiftChangeTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((OnCallShiftChangeTriggerWrapper.class.equals(Integer.class)
+                        || OnCallShiftChangeTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((OnCallShiftChangeTriggerWrapper.class.equals(Float.class)
+                        || OnCallShiftChangeTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (OnCallShiftChangeTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (OnCallShiftChangeTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(OnCallShiftChangeTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((OnCallShiftChangeTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'OnCallShiftChangeTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'OnCallShiftChangeTriggerWrapper'", e);
+      }
+
       // deserialize OnCallTriggerWrapper
       try {
         boolean attemptParsing = true;
@@ -1434,6 +1480,11 @@ public class Trigger extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public Trigger(OnCallShiftChangeTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public Trigger(OnCallTriggerWrapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1501,6 +1552,8 @@ public class Trigger extends AbstractOpenApiSchema {
     schemas.put("IncidentTriggerWrapper", new GenericType<IncidentTriggerWrapper>() {});
     schemas.put("MonitorTriggerWrapper", new GenericType<MonitorTriggerWrapper>() {});
     schemas.put("NotebookTriggerWrapper", new GenericType<NotebookTriggerWrapper>() {});
+    schemas.put(
+        "OnCallShiftChangeTriggerWrapper", new GenericType<OnCallShiftChangeTriggerWrapper>() {});
     schemas.put("OnCallTriggerWrapper", new GenericType<OnCallTriggerWrapper>() {});
     schemas.put("ScheduleTriggerWrapper", new GenericType<ScheduleTriggerWrapper>() {});
     schemas.put("SecurityTriggerWrapper", new GenericType<SecurityTriggerWrapper>() {});
@@ -1526,9 +1579,10 @@ public class Trigger extends AbstractOpenApiSchema {
    * IncidentImpactCreatedTriggerWrapper, IncidentImpactUpdatedTriggerWrapper,
    * IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,
    * IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper, IncidentTriggerWrapper,
-   * MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,
-   * SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
-   * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
+   * MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallShiftChangeTriggerWrapper,
+   * OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
+   * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
+   * WorkflowTriggerWrapper
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1621,6 +1675,11 @@ public class Trigger extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        OnCallShiftChangeTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(OnCallTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1663,9 +1722,9 @@ public class Trigger extends AbstractOpenApiSchema {
             + " IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,"
             + " IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper,"
             + " IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper,"
-            + " OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,"
-            + " SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,"
-            + " WorkflowTriggerWrapper");
+            + " OnCallShiftChangeTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,"
+            + " SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,"
+            + " SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper");
   }
 
   /**
@@ -1676,9 +1735,10 @@ public class Trigger extends AbstractOpenApiSchema {
    * IncidentImpactCreatedTriggerWrapper, IncidentImpactUpdatedTriggerWrapper,
    * IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,
    * IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper, IncidentTriggerWrapper,
-   * MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,
-   * SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
-   * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
+   * MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallShiftChangeTriggerWrapper,
+   * OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
+   * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
+   * WorkflowTriggerWrapper
    *
    * @return The actual instance (AgentTriggerWrapper, APITriggerWrapper, AppTriggerWrapper,
    *     CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
@@ -1687,9 +1747,10 @@ public class Trigger extends AbstractOpenApiSchema {
    *     IncidentImpactCreatedTriggerWrapper, IncidentImpactUpdatedTriggerWrapper,
    *     IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,
    *     IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper, IncidentTriggerWrapper,
-   *     MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper,
-   *     ScheduleTriggerWrapper, SecurityTriggerWrapper, SelfServiceTriggerWrapper,
-   *     SlackTriggerWrapper, SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper)
+   *     MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallShiftChangeTriggerWrapper,
+   *     OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
+   *     SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
+   *     WorkflowTriggerWrapper)
    */
   @Override
   public Object getActualInstance() {
@@ -1921,6 +1982,18 @@ public class Trigger extends AbstractOpenApiSchema {
    */
   public NotebookTriggerWrapper getNotebookTriggerWrapper() throws ClassCastException {
     return (NotebookTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `OnCallShiftChangeTriggerWrapper`. If the actual instance is not
+   * `OnCallShiftChangeTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `OnCallShiftChangeTriggerWrapper`
+   * @throws ClassCastException if the instance is not `OnCallShiftChangeTriggerWrapper`
+   */
+  public OnCallShiftChangeTriggerWrapper getOnCallShiftChangeTriggerWrapper()
+      throws ClassCastException {
+    return (OnCallShiftChangeTriggerWrapper) super.getActualInstance();
   }
 
   /**
