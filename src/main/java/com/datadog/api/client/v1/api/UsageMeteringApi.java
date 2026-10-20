@@ -481,6 +481,9 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage attribution. Multi-region data is available starting March 1, 2023.
    *
+   * <p><strong>Note</strong>: All <code>estimated_*</code> usage types will be deprecated on
+   * February 1, 2027.
+   *
    * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
    * <code>next_record_id</code> is set in the response. If it is, make another request and pass
    * <code>next_record_id</code> as a parameter. Pseudo code example:
@@ -1542,6 +1545,9 @@ public class UsageMeteringApi {
 
   /**
    * Get monthly usage attribution. Multi-region data is available starting March 1, 2023.
+   *
+   * <p><strong>Note</strong>: All <code>estimated_*</code> usage types will be deprecated on
+   * February 1, 2027.
    *
    * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
    * <code>next_record_id</code> is set in the response. If it is, make another request and pass
