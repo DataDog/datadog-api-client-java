@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -28,7 +27,7 @@ import java.util.Objects;
  *   <li><code>json</code>: <code>content</code> must be a well-formed JSON value (object, array, or
  *       scalar).
  *   <li><code>image</code>: <code>url</code> is required.
- *   <li><code>widget</code>: <code>tileDef</code> is required (any well-formed JSON; the frontend
+ *   <li><code>univiz</code>: <code>tileDef</code> is required (any well-formed JSON; the frontend
  *       owns the renderable schema).
  *   <li><code>llmobs_trace</code>: <code>traceId</code> is required; <code>interactionType</code>,
  *       when set, must be <code>trace</code> or <code>experiment_trace</code>.
@@ -92,15 +91,6 @@ public class LLMObsContentBlock {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public LLMObsContentBlock() {}
-
-  @JsonCreator
-  public LLMObsContentBlock(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsContentBlockType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
   public LLMObsContentBlock alt(String alt) {
     this.alt = alt;
     return this;
@@ -151,7 +141,7 @@ public class LLMObsContentBlock {
   /**
    * Block payload. A string for <code>markdown</code>, <code>header</code>, and <code>text</code>;
    * an arbitrary JSON value (object, array, or scalar) for <code>json</code>. Omitted for <code>
-   * image</code>, <code>widget</code>, <code>llmobs_trace</code>, and <code>frontend</code>.
+   * image</code>, <code>univiz</code>, <code>llmobs_trace</code>, and <code>frontend</code>.
    *
    * @return content
    */
@@ -266,7 +256,7 @@ public class LLMObsContentBlock {
   }
 
   /**
-   * Tile definition for a <code>widget</code> block. Required for <code>widget</code>. The schema
+   * Tile definition for a <code>univiz</code> block. Required for <code>univiz</code>. The schema
    * is owned by the frontend renderer.
    *
    * @return tileDef
@@ -340,8 +330,9 @@ public class LLMObsContentBlock {
    *
    * @return type
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LLMObsContentBlockType getType() {
     return type;
   }

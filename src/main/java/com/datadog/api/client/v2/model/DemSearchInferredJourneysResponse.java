@@ -29,23 +29,31 @@ import java.util.Objects;
 public class DemSearchInferredJourneysResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Object> data = new ArrayList<>();
+  private List<DemInferredJourneyItem> data = new ArrayList<>();
 
   public DemSearchInferredJourneysResponse() {}
 
   @JsonCreator
   public DemSearchInferredJourneysResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Object> data) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<DemInferredJourneyItem> data) {
     this.data = data;
+    for (DemInferredJourneyItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
-  public DemSearchInferredJourneysResponse data(List<Object> data) {
+  public DemSearchInferredJourneysResponse data(List<DemInferredJourneyItem> data) {
     this.data = data;
+    for (DemInferredJourneyItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public DemSearchInferredJourneysResponse addDataItem(Object dataItem) {
+  public DemSearchInferredJourneysResponse addDataItem(DemInferredJourneyItem dataItem) {
     this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
@@ -56,12 +64,17 @@ public class DemSearchInferredJourneysResponse {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Object> getData() {
+  public List<DemInferredJourneyItem> getData() {
     return data;
   }
 
-  public void setData(List<Object> data) {
+  public void setData(List<DemInferredJourneyItem> data) {
     this.data = data;
+    if (data != null) {
+      for (DemInferredJourneyItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
