@@ -23,6 +23,7 @@ import java.util.Objects;
   AWSMetricsConfig.JSON_PROPERTY_AUTOMUTE_ENABLED,
   AWSMetricsConfig.JSON_PROPERTY_COLLECT_CLOUDWATCH_ALARMS,
   AWSMetricsConfig.JSON_PROPERTY_COLLECT_CUSTOM_METRICS,
+  AWSMetricsConfig.JSON_PROPERTY_COLLECT_SERVICE_QUOTAS,
   AWSMetricsConfig.JSON_PROPERTY_ENABLED,
   AWSMetricsConfig.JSON_PROPERTY_METRIC_NAME_FILTERS,
   AWSMetricsConfig.JSON_PROPERTY_NAMESPACE_FILTERS,
@@ -40,6 +41,9 @@ public class AWSMetricsConfig {
 
   public static final String JSON_PROPERTY_COLLECT_CUSTOM_METRICS = "collect_custom_metrics";
   private Boolean collectCustomMetrics;
+
+  public static final String JSON_PROPERTY_COLLECT_SERVICE_QUOTAS = "collect_service_quotas";
+  private Boolean collectServiceQuotas;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -114,6 +118,27 @@ public class AWSMetricsConfig {
 
   public void setCollectCustomMetrics(Boolean collectCustomMetrics) {
     this.collectCustomMetrics = collectCustomMetrics;
+  }
+
+  public AWSMetricsConfig collectServiceQuotas(Boolean collectServiceQuotas) {
+    this.collectServiceQuotas = collectServiceQuotas;
+    return this;
+  }
+
+  /**
+   * Enable Service Quotas collection. Defaults to <code>false</code>.
+   *
+   * @return collectServiceQuotas
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLLECT_SERVICE_QUOTAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCollectServiceQuotas() {
+    return collectServiceQuotas;
+  }
+
+  public void setCollectServiceQuotas(Boolean collectServiceQuotas) {
+    this.collectServiceQuotas = collectServiceQuotas;
   }
 
   public AWSMetricsConfig enabled(Boolean enabled) {
@@ -302,6 +327,7 @@ public class AWSMetricsConfig {
     return Objects.equals(this.automuteEnabled, awsMetricsConfig.automuteEnabled)
         && Objects.equals(this.collectCloudwatchAlarms, awsMetricsConfig.collectCloudwatchAlarms)
         && Objects.equals(this.collectCustomMetrics, awsMetricsConfig.collectCustomMetrics)
+        && Objects.equals(this.collectServiceQuotas, awsMetricsConfig.collectServiceQuotas)
         && Objects.equals(this.enabled, awsMetricsConfig.enabled)
         && Objects.equals(this.metricNameFilters, awsMetricsConfig.metricNameFilters)
         && Objects.equals(this.namespaceFilters, awsMetricsConfig.namespaceFilters)
@@ -315,6 +341,7 @@ public class AWSMetricsConfig {
         automuteEnabled,
         collectCloudwatchAlarms,
         collectCustomMetrics,
+        collectServiceQuotas,
         enabled,
         metricNameFilters,
         namespaceFilters,
@@ -332,6 +359,9 @@ public class AWSMetricsConfig {
         .append("\n");
     sb.append("    collectCustomMetrics: ")
         .append(toIndentedString(collectCustomMetrics))
+        .append("\n");
+    sb.append("    collectServiceQuotas: ")
+        .append(toIndentedString(collectServiceQuotas))
         .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    metricNameFilters: ").append(toIndentedString(metricNameFilters)).append("\n");
