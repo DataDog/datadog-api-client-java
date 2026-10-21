@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The user's role within the team */
+/** The user's role within the team. A value of <code>null</code> represents a regular member. */
 @JsonSerialize(using = UserTeamRole.UserTeamRoleSerializer.class)
 public class UserTeamRole extends ModelEnum<String> {
 
