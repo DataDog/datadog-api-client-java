@@ -24,6 +24,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ScheduleCreateRequestDataAttributes.JSON_PROPERTY_LAYERS,
+  ScheduleCreateRequestDataAttributes.JSON_PROPERTY_MAX_RESPONDERS,
   ScheduleCreateRequestDataAttributes.JSON_PROPERTY_NAME,
   ScheduleCreateRequestDataAttributes.JSON_PROPERTY_TIME_ZONE
 })
@@ -33,6 +34,9 @@ public class ScheduleCreateRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LAYERS = "layers";
   private List<ScheduleCreateRequestDataAttributesLayersItems> layers = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_MAX_RESPONDERS = "max_responders";
+  private Long maxResponders;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -90,6 +94,28 @@ public class ScheduleCreateRequestDataAttributes {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public ScheduleCreateRequestDataAttributes maxResponders(Long maxResponders) {
+    this.maxResponders = maxResponders;
+    return this;
+  }
+
+  /**
+   * Maximum number of users who can be on call at the same time. The value must be between 1 and
+   * the number of layers, and no greater than 10. minimum: 1 maximum: 10
+   *
+   * @return maxResponders
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_RESPONDERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMaxResponders() {
+    return maxResponders;
+  }
+
+  public void setMaxResponders(Long maxResponders) {
+    this.maxResponders = maxResponders;
   }
 
   public ScheduleCreateRequestDataAttributes name(String name) {
@@ -190,6 +216,7 @@ public class ScheduleCreateRequestDataAttributes {
     ScheduleCreateRequestDataAttributes scheduleCreateRequestDataAttributes =
         (ScheduleCreateRequestDataAttributes) o;
     return Objects.equals(this.layers, scheduleCreateRequestDataAttributes.layers)
+        && Objects.equals(this.maxResponders, scheduleCreateRequestDataAttributes.maxResponders)
         && Objects.equals(this.name, scheduleCreateRequestDataAttributes.name)
         && Objects.equals(this.timeZone, scheduleCreateRequestDataAttributes.timeZone)
         && Objects.equals(
@@ -198,7 +225,7 @@ public class ScheduleCreateRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(layers, name, timeZone, additionalProperties);
+    return Objects.hash(layers, maxResponders, name, timeZone, additionalProperties);
   }
 
   @Override
@@ -206,6 +233,7 @@ public class ScheduleCreateRequestDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScheduleCreateRequestDataAttributes {\n");
     sb.append("    layers: ").append(toIndentedString(layers)).append("\n");
+    sb.append("    maxResponders: ").append(toIndentedString(maxResponders)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    additionalProperties: ")
