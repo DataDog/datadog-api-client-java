@@ -409,8 +409,9 @@ public class NetworkDeviceMonitoringApi {
     /**
      * Set sort.
      *
-     * @param sort The field to sort the devices by. Defaults to <code>name</code>. (optional,
-     *     default to "name")
+     * @param sort The field to sort devices by. Defaults to <code>name</code>. Prefix the field
+     *     with <code>-</code> to sort in descending order, for example, <code>-name</code>.
+     *     (optional, default to "name")
      * @return ListDevicesOptionalParameters
      */
     public ListDevicesOptionalParameters sort(String sort) {
@@ -971,6 +972,7 @@ public class NetworkDeviceMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -1127,6 +1129,7 @@ public class NetworkDeviceMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
