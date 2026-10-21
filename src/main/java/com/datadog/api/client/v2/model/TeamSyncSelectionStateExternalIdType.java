@@ -19,8 +19,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The type of external identifier for the selection state item. For GitHub synchronization, the
- * allowed values are <code>team</code> and <code>organization</code>.
+ * The type of external identifier for the selection state item. For GitHub synchronization, <code>
+ * team</code> refers to a GitHub team and <code>organization</code> refers to a GitHub
+ * organization. For ServiceNow synchronization, <code>team</code> refers to a ServiceNow group and
+ * <code>organization</code> refers to a ServiceNow instance.
  */
 @JsonSerialize(
     using =

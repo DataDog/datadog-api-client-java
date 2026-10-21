@@ -23,10 +23,12 @@ import java.util.Set;
 public class ConnectedTeamRefDataType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("github_team"));
+      new HashSet<String>(Arrays.asList("github_team", "servicenow_team"));
 
   public static final ConnectedTeamRefDataType GITHUB_TEAM =
       new ConnectedTeamRefDataType("github_team");
+  public static final ConnectedTeamRefDataType SERVICENOW_TEAM =
+      new ConnectedTeamRefDataType("servicenow_team");
 
   ConnectedTeamRefDataType(String value) {
     super(value, allowedValues);
