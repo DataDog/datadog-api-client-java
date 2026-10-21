@@ -51,8 +51,10 @@ public class TeamSyncSelectionStateExternalId {
   }
 
   /**
-   * The type of external identifier for the selection state item. For GitHub synchronization, the
-   * allowed values are <code>team</code> and <code>organization</code>.
+   * The type of external identifier for the selection state item. For GitHub synchronization,
+   * <code>team</code> refers to a GitHub team and <code>organization</code> refers to a GitHub
+   * organization. For ServiceNow synchronization, <code>team</code> refers to a ServiceNow group
+   * and <code>organization</code> refers to a ServiceNow instance.
    *
    * @return type
    */
@@ -76,7 +78,9 @@ public class TeamSyncSelectionStateExternalId {
 
   /**
    * The external identifier value from the source platform. For GitHub, this is the string
-   * representation of a GitHub organization ID or team ID.
+   * representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance
+   * name for <code>organization</code>, or <code>&lt;instance_name&gt;/&lt;sys_id&gt;</code> of the
+   * group for <code>team</code>.
    *
    * @return value
    */

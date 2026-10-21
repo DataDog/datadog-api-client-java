@@ -3202,7 +3202,7 @@ public class TeamsApi {
 
   /**
    * Get all team synchronization configurations. Returns a list of configurations used for linking
-   * or provisioning teams with external sources like GitHub.
+   * or provisioning teams with external sources like GitHub or ServiceNow.
    *
    * @param filterSource Filter by the external source platform for team synchronization (required)
    * @return ApiResponse&lt;TeamSyncResponse&gt;
@@ -3803,7 +3803,8 @@ public class TeamsApi {
     /**
      * Set filterSources.
      *
-     * @param filterSources Filter team connections by external source systems. (optional)
+     * @param filterSources Filter team connections by external source systems, such as <code>github
+     *     </code> or <code>servicenow</code>. (optional)
      * @return ListTeamConnectionsOptionalParameters
      */
     public ListTeamConnectionsOptionalParameters filterSources(List<String> filterSources) {
@@ -5000,7 +5001,7 @@ public class TeamsApi {
   }
 
   /**
-   * Link Teams with GitHub Teams.
+   * Link teams with external teams.
    *
    * <p>See {@link #syncTeamsWithHttpInfo}.
    *
@@ -5012,7 +5013,7 @@ public class TeamsApi {
   }
 
   /**
-   * Link Teams with GitHub Teams.
+   * Link teams with external teams.
    *
    * <p>See {@link #syncTeamsWithHttpInfoAsync}.
    *
@@ -5028,22 +5029,29 @@ public class TeamsApi {
   }
 
   /**
-   * This endpoint configures synchronization between your existing Datadog teams and GitHub teams
-   * by matching their names. It evaluates all current Datadog teams and compares them against teams
-   * in the GitHub organization connected to your Datadog account, based on Datadog Team handle and
-   * GitHub Team slug (lowercased and kebab-cased).
+   * This endpoint configures synchronization between your existing Datadog teams and teams from
+   * GitHub or ServiceNow by matching team names. It evaluates all current Datadog teams and
+   * compares them against teams in the external source connected to your Datadog account.
    *
-   * <p>This operation is read-only on the GitHub side, no teams will be modified or created.
+   * <p>This operation is read-only on the external source side, no teams will be modified or
+   * created there. This only creates new teams in Datadog when type is set to <code>provision
+   * </code>.
    *
    * <p>Optionally, provide <code>selection_state</code> to limit synchronization to specific teams
    * or organizations and their subtrees, instead of syncing all teams.
    *
-   * <p><a href="https://docs.datadoghq.com/integrations/github/">A GitHub organization must be
-   * connected to your Datadog account</a>, and the GitHub App integrated with Datadog must have the
-   * <code>Members Read</code> permission. Matching is performed by comparing the Datadog team
-   * handle to the GitHub team slug using a normalized exact match; case is ignored and spaces are
-   * removed. No modifications are made to teams in GitHub. This only creates new teams in Datadog
-   * when type is set to <code>provision</code>.
+   * <p><strong>GitHub</strong>: <a href="https://docs.datadoghq.com/integrations/github/">A GitHub
+   * organization must be connected to your Datadog account</a>, and the GitHub App integrated with
+   * Datadog must have the <code>Members Read</code> permission. Matching is performed by comparing
+   * the Datadog team handle to the GitHub team slug (lowercased and kebab-cased) using a normalized
+   * exact match; case is ignored and spaces are removed.
+   *
+   * <p><strong>ServiceNow</strong>: <a
+   * href="https://docs.datadoghq.com/integrations/servicenow/">The ServiceNow integration must be
+   * configured for your Datadog account</a>. Active assignment groups from every configured
+   * ServiceNow instance are synchronized, and the ServiceNow group hierarchy is preserved. When
+   * <code>sync_membership</code> is enabled, group members are matched to Datadog users by email
+   * address.
    *
    * @param body (required)
    * @return ApiResponse&lt;Void&gt;
@@ -5092,7 +5100,7 @@ public class TeamsApi {
   }
 
   /**
-   * Link Teams with GitHub Teams.
+   * Link teams with external teams.
    *
    * <p>See {@link #syncTeamsWithHttpInfo}.
    *

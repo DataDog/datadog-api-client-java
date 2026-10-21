@@ -131,7 +131,7 @@ public class TeamSyncAttributes {
   }
 
   /**
-   * The external source platform for team synchronization. Only "github" is supported.
+   * The external source platform for team synchronization.
    *
    * @return source
    */

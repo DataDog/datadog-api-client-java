@@ -46,7 +46,9 @@ public class ConnectedTeamRefData {
   }
 
   /**
-   * The connected team ID as it is referenced throughout the Datadog ecosystem.
+   * The connected team ID as it is referenced throughout the Datadog ecosystem. For GitHub teams,
+   * this is <code>@&lt;organization&gt;/&lt;team-slug&gt;</code>. For ServiceNow groups, this is
+   * <code>&lt;instance_name&gt;/&lt;sys_id&gt;</code>.
    *
    * @return id
    */

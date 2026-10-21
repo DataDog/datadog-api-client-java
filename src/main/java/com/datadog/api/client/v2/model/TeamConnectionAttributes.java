@@ -58,7 +58,7 @@ public class TeamConnectionAttributes {
   }
 
   /**
-   * The name of the external source.
+   * The name of the external source, such as <code>github</code> or <code>servicenow</code>.
    *
    * @return source
    */

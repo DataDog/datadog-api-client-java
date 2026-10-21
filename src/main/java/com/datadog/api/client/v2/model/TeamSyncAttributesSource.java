@@ -18,13 +18,16 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The external source platform for team synchronization. Only "github" is supported. */
+/** The external source platform for team synchronization. */
 @JsonSerialize(using = TeamSyncAttributesSource.TeamSyncAttributesSourceSerializer.class)
 public class TeamSyncAttributesSource extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("github"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("github", "servicenow"));
 
   public static final TeamSyncAttributesSource GITHUB = new TeamSyncAttributesSource("github");
+  public static final TeamSyncAttributesSource SERVICENOW =
+      new TeamSyncAttributesSource("servicenow");
 
   TeamSyncAttributesSource(String value) {
     super(value, allowedValues);
