@@ -3609,10 +3609,12 @@ public class MetricsApi {
     /**
      * Set filterQueriedWindowSeconds.
      *
-     * @param filterQueriedWindowSeconds This parameter has no effect unless <code>filter[queried]
-     *     </code> is also set. Only return metrics that have been queried or not queried in the
-     *     specified window. The default value is 2,592,000 seconds (30 days), the maximum value is
-     *     15,552,000 seconds (180 days), and the minimum value is 1 second. For example: <code>
+     * @param filterQueriedWindowSeconds The look-back window for <code>filter[queried]</code>, in
+     *     seconds. You must also set <code>filter[queried]</code>, or the request returns a 400
+     *     error. The default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000
+     *     seconds (180 days), and the minimum value is 0. With <code>0</code>, the window ends now,
+     *     so <code>filter[queried]=true</code> returns almost no metrics and <code>
+     *     filter[queried]=false</code> returns all metrics. For example: <code>
      *     filter[queried]=true&amp;filter[queried][window][seconds]=604800</code>. (optional,
      *     default to 2592000)
      * @return ListTagConfigurationsOptionalParameters
@@ -3679,9 +3681,10 @@ public class MetricsApi {
     /**
      * Set windowSeconds.
      *
-     * @param windowSeconds Only return metrics that have been actively reporting in the specified
-     *     window. The default value is 3600 seconds (1 hour), the maximum value is 2,592,000
-     *     seconds (30 days), and the minimum value is 1 second. (optional, default to 3600)
+     * @param windowSeconds Only return metrics that have been actively reporting in this window.
+     *     The default value is 3,600 seconds (1 hour), the maximum value is 5,184,000 seconds (60
+     *     days), and the minimum value is 0. With <code>0</code>, the API returns only metrics that
+     *     reported in the last few minutes. (optional, default to 3600)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
