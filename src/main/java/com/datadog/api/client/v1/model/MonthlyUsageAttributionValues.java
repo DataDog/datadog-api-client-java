@@ -2019,10 +2019,13 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of estimated indexed spans usage by tag(s).
+   * The percentage of estimated indexed spans usage by tag(s) (To be deprecated on February 1st,
+   * 2027).
    *
    * @return estimatedIndexedSpansPercentage
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2030,6 +2033,7 @@ public class MonthlyUsageAttributionValues {
     return estimatedIndexedSpansPercentage;
   }
 
+  @Deprecated
   public void setEstimatedIndexedSpansPercentage(Double estimatedIndexedSpansPercentage) {
     this.estimatedIndexedSpansPercentage = estimatedIndexedSpansPercentage;
   }
@@ -2041,10 +2045,12 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The estimated indexed spans usage by tag(s).
+   * The estimated indexed spans usage by tag(s) (To be deprecated on February 1st, 2027).
    *
    * @return estimatedIndexedSpansUsage
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2052,6 +2058,7 @@ public class MonthlyUsageAttributionValues {
     return estimatedIndexedSpansUsage;
   }
 
+  @Deprecated
   public void setEstimatedIndexedSpansUsage(Double estimatedIndexedSpansUsage) {
     this.estimatedIndexedSpansUsage = estimatedIndexedSpansUsage;
   }
@@ -2063,10 +2070,13 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of estimated ingested spans usage by tag(s).
+   * The percentage of estimated ingested spans usage by tag(s) (To be deprecated on February 1st,
+   * 2027).
    *
    * @return estimatedIngestedSpansPercentage
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2074,6 +2084,7 @@ public class MonthlyUsageAttributionValues {
     return estimatedIngestedSpansPercentage;
   }
 
+  @Deprecated
   public void setEstimatedIngestedSpansPercentage(Double estimatedIngestedSpansPercentage) {
     this.estimatedIngestedSpansPercentage = estimatedIngestedSpansPercentage;
   }
@@ -2085,10 +2096,12 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The estimated ingested spans usage by tag(s).
+   * The estimated ingested spans usage by tag(s) (To be deprecated on February 1st, 2027).
    *
    * @return estimatedIngestedSpansUsage
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2096,6 +2109,7 @@ public class MonthlyUsageAttributionValues {
     return estimatedIngestedSpansUsage;
   }
 
+  @Deprecated
   public void setEstimatedIngestedSpansUsage(Double estimatedIngestedSpansUsage) {
     this.estimatedIngestedSpansUsage = estimatedIngestedSpansUsage;
   }
