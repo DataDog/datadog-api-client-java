@@ -28,11 +28,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
   TeamAttributes.JSON_PROPERTY_CREATED_AT,
   TeamAttributes.JSON_PROPERTY_DESCRIPTION,
   TeamAttributes.JSON_PROPERTY_HANDLE,
+  TeamAttributes.JSON_PROPERTY_HANDLES,
   TeamAttributes.JSON_PROPERTY_HIDDEN_MODULES,
   TeamAttributes.JSON_PROPERTY_IS_MANAGED,
+  TeamAttributes.JSON_PROPERTY_IS_OPEN_MEMBERSHIP,
   TeamAttributes.JSON_PROPERTY_LINK_COUNT,
   TeamAttributes.JSON_PROPERTY_MODIFIED_AT,
   TeamAttributes.JSON_PROPERTY_NAME,
+  TeamAttributes.JSON_PROPERTY_PROVISIONED_BY,
   TeamAttributes.JSON_PROPERTY_SUMMARY,
   TeamAttributes.JSON_PROPERTY_USER_COUNT,
   TeamAttributes.JSON_PROPERTY_VISIBLE_MODULES
@@ -56,11 +59,17 @@ public class TeamAttributes {
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
+  public static final String JSON_PROPERTY_HANDLES = "handles";
+  private JsonNullable<List<String>> handles = JsonNullable.<List<String>>undefined();
+
   public static final String JSON_PROPERTY_HIDDEN_MODULES = "hidden_modules";
   private JsonNullable<List<String>> hiddenModules = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_IS_MANAGED = "is_managed";
   private Boolean isManaged;
+
+  public static final String JSON_PROPERTY_IS_OPEN_MEMBERSHIP = "is_open_membership";
+  private Boolean isOpenMembership;
 
   public static final String JSON_PROPERTY_LINK_COUNT = "link_count";
   private Integer linkCount;
@@ -70,6 +79,9 @@ public class TeamAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PROVISIONED_BY = "provisioned_by";
+  private String provisionedBy;
 
   public static final String JSON_PROPERTY_SUMMARY = "summary";
   private JsonNullable<String> summary = JsonNullable.<String>undefined();
@@ -224,6 +236,32 @@ public class TeamAttributes {
     this.handle = handle;
   }
 
+  /**
+   * Collection of handles associated with the team.
+   *
+   * @return handles
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getHandles() {
+
+    if (handles == null) {
+      handles = JsonNullable.<List<String>>undefined();
+    }
+    return handles.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_HANDLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getHandles_JsonNullable() {
+    return handles;
+  }
+
+  @JsonProperty(JSON_PROPERTY_HANDLES)
+  private void setHandles_JsonNullable(JsonNullable<List<String>> handles) {
+    this.handles = handles;
+  }
+
   public TeamAttributes hiddenModules(List<String> hiddenModules) {
     this.hiddenModules = JsonNullable.<List<String>>of(hiddenModules);
     return this;
@@ -289,6 +327,18 @@ public class TeamAttributes {
   }
 
   /**
+   * Whether any user can join the team without an invitation.
+   *
+   * @return isOpenMembership
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_OPEN_MEMBERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsOpenMembership() {
+    return isOpenMembership;
+  }
+
+  /**
    * The number of links belonging to the team maximum: 2147483647
    *
    * @return linkCount
@@ -339,6 +389,19 @@ public class TeamAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  /**
+   * The mechanism that created the team, such as <code>teams_api</code>, <code>teams_terraform
+   * </code>, or <code>teams_ui</code>. Omitted when unknown.
+   *
+   * @return provisionedBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROVISIONED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProvisionedBy() {
+    return provisionedBy;
   }
 
   public TeamAttributes summary(String summary) {
@@ -488,11 +551,14 @@ public class TeamAttributes {
         && Objects.equals(this.createdAt, teamAttributes.createdAt)
         && Objects.equals(this.description, teamAttributes.description)
         && Objects.equals(this.handle, teamAttributes.handle)
+        && Objects.equals(this.handles, teamAttributes.handles)
         && Objects.equals(this.hiddenModules, teamAttributes.hiddenModules)
         && Objects.equals(this.isManaged, teamAttributes.isManaged)
+        && Objects.equals(this.isOpenMembership, teamAttributes.isOpenMembership)
         && Objects.equals(this.linkCount, teamAttributes.linkCount)
         && Objects.equals(this.modifiedAt, teamAttributes.modifiedAt)
         && Objects.equals(this.name, teamAttributes.name)
+        && Objects.equals(this.provisionedBy, teamAttributes.provisionedBy)
         && Objects.equals(this.summary, teamAttributes.summary)
         && Objects.equals(this.userCount, teamAttributes.userCount)
         && Objects.equals(this.visibleModules, teamAttributes.visibleModules)
@@ -507,11 +573,14 @@ public class TeamAttributes {
         createdAt,
         description,
         handle,
+        handles,
         hiddenModules,
         isManaged,
+        isOpenMembership,
         linkCount,
         modifiedAt,
         name,
+        provisionedBy,
         summary,
         userCount,
         visibleModules,
@@ -527,11 +596,14 @@ public class TeamAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    handles: ").append(toIndentedString(handles)).append("\n");
     sb.append("    hiddenModules: ").append(toIndentedString(hiddenModules)).append("\n");
     sb.append("    isManaged: ").append(toIndentedString(isManaged)).append("\n");
+    sb.append("    isOpenMembership: ").append(toIndentedString(isOpenMembership)).append("\n");
     sb.append("    linkCount: ").append(toIndentedString(linkCount)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    provisionedBy: ").append(toIndentedString(provisionedBy)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    userCount: ").append(toIndentedString(userCount)).append("\n");
     sb.append("    visibleModules: ").append(toIndentedString(visibleModules)).append("\n");
