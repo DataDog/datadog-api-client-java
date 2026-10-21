@@ -586,7 +586,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings in the org.
+   * List all AuthN Mappings in the organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AuthNMappingsResponse&gt;
