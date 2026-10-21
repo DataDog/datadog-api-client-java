@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Provides core properties of a schedule object such as its name and time zone. */
 @JsonPropertyOrder({
+  ScheduleDataAttributes.JSON_PROPERTY_MAX_RESPONDERS,
   ScheduleDataAttributes.JSON_PROPERTY_NAME,
   ScheduleDataAttributes.JSON_PROPERTY_TAGS,
   ScheduleDataAttributes.JSON_PROPERTY_TIME_ZONE
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScheduleDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_MAX_RESPONDERS = "max_responders";
+  private Long maxResponders;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -36,6 +40,28 @@ public class ScheduleDataAttributes {
 
   public static final String JSON_PROPERTY_TIME_ZONE = "time_zone";
   private String timeZone;
+
+  public ScheduleDataAttributes maxResponders(Long maxResponders) {
+    this.maxResponders = maxResponders;
+    return this;
+  }
+
+  /**
+   * Maximum number of users who can be on call at the same time. The value is between 1 and the
+   * number of layers, and no greater than 10. minimum: 1 maximum: 10
+   *
+   * @return maxResponders
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_RESPONDERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMaxResponders() {
+    return maxResponders;
+  }
+
+  public void setMaxResponders(Long maxResponders) {
+    this.maxResponders = maxResponders;
+  }
 
   public ScheduleDataAttributes name(String name) {
     this.name = name;
@@ -164,7 +190,8 @@ public class ScheduleDataAttributes {
       return false;
     }
     ScheduleDataAttributes scheduleDataAttributes = (ScheduleDataAttributes) o;
-    return Objects.equals(this.name, scheduleDataAttributes.name)
+    return Objects.equals(this.maxResponders, scheduleDataAttributes.maxResponders)
+        && Objects.equals(this.name, scheduleDataAttributes.name)
         && Objects.equals(this.tags, scheduleDataAttributes.tags)
         && Objects.equals(this.timeZone, scheduleDataAttributes.timeZone)
         && Objects.equals(this.additionalProperties, scheduleDataAttributes.additionalProperties);
@@ -172,13 +199,14 @@ public class ScheduleDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, tags, timeZone, additionalProperties);
+    return Objects.hash(maxResponders, name, tags, timeZone, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScheduleDataAttributes {\n");
+    sb.append("    maxResponders: ").append(toIndentedString(maxResponders)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
