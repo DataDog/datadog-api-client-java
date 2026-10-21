@@ -1106,6 +1106,58 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineSpikeProtectionProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSpikeProtectionProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineSpikeProtectionProcessor.class.equals(Long.class)
+            || ObservabilityPipelineSpikeProtectionProcessor.class.equals(Float.class)
+            || ObservabilityPipelineSpikeProtectionProcessor.class.equals(Double.class)
+            || ObservabilityPipelineSpikeProtectionProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineSpikeProtectionProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSpikeProtectionProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineSpikeProtectionProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSpikeProtectionProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineSpikeProtectionProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSpikeProtectionProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSpikeProtectionProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineSpikeProtectionProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSpikeProtectionProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineSpikeProtectionProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSpikeProtectionProcessor'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineSplitArrayProcessor
       try {
         boolean attemptParsing = true;
@@ -1658,6 +1710,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineSpikeProtectionProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineSplitArrayProcessor o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1763,6 +1820,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
         "ObservabilityPipelineSensitiveDataScannerProcessor",
         new GenericType<ObservabilityPipelineSensitiveDataScannerProcessor>() {});
     schemas.put(
+        "ObservabilityPipelineSpikeProtectionProcessor",
+        new GenericType<ObservabilityPipelineSpikeProtectionProcessor>() {});
+    schemas.put(
         "ObservabilityPipelineSplitArrayProcessor",
         new GenericType<ObservabilityPipelineSplitArrayProcessor>() {});
     schemas.put(
@@ -1807,7 +1867,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineParseXMLProcessor, ObservabilityPipelineQuotaProcessor,
    * ObservabilityPipelineReduceProcessor, ObservabilityPipelineRemoveFieldsProcessor,
    * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
-   * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineSplitArrayProcessor,
+   * ObservabilityPipelineSensitiveDataScannerProcessor,
+   * ObservabilityPipelineSpikeProtectionProcessor, ObservabilityPipelineSplitArrayProcessor,
    * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineAddMetricTagsProcessor,
    * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricEnrichmentTableProcessor,
    * ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
@@ -1921,6 +1982,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
       return;
     }
     if (JSON.isInstanceOf(
+        ObservabilityPipelineSpikeProtectionProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
         ObservabilityPipelineSplitArrayProcessor.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1983,6 +2049,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineRemoveFieldsProcessor,"
             + " ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,"
             + " ObservabilityPipelineSensitiveDataScannerProcessor,"
+            + " ObservabilityPipelineSpikeProtectionProcessor,"
             + " ObservabilityPipelineSplitArrayProcessor, ObservabilityPipelineThrottleProcessor,"
             + " ObservabilityPipelineAddMetricTagsProcessor,"
             + " ObservabilityPipelineAggregateProcessor,"
@@ -2003,7 +2070,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineParseXMLProcessor, ObservabilityPipelineQuotaProcessor,
    * ObservabilityPipelineReduceProcessor, ObservabilityPipelineRemoveFieldsProcessor,
    * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
-   * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineSplitArrayProcessor,
+   * ObservabilityPipelineSensitiveDataScannerProcessor,
+   * ObservabilityPipelineSpikeProtectionProcessor, ObservabilityPipelineSplitArrayProcessor,
    * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineAddMetricTagsProcessor,
    * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricEnrichmentTableProcessor,
    * ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
@@ -2021,8 +2089,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineRemoveFieldsProcessor,
    *     ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
    *     ObservabilityPipelineSensitiveDataScannerProcessor,
-   *     ObservabilityPipelineSplitArrayProcessor, ObservabilityPipelineThrottleProcessor,
-   *     ObservabilityPipelineAddMetricTagsProcessor, ObservabilityPipelineAggregateProcessor,
+   *     ObservabilityPipelineSpikeProtectionProcessor, ObservabilityPipelineSplitArrayProcessor,
+   *     ObservabilityPipelineThrottleProcessor, ObservabilityPipelineAddMetricTagsProcessor,
+   *     ObservabilityPipelineAggregateProcessor,
    *     ObservabilityPipelineMetricEnrichmentTableProcessor,
    *     ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
    *     ObservabilityPipelineTagCardinalityLimitProcessor)
@@ -2278,6 +2347,20 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineSensitiveDataScannerProcessor
       getObservabilityPipelineSensitiveDataScannerProcessor() throws ClassCastException {
     return (ObservabilityPipelineSensitiveDataScannerProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSpikeProtectionProcessor`. If the actual
+   * instance is not `ObservabilityPipelineSpikeProtectionProcessor`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSpikeProtectionProcessor`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineSpikeProtectionProcessor`
+   */
+  public ObservabilityPipelineSpikeProtectionProcessor
+      getObservabilityPipelineSpikeProtectionProcessor() throws ClassCastException {
+    return (ObservabilityPipelineSpikeProtectionProcessor) super.getActualInstance();
   }
 
   /**
