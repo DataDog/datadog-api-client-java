@@ -26,12 +26,18 @@ import java.util.Set;
 public class MetricTagConfigurationMetricTypeCategory extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("non_distribution", "distribution"));
+      new HashSet<String>(
+          Arrays.asList(
+              "non_distribution", "distribution", "exponential_histogram", "explicit_histogram"));
 
   public static final MetricTagConfigurationMetricTypeCategory NON_DISTRIBUTION =
       new MetricTagConfigurationMetricTypeCategory("non_distribution");
   public static final MetricTagConfigurationMetricTypeCategory DISTRIBUTION =
       new MetricTagConfigurationMetricTypeCategory("distribution");
+  public static final MetricTagConfigurationMetricTypeCategory EXPONENTIAL_HISTOGRAM =
+      new MetricTagConfigurationMetricTypeCategory("exponential_histogram");
+  public static final MetricTagConfigurationMetricTypeCategory EXPLICIT_HISTOGRAM =
+      new MetricTagConfigurationMetricTypeCategory("explicit_histogram");
 
   MetricTagConfigurationMetricTypeCategory(String value) {
     super(value, allowedValues);
