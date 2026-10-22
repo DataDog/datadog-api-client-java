@@ -96,12 +96,9 @@ public class EventsApi {
    * library versions of the Post an event (v2) API send requests to a deprecated endpoint (<code>
    * https://api.{site}/api/v2/events</code>).
    *
-   * <p>✅ <strong>Only events with the <code>change</code> or <code>alert</code> category</strong>
-   * are in General Availability. For change events, see <a
-   * href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.
-   *
-   * <p>❌ For use cases involving other event categories, use the V1 endpoint or reach out to <a
-   * href="https://www.datadoghq.com/support/">support</a>.
+   * <p>Supported event categories are <code>change</code> and <code>alert</code>. For more
+   * information about change events, see <a
+   * href="https://docs.datadoghq.com/change_tracking">Change Tracking</a>.
    *
    * @param body Event creation request payload. (required)
    * @return ApiResponse&lt;EventCreateResponsePayload&gt;
