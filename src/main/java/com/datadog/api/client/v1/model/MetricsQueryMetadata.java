@@ -21,6 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Object containing all metric names returned and their associated metadata. */
 @JsonPropertyOrder({
   MetricsQueryMetadata.JSON_PROPERTY_AGGR,
+  MetricsQueryMetadata.JSON_PROPERTY_ATTRIBUTES,
   MetricsQueryMetadata.JSON_PROPERTY_DISPLAY_NAME,
   MetricsQueryMetadata.JSON_PROPERTY_END,
   MetricsQueryMetadata.JSON_PROPERTY_EXPRESSION,
@@ -40,6 +41,9 @@ public class MetricsQueryMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGR = "aggr";
   private JsonNullable<String> aggr = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private Map<String, Object> attributes = null;
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
   private String displayName;
@@ -101,6 +105,18 @@ public class MetricsQueryMetadata {
   @JsonProperty(JSON_PROPERTY_AGGR)
   private void setAggr_JsonNullable(JsonNullable<String> aggr) {
     this.aggr = aggr;
+  }
+
+  /**
+   * Additional read-only attributes returned for the series.
+   *
+   * @return attributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getAttributes() {
+    return attributes;
   }
 
   /**
@@ -307,6 +323,7 @@ public class MetricsQueryMetadata {
     }
     MetricsQueryMetadata metricsQueryMetadata = (MetricsQueryMetadata) o;
     return Objects.equals(this.aggr, metricsQueryMetadata.aggr)
+        && Objects.equals(this.attributes, metricsQueryMetadata.attributes)
         && Objects.equals(this.displayName, metricsQueryMetadata.displayName)
         && Objects.equals(this.end, metricsQueryMetadata.end)
         && Objects.equals(this.expression, metricsQueryMetadata.expression)
@@ -326,6 +343,7 @@ public class MetricsQueryMetadata {
   public int hashCode() {
     return Objects.hash(
         aggr,
+        attributes,
         displayName,
         end,
         expression,
@@ -346,6 +364,7 @@ public class MetricsQueryMetadata {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricsQueryMetadata {\n");
     sb.append("    aggr: ").append(toIndentedString(aggr)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");

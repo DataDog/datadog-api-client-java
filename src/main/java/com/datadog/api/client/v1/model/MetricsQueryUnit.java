@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Object containing the metric unit family, scale factor, name, and short name. */
 @JsonPropertyOrder({
   MetricsQueryUnit.JSON_PROPERTY_FAMILY,
+  MetricsQueryUnit.JSON_PROPERTY_ID,
   MetricsQueryUnit.JSON_PROPERTY_NAME,
   MetricsQueryUnit.JSON_PROPERTY_PLURAL,
   MetricsQueryUnit.JSON_PROPERTY_SCALE_FACTOR,
@@ -30,6 +31,9 @@ public class MetricsQueryUnit {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";
   private String family;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private Long id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -53,6 +57,18 @@ public class MetricsQueryUnit {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFamily() {
     return family;
+  }
+
+  /**
+   * Unit identifier.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getId() {
+    return id;
   }
 
   /**
@@ -160,6 +176,7 @@ public class MetricsQueryUnit {
     }
     MetricsQueryUnit metricsQueryUnit = (MetricsQueryUnit) o;
     return Objects.equals(this.family, metricsQueryUnit.family)
+        && Objects.equals(this.id, metricsQueryUnit.id)
         && Objects.equals(this.name, metricsQueryUnit.name)
         && Objects.equals(this.plural, metricsQueryUnit.plural)
         && Objects.equals(this.scaleFactor, metricsQueryUnit.scaleFactor)
@@ -169,7 +186,7 @@ public class MetricsQueryUnit {
 
   @Override
   public int hashCode() {
-    return Objects.hash(family, name, plural, scaleFactor, shortName, additionalProperties);
+    return Objects.hash(family, id, name, plural, scaleFactor, shortName, additionalProperties);
   }
 
   @Override
@@ -177,6 +194,7 @@ public class MetricsQueryUnit {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricsQueryUnit {\n");
     sb.append("    family: ").append(toIndentedString(family)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plural: ").append(toIndentedString(plural)).append("\n");
     sb.append("    scaleFactor: ").append(toIndentedString(scaleFactor)).append("\n");

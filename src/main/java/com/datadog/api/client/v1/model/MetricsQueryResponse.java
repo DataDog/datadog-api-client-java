@@ -25,9 +25,12 @@ import java.util.Objects;
   MetricsQueryResponse.JSON_PROPERTY_MESSAGE,
   MetricsQueryResponse.JSON_PROPERTY_QUERY,
   MetricsQueryResponse.JSON_PROPERTY_RES_TYPE,
+  MetricsQueryResponse.JSON_PROPERTY_RESP_VERSION,
   MetricsQueryResponse.JSON_PROPERTY_SERIES,
   MetricsQueryResponse.JSON_PROPERTY_STATUS,
-  MetricsQueryResponse.JSON_PROPERTY_TO_DATE
+  MetricsQueryResponse.JSON_PROPERTY_TIMES,
+  MetricsQueryResponse.JSON_PROPERTY_TO_DATE,
+  MetricsQueryResponse.JSON_PROPERTY_VALUES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -51,14 +54,23 @@ public class MetricsQueryResponse {
   public static final String JSON_PROPERTY_RES_TYPE = "res_type";
   private String resType;
 
+  public static final String JSON_PROPERTY_RESP_VERSION = "resp_version";
+  private Long respVersion;
+
   public static final String JSON_PROPERTY_SERIES = "series";
   private List<MetricsQueryMetadata> series = null;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
+  public static final String JSON_PROPERTY_TIMES = "times";
+  private List<Object> times = null;
+
   public static final String JSON_PROPERTY_TO_DATE = "to_date";
   private Long toDate;
+
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private List<Object> values = null;
 
   /**
    * Message indicating the errors if status is not <code>ok</code>.
@@ -133,6 +145,18 @@ public class MetricsQueryResponse {
   }
 
   /**
+   * Version of the response format.
+   *
+   * @return respVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESP_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRespVersion() {
+    return respVersion;
+  }
+
+  /**
    * List of timeseries queried.
    *
    * @return series
@@ -157,6 +181,19 @@ public class MetricsQueryResponse {
   }
 
   /**
+   * Legacy field, always returned as an empty list. Timestamps are returned in the <code>pointlist
+   * </code> of each entry of <code>series</code>.
+   *
+   * @return times
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Object> getTimes() {
+    return times;
+  }
+
+  /**
    * End of requested time window, milliseconds since Unix epoch.
    *
    * @return toDate
@@ -166,6 +203,19 @@ public class MetricsQueryResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getToDate() {
     return toDate;
+  }
+
+  /**
+   * Legacy field, always returned as an empty list. Timeseries values are returned in the <code>
+   * pointlist</code> of each entry of <code>series</code>.
+   *
+   * @return values
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Object> getValues() {
+    return values;
   }
 
   /**
@@ -230,9 +280,12 @@ public class MetricsQueryResponse {
         && Objects.equals(this.message, metricsQueryResponse.message)
         && Objects.equals(this.query, metricsQueryResponse.query)
         && Objects.equals(this.resType, metricsQueryResponse.resType)
+        && Objects.equals(this.respVersion, metricsQueryResponse.respVersion)
         && Objects.equals(this.series, metricsQueryResponse.series)
         && Objects.equals(this.status, metricsQueryResponse.status)
+        && Objects.equals(this.times, metricsQueryResponse.times)
         && Objects.equals(this.toDate, metricsQueryResponse.toDate)
+        && Objects.equals(this.values, metricsQueryResponse.values)
         && Objects.equals(this.additionalProperties, metricsQueryResponse.additionalProperties);
   }
 
@@ -245,9 +298,12 @@ public class MetricsQueryResponse {
         message,
         query,
         resType,
+        respVersion,
         series,
         status,
+        times,
         toDate,
+        values,
         additionalProperties);
   }
 
@@ -261,9 +317,12 @@ public class MetricsQueryResponse {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    resType: ").append(toIndentedString(resType)).append("\n");
+    sb.append("    respVersion: ").append(toIndentedString(respVersion)).append("\n");
     sb.append("    series: ").append(toIndentedString(series)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    times: ").append(toIndentedString(times)).append("\n");
     sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
