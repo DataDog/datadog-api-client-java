@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IssueRelationships.JSON_PROPERTY_ASSIGNEE,
   IssueRelationships.JSON_PROPERTY_CASE,
+  IssueRelationships.JSON_PROPERTY_SAMPLES,
   IssueRelationships.JSON_PROPERTY_TEAM_OWNERS
 })
 @jakarta.annotation.Generated(
@@ -31,6 +32,9 @@ public class IssueRelationships {
 
   public static final String JSON_PROPERTY_CASE = "case";
   private IssueCaseRelationship _case;
+
+  public static final String JSON_PROPERTY_SAMPLES = "samples";
+  private IssueSamplesRelationship samples;
 
   public static final String JSON_PROPERTY_TEAM_OWNERS = "team_owners";
   private IssueTeamOwnersRelationship teamOwners;
@@ -82,6 +86,31 @@ public class IssueRelationships {
     this._case = _case;
     if (_case != null) {
       this.unparsed |= _case.unparsed;
+    }
+  }
+
+  public IssueRelationships samples(IssueSamplesRelationship samples) {
+    this.samples = samples;
+    this.unparsed |= samples.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship between the issue and its curated error samples.
+   *
+   * @return samples
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SAMPLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IssueSamplesRelationship getSamples() {
+    return samples;
+  }
+
+  public void setSamples(IssueSamplesRelationship samples) {
+    this.samples = samples;
+    if (samples != null) {
+      this.unparsed |= samples.unparsed;
     }
   }
 
@@ -168,13 +197,14 @@ public class IssueRelationships {
     IssueRelationships issueRelationships = (IssueRelationships) o;
     return Objects.equals(this.assignee, issueRelationships.assignee)
         && Objects.equals(this._case, issueRelationships._case)
+        && Objects.equals(this.samples, issueRelationships.samples)
         && Objects.equals(this.teamOwners, issueRelationships.teamOwners)
         && Objects.equals(this.additionalProperties, issueRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignee, _case, teamOwners, additionalProperties);
+    return Objects.hash(assignee, _case, samples, teamOwners, additionalProperties);
   }
 
   @Override
@@ -183,6 +213,7 @@ public class IssueRelationships {
     sb.append("class IssueRelationships {\n");
     sb.append("    assignee: ").append(toIndentedString(assignee)).append("\n");
     sb.append("    _case: ").append(toIndentedString(_case)).append("\n");
+    sb.append("    samples: ").append(toIndentedString(samples)).append("\n");
     sb.append("    teamOwners: ").append(toIndentedString(teamOwners)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

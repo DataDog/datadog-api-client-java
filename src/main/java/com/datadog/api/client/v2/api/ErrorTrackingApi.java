@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.GetIssueIncludeQueryParameterItem;
 import com.datadog.api.client.v2.model.IssueResponse;
+import com.datadog.api.client.v2.model.IssueSampleBias;
 import com.datadog.api.client.v2.model.IssueUpdateAssigneeRequest;
 import com.datadog.api.client.v2.model.IssueUpdateStateRequest;
 import com.datadog.api.client.v2.model.IssuesSearchRequest;
@@ -187,17 +188,32 @@ public class ErrorTrackingApi {
   /** Manage optional parameters to getIssue. */
   public static class GetIssueOptionalParameters {
     private List<GetIssueIncludeQueryParameterItem> include;
+    private List<IssueSampleBias> filterSamplesBiases;
 
     /**
      * Set include.
      *
      * @param include Comma-separated list of relationship objects that should be included in the
-     *     response. Possible values are <code>assignee</code>, <code>case</code>, and <code>
-     *     team_owners</code>. (optional)
+     *     response. Possible values are <code>assignee</code>, <code>case</code>, <code>team_owners
+     *     </code>, and <code>samples</code>. (optional)
      * @return GetIssueOptionalParameters
      */
     public GetIssueOptionalParameters include(List<GetIssueIncludeQueryParameterItem> include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set filterSamplesBiases.
+     *
+     * @param filterSamplesBiases Comma-separated list of biases used to pick the samples returned
+     *     with <code>include=samples</code>. Requires <code>include=samples</code>. Defaults to all
+     *     biases. (optional)
+     * @return GetIssueOptionalParameters
+     */
+    public GetIssueOptionalParameters filterSamplesBiases(
+        List<IssueSampleBias> filterSamplesBiases) {
+      this.filterSamplesBiases = filterSamplesBiases;
       return this;
     }
   }
@@ -293,6 +309,7 @@ public class ErrorTrackingApi {
       throw new ApiException(400, "Missing the required parameter 'issueId' when calling getIssue");
     }
     List<GetIssueIncludeQueryParameterItem> include = parameters.include;
+    List<IssueSampleBias> filterSamplesBiases = parameters.filterSamplesBiases;
     // create path and map variables
     String localVarPath =
         "/api/v2/error-tracking/issues/{issue_id}"
@@ -302,6 +319,8 @@ public class ErrorTrackingApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("csv", "filter[samples.biases]", filterSamplesBiases));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -344,6 +363,7 @@ public class ErrorTrackingApi {
       return result;
     }
     List<GetIssueIncludeQueryParameterItem> include = parameters.include;
+    List<IssueSampleBias> filterSamplesBiases = parameters.filterSamplesBiases;
     // create path and map variables
     String localVarPath =
         "/api/v2/error-tracking/issues/{issue_id}"
@@ -353,6 +373,8 @@ public class ErrorTrackingApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("csv", "filter[samples.biases]", filterSamplesBiases));
 
     Invocation.Builder builder;
     try {
