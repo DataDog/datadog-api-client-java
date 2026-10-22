@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   LogsListResponse.JSON_PROPERTY_LOGS,
   LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID,
+  LogsListResponse.JSON_PROPERTY_REQUEST_ID,
   LogsListResponse.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
@@ -34,6 +35,9 @@ public class LogsListResponse {
 
   public static final String JSON_PROPERTY_NEXT_LOG_ID = "nextLogId";
   private JsonNullable<String> nextLogId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
+  private String requestId;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -108,6 +112,27 @@ public class LogsListResponse {
 
   public void setNextLogId(String nextLogId) {
     this.nextLogId = JsonNullable.<String>of(nextLogId);
+  }
+
+  public LogsListResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+  /**
+   * Unique identifier of the request.
+   *
+   * @return requestId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
   public LogsListResponse status(String status) {
@@ -189,13 +214,14 @@ public class LogsListResponse {
     LogsListResponse logsListResponse = (LogsListResponse) o;
     return Objects.equals(this.logs, logsListResponse.logs)
         && Objects.equals(this.nextLogId, logsListResponse.nextLogId)
+        && Objects.equals(this.requestId, logsListResponse.requestId)
         && Objects.equals(this.status, logsListResponse.status)
         && Objects.equals(this.additionalProperties, logsListResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logs, nextLogId, status, additionalProperties);
+    return Objects.hash(logs, nextLogId, requestId, status, additionalProperties);
   }
 
   @Override
@@ -204,6 +230,7 @@ public class LogsListResponse {
     sb.append("class LogsListResponse {\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    nextLogId: ").append(toIndentedString(nextLogId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
