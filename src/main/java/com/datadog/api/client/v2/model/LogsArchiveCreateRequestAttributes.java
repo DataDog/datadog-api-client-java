@@ -38,7 +38,7 @@ public class LogsArchiveCreateRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPRESSION_METHOD = "compression_method";
   private LogsArchiveAttributesCompressionMethod compressionMethod =
-      LogsArchiveAttributesCompressionMethod.GZIP;
+      LogsArchiveAttributesCompressionMethod.ZSTD;
 
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private LogsArchiveCreateRequestDestination destination;
