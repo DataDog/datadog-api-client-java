@@ -18,13 +18,17 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for a tag rule. */
+/**
+ * JSON:API resource type for a tag rule. Responses use the legacy <code>tag_policy</code> value.
+ */
 @JsonSerialize(using = TagRuleResourceType.TagRuleResourceTypeSerializer.class)
 public class TagRuleResourceType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("tag_rule"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("tag_rule", "tag_policy"));
 
   public static final TagRuleResourceType TAG_RULE = new TagRuleResourceType("tag_rule");
+  public static final TagRuleResourceType TAG_POLICY = new TagRuleResourceType("tag_policy");
 
   TagRuleResourceType(String value) {
     super(value, allowedValues);

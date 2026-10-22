@@ -18,15 +18,20 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for a tag rule compliance score. */
+/**
+ * JSON:API resource type for a tag rule compliance score. Responses use the legacy <code>
+ * tag_policy_score</code> value.
+ */
 @JsonSerialize(using = TagRuleScoreResourceType.TagRuleScoreResourceTypeSerializer.class)
 public class TagRuleScoreResourceType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("tag_rule_score"));
+      new HashSet<String>(Arrays.asList("tag_rule_score", "tag_policy_score"));
 
   public static final TagRuleScoreResourceType TAG_RULE_SCORE =
       new TagRuleScoreResourceType("tag_rule_score");
+  public static final TagRuleScoreResourceType TAG_POLICY_SCORE =
+      new TagRuleScoreResourceType("tag_policy_score");
 
   TagRuleScoreResourceType(String value) {
     super(value, allowedValues);
