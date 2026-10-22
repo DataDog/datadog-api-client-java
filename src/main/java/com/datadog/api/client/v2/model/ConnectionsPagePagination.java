@@ -20,10 +20,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Page-based pagination metadata. */
 @JsonPropertyOrder({
   ConnectionsPagePagination.JSON_PROPERTY_FIRST_NUMBER,
+  ConnectionsPagePagination.JSON_PROPERTY_FIRST_OFFSET,
   ConnectionsPagePagination.JSON_PROPERTY_LAST_NUMBER,
+  ConnectionsPagePagination.JSON_PROPERTY_LAST_OFFSET,
+  ConnectionsPagePagination.JSON_PROPERTY_LIMIT,
   ConnectionsPagePagination.JSON_PROPERTY_NEXT_NUMBER,
+  ConnectionsPagePagination.JSON_PROPERTY_NEXT_OFFSET,
   ConnectionsPagePagination.JSON_PROPERTY_NUMBER,
+  ConnectionsPagePagination.JSON_PROPERTY_OFFSET,
   ConnectionsPagePagination.JSON_PROPERTY_PREV_NUMBER,
+  ConnectionsPagePagination.JSON_PROPERTY_PREV_OFFSET,
   ConnectionsPagePagination.JSON_PROPERTY_SIZE,
   ConnectionsPagePagination.JSON_PROPERTY_TOTAL,
   ConnectionsPagePagination.JSON_PROPERTY_TYPE
@@ -35,17 +41,35 @@ public class ConnectionsPagePagination {
   public static final String JSON_PROPERTY_FIRST_NUMBER = "first_number";
   private Long firstNumber;
 
+  public static final String JSON_PROPERTY_FIRST_OFFSET = "first_offset";
+  private Long firstOffset;
+
   public static final String JSON_PROPERTY_LAST_NUMBER = "last_number";
   private Long lastNumber;
+
+  public static final String JSON_PROPERTY_LAST_OFFSET = "last_offset";
+  private JsonNullable<Long> lastOffset = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
 
   public static final String JSON_PROPERTY_NEXT_NUMBER = "next_number";
   private JsonNullable<Long> nextNumber = JsonNullable.<Long>undefined();
 
+  public static final String JSON_PROPERTY_NEXT_OFFSET = "next_offset";
+  private JsonNullable<Long> nextOffset = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_NUMBER = "number";
   private Long number;
 
+  public static final String JSON_PROPERTY_OFFSET = "offset";
+  private Long offset;
+
   public static final String JSON_PROPERTY_PREV_NUMBER = "prev_number";
   private JsonNullable<Long> prevNumber = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_PREV_OFFSET = "prev_offset";
+  private JsonNullable<Long> prevOffset = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -77,6 +101,27 @@ public class ConnectionsPagePagination {
     this.firstNumber = firstNumber;
   }
 
+  public ConnectionsPagePagination firstOffset(Long firstOffset) {
+    this.firstOffset = firstOffset;
+    return this;
+  }
+
+  /**
+   * The first offset.
+   *
+   * @return firstOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFirstOffset() {
+    return firstOffset;
+  }
+
+  public void setFirstOffset(Long firstOffset) {
+    this.firstOffset = firstOffset;
+  }
+
   public ConnectionsPagePagination lastNumber(Long lastNumber) {
     this.lastNumber = lastNumber;
     return this;
@@ -96,6 +141,58 @@ public class ConnectionsPagePagination {
 
   public void setLastNumber(Long lastNumber) {
     this.lastNumber = lastNumber;
+  }
+
+  public ConnectionsPagePagination lastOffset(Long lastOffset) {
+    this.lastOffset = JsonNullable.<Long>of(lastOffset);
+    return this;
+  }
+
+  /**
+   * The last offset.
+   *
+   * @return lastOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLastOffset() {
+    return lastOffset.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getLastOffset_JsonNullable() {
+    return lastOffset;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+  public void setLastOffset_JsonNullable(JsonNullable<Long> lastOffset) {
+    this.lastOffset = lastOffset;
+  }
+
+  public void setLastOffset(Long lastOffset) {
+    this.lastOffset = JsonNullable.<Long>of(lastOffset);
+  }
+
+  public ConnectionsPagePagination limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * The page limit, when offset pagination is used.
+   *
+   * @return limit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
   }
 
   public ConnectionsPagePagination nextNumber(Long nextNumber) {
@@ -129,6 +226,37 @@ public class ConnectionsPagePagination {
     this.nextNumber = JsonNullable.<Long>of(nextNumber);
   }
 
+  public ConnectionsPagePagination nextOffset(Long nextOffset) {
+    this.nextOffset = JsonNullable.<Long>of(nextOffset);
+    return this;
+  }
+
+  /**
+   * The next offset.
+   *
+   * @return nextOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNextOffset() {
+    return nextOffset.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getNextOffset_JsonNullable() {
+    return nextOffset;
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
+  public void setNextOffset_JsonNullable(JsonNullable<Long> nextOffset) {
+    this.nextOffset = nextOffset;
+  }
+
+  public void setNextOffset(Long nextOffset) {
+    this.nextOffset = JsonNullable.<Long>of(nextOffset);
+  }
+
   public ConnectionsPagePagination number(Long number) {
     this.number = number;
     return this;
@@ -148,6 +276,27 @@ public class ConnectionsPagePagination {
 
   public void setNumber(Long number) {
     this.number = number;
+  }
+
+  public ConnectionsPagePagination offset(Long offset) {
+    this.offset = offset;
+    return this;
+  }
+
+  /**
+   * The current offset, when offset pagination is used.
+   *
+   * @return offset
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Long offset) {
+    this.offset = offset;
   }
 
   public ConnectionsPagePagination prevNumber(Long prevNumber) {
@@ -179,6 +328,37 @@ public class ConnectionsPagePagination {
 
   public void setPrevNumber(Long prevNumber) {
     this.prevNumber = JsonNullable.<Long>of(prevNumber);
+  }
+
+  public ConnectionsPagePagination prevOffset(Long prevOffset) {
+    this.prevOffset = JsonNullable.<Long>of(prevOffset);
+    return this;
+  }
+
+  /**
+   * The previous offset.
+   *
+   * @return prevOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getPrevOffset() {
+    return prevOffset.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getPrevOffset_JsonNullable() {
+    return prevOffset;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
+  public void setPrevOffset_JsonNullable(JsonNullable<Long> prevOffset) {
+    this.prevOffset = prevOffset;
+  }
+
+  public void setPrevOffset(Long prevOffset) {
+    this.prevOffset = JsonNullable.<Long>of(prevOffset);
   }
 
   public ConnectionsPagePagination size(Long size) {
@@ -301,10 +481,16 @@ public class ConnectionsPagePagination {
     }
     ConnectionsPagePagination connectionsPagePagination = (ConnectionsPagePagination) o;
     return Objects.equals(this.firstNumber, connectionsPagePagination.firstNumber)
+        && Objects.equals(this.firstOffset, connectionsPagePagination.firstOffset)
         && Objects.equals(this.lastNumber, connectionsPagePagination.lastNumber)
+        && Objects.equals(this.lastOffset, connectionsPagePagination.lastOffset)
+        && Objects.equals(this.limit, connectionsPagePagination.limit)
         && Objects.equals(this.nextNumber, connectionsPagePagination.nextNumber)
+        && Objects.equals(this.nextOffset, connectionsPagePagination.nextOffset)
         && Objects.equals(this.number, connectionsPagePagination.number)
+        && Objects.equals(this.offset, connectionsPagePagination.offset)
         && Objects.equals(this.prevNumber, connectionsPagePagination.prevNumber)
+        && Objects.equals(this.prevOffset, connectionsPagePagination.prevOffset)
         && Objects.equals(this.size, connectionsPagePagination.size)
         && Objects.equals(this.total, connectionsPagePagination.total)
         && Objects.equals(this.type, connectionsPagePagination.type)
@@ -316,10 +502,16 @@ public class ConnectionsPagePagination {
   public int hashCode() {
     return Objects.hash(
         firstNumber,
+        firstOffset,
         lastNumber,
+        lastOffset,
+        limit,
         nextNumber,
+        nextOffset,
         number,
+        offset,
         prevNumber,
+        prevOffset,
         size,
         total,
         type,
@@ -331,10 +523,16 @@ public class ConnectionsPagePagination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConnectionsPagePagination {\n");
     sb.append("    firstNumber: ").append(toIndentedString(firstNumber)).append("\n");
+    sb.append("    firstOffset: ").append(toIndentedString(firstOffset)).append("\n");
     sb.append("    lastNumber: ").append(toIndentedString(lastNumber)).append("\n");
+    sb.append("    lastOffset: ").append(toIndentedString(lastOffset)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    nextNumber: ").append(toIndentedString(nextNumber)).append("\n");
+    sb.append("    nextOffset: ").append(toIndentedString(nextOffset)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    prevNumber: ").append(toIndentedString(prevNumber)).append("\n");
+    sb.append("    prevOffset: ").append(toIndentedString(prevOffset)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

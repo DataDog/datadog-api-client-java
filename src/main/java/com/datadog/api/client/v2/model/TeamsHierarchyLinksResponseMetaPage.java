@@ -23,10 +23,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @JsonPropertyOrder({
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_FIRST_NUMBER,
+  TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_FIRST_OFFSET,
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_LAST_NUMBER,
+  TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_LAST_OFFSET,
+  TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_LIMIT,
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_NEXT_NUMBER,
+  TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_NEXT_OFFSET,
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_NUMBER,
+  TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_OFFSET,
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_PREV_NUMBER,
+  TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_PREV_OFFSET,
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_SIZE,
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_TOTAL,
   TeamsHierarchyLinksResponseMetaPage.JSON_PROPERTY_TYPE
@@ -38,17 +44,35 @@ public class TeamsHierarchyLinksResponseMetaPage {
   public static final String JSON_PROPERTY_FIRST_NUMBER = "first_number";
   private Long firstNumber;
 
+  public static final String JSON_PROPERTY_FIRST_OFFSET = "first_offset";
+  private Long firstOffset;
+
   public static final String JSON_PROPERTY_LAST_NUMBER = "last_number";
   private Long lastNumber;
+
+  public static final String JSON_PROPERTY_LAST_OFFSET = "last_offset";
+  private JsonNullable<Long> lastOffset = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
 
   public static final String JSON_PROPERTY_NEXT_NUMBER = "next_number";
   private JsonNullable<Long> nextNumber = JsonNullable.<Long>undefined();
 
+  public static final String JSON_PROPERTY_NEXT_OFFSET = "next_offset";
+  private JsonNullable<Long> nextOffset = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_NUMBER = "number";
   private Long number;
 
+  public static final String JSON_PROPERTY_OFFSET = "offset";
+  private Long offset;
+
   public static final String JSON_PROPERTY_PREV_NUMBER = "prev_number";
   private JsonNullable<Long> prevNumber = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_PREV_OFFSET = "prev_offset";
+  private JsonNullable<Long> prevOffset = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -80,6 +104,27 @@ public class TeamsHierarchyLinksResponseMetaPage {
     this.firstNumber = firstNumber;
   }
 
+  public TeamsHierarchyLinksResponseMetaPage firstOffset(Long firstOffset) {
+    this.firstOffset = firstOffset;
+    return this;
+  }
+
+  /**
+   * First offset.
+   *
+   * @return firstOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFirstOffset() {
+    return firstOffset;
+  }
+
+  public void setFirstOffset(Long firstOffset) {
+    this.firstOffset = firstOffset;
+  }
+
   public TeamsHierarchyLinksResponseMetaPage lastNumber(Long lastNumber) {
     this.lastNumber = lastNumber;
     return this;
@@ -99,6 +144,58 @@ public class TeamsHierarchyLinksResponseMetaPage {
 
   public void setLastNumber(Long lastNumber) {
     this.lastNumber = lastNumber;
+  }
+
+  public TeamsHierarchyLinksResponseMetaPage lastOffset(Long lastOffset) {
+    this.lastOffset = JsonNullable.<Long>of(lastOffset);
+    return this;
+  }
+
+  /**
+   * Last offset.
+   *
+   * @return lastOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLastOffset() {
+    return lastOffset.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getLastOffset_JsonNullable() {
+    return lastOffset;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+  public void setLastOffset_JsonNullable(JsonNullable<Long> lastOffset) {
+    this.lastOffset = lastOffset;
+  }
+
+  public void setLastOffset(Long lastOffset) {
+    this.lastOffset = JsonNullable.<Long>of(lastOffset);
+  }
+
+  public TeamsHierarchyLinksResponseMetaPage limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * Page limit, when offset pagination is used.
+   *
+   * @return limit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
   }
 
   public TeamsHierarchyLinksResponseMetaPage nextNumber(Long nextNumber) {
@@ -132,6 +229,37 @@ public class TeamsHierarchyLinksResponseMetaPage {
     this.nextNumber = JsonNullable.<Long>of(nextNumber);
   }
 
+  public TeamsHierarchyLinksResponseMetaPage nextOffset(Long nextOffset) {
+    this.nextOffset = JsonNullable.<Long>of(nextOffset);
+    return this;
+  }
+
+  /**
+   * Next offset.
+   *
+   * @return nextOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNextOffset() {
+    return nextOffset.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getNextOffset_JsonNullable() {
+    return nextOffset;
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
+  public void setNextOffset_JsonNullable(JsonNullable<Long> nextOffset) {
+    this.nextOffset = nextOffset;
+  }
+
+  public void setNextOffset(Long nextOffset) {
+    this.nextOffset = JsonNullable.<Long>of(nextOffset);
+  }
+
   public TeamsHierarchyLinksResponseMetaPage number(Long number) {
     this.number = number;
     return this;
@@ -151,6 +279,27 @@ public class TeamsHierarchyLinksResponseMetaPage {
 
   public void setNumber(Long number) {
     this.number = number;
+  }
+
+  public TeamsHierarchyLinksResponseMetaPage offset(Long offset) {
+    this.offset = offset;
+    return this;
+  }
+
+  /**
+   * Current offset, when offset pagination is used.
+   *
+   * @return offset
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Long offset) {
+    this.offset = offset;
   }
 
   public TeamsHierarchyLinksResponseMetaPage prevNumber(Long prevNumber) {
@@ -182,6 +331,37 @@ public class TeamsHierarchyLinksResponseMetaPage {
 
   public void setPrevNumber(Long prevNumber) {
     this.prevNumber = JsonNullable.<Long>of(prevNumber);
+  }
+
+  public TeamsHierarchyLinksResponseMetaPage prevOffset(Long prevOffset) {
+    this.prevOffset = JsonNullable.<Long>of(prevOffset);
+    return this;
+  }
+
+  /**
+   * Previous offset.
+   *
+   * @return prevOffset
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getPrevOffset() {
+    return prevOffset.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getPrevOffset_JsonNullable() {
+    return prevOffset;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
+  public void setPrevOffset_JsonNullable(JsonNullable<Long> prevOffset) {
+    this.prevOffset = prevOffset;
+  }
+
+  public void setPrevOffset(Long prevOffset) {
+    this.prevOffset = JsonNullable.<Long>of(prevOffset);
   }
 
   public TeamsHierarchyLinksResponseMetaPage size(Long size) {
@@ -305,10 +485,16 @@ public class TeamsHierarchyLinksResponseMetaPage {
     TeamsHierarchyLinksResponseMetaPage teamsHierarchyLinksResponseMetaPage =
         (TeamsHierarchyLinksResponseMetaPage) o;
     return Objects.equals(this.firstNumber, teamsHierarchyLinksResponseMetaPage.firstNumber)
+        && Objects.equals(this.firstOffset, teamsHierarchyLinksResponseMetaPage.firstOffset)
         && Objects.equals(this.lastNumber, teamsHierarchyLinksResponseMetaPage.lastNumber)
+        && Objects.equals(this.lastOffset, teamsHierarchyLinksResponseMetaPage.lastOffset)
+        && Objects.equals(this.limit, teamsHierarchyLinksResponseMetaPage.limit)
         && Objects.equals(this.nextNumber, teamsHierarchyLinksResponseMetaPage.nextNumber)
+        && Objects.equals(this.nextOffset, teamsHierarchyLinksResponseMetaPage.nextOffset)
         && Objects.equals(this.number, teamsHierarchyLinksResponseMetaPage.number)
+        && Objects.equals(this.offset, teamsHierarchyLinksResponseMetaPage.offset)
         && Objects.equals(this.prevNumber, teamsHierarchyLinksResponseMetaPage.prevNumber)
+        && Objects.equals(this.prevOffset, teamsHierarchyLinksResponseMetaPage.prevOffset)
         && Objects.equals(this.size, teamsHierarchyLinksResponseMetaPage.size)
         && Objects.equals(this.total, teamsHierarchyLinksResponseMetaPage.total)
         && Objects.equals(this.type, teamsHierarchyLinksResponseMetaPage.type)
@@ -320,10 +506,16 @@ public class TeamsHierarchyLinksResponseMetaPage {
   public int hashCode() {
     return Objects.hash(
         firstNumber,
+        firstOffset,
         lastNumber,
+        lastOffset,
+        limit,
         nextNumber,
+        nextOffset,
         number,
+        offset,
         prevNumber,
+        prevOffset,
         size,
         total,
         type,
@@ -335,10 +527,16 @@ public class TeamsHierarchyLinksResponseMetaPage {
     StringBuilder sb = new StringBuilder();
     sb.append("class TeamsHierarchyLinksResponseMetaPage {\n");
     sb.append("    firstNumber: ").append(toIndentedString(firstNumber)).append("\n");
+    sb.append("    firstOffset: ").append(toIndentedString(firstOffset)).append("\n");
     sb.append("    lastNumber: ").append(toIndentedString(lastNumber)).append("\n");
+    sb.append("    lastOffset: ").append(toIndentedString(lastOffset)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    nextNumber: ").append(toIndentedString(nextNumber)).append("\n");
+    sb.append("    nextOffset: ").append(toIndentedString(nextOffset)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    prevNumber: ").append(toIndentedString(prevNumber)).append("\n");
+    sb.append("    prevOffset: ").append(toIndentedString(prevOffset)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

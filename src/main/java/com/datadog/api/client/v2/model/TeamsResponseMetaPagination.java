@@ -15,15 +15,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Teams response metadata. */
 @JsonPropertyOrder({
+  TeamsResponseMetaPagination.JSON_PROPERTY_FIRST_NUMBER,
   TeamsResponseMetaPagination.JSON_PROPERTY_FIRST_OFFSET,
+  TeamsResponseMetaPagination.JSON_PROPERTY_LAST_NUMBER,
   TeamsResponseMetaPagination.JSON_PROPERTY_LAST_OFFSET,
   TeamsResponseMetaPagination.JSON_PROPERTY_LIMIT,
+  TeamsResponseMetaPagination.JSON_PROPERTY_NEXT_NUMBER,
   TeamsResponseMetaPagination.JSON_PROPERTY_NEXT_OFFSET,
+  TeamsResponseMetaPagination.JSON_PROPERTY_NUMBER,
   TeamsResponseMetaPagination.JSON_PROPERTY_OFFSET,
+  TeamsResponseMetaPagination.JSON_PROPERTY_PREV_NUMBER,
   TeamsResponseMetaPagination.JSON_PROPERTY_PREV_OFFSET,
+  TeamsResponseMetaPagination.JSON_PROPERTY_SIZE,
   TeamsResponseMetaPagination.JSON_PROPERTY_TOTAL,
   TeamsResponseMetaPagination.JSON_PROPERTY_TYPE
 })
@@ -31,8 +38,14 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamsResponseMetaPagination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FIRST_NUMBER = "first_number";
+  private Long firstNumber;
+
   public static final String JSON_PROPERTY_FIRST_OFFSET = "first_offset";
   private Long firstOffset;
+
+  public static final String JSON_PROPERTY_LAST_NUMBER = "last_number";
+  private JsonNullable<Long> lastNumber = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LAST_OFFSET = "last_offset";
   private Long lastOffset;
@@ -40,20 +53,53 @@ public class TeamsResponseMetaPagination {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;
 
+  public static final String JSON_PROPERTY_NEXT_NUMBER = "next_number";
+  private JsonNullable<Long> nextNumber = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_NEXT_OFFSET = "next_offset";
   private Long nextOffset;
+
+  public static final String JSON_PROPERTY_NUMBER = "number";
+  private Long number;
 
   public static final String JSON_PROPERTY_OFFSET = "offset";
   private Long offset;
 
+  public static final String JSON_PROPERTY_PREV_NUMBER = "prev_number";
+  private JsonNullable<Long> prevNumber = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_PREV_OFFSET = "prev_offset";
   private Long prevOffset;
+
+  public static final String JSON_PROPERTY_SIZE = "size";
+  private Long size;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
   private Long total;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  public TeamsResponseMetaPagination firstNumber(Long firstNumber) {
+    this.firstNumber = firstNumber;
+    return this;
+  }
+
+  /**
+   * The first page number.
+   *
+   * @return firstNumber
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIRST_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFirstNumber() {
+    return firstNumber;
+  }
+
+  public void setFirstNumber(Long firstNumber) {
+    this.firstNumber = firstNumber;
+  }
 
   public TeamsResponseMetaPagination firstOffset(Long firstOffset) {
     this.firstOffset = firstOffset;
@@ -74,6 +120,37 @@ public class TeamsResponseMetaPagination {
 
   public void setFirstOffset(Long firstOffset) {
     this.firstOffset = firstOffset;
+  }
+
+  public TeamsResponseMetaPagination lastNumber(Long lastNumber) {
+    this.lastNumber = JsonNullable.<Long>of(lastNumber);
+    return this;
+  }
+
+  /**
+   * The last page number.
+   *
+   * @return lastNumber
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLastNumber() {
+    return lastNumber.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getLastNumber_JsonNullable() {
+    return lastNumber;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_NUMBER)
+  public void setLastNumber_JsonNullable(JsonNullable<Long> lastNumber) {
+    this.lastNumber = lastNumber;
+  }
+
+  public void setLastNumber(Long lastNumber) {
+    this.lastNumber = JsonNullable.<Long>of(lastNumber);
   }
 
   public TeamsResponseMetaPagination lastOffset(Long lastOffset) {
@@ -118,6 +195,37 @@ public class TeamsResponseMetaPagination {
     this.limit = limit;
   }
 
+  public TeamsResponseMetaPagination nextNumber(Long nextNumber) {
+    this.nextNumber = JsonNullable.<Long>of(nextNumber);
+    return this;
+  }
+
+  /**
+   * The next page number.
+   *
+   * @return nextNumber
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNextNumber() {
+    return nextNumber.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEXT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getNextNumber_JsonNullable() {
+    return nextNumber;
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEXT_NUMBER)
+  public void setNextNumber_JsonNullable(JsonNullable<Long> nextNumber) {
+    this.nextNumber = nextNumber;
+  }
+
+  public void setNextNumber(Long nextNumber) {
+    this.nextNumber = JsonNullable.<Long>of(nextNumber);
+  }
+
   public TeamsResponseMetaPagination nextOffset(Long nextOffset) {
     this.nextOffset = nextOffset;
     return this;
@@ -137,6 +245,27 @@ public class TeamsResponseMetaPagination {
 
   public void setNextOffset(Long nextOffset) {
     this.nextOffset = nextOffset;
+  }
+
+  public TeamsResponseMetaPagination number(Long number) {
+    this.number = number;
+    return this;
+  }
+
+  /**
+   * The current page number, when page-number pagination is used.
+   *
+   * @return number
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNumber() {
+    return number;
+  }
+
+  public void setNumber(Long number) {
+    this.number = number;
   }
 
   public TeamsResponseMetaPagination offset(Long offset) {
@@ -160,6 +289,37 @@ public class TeamsResponseMetaPagination {
     this.offset = offset;
   }
 
+  public TeamsResponseMetaPagination prevNumber(Long prevNumber) {
+    this.prevNumber = JsonNullable.<Long>of(prevNumber);
+    return this;
+  }
+
+  /**
+   * The previous page number.
+   *
+   * @return prevNumber
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getPrevNumber() {
+    return prevNumber.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PREV_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getPrevNumber_JsonNullable() {
+    return prevNumber;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PREV_NUMBER)
+  public void setPrevNumber_JsonNullable(JsonNullable<Long> prevNumber) {
+    this.prevNumber = prevNumber;
+  }
+
+  public void setPrevNumber(Long prevNumber) {
+    this.prevNumber = JsonNullable.<Long>of(prevNumber);
+  }
+
   public TeamsResponseMetaPagination prevOffset(Long prevOffset) {
     this.prevOffset = prevOffset;
     return this;
@@ -179,6 +339,27 @@ public class TeamsResponseMetaPagination {
 
   public void setPrevOffset(Long prevOffset) {
     this.prevOffset = prevOffset;
+  }
+
+  public TeamsResponseMetaPagination size(Long size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * The page size, when page-number pagination is used.
+   *
+   * @return size
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSize() {
+    return size;
+  }
+
+  public void setSize(Long size) {
+    this.size = size;
   }
 
   public TeamsResponseMetaPagination total(Long total) {
@@ -208,7 +389,7 @@ public class TeamsResponseMetaPagination {
   }
 
   /**
-   * Offset type.
+   * Pagination type. One of <code>offset_limit</code> or <code>number_size</code>.
    *
    * @return type
    */
@@ -279,12 +460,18 @@ public class TeamsResponseMetaPagination {
       return false;
     }
     TeamsResponseMetaPagination teamsResponseMetaPagination = (TeamsResponseMetaPagination) o;
-    return Objects.equals(this.firstOffset, teamsResponseMetaPagination.firstOffset)
+    return Objects.equals(this.firstNumber, teamsResponseMetaPagination.firstNumber)
+        && Objects.equals(this.firstOffset, teamsResponseMetaPagination.firstOffset)
+        && Objects.equals(this.lastNumber, teamsResponseMetaPagination.lastNumber)
         && Objects.equals(this.lastOffset, teamsResponseMetaPagination.lastOffset)
         && Objects.equals(this.limit, teamsResponseMetaPagination.limit)
+        && Objects.equals(this.nextNumber, teamsResponseMetaPagination.nextNumber)
         && Objects.equals(this.nextOffset, teamsResponseMetaPagination.nextOffset)
+        && Objects.equals(this.number, teamsResponseMetaPagination.number)
         && Objects.equals(this.offset, teamsResponseMetaPagination.offset)
+        && Objects.equals(this.prevNumber, teamsResponseMetaPagination.prevNumber)
         && Objects.equals(this.prevOffset, teamsResponseMetaPagination.prevOffset)
+        && Objects.equals(this.size, teamsResponseMetaPagination.size)
         && Objects.equals(this.total, teamsResponseMetaPagination.total)
         && Objects.equals(this.type, teamsResponseMetaPagination.type)
         && Objects.equals(
@@ -294,12 +481,18 @@ public class TeamsResponseMetaPagination {
   @Override
   public int hashCode() {
     return Objects.hash(
+        firstNumber,
         firstOffset,
+        lastNumber,
         lastOffset,
         limit,
+        nextNumber,
         nextOffset,
+        number,
         offset,
+        prevNumber,
         prevOffset,
+        size,
         total,
         type,
         additionalProperties);
@@ -309,12 +502,18 @@ public class TeamsResponseMetaPagination {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TeamsResponseMetaPagination {\n");
+    sb.append("    firstNumber: ").append(toIndentedString(firstNumber)).append("\n");
     sb.append("    firstOffset: ").append(toIndentedString(firstOffset)).append("\n");
+    sb.append("    lastNumber: ").append(toIndentedString(lastNumber)).append("\n");
     sb.append("    lastOffset: ").append(toIndentedString(lastOffset)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    nextNumber: ").append(toIndentedString(nextNumber)).append("\n");
     sb.append("    nextOffset: ").append(toIndentedString(nextOffset)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    prevNumber: ").append(toIndentedString(prevNumber)).append("\n");
     sb.append("    prevOffset: ").append(toIndentedString(prevOffset)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

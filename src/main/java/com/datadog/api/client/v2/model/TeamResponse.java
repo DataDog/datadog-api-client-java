@@ -12,18 +12,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Response with a team */
-@JsonPropertyOrder({TeamResponse.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({TeamResponse.JSON_PROPERTY_DATA, TeamResponse.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private Team data;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<TeamIncluded> included = null;
 
   public TeamResponse data(Team data) {
     this.data = data;
@@ -47,6 +52,46 @@ public class TeamResponse {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;
+    }
+  }
+
+  public TeamResponse included(List<TeamIncluded> included) {
+    this.included = included;
+    if (included != null) {
+      for (TeamIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public TeamResponse addIncludedItem(TeamIncluded includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Resources related to the team.
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TeamIncluded> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<TeamIncluded> included) {
+    this.included = included;
+    if (included != null) {
+      for (TeamIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
   }
 
@@ -107,12 +152,13 @@ public class TeamResponse {
     }
     TeamResponse teamResponse = (TeamResponse) o;
     return Objects.equals(this.data, teamResponse.data)
+        && Objects.equals(this.included, teamResponse.included)
         && Objects.equals(this.additionalProperties, teamResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
@@ -120,6 +166,7 @@ public class TeamResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TeamResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

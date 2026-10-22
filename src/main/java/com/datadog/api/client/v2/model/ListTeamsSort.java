@@ -23,12 +23,15 @@ import java.util.Set;
 public class ListTeamsSort extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("name", "-name", "user_count", "-user_count"));
+      new HashSet<String>(
+          Arrays.asList("name", "-name", "user_count", "-user_count", "link_count", "-link_count"));
 
   public static final ListTeamsSort NAME = new ListTeamsSort("name");
   public static final ListTeamsSort _NAME = new ListTeamsSort("-name");
   public static final ListTeamsSort USER_COUNT = new ListTeamsSort("user_count");
   public static final ListTeamsSort _USER_COUNT = new ListTeamsSort("-user_count");
+  public static final ListTeamsSort LINK_COUNT = new ListTeamsSort("link_count");
+  public static final ListTeamsSort _LINK_COUNT = new ListTeamsSort("-link_count");
 
   ListTeamsSort(String value) {
     super(value, allowedValues);

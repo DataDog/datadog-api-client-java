@@ -39,7 +39,9 @@ public class TeamsField extends ModelEnum<String> {
               "user_count",
               "link_count",
               "team_links",
-              "user_team_permissions"));
+              "user_team_permissions",
+              "is_managed",
+              "provisioned_by"));
 
   public static final TeamsField ID = new TeamsField("id");
   public static final TeamsField NAME = new TeamsField("name");
@@ -56,6 +58,8 @@ public class TeamsField extends ModelEnum<String> {
   public static final TeamsField LINK_COUNT = new TeamsField("link_count");
   public static final TeamsField TEAM_LINKS = new TeamsField("team_links");
   public static final TeamsField USER_TEAM_PERMISSIONS = new TeamsField("user_team_permissions");
+  public static final TeamsField IS_MANAGED = new TeamsField("is_managed");
+  public static final TeamsField PROVISIONED_BY = new TeamsField("provisioned_by");
 
   TeamsField(String value) {
     super(value, allowedValues);
