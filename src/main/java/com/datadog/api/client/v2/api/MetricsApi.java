@@ -3696,10 +3696,11 @@ public class MetricsApi {
      * Set pageSize.
      *
      * @param pageSize Maximum number of results per page. Send <code>page[size]</code> on the first
-     *     request to opt in to pagination. On each subsequent request, send <code>page[cursor]
-     *     </code> set to the value of <code>meta.pagination.next_cursor</code> from the previous
-     *     response. The default value is 10000, the maximum value is 10000, and the minimum value
-     *     is 1. (optional, default to 10000)
+     *     request to opt in to pagination. On subsequent requests, send <code>page[cursor]</code>
+     *     set to the value of <code>meta.pagination.next_cursor</code> from the previous response.
+     *     To retain a custom page size, include <code>page[size]</code> on every request. The
+     *     default value is 10000, the maximum value is 10000, and the minimum value is 1.
+     *     (optional, default to 10000)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters pageSize(Integer pageSize) {
