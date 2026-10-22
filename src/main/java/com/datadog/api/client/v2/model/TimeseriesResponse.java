@@ -19,6 +19,7 @@ import java.util.Objects;
 /** A message containing the response to a timeseries query. */
 @JsonPropertyOrder({
   TimeseriesResponse.JSON_PROPERTY_ATTRIBUTES,
+  TimeseriesResponse.JSON_PROPERTY_ID,
   TimeseriesResponse.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -27,6 +28,9 @@ public class TimeseriesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private TimeseriesResponseAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TimeseriesFormulaResponseType type = TimeseriesFormulaResponseType.TIMESERIES_RESPONSE;
@@ -54,6 +58,27 @@ public class TimeseriesResponse {
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
+  }
+
+  public TimeseriesResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The identifier of the timeseries response resource.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public TimeseriesResponse type(TimeseriesFormulaResponseType type) {
@@ -138,13 +163,14 @@ public class TimeseriesResponse {
     }
     TimeseriesResponse timeseriesResponse = (TimeseriesResponse) o;
     return Objects.equals(this.attributes, timeseriesResponse.attributes)
+        && Objects.equals(this.id, timeseriesResponse.id)
         && Objects.equals(this.type, timeseriesResponse.type)
         && Objects.equals(this.additionalProperties, timeseriesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -152,6 +178,7 @@ public class TimeseriesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeseriesResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
