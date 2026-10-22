@@ -538,7 +538,8 @@ public class RumApi {
      * Set filterBuildId.
      *
      * @param filterBuildId Filter by build ID values (multiple values allowed). Supported for
-     *     <code>jvm</code>, <code>ndk</code>, and <code>il2cpp</code>. (optional)
+     *     <code>jvm</code>, <code>ndk</code>, <code>il2cpp</code>, <code>wasm</code>, and <code>
+     *     portable_pdb</code>. (optional)
      * @return DeleteSourcemapsOptionalParameters
      */
     public DeleteSourcemapsOptionalParameters filterBuildId(List<String> filterBuildId) {
@@ -647,7 +648,8 @@ public class RumApi {
      * Set filterFilename.
      *
      * @param filterFilename Filter by filename (single value). Supported for <code>js</code>,
-     *     <code>elf</code>, and <code>ndk</code>. (optional)
+     *     <code>elf</code>, <code>ndk</code>, <code>wasm</code>, and <code>portable_pdb</code>.
+     *     (optional)
      * @return DeleteSourcemapsOptionalParameters
      */
     public DeleteSourcemapsOptionalParameters filterFilename(String filterFilename) {
@@ -711,7 +713,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be deleted
    *     without performing the actual deletion. When set to <code>false</code>, performs the
    *     deletion. (required)
@@ -731,7 +733,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be deleted
    *     without performing the actual deletion. When set to <code>false</code>, performs the
    *     deletion. (required)
@@ -754,7 +756,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be deleted
    *     without performing the actual deletion. When set to <code>false</code>, performs the
    *     deletion. (required)
@@ -775,7 +777,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be deleted
    *     without performing the actual deletion. When set to <code>false</code>, performs the
    *     deletion. (required)
@@ -797,7 +799,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be deleted
    *     without performing the actual deletion. When set to <code>false</code>, performs the
    *     deletion. (required)
@@ -921,7 +923,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be deleted
    *     without performing the actual deletion. When set to <code>false</code>, performs the
    *     deletion. (required)
@@ -2162,7 +2164,8 @@ public class RumApi {
      * Set filterBuildId.
      *
      * @param filterBuildId Filter by build ID values (multiple values allowed). Supported for
-     *     <code>jvm</code>, <code>ndk</code>, and <code>il2cpp</code>. (optional)
+     *     <code>jvm</code>, <code>ndk</code>, <code>il2cpp</code>, <code>wasm</code>, and <code>
+     *     portable_pdb</code>. (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters filterBuildId(List<String> filterBuildId) {
@@ -2270,7 +2273,8 @@ public class RumApi {
      * Set filterFilename.
      *
      * @param filterFilename Filter by filename (single value). Supported for <code>js</code>,
-     *     <code>elf</code>, and <code>ndk</code>. (optional)
+     *     <code>elf</code>, <code>ndk</code>, <code>wasm</code>, and <code>portable_pdb</code>.
+     *     (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters filterFilename(String filterFilename) {
@@ -2763,7 +2767,8 @@ public class RumApi {
      * Set filterBuildId.
      *
      * @param filterBuildId Filter by build ID values (multiple values allowed). Supported for
-     *     <code>jvm</code>, <code>ndk</code>, and <code>il2cpp</code>. (optional)
+     *     <code>jvm</code>, <code>ndk</code>, <code>il2cpp</code>, <code>wasm</code>, and <code>
+     *     portable_pdb</code>. (optional)
      * @return RestoreSourcemapsOptionalParameters
      */
     public RestoreSourcemapsOptionalParameters filterBuildId(List<String> filterBuildId) {
@@ -2872,7 +2877,8 @@ public class RumApi {
      * Set filterFilename.
      *
      * @param filterFilename Filter by filename (single value). Supported for <code>js</code>,
-     *     <code>elf</code>, and <code>ndk</code>. (optional)
+     *     <code>elf</code>, <code>ndk</code>, <code>wasm</code>, and <code>portable_pdb</code>.
+     *     (optional)
      * @return RestoreSourcemapsOptionalParameters
      */
     public RestoreSourcemapsOptionalParameters filterFilename(String filterFilename) {
@@ -2936,7 +2942,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be restored
    *     without performing the actual restoration. When set to <code>false</code>, performs the
    *     restoration. (required)
@@ -2956,7 +2962,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be restored
    *     without performing the actual restoration. When set to <code>false</code>, performs the
    *     restoration. (required)
@@ -2979,7 +2985,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be restored
    *     without performing the actual restoration. When set to <code>false</code>, performs the
    *     restoration. (required)
@@ -3000,7 +3006,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be restored
    *     without performing the actual restoration. When set to <code>false</code>, performs the
    *     restoration. (required)
@@ -3023,7 +3029,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be restored
    *     without performing the actual restoration. When set to <code>false</code>, performs the
    *     restoration. (required)
@@ -3147,7 +3153,7 @@ public class RumApi {
    *
    * @param mapkind The type of source map. Valid values are <code>js</code>, <code>jvm</code>,
    *     <code>ios</code>, <code>react</code>, <code>flutter</code>, <code>elf</code>, <code>ndk
-   *     </code>, <code>il2cpp</code>. (required)
+   *     </code>, <code>il2cpp</code>, <code>wasm</code>, <code>portable_pdb</code>. (required)
    * @param dryRun When set to <code>true</code>, returns the source maps that would be restored
    *     without performing the actual restoration. When set to <code>false</code>, performs the
    *     restoration. (required)

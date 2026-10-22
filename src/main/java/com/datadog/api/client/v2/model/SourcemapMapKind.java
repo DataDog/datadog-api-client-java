@@ -24,7 +24,17 @@ public class SourcemapMapKind extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("js", "jvm", "ios", "react", "flutter", "elf", "ndk", "il2cpp"));
+          Arrays.asList(
+              "js",
+              "jvm",
+              "ios",
+              "react",
+              "flutter",
+              "elf",
+              "ndk",
+              "il2cpp",
+              "wasm",
+              "portable_pdb"));
 
   public static final SourcemapMapKind JS = new SourcemapMapKind("js");
   public static final SourcemapMapKind JVM = new SourcemapMapKind("jvm");
@@ -34,6 +44,8 @@ public class SourcemapMapKind extends ModelEnum<String> {
   public static final SourcemapMapKind ELF = new SourcemapMapKind("elf");
   public static final SourcemapMapKind NDK = new SourcemapMapKind("ndk");
   public static final SourcemapMapKind IL2CPP = new SourcemapMapKind("il2cpp");
+  public static final SourcemapMapKind WASM = new SourcemapMapKind("wasm");
+  public static final SourcemapMapKind PORTABLE_PDB = new SourcemapMapKind("portable_pdb");
 
   SourcemapMapKind(String value) {
     super(value, allowedValues);
