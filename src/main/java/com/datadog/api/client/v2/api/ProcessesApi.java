@@ -59,7 +59,9 @@ public class ProcessesApi {
     /**
      * Set search.
      *
-     * @param search String to search processes by. (optional)
+     * @param search Free-text search over process fields such as the executable and user. When it
+     *     contains several words, a process must match all of them. Use <code>tags</code> for exact
+     *     values such as host. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters search(String search) {
@@ -70,7 +72,9 @@ public class ProcessesApi {
     /**
      * Set tags.
      *
-     * @param tags Comma-separated list of tags to filter processes by. (optional)
+     * @param tags Comma-separated <code>key:value</code> tags. A process must match every tag.
+     *     Wildcards, negation (<code>-key:value</code>), spaces, and <code>IN (...)</code> are not
+     *     supported. To cover several hosts, make one request per host. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters tags(String tags) {
@@ -81,10 +85,10 @@ public class ProcessesApi {
     /**
      * Set from.
      *
-     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
-     *     If not provided, the start of the query window will be 15 minutes before the <code>to
-     *     </code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the
-     *     query window will be <code>[now - 15m, now]</code>. (optional)
+     * @param from Start of the query window, in Unix seconds. Must be within the past 36 hours and
+     *     at most 1 hour before <code>to</code>. If not provided, the start of the query window is
+     *     15 minutes before the <code>to</code> timestamp. If neither <code>from</code> nor <code>
+     *     to</code> is provided, the query window is <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters from(Long from) {
@@ -95,10 +99,10 @@ public class ProcessesApi {
     /**
      * Set to.
      *
-     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
-     *     not provided, the end of the query window will be 15 minutes after the <code>from</code>
-     *     timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query
-     *     window will be <code>[now - 15m, now]</code>. (optional)
+     * @param to End of the query window, in Unix seconds. Must be at most 1 hour after <code>from
+     *     </code>. If not provided, the end of the query window is 15 minutes after the <code>from
+     *     </code> timestamp. If neither <code>from</code> nor <code>to</code> is provided, the
+     *     query window is <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters to(Long to) {
@@ -243,7 +247,14 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes for your organization.
+   * Get processes collected by Live Processes for your organization. One request covers a window of
+   * at most 1 hour that starts within the past 36 hours. To cover a longer period, make one request
+   * per hour. Older data is not available from this endpoint.
+   *
+   * <p>When a process includes <code>identifying_tags</code>, pass them as <code>tag_filters</code>
+   * in a <code>process</code> data source query to <code>/api/v2/query/scalar</code> or <code>
+   * /api/v2/query/timeseries</code> to get CPU or memory metrics for that one process. If absent,
+   * don't substitute an empty filter, which would query all processes.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ProcessSummariesResponse&gt;

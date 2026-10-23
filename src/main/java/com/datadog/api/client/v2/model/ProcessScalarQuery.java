@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A query for host-level process metrics such as CPU and memory usage. */
+/**
+ * Per-process metrics from Live Processes. Queries without <code>aggregator</code> fail. To scope
+ * to one process, set <code>tag_filters</code> to its <code>identifying_tags</code> from <code>
+ * GET /api/v2/processes</code>.
+ */
 @JsonPropertyOrder({
   ProcessScalarQuery.JSON_PROPERTY_AGGREGATOR,
   ProcessScalarQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
@@ -187,7 +191,9 @@ public class ProcessScalarQuery {
   }
 
   /**
-   * Maximum number of results to return.
+   * Maximum number of processes or groups to return. Large values can fail with an <code>
+   * Unprocessable
+   * Content</code> error. If so, retry with a smaller limit.
    *
    * @return limit
    */
@@ -208,7 +214,8 @@ public class ProcessScalarQuery {
   }
 
   /**
-   * The process metric to query.
+   * The process metric to query, such as <code>process.stat.cpu.total_pct</code>, <code>
+   * process.stat.memory.rss</code>, or <code>process.stat.memory.vms</code>.
    *
    * @return metric
    */
@@ -281,7 +288,9 @@ public class ProcessScalarQuery {
   }
 
   /**
-   * Tag filters to narrow down processes.
+   * Tags to narrow down processes. To scope to one process, use its <code>identifying_tags</code>
+   * from <code>GET /api/v2/processes</code>, for example <code>host:web-01</code> and <code>
+   * pid:1234</code>.
    *
    * @return tagFilters
    */
