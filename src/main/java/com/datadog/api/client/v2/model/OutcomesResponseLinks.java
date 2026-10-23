@@ -16,14 +16,74 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Links attributes. */
-@JsonPropertyOrder({OutcomesResponseLinks.JSON_PROPERTY_NEXT})
+/** Pagination links for rule outcomes. */
+@JsonPropertyOrder({
+  OutcomesResponseLinks.JSON_PROPERTY_FIRST,
+  OutcomesResponseLinks.JSON_PROPERTY_LAST,
+  OutcomesResponseLinks.JSON_PROPERTY_NEXT,
+  OutcomesResponseLinks.JSON_PROPERTY_PREVIOUS,
+  OutcomesResponseLinks.JSON_PROPERTY_SELF
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OutcomesResponseLinks {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FIRST = "first";
+  private String first;
+
+  public static final String JSON_PROPERTY_LAST = "last";
+  private String last;
+
   public static final String JSON_PROPERTY_NEXT = "next";
   private String next;
+
+  public static final String JSON_PROPERTY_PREVIOUS = "previous";
+  private String previous;
+
+  public static final String JSON_PROPERTY_SELF = "self";
+  private String self;
+
+  public OutcomesResponseLinks first(String first) {
+    this.first = first;
+    return this;
+  }
+
+  /**
+   * Link for the first set of results.
+   *
+   * @return first
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIRST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFirst() {
+    return first;
+  }
+
+  public void setFirst(String first) {
+    this.first = first;
+  }
+
+  public OutcomesResponseLinks last(String last) {
+    this.last = last;
+    return this;
+  }
+
+  /**
+   * Link for the last set of results.
+   *
+   * @return last
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLast() {
+    return last;
+  }
+
+  public void setLast(String last) {
+    this.last = last;
+  }
 
   public OutcomesResponseLinks next(String next) {
     this.next = next;
@@ -44,6 +104,48 @@ public class OutcomesResponseLinks {
 
   public void setNext(String next) {
     this.next = next;
+  }
+
+  public OutcomesResponseLinks previous(String previous) {
+    this.previous = previous;
+    return this;
+  }
+
+  /**
+   * Link for the previous set of results.
+   *
+   * @return previous
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PREVIOUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPrevious() {
+    return previous;
+  }
+
+  public void setPrevious(String previous) {
+    this.previous = previous;
+  }
+
+  public OutcomesResponseLinks self(String self) {
+    this.self = self;
+    return this;
+  }
+
+  /**
+   * Link for the current set of results.
+   *
+   * @return self
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SELF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSelf() {
+    return self;
+  }
+
+  public void setSelf(String self) {
+    this.self = self;
   }
 
   /**
@@ -102,20 +204,28 @@ public class OutcomesResponseLinks {
       return false;
     }
     OutcomesResponseLinks outcomesResponseLinks = (OutcomesResponseLinks) o;
-    return Objects.equals(this.next, outcomesResponseLinks.next)
+    return Objects.equals(this.first, outcomesResponseLinks.first)
+        && Objects.equals(this.last, outcomesResponseLinks.last)
+        && Objects.equals(this.next, outcomesResponseLinks.next)
+        && Objects.equals(this.previous, outcomesResponseLinks.previous)
+        && Objects.equals(this.self, outcomesResponseLinks.self)
         && Objects.equals(this.additionalProperties, outcomesResponseLinks.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(next, additionalProperties);
+    return Objects.hash(first, last, next, previous, self, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutcomesResponseLinks {\n");
+    sb.append("    first: ").append(toIndentedString(first)).append("\n");
+    sb.append("    last: ").append(toIndentedString(last)).append("\n");
     sb.append("    next: ").append(toIndentedString(next)).append("\n");
+    sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
+    sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
