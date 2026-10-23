@@ -18,7 +18,7 @@ public class Example {
     LogsListRequest body =
         new LogsListRequest()
             .index("retention-3,retention-15")
-            .query("service:web* AND @http.status_code:[200 TO 299]")
+            .query("service:web-api AND @http.status_code:[200 TO 299]")
             .sort(LogsSort.TIME_ASCENDING)
             .time(
                 new LogsListRequestTime()
