@@ -41,7 +41,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationBatch {
   }
 
   /**
-   * Maximum batch size in bytes. minimum: 1 maximum: 4000000
+   * Maximum batch size in bytes. minimum: 1 maximum: 1000000000
    *
    * @return maxBytes
    */
