@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the resource is of type 'overrides'. */
+/** Indicates that the resource is of type <code>overrides</code>. */
 @JsonSerialize(using = OverrideDataType.OverrideDataTypeSerializer.class)
 public class OverrideDataType extends ModelEnum<String> {
 

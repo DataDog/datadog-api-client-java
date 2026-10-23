@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the resource is of type 'shifts'. */
+/** Indicates that the resource is of type <code>shifts</code>. */
 @JsonSerialize(using = ShiftDataType.ShiftDataTypeSerializer.class)
 public class ShiftDataType extends ModelEnum<String> {
 

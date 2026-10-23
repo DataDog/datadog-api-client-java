@@ -98,7 +98,7 @@ public class NotificationChannelData {
   }
 
   /**
-   * Indicates that the resource is of type 'notification_channels'.
+   * Indicates that the resource is of type <code>notification_channels</code>.
    *
    * @return type
    */

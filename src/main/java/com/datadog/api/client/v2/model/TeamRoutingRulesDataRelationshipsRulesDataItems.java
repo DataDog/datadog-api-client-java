@@ -73,7 +73,7 @@ public class TeamRoutingRulesDataRelationshipsRulesDataItems {
   }
 
   /**
-   * Indicates that the resource is of type 'team_routing_rules'.
+   * Indicates that the resource is of type <code>team_routing_rules</code>.
    *
    * @return type
    */
