@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A query for host-level process metrics such as CPU and memory usage. */
+/**
+ * Per-process metrics from Live Processes over time, such as CPU and memory usage. To scope to one
+ * process, set <code>tag_filters</code> to its <code>identifying_tags</code> from <code>
+ * GET /api/v2/processes</code>.
+ */
 @JsonPropertyOrder({
   ProcessTimeseriesQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   ProcessTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -158,7 +162,9 @@ public class ProcessTimeseriesQuery {
   }
 
   /**
-   * Maximum number of results to return.
+   * Maximum number of processes or groups to return. Large values can fail with an <code>
+   * Unprocessable
+   * Content</code> error. If so, retry with a smaller limit.
    *
    * @return limit
    */
@@ -179,7 +185,8 @@ public class ProcessTimeseriesQuery {
   }
 
   /**
-   * The process metric to query.
+   * The process metric to query, such as <code>process.stat.cpu.total_pct</code>, <code>
+   * process.stat.memory.rss</code>, or <code>process.stat.memory.vms</code>.
    *
    * @return metric
    */
@@ -252,7 +259,9 @@ public class ProcessTimeseriesQuery {
   }
 
   /**
-   * Tag filters to narrow down processes.
+   * Tags to narrow down processes. To scope to one process, use its <code>identifying_tags</code>
+   * from <code>GET /api/v2/processes</code>, for example <code>host:web-01</code> and <code>
+   * pid:1234</code>.
    *
    * @return tagFilters
    */
