@@ -26,6 +26,7 @@ import java.util.Objects;
   RoleUpdateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleUpdateAttributes.JSON_PROPERTY_NAME,
   RoleUpdateAttributes.JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM,
+  RoleUpdateAttributes.JSON_PROPERTY_TEAM_COUNT,
   RoleUpdateAttributes.JSON_PROPERTY_USER_COUNT
 })
 @jakarta.annotation.Generated(
@@ -47,6 +48,9 @@ public class RoleUpdateAttributes {
 
   public static final String JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM = "receives_permissions_from";
   private List<String> receivesPermissionsFrom = null;
+
+  public static final String JSON_PROPERTY_TEAM_COUNT = "team_count";
+  private Long teamCount;
 
   public static final String JSON_PROPERTY_USER_COUNT = "user_count";
   private Integer userCount;
@@ -152,6 +156,18 @@ public class RoleUpdateAttributes {
     this.receivesPermissionsFrom = receivesPermissionsFrom;
   }
 
+  /**
+   * Number of teams with that role.
+   *
+   * @return teamCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTeamCount() {
+    return teamCount;
+  }
+
   public RoleUpdateAttributes userCount(Integer userCount) {
     this.userCount = userCount;
     return this;
@@ -236,6 +252,7 @@ public class RoleUpdateAttributes {
         && Objects.equals(this.name, roleUpdateAttributes.name)
         && Objects.equals(
             this.receivesPermissionsFrom, roleUpdateAttributes.receivesPermissionsFrom)
+        && Objects.equals(this.teamCount, roleUpdateAttributes.teamCount)
         && Objects.equals(this.userCount, roleUpdateAttributes.userCount)
         && Objects.equals(this.additionalProperties, roleUpdateAttributes.additionalProperties);
   }
@@ -248,6 +265,7 @@ public class RoleUpdateAttributes {
         modifiedAt,
         name,
         receivesPermissionsFrom,
+        teamCount,
         userCount,
         additionalProperties);
   }
@@ -265,6 +283,7 @@ public class RoleUpdateAttributes {
     sb.append("    receivesPermissionsFrom: ")
         .append(toIndentedString(receivesPermissionsFrom))
         .append("\n");
+    sb.append("    teamCount: ").append(toIndentedString(teamCount)).append("\n");
     sb.append("    userCount: ").append(toIndentedString(userCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
