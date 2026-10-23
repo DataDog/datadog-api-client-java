@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -23,7 +25,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   EscalationPolicyDataAttributes.JSON_PROPERTY_NAME,
   EscalationPolicyDataAttributes.JSON_PROPERTY_RESOLVE_PAGE_ON_POLICY_END,
-  EscalationPolicyDataAttributes.JSON_PROPERTY_RETRIES
+  EscalationPolicyDataAttributes.JSON_PROPERTY_RETRIES,
+  EscalationPolicyDataAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +41,9 @@ public class EscalationPolicyDataAttributes {
 
   public static final String JSON_PROPERTY_RETRIES = "retries";
   private Long retries;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public EscalationPolicyDataAttributes() {}
 
@@ -110,6 +116,35 @@ public class EscalationPolicyDataAttributes {
     this.retries = retries;
   }
 
+  public EscalationPolicyDataAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public EscalationPolicyDataAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * A list of tags attached to the escalation policy, in <code>key:value</code> format.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -171,13 +206,14 @@ public class EscalationPolicyDataAttributes {
         && Objects.equals(
             this.resolvePageOnPolicyEnd, escalationPolicyDataAttributes.resolvePageOnPolicyEnd)
         && Objects.equals(this.retries, escalationPolicyDataAttributes.retries)
+        && Objects.equals(this.tags, escalationPolicyDataAttributes.tags)
         && Objects.equals(
             this.additionalProperties, escalationPolicyDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, resolvePageOnPolicyEnd, retries, additionalProperties);
+    return Objects.hash(name, resolvePageOnPolicyEnd, retries, tags, additionalProperties);
   }
 
   @Override
@@ -189,6 +225,7 @@ public class EscalationPolicyDataAttributes {
         .append(toIndentedString(resolvePageOnPolicyEnd))
         .append("\n");
     sb.append("    retries: ").append(toIndentedString(retries)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

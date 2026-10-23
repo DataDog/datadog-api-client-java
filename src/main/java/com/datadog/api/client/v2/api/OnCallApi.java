@@ -8,8 +8,10 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreateOnCallNotificationRuleRequest;
 import com.datadog.api.client.v2.model.CreateOverridesRequest;
 import com.datadog.api.client.v2.model.CreateUserNotificationChannelRequest;
+import com.datadog.api.client.v2.model.EscalationPolicies;
 import com.datadog.api.client.v2.model.EscalationPolicy;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequest;
+import com.datadog.api.client.v2.model.EscalationPolicyListItem;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequest;
 import com.datadog.api.client.v2.model.ListNotificationChannelsResponse;
 import com.datadog.api.client.v2.model.ListOnCallNotificationRulesResponse;
@@ -3473,6 +3475,381 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OnCallNotificationRule>() {});
+  }
+
+  /** Manage optional parameters to listOnCallEscalationPolicies. */
+  public static class ListOnCallEscalationPoliciesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String filterQuery;
+    private String filterTeamId;
+    private String filterUserId;
+    private String filterScheduleId;
+    private String filterTags;
+    private String filterTagsAny;
+    private String include;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of escalation policies to return per page. The maximum allowed value
+     *     is 50. (optional, default to 20)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery Search query to filter escalation policies. Supports free-text search on
+     *     the policy name (case-insensitive) and structured filters on <code>team.id</code> and
+     *     <code>tags</code>. When set, <code>filter[team_id]</code>, <code>filter[user_id]</code>,
+     *     and <code>filter[schedule_id]</code> are ignored. Can't be combined with <code>
+     *     filter[tags]</code> or <code>filter[tags_any]</code>. (optional)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set filterTeamId.
+     *
+     * @param filterTeamId Comma-separated list of team IDs. Returns escalation policies that belong
+     *     to any of these teams or have a step targeting any of them. (optional)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters filterTeamId(String filterTeamId) {
+      this.filterTeamId = filterTeamId;
+      return this;
+    }
+
+    /**
+     * Set filterUserId.
+     *
+     * @param filterUserId Comma-separated list of user IDs. Returns escalation policies with a step
+     *     targeting any of these users. (optional)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters filterUserId(String filterUserId) {
+      this.filterUserId = filterUserId;
+      return this;
+    }
+
+    /**
+     * Set filterScheduleId.
+     *
+     * @param filterScheduleId Comma-separated list of schedule IDs. Returns escalation policies
+     *     with a step targeting any of these schedules. (optional)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters filterScheduleId(
+        String filterScheduleId) {
+      this.filterScheduleId = filterScheduleId;
+      return this;
+    }
+
+    /**
+     * Set filterTags.
+     *
+     * @param filterTags Comma-separated list of <code>key:value</code> tags. Returns escalation
+     *     policies that have all of these tags. (optional)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters filterTags(String filterTags) {
+      this.filterTags = filterTags;
+      return this;
+    }
+
+    /**
+     * Set filterTagsAny.
+     *
+     * @param filterTagsAny Comma-separated list of <code>key:value</code> tags. Returns escalation
+     *     policies that have at least one of these tags. (optional)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters filterTagsAny(String filterTagsAny) {
+      this.filterTagsAny = filterTagsAny;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>teams</code>, <code>steps</code>, <code>steps.targets</code>, <code>
+     *     steps.targets.schedule</code>, <code>user.color</code>. <code>user.color</code> populates
+     *     the <code>color</code> attribute of users included through <code>steps.targets</code>.
+     *     (optional)
+     * @return ListOnCallEscalationPoliciesOptionalParameters
+     */
+    public ListOnCallEscalationPoliciesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * List On-Call escalation policies.
+   *
+   * <p>See {@link #listOnCallEscalationPoliciesWithHttpInfo}.
+   *
+   * @return EscalationPolicies
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicies listOnCallEscalationPolicies() throws ApiException {
+    return listOnCallEscalationPoliciesWithHttpInfo(
+            new ListOnCallEscalationPoliciesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List On-Call escalation policies.
+   *
+   * <p>See {@link #listOnCallEscalationPoliciesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;EscalationPolicies&gt;
+   */
+  public CompletableFuture<EscalationPolicies> listOnCallEscalationPoliciesAsync() {
+    return listOnCallEscalationPoliciesWithHttpInfoAsync(
+            new ListOnCallEscalationPoliciesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call escalation policies.
+   *
+   * <p>See {@link #listOnCallEscalationPoliciesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return EscalationPolicies
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicies listOnCallEscalationPolicies(
+      ListOnCallEscalationPoliciesOptionalParameters parameters) throws ApiException {
+    return listOnCallEscalationPoliciesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List On-Call escalation policies.
+   *
+   * <p>See {@link #listOnCallEscalationPoliciesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;EscalationPolicies&gt;
+   */
+  public CompletableFuture<EscalationPolicies> listOnCallEscalationPoliciesAsync(
+      ListOnCallEscalationPoliciesOptionalParameters parameters) {
+    return listOnCallEscalationPoliciesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call escalation policies.
+   *
+   * <p>See {@link #listOnCallEscalationPoliciesWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;EscalationPolicyListItem&gt;
+   */
+  public PaginationIterable<EscalationPolicyListItem> listOnCallEscalationPoliciesWithPagination() {
+    ListOnCallEscalationPoliciesOptionalParameters parameters =
+        new ListOnCallEscalationPoliciesOptionalParameters();
+    return listOnCallEscalationPoliciesWithPagination(parameters);
+  }
+
+  /**
+   * List On-Call escalation policies.
+   *
+   * <p>See {@link #listOnCallEscalationPoliciesWithHttpInfo}.
+   *
+   * @return EscalationPolicies
+   */
+  public PaginationIterable<EscalationPolicyListItem> listOnCallEscalationPoliciesWithPagination(
+      ListOnCallEscalationPoliciesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 20l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listOnCallEscalationPolicies",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Retrieve a paginated list of On-Call escalation policies, sorted by name.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;EscalationPolicies&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EscalationPolicies> listOnCallEscalationPoliciesWithHttpInfo(
+      ListOnCallEscalationPoliciesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    String filterTeamId = parameters.filterTeamId;
+    String filterUserId = parameters.filterUserId;
+    String filterScheduleId = parameters.filterScheduleId;
+    String filterTags = parameters.filterTags;
+    String filterTagsAny = parameters.filterTagsAny;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/escalation-policies";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[team_id]", filterTeamId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[user_id]", filterUserId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[schedule_id]", filterScheduleId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags_any]", filterTagsAny));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.listOnCallEscalationPolicies",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicies>() {});
+  }
+
+  /**
+   * List On-Call escalation policies.
+   *
+   * <p>See {@link #listOnCallEscalationPoliciesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;EscalationPolicies&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EscalationPolicies>>
+      listOnCallEscalationPoliciesWithHttpInfoAsync(
+          ListOnCallEscalationPoliciesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    String filterTeamId = parameters.filterTeamId;
+    String filterUserId = parameters.filterUserId;
+    String filterScheduleId = parameters.filterScheduleId;
+    String filterTags = parameters.filterTags;
+    String filterTagsAny = parameters.filterTagsAny;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/escalation-policies";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[team_id]", filterTeamId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[user_id]", filterUserId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[schedule_id]", filterScheduleId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags_any]", filterTagsAny));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.listOnCallEscalationPolicies",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EscalationPolicies>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicies>() {});
   }
 
   /** Manage optional parameters to listOnCallSchedules. */

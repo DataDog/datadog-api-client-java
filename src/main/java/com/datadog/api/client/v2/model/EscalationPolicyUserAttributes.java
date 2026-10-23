@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Provides basic user information for an escalation policy, including a name and email address. */
 @JsonPropertyOrder({
+  EscalationPolicyUserAttributes.JSON_PROPERTY_COLOR,
   EscalationPolicyUserAttributes.JSON_PROPERTY_EMAIL,
   EscalationPolicyUserAttributes.JSON_PROPERTY_NAME,
   EscalationPolicyUserAttributes.JSON_PROPERTY_STATUS
@@ -26,6 +27,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EscalationPolicyUserAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COLOR = "color";
+  private String color;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
@@ -34,6 +38,28 @@ public class EscalationPolicyUserAttributes {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private UserAttributesStatus status;
+
+  public EscalationPolicyUserAttributes color(String color) {
+    this.color = color;
+    return this;
+  }
+
+  /**
+   * The user's on-call color, as a hex code (for example, <code>#FF0000</code>). Included only when
+   * <code>user.color</code> is requested in the <code>include</code> parameter.
+   *
+   * @return color
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
 
   public EscalationPolicyUserAttributes email(String email) {
     this.email = email;
@@ -159,7 +185,8 @@ public class EscalationPolicyUserAttributes {
     }
     EscalationPolicyUserAttributes escalationPolicyUserAttributes =
         (EscalationPolicyUserAttributes) o;
-    return Objects.equals(this.email, escalationPolicyUserAttributes.email)
+    return Objects.equals(this.color, escalationPolicyUserAttributes.color)
+        && Objects.equals(this.email, escalationPolicyUserAttributes.email)
         && Objects.equals(this.name, escalationPolicyUserAttributes.name)
         && Objects.equals(this.status, escalationPolicyUserAttributes.status)
         && Objects.equals(
@@ -168,13 +195,14 @@ public class EscalationPolicyUserAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, name, status, additionalProperties);
+    return Objects.hash(color, email, name, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EscalationPolicyUserAttributes {\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
