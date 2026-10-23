@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   RoleTemplateData.JSON_PROPERTY_ATTRIBUTES,
   RoleTemplateData.JSON_PROPERTY_ID,
+  RoleTemplateData.JSON_PROPERTY_RELATIONSHIPS,
   RoleTemplateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -32,6 +33,9 @@ public class RoleTemplateData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private RoleResponseRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private RoleTemplateDataType type = RoleTemplateDataType.ROLES;
@@ -89,6 +93,31 @@ public class RoleTemplateData {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public RoleTemplateData relationships(RoleResponseRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships of the role object returned by the API.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RoleResponseRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(RoleResponseRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public RoleTemplateData type(RoleTemplateDataType type) {
@@ -173,13 +202,14 @@ public class RoleTemplateData {
     RoleTemplateData roleTemplateData = (RoleTemplateData) o;
     return Objects.equals(this.attributes, roleTemplateData.attributes)
         && Objects.equals(this.id, roleTemplateData.id)
+        && Objects.equals(this.relationships, roleTemplateData.relationships)
         && Objects.equals(this.type, roleTemplateData.type)
         && Objects.equals(this.additionalProperties, roleTemplateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -188,6 +218,7 @@ public class RoleTemplateData {
     sb.append("class RoleTemplateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
