@@ -266,7 +266,7 @@ public class ObservabilityPipelineConfig {
    * queries. After migrating all queries to the new syntax, set to <code>false</code>. The legacy
    * syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker
    * 2.11 or later. Only applies to <code>logs</code> pipelines. This field is ignored for <code>
-   * metrics</code> pipelines. See <a
+   * metrics</code> and <code>traces</code> pipelines. See <a
    * href="https://docs.datadoghq.com/observability_pipelines/guide/upgrade_your_filter_queries_to_the_new_search_syntax/">Upgrade
    * Your Filter Queries to the New Search Syntax</a> for more information.
    *

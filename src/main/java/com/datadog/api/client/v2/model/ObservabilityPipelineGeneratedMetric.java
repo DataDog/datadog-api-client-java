@@ -20,8 +20,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Defines a log-based custom metric, including its name, type, filter, value computation strategy,
- * and optional grouping fields.
+ * Defines a custom metric generated from logs or traces, including its name, type, filter, value
+ * computation strategy, and optional grouping fields.
  */
 @JsonPropertyOrder({
   ObservabilityPipelineGeneratedMetric.JSON_PROPERTY_GROUP_BY,
@@ -102,7 +102,7 @@ public class ObservabilityPipelineGeneratedMetric {
   }
 
   /**
-   * Datadog filter query to match logs for metric generation.
+   * Datadog filter query to match events for metric generation.
    *
    * @return include
    */

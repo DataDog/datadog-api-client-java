@@ -24,7 +24,7 @@ import java.util.Objects;
  * href="https://vector.dev/docs/reference/vrl/">Vector Remap Language (VRL)</a> scripts with
  * advanced filtering capabilities.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> logs, traces
  */
 @JsonPropertyOrder({
   ObservabilityPipelineCustomProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -146,7 +146,7 @@ public class ObservabilityPipelineCustomProcessor {
   }
 
   /**
-   * A Datadog search query used to determine which logs this processor targets. This field should
+   * A Datadog search query used to determine which events this processor targets. This field should
    * always be set to <code>*</code> for the custom_processor processor.
    *
    * @return include

@@ -20,22 +20,22 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>opentelemetry</code> destination forwards metrics using the OpenTelemetry Protocol
- * (OTLP) over HTTP.
+ * The <code>opentelemetry</code> destination forwards metrics or traces using the OpenTelemetry
+ * Protocol (OTLP) over HTTP.
  *
- * <p><strong>Supported pipeline types:</strong> metrics
+ * <p><strong>Supported pipeline types:</strong> metrics, traces
  */
 @JsonPropertyOrder({
-  ObservabilityPipelineOpentelemetryMetricsDestination.JSON_PROPERTY_BUFFER,
-  ObservabilityPipelineOpentelemetryMetricsDestination.JSON_PROPERTY_HTTP_CLIENT_URI_KEY,
-  ObservabilityPipelineOpentelemetryMetricsDestination.JSON_PROPERTY_ID,
-  ObservabilityPipelineOpentelemetryMetricsDestination.JSON_PROPERTY_INPUTS,
-  ObservabilityPipelineOpentelemetryMetricsDestination.JSON_PROPERTY_TLS,
-  ObservabilityPipelineOpentelemetryMetricsDestination.JSON_PROPERTY_TYPE
+  ObservabilityPipelineOpentelemetryDestination.JSON_PROPERTY_BUFFER,
+  ObservabilityPipelineOpentelemetryDestination.JSON_PROPERTY_HTTP_CLIENT_URI_KEY,
+  ObservabilityPipelineOpentelemetryDestination.JSON_PROPERTY_ID,
+  ObservabilityPipelineOpentelemetryDestination.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineOpentelemetryDestination.JSON_PROPERTY_TLS,
+  ObservabilityPipelineOpentelemetryDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineOpentelemetryMetricsDestination {
+public class ObservabilityPipelineOpentelemetryDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
@@ -53,24 +53,24 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineOpentelemetryMetricsDestinationType type =
-      ObservabilityPipelineOpentelemetryMetricsDestinationType.OPENTELEMETRY;
+  private ObservabilityPipelineOpentelemetryDestinationType type =
+      ObservabilityPipelineOpentelemetryDestinationType.OPENTELEMETRY;
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination() {}
+  public ObservabilityPipelineOpentelemetryDestination() {}
 
   @JsonCreator
-  public ObservabilityPipelineOpentelemetryMetricsDestination(
+  public ObservabilityPipelineOpentelemetryDestination(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineOpentelemetryMetricsDestinationType type) {
+          ObservabilityPipelineOpentelemetryDestinationType type) {
     this.id = id;
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination buffer(
+  public ObservabilityPipelineOpentelemetryDestination buffer(
       ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
     this.unparsed |= buffer.unparsed;
@@ -96,14 +96,14 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
     }
   }
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination httpClientUriKey(
-      String httpClientUriKey) {
+  public ObservabilityPipelineOpentelemetryDestination httpClientUriKey(String httpClientUriKey) {
     this.httpClientUriKey = httpClientUriKey;
     return this;
   }
 
   /**
-   * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+   * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or
+   * traces to.
    *
    * @return httpClientUriKey
    */
@@ -118,7 +118,7 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
     this.httpClientUriKey = httpClientUriKey;
   }
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination id(String id) {
+  public ObservabilityPipelineOpentelemetryDestination id(String id) {
     this.id = id;
     return this;
   }
@@ -139,12 +139,12 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
     this.id = id;
   }
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination inputs(List<String> inputs) {
+  public ObservabilityPipelineOpentelemetryDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
   }
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination addInputsItem(String inputsItem) {
+  public ObservabilityPipelineOpentelemetryDestination addInputsItem(String inputsItem) {
     this.inputs.add(inputsItem);
     return this;
   }
@@ -164,7 +164,7 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
     this.inputs = inputs;
   }
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination tls(ObservabilityPipelineTls tls) {
+  public ObservabilityPipelineOpentelemetryDestination tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
@@ -189,8 +189,8 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
     }
   }
 
-  public ObservabilityPipelineOpentelemetryMetricsDestination type(
-      ObservabilityPipelineOpentelemetryMetricsDestinationType type) {
+  public ObservabilityPipelineOpentelemetryDestination type(
+      ObservabilityPipelineOpentelemetryDestinationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -203,11 +203,11 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineOpentelemetryMetricsDestinationType getType() {
+  public ObservabilityPipelineOpentelemetryDestinationType getType() {
     return type;
   }
 
-  public void setType(ObservabilityPipelineOpentelemetryMetricsDestinationType type) {
+  public void setType(ObservabilityPipelineOpentelemetryDestinationType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -226,10 +226,10 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineOpentelemetryMetricsDestination
+   * @return ObservabilityPipelineOpentelemetryDestination
    */
   @JsonAnySetter
-  public ObservabilityPipelineOpentelemetryMetricsDestination putAdditionalProperty(
+  public ObservabilityPipelineOpentelemetryDestination putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -261,9 +261,7 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineOpentelemetryMetricsDestination object is equal to o.
-   */
+  /** Return true if this ObservabilityPipelineOpentelemetryDestination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -272,20 +270,18 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineOpentelemetryMetricsDestination
-        observabilityPipelineOpentelemetryMetricsDestination =
-            (ObservabilityPipelineOpentelemetryMetricsDestination) o;
-    return Objects.equals(this.buffer, observabilityPipelineOpentelemetryMetricsDestination.buffer)
+    ObservabilityPipelineOpentelemetryDestination observabilityPipelineOpentelemetryDestination =
+        (ObservabilityPipelineOpentelemetryDestination) o;
+    return Objects.equals(this.buffer, observabilityPipelineOpentelemetryDestination.buffer)
         && Objects.equals(
-            this.httpClientUriKey,
-            observabilityPipelineOpentelemetryMetricsDestination.httpClientUriKey)
-        && Objects.equals(this.id, observabilityPipelineOpentelemetryMetricsDestination.id)
-        && Objects.equals(this.inputs, observabilityPipelineOpentelemetryMetricsDestination.inputs)
-        && Objects.equals(this.tls, observabilityPipelineOpentelemetryMetricsDestination.tls)
-        && Objects.equals(this.type, observabilityPipelineOpentelemetryMetricsDestination.type)
+            this.httpClientUriKey, observabilityPipelineOpentelemetryDestination.httpClientUriKey)
+        && Objects.equals(this.id, observabilityPipelineOpentelemetryDestination.id)
+        && Objects.equals(this.inputs, observabilityPipelineOpentelemetryDestination.inputs)
+        && Objects.equals(this.tls, observabilityPipelineOpentelemetryDestination.tls)
+        && Objects.equals(this.type, observabilityPipelineOpentelemetryDestination.type)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineOpentelemetryMetricsDestination.additionalProperties);
+            observabilityPipelineOpentelemetryDestination.additionalProperties);
   }
 
   @Override
@@ -296,7 +292,7 @@ public class ObservabilityPipelineOpentelemetryMetricsDestination {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineOpentelemetryMetricsDestination {\n");
+    sb.append("class ObservabilityPipelineOpentelemetryDestination {\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    httpClientUriKey: ").append(toIndentedString(httpClientUriKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

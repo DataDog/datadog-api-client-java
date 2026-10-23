@@ -20,9 +20,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate.
+ * The <code>sample</code> processor allows probabilistic sampling of logs or traces at a fixed
+ * rate.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> logs, traces
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -174,7 +175,7 @@ public class ObservabilityPipelineSampleProcessor {
   }
 
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * A Datadog search query used to determine which events this processor targets.
    *
    * @return include
    */
@@ -194,7 +195,7 @@ public class ObservabilityPipelineSampleProcessor {
   }
 
   /**
-   * The percentage of logs to sample.
+   * The percentage of events to sample.
    *
    * @return percentage
    */

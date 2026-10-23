@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>datadog_agent</code> source collects logs/metrics from the Datadog Agent.
+ * The <code>datadog_agent</code> source collects logs, metrics, or traces from the Datadog Agent.
  *
- * <p><strong>Supported pipeline types:</strong> logs, metrics
+ * <p><strong>Supported pipeline types:</strong> logs, metrics, traces
  */
 @JsonPropertyOrder({
   ObservabilityPipelineDatadogAgentSource.JSON_PROPERTY_ADDRESS_KEY,
