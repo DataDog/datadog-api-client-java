@@ -2185,6 +2185,12 @@ public class RolesApi {
    * if they are omitted from the request. To exclude them, set <code>default_permissions_opt_out
    * </code> to <code>true</code>.
    *
+   * <p>Omitting the <code>permissions</code> relationship from the request leaves the role's
+   * existing permissions unchanged. Sending <code>"permissions": {"data": []}</code> removes all
+   * permissions except restricted default permissions, which remain unless <code>
+   * default_permissions_opt_out</code> is <code>true</code>. Some restricted permissions can only
+   * be excluded after Minimal Access Roles is enabled for the organization.
+   *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return ApiResponse&lt;RoleUpdateResponse&gt;
