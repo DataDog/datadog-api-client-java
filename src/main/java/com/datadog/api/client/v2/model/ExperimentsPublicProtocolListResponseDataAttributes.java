@@ -20,6 +20,7 @@ import java.util.Objects;
 /** Summary of the protocol and its selected subject type and primary metric. */
 @JsonPropertyOrder({
   ExperimentsPublicProtocolListResponseDataAttributes.JSON_PROPERTY_DESCRIPTION,
+  ExperimentsPublicProtocolListResponseDataAttributes.JSON_PROPERTY_EXPERIMENT_COUNT,
   ExperimentsPublicProtocolListResponseDataAttributes.JSON_PROPERTY_NAME,
   ExperimentsPublicProtocolListResponseDataAttributes.JSON_PROPERTY_PRIMARY_METRIC,
   ExperimentsPublicProtocolListResponseDataAttributes.JSON_PROPERTY_PRIMARY_METRIC_ID,
@@ -34,6 +35,9 @@ public class ExperimentsPublicProtocolListResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_EXPERIMENT_COUNT = "experiment_count";
+  private Long experimentCount;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -60,10 +64,12 @@ public class ExperimentsPublicProtocolListResponseDataAttributes {
 
   @JsonCreator
   public ExperimentsPublicProtocolListResponseDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXPERIMENT_COUNT) Long experimentCount,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
           ExperimentsPublicProtocolResponseDataAttributesStatus status,
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) String updatedAt) {
+    this.experimentCount = experimentCount;
     this.name = name;
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -89,6 +95,27 @@ public class ExperimentsPublicProtocolListResponseDataAttributes {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ExperimentsPublicProtocolListResponseDataAttributes experimentCount(Long experimentCount) {
+    this.experimentCount = experimentCount;
+    return this;
+  }
+
+  /**
+   * Number of experiments in the organization that use this protocol, excluding deleted
+   * experiments. minimum: 0
+   *
+   * @return experimentCount
+   */
+  @JsonProperty(JSON_PROPERTY_EXPERIMENT_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getExperimentCount() {
+    return experimentCount;
+  }
+
+  public void setExperimentCount(Long experimentCount) {
+    this.experimentCount = experimentCount;
   }
 
   public ExperimentsPublicProtocolListResponseDataAttributes name(String name) {
@@ -239,8 +266,8 @@ public class ExperimentsPublicProtocolListResponseDataAttributes {
   }
 
   /**
-   * RFC3339 update time. Preserve all fractional seconds when passing this value as
-   * expected_updated_at.
+   * RFC3339 update time. Preserve all fractional seconds when passing this value as <code>
+   * expected_updated_at</code>.
    *
    * @return updatedAt
    */
@@ -317,6 +344,9 @@ public class ExperimentsPublicProtocolListResponseDataAttributes {
             (ExperimentsPublicProtocolListResponseDataAttributes) o;
     return Objects.equals(
             this.description, experimentsPublicProtocolListResponseDataAttributes.description)
+        && Objects.equals(
+            this.experimentCount,
+            experimentsPublicProtocolListResponseDataAttributes.experimentCount)
         && Objects.equals(this.name, experimentsPublicProtocolListResponseDataAttributes.name)
         && Objects.equals(
             this.primaryMetric, experimentsPublicProtocolListResponseDataAttributes.primaryMetric)
@@ -339,6 +369,7 @@ public class ExperimentsPublicProtocolListResponseDataAttributes {
   public int hashCode() {
     return Objects.hash(
         description,
+        experimentCount,
         name,
         primaryMetric,
         primaryMetricId,
@@ -354,6 +385,7 @@ public class ExperimentsPublicProtocolListResponseDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExperimentsPublicProtocolListResponseDataAttributes {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    experimentCount: ").append(toIndentedString(experimentCount)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    primaryMetric: ").append(toIndentedString(primaryMetric)).append("\n");
     sb.append("    primaryMetricId: ").append(toIndentedString(primaryMetricId)).append("\n");
