@@ -26,7 +26,7 @@ public class Example {
                 new LogsArchiveCreateRequestDefinition()
                     .attributes(
                         new LogsArchiveCreateRequestAttributes()
-                            .compressionMethod(LogsArchiveAttributesCompressionMethod.GZIP)
+                            .compressionMethod(LogsArchiveAttributesCompressionMethod.ZSTD)
                             .destination(
                                 new LogsArchiveCreateRequestDestination(
                                     new LogsArchiveDestinationAzure()
