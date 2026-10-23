@@ -17,6 +17,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The attributes of a governance control detection. */
 @JsonPropertyOrder({
@@ -42,10 +43,10 @@ import java.util.Objects;
 public class GovernanceControlDetectionAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSIGNED_TEAM = "assigned_team";
-  private String assignedTeam;
+  private JsonNullable<String> assignedTeam = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ASSIGNED_TO = "assigned_to";
-  private String assignedTo;
+  private JsonNullable<String> assignedTo = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ASSIGNMENT_SOURCE = "assignment_source";
   private GovernanceControlDetectionAssignmentSource assignmentSource;
@@ -63,19 +64,19 @@ public class GovernanceControlDetectionAttributes {
   private String displayName;
 
   public static final String JSON_PROPERTY_EXCEPTION_AT = "exception_at";
-  private OffsetDateTime exceptionAt;
+  private JsonNullable<OffsetDateTime> exceptionAt = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_EXCEPTION_BY = "exception_by";
-  private String exceptionBy;
+  private JsonNullable<String> exceptionBy = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Object metadata = null;
 
   public static final String JSON_PROPERTY_MITIGATE_AFTER = "mitigate_after";
-  private OffsetDateTime mitigateAfter;
+  private JsonNullable<OffsetDateTime> mitigateAfter = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_MITIGATED_AT = "mitigated_at";
-  private OffsetDateTime mitigatedAt;
+  private JsonNullable<OffsetDateTime> mitigatedAt = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private Long priority;
@@ -105,20 +106,25 @@ public class GovernanceControlDetectionAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_STATE)
           GovernanceControlDetectionState state) {
     this.assignmentSource = assignmentSource;
-    this.unparsed |= !assignmentSource.isValid();
+    if (assignmentSource != null) {
+      this.unparsed |= !assignmentSource.isValid();
+    }
     this.controlId = controlId;
     this.createdAt = createdAt;
     this.detectionType = detectionType;
     this.displayName = displayName;
+    if (displayName != null) {}
     this.priority = priority;
+    if (priority != null) {}
     this.resourceId = resourceId;
     this.resourceType = resourceType;
+    if (resourceType != null) {}
     this.state = state;
     this.unparsed |= !state.isValid();
   }
 
   public GovernanceControlDetectionAttributes assignedTeam(String assignedTeam) {
-    this.assignedTeam = assignedTeam;
+    this.assignedTeam = JsonNullable.<String>of(assignedTeam);
     return this;
   }
 
@@ -128,18 +134,28 @@ public class GovernanceControlDetectionAttributes {
    * @return assignedTeam
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getAssignedTeam() {
+    return assignedTeam.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TEAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAssignedTeam() {
+  public JsonNullable<String> getAssignedTeam_JsonNullable() {
     return assignedTeam;
   }
 
-  public void setAssignedTeam(String assignedTeam) {
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_TEAM)
+  public void setAssignedTeam_JsonNullable(JsonNullable<String> assignedTeam) {
     this.assignedTeam = assignedTeam;
   }
 
+  public void setAssignedTeam(String assignedTeam) {
+    this.assignedTeam = JsonNullable.<String>of(assignedTeam);
+  }
+
   public GovernanceControlDetectionAttributes assignedTo(String assignedTo) {
-    this.assignedTo = assignedTo;
+    this.assignedTo = JsonNullable.<String>of(assignedTo);
     return this;
   }
 
@@ -149,29 +165,43 @@ public class GovernanceControlDetectionAttributes {
    * @return assignedTo
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getAssignedTo() {
+    return assignedTo.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAssignedTo() {
+  public JsonNullable<String> getAssignedTo_JsonNullable() {
     return assignedTo;
   }
 
-  public void setAssignedTo(String assignedTo) {
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_TO)
+  public void setAssignedTo_JsonNullable(JsonNullable<String> assignedTo) {
     this.assignedTo = assignedTo;
+  }
+
+  public void setAssignedTo(String assignedTo) {
+    this.assignedTo = JsonNullable.<String>of(assignedTo);
   }
 
   public GovernanceControlDetectionAttributes assignmentSource(
       GovernanceControlDetectionAssignmentSource assignmentSource) {
     this.assignmentSource = assignmentSource;
-    this.unparsed |= !assignmentSource.isValid();
+    if (assignmentSource != null) {
+      this.unparsed |= !assignmentSource.isValid();
+    }
     return this;
   }
 
   /**
    * How the detection's current assignment was determined. Possible values are <code>auto_resolved
-   * </code>, <code>manual</code>, <code>reassigned</code>, and <code>cleared</code>.
+   * </code>, <code>manual</code>, <code>reassigned</code>, and <code>cleared</code>. <code>null
+   * </code> when not set.
    *
    * @return assignmentSource
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public GovernanceControlDetectionAssignmentSource getAssignmentSource() {
@@ -251,6 +281,7 @@ public class GovernanceControlDetectionAttributes {
 
   public GovernanceControlDetectionAttributes displayName(String displayName) {
     this.displayName = displayName;
+    if (displayName != null) {}
     return this;
   }
 
@@ -259,6 +290,7 @@ public class GovernanceControlDetectionAttributes {
    *
    * @return displayName
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDisplayName() {
@@ -270,7 +302,7 @@ public class GovernanceControlDetectionAttributes {
   }
 
   public GovernanceControlDetectionAttributes exceptionAt(OffsetDateTime exceptionAt) {
-    this.exceptionAt = exceptionAt;
+    this.exceptionAt = JsonNullable.<OffsetDateTime>of(exceptionAt);
     return this;
   }
 
@@ -280,18 +312,28 @@ public class GovernanceControlDetectionAttributes {
    * @return exceptionAt
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getExceptionAt() {
+    return exceptionAt.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_EXCEPTION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getExceptionAt() {
+  public JsonNullable<OffsetDateTime> getExceptionAt_JsonNullable() {
     return exceptionAt;
   }
 
-  public void setExceptionAt(OffsetDateTime exceptionAt) {
+  @JsonProperty(JSON_PROPERTY_EXCEPTION_AT)
+  public void setExceptionAt_JsonNullable(JsonNullable<OffsetDateTime> exceptionAt) {
     this.exceptionAt = exceptionAt;
   }
 
+  public void setExceptionAt(OffsetDateTime exceptionAt) {
+    this.exceptionAt = JsonNullable.<OffsetDateTime>of(exceptionAt);
+  }
+
   public GovernanceControlDetectionAttributes exceptionBy(String exceptionBy) {
-    this.exceptionBy = exceptionBy;
+    this.exceptionBy = JsonNullable.<String>of(exceptionBy);
     return this;
   }
 
@@ -301,14 +343,24 @@ public class GovernanceControlDetectionAttributes {
    * @return exceptionBy
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getExceptionBy() {
+    return exceptionBy.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_EXCEPTION_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getExceptionBy() {
+  public JsonNullable<String> getExceptionBy_JsonNullable() {
     return exceptionBy;
   }
 
-  public void setExceptionBy(String exceptionBy) {
+  @JsonProperty(JSON_PROPERTY_EXCEPTION_BY)
+  public void setExceptionBy_JsonNullable(JsonNullable<String> exceptionBy) {
     this.exceptionBy = exceptionBy;
+  }
+
+  public void setExceptionBy(String exceptionBy) {
+    this.exceptionBy = JsonNullable.<String>of(exceptionBy);
   }
 
   public GovernanceControlDetectionAttributes metadata(Object metadata) {
@@ -333,7 +385,7 @@ public class GovernanceControlDetectionAttributes {
   }
 
   public GovernanceControlDetectionAttributes mitigateAfter(OffsetDateTime mitigateAfter) {
-    this.mitigateAfter = mitigateAfter;
+    this.mitigateAfter = JsonNullable.<OffsetDateTime>of(mitigateAfter);
     return this;
   }
 
@@ -343,18 +395,28 @@ public class GovernanceControlDetectionAttributes {
    * @return mitigateAfter
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getMitigateAfter() {
+    return mitigateAfter.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MITIGATE_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getMitigateAfter() {
+  public JsonNullable<OffsetDateTime> getMitigateAfter_JsonNullable() {
     return mitigateAfter;
   }
 
-  public void setMitigateAfter(OffsetDateTime mitigateAfter) {
+  @JsonProperty(JSON_PROPERTY_MITIGATE_AFTER)
+  public void setMitigateAfter_JsonNullable(JsonNullable<OffsetDateTime> mitigateAfter) {
     this.mitigateAfter = mitigateAfter;
   }
 
+  public void setMitigateAfter(OffsetDateTime mitigateAfter) {
+    this.mitigateAfter = JsonNullable.<OffsetDateTime>of(mitigateAfter);
+  }
+
   public GovernanceControlDetectionAttributes mitigatedAt(OffsetDateTime mitigatedAt) {
-    this.mitigatedAt = mitigatedAt;
+    this.mitigatedAt = JsonNullable.<OffsetDateTime>of(mitigatedAt);
     return this;
   }
 
@@ -364,18 +426,29 @@ public class GovernanceControlDetectionAttributes {
    * @return mitigatedAt
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getMitigatedAt() {
+    return mitigatedAt.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MITIGATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getMitigatedAt() {
+  public JsonNullable<OffsetDateTime> getMitigatedAt_JsonNullable() {
     return mitigatedAt;
   }
 
-  public void setMitigatedAt(OffsetDateTime mitigatedAt) {
+  @JsonProperty(JSON_PROPERTY_MITIGATED_AT)
+  public void setMitigatedAt_JsonNullable(JsonNullable<OffsetDateTime> mitigatedAt) {
     this.mitigatedAt = mitigatedAt;
+  }
+
+  public void setMitigatedAt(OffsetDateTime mitigatedAt) {
+    this.mitigatedAt = JsonNullable.<OffsetDateTime>of(mitigatedAt);
   }
 
   public GovernanceControlDetectionAttributes priority(Long priority) {
     this.priority = priority;
+    if (priority != null) {}
     return this;
   }
 
@@ -384,6 +457,7 @@ public class GovernanceControlDetectionAttributes {
    *
    * @return priority
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getPriority() {
@@ -416,6 +490,7 @@ public class GovernanceControlDetectionAttributes {
 
   public GovernanceControlDetectionAttributes resourceType(String resourceType) {
     this.resourceType = resourceType;
+    if (resourceType != null) {}
     return this;
   }
 
@@ -425,6 +500,7 @@ public class GovernanceControlDetectionAttributes {
    *
    * @return resourceType
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getResourceType() {
