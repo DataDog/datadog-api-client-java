@@ -20,15 +20,15 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>generate_metrics</code> processor creates custom metrics from logs. Metrics can be
- * counters, gauges, or distributions and optionally grouped by log fields.
+ * The <code>generate_metrics</code> processor creates custom metrics from logs or traces. Metrics
+ * can be counters, gauges, or distributions and optionally grouped by event fields.
  *
  * <p>There must be a destination whose <code>inputs</code> reference this processor with the <code>
  * &lt;processor-id&gt;.metrics</code> suffix to route the generated metrics. All destination types
  * normally supported for <code>metrics</code> pipelines are also supported as metrics destinations
- * in <code>logs</code> pipelines.
+ * in <code>logs</code> and <code>traces</code> pipelines.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> logs, traces
  */
 @JsonPropertyOrder({
   ObservabilityPipelineGenerateMetricsV2Processor.JSON_PROPERTY_DISPLAY_NAME,
@@ -171,7 +171,7 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
   }
 
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * A Datadog search query used to determine which events this processor targets.
    *
    * @return include
    */

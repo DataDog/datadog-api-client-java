@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Strategy that increments a generated metric based on the value of a log field. */
+/** Strategy that increments a generated metric based on the value of an event field. */
 @JsonPropertyOrder({
   ObservabilityPipelineGeneratedMetricIncrementByField.JSON_PROPERTY_FIELD,
   ObservabilityPipelineGeneratedMetricIncrementByField.JSON_PROPERTY_STRATEGY
@@ -50,7 +50,7 @@ public class ObservabilityPipelineGeneratedMetricIncrementByField {
   }
 
   /**
-   * Name of the log field containing the numeric value to increment the metric by.
+   * Name of the field containing the numeric value to increment the metric by.
    *
    * @return field
    */

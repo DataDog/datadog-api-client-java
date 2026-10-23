@@ -21,34 +21,34 @@ import java.util.Set;
 /** The destination type. Always <code>opentelemetry</code>. */
 @JsonSerialize(
     using =
-        ObservabilityPipelineOpentelemetryMetricsDestinationType
-            .ObservabilityPipelineOpentelemetryMetricsDestinationTypeSerializer.class)
-public class ObservabilityPipelineOpentelemetryMetricsDestinationType extends ModelEnum<String> {
+        ObservabilityPipelineOpentelemetryDestinationType
+            .ObservabilityPipelineOpentelemetryDestinationTypeSerializer.class)
+public class ObservabilityPipelineOpentelemetryDestinationType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("opentelemetry"));
 
-  public static final ObservabilityPipelineOpentelemetryMetricsDestinationType OPENTELEMETRY =
-      new ObservabilityPipelineOpentelemetryMetricsDestinationType("opentelemetry");
+  public static final ObservabilityPipelineOpentelemetryDestinationType OPENTELEMETRY =
+      new ObservabilityPipelineOpentelemetryDestinationType("opentelemetry");
 
-  ObservabilityPipelineOpentelemetryMetricsDestinationType(String value) {
+  ObservabilityPipelineOpentelemetryDestinationType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineOpentelemetryMetricsDestinationTypeSerializer
-      extends StdSerializer<ObservabilityPipelineOpentelemetryMetricsDestinationType> {
-    public ObservabilityPipelineOpentelemetryMetricsDestinationTypeSerializer(
-        Class<ObservabilityPipelineOpentelemetryMetricsDestinationType> t) {
+  public static class ObservabilityPipelineOpentelemetryDestinationTypeSerializer
+      extends StdSerializer<ObservabilityPipelineOpentelemetryDestinationType> {
+    public ObservabilityPipelineOpentelemetryDestinationTypeSerializer(
+        Class<ObservabilityPipelineOpentelemetryDestinationType> t) {
       super(t);
     }
 
-    public ObservabilityPipelineOpentelemetryMetricsDestinationTypeSerializer() {
+    public ObservabilityPipelineOpentelemetryDestinationTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        ObservabilityPipelineOpentelemetryMetricsDestinationType value,
+        ObservabilityPipelineOpentelemetryDestinationType value,
         JsonGenerator jgen,
         SerializerProvider provider)
         throws IOException, JsonProcessingException {
@@ -57,7 +57,7 @@ public class ObservabilityPipelineOpentelemetryMetricsDestinationType extends Mo
   }
 
   @JsonCreator
-  public static ObservabilityPipelineOpentelemetryMetricsDestinationType fromValue(String value) {
-    return new ObservabilityPipelineOpentelemetryMetricsDestinationType(value);
+  public static ObservabilityPipelineOpentelemetryDestinationType fromValue(String value) {
+    return new ObservabilityPipelineOpentelemetryDestinationType(value);
   }
 }

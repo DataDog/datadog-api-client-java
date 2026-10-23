@@ -26,12 +26,14 @@ import java.util.Set;
 public class ObservabilityPipelineConfigPipelineType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("logs", "metrics"));
+      new HashSet<String>(Arrays.asList("logs", "metrics", "traces"));
 
   public static final ObservabilityPipelineConfigPipelineType LOGS =
       new ObservabilityPipelineConfigPipelineType("logs");
   public static final ObservabilityPipelineConfigPipelineType METRICS =
       new ObservabilityPipelineConfigPipelineType("metrics");
+  public static final ObservabilityPipelineConfigPipelineType TRACES =
+      new ObservabilityPipelineConfigPipelineType("traces");
 
   ObservabilityPipelineConfigPipelineType(String value) {
     super(value, allowedValues);
