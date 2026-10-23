@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A compute rule to compute metrics or timeseries. */
+/**
+ * A compute rule to compute metrics or timeseries. All computes in a request must have the same
+ * <code>type</code>, and <code>timeseries</code> computes must use the same <code>interval</code>.
+ * To get both totals and timeseries, send separate requests.
+ */
 @JsonPropertyOrder({
   SpansCompute.JSON_PROPERTY_AGGREGATION,
   SpansCompute.JSON_PROPERTY_INTERVAL,

@@ -16,7 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A sort rule. */
+/**
+ * A sort rule. With <code>type: alphabetical</code> (the default), buckets are sorted by facet
+ * value and only <code>order</code> is allowed. With <code>type: measure</code>, buckets are sorted
+ * by a computed value: set <code>aggregation</code>, and set <code>metric</code> unless the
+ * aggregation is <code>count</code>.
+ */
 @JsonPropertyOrder({
   SpansAggregateSort.JSON_PROPERTY_AGGREGATION,
   SpansAggregateSort.JSON_PROPERTY_METRIC,
