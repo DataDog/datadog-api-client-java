@@ -56,7 +56,9 @@ public class EventsApi {
    * @param body Event request object (required)
    * @return EventCreateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public EventCreateResponse createEvent(EventCreateRequest body) throws ApiException {
     return createEventWithHttpInfo(body).getData();
   }
@@ -68,7 +70,9 @@ public class EventsApi {
    *
    * @param body Event request object (required)
    * @return CompletableFuture&lt;EventCreateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<EventCreateResponse> createEventAsync(EventCreateRequest body) {
     return createEventWithHttpInfoAsync(body)
         .thenApply(
@@ -78,7 +82,10 @@ public class EventsApi {
   }
 
   /**
-   * This endpoint allows you to post events to the stream. Tag them, set priority and event
+   * This endpoint is deprecated and is available only to organizations that have previously used
+   * it. Use the V2 endpoint instead.
+   *
+   * <p>This endpoint allows you to post events to the stream. Tag them, set priority and event
    * aggregate them with other events.
    *
    * @param body Event request object (required)
@@ -92,7 +99,10 @@ public class EventsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<EventCreateResponse> createEventWithHttpInfo(EventCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -133,7 +143,9 @@ public class EventsApi {
    *
    * @param body Event request object (required)
    * @return CompletableFuture&lt;ApiResponse&lt;EventCreateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<EventCreateResponse>> createEventWithHttpInfoAsync(
       EventCreateRequest body) {
     Object localVarPostBody = body;
