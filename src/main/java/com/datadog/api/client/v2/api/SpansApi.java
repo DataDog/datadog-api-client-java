@@ -87,6 +87,13 @@ public class SpansApi {
    * The API endpoint to aggregate spans into buckets and compute metrics and timeseries. This
    * endpoint is rate limited to <code>300</code> requests per hour.
    *
+   * <p>A request can generate at most 10,000 groups across all <code>group_by</code> entries, or
+   * 400,000 groups including time buckets when a <code>timeseries</code> compute is used. Set
+   * <code>limit</code> on each <code>group_by</code> entry to stay within these bounds. Requests
+   * over long time ranges or with many groups are more resource-intensive and can fail. To reduce
+   * load, narrow the time range or lower the <code>limit</code> on each <code>group_by</code>
+   * entry.
+   *
    * @param body (required)
    * @return ApiResponse&lt;SpansAggregateResponse&gt;
    * @throws ApiException if fails to make API call
