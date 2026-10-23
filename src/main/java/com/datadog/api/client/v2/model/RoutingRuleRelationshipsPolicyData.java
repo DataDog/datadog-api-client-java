@@ -72,7 +72,7 @@ public class RoutingRuleRelationshipsPolicyData {
   }
 
   /**
-   * Indicates that the resource is of type 'policies'.
+   * Indicates that the resource is of type <code>policies</code>.
    *
    * @return type
    */

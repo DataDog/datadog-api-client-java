@@ -83,7 +83,7 @@ public class OnCallPagingApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Accepted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -214,7 +214,7 @@ public class OnCallPagingApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -342,7 +342,7 @@ public class OnCallPagingApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Accepted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -472,7 +472,7 @@ public class OnCallPagingApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Accepted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */

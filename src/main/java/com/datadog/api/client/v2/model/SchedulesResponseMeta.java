@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata that is included in the response when listing schedules. */
+/** Metadata that is included in the response when listing On-Call resources. */
 @JsonPropertyOrder({SchedulesResponseMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class SchedulesResponseMeta {
   }
 
   /**
-   * Metadata related to paging information that is included in the response when listing schedules.
+   * Metadata related to pagination information that is included in the response when listing
+   * On-Call resources.
    *
    * @return page
    */

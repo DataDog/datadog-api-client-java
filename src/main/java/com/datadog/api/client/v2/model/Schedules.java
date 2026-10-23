@@ -126,7 +126,7 @@ public class Schedules {
   }
 
   /**
-   * Metadata that is included in the response when listing schedules.
+   * Metadata that is included in the response when listing On-Call resources.
    *
    * @return meta
    */

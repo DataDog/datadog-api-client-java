@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the resource is of type 'policies'. */
+/** Indicates that the resource is of type <code>policies</code>. */
 @JsonSerialize(
     using =
         RoutingRuleRelationshipsPolicyDataType.RoutingRuleRelationshipsPolicyDataTypeSerializer
