@@ -19,14 +19,17 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Object describing the suppressions for a rule. There are three types of suppressions, <code>
- * starts_with</code>, <code>ends_with</code>, and <code>exact_match</code>. Suppressed matches are
- * not obfuscated, counted in metrics, or displayed in the Findings page.
+ * Object describing suppressions for a rule, or the recommended suppression lists published by a
+ * standard pattern. There are three types of suppressions, <code>starts_with</code>, <code>
+ * ends_with</code>, and <code>exact_match</code>. Rules based on the Datadog library can use
+ * recommended or custom suppressions. Custom rules can only use custom suppressions. Suppressed
+ * matches are not obfuscated, counted in metrics, or displayed in the Findings page.
  */
 @JsonPropertyOrder({
   SensitiveDataScannerSuppressions.JSON_PROPERTY_ENDS_WITH,
   SensitiveDataScannerSuppressions.JSON_PROPERTY_EXACT_MATCH,
-  SensitiveDataScannerSuppressions.JSON_PROPERTY_STARTS_WITH
+  SensitiveDataScannerSuppressions.JSON_PROPERTY_STARTS_WITH,
+  SensitiveDataScannerSuppressions.JSON_PROPERTY_USE_RECOMMENDED_SUPPRESSIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,6 +43,10 @@ public class SensitiveDataScannerSuppressions {
 
   public static final String JSON_PROPERTY_STARTS_WITH = "starts_with";
   private List<String> startsWith = null;
+
+  public static final String JSON_PROPERTY_USE_RECOMMENDED_SUPPRESSIONS =
+      "use_recommended_suppressions";
+  private Boolean useRecommendedSuppressions;
 
   public SensitiveDataScannerSuppressions endsWith(List<String> endsWith) {
     this.endsWith = endsWith;
@@ -128,6 +135,30 @@ public class SensitiveDataScannerSuppressions {
     this.startsWith = startsWith;
   }
 
+  public SensitiveDataScannerSuppressions useRecommendedSuppressions(
+      Boolean useRecommendedSuppressions) {
+    this.useRecommendedSuppressions = useRecommendedSuppressions;
+    return this;
+  }
+
+  /**
+   * Should the rule use the underlying standard pattern suppression configuration. If set to <code>
+   * true</code>, the rule must be tied to a standard pattern. If set to <code>false</code>, the
+   * specified suppressions are applied.
+   *
+   * @return useRecommendedSuppressions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USE_RECOMMENDED_SUPPRESSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getUseRecommendedSuppressions() {
+    return useRecommendedSuppressions;
+  }
+
+  public void setUseRecommendedSuppressions(Boolean useRecommendedSuppressions) {
+    this.useRecommendedSuppressions = useRecommendedSuppressions;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -189,12 +220,16 @@ public class SensitiveDataScannerSuppressions {
         && Objects.equals(this.exactMatch, sensitiveDataScannerSuppressions.exactMatch)
         && Objects.equals(this.startsWith, sensitiveDataScannerSuppressions.startsWith)
         && Objects.equals(
+            this.useRecommendedSuppressions,
+            sensitiveDataScannerSuppressions.useRecommendedSuppressions)
+        && Objects.equals(
             this.additionalProperties, sensitiveDataScannerSuppressions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endsWith, exactMatch, startsWith, additionalProperties);
+    return Objects.hash(
+        endsWith, exactMatch, startsWith, useRecommendedSuppressions, additionalProperties);
   }
 
   @Override
@@ -204,6 +239,9 @@ public class SensitiveDataScannerSuppressions {
     sb.append("    endsWith: ").append(toIndentedString(endsWith)).append("\n");
     sb.append("    exactMatch: ").append(toIndentedString(exactMatch)).append("\n");
     sb.append("    startsWith: ").append(toIndentedString(startsWith)).append("\n");
+    sb.append("    useRecommendedSuppressions: ")
+        .append(toIndentedString(useRecommendedSuppressions))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
