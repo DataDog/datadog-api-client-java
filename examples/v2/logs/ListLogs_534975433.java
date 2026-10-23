@@ -25,7 +25,7 @@ public class Example {
                 new LogsQueryFilter()
                     .from("now-15m")
                     .indexes(Arrays.asList("main", "web"))
-                    .query("service:web* AND @http.status_code:[200 TO 299]")
+                    .query("service:web-api AND @http.status_code:[200 TO 299]")
                     .storageTier(LogsStorageTier.INDEXES)
                     .to("now"))
             .options(new LogsQueryOptions().timezone("GMT"))

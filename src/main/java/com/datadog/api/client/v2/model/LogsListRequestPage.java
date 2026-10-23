@@ -58,7 +58,7 @@ public class LogsListRequestPage {
   }
 
   /**
-   * Maximum number of logs in the response. maximum: 1000
+   * Requested maximum number of logs in the response. maximum: 5000
    *
    * @return limit
    */

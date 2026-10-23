@@ -31,7 +31,7 @@ public class Example {
                             .filter(
                                 new LogsMetricFilter()
                                     .query(
-                                        "service:web* AND @http.status_code:[200 TO"
+                                        "service:web-api AND @http.status_code:[200 TO"
                                             + " 299]-updated"))));
 
     try {
