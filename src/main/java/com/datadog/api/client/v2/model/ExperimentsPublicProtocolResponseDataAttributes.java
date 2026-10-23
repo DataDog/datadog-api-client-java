@@ -23,13 +23,16 @@ import java.util.Objects;
 /** Settings and defaults supplied by the protocol. */
 @JsonPropertyOrder({
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_ANALYSIS_PLAN,
+  ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_ARCHIVED_AT,
   ExperimentsPublicProtocolResponseDataAttributes
       .JSON_PROPERTY_ASSIGNMENT_SOURCE_DEFAULT_PROPERTIES,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_ASSIGNMENT_SOURCE_ID,
+  ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_CREATED_AT,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_DEFAULT_DURATION_DAYS,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_DESCRIPTION,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_ENFORCEMENT,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_ENVIRONMENT_ID,
+  ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_EXPERIMENT_COUNT,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_EXPOSURE_SCHEDULE,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_IS_DURATION_REQUIRED_TO_START,
   ExperimentsPublicProtocolResponseDataAttributes.JSON_PROPERTY_IS_EQUAL_SPLIT_ENFORCED,
@@ -57,6 +60,9 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
   public static final String JSON_PROPERTY_ANALYSIS_PLAN = "analysis_plan";
   private ExperimentsPublicProtocolResponseDataAttributesAnalysisPlan analysisPlan;
 
+  public static final String JSON_PROPERTY_ARCHIVED_AT = "archived_at";
+  private OffsetDateTime archivedAt;
+
   public static final String JSON_PROPERTY_ASSIGNMENT_SOURCE_DEFAULT_PROPERTIES =
       "assignment_source_default_properties";
   private List<
@@ -65,6 +71,9 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
 
   public static final String JSON_PROPERTY_ASSIGNMENT_SOURCE_ID = "assignment_source_id";
   private String assignmentSourceId;
+
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DEFAULT_DURATION_DAYS = "default_duration_days";
   private Long defaultDurationDays;
@@ -77,6 +86,9 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
 
   public static final String JSON_PROPERTY_ENVIRONMENT_ID = "environment_id";
   private String environmentId;
+
+  public static final String JSON_PROPERTY_EXPERIMENT_COUNT = "experiment_count";
+  private Long experimentCount;
 
   public static final String JSON_PROPERTY_EXPOSURE_SCHEDULE = "exposure_schedule";
   private ExperimentsPublicProtocolResponseDataAttributesExposureSchedule exposureSchedule;
@@ -143,6 +155,7 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
 
   @JsonCreator
   public ExperimentsPublicProtocolResponseDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_IS_DURATION_REQUIRED_TO_START)
           Boolean isDurationRequiredToStart,
       @JsonProperty(required = true, value = JSON_PROPERTY_IS_EQUAL_SPLIT_ENFORCED)
@@ -157,6 +170,7 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
           ExperimentsPublicProtocolResponseDataAttributesStatus status,
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) String updatedAt) {
+    this.createdAt = createdAt;
     this.isDurationRequiredToStart = isDurationRequiredToStart;
     this.isEqualSplitEnforced = isEqualSplitEnforced;
     this.isMetricLimitEnabled = isMetricLimitEnabled;
@@ -196,6 +210,27 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
     if (analysisPlan != null) {
       this.unparsed |= analysisPlan.unparsed;
     }
+  }
+
+  public ExperimentsPublicProtocolResponseDataAttributes archivedAt(OffsetDateTime archivedAt) {
+    this.archivedAt = archivedAt;
+    return this;
+  }
+
+  /**
+   * Time when the protocol was archived. Omitted if it has not been archived.
+   *
+   * @return archivedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ARCHIVED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getArchivedAt() {
+    return archivedAt;
+  }
+
+  public void setArchivedAt(OffsetDateTime archivedAt) {
+    this.archivedAt = archivedAt;
   }
 
   public ExperimentsPublicProtocolResponseDataAttributes assignmentSourceDefaultProperties(
@@ -267,6 +302,26 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
 
   public void setAssignmentSourceId(String assignmentSourceId) {
     this.assignmentSourceId = assignmentSourceId;
+  }
+
+  public ExperimentsPublicProtocolResponseDataAttributes createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Time when the protocol was created.
+   *
+   * @return createdAt
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   public ExperimentsPublicProtocolResponseDataAttributes defaultDurationDays(
@@ -358,6 +413,29 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
 
   public void setEnvironmentId(String environmentId) {
     this.environmentId = environmentId;
+  }
+
+  public ExperimentsPublicProtocolResponseDataAttributes experimentCount(Long experimentCount) {
+    this.experimentCount = experimentCount;
+    return this;
+  }
+
+  /**
+   * Number of experiments in the organization that use this protocol, excluding deleted
+   * experiments. Omitted if the count cannot be retrieved. An omitted count does not mean zero.
+   * minimum: 0
+   *
+   * @return experimentCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPERIMENT_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getExperimentCount() {
+    return experimentCount;
+  }
+
+  public void setExperimentCount(Long experimentCount) {
+    this.experimentCount = experimentCount;
   }
 
   public ExperimentsPublicProtocolResponseDataAttributes exposureSchedule(
@@ -809,8 +887,8 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
   }
 
   /**
-   * RFC3339 update time. Preserve all fractional seconds when passing this value as
-   * expected_updated_at.
+   * RFC3339 update time. Preserve all fractional seconds when passing this value as <code>
+   * expected_updated_at</code>.
    *
    * @return updatedAt
    */
@@ -886,11 +964,14 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
     return Objects.equals(
             this.analysisPlan, experimentsPublicProtocolResponseDataAttributes.analysisPlan)
         && Objects.equals(
+            this.archivedAt, experimentsPublicProtocolResponseDataAttributes.archivedAt)
+        && Objects.equals(
             this.assignmentSourceDefaultProperties,
             experimentsPublicProtocolResponseDataAttributes.assignmentSourceDefaultProperties)
         && Objects.equals(
             this.assignmentSourceId,
             experimentsPublicProtocolResponseDataAttributes.assignmentSourceId)
+        && Objects.equals(this.createdAt, experimentsPublicProtocolResponseDataAttributes.createdAt)
         && Objects.equals(
             this.defaultDurationDays,
             experimentsPublicProtocolResponseDataAttributes.defaultDurationDays)
@@ -900,6 +981,8 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
             this.enforcement, experimentsPublicProtocolResponseDataAttributes.enforcement)
         && Objects.equals(
             this.environmentId, experimentsPublicProtocolResponseDataAttributes.environmentId)
+        && Objects.equals(
+            this.experimentCount, experimentsPublicProtocolResponseDataAttributes.experimentCount)
         && Objects.equals(
             this.exposureSchedule, experimentsPublicProtocolResponseDataAttributes.exposureSchedule)
         && Objects.equals(
@@ -951,12 +1034,15 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
   public int hashCode() {
     return Objects.hash(
         analysisPlan,
+        archivedAt,
         assignmentSourceDefaultProperties,
         assignmentSourceId,
+        createdAt,
         defaultDurationDays,
         description,
         enforcement,
         environmentId,
+        experimentCount,
         exposureSchedule,
         isDurationRequiredToStart,
         isEqualSplitEnforced,
@@ -984,16 +1070,19 @@ public class ExperimentsPublicProtocolResponseDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExperimentsPublicProtocolResponseDataAttributes {\n");
     sb.append("    analysisPlan: ").append(toIndentedString(analysisPlan)).append("\n");
+    sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
     sb.append("    assignmentSourceDefaultProperties: ")
         .append(toIndentedString(assignmentSourceDefaultProperties))
         .append("\n");
     sb.append("    assignmentSourceId: ").append(toIndentedString(assignmentSourceId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    defaultDurationDays: ")
         .append(toIndentedString(defaultDurationDays))
         .append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enforcement: ").append(toIndentedString(enforcement)).append("\n");
     sb.append("    environmentId: ").append(toIndentedString(environmentId)).append("\n");
+    sb.append("    experimentCount: ").append(toIndentedString(experimentCount)).append("\n");
     sb.append("    exposureSchedule: ").append(toIndentedString(exposureSchedule)).append("\n");
     sb.append("    isDurationRequiredToStart: ")
         .append(toIndentedString(isDurationRequiredToStart))

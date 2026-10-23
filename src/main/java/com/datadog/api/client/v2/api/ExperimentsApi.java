@@ -10,6 +10,7 @@ import com.datadog.api.client.v2.model.ExperimentsAnalysisPlanWriteV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCancelExperimentV2Request;
 import com.datadog.api.client.v2.model.ExperimentsConcludeExperimentV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCreateExperimentMetricGroupV2Request;
+import com.datadog.api.client.v2.model.ExperimentsCreateExperimentProtocolRequest;
 import com.datadog.api.client.v2.model.ExperimentsCreateExperimentV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCreateExposureSQLModelV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCreateMetricCollectionV2Request;
@@ -30,6 +31,7 @@ import com.datadog.api.client.v2.model.ExperimentsMetricSQLModelV2DTOArray;
 import com.datadog.api.client.v2.model.ExperimentsMetricV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsMetricV2DTOArray;
 import com.datadog.api.client.v2.model.ExperimentsPatchExperimentMetricGroupV2Request;
+import com.datadog.api.client.v2.model.ExperimentsPatchExperimentProtocolRequest;
 import com.datadog.api.client.v2.model.ExperimentsPatchExperimentV2Request;
 import com.datadog.api.client.v2.model.ExperimentsPatchExperimentV2Response;
 import com.datadog.api.client.v2.model.ExperimentsPatchMetricCollectionV2Request;
@@ -39,6 +41,7 @@ import com.datadog.api.client.v2.model.ExperimentsPublicProtocolResponse;
 import com.datadog.api.client.v2.model.ExperimentsPublicProtocolResponseDataAttributesStatus;
 import com.datadog.api.client.v2.model.ExperimentsRefreshExperimentResultsV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsRefreshExperimentResultsV2DTOArray;
+import com.datadog.api.client.v2.model.ExperimentsReplaceExperimentProtocolRequest;
 import com.datadog.api.client.v2.model.ExperimentsStartExperimentV2Request;
 import com.datadog.api.client.v2.model.ExperimentsSubjectTypeV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsSubjectTypeV2DTOArray;
@@ -86,6 +89,223 @@ public class ExperimentsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /** Manage optional parameters to archiveExperimentProtocol. */
+  public static class ArchiveExperimentProtocolOptionalParameters {
+    private String expectedUpdatedAt;
+
+    /**
+     * Set expectedUpdatedAt.
+     *
+     * @param expectedUpdatedAt The updated_at value from the last read. Include the full timestamp,
+     *     with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip
+     *     this check. (optional)
+     * @return ArchiveExperimentProtocolOptionalParameters
+     */
+    public ArchiveExperimentProtocolOptionalParameters expectedUpdatedAt(String expectedUpdatedAt) {
+      this.expectedUpdatedAt = expectedUpdatedAt;
+      return this;
+    }
+  }
+
+  /**
+   * Archive experiment protocol.
+   *
+   * <p>See {@link #archiveExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @return ExperimentsPublicProtocolResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsPublicProtocolResponse archiveExperimentProtocol(UUID protocolId)
+      throws ApiException {
+    return archiveExperimentProtocolWithHttpInfo(
+            protocolId, new ArchiveExperimentProtocolOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Archive experiment protocol.
+   *
+   * <p>See {@link #archiveExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @return CompletableFuture&lt;ExperimentsPublicProtocolResponse&gt;
+   */
+  public CompletableFuture<ExperimentsPublicProtocolResponse> archiveExperimentProtocolAsync(
+      UUID protocolId) {
+    return archiveExperimentProtocolWithHttpInfoAsync(
+            protocolId, new ArchiveExperimentProtocolOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Archive experiment protocol.
+   *
+   * <p>See {@link #archiveExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ExperimentsPublicProtocolResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsPublicProtocolResponse archiveExperimentProtocol(
+      UUID protocolId, ArchiveExperimentProtocolOptionalParameters parameters) throws ApiException {
+    return archiveExperimentProtocolWithHttpInfo(protocolId, parameters).getData();
+  }
+
+  /**
+   * Archive experiment protocol.
+   *
+   * <p>See {@link #archiveExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ExperimentsPublicProtocolResponse&gt;
+   */
+  public CompletableFuture<ExperimentsPublicProtocolResponse> archiveExperimentProtocolAsync(
+      UUID protocolId, ArchiveExperimentProtocolOptionalParameters parameters) {
+    return archiveExperimentProtocolWithHttpInfoAsync(protocolId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Archive a draft or published protocol. Archived protocols cannot be edited or used to create
+   * new experiments. Existing experiments keep their settings. Archiving an already archived
+   * protocol returns 409.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or protocol settings. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> The caller lacks the product_analytics_experiments_write permission. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No protocol with this ID exists in the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The protocol is already archived or expected_updated_at is stale. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsPublicProtocolResponse> archiveExperimentProtocolWithHttpInfo(
+      UUID protocolId, ArchiveExperimentProtocolOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'protocolId' when calling archiveExperimentProtocol");
+    }
+    String expectedUpdatedAt = parameters.expectedUpdatedAt;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}/archive"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "expected_updated_at", expectedUpdatedAt));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.archiveExperimentProtocol",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /**
+   * Archive experiment protocol.
+   *
+   * <p>See {@link #archiveExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>>
+      archiveExperimentProtocolWithHttpInfoAsync(
+          UUID protocolId, ArchiveExperimentProtocolOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'protocolId' when calling"
+                  + " archiveExperimentProtocol"));
+      return result;
+    }
+    String expectedUpdatedAt = parameters.expectedUpdatedAt;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}/archive"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "expected_updated_at", expectedUpdatedAt));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.archiveExperimentProtocol",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
   }
 
   /**
@@ -1087,6 +1307,147 @@ public class ExperimentsApi {
   }
 
   /**
+   * Create experiment protocol.
+   *
+   * <p>See {@link #createExperimentProtocolWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ExperimentsPublicProtocolResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsPublicProtocolResponse createExperimentProtocol(
+      ExperimentsCreateExperimentProtocolRequest body) throws ApiException {
+    return createExperimentProtocolWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create experiment protocol.
+   *
+   * <p>See {@link #createExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ExperimentsPublicProtocolResponse&gt;
+   */
+  public CompletableFuture<ExperimentsPublicProtocolResponse> createExperimentProtocolAsync(
+      ExperimentsCreateExperimentProtocolRequest body) {
+    return createExperimentProtocolWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a draft protocol with a name and optional description and migration metadata. The
+   * organization's default subject type is selected. Use PATCH to configure the draft, then publish
+   * it before creating experiments from it.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or protocol settings. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> The caller lacks the product_analytics_experiments_write permission. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> A protocol with this name already exists. </td><td>  -  </td></tr>
+   *       <tr><td> 415 </td><td> Unsupported request content type. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsPublicProtocolResponse> createExperimentProtocolWithHttpInfo(
+      ExperimentsCreateExperimentProtocolRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createExperimentProtocol");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/experiments/protocols";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.createExperimentProtocol",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /**
+   * Create experiment protocol.
+   *
+   * <p>See {@link #createExperimentProtocolWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>>
+      createExperimentProtocolWithHttpInfoAsync(ExperimentsCreateExperimentProtocolRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createExperimentProtocol"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/experiments/protocols";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.createExperimentProtocol",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /**
    * Create exposure SQL model.
    *
    * <p>See {@link #createExposureSQLModelWithHttpInfo}.
@@ -2076,6 +2437,212 @@ public class ExperimentsApi {
               "v2.ExperimentsApi.deleteExperimentMetricGroup",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /** Manage optional parameters to deleteExperimentProtocol. */
+  public static class DeleteExperimentProtocolOptionalParameters {
+    private String expectedUpdatedAt;
+
+    /**
+     * Set expectedUpdatedAt.
+     *
+     * @param expectedUpdatedAt The updated_at value from the last read. Include the full timestamp,
+     *     with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip
+     *     this check. (optional)
+     * @return DeleteExperimentProtocolOptionalParameters
+     */
+    public DeleteExperimentProtocolOptionalParameters expectedUpdatedAt(String expectedUpdatedAt) {
+      this.expectedUpdatedAt = expectedUpdatedAt;
+      return this;
+    }
+  }
+
+  /**
+   * Delete experiment protocol.
+   *
+   * <p>See {@link #deleteExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteExperimentProtocol(UUID protocolId) throws ApiException {
+    deleteExperimentProtocolWithHttpInfo(
+        protocolId, new DeleteExperimentProtocolOptionalParameters());
+  }
+
+  /**
+   * Delete experiment protocol.
+   *
+   * <p>See {@link #deleteExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteExperimentProtocolAsync(UUID protocolId) {
+    return deleteExperimentProtocolWithHttpInfoAsync(
+            protocolId, new DeleteExperimentProtocolOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete experiment protocol.
+   *
+   * <p>See {@link #deleteExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteExperimentProtocol(
+      UUID protocolId, DeleteExperimentProtocolOptionalParameters parameters) throws ApiException {
+    deleteExperimentProtocolWithHttpInfo(protocolId, parameters);
+  }
+
+  /**
+   * Delete experiment protocol.
+   *
+   * <p>See {@link #deleteExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteExperimentProtocolAsync(
+      UUID protocolId, DeleteExperimentProtocolOptionalParameters parameters) {
+    return deleteExperimentProtocolWithHttpInfoAsync(protocolId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a protocol with no linked experiments. Draft, published, and archived protocols can be
+   * deleted. Returns 204 with no response body.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or protocol settings. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> The caller lacks the product_analytics_experiments_write permission. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No protocol with this ID exists in the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The protocol has linked experiments or expected_updated_at is stale. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteExperimentProtocolWithHttpInfo(
+      UUID protocolId, DeleteExperimentProtocolOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'protocolId' when calling deleteExperimentProtocol");
+    }
+    String expectedUpdatedAt = parameters.expectedUpdatedAt;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "expected_updated_at", expectedUpdatedAt));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.deleteExperimentProtocol",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete experiment protocol.
+   *
+   * <p>See {@link #deleteExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteExperimentProtocolWithHttpInfoAsync(
+      UUID protocolId, DeleteExperimentProtocolOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'protocolId' when calling deleteExperimentProtocol"));
+      return result;
+    }
+    String expectedUpdatedAt = parameters.expectedUpdatedAt;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "expected_updated_at", expectedUpdatedAt));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.deleteExperimentProtocol",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
@@ -6634,6 +7201,182 @@ public class ExperimentsApi {
   }
 
   /**
+   * Update experiment protocol.
+   *
+   * <p>See {@link #patchExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @return ExperimentsPublicProtocolResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsPublicProtocolResponse patchExperimentProtocol(
+      UUID protocolId, ExperimentsPatchExperimentProtocolRequest body) throws ApiException {
+    return patchExperimentProtocolWithHttpInfo(protocolId, body).getData();
+  }
+
+  /**
+   * Update experiment protocol.
+   *
+   * <p>See {@link #patchExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ExperimentsPublicProtocolResponse&gt;
+   */
+  public CompletableFuture<ExperimentsPublicProtocolResponse> patchExperimentProtocolAsync(
+      UUID protocolId, ExperimentsPatchExperimentProtocolRequest body) {
+    return patchExperimentProtocolWithHttpInfoAsync(protocolId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the supplied fields of a draft protocol. Published protocols accept only name,
+   * description, and migration_metadata changes through PATCH. Use PUT to replace their settings.
+   * Archived protocols cannot be edited.
+   *
+   * <p>Omitted fields keep their current values, including fields inside analysis_plan,
+   * exposure_schedule, and enforcement. Arrays replace the stored arrays. Supported null values
+   * clear fields; see the request schema. Use primary_metric_id to select the primary metric and
+   * default_duration_days to set the experiment analysis duration. Nested metric is_primary and
+   * analysis_plan.target_duration_days fields are rejected.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or protocol settings. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> The caller lacks the product_analytics_experiments_write permission. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No protocol with this ID exists in the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The protocol is archived, a published protocol receives settings changes, or the name is already in use. </td><td>  -  </td></tr>
+   *       <tr><td> 415 </td><td> Unsupported request content type. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsPublicProtocolResponse> patchExperimentProtocolWithHttpInfo(
+      UUID protocolId, ExperimentsPatchExperimentProtocolRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'protocolId' when calling patchExperimentProtocol");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling patchExperimentProtocol");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.patchExperimentProtocol",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /**
+   * Update experiment protocol.
+   *
+   * <p>See {@link #patchExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>>
+      patchExperimentProtocolWithHttpInfoAsync(
+          UUID protocolId, ExperimentsPatchExperimentProtocolRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'protocolId' when calling patchExperimentProtocol"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling patchExperimentProtocol"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.patchExperimentProtocol",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /**
    * Patch subject type.
    *
    * <p>See {@link #patchSubjectTypeWithHttpInfo}.
@@ -6800,6 +7543,161 @@ public class ExperimentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ExperimentsSubjectTypeV2DTO>() {});
+  }
+
+  /**
+   * Publish experiment protocol.
+   *
+   * <p>See {@link #publishExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @return ExperimentsPublicProtocolResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsPublicProtocolResponse publishExperimentProtocol(UUID protocolId)
+      throws ApiException {
+    return publishExperimentProtocolWithHttpInfo(protocolId).getData();
+  }
+
+  /**
+   * Publish experiment protocol.
+   *
+   * <p>See {@link #publishExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @return CompletableFuture&lt;ExperimentsPublicProtocolResponse&gt;
+   */
+  public CompletableFuture<ExperimentsPublicProtocolResponse> publishExperimentProtocolAsync(
+      UUID protocolId) {
+    return publishExperimentProtocolWithHttpInfoAsync(protocolId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Publish a valid draft protocol. The protocol must have a name and subject type. Supplied
+   * references and settings must be valid. An exposure schedule or targeting rules require an
+   * environment. Enabled limits require their values. Configurable template fields must have a
+   * value before they can be locked.
+   *
+   * <p>Independent configuration errors are returned together in the JSON:API errors array with
+   * source.pointer values that identify the fields. Earlier request and reference checks can stop
+   * on the first error. A failed request leaves the protocol unchanged.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @return ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or protocol settings. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> The caller lacks the product_analytics_experiments_write permission. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No protocol with this ID exists in the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Only draft protocols can be published. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsPublicProtocolResponse> publishExperimentProtocolWithHttpInfo(
+      UUID protocolId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'protocolId' when calling publishExperimentProtocol");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}/publish"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.publishExperimentProtocol",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /**
+   * Publish experiment protocol.
+   *
+   * <p>See {@link #publishExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>>
+      publishExperimentProtocolWithHttpInfoAsync(UUID protocolId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'protocolId' when calling"
+                  + " publishExperimentProtocol"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}/publish"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.publishExperimentProtocol",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
   }
 
   /** Manage optional parameters to refreshExperimentResults. */
@@ -7197,6 +8095,266 @@ public class ExperimentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ExperimentsRefreshExperimentResultsV2DTOArray>() {});
+  }
+
+  /** Manage optional parameters to replaceExperimentProtocol. */
+  public static class ReplaceExperimentProtocolOptionalParameters {
+    private String expectedUpdatedAt;
+
+    /**
+     * Set expectedUpdatedAt.
+     *
+     * @param expectedUpdatedAt The updated_at value from the last read. Include the full timestamp,
+     *     with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip
+     *     this check. (optional)
+     * @return ReplaceExperimentProtocolOptionalParameters
+     */
+    public ReplaceExperimentProtocolOptionalParameters expectedUpdatedAt(String expectedUpdatedAt) {
+      this.expectedUpdatedAt = expectedUpdatedAt;
+      return this;
+    }
+  }
+
+  /**
+   * Replace experiment protocol.
+   *
+   * <p>See {@link #replaceExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @return ExperimentsPublicProtocolResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsPublicProtocolResponse replaceExperimentProtocol(
+      UUID protocolId, ExperimentsReplaceExperimentProtocolRequest body) throws ApiException {
+    return replaceExperimentProtocolWithHttpInfo(
+            protocolId, body, new ReplaceExperimentProtocolOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Replace experiment protocol.
+   *
+   * <p>See {@link #replaceExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ExperimentsPublicProtocolResponse&gt;
+   */
+  public CompletableFuture<ExperimentsPublicProtocolResponse> replaceExperimentProtocolAsync(
+      UUID protocolId, ExperimentsReplaceExperimentProtocolRequest body) {
+    return replaceExperimentProtocolWithHttpInfoAsync(
+            protocolId, body, new ReplaceExperimentProtocolOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Replace experiment protocol.
+   *
+   * <p>See {@link #replaceExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ExperimentsPublicProtocolResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsPublicProtocolResponse replaceExperimentProtocol(
+      UUID protocolId,
+      ExperimentsReplaceExperimentProtocolRequest body,
+      ReplaceExperimentProtocolOptionalParameters parameters)
+      throws ApiException {
+    return replaceExperimentProtocolWithHttpInfo(protocolId, body, parameters).getData();
+  }
+
+  /**
+   * Replace experiment protocol.
+   *
+   * <p>See {@link #replaceExperimentProtocolWithHttpInfoAsync}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ExperimentsPublicProtocolResponse&gt;
+   */
+  public CompletableFuture<ExperimentsPublicProtocolResponse> replaceExperimentProtocolAsync(
+      UUID protocolId,
+      ExperimentsReplaceExperimentProtocolRequest body,
+      ReplaceExperimentProtocolOptionalParameters parameters) {
+    return replaceExperimentProtocolWithHttpInfoAsync(protocolId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Replace the template of a published protocol. Draft and archived protocols return 409. Send
+   * subject_type_id, all four required boolean settings, and metric_groups. Omitted optional
+   * template fields are cleared. Omitted enforcement keeps the existing locks.
+   *
+   * <p>Use primary_metric_id to select the primary metric. Use default_duration_days to set
+   * target_duration_days on experiments created from the protocol. The nested metric is_primary and
+   * analysis_plan.target_duration_days fields are rejected. An unchanged GET response can be sent
+   * as the request body. Response-only fields are ignored.
+   *
+   * <p>Independent configuration errors are returned together in the JSON:API errors array. Each
+   * error identifies the field in source.pointer. Earlier request and reference checks can stop on
+   * the first error. A failed request leaves the protocol unchanged. Changes apply to future
+   * experiments; existing experiments keep their settings.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request or protocol settings. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> The caller lacks the product_analytics_experiments_write permission. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No protocol with this ID exists in the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The protocol is not published or expected_updated_at is stale. </td><td>  -  </td></tr>
+   *       <tr><td> 415 </td><td> Unsupported request content type. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsPublicProtocolResponse> replaceExperimentProtocolWithHttpInfo(
+      UUID protocolId,
+      ExperimentsReplaceExperimentProtocolRequest body,
+      ReplaceExperimentProtocolOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'protocolId' when calling replaceExperimentProtocol");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling replaceExperimentProtocol");
+    }
+    String expectedUpdatedAt = parameters.expectedUpdatedAt;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "expected_updated_at", expectedUpdatedAt));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.replaceExperimentProtocol",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /**
+   * Replace experiment protocol.
+   *
+   * <p>See {@link #replaceExperimentProtocolWithHttpInfo}.
+   *
+   * @param protocolId The UUID of the protocol. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsPublicProtocolResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>>
+      replaceExperimentProtocolWithHttpInfoAsync(
+          UUID protocolId,
+          ExperimentsReplaceExperimentProtocolRequest body,
+          ReplaceExperimentProtocolOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'protocolId' is set
+    if (protocolId == null) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'protocolId' when calling"
+                  + " replaceExperimentProtocol"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling replaceExperimentProtocol"));
+      return result;
+    }
+    String expectedUpdatedAt = parameters.expectedUpdatedAt;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/protocols/{protocol_id}"
+            .replaceAll(
+                "\\{" + "protocol_id" + "\\}", apiClient.escapeString(protocolId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "expected_updated_at", expectedUpdatedAt));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.replaceExperimentProtocol",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsPublicProtocolResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsPublicProtocolResponse>() {});
   }
 
   /**
