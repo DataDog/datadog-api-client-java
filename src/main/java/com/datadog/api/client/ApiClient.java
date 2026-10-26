@@ -1455,6 +1455,7 @@ public class ApiClient {
           put("v2.getHistoricalMetricsConfiguration", false);
           put("v2.getTagIndexingRule", false);
           put("v2.getTagIndexingRuleExemption", false);
+          put("v2.listTagIndexingRuleExemptions", false);
           put("v2.listTagIndexingRules", false);
           put("v2.listTagIndexingRulesForMetric", false);
           put("v2.reorderTagIndexingRules", false);
