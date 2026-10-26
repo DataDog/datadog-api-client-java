@@ -31,7 +31,10 @@ import com.datadog.api.client.v2.model.ScalarFormulaQueryRequest;
 import com.datadog.api.client.v2.model.ScalarFormulaQueryResponse;
 import com.datadog.api.client.v2.model.TagIndexingRuleCreateRequest;
 import com.datadog.api.client.v2.model.TagIndexingRuleExemptionCreateRequest;
+import com.datadog.api.client.v2.model.TagIndexingRuleExemptionData;
 import com.datadog.api.client.v2.model.TagIndexingRuleExemptionResponse;
+import com.datadog.api.client.v2.model.TagIndexingRuleExemptionSort;
+import com.datadog.api.client.v2.model.TagIndexingRuleExemptionsResponse;
 import com.datadog.api.client.v2.model.TagIndexingRuleOrderRequest;
 import com.datadog.api.client.v2.model.TagIndexingRuleResponse;
 import com.datadog.api.client.v2.model.TagIndexingRuleUpdateRequest;
@@ -45,6 +48,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -4006,6 +4010,360 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricsAndMetricTagConfigurationsResponse>() {});
+  }
+
+  /** Manage optional parameters to listTagIndexingRuleExemptions. */
+  public static class ListTagIndexingRuleExemptionsOptionalParameters {
+    private String filterMetricPrefix;
+    private Boolean filterSafe;
+    private UUID filterTagIndexingRuleId;
+    private TagIndexingRuleExemptionSort sort;
+    private Integer pageSize;
+    private String pageCursor;
+
+    /**
+     * Set filterMetricPrefix.
+     *
+     * @param filterMetricPrefix Filter exemptions to metrics whose names start with this literal
+     *     prefix. Matching is case-sensitive. Wildcard characters are treated literally. (optional)
+     * @return ListTagIndexingRuleExemptionsOptionalParameters
+     */
+    public ListTagIndexingRuleExemptionsOptionalParameters filterMetricPrefix(
+        String filterMetricPrefix) {
+      this.filterMetricPrefix = filterMetricPrefix;
+      return this;
+    }
+
+    /**
+     * Set filterSafe.
+     *
+     * @param filterSafe Filter exemptions by whether they are safe to remove. An exemption is
+     *     considered safe when a fresh, usable estimate indicates that removing it would not
+     *     increase indexed volume and would not drop tags used to query the metric in monitors,
+     *     dashboards, notebooks, or SLOs. Set to <code>true</code> to return safe-to-remove
+     *     exemptions, or <code>false</code> to return all other exemptions, including those with
+     *     unavailable or stale estimates. (optional)
+     * @return ListTagIndexingRuleExemptionsOptionalParameters
+     */
+    public ListTagIndexingRuleExemptionsOptionalParameters filterSafe(Boolean filterSafe) {
+      this.filterSafe = filterSafe;
+      return this;
+    }
+
+    /**
+     * Set filterTagIndexingRuleId.
+     *
+     * @param filterTagIndexingRuleId Filter exemptions to metrics matched by the tag indexing rule
+     *     with this UUID. (optional)
+     * @return ListTagIndexingRuleExemptionsOptionalParameters
+     */
+    public ListTagIndexingRuleExemptionsOptionalParameters filterTagIndexingRuleId(
+        UUID filterTagIndexingRuleId) {
+      this.filterTagIndexingRuleId = filterTagIndexingRuleId;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort field. Prefix the field with <code>-</code> for descending order. The
+     *     default is <code>estimated_change_in_volume</code> in ascending order, with the largest
+     *     reductions (most negative values) first. (optional, default to
+     *     "estimated_change_in_volume")
+     * @return ListTagIndexingRuleExemptionsOptionalParameters
+     */
+    public ListTagIndexingRuleExemptionsOptionalParameters sort(TagIndexingRuleExemptionSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Maximum number of results per page. Defaults to 10000; accepts values from 1
+     *     to 10000. If <code>meta.pagination.next_cursor</code> is non-null, request the next page
+     *     by passing that value as <code>page[cursor]</code>. Continue until <code>next_cursor
+     *     </code> is null. (optional, default to 10000)
+     * @return ListTagIndexingRuleExemptionsOptionalParameters
+     */
+    public ListTagIndexingRuleExemptionsOptionalParameters pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor Cursor for pagination. Use <code>page[size]</code> to opt-in to pagination
+     *     and get the first page; for subsequent pages, use the value from <code>
+     *     meta.pagination.next_cursor</code> in the response. Pagination is complete when <code>
+     *     next_cursor</code> is null. (optional)
+     * @return ListTagIndexingRuleExemptionsOptionalParameters
+     */
+    public ListTagIndexingRuleExemptionsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+  }
+
+  /**
+   * List tag indexing rule exemptions.
+   *
+   * <p>See {@link #listTagIndexingRuleExemptionsWithHttpInfo}.
+   *
+   * @return TagIndexingRuleExemptionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleExemptionsResponse listTagIndexingRuleExemptions() throws ApiException {
+    return listTagIndexingRuleExemptionsWithHttpInfo(
+            new ListTagIndexingRuleExemptionsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List tag indexing rule exemptions.
+   *
+   * <p>See {@link #listTagIndexingRuleExemptionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TagIndexingRuleExemptionsResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleExemptionsResponse> listTagIndexingRuleExemptionsAsync() {
+    return listTagIndexingRuleExemptionsWithHttpInfoAsync(
+            new ListTagIndexingRuleExemptionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List tag indexing rule exemptions.
+   *
+   * <p>See {@link #listTagIndexingRuleExemptionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return TagIndexingRuleExemptionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleExemptionsResponse listTagIndexingRuleExemptions(
+      ListTagIndexingRuleExemptionsOptionalParameters parameters) throws ApiException {
+    return listTagIndexingRuleExemptionsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List tag indexing rule exemptions.
+   *
+   * <p>See {@link #listTagIndexingRuleExemptionsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TagIndexingRuleExemptionsResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleExemptionsResponse> listTagIndexingRuleExemptionsAsync(
+      ListTagIndexingRuleExemptionsOptionalParameters parameters) {
+    return listTagIndexingRuleExemptionsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List tag indexing rule exemptions.
+   *
+   * <p>See {@link #listTagIndexingRuleExemptionsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;TagIndexingRuleExemptionData&gt;
+   */
+  public PaginationIterable<TagIndexingRuleExemptionData>
+      listTagIndexingRuleExemptionsWithPagination() {
+    ListTagIndexingRuleExemptionsOptionalParameters parameters =
+        new ListTagIndexingRuleExemptionsOptionalParameters();
+    return listTagIndexingRuleExemptionsWithPagination(parameters);
+  }
+
+  /**
+   * List tag indexing rule exemptions.
+   *
+   * <p>See {@link #listTagIndexingRuleExemptionsWithHttpInfo}.
+   *
+   * @return TagIndexingRuleExemptionsResponse
+   */
+  public PaginationIterable<TagIndexingRuleExemptionData>
+      listTagIndexingRuleExemptionsWithPagination(
+          ListTagIndexingRuleExemptionsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPagination.getNextCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10000;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listTagIndexingRuleExemptions",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            true,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Returns explicit exemptions and legacy tag configurations that exclude metrics from tag
+   * indexing rules. You can filter results by metric name prefix, whether an exemption is safe to
+   * remove, or the UUID of a matching tag indexing rule. You can sort results by metric name or by
+   * estimated change in indexed volume.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TagIndexingRuleExemptionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRuleExemptionsResponse> listTagIndexingRuleExemptionsWithHttpInfo(
+      ListTagIndexingRuleExemptionsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listTagIndexingRuleExemptions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String filterMetricPrefix = parameters.filterMetricPrefix;
+    Boolean filterSafe = parameters.filterSafe;
+    UUID filterTagIndexingRuleId = parameters.filterTagIndexingRuleId;
+    TagIndexingRuleExemptionSort sort = parameters.sort;
+    Integer pageSize = parameters.pageSize;
+    String pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/list-tag-indexing-rule-exemptions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[metric_prefix]", filterMetricPrefix));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[safe]", filterSafe));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[tag_indexing_rule_id]", filterTagIndexingRuleId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.listTagIndexingRuleExemptions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionsResponse>() {});
+  }
+
+  /**
+   * List tag indexing rule exemptions.
+   *
+   * <p>See {@link #listTagIndexingRuleExemptionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRuleExemptionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRuleExemptionsResponse>>
+      listTagIndexingRuleExemptionsWithHttpInfoAsync(
+          ListTagIndexingRuleExemptionsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listTagIndexingRuleExemptions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String filterMetricPrefix = parameters.filterMetricPrefix;
+    Boolean filterSafe = parameters.filterSafe;
+    UUID filterTagIndexingRuleId = parameters.filterTagIndexingRuleId;
+    TagIndexingRuleExemptionSort sort = parameters.sort;
+    Integer pageSize = parameters.pageSize;
+    String pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/list-tag-indexing-rule-exemptions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[metric_prefix]", filterMetricPrefix));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[safe]", filterSafe));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[tag_indexing_rule_id]", filterTagIndexingRuleId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.listTagIndexingRuleExemptions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionsResponse>() {});
   }
 
   /** Manage optional parameters to listTagIndexingRules. */
