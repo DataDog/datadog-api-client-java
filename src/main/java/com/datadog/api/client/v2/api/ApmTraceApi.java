@@ -146,8 +146,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getPrunedTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @return PrunedTraceResponse
    * @throws ApiException if fails to make API call
    */
@@ -161,8 +165,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getPrunedTraceByIDWithHttpInfoAsync}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @return CompletableFuture&lt;PrunedTraceResponse&gt;
    */
   public CompletableFuture<PrunedTraceResponse> getPrunedTraceByIDAsync(String traceId) {
@@ -178,8 +186,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getPrunedTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return PrunedTraceResponse
    * @throws ApiException if fails to make API call
@@ -194,8 +206,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getPrunedTraceByIDWithHttpInfoAsync}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;PrunedTraceResponse&gt;
    */
@@ -211,11 +227,17 @@ public class ApmTraceApi {
   /**
    * Retrieve a pruned, hierarchical view of an APM trace by its trace ID. The trace is summarized
    * as a tree of spans rooted at the trace root and reduced in size to keep rendering large traces
-   * in the UI practical. This endpoint is rate limited to <code>60</code> requests per minute per
-   * organization.
+   * in the UI practical. A <code>400 Bad Request</code> response means the trace ID is malformed. A
+   * <code>404 Not Found</code> response means no trace with this ID is available, such as when the
+   * trace is outside the retention period. This endpoint is rate limited to <code>60</code>
+   * requests per minute per organization.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;PrunedTraceResponse&gt;
    * @throws ApiException if fails to make API call
@@ -224,6 +246,7 @@ public class ApmTraceApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -295,8 +318,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getPrunedTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;PrunedTraceResponse&gt;&gt;
    */
@@ -396,8 +423,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @return TraceResponse
    * @throws ApiException if fails to make API call
    */
@@ -410,8 +441,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getTraceByIDWithHttpInfoAsync}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @return CompletableFuture&lt;TraceResponse&gt;
    */
   public CompletableFuture<TraceResponse> getTraceByIDAsync(String traceId) {
@@ -427,8 +462,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return TraceResponse
    * @throws ApiException if fails to make API call
@@ -443,8 +482,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getTraceByIDWithHttpInfoAsync}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;TraceResponse&gt;
    */
@@ -459,11 +502,18 @@ public class ApmTraceApi {
 
   /**
    * Retrieve a full APM trace by its trace ID, including every span in the trace. Traces are
-   * returned from live storage when available and fall back to longer-term storage. This endpoint
-   * is rate limited to <code>60</code> requests per minute per organization.
+   * returned from live storage when available and fall back to longer-term storage. A <code>
+   * 400 Bad Request</code> response means the trace ID is malformed. A <code>404 Not Found</code>
+   * response means no trace with this ID is available, such as when the trace is outside the
+   * retention period. This endpoint is rate limited to <code>60</code> requests per minute per
+   * organization.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TraceResponse&gt;
    * @throws ApiException if fails to make API call
@@ -472,6 +522,7 @@ public class ApmTraceApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 413 </td><td> Payload Too Large </td><td>  -  </td></tr>
@@ -531,8 +582,12 @@ public class ApmTraceApi {
    *
    * <p>See {@link #getTraceByIDWithHttpInfo}.
    *
-   * @param traceId The trace ID. Accepts either a 32-character hexadecimal string (128-bit trace
-   *     ID) or a decimal string of up to 39 digits. (required)
+   * @param traceId The trace ID. Accepts either a hexadecimal string of up to 32 characters
+   *     (128-bit trace ID) or a decimal string of up to 39 digits. Hexadecimal IDs are
+   *     case-insensitive, and shorter values are left-padded with zeros. Use the <code>trace_id
+   *     </code> attribute of a span returned by the Search spans or Get a list of spans endpoints.
+   *     Values in any other format, such as UUIDs, return <code>400 Bad Request</code>. A
+   *     well-formed ID with no matching trace returns <code>404 Not Found</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;TraceResponse&gt;&gt;
    */

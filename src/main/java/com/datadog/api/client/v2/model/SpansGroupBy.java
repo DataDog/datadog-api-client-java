@@ -107,7 +107,11 @@ public class SpansGroupBy {
   }
 
   /**
-   * The maximum buckets to return for this group by.
+   * The maximum buckets to return for this group by. A request can generate at most 10,000 groups.
+   * Nested <code>group_by</code> entries multiply, so the product of their limits must stay within
+   * that bound. For example, two entries with a limit of 100 each produce up to 10,000 groups. With
+   * a <code>timeseries</code> compute, the number of groups multiplied by the number of time
+   * buckets must not exceed 400,000.
    *
    * @return limit
    */
@@ -154,7 +158,10 @@ public class SpansGroupBy {
   }
 
   /**
-   * A sort rule.
+   * A sort rule. With <code>type: alphabetical</code> (the default), buckets are sorted by facet
+   * value and only <code>order</code> is allowed. With <code>type: measure</code>, buckets are
+   * sorted by a computed value: set <code>aggregation</code>, and set <code>metric</code> unless
+   * the aggregation is <code>count</code>.
    *
    * @return sort
    */
