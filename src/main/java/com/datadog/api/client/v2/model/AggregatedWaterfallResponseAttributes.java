@@ -86,8 +86,10 @@ public class AggregatedWaterfallResponseAttributes {
     }
     this.from = from;
     this.resources = resources;
-    for (AggregatedResource item : resources) {
-      this.unparsed |= item.unparsed;
+    if (resources != null) {
+      for (AggregatedResource item : resources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     this.sampledViewIds = sampledViewIds;
     this.to = to;
@@ -180,10 +182,12 @@ public class AggregatedWaterfallResponseAttributes {
   }
 
   /**
-   * Network resources in chronological waterfall order.
+   * Network resources in chronological waterfall order, or null when the sampled views have no
+   * resources in their initial load window.
    *
    * @return resources
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<AggregatedResource> getResources() {
