@@ -25,6 +25,7 @@ import java.util.Objects;
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_NAME,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_PATTERN,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_PRIORITY,
+  SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_SUPPRESSIONS,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -45,6 +46,9 @@ public class SensitiveDataScannerStandardPatternAttributes {
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private Long priority;
+
+  public static final String JSON_PROPERTY_SUPPRESSIONS = "suppressions";
+  private SensitiveDataScannerSuppressions suppressions;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -169,6 +173,36 @@ public class SensitiveDataScannerStandardPatternAttributes {
     this.priority = priority;
   }
 
+  public SensitiveDataScannerStandardPatternAttributes suppressions(
+      SensitiveDataScannerSuppressions suppressions) {
+    this.suppressions = suppressions;
+    this.unparsed |= suppressions.unparsed;
+    return this;
+  }
+
+  /**
+   * Object describing suppressions for a rule, or the recommended suppression lists published by a
+   * standard pattern. There are three types of suppressions, <code>starts_with</code>, <code>
+   * ends_with</code>, and <code>exact_match</code>. Rules based on the Datadog library can use
+   * recommended or custom suppressions. Custom rules can only use custom suppressions. Suppressed
+   * matches are not obfuscated, counted in metrics, or displayed in the Findings page.
+   *
+   * @return suppressions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUPPRESSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerSuppressions getSuppressions() {
+    return suppressions;
+  }
+
+  public void setSuppressions(SensitiveDataScannerSuppressions suppressions) {
+    this.suppressions = suppressions;
+    if (suppressions != null) {
+      this.unparsed |= suppressions.unparsed;
+    }
+  }
+
   public SensitiveDataScannerStandardPatternAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -263,6 +297,8 @@ public class SensitiveDataScannerStandardPatternAttributes {
         && Objects.equals(this.name, sensitiveDataScannerStandardPatternAttributes.name)
         && Objects.equals(this.pattern, sensitiveDataScannerStandardPatternAttributes.pattern)
         && Objects.equals(this.priority, sensitiveDataScannerStandardPatternAttributes.priority)
+        && Objects.equals(
+            this.suppressions, sensitiveDataScannerStandardPatternAttributes.suppressions)
         && Objects.equals(this.tags, sensitiveDataScannerStandardPatternAttributes.tags)
         && Objects.equals(
             this.additionalProperties,
@@ -272,7 +308,14 @@ public class SensitiveDataScannerStandardPatternAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        description, includedKeywords, name, pattern, priority, tags, additionalProperties);
+        description,
+        includedKeywords,
+        name,
+        pattern,
+        priority,
+        suppressions,
+        tags,
+        additionalProperties);
   }
 
   @Override
@@ -284,6 +327,7 @@ public class SensitiveDataScannerStandardPatternAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    suppressions: ").append(toIndentedString(suppressions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
