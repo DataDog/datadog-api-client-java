@@ -19,6 +19,8 @@ import com.datadog.api.client.v2.model.TeamHierarchyLink;
 import com.datadog.api.client.v2.model.TeamHierarchyLinkCreateRequest;
 import com.datadog.api.client.v2.model.TeamHierarchyLinkResponse;
 import com.datadog.api.client.v2.model.TeamHierarchyLinksResponse;
+import com.datadog.api.client.v2.model.TeamHierarchyMember;
+import com.datadog.api.client.v2.model.TeamHierarchyMembersResponse;
 import com.datadog.api.client.v2.model.TeamLinkCreateRequest;
 import com.datadog.api.client.v2.model.TeamLinkResponse;
 import com.datadog.api.client.v2.model.TeamLinksResponse;
@@ -4357,6 +4359,409 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TeamHierarchyLinksResponse>() {});
+  }
+
+  /** Manage optional parameters to listTeamHierarchyMembers. */
+  public static class ListTeamHierarchyMembersOptionalParameters {
+    private Boolean filterIsDirectOnly;
+    private Boolean filterIncludeServiceAccounts;
+    private String filterKeyword;
+    private String include;
+    private String sort;
+    private Long pageNumber;
+    private Long pageSize;
+
+    /**
+     * Set filterIsDirectOnly.
+     *
+     * @param filterIsDirectOnly Return only direct members. By default, members inherited from
+     *     descendant teams are also returned. (optional, default to false)
+     * @return ListTeamHierarchyMembersOptionalParameters
+     */
+    public ListTeamHierarchyMembersOptionalParameters filterIsDirectOnly(
+        Boolean filterIsDirectOnly) {
+      this.filterIsDirectOnly = filterIsDirectOnly;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeServiceAccounts.
+     *
+     * @param filterIncludeServiceAccounts Include service accounts. Datadog support users are
+     *     always excluded. (optional, default to true)
+     * @return ListTeamHierarchyMembersOptionalParameters
+     */
+    public ListTeamHierarchyMembersOptionalParameters filterIncludeServiceAccounts(
+        Boolean filterIncludeServiceAccounts) {
+      this.filterIncludeServiceAccounts = filterIncludeServiceAccounts;
+      return this;
+    }
+
+    /**
+     * Set filterKeyword.
+     *
+     * @param filterKeyword Filter by a case-insensitive substring of the user name, handle, or
+     *     email. (optional)
+     * @return ListTeamHierarchyMembersOptionalParameters
+     */
+    public ListTeamHierarchyMembersOptionalParameters filterKeyword(String filterKeyword) {
+      this.filterKeyword = filterKeyword;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated resources to include: <code>user</code> and <code>team</code>.
+     *     The included team is the requested team. Whitespace is trimmed, and duplicate or empty
+     *     entries are ignored. (optional)
+     * @return ListTeamHierarchyMembersOptionalParameters
+     */
+    public ListTeamHierarchyMembersOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Comma-separated sort fields: <code>name</code>, <code>handle</code>, <code>
+     *     is_direct</code>, and <code>provisioned_by</code>. Fields are applied in order, each
+     *     optionally prefixed with <code>-</code> for descending order. By default, team admins
+     *     come first, followed by other direct members, then inherited members, sorted by name
+     *     within each group. (optional)
+     * @return ListTeamHierarchyMembersOptionalParameters
+     */
+    public ListTeamHierarchyMembersOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Zero-based page number. Negative values become 0. Defaults to 0. (optional,
+     *     default to 0)
+     * @return ListTeamHierarchyMembersOptionalParameters
+     */
+    public ListTeamHierarchyMembersOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Requested number of members per page. Defaults to and maxes out at 100.
+     *     (optional, default to 100)
+     * @return ListTeamHierarchyMembersOptionalParameters
+     */
+    public ListTeamHierarchyMembersOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+  }
+
+  /**
+   * Get team hierarchy members.
+   *
+   * <p>See {@link #listTeamHierarchyMembersWithHttpInfo}.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @return TeamHierarchyMembersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamHierarchyMembersResponse listTeamHierarchyMembers(String teamId) throws ApiException {
+    return listTeamHierarchyMembersWithHttpInfo(
+            teamId, new ListTeamHierarchyMembersOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get team hierarchy members.
+   *
+   * <p>See {@link #listTeamHierarchyMembersWithHttpInfoAsync}.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @return CompletableFuture&lt;TeamHierarchyMembersResponse&gt;
+   */
+  public CompletableFuture<TeamHierarchyMembersResponse> listTeamHierarchyMembersAsync(
+      String teamId) {
+    return listTeamHierarchyMembersWithHttpInfoAsync(
+            teamId, new ListTeamHierarchyMembersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get team hierarchy members.
+   *
+   * <p>See {@link #listTeamHierarchyMembersWithHttpInfo}.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @param parameters Optional parameters for the request.
+   * @return TeamHierarchyMembersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamHierarchyMembersResponse listTeamHierarchyMembers(
+      String teamId, ListTeamHierarchyMembersOptionalParameters parameters) throws ApiException {
+    return listTeamHierarchyMembersWithHttpInfo(teamId, parameters).getData();
+  }
+
+  /**
+   * Get team hierarchy members.
+   *
+   * <p>See {@link #listTeamHierarchyMembersWithHttpInfoAsync}.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TeamHierarchyMembersResponse&gt;
+   */
+  public CompletableFuture<TeamHierarchyMembersResponse> listTeamHierarchyMembersAsync(
+      String teamId, ListTeamHierarchyMembersOptionalParameters parameters) {
+    return listTeamHierarchyMembersWithHttpInfoAsync(teamId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get team hierarchy members.
+   *
+   * <p>See {@link #listTeamHierarchyMembersWithHttpInfo}.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @return PaginationIterable&lt;TeamHierarchyMember&gt;
+   */
+  public PaginationIterable<TeamHierarchyMember> listTeamHierarchyMembersWithPagination(
+      String teamId) {
+    ListTeamHierarchyMembersOptionalParameters parameters =
+        new ListTeamHierarchyMembersOptionalParameters();
+    return listTeamHierarchyMembersWithPagination(teamId, parameters);
+  }
+
+  /**
+   * Get team hierarchy members.
+   *
+   * <p>See {@link #listTeamHierarchyMembersWithHttpInfo}.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @return TeamHierarchyMembersResponse
+   */
+  public PaginationIterable<TeamHierarchyMember> listTeamHierarchyMembersWithPagination(
+      String teamId, ListTeamHierarchyMembersOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 100l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("teamId", teamId);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listTeamHierarchyMembers",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * List the direct and inherited members of a team, deduplicated by user. Members of descendant
+   * teams are included unless <code>filter[is_direct_only]</code> is true. Datadog support users
+   * are always excluded.
+   *
+   * <p>Use <code>page[number]</code> and <code>page[size]</code> to paginate through the results.
+   * Invalid query parameters return a JSON:API error with status 400. Invalid or unknown team UUIDs
+   * return status 404.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TeamHierarchyMembersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamHierarchyMembersResponse> listTeamHierarchyMembersWithHttpInfo(
+      String teamId, ListTeamHierarchyMembersOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listTeamHierarchyMembers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling listTeamHierarchyMembers");
+    }
+    Boolean filterIsDirectOnly = parameters.filterIsDirectOnly;
+    Boolean filterIncludeServiceAccounts = parameters.filterIncludeServiceAccounts;
+    String filterKeyword = parameters.filterKeyword;
+    String include = parameters.include;
+    String sort = parameters.sort;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/members"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[is_direct_only]", filterIsDirectOnly));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[include_service_accounts]", filterIncludeServiceAccounts));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.listTeamHierarchyMembers",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyMembersResponse>() {});
+  }
+
+  /**
+   * Get team hierarchy members.
+   *
+   * <p>See {@link #listTeamHierarchyMembersWithHttpInfo}.
+   *
+   * @param teamId UUID of the requested root team. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamHierarchyMembersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamHierarchyMembersResponse>>
+      listTeamHierarchyMembersWithHttpInfoAsync(
+          String teamId, ListTeamHierarchyMembersOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listTeamHierarchyMembers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TeamHierarchyMembersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamHierarchyMembersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'teamId' when calling listTeamHierarchyMembers"));
+      return result;
+    }
+    Boolean filterIsDirectOnly = parameters.filterIsDirectOnly;
+    Boolean filterIncludeServiceAccounts = parameters.filterIncludeServiceAccounts;
+    String filterKeyword = parameters.filterKeyword;
+    String include = parameters.include;
+    String sort = parameters.sort;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/members"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[is_direct_only]", filterIsDirectOnly));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[include_service_accounts]", filterIncludeServiceAccounts));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.listTeamHierarchyMembers",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamHierarchyMembersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyMembersResponse>() {});
   }
 
   /** Manage optional parameters to listTeams. */
