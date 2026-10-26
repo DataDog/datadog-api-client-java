@@ -24,7 +24,7 @@ import java.util.Set;
 public class GetIssueIncludeQueryParameterItem extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("assignee", "case", "team_owners"));
+      new HashSet<String>(Arrays.asList("assignee", "case", "team_owners", "samples"));
 
   public static final GetIssueIncludeQueryParameterItem ASSIGNEE =
       new GetIssueIncludeQueryParameterItem("assignee");
@@ -32,6 +32,8 @@ public class GetIssueIncludeQueryParameterItem extends ModelEnum<String> {
       new GetIssueIncludeQueryParameterItem("case");
   public static final GetIssueIncludeQueryParameterItem TEAM_OWNERS =
       new GetIssueIncludeQueryParameterItem("team_owners");
+  public static final GetIssueIncludeQueryParameterItem SAMPLES =
+      new GetIssueIncludeQueryParameterItem("samples");
 
   GetIssueIncludeQueryParameterItem(String value) {
     super(value, allowedValues);
