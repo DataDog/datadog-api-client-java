@@ -42,7 +42,7 @@ public class CustomRuleAttributes {
   private String createdBy;
 
   public static final String JSON_PROPERTY_LAST_REVISION = "last_revision";
-  private CustomRuleRevisionEmbedded lastRevision;
+  private CustomRuleNullableRevisionEmbedded lastRevision;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -57,14 +57,16 @@ public class CustomRuleAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_LAST_REVISION)
-          CustomRuleRevisionEmbedded lastRevision,
+          CustomRuleNullableRevisionEmbedded lastRevision,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_REVISIONS)
           List<CustomRuleRevisionEmbedded> revisions) {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
     this.lastRevision = lastRevision;
-    this.unparsed |= lastRevision.unparsed;
+    if (lastRevision != null) {
+      this.unparsed |= lastRevision.unparsed;
+    }
     this.name = name;
     this.revisions = revisions;
     if (revisions != null) {
@@ -114,24 +116,27 @@ public class CustomRuleAttributes {
     this.createdBy = createdBy;
   }
 
-  public CustomRuleAttributes lastRevision(CustomRuleRevisionEmbedded lastRevision) {
+  public CustomRuleAttributes lastRevision(CustomRuleNullableRevisionEmbedded lastRevision) {
     this.lastRevision = lastRevision;
-    this.unparsed |= lastRevision.unparsed;
+    if (lastRevision != null) {
+      this.unparsed |= lastRevision.unparsed;
+    }
     return this;
   }
 
   /**
-   * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
+   * The most recent revision of the rule, or null when the rule has no revisions.
    *
    * @return lastRevision
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_REVISION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CustomRuleRevisionEmbedded getLastRevision() {
+  public CustomRuleNullableRevisionEmbedded getLastRevision() {
     return lastRevision;
   }
 
-  public void setLastRevision(CustomRuleRevisionEmbedded lastRevision) {
+  public void setLastRevision(CustomRuleNullableRevisionEmbedded lastRevision) {
     this.lastRevision = lastRevision;
     if (lastRevision != null) {
       this.unparsed |= lastRevision.unparsed;

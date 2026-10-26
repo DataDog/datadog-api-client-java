@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.AnalysisRequest;
 import com.datadog.api.client.v2.model.AnalysisRequestData;
 import com.datadog.api.client.v2.model.AnalysisRequestDataAttributes;
 import com.datadog.api.client.v2.model.AnalysisRequestDataType;
+import com.datadog.api.client.v2.model.AnalysisRequestOptions;
 import com.datadog.api.client.v2.model.AnalysisRequestRule;
 import com.datadog.api.client.v2.model.AnalysisRequestRuleArgument;
 import com.datadog.api.client.v2.model.AnalysisRequestRuleTest;
@@ -30,6 +31,8 @@ public class Example {
                             .fileEncoding("utf-8")
                             .filename("test.py")
                             .language("python")
+                            .options(
+                                new AnalysisRequestOptions().logOutput(true).useTreeSitter(true))
                             .rules(
                                 Collections.singletonList(
                                     new AnalysisRequestRule()

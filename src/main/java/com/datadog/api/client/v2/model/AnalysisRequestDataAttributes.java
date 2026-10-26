@@ -25,6 +25,7 @@ import java.util.Objects;
   AnalysisRequestDataAttributes.JSON_PROPERTY_FILE_ENCODING,
   AnalysisRequestDataAttributes.JSON_PROPERTY_FILENAME,
   AnalysisRequestDataAttributes.JSON_PROPERTY_LANGUAGE,
+  AnalysisRequestDataAttributes.JSON_PROPERTY_OPTIONS,
   AnalysisRequestDataAttributes.JSON_PROPERTY_RULES
 })
 @jakarta.annotation.Generated(
@@ -42,6 +43,9 @@ public class AnalysisRequestDataAttributes {
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
+
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private AnalysisRequestOptions options;
 
   public static final String JSON_PROPERTY_RULES = "rules";
   private List<AnalysisRequestRule> rules = new ArrayList<>();
@@ -145,6 +149,32 @@ public class AnalysisRequestDataAttributes {
     this.language = language;
   }
 
+  public AnalysisRequestDataAttributes options(AnalysisRequestOptions options) {
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    return this;
+  }
+
+  /**
+   * Analyzer options sent by browser-based clients. Accepted but ignored: the API always runs the
+   * analysis with tree-sitter enabled and rule output logged.
+   *
+   * @return options
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AnalysisRequestOptions getOptions() {
+    return options;
+  }
+
+  public void setOptions(AnalysisRequestOptions options) {
+    this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
+  }
+
   public AnalysisRequestDataAttributes rules(List<AnalysisRequestRule> rules) {
     this.rules = rules;
     for (AnalysisRequestRule item : rules) {
@@ -239,6 +269,7 @@ public class AnalysisRequestDataAttributes {
         && Objects.equals(this.fileEncoding, analysisRequestDataAttributes.fileEncoding)
         && Objects.equals(this.filename, analysisRequestDataAttributes.filename)
         && Objects.equals(this.language, analysisRequestDataAttributes.language)
+        && Objects.equals(this.options, analysisRequestDataAttributes.options)
         && Objects.equals(this.rules, analysisRequestDataAttributes.rules)
         && Objects.equals(
             this.additionalProperties, analysisRequestDataAttributes.additionalProperties);
@@ -246,7 +277,8 @@ public class AnalysisRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, fileEncoding, filename, language, rules, additionalProperties);
+    return Objects.hash(
+        code, fileEncoding, filename, language, options, rules, additionalProperties);
   }
 
   @Override
@@ -257,6 +289,7 @@ public class AnalysisRequestDataAttributes {
     sb.append("    fileEncoding: ").append(toIndentedString(fileEncoding)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
