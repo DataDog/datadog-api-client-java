@@ -1,0 +1,36 @@
+// Publish experiment protocol returns "OK" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.ExperimentsApi;
+import com.datadog.api.client.v2.model.ExperimentsPublicProtocolResponse;
+import java.util.UUID;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    ExperimentsApi apiInstance = new ExperimentsApi(defaultClient);
+
+    // there is a valid "configured_experiment_protocol" in the system
+    UUID CONFIGURED_EXPERIMENT_PROTOCOL_DATA_ID = null;
+    try {
+      CONFIGURED_EXPERIMENT_PROTOCOL_DATA_ID =
+          UUID.fromString(System.getenv("CONFIGURED_EXPERIMENT_PROTOCOL_DATA_ID"));
+    } catch (IllegalArgumentException e) {
+      System.err.println("Error parsing UUID: " + e.getMessage());
+    }
+
+    try {
+      ExperimentsPublicProtocolResponse result =
+          apiInstance.publishExperimentProtocol(CONFIGURED_EXPERIMENT_PROTOCOL_DATA_ID);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExperimentsApi#publishExperimentProtocol");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
