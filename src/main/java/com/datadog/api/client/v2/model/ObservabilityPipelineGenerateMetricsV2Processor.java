@@ -51,7 +51,7 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
 
   public static final String JSON_PROPERTY_ENABLED_METRIC_AGGREGATION =
       "enabled_metric_aggregation";
-  private Boolean enabledMetricAggregation = true;
+  private Boolean enabledMetricAggregation;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
