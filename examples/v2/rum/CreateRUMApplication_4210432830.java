@@ -1,4 +1,4 @@
-// Create a new RUM application with Product Scales returns "OK" response
+// Create a new RUM application with Product Scales returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
