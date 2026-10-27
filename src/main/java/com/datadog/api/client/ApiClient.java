@@ -1433,8 +1433,11 @@ public class ApiClient {
           put("v2.listJiraAccounts", false);
           put("v2.listJiraIssueTemplates", false);
           put("v2.updateJiraIssueTemplate", false);
+          put("v2.cancelArchiveSearch", false);
           put("v2.createArchiveSearch", false);
           put("v2.getArchiveSearch", false);
+          put("v2.listArchiveSearches", false);
+          put("v2.rehydrateArchiveSearch", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);
