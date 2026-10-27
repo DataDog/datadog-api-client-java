@@ -23,17 +23,17 @@ import java.util.Objects;
 public class RUMBucketResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BY = "by";
-  private Map<String, String> by = null;
+  private Map<String, RUMBucketGroupByValue> by = null;
 
   public static final String JSON_PROPERTY_COMPUTES = "computes";
   private Map<String, RUMAggregateBucketValue> computes = null;
 
-  public RUMBucketResponse by(Map<String, String> by) {
+  public RUMBucketResponse by(Map<String, RUMBucketGroupByValue> by) {
     this.by = by;
     return this;
   }
 
-  public RUMBucketResponse putByItem(String key, String byItem) {
+  public RUMBucketResponse putByItem(String key, RUMBucketGroupByValue byItem) {
     if (this.by == null) {
       this.by = new HashMap<>();
     }
@@ -49,11 +49,11 @@ public class RUMBucketResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getBy() {
+  public Map<String, RUMBucketGroupByValue> getBy() {
     return by;
   }
 
-  public void setBy(Map<String, String> by) {
+  public void setBy(Map<String, RUMBucketGroupByValue> by) {
     this.by = by;
   }
 
