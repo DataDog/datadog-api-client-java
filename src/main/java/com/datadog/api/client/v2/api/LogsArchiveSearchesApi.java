@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ArchiveSearchCreateRequest;
+import com.datadog.api.client.v2.model.ArchiveSearchListResponse;
+import com.datadog.api.client.v2.model.ArchiveSearchRehydrateRequest;
 import com.datadog.api.client.v2.model.ArchiveSearchResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -42,6 +44,165 @@ public class LogsArchiveSearchesApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Cancel an Archive Search.
+   *
+   * <p>See {@link #cancelArchiveSearchWithHttpInfo}.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @return ArchiveSearchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ArchiveSearchResponse cancelArchiveSearch(String archiveSearchId) throws ApiException {
+    return cancelArchiveSearchWithHttpInfo(archiveSearchId).getData();
+  }
+
+  /**
+   * Cancel an Archive Search.
+   *
+   * <p>See {@link #cancelArchiveSearchWithHttpInfoAsync}.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @return CompletableFuture&lt;ArchiveSearchResponse&gt;
+   */
+  public CompletableFuture<ArchiveSearchResponse> cancelArchiveSearchAsync(String archiveSearchId) {
+    return cancelArchiveSearchWithHttpInfoAsync(archiveSearchId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Cancel a running Archive Search. Cancelling an Archive Search that has already finished is a
+   * no-op: it returns the resource unchanged instead of returning an error.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @return ApiResponse&lt;ArchiveSearchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArchiveSearchResponse> cancelArchiveSearchWithHttpInfo(String archiveSearchId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "cancelArchiveSearch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'archiveSearchId' is set
+    if (archiveSearchId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'archiveSearchId' when calling cancelArchiveSearch");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/archive_searches/{archive_search_id}/cancel"
+            .replaceAll(
+                "\\{" + "archive_search_id" + "\\}",
+                apiClient.escapeString(archiveSearchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LogsArchiveSearchesApi.cancelArchiveSearch",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArchiveSearchResponse>() {});
+  }
+
+  /**
+   * Cancel an Archive Search.
+   *
+   * <p>See {@link #cancelArchiveSearchWithHttpInfo}.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ArchiveSearchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArchiveSearchResponse>> cancelArchiveSearchWithHttpInfoAsync(
+      String archiveSearchId) {
+    // Check if unstable operation is enabled
+    String operationId = "cancelArchiveSearch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ArchiveSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'archiveSearchId' is set
+    if (archiveSearchId == null) {
+      CompletableFuture<ApiResponse<ArchiveSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'archiveSearchId' when calling cancelArchiveSearch"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/archive_searches/{archive_search_id}/cancel"
+            .replaceAll(
+                "\\{" + "archive_search_id" + "\\}",
+                apiClient.escapeString(archiveSearchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LogsArchiveSearchesApi.cancelArchiveSearch",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArchiveSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArchiveSearchResponse>() {});
   }
 
   /**
@@ -352,6 +513,320 @@ public class LogsArchiveSearchesApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArchiveSearchResponse>() {});
+  }
+
+  /**
+   * List Archive Searches.
+   *
+   * <p>See {@link #listArchiveSearchesWithHttpInfo}.
+   *
+   * @return ArchiveSearchListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ArchiveSearchListResponse listArchiveSearches() throws ApiException {
+    return listArchiveSearchesWithHttpInfo().getData();
+  }
+
+  /**
+   * List Archive Searches.
+   *
+   * <p>See {@link #listArchiveSearchesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ArchiveSearchListResponse&gt;
+   */
+  public CompletableFuture<ArchiveSearchListResponse> listArchiveSearchesAsync() {
+    return listArchiveSearchesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the organization's Archive Searches that haven't expired, up to 5,000. When more exist,
+   * <code>meta.truncated</code> is <code>true</code>.
+   *
+   * @return ApiResponse&lt;ArchiveSearchListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArchiveSearchListResponse> listArchiveSearchesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listArchiveSearches";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/archive_searches";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LogsArchiveSearchesApi.listArchiveSearches",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArchiveSearchListResponse>() {});
+  }
+
+  /**
+   * List Archive Searches.
+   *
+   * <p>See {@link #listArchiveSearchesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ArchiveSearchListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArchiveSearchListResponse>>
+      listArchiveSearchesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listArchiveSearches";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ArchiveSearchListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/archive_searches";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LogsArchiveSearchesApi.listArchiveSearches",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArchiveSearchListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArchiveSearchListResponse>() {});
+  }
+
+  /**
+   * Rehydrate an Archive Search.
+   *
+   * <p>See {@link #rehydrateArchiveSearchWithHttpInfo}.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @param body (required)
+   * @return ArchiveSearchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ArchiveSearchResponse rehydrateArchiveSearch(
+      String archiveSearchId, ArchiveSearchRehydrateRequest body) throws ApiException {
+    return rehydrateArchiveSearchWithHttpInfo(archiveSearchId, body).getData();
+  }
+
+  /**
+   * Rehydrate an Archive Search.
+   *
+   * <p>See {@link #rehydrateArchiveSearchWithHttpInfoAsync}.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ArchiveSearchResponse&gt;
+   */
+  public CompletableFuture<ArchiveSearchResponse> rehydrateArchiveSearchAsync(
+      String archiveSearchId, ArchiveSearchRehydrateRequest body) {
+    return rehydrateArchiveSearchWithHttpInfoAsync(archiveSearchId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Turn a plain Archive Search into a Search &amp; Rehydration by indexing the matched logs into a
+   * retained historical view. Rehydration is the only thing this endpoint can change, and it only
+   * applies to a search that has already finished scanning.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ArchiveSearchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Precondition Failed </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArchiveSearchResponse> rehydrateArchiveSearchWithHttpInfo(
+      String archiveSearchId, ArchiveSearchRehydrateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "rehydrateArchiveSearch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'archiveSearchId' is set
+    if (archiveSearchId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'archiveSearchId' when calling rehydrateArchiveSearch");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling rehydrateArchiveSearch");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/archive_searches/{archive_search_id}"
+            .replaceAll(
+                "\\{" + "archive_search_id" + "\\}",
+                apiClient.escapeString(archiveSearchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LogsArchiveSearchesApi.rehydrateArchiveSearch",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArchiveSearchResponse>() {});
+  }
+
+  /**
+   * Rehydrate an Archive Search.
+   *
+   * <p>See {@link #rehydrateArchiveSearchWithHttpInfo}.
+   *
+   * @param archiveSearchId Unique identifier of the Archive Search. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ArchiveSearchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArchiveSearchResponse>>
+      rehydrateArchiveSearchWithHttpInfoAsync(
+          String archiveSearchId, ArchiveSearchRehydrateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "rehydrateArchiveSearch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ArchiveSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'archiveSearchId' is set
+    if (archiveSearchId == null) {
+      CompletableFuture<ApiResponse<ArchiveSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'archiveSearchId' when calling"
+                  + " rehydrateArchiveSearch"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ArchiveSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling rehydrateArchiveSearch"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/archive_searches/{archive_search_id}"
+            .replaceAll(
+                "\\{" + "archive_search_id" + "\\}",
+                apiClient.escapeString(archiveSearchId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LogsArchiveSearchesApi.rehydrateArchiveSearch",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArchiveSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
