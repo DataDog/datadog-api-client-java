@@ -18,37 +18,44 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Notebook resource type */
-@JsonSerialize(using = NotebookResourceType.NotebookResourceTypeSerializer.class)
-public class NotebookResourceType extends ModelEnum<String> {
+/** Case investigation notebook resource type. */
+@JsonSerialize(
+    using =
+        CaseInvestigationNotebookResourceType.CaseInvestigationNotebookResourceTypeSerializer.class)
+public class CaseInvestigationNotebookResourceType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("notebook"));
 
-  public static final NotebookResourceType NOTEBOOK = new NotebookResourceType("notebook");
+  public static final CaseInvestigationNotebookResourceType NOTEBOOK =
+      new CaseInvestigationNotebookResourceType("notebook");
 
-  NotebookResourceType(String value) {
+  CaseInvestigationNotebookResourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class NotebookResourceTypeSerializer extends StdSerializer<NotebookResourceType> {
-    public NotebookResourceTypeSerializer(Class<NotebookResourceType> t) {
+  public static class CaseInvestigationNotebookResourceTypeSerializer
+      extends StdSerializer<CaseInvestigationNotebookResourceType> {
+    public CaseInvestigationNotebookResourceTypeSerializer(
+        Class<CaseInvestigationNotebookResourceType> t) {
       super(t);
     }
 
-    public NotebookResourceTypeSerializer() {
+    public CaseInvestigationNotebookResourceTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        NotebookResourceType value, JsonGenerator jgen, SerializerProvider provider)
+        CaseInvestigationNotebookResourceType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static NotebookResourceType fromValue(String value) {
-    return new NotebookResourceType(value);
+  public static CaseInvestigationNotebookResourceType fromValue(String value) {
+    return new CaseInvestigationNotebookResourceType(value);
   }
 }
