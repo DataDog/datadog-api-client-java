@@ -13,20 +13,35 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** RUM application list attributes. */
 @JsonPropertyOrder({
+  RUMApplicationListAttributes.JSON_PROPERTY_API_KEY_ID,
+  RUMApplicationListAttributes.JSON_PROPERTY_APM_RUM_FLAT_SAMPLING_REPLAY_ENABLED,
+  RUMApplicationListAttributes.JSON_PROPERTY_APM_RUM_FLAT_SAMPLING_REPLAY_SAMPLE_RATE,
   RUMApplicationListAttributes.JSON_PROPERTY_APPLICATION_ID,
   RUMApplicationListAttributes.JSON_PROPERTY_CREATED_AT,
   RUMApplicationListAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
+  RUMApplicationListAttributes.JSON_PROPERTY_DISABLED_AT,
+  RUMApplicationListAttributes.JSON_PROPERTY_DISABLED_BY_HANDLE,
+  RUMApplicationListAttributes.JSON_PROPERTY_ERROR_TRACKING_EXCLUSION_FILTER_ENABLED,
+  RUMApplicationListAttributes.JSON_PROPERTY_EXTERNAL_FEEDS,
   RUMApplicationListAttributes.JSON_PROPERTY_HASH,
   RUMApplicationListAttributes.JSON_PROPERTY_IS_ACTIVE,
   RUMApplicationListAttributes.JSON_PROPERTY_NAME,
+  RUMApplicationListAttributes.JSON_PROPERTY_OOTB_METRICS_INSTALLED,
   RUMApplicationListAttributes.JSON_PROPERTY_ORG_ID,
+  RUMApplicationListAttributes.JSON_PROPERTY_PRODUCT_ANALYTICS_PREVIEW_DISABLED,
+  RUMApplicationListAttributes.JSON_PROPERTY_PRODUCT_ANALYTICS_REPLAY_SAMPLE_RATE,
   RUMApplicationListAttributes.JSON_PROPERTY_PRODUCT_SCALES,
+  RUMApplicationListAttributes.JSON_PROPERTY_REMOTE_CONFIG_ID,
+  RUMApplicationListAttributes.JSON_PROPERTY_SHORT_NAME,
+  RUMApplicationListAttributes.JSON_PROPERTY_TAGS,
   RUMApplicationListAttributes.JSON_PROPERTY_TYPE,
   RUMApplicationListAttributes.JSON_PROPERTY_UPDATED_AT,
   RUMApplicationListAttributes.JSON_PROPERTY_UPDATED_BY_HANDLE
@@ -35,6 +50,17 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMApplicationListAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_API_KEY_ID = "api_key_id";
+  private Integer apiKeyId;
+
+  public static final String JSON_PROPERTY_APM_RUM_FLAT_SAMPLING_REPLAY_ENABLED =
+      "apm_rum_flat_sampling_replay_enabled";
+  private Boolean apmRumFlatSamplingReplayEnabled;
+
+  public static final String JSON_PROPERTY_APM_RUM_FLAT_SAMPLING_REPLAY_SAMPLE_RATE =
+      "apm_rum_flat_sampling_replay_sample_rate";
+  private Double apmRumFlatSamplingReplaySampleRate;
+
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
   private String applicationId;
 
@@ -43,6 +69,19 @@ public class RUMApplicationListAttributes {
 
   public static final String JSON_PROPERTY_CREATED_BY_HANDLE = "created_by_handle";
   private String createdByHandle;
+
+  public static final String JSON_PROPERTY_DISABLED_AT = "disabled_at";
+  private Long disabledAt;
+
+  public static final String JSON_PROPERTY_DISABLED_BY_HANDLE = "disabled_by_handle";
+  private String disabledByHandle;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_EXCLUSION_FILTER_ENABLED =
+      "error_tracking_exclusion_filter_enabled";
+  private Boolean errorTrackingExclusionFilterEnabled;
+
+  public static final String JSON_PROPERTY_EXTERNAL_FEEDS = "external_feeds";
+  private List<String> externalFeeds = null;
 
   public static final String JSON_PROPERTY_HASH = "hash";
   private String hash;
@@ -53,11 +92,31 @@ public class RUMApplicationListAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_OOTB_METRICS_INSTALLED = "ootb_metrics_installed";
+  private Boolean ootbMetricsInstalled;
+
   public static final String JSON_PROPERTY_ORG_ID = "org_id";
   private Integer orgId;
 
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_PREVIEW_DISABLED =
+      "product_analytics_preview_disabled";
+  private Boolean productAnalyticsPreviewDisabled;
+
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_REPLAY_SAMPLE_RATE =
+      "product_analytics_replay_sample_rate";
+  private Integer productAnalyticsReplaySampleRate;
+
   public static final String JSON_PROPERTY_PRODUCT_SCALES = "product_scales";
   private RUMProductScales productScales;
+
+  public static final String JSON_PROPERTY_REMOTE_CONFIG_ID = "remote_config_id";
+  private String remoteConfigId;
+
+  public static final String JSON_PROPERTY_SHORT_NAME = "short_name";
+  private String shortName;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -90,6 +149,72 @@ public class RUMApplicationListAttributes {
     this.type = type;
     this.updatedAt = updatedAt;
     this.updatedByHandle = updatedByHandle;
+  }
+
+  public RUMApplicationListAttributes apiKeyId(Integer apiKeyId) {
+    this.apiKeyId = apiKeyId;
+    return this;
+  }
+
+  /**
+   * ID of the API key associated with the application. maximum: 2147483647
+   *
+   * @return apiKeyId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_API_KEY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getApiKeyId() {
+    return apiKeyId;
+  }
+
+  public void setApiKeyId(Integer apiKeyId) {
+    this.apiKeyId = apiKeyId;
+  }
+
+  public RUMApplicationListAttributes apmRumFlatSamplingReplayEnabled(
+      Boolean apmRumFlatSamplingReplayEnabled) {
+    this.apmRumFlatSamplingReplayEnabled = apmRumFlatSamplingReplayEnabled;
+    return this;
+  }
+
+  /**
+   * Indicates if flat sampling of Session Replay for APM-correlated RUM sessions is enabled.
+   *
+   * @return apmRumFlatSamplingReplayEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_RUM_FLAT_SAMPLING_REPLAY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getApmRumFlatSamplingReplayEnabled() {
+    return apmRumFlatSamplingReplayEnabled;
+  }
+
+  public void setApmRumFlatSamplingReplayEnabled(Boolean apmRumFlatSamplingReplayEnabled) {
+    this.apmRumFlatSamplingReplayEnabled = apmRumFlatSamplingReplayEnabled;
+  }
+
+  public RUMApplicationListAttributes apmRumFlatSamplingReplaySampleRate(
+      Double apmRumFlatSamplingReplaySampleRate) {
+    this.apmRumFlatSamplingReplaySampleRate = apmRumFlatSamplingReplaySampleRate;
+    return this;
+  }
+
+  /**
+   * Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is
+   * enabled.
+   *
+   * @return apmRumFlatSamplingReplaySampleRate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_RUM_FLAT_SAMPLING_REPLAY_SAMPLE_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getApmRumFlatSamplingReplaySampleRate() {
+    return apmRumFlatSamplingReplaySampleRate;
+  }
+
+  public void setApmRumFlatSamplingReplaySampleRate(Double apmRumFlatSamplingReplaySampleRate) {
+    this.apmRumFlatSamplingReplaySampleRate = apmRumFlatSamplingReplaySampleRate;
   }
 
   public RUMApplicationListAttributes applicationId(String applicationId) {
@@ -150,6 +275,102 @@ public class RUMApplicationListAttributes {
 
   public void setCreatedByHandle(String createdByHandle) {
     this.createdByHandle = createdByHandle;
+  }
+
+  public RUMApplicationListAttributes disabledAt(Long disabledAt) {
+    this.disabledAt = disabledAt;
+    return this;
+  }
+
+  /**
+   * Timestamp in ms of the date the RUM application was disabled. Only present if the application
+   * was disabled.
+   *
+   * @return disabledAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDisabledAt() {
+    return disabledAt;
+  }
+
+  public void setDisabledAt(Long disabledAt) {
+    this.disabledAt = disabledAt;
+  }
+
+  public RUMApplicationListAttributes disabledByHandle(String disabledByHandle) {
+    this.disabledByHandle = disabledByHandle;
+    return this;
+  }
+
+  /**
+   * Handle of the user who disabled the RUM application. Only present if the application was
+   * disabled.
+   *
+   * @return disabledByHandle
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLED_BY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisabledByHandle() {
+    return disabledByHandle;
+  }
+
+  public void setDisabledByHandle(String disabledByHandle) {
+    this.disabledByHandle = disabledByHandle;
+  }
+
+  public RUMApplicationListAttributes errorTrackingExclusionFilterEnabled(
+      Boolean errorTrackingExclusionFilterEnabled) {
+    this.errorTrackingExclusionFilterEnabled = errorTrackingExclusionFilterEnabled;
+    return this;
+  }
+
+  /**
+   * Indicates if Error Tracking exclusion filters are enabled for the application.
+   *
+   * @return errorTrackingExclusionFilterEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_EXCLUSION_FILTER_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getErrorTrackingExclusionFilterEnabled() {
+    return errorTrackingExclusionFilterEnabled;
+  }
+
+  public void setErrorTrackingExclusionFilterEnabled(Boolean errorTrackingExclusionFilterEnabled) {
+    this.errorTrackingExclusionFilterEnabled = errorTrackingExclusionFilterEnabled;
+  }
+
+  public RUMApplicationListAttributes externalFeeds(List<String> externalFeeds) {
+    this.externalFeeds = externalFeeds;
+    return this;
+  }
+
+  public RUMApplicationListAttributes addExternalFeedsItem(String externalFeedsItem) {
+    if (this.externalFeeds == null) {
+      this.externalFeeds = new ArrayList<>();
+    }
+    this.externalFeeds.add(externalFeedsItem);
+    return this;
+  }
+
+  /**
+   * Non-native ingestion paths the RUM application sends its data through. <code>otel</code> means
+   * the application sends RUM data through OpenTelemetry instead of the Datadog RUM SDK.
+   *
+   * @return externalFeeds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_FEEDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getExternalFeeds() {
+    return externalFeeds;
+  }
+
+  public void setExternalFeeds(List<String> externalFeeds) {
+    this.externalFeeds = externalFeeds;
   }
 
   public RUMApplicationListAttributes hash(String hash) {
@@ -214,6 +435,27 @@ public class RUMApplicationListAttributes {
     this.name = name;
   }
 
+  public RUMApplicationListAttributes ootbMetricsInstalled(Boolean ootbMetricsInstalled) {
+    this.ootbMetricsInstalled = ootbMetricsInstalled;
+    return this;
+  }
+
+  /**
+   * Indicates if the out-of-the-box RUM metrics are installed for the application.
+   *
+   * @return ootbMetricsInstalled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OOTB_METRICS_INSTALLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getOotbMetricsInstalled() {
+    return ootbMetricsInstalled;
+  }
+
+  public void setOotbMetricsInstalled(Boolean ootbMetricsInstalled) {
+    this.ootbMetricsInstalled = ootbMetricsInstalled;
+  }
+
   public RUMApplicationListAttributes orgId(Integer orgId) {
     this.orgId = orgId;
     return this;
@@ -232,6 +474,51 @@ public class RUMApplicationListAttributes {
 
   public void setOrgId(Integer orgId) {
     this.orgId = orgId;
+  }
+
+  public RUMApplicationListAttributes productAnalyticsPreviewDisabled(
+      Boolean productAnalyticsPreviewDisabled) {
+    this.productAnalyticsPreviewDisabled = productAnalyticsPreviewDisabled;
+    return this;
+  }
+
+  /**
+   * Indicates that the Product Analytics preview is disabled for the application. Only present (and
+   * <code>true</code>) when the Product Analytics retention state is not preview.
+   *
+   * @return productAnalyticsPreviewDisabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_PREVIEW_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getProductAnalyticsPreviewDisabled() {
+    return productAnalyticsPreviewDisabled;
+  }
+
+  public void setProductAnalyticsPreviewDisabled(Boolean productAnalyticsPreviewDisabled) {
+    this.productAnalyticsPreviewDisabled = productAnalyticsPreviewDisabled;
+  }
+
+  public RUMApplicationListAttributes productAnalyticsReplaySampleRate(
+      Integer productAnalyticsReplaySampleRate) {
+    this.productAnalyticsReplaySampleRate = productAnalyticsReplaySampleRate;
+    return this;
+  }
+
+  /**
+   * Sample rate (0-100) of Session Replay for Product Analytics sessions. maximum: 2147483647
+   *
+   * @return productAnalyticsReplaySampleRate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_REPLAY_SAMPLE_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getProductAnalyticsReplaySampleRate() {
+    return productAnalyticsReplaySampleRate;
+  }
+
+  public void setProductAnalyticsReplaySampleRate(Integer productAnalyticsReplaySampleRate) {
+    this.productAnalyticsReplaySampleRate = productAnalyticsReplaySampleRate;
   }
 
   public RUMApplicationListAttributes productScales(RUMProductScales productScales) {
@@ -257,6 +544,77 @@ public class RUMApplicationListAttributes {
     if (productScales != null) {
       this.unparsed |= productScales.unparsed;
     }
+  }
+
+  public RUMApplicationListAttributes remoteConfigId(String remoteConfigId) {
+    this.remoteConfigId = remoteConfigId;
+    return this;
+  }
+
+  /**
+   * ID of the RUM SDK remote configuration for the application, if one exists.
+   *
+   * @return remoteConfigId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMOTE_CONFIG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRemoteConfigId() {
+    return remoteConfigId;
+  }
+
+  public void setRemoteConfigId(String remoteConfigId) {
+    this.remoteConfigId = remoteConfigId;
+  }
+
+  public RUMApplicationListAttributes shortName(String shortName) {
+    this.shortName = shortName;
+    return this;
+  }
+
+  /**
+   * Short name of the RUM application.
+   *
+   * @return shortName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShortName() {
+    return shortName;
+  }
+
+  public void setShortName(String shortName) {
+    this.shortName = shortName;
+  }
+
+  public RUMApplicationListAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public RUMApplicationListAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * List of tags associated with the RUM application.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   public RUMApplicationListAttributes type(String type) {
@@ -377,14 +735,38 @@ public class RUMApplicationListAttributes {
       return false;
     }
     RUMApplicationListAttributes rumApplicationListAttributes = (RUMApplicationListAttributes) o;
-    return Objects.equals(this.applicationId, rumApplicationListAttributes.applicationId)
+    return Objects.equals(this.apiKeyId, rumApplicationListAttributes.apiKeyId)
+        && Objects.equals(
+            this.apmRumFlatSamplingReplayEnabled,
+            rumApplicationListAttributes.apmRumFlatSamplingReplayEnabled)
+        && Objects.equals(
+            this.apmRumFlatSamplingReplaySampleRate,
+            rumApplicationListAttributes.apmRumFlatSamplingReplaySampleRate)
+        && Objects.equals(this.applicationId, rumApplicationListAttributes.applicationId)
         && Objects.equals(this.createdAt, rumApplicationListAttributes.createdAt)
         && Objects.equals(this.createdByHandle, rumApplicationListAttributes.createdByHandle)
+        && Objects.equals(this.disabledAt, rumApplicationListAttributes.disabledAt)
+        && Objects.equals(this.disabledByHandle, rumApplicationListAttributes.disabledByHandle)
+        && Objects.equals(
+            this.errorTrackingExclusionFilterEnabled,
+            rumApplicationListAttributes.errorTrackingExclusionFilterEnabled)
+        && Objects.equals(this.externalFeeds, rumApplicationListAttributes.externalFeeds)
         && Objects.equals(this.hash, rumApplicationListAttributes.hash)
         && Objects.equals(this.isActive, rumApplicationListAttributes.isActive)
         && Objects.equals(this.name, rumApplicationListAttributes.name)
+        && Objects.equals(
+            this.ootbMetricsInstalled, rumApplicationListAttributes.ootbMetricsInstalled)
         && Objects.equals(this.orgId, rumApplicationListAttributes.orgId)
+        && Objects.equals(
+            this.productAnalyticsPreviewDisabled,
+            rumApplicationListAttributes.productAnalyticsPreviewDisabled)
+        && Objects.equals(
+            this.productAnalyticsReplaySampleRate,
+            rumApplicationListAttributes.productAnalyticsReplaySampleRate)
         && Objects.equals(this.productScales, rumApplicationListAttributes.productScales)
+        && Objects.equals(this.remoteConfigId, rumApplicationListAttributes.remoteConfigId)
+        && Objects.equals(this.shortName, rumApplicationListAttributes.shortName)
+        && Objects.equals(this.tags, rumApplicationListAttributes.tags)
         && Objects.equals(this.type, rumApplicationListAttributes.type)
         && Objects.equals(this.updatedAt, rumApplicationListAttributes.updatedAt)
         && Objects.equals(this.updatedByHandle, rumApplicationListAttributes.updatedByHandle)
@@ -395,14 +777,27 @@ public class RUMApplicationListAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        apiKeyId,
+        apmRumFlatSamplingReplayEnabled,
+        apmRumFlatSamplingReplaySampleRate,
         applicationId,
         createdAt,
         createdByHandle,
+        disabledAt,
+        disabledByHandle,
+        errorTrackingExclusionFilterEnabled,
+        externalFeeds,
         hash,
         isActive,
         name,
+        ootbMetricsInstalled,
         orgId,
+        productAnalyticsPreviewDisabled,
+        productAnalyticsReplaySampleRate,
         productScales,
+        remoteConfigId,
+        shortName,
+        tags,
         type,
         updatedAt,
         updatedByHandle,
@@ -413,14 +808,39 @@ public class RUMApplicationListAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RUMApplicationListAttributes {\n");
+    sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
+    sb.append("    apmRumFlatSamplingReplayEnabled: ")
+        .append(toIndentedString(apmRumFlatSamplingReplayEnabled))
+        .append("\n");
+    sb.append("    apmRumFlatSamplingReplaySampleRate: ")
+        .append(toIndentedString(apmRumFlatSamplingReplaySampleRate))
+        .append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByHandle: ").append(toIndentedString(createdByHandle)).append("\n");
+    sb.append("    disabledAt: ").append(toIndentedString(disabledAt)).append("\n");
+    sb.append("    disabledByHandle: ").append(toIndentedString(disabledByHandle)).append("\n");
+    sb.append("    errorTrackingExclusionFilterEnabled: ")
+        .append(toIndentedString(errorTrackingExclusionFilterEnabled))
+        .append("\n");
+    sb.append("    externalFeeds: ").append(toIndentedString(externalFeeds)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ootbMetricsInstalled: ")
+        .append(toIndentedString(ootbMetricsInstalled))
+        .append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    productAnalyticsPreviewDisabled: ")
+        .append(toIndentedString(productAnalyticsPreviewDisabled))
+        .append("\n");
+    sb.append("    productAnalyticsReplaySampleRate: ")
+        .append(toIndentedString(productAnalyticsReplaySampleRate))
+        .append("\n");
     sb.append("    productScales: ").append(toIndentedString(productScales)).append("\n");
+    sb.append("    remoteConfigId: ").append(toIndentedString(remoteConfigId)).append("\n");
+    sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedByHandle: ").append(toIndentedString(updatedByHandle)).append("\n");
