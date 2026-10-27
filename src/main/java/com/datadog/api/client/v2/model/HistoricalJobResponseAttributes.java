@@ -22,6 +22,7 @@ import java.util.Objects;
   HistoricalJobResponseAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
   HistoricalJobResponseAttributes.JSON_PROPERTY_CREATED_BY_NAME,
   HistoricalJobResponseAttributes.JSON_PROPERTY_CREATED_FROM_RULE_ID,
+  HistoricalJobResponseAttributes.JSON_PROPERTY_FAILURE,
   HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_DEFINITION,
   HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_NAME,
   HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_STATUS,
@@ -44,6 +45,9 @@ public class HistoricalJobResponseAttributes {
 
   public static final String JSON_PROPERTY_CREATED_FROM_RULE_ID = "createdFromRuleId";
   private String createdFromRuleId;
+
+  public static final String JSON_PROPERTY_FAILURE = "failure";
+  private HistoricalJobFailure failure;
 
   public static final String JSON_PROPERTY_JOB_DEFINITION = "jobDefinition";
   private JobDefinition jobDefinition;
@@ -145,6 +149,31 @@ public class HistoricalJobResponseAttributes {
 
   public void setCreatedFromRuleId(String createdFromRuleId) {
     this.createdFromRuleId = createdFromRuleId;
+  }
+
+  public HistoricalJobResponseAttributes failure(HistoricalJobFailure failure) {
+    this.failure = failure;
+    this.unparsed |= failure.unparsed;
+    return this;
+  }
+
+  /**
+   * Details about why the job failed. Only present when the job has failed and won't be retried.
+   *
+   * @return failure
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public HistoricalJobFailure getFailure() {
+    return failure;
+  }
+
+  public void setFailure(HistoricalJobFailure failure) {
+    this.failure = failure;
+    if (failure != null) {
+      this.unparsed |= failure.unparsed;
+    }
   }
 
   public HistoricalJobResponseAttributes jobDefinition(JobDefinition jobDefinition) {
@@ -338,6 +367,7 @@ public class HistoricalJobResponseAttributes {
         && Objects.equals(this.createdByHandle, historicalJobResponseAttributes.createdByHandle)
         && Objects.equals(this.createdByName, historicalJobResponseAttributes.createdByName)
         && Objects.equals(this.createdFromRuleId, historicalJobResponseAttributes.createdFromRuleId)
+        && Objects.equals(this.failure, historicalJobResponseAttributes.failure)
         && Objects.equals(this.jobDefinition, historicalJobResponseAttributes.jobDefinition)
         && Objects.equals(this.jobName, historicalJobResponseAttributes.jobName)
         && Objects.equals(this.jobStatus, historicalJobResponseAttributes.jobStatus)
@@ -355,6 +385,7 @@ public class HistoricalJobResponseAttributes {
         createdByHandle,
         createdByName,
         createdFromRuleId,
+        failure,
         jobDefinition,
         jobName,
         jobStatus,
@@ -372,6 +403,7 @@ public class HistoricalJobResponseAttributes {
     sb.append("    createdByHandle: ").append(toIndentedString(createdByHandle)).append("\n");
     sb.append("    createdByName: ").append(toIndentedString(createdByName)).append("\n");
     sb.append("    createdFromRuleId: ").append(toIndentedString(createdFromRuleId)).append("\n");
+    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
     sb.append("    jobDefinition: ").append(toIndentedString(jobDefinition)).append("\n");
     sb.append("    jobName: ").append(toIndentedString(jobName)).append("\n");
     sb.append("    jobStatus: ").append(toIndentedString(jobStatus)).append("\n");
