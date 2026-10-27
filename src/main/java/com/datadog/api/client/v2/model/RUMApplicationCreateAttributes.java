@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** RUM application creation attributes. */
 @JsonPropertyOrder({
+  RUMApplicationCreateAttributes.JSON_PROPERTY_CREATE_DEFAULT_RETENTION_FILTERS,
   RUMApplicationCreateAttributes.JSON_PROPERTY_NAME,
   RUMApplicationCreateAttributes.JSON_PROPERTY_PRODUCT_ANALYTICS_RETENTION_STATE,
   RUMApplicationCreateAttributes.JSON_PROPERTY_RUM_EVENT_PROCESSING_STATE,
@@ -28,6 +29,10 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMApplicationCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATE_DEFAULT_RETENTION_FILTERS =
+      "create_default_retention_filters";
+  private Boolean createDefaultRetentionFilters = true;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -48,6 +53,35 @@ public class RUMApplicationCreateAttributes {
   public RUMApplicationCreateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public RUMApplicationCreateAttributes createDefaultRetentionFilters(
+      Boolean createDefaultRetentionFilters) {
+    this.createDefaultRetentionFilters = createDefaultRetentionFilters;
+    return this;
+  }
+
+  /**
+   * Whether to create the default retention filters when the application is created: <code>
+   * Sessions with errors</code> and <code>Sessions</code>, each with a 100% retention rate. Set to
+   * <code>false</code> to create the application without them, for example when you add your own
+   * retention filters right after creating it. Until you add retention filters, the application
+   * only retains sessions matched by its <a
+   * href="https://docs.datadoghq.com/real_user_monitoring/rum_without_limits/retention_filters/#permanent-retention-filters">permanent
+   * retention filters</a>. This setting doesn't affect permanent retention filters (sessions with
+   * forced replays, Synthetics sessions and RUM-APM flat sampling).
+   *
+   * @return createDefaultRetentionFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATE_DEFAULT_RETENTION_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCreateDefaultRetentionFilters() {
+    return createDefaultRetentionFilters;
+  }
+
+  public void setCreateDefaultRetentionFilters(Boolean createDefaultRetentionFilters) {
+    this.createDefaultRetentionFilters = createDefaultRetentionFilters;
   }
 
   public RUMApplicationCreateAttributes name(String name) {
@@ -203,7 +237,10 @@ public class RUMApplicationCreateAttributes {
     }
     RUMApplicationCreateAttributes rumApplicationCreateAttributes =
         (RUMApplicationCreateAttributes) o;
-    return Objects.equals(this.name, rumApplicationCreateAttributes.name)
+    return Objects.equals(
+            this.createDefaultRetentionFilters,
+            rumApplicationCreateAttributes.createDefaultRetentionFilters)
+        && Objects.equals(this.name, rumApplicationCreateAttributes.name)
         && Objects.equals(
             this.productAnalyticsRetentionState,
             rumApplicationCreateAttributes.productAnalyticsRetentionState)
@@ -217,13 +254,21 @@ public class RUMApplicationCreateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        name, productAnalyticsRetentionState, rumEventProcessingState, type, additionalProperties);
+        createDefaultRetentionFilters,
+        name,
+        productAnalyticsRetentionState,
+        rumEventProcessingState,
+        type,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RUMApplicationCreateAttributes {\n");
+    sb.append("    createDefaultRetentionFilters: ")
+        .append(toIndentedString(createDefaultRetentionFilters))
+        .append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    productAnalyticsRetentionState: ")
         .append(toIndentedString(productAnalyticsRetentionState))
