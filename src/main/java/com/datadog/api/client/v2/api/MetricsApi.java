@@ -34,6 +34,7 @@ import com.datadog.api.client.v2.model.TagIndexingRuleExemptionCreateRequest;
 import com.datadog.api.client.v2.model.TagIndexingRuleExemptionData;
 import com.datadog.api.client.v2.model.TagIndexingRuleExemptionResponse;
 import com.datadog.api.client.v2.model.TagIndexingRuleExemptionSort;
+import com.datadog.api.client.v2.model.TagIndexingRuleExemptionUpdateRequest;
 import com.datadog.api.client.v2.model.TagIndexingRuleExemptionsResponse;
 import com.datadog.api.client.v2.model.TagIndexingRuleOrderRequest;
 import com.datadog.api.client.v2.model.TagIndexingRuleResponse;
@@ -6383,5 +6384,194 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TagIndexingRuleResponse>() {});
+  }
+
+  /**
+   * Update a tag indexing rule exemption.
+   *
+   * <p>See {@link #updateTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return TagIndexingRuleExemptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleExemptionResponse updateTagIndexingRuleExemption(
+      String metricName, TagIndexingRuleExemptionUpdateRequest body) throws ApiException {
+    return updateTagIndexingRuleExemptionWithHttpInfo(metricName, body).getData();
+  }
+
+  /**
+   * Update a tag indexing rule exemption.
+   *
+   * <p>See {@link #updateTagIndexingRuleExemptionWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TagIndexingRuleExemptionResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleExemptionResponse> updateTagIndexingRuleExemptionAsync(
+      String metricName, TagIndexingRuleExemptionUpdateRequest body) {
+    return updateTagIndexingRuleExemptionWithHttpInfoAsync(metricName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the reason for an explicit tag indexing rule exemption. The exemption's <code>created_at
+   * </code> and <code>created_by_handle</code> values remain unchanged. Returns 404 when the metric
+   * has no explicit exemption or has only a legacy tag configuration. Requires the <code>
+   * Manage Tags for Metrics</code> permission.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;TagIndexingRuleExemptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRuleExemptionResponse> updateTagIndexingRuleExemptionWithHttpInfo(
+      String metricName, TagIndexingRuleExemptionUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling"
+              + " updateTagIndexingRuleExemption");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateTagIndexingRuleExemption");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.updateTagIndexingRuleExemption",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionResponse>() {});
+  }
+
+  /**
+   * Update a tag indexing rule exemption.
+   *
+   * <p>See {@link #updateTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRuleExemptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>>
+      updateTagIndexingRuleExemptionWithHttpInfoAsync(
+          String metricName, TagIndexingRuleExemptionUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " updateTagIndexingRuleExemption"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateTagIndexingRuleExemption"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.updateTagIndexingRuleExemption",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionResponse>() {});
   }
 }
