@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ObservabilityPipelineAzureDataExplorerDestination.JSON_PROPERTY_DATABASE,
   ObservabilityPipelineAzureDataExplorerDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineAzureDataExplorerDestination.JSON_PROPERTY_INGESTION_ENDPOINT_KEY,
+  ObservabilityPipelineAzureDataExplorerDestination.JSON_PROPERTY_INGESTION_MODE,
   ObservabilityPipelineAzureDataExplorerDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineAzureDataExplorerDestination.JSON_PROPERTY_MAPPING_REFERENCE,
   ObservabilityPipelineAzureDataExplorerDestination.JSON_PROPERTY_TABLE,
@@ -64,6 +65,10 @@ public class ObservabilityPipelineAzureDataExplorerDestination {
 
   public static final String JSON_PROPERTY_INGESTION_ENDPOINT_KEY = "ingestion_endpoint_key";
   private String ingestionEndpointKey;
+
+  public static final String JSON_PROPERTY_INGESTION_MODE = "ingestion_mode";
+  private ObservabilityPipelineAzureDataExplorerDestinationIngestionMode ingestionMode =
+      ObservabilityPipelineAzureDataExplorerDestinationIngestionMode.STREAMING;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<String> inputs = new ArrayList<>();
@@ -272,6 +277,40 @@ public class ObservabilityPipelineAzureDataExplorerDestination {
     this.ingestionEndpointKey = ingestionEndpointKey;
   }
 
+  public ObservabilityPipelineAzureDataExplorerDestination ingestionMode(
+      ObservabilityPipelineAzureDataExplorerDestinationIngestionMode ingestionMode) {
+    this.ingestionMode = ingestionMode;
+    this.unparsed |= !ingestionMode.isValid();
+    return this;
+  }
+
+  /**
+   * The ingestion method used to send data to Azure Data Explorer.
+   *
+   * <ul>
+   *   <li><code>streaming</code>: Sends events directly to the table using streaming ingestion.
+   *   <li><code>queue</code>: Sends events through queued (batched) ingestion.
+   * </ul>
+   *
+   * <p>Defaults to <code>streaming</code>.
+   *
+   * @return ingestionMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTION_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineAzureDataExplorerDestinationIngestionMode getIngestionMode() {
+    return ingestionMode;
+  }
+
+  public void setIngestionMode(
+      ObservabilityPipelineAzureDataExplorerDestinationIngestionMode ingestionMode) {
+    if (!ingestionMode.isValid()) {
+      this.unparsed = true;
+    }
+    this.ingestionMode = ingestionMode;
+  }
+
   public ObservabilityPipelineAzureDataExplorerDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
@@ -466,6 +505,8 @@ public class ObservabilityPipelineAzureDataExplorerDestination {
         && Objects.equals(
             this.ingestionEndpointKey,
             observabilityPipelineAzureDataExplorerDestination.ingestionEndpointKey)
+        && Objects.equals(
+            this.ingestionMode, observabilityPipelineAzureDataExplorerDestination.ingestionMode)
         && Objects.equals(this.inputs, observabilityPipelineAzureDataExplorerDestination.inputs)
         && Objects.equals(
             this.mappingReference,
@@ -489,6 +530,7 @@ public class ObservabilityPipelineAzureDataExplorerDestination {
         database,
         id,
         ingestionEndpointKey,
+        ingestionMode,
         inputs,
         mappingReference,
         table,
@@ -510,6 +552,7 @@ public class ObservabilityPipelineAzureDataExplorerDestination {
     sb.append("    ingestionEndpointKey: ")
         .append(toIndentedString(ingestionEndpointKey))
         .append("\n");
+    sb.append("    ingestionMode: ").append(toIndentedString(ingestionMode)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    mappingReference: ").append(toIndentedString(mappingReference)).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
