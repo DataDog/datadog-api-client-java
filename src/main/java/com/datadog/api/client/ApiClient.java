@@ -1082,18 +1082,6 @@ public class ApiClient {
           put("v2.getChangeRequest", false);
           put("v2.updateChangeRequest", false);
           put("v2.updateChangeRequestDecision", false);
-          put("v2.createAWSCloudAuthPersonaMapping", false);
-          put("v2.createGitHubCloudAuthIntakeMapping", false);
-          put("v2.createGitHubCloudAuthPersonaMapping", false);
-          put("v2.deleteAWSCloudAuthPersonaMapping", false);
-          put("v2.deleteGitHubCloudAuthIntakeMapping", false);
-          put("v2.deleteGitHubCloudAuthPersonaMapping", false);
-          put("v2.getAWSCloudAuthPersonaMapping", false);
-          put("v2.getGitHubCloudAuthIntakeMapping", false);
-          put("v2.getGitHubCloudAuthPersonaMapping", false);
-          put("v2.listAWSCloudAuthPersonaMappings", false);
-          put("v2.listGitHubCloudAuthIntakeMappings", false);
-          put("v2.listGitHubCloudAuthPersonaMappings", false);
           put("v2.activateContentPack", false);
           put("v2.activateIntegration", false);
           put("v2.batchGetSecurityMonitoringDatasetDependencies", false);
@@ -1614,6 +1602,18 @@ public class ApiClient {
           put("v2.getWebIntegrationAccount", false);
           put("v2.listWebIntegrationAccounts", false);
           put("v2.updateWebIntegrationAccount", false);
+          put("v2.createAWSCloudAuthPersonaMapping", false);
+          put("v2.createGitHubCloudAuthIntakeMapping", false);
+          put("v2.createGitHubCloudAuthPersonaMapping", false);
+          put("v2.deleteAWSCloudAuthPersonaMapping", false);
+          put("v2.deleteGitHubCloudAuthIntakeMapping", false);
+          put("v2.deleteGitHubCloudAuthPersonaMapping", false);
+          put("v2.getAWSCloudAuthPersonaMapping", false);
+          put("v2.getGitHubCloudAuthIntakeMapping", false);
+          put("v2.getGitHubCloudAuthPersonaMapping", false);
+          put("v2.listAWSCloudAuthPersonaMappings", false);
+          put("v2.listGitHubCloudAuthIntakeMappings", false);
+          put("v2.listGitHubCloudAuthPersonaMappings", false);
         }
       };
   protected static final java.util.logging.Logger logger =

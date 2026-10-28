@@ -119,7 +119,7 @@ public class CloudAuthenticationApi {
           "Missing the required parameter 'body' when calling createAWSCloudAuthPersonaMapping");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
+    String localVarPath = "/api/v2/wif/aws/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -179,7 +179,7 @@ public class CloudAuthenticationApi {
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
+    String localVarPath = "/api/v2/wif/aws/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -279,7 +279,7 @@ public class CloudAuthenticationApi {
           "Missing the required parameter 'body' when calling createGitHubCloudAuthIntakeMapping");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/intake_mapping";
+    String localVarPath = "/api/v2/wif/github/intake_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -339,7 +339,7 @@ public class CloudAuthenticationApi {
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/intake_mapping";
+    String localVarPath = "/api/v2/wif/github/intake_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -439,7 +439,7 @@ public class CloudAuthenticationApi {
           "Missing the required parameter 'body' when calling createGitHubCloudAuthPersonaMapping");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/persona_mapping";
+    String localVarPath = "/api/v2/wif/github/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -499,7 +499,7 @@ public class CloudAuthenticationApi {
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/persona_mapping";
+    String localVarPath = "/api/v2/wif/github/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -596,7 +596,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/aws/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -657,7 +657,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/aws/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -756,7 +756,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}"
+        "/api/v2/wif/github/intake_mapping/{intake_mapping_id}"
             .replaceAll(
                 "\\{" + "intake_mapping_id" + "\\}",
                 apiClient.escapeString(intakeMappingId.toString()));
@@ -817,7 +817,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}"
+        "/api/v2/wif/github/intake_mapping/{intake_mapping_id}"
             .replaceAll(
                 "\\{" + "intake_mapping_id" + "\\}",
                 apiClient.escapeString(intakeMappingId.toString()));
@@ -916,7 +916,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/github/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -977,7 +977,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/github/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -1079,7 +1079,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/aws/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -1142,7 +1142,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/aws/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -1246,7 +1246,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}"
+        "/api/v2/wif/github/intake_mapping/{intake_mapping_id}"
             .replaceAll(
                 "\\{" + "intake_mapping_id" + "\\}",
                 apiClient.escapeString(intakeMappingId.toString()));
@@ -1309,7 +1309,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/intake_mapping/{intake_mapping_id}"
+        "/api/v2/wif/github/intake_mapping/{intake_mapping_id}"
             .replaceAll(
                 "\\{" + "intake_mapping_id" + "\\}",
                 apiClient.escapeString(intakeMappingId.toString()));
@@ -1413,7 +1413,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/github/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -1476,7 +1476,7 @@ public class CloudAuthenticationApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/cloud_auth/github/persona_mapping/{persona_mapping_id}"
+        "/api/v2/wif/github/persona_mapping/{persona_mapping_id}"
             .replaceAll(
                 "\\{" + "persona_mapping_id" + "\\}",
                 apiClient.escapeString(personaMappingId.toString()));
@@ -1566,7 +1566,7 @@ public class CloudAuthenticationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
+    String localVarPath = "/api/v2/wif/aws/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1612,7 +1612,7 @@ public class CloudAuthenticationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
+    String localVarPath = "/api/v2/wif/aws/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1701,7 +1701,7 @@ public class CloudAuthenticationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/intake_mapping";
+    String localVarPath = "/api/v2/wif/github/intake_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1747,7 +1747,7 @@ public class CloudAuthenticationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/intake_mapping";
+    String localVarPath = "/api/v2/wif/github/intake_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1836,7 +1836,7 @@ public class CloudAuthenticationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/persona_mapping";
+    String localVarPath = "/api/v2/wif/github/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1882,7 +1882,7 @@ public class CloudAuthenticationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/v2/cloud_auth/github/persona_mapping";
+    String localVarPath = "/api/v2/wif/github/persona_mapping";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
