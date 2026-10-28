@@ -18,7 +18,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Controls the retention policy for Product Analytics data derived from RUM events. */
+/**
+ * Controls the retention policy for Product Analytics data derived from RUM events. Requests also
+ * accept <code>PREVIEW</code> (the initial state of a new application, reported as <code>NONE
+ * </code> in responses). Setting <code>MAX</code> requires the <code>product_analytics_apps_write
+ * </code> permission.
+ */
 @JsonSerialize(
     using = RUMProductAnalyticsRetentionState.RUMProductAnalyticsRetentionStateSerializer.class)
 public class RUMProductAnalyticsRetentionState extends ModelEnum<String> {

@@ -18,7 +18,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** An aggregation function. */
+/**
+ * An aggregation function. <code>count</code> counts events and needs no metric. <code>cardinality
+ * </code> counts the distinct values of the metric. <code>sum</code>, <code>min</code>, <code>max
+ * </code>, <code>avg</code>, <code>median</code> and the percentiles (<code>pc75</code> to <code>
+ * pc99</code>) apply to a numeric metric such as <code>@view.loading_time</code>.
+ */
 @JsonSerialize(using = RUMAggregationFunction.RUMAggregationFunctionSerializer.class)
 public class RUMAggregationFunction extends ModelEnum<String> {
 

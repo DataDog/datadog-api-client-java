@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A compute rule to compute metrics or timeseries. */
+/**
+ * A compute rule to compute metrics or timeseries. In the response, the result of each rule is
+ * keyed <code>c0</code>, <code>c1</code>... following the order of the <code>compute</code> list.
+ */
 @JsonPropertyOrder({
   RUMCompute.JSON_PROPERTY_AGGREGATION,
   RUMCompute.JSON_PROPERTY_INTERVAL,
@@ -57,7 +60,11 @@ public class RUMCompute {
   }
 
   /**
-   * An aggregation function.
+   * An aggregation function. <code>count</code> counts events and needs no metric. <code>
+   * cardinality</code> counts the distinct values of the metric. <code>sum</code>, <code>min</code>
+   * , <code>max</code>, <code>avg</code>, <code>median</code> and the percentiles (<code>pc75
+   * </code> to <code>pc99</code>) apply to a numeric metric such as <code>@view.loading_time</code>
+   * .
    *
    * @return aggregation
    */
@@ -80,7 +87,9 @@ public class RUMCompute {
   }
 
   /**
-   * The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points.
+   * The time buckets' size, for example <code>5m</code>, <code>1h</code> or <code>1d</code> (only
+   * used for <code>type=timeseries</code>). Defaults to a resolution of 150 points over the queried
+   * time range.
    *
    * @return interval
    */
@@ -101,7 +110,8 @@ public class RUMCompute {
   }
 
   /**
-   * The metric to use.
+   * The attribute to aggregate, for example <code>@view.loading_time</code>. Not needed for <code>
+   * count</code>, required for the other aggregations.
    *
    * @return metric
    */
@@ -123,7 +133,8 @@ public class RUMCompute {
   }
 
   /**
-   * The type of compute.
+   * The type of compute. <code>total</code> returns one value per bucket, <code>timeseries</code>
+   * returns a list of time points per bucket.
    *
    * @return type
    */

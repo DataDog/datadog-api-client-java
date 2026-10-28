@@ -61,7 +61,8 @@ public class RUMGroupBy {
   }
 
   /**
-   * The name of the facet to use (required).
+   * The attribute to group by, for example <code>@view.name</code> or <code>@session.type</code>
+   * (required).
    *
    * @return facet
    */
@@ -129,7 +130,7 @@ public class RUMGroupBy {
   }
 
   /**
-   * The value to use for logs that don't have the facet used to group by.
+   * The value to use for events that don't have the facet used to group by.
    *
    * @return missing
    */
