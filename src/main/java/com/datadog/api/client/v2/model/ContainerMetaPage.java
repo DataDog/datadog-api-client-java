@@ -75,7 +75,7 @@ public class ContainerMetaPage {
   }
 
   /**
-   * Number of results returned minimum: 0 maximum: 10000
+   * Maximum number of results requested. minimum: 0 maximum: 10000
    *
    * @return limit
    */
@@ -96,7 +96,8 @@ public class ContainerMetaPage {
   }
 
   /**
-   * The cursor used to get the next results, if any.
+   * The cursor used to get the next results, if any. To make the next request, use the same
+   * parameters with the addition of the <code>page[cursor]</code>. Empty for grouped results.
    *
    * @return nextCursor
    */
@@ -148,7 +149,7 @@ public class ContainerMetaPage {
   }
 
   /**
-   * Total number of records that match the query.
+   * Total number of containers that match the query. Always <code>0</code> for grouped results.
    *
    * @return total
    */
