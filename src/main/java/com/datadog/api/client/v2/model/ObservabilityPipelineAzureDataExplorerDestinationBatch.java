@@ -41,7 +41,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationBatch {
   }
 
   /**
-   * Maximum batch size in bytes. minimum: 1 maximum: 4000000
+   * Maximum batch size in bytes.
    *
    * @return maxBytes
    */
@@ -62,7 +62,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationBatch {
   }
 
   /**
-   * Maximum number of events per batch before it is flushed. minimum: 1
+   * Maximum number of events per batch before it is flushed.
    *
    * @return maxEvents
    */
@@ -83,7 +83,7 @@ public class ObservabilityPipelineAzureDataExplorerDestinationBatch {
   }
 
   /**
-   * Maximum number of seconds to wait before flushing a partial batch. minimum: 1
+   * Maximum number of seconds to wait before flushing a partial batch.
    *
    * @return timeoutSecs
    */
