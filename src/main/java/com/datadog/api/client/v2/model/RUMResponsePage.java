@@ -32,7 +32,8 @@ public class RUMResponsePage {
 
   /**
    * The cursor to use to get the next results, if any. To make the next request, use the same
-   * parameters with the addition of <code>page[cursor]</code>.
+   * parameters with the addition of <code>page[cursor]</code> (<code>page.cursor</code> for the
+   * POST endpoint). Absent on the last page.
    *
    * @return after
    */

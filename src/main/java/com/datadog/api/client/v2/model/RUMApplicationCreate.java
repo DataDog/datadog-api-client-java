@@ -52,7 +52,10 @@ public class RUMApplicationCreate {
   }
 
   /**
-   * RUM application creation attributes.
+   * RUM application creation attributes. When <code>rum_event_processing_state</code> is omitted,
+   * it defaults to <code>ALL</code>. When <code>product_analytics_retention_state</code> is
+   * omitted, Product Analytics is not enabled. Setting it to <code>MAX</code> requires the <code>
+   * product_analytics_apps_write</code> permission.
    *
    * @return attributes
    */

@@ -46,7 +46,11 @@ public class RUMAggregateSort {
   }
 
   /**
-   * An aggregation function.
+   * An aggregation function. <code>count</code> counts events and needs no metric. <code>
+   * cardinality</code> counts the distinct values of the metric. <code>sum</code>, <code>min</code>
+   * , <code>max</code>, <code>avg</code>, <code>median</code> and the percentiles (<code>pc75
+   * </code> to <code>pc99</code>) apply to a numeric metric such as <code>@view.loading_time</code>
+   * .
    *
    * @return aggregation
    */
@@ -117,7 +121,8 @@ public class RUMAggregateSort {
   }
 
   /**
-   * The type of sorting algorithm.
+   * The type of sorting algorithm. <code>alphabetical</code> sorts buckets by the facet value,
+   * <code>measure</code> sorts them by a computed aggregation.
    *
    * @return type
    */
