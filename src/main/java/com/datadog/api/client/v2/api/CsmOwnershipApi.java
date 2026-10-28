@@ -148,7 +148,7 @@ public class CsmOwnershipApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}/feedback"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}/feedback"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -230,7 +230,7 @@ public class CsmOwnershipApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}/feedback"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}/feedback"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -409,7 +409,7 @@ public class CsmOwnershipApi {
     String ifNoneMatch = parameters.ifNoneMatch;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}/evidence"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}/evidence"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -488,7 +488,7 @@ public class CsmOwnershipApi {
     String ifNoneMatch = parameters.ifNoneMatch;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}/evidence"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}/evidence"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -675,7 +675,7 @@ public class CsmOwnershipApi {
     String ifNoneMatch = parameters.ifNoneMatch;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -756,7 +756,7 @@ public class CsmOwnershipApi {
     String ifNoneMatch = parameters.ifNoneMatch;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -1187,7 +1187,7 @@ public class CsmOwnershipApi {
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/history"
+        "/api/v2/security/ownership/{resource_id}/history"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
 
@@ -1254,7 +1254,7 @@ public class CsmOwnershipApi {
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/history"
+        "/api/v2/security/ownership/{resource_id}/history"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
 
@@ -1449,7 +1449,7 @@ public class CsmOwnershipApi {
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}/history"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}/history"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -1532,7 +1532,7 @@ public class CsmOwnershipApi {
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}/{owner_type}/history"
+        "/api/v2/security/ownership/{resource_id}/{owner_type}/history"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()))
             .replaceAll("\\{" + "owner_type" + "\\}", apiClient.escapeString(ownerType.toString()));
@@ -1640,7 +1640,7 @@ public class CsmOwnershipApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}"
+        "/api/v2/security/ownership/{resource_id}"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
 
@@ -1702,7 +1702,7 @@ public class CsmOwnershipApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/csm/ownership/{resource_id}"
+        "/api/v2/security/ownership/{resource_id}"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
 
