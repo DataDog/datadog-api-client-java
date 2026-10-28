@@ -814,6 +814,87 @@ public class ApiClient {
                             }
                           }))));
           put(
+              "v2.OnCallPagingApi.rerouteOnCallPage",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The globally available endpoint for On-Call.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "The full DNS name of the On-Call paging endpoint.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The Datadog site where the On-Call paging endpoint is"
+                                          + " deployed.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList("datadoghq.com", "datadoghq.eu"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The On-Call paging subdomain.",
+                                      "navy.oncall",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall",
+                                              "saffron.oncall",
+                                              "navy.oncall",
+                                              "coral.oncall",
+                                              "teal.oncall",
+                                              "beige.oncall",
+                                              "scarlet.oncall"))));
+                            }
+                          }))));
+          put(
               "v2.OnCallPagingApi.resolveOnCallPage",
               new ArrayList<ServerConfiguration>(
                   Arrays.asList(
