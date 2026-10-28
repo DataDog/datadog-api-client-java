@@ -52,7 +52,7 @@ public class RUMOperationResponseAttributes {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
-  private RUMOperationUser createdBy;
+  private JsonNullable<RUMOperationUser> createdBy = JsonNullable.<RUMOperationUser>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
@@ -61,7 +61,7 @@ public class RUMOperationResponseAttributes {
   private String displayName;
 
   public static final String JSON_PROPERTY_FEATURE_IDS = "feature_ids";
-  private List<String> featureIds = null;
+  private JsonNullable<List<String>> featureIds = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_JOURNEY_RUM = "journey_rum";
   private RUMOperationJourneyRum journeyRum;
@@ -79,7 +79,7 @@ public class RUMOperationResponseAttributes {
   private JsonNullable<OffsetDateTime> updatedAt = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_UPDATED_BY = "updated_by";
-  private RUMOperationUser updatedBy;
+  private JsonNullable<RUMOperationUser> updatedBy = JsonNullable.<RUMOperationUser>undefined();
 
   public RUMOperationResponseAttributes() {}
 
@@ -93,6 +93,7 @@ public class RUMOperationResponseAttributes {
     this.unparsed |= journeyRum.unparsed;
     this.name = name;
     this.tags = tags;
+    if (tags != null) {}
   }
 
   public RUMOperationResponseAttributes applicationId(UUID applicationId) {
@@ -170,28 +171,35 @@ public class RUMOperationResponseAttributes {
   }
 
   public RUMOperationResponseAttributes createdBy(RUMOperationUser createdBy) {
-    this.createdBy = createdBy;
-    this.unparsed |= createdBy.unparsed;
+    this.createdBy = JsonNullable.<RUMOperationUser>of(createdBy);
     return this;
   }
 
   /**
-   * A Datadog user referenced by a RUM operation.
+   * A Datadog user referenced by a RUM operation. <code>null</code> when the user could not be
+   * resolved.
    *
    * @return createdBy
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public RUMOperationUser getCreatedBy() {
+    return createdBy.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RUMOperationUser getCreatedBy() {
+  public JsonNullable<RUMOperationUser> getCreatedBy_JsonNullable() {
     return createdBy;
   }
 
-  public void setCreatedBy(RUMOperationUser createdBy) {
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  public void setCreatedBy_JsonNullable(JsonNullable<RUMOperationUser> createdBy) {
     this.createdBy = createdBy;
-    if (createdBy != null) {
-      this.unparsed |= createdBy.unparsed;
-    }
+  }
+
+  public void setCreatedBy(RUMOperationUser createdBy) {
+    this.createdBy = JsonNullable.<RUMOperationUser>of(createdBy);
   }
 
   public RUMOperationResponseAttributes description(String description) {
@@ -247,15 +255,19 @@ public class RUMOperationResponseAttributes {
   }
 
   public RUMOperationResponseAttributes featureIds(List<String> featureIds) {
-    this.featureIds = featureIds;
+    this.featureIds = JsonNullable.<List<String>>of(featureIds);
     return this;
   }
 
   public RUMOperationResponseAttributes addFeatureIdsItem(String featureIdsItem) {
-    if (this.featureIds == null) {
-      this.featureIds = new ArrayList<>();
+    if (this.featureIds == null || !this.featureIds.isPresent()) {
+      this.featureIds = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.featureIds.add(featureIdsItem);
+    try {
+      this.featureIds.get().add(featureIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -265,14 +277,24 @@ public class RUMOperationResponseAttributes {
    * @return featureIds
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getFeatureIds() {
+    return featureIds.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_FEATURE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getFeatureIds() {
+  public JsonNullable<List<String>> getFeatureIds_JsonNullable() {
     return featureIds;
   }
 
-  public void setFeatureIds(List<String> featureIds) {
+  @JsonProperty(JSON_PROPERTY_FEATURE_IDS)
+  public void setFeatureIds_JsonNullable(JsonNullable<List<String>> featureIds) {
     this.featureIds = featureIds;
+  }
+
+  public void setFeatureIds(List<String> featureIds) {
+    this.featureIds = JsonNullable.<List<String>>of(featureIds);
   }
 
   public RUMOperationResponseAttributes journeyRum(RUMOperationJourneyRum journeyRum) {
@@ -346,6 +368,7 @@ public class RUMOperationResponseAttributes {
    *
    * @return tags
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTags() {
@@ -383,28 +406,35 @@ public class RUMOperationResponseAttributes {
   }
 
   public RUMOperationResponseAttributes updatedBy(RUMOperationUser updatedBy) {
-    this.updatedBy = updatedBy;
-    this.unparsed |= updatedBy.unparsed;
+    this.updatedBy = JsonNullable.<RUMOperationUser>of(updatedBy);
     return this;
   }
 
   /**
-   * A Datadog user referenced by a RUM operation.
+   * A Datadog user referenced by a RUM operation. <code>null</code> when the user could not be
+   * resolved.
    *
    * @return updatedBy
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public RUMOperationUser getUpdatedBy() {
+    return updatedBy.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UPDATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RUMOperationUser getUpdatedBy() {
+  public JsonNullable<RUMOperationUser> getUpdatedBy_JsonNullable() {
     return updatedBy;
   }
 
-  public void setUpdatedBy(RUMOperationUser updatedBy) {
+  @JsonProperty(JSON_PROPERTY_UPDATED_BY)
+  public void setUpdatedBy_JsonNullable(JsonNullable<RUMOperationUser> updatedBy) {
     this.updatedBy = updatedBy;
-    if (updatedBy != null) {
-      this.unparsed |= updatedBy.unparsed;
-    }
+  }
+
+  public void setUpdatedBy(RUMOperationUser updatedBy) {
+    this.updatedBy = JsonNullable.<RUMOperationUser>of(updatedBy);
   }
 
   /**

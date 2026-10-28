@@ -23,7 +23,8 @@ import java.util.Objects;
   RumRetentionFilterAttributes.JSON_PROPERTY_EVENT_TYPE,
   RumRetentionFilterAttributes.JSON_PROPERTY_NAME,
   RumRetentionFilterAttributes.JSON_PROPERTY_QUERY,
-  RumRetentionFilterAttributes.JSON_PROPERTY_SAMPLE_RATE
+  RumRetentionFilterAttributes.JSON_PROPERTY_SAMPLE_RATE,
+  RumRetentionFilterAttributes.JSON_PROPERTY_TRACK
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -46,6 +47,9 @@ public class RumRetentionFilterAttributes {
 
   public static final String JSON_PROPERTY_SAMPLE_RATE = "sample_rate";
   private Double sampleRate;
+
+  public static final String JSON_PROPERTY_TRACK = "track";
+  private RumRetentionFilterTrack track;
 
   public RumRetentionFilterAttributes crossProductSampling(
       RumCrossProductSampling crossProductSampling) {
@@ -183,6 +187,31 @@ public class RumRetentionFilterAttributes {
     this.sampleRate = sampleRate;
   }
 
+  public RumRetentionFilterAttributes track(RumRetentionFilterTrack track) {
+    this.track = track;
+    this.unparsed |= !track.isValid();
+    return this;
+  }
+
+  /**
+   * The product track a RUM retention filter applies to.
+   *
+   * @return track
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRACK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RumRetentionFilterTrack getTrack() {
+    return track;
+  }
+
+  public void setTrack(RumRetentionFilterTrack track) {
+    if (!track.isValid()) {
+      this.unparsed = true;
+    }
+    this.track = track;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -246,6 +275,7 @@ public class RumRetentionFilterAttributes {
         && Objects.equals(this.name, rumRetentionFilterAttributes.name)
         && Objects.equals(this.query, rumRetentionFilterAttributes.query)
         && Objects.equals(this.sampleRate, rumRetentionFilterAttributes.sampleRate)
+        && Objects.equals(this.track, rumRetentionFilterAttributes.track)
         && Objects.equals(
             this.additionalProperties, rumRetentionFilterAttributes.additionalProperties);
   }
@@ -253,7 +283,14 @@ public class RumRetentionFilterAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        crossProductSampling, enabled, eventType, name, query, sampleRate, additionalProperties);
+        crossProductSampling,
+        enabled,
+        eventType,
+        name,
+        query,
+        sampleRate,
+        track,
+        additionalProperties);
   }
 
   @Override
@@ -268,6 +305,7 @@ public class RumRetentionFilterAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    sampleRate: ").append(toIndentedString(sampleRate)).append("\n");
+    sb.append("    track: ").append(toIndentedString(track)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

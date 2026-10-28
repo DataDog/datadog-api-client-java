@@ -22,6 +22,7 @@ import java.util.Objects;
 /** The response for a list of RUM operations. */
 @JsonPropertyOrder({
   RUMOperationsListResponse.JSON_PROPERTY_DATA,
+  RUMOperationsListResponse.JSON_PROPERTY_LINKS,
   RUMOperationsListResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
@@ -30,6 +31,9 @@ public class RUMOperationsListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<RUMOperationResponseData> data = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private RUMOperationsListResponseLinks links;
 
   public static final String JSON_PROPERTY_META = "meta";
   private RUMOperationsListResponseMeta meta;
@@ -77,6 +81,31 @@ public class RUMOperationsListResponse {
       for (RUMOperationResponseData item : data) {
         this.unparsed |= item.unparsed;
       }
+    }
+  }
+
+  public RUMOperationsListResponse links(RUMOperationsListResponseLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination links for a list of RUM operations.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMOperationsListResponseLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(RUMOperationsListResponseLinks links) {
+    this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
     }
   }
 
@@ -162,6 +191,7 @@ public class RUMOperationsListResponse {
     }
     RUMOperationsListResponse rumOperationsListResponse = (RUMOperationsListResponse) o;
     return Objects.equals(this.data, rumOperationsListResponse.data)
+        && Objects.equals(this.links, rumOperationsListResponse.links)
         && Objects.equals(this.meta, rumOperationsListResponse.meta)
         && Objects.equals(
             this.additionalProperties, rumOperationsListResponse.additionalProperties);
@@ -169,7 +199,7 @@ public class RUMOperationsListResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
@@ -177,6 +207,7 @@ public class RUMOperationsListResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class RUMOperationsListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
