@@ -52,6 +52,7 @@ import com.datadog.api.client.v2.model.IncidentOrgSettingsListResponse;
 import com.datadog.api.client.v2.model.IncidentOrgSettingsResponse;
 import com.datadog.api.client.v2.model.IncidentPageUUIDResponse;
 import com.datadog.api.client.v2.model.IncidentRelatedObject;
+import com.datadog.api.client.v2.model.IncidentResponderRelatedObject;
 import com.datadog.api.client.v2.model.IncidentResponderRequest;
 import com.datadog.api.client.v2.model.IncidentResponderResponse;
 import com.datadog.api.client.v2.model.IncidentRespondersResponse;
@@ -11640,6 +11641,48 @@ public class IncidentsApi {
         new GenericType<PostmortemTemplatesResponse>() {});
   }
 
+  /** Manage optional parameters to listIncidentResponders. */
+  public static class ListIncidentRespondersOptionalParameters {
+    private List<IncidentResponderRelatedObject> include;
+    private Long pageLimit;
+    private Long pageOffset;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated related resource types to include. Supported values are <code>
+     *     users</code> and <code>role_assignments</code>. (optional)
+     * @return ListIncidentRespondersOptionalParameters
+     */
+    public ListIncidentRespondersOptionalParameters include(
+        List<IncidentResponderRelatedObject> include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of responders to return per page. (optional, default to 25)
+     * @return ListIncidentRespondersOptionalParameters
+     */
+    public ListIncidentRespondersOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset The offset of the first responder to return. (optional)
+     * @return ListIncidentRespondersOptionalParameters
+     */
+    public ListIncidentRespondersOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+  }
+
   /**
    * List incident responders.
    *
@@ -11650,7 +11693,9 @@ public class IncidentsApi {
    * @throws ApiException if fails to make API call
    */
   public IncidentRespondersResponse listIncidentResponders(String incidentId) throws ApiException {
-    return listIncidentRespondersWithHttpInfo(incidentId).getData();
+    return listIncidentRespondersWithHttpInfo(
+            incidentId, new ListIncidentRespondersOptionalParameters())
+        .getData();
   }
 
   /**
@@ -11663,7 +11708,41 @@ public class IncidentsApi {
    */
   public CompletableFuture<IncidentRespondersResponse> listIncidentRespondersAsync(
       String incidentId) {
-    return listIncidentRespondersWithHttpInfoAsync(incidentId)
+    return listIncidentRespondersWithHttpInfoAsync(
+            incidentId, new ListIncidentRespondersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List incident responders.
+   *
+   * <p>See {@link #listIncidentRespondersWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentRespondersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentRespondersResponse listIncidentResponders(
+      String incidentId, ListIncidentRespondersOptionalParameters parameters) throws ApiException {
+    return listIncidentRespondersWithHttpInfo(incidentId, parameters).getData();
+  }
+
+  /**
+   * List incident responders.
+   *
+   * <p>See {@link #listIncidentRespondersWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentRespondersResponse&gt;
+   */
+  public CompletableFuture<IncidentRespondersResponse> listIncidentRespondersAsync(
+      String incidentId, ListIncidentRespondersOptionalParameters parameters) {
+    return listIncidentRespondersWithHttpInfoAsync(incidentId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -11674,6 +11753,7 @@ public class IncidentsApi {
    * List all responders for an incident.
    *
    * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentRespondersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -11689,7 +11769,7 @@ public class IncidentsApi {
    *     </table>
    */
   public ApiResponse<IncidentRespondersResponse> listIncidentRespondersWithHttpInfo(
-      String incidentId) throws ApiException {
+      String incidentId, ListIncidentRespondersOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "listIncidentResponders";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -11704,19 +11784,27 @@ public class IncidentsApi {
       throw new ApiException(
           400, "Missing the required parameter 'incidentId' when calling listIncidentResponders");
     }
+    List<IncidentResponderRelatedObject> include = parameters.include;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath =
         "/api/v2/incidents/{incident_id}/responders"
             .replaceAll(
                 "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.IncidentsApi.listIncidentResponders",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -11738,10 +11826,12 @@ public class IncidentsApi {
    * <p>See {@link #listIncidentRespondersWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentRespondersResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentRespondersResponse>>
-      listIncidentRespondersWithHttpInfoAsync(String incidentId) {
+      listIncidentRespondersWithHttpInfoAsync(
+          String incidentId, ListIncidentRespondersOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "listIncidentResponders";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -11763,13 +11853,21 @@ public class IncidentsApi {
               "Missing the required parameter 'incidentId' when calling listIncidentResponders"));
       return result;
     }
+    List<IncidentResponderRelatedObject> include = parameters.include;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath =
         "/api/v2/incidents/{incident_id}/responders"
             .replaceAll(
                 "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder;
     try {
@@ -11777,7 +11875,7 @@ public class IncidentsApi {
           apiClient.createBuilder(
               "v2.IncidentsApi.listIncidentResponders",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},

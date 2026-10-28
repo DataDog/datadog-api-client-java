@@ -24,6 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseRelationships.JSON_PROPERTY_CREATED_BY_USER,
   IncidentResponseRelationships.JSON_PROPERTY_DECLARED_BY_USER,
   IncidentResponseRelationships.JSON_PROPERTY_IMPACTS,
+  IncidentResponseRelationships.JSON_PROPERTY_INCIDENT_TYPE,
   IncidentResponseRelationships.JSON_PROPERTY_INTEGRATIONS,
   IncidentResponseRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
   IncidentResponseRelationships.JSON_PROPERTY_RESPONDERS,
@@ -48,6 +49,9 @@ public class IncidentResponseRelationships {
 
   public static final String JSON_PROPERTY_IMPACTS = "impacts";
   private RelationshipToIncidentImpacts impacts;
+
+  public static final String JSON_PROPERTY_INCIDENT_TYPE = "incident_type";
+  private RelationshipToIncidentType incidentType;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private RelationshipToIncidentIntegrationMetadatas integrations;
@@ -190,6 +194,31 @@ public class IncidentResponseRelationships {
     this.impacts = impacts;
     if (impacts != null) {
       this.unparsed |= impacts.unparsed;
+    }
+  }
+
+  public IncidentResponseRelationships incidentType(RelationshipToIncidentType incidentType) {
+    this.incidentType = incidentType;
+    this.unparsed |= incidentType.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to an incident type.
+   *
+   * @return incidentType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToIncidentType getIncidentType() {
+    return incidentType;
+  }
+
+  public void setIncidentType(RelationshipToIncidentType incidentType) {
+    this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
     }
   }
 
@@ -356,6 +385,7 @@ public class IncidentResponseRelationships {
         && Objects.equals(this.createdByUser, incidentResponseRelationships.createdByUser)
         && Objects.equals(this.declaredByUser, incidentResponseRelationships.declaredByUser)
         && Objects.equals(this.impacts, incidentResponseRelationships.impacts)
+        && Objects.equals(this.incidentType, incidentResponseRelationships.incidentType)
         && Objects.equals(this.integrations, incidentResponseRelationships.integrations)
         && Objects.equals(this.lastModifiedByUser, incidentResponseRelationships.lastModifiedByUser)
         && Objects.equals(this.responders, incidentResponseRelationships.responders)
@@ -372,6 +402,7 @@ public class IncidentResponseRelationships {
         createdByUser,
         declaredByUser,
         impacts,
+        incidentType,
         integrations,
         lastModifiedByUser,
         responders,
@@ -388,6 +419,7 @@ public class IncidentResponseRelationships {
     sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
     sb.append("    declaredByUser: ").append(toIndentedString(declaredByUser)).append("\n");
     sb.append("    impacts: ").append(toIndentedString(impacts)).append("\n");
+    sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
     sb.append("    responders: ").append(toIndentedString(responders)).append("\n");

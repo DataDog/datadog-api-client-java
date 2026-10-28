@@ -22,7 +22,9 @@ import java.util.Objects;
 /** Response with a list of incident responders. */
 @JsonPropertyOrder({
   IncidentRespondersResponse.JSON_PROPERTY_DATA,
-  IncidentRespondersResponse.JSON_PROPERTY_INCLUDED
+  IncidentRespondersResponse.JSON_PROPERTY_INCLUDED,
+  IncidentRespondersResponse.JSON_PROPERTY_LINKS,
+  IncidentRespondersResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +34,13 @@ public class IncidentRespondersResponse {
   private List<IncidentResponderDataResponse> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<IncidentUserData> included = null;
+  private List<IncidentResponderIncludedItem> included = null;
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private Map<String, String> links = null;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private IncidentRespondersResponseMeta meta;
 
   public IncidentRespondersResponse() {}
 
@@ -88,8 +96,62 @@ public class IncidentRespondersResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IncidentUserData> getIncluded() {
+  public List<IncidentResponderIncludedItem> getIncluded() {
     return included;
+  }
+
+  public IncidentRespondersResponse links(Map<String, String> links) {
+    this.links = links;
+    return this;
+  }
+
+  public IncidentRespondersResponse putLinksItem(String key, String linksItem) {
+    if (this.links == null) {
+      this.links = new HashMap<>();
+    }
+    this.links.put(key, linksItem);
+    return this;
+  }
+
+  /**
+   * Links to pages of incident responders.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getLinks() {
+    return links;
+  }
+
+  public void setLinks(Map<String, String> links) {
+    this.links = links;
+  }
+
+  public IncidentRespondersResponse meta(IncidentRespondersResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination metadata for the responder list.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentRespondersResponseMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(IncidentRespondersResponseMeta meta) {
+    this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**
@@ -150,13 +212,15 @@ public class IncidentRespondersResponse {
     IncidentRespondersResponse incidentRespondersResponse = (IncidentRespondersResponse) o;
     return Objects.equals(this.data, incidentRespondersResponse.data)
         && Objects.equals(this.included, incidentRespondersResponse.included)
+        && Objects.equals(this.links, incidentRespondersResponse.links)
+        && Objects.equals(this.meta, incidentRespondersResponse.meta)
         && Objects.equals(
             this.additionalProperties, incidentRespondersResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, included, links, meta, additionalProperties);
   }
 
   @Override
@@ -165,6 +229,8 @@ public class IncidentRespondersResponse {
     sb.append("class IncidentRespondersResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
