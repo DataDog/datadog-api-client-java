@@ -13,13 +13,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** The attributes of a data observability monitor run status response. */
 @JsonPropertyOrder({
   GetDataObservabilityMonitorRunStatusResponseAttributes.JSON_PROPERTY_ERROR_MESSAGE,
+  GetDataObservabilityMonitorRunStatusResponseAttributes.JSON_PROPERTY_GROUP_COUNTS,
+  GetDataObservabilityMonitorRunStatusResponseAttributes.JSON_PROPERTY_GROUPS,
   GetDataObservabilityMonitorRunStatusResponseAttributes.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
@@ -28,6 +32,12 @@ public class GetDataObservabilityMonitorRunStatusResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
   private String errorMessage;
+
+  public static final String JSON_PROPERTY_GROUP_COUNTS = "group_counts";
+  private Map<String, Long> groupCounts = null;
+
+  public static final String JSON_PROPERTY_GROUPS = "groups";
+  private List<DataObservabilityMonitorRunGroup> groups = null;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private DataObservabilityMonitorRunStatus status;
@@ -61,6 +71,80 @@ public class GetDataObservabilityMonitorRunStatusResponseAttributes {
 
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
+  }
+
+  public GetDataObservabilityMonitorRunStatusResponseAttributes groupCounts(
+      Map<String, Long> groupCounts) {
+    this.groupCounts = groupCounts;
+    return this;
+  }
+
+  public GetDataObservabilityMonitorRunStatusResponseAttributes putGroupCountsItem(
+      String key, Long groupCountsItem) {
+    if (this.groupCounts == null) {
+      this.groupCounts = new HashMap<>();
+    }
+    this.groupCounts.put(key, groupCountsItem);
+    return this;
+  }
+
+  /**
+   * The number of the monitor's groups in each state, once the run has finished.
+   *
+   * @return groupCounts
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_COUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Long> getGroupCounts() {
+    return groupCounts;
+  }
+
+  public void setGroupCounts(Map<String, Long> groupCounts) {
+    this.groupCounts = groupCounts;
+  }
+
+  public GetDataObservabilityMonitorRunStatusResponseAttributes groups(
+      List<DataObservabilityMonitorRunGroup> groups) {
+    this.groups = groups;
+    if (groups != null) {
+      for (DataObservabilityMonitorRunGroup item : groups) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public GetDataObservabilityMonitorRunStatusResponseAttributes addGroupsItem(
+      DataObservabilityMonitorRunGroup groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<>();
+    }
+    this.groups.add(groupsItem);
+    this.unparsed |= groupsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The first 1,000 of the monitor's groups that are not ok, once the run has finished. List the
+   * monitor's groups for all of them.
+   *
+   * @return groups
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DataObservabilityMonitorRunGroup> getGroups() {
+    return groups;
+  }
+
+  public void setGroups(List<DataObservabilityMonitorRunGroup> groups) {
+    this.groups = groups;
+    if (groups != null) {
+      for (DataObservabilityMonitorRunGroup item : groups) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GetDataObservabilityMonitorRunStatusResponseAttributes status(
@@ -153,6 +237,10 @@ public class GetDataObservabilityMonitorRunStatusResponseAttributes {
     return Objects.equals(
             this.errorMessage, getDataObservabilityMonitorRunStatusResponseAttributes.errorMessage)
         && Objects.equals(
+            this.groupCounts, getDataObservabilityMonitorRunStatusResponseAttributes.groupCounts)
+        && Objects.equals(
+            this.groups, getDataObservabilityMonitorRunStatusResponseAttributes.groups)
+        && Objects.equals(
             this.status, getDataObservabilityMonitorRunStatusResponseAttributes.status)
         && Objects.equals(
             this.additionalProperties,
@@ -161,7 +249,7 @@ public class GetDataObservabilityMonitorRunStatusResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, status, additionalProperties);
+    return Objects.hash(errorMessage, groupCounts, groups, status, additionalProperties);
   }
 
   @Override
@@ -169,6 +257,8 @@ public class GetDataObservabilityMonitorRunStatusResponseAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDataObservabilityMonitorRunStatusResponseAttributes {\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    groupCounts: ").append(toIndentedString(groupCounts)).append("\n");
+    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
