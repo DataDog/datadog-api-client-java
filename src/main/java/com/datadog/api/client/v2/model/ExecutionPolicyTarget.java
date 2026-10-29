@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A target this policy is scoped to, expressed as a set of Agent tags. */
+/** A target this policy is scoped to, expressed as a set of tags. */
 @JsonPropertyOrder({
   ExecutionPolicyTarget.JSON_PROPERTY_AGENT_TAGS,
   ExecutionPolicyTarget.JSON_PROPERTY_NAME
@@ -54,7 +54,7 @@ public class ExecutionPolicyTarget {
   }
 
   /**
-   * The Agent tags identifying the target.
+   * The tags identifying the target.
    *
    * @return agentTags
    */

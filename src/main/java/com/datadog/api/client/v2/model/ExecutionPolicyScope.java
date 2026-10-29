@@ -17,14 +17,14 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Restricts where the policy applies. At most one of <code>kubernetes</code>, <code>scripts</code>,
- * or <code>remote_action_rshell</code> can be set. An empty object means the policy has no scope
- * restriction.
+ * Restricts where the policy applies. At most one scope type can be set, and it must match the
+ * action pattern's integration. An empty object means the policy has no scope restriction.
  */
 @JsonPropertyOrder({
   ExecutionPolicyScope.JSON_PROPERTY_KUBERNETES,
   ExecutionPolicyScope.JSON_PROPERTY_REMOTE_ACTION_RSHELL,
-  ExecutionPolicyScope.JSON_PROPERTY_SCRIPTS
+  ExecutionPolicyScope.JSON_PROPERTY_SCRIPTS,
+  ExecutionPolicyScope.JSON_PROPERTY_SLACK
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +38,9 @@ public class ExecutionPolicyScope {
 
   public static final String JSON_PROPERTY_SCRIPTS = "scripts";
   private ExecutionPolicyScriptScope scripts;
+
+  public static final String JSON_PROPERTY_SLACK = "slack";
+  private ExecutionPolicySlackScope slack;
 
   public ExecutionPolicyScope kubernetes(ExecutionPolicyKubernetesScope kubernetes) {
     this.kubernetes = kubernetes;
@@ -115,6 +118,31 @@ public class ExecutionPolicyScope {
     }
   }
 
+  public ExecutionPolicyScope slack(ExecutionPolicySlackScope slack) {
+    this.slack = slack;
+    this.unparsed |= slack.unparsed;
+    return this;
+  }
+
+  /**
+   * Restricts the policy to specific Slack private channel names.
+   *
+   * @return slack
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLACK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExecutionPolicySlackScope getSlack() {
+    return slack;
+  }
+
+  public void setSlack(ExecutionPolicySlackScope slack) {
+    this.slack = slack;
+    if (slack != null) {
+      this.unparsed |= slack.unparsed;
+    }
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -174,12 +202,13 @@ public class ExecutionPolicyScope {
     return Objects.equals(this.kubernetes, executionPolicyScope.kubernetes)
         && Objects.equals(this.remoteActionRshell, executionPolicyScope.remoteActionRshell)
         && Objects.equals(this.scripts, executionPolicyScope.scripts)
+        && Objects.equals(this.slack, executionPolicyScope.slack)
         && Objects.equals(this.additionalProperties, executionPolicyScope.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kubernetes, remoteActionRshell, scripts, additionalProperties);
+    return Objects.hash(kubernetes, remoteActionRshell, scripts, slack, additionalProperties);
   }
 
   @Override
@@ -189,6 +218,7 @@ public class ExecutionPolicyScope {
     sb.append("    kubernetes: ").append(toIndentedString(kubernetes)).append("\n");
     sb.append("    remoteActionRshell: ").append(toIndentedString(remoteActionRshell)).append("\n");
     sb.append("    scripts: ").append(toIndentedString(scripts)).append("\n");
+    sb.append("    slack: ").append(toIndentedString(slack)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
