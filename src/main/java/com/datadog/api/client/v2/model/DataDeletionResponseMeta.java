@@ -18,8 +18,10 @@ import java.util.Objects;
 
 /** The metadata of the data deletion response. */
 @JsonPropertyOrder({
+  DataDeletionResponseMeta.JSON_PROPERTY_AVAILABLE_SLOTS,
   DataDeletionResponseMeta.JSON_PROPERTY_COUNT_PRODUCT,
   DataDeletionResponseMeta.JSON_PROPERTY_COUNT_STATUS,
+  DataDeletionResponseMeta.JSON_PROPERTY_MAX_CONCURRENT_REQUESTS,
   DataDeletionResponseMeta.JSON_PROPERTY_NEXT_PAGE,
   DataDeletionResponseMeta.JSON_PROPERTY_PRODUCT,
   DataDeletionResponseMeta.JSON_PROPERTY_REQUEST_STATUS
@@ -28,11 +30,17 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DataDeletionResponseMeta {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AVAILABLE_SLOTS = "available_slots";
+  private Long availableSlots;
+
   public static final String JSON_PROPERTY_COUNT_PRODUCT = "count_product";
   private Map<String, Long> countProduct = null;
 
   public static final String JSON_PROPERTY_COUNT_STATUS = "count_status";
   private Map<String, Long> countStatus = null;
+
+  public static final String JSON_PROPERTY_MAX_CONCURRENT_REQUESTS = "max_concurrent_requests";
+  private Long maxConcurrentRequests;
 
   public static final String JSON_PROPERTY_NEXT_PAGE = "next_page";
   private String nextPage;
@@ -42,6 +50,30 @@ public class DataDeletionResponseMeta {
 
   public static final String JSON_PROPERTY_REQUEST_STATUS = "request_status";
   private String requestStatus;
+
+  public DataDeletionResponseMeta availableSlots(Long availableSlots) {
+    this.availableSlots = availableSlots;
+    return this;
+  }
+
+  /**
+   * Number of additional deletion requests the current organization can create before reaching the
+   * concurrency limit. Requests with a <code>pending</code>, <code>in_progress</code>, or <code>
+   * deleting</code> status count toward the limit. This field is returned only when listing
+   * deletion requests, and is omitted if the value cannot be determined.
+   *
+   * @return availableSlots
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AVAILABLE_SLOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAvailableSlots() {
+    return availableSlots;
+  }
+
+  public void setAvailableSlots(Long availableSlots) {
+    this.availableSlots = availableSlots;
+  }
 
   public DataDeletionResponseMeta countProduct(Map<String, Long> countProduct) {
     this.countProduct = countProduct;
@@ -99,6 +131,30 @@ public class DataDeletionResponseMeta {
 
   public void setCountStatus(Map<String, Long> countStatus) {
     this.countStatus = countStatus;
+  }
+
+  public DataDeletionResponseMeta maxConcurrentRequests(Long maxConcurrentRequests) {
+    this.maxConcurrentRequests = maxConcurrentRequests;
+    return this;
+  }
+
+  /**
+   * Maximum number of deletion requests with a <code>pending</code>, <code>in_progress</code>, or
+   * <code>deleting</code> status that the current organization can have at the same time. This
+   * field is returned only when listing deletion requests, and is omitted if the value cannot be
+   * determined.
+   *
+   * @return maxConcurrentRequests
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_CONCURRENT_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMaxConcurrentRequests() {
+    return maxConcurrentRequests;
+  }
+
+  public void setMaxConcurrentRequests(Long maxConcurrentRequests) {
+    this.maxConcurrentRequests = maxConcurrentRequests;
   }
 
   public DataDeletionResponseMeta nextPage(String nextPage) {
@@ -220,8 +276,11 @@ public class DataDeletionResponseMeta {
       return false;
     }
     DataDeletionResponseMeta dataDeletionResponseMeta = (DataDeletionResponseMeta) o;
-    return Objects.equals(this.countProduct, dataDeletionResponseMeta.countProduct)
+    return Objects.equals(this.availableSlots, dataDeletionResponseMeta.availableSlots)
+        && Objects.equals(this.countProduct, dataDeletionResponseMeta.countProduct)
         && Objects.equals(this.countStatus, dataDeletionResponseMeta.countStatus)
+        && Objects.equals(
+            this.maxConcurrentRequests, dataDeletionResponseMeta.maxConcurrentRequests)
         && Objects.equals(this.nextPage, dataDeletionResponseMeta.nextPage)
         && Objects.equals(this.product, dataDeletionResponseMeta.product)
         && Objects.equals(this.requestStatus, dataDeletionResponseMeta.requestStatus)
@@ -231,15 +290,26 @@ public class DataDeletionResponseMeta {
   @Override
   public int hashCode() {
     return Objects.hash(
-        countProduct, countStatus, nextPage, product, requestStatus, additionalProperties);
+        availableSlots,
+        countProduct,
+        countStatus,
+        maxConcurrentRequests,
+        nextPage,
+        product,
+        requestStatus,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataDeletionResponseMeta {\n");
+    sb.append("    availableSlots: ").append(toIndentedString(availableSlots)).append("\n");
     sb.append("    countProduct: ").append(toIndentedString(countProduct)).append("\n");
     sb.append("    countStatus: ").append(toIndentedString(countStatus)).append("\n");
+    sb.append("    maxConcurrentRequests: ")
+        .append(toIndentedString(maxConcurrentRequests))
+        .append("\n");
     sb.append("    nextPage: ").append(toIndentedString(nextPage)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    requestStatus: ").append(toIndentedString(requestStatus)).append("\n");

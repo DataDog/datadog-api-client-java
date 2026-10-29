@@ -32,6 +32,7 @@ import java.util.Objects;
   DataDeletionResponseItemAttributes.JSON_PROPERTY_ORG_ID,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_PRODUCT,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_QUERY,
+  DataDeletionResponseItemAttributes.JSON_PROPERTY_RECOVERABLE_UNTIL,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_SOURCE,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_STARTING_AT,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_STATUS,
@@ -75,6 +76,9 @@ public class DataDeletionResponseItemAttributes {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_RECOVERABLE_UNTIL = "recoverable_until";
+  private String recoverableUntil;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private String source;
@@ -359,6 +363,31 @@ public class DataDeletionResponseItemAttributes {
     this.query = query;
   }
 
+  public DataDeletionResponseItemAttributes recoverableUntil(String recoverableUntil) {
+    this.recoverableUntil = recoverableUntil;
+    return this;
+  }
+
+  /**
+   * Time when the recovery period for the deletion request ends. Before this time, you can cancel
+   * the request and recover the data. After this time, permanent deletion begins, and the status
+   * changes to <code>deleting</code> within a few minutes. This field is returned only for <code>
+   * in_progress</code> requests when listing deletion requests, and is omitted if the value cannot
+   * be determined.
+   *
+   * @return recoverableUntil
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RECOVERABLE_UNTIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRecoverableUntil() {
+    return recoverableUntil;
+  }
+
+  public void setRecoverableUntil(String recoverableUntil) {
+    this.recoverableUntil = recoverableUntil;
+  }
+
   public DataDeletionResponseItemAttributes source(String source) {
     this.source = source;
     return this;
@@ -549,6 +578,8 @@ public class DataDeletionResponseItemAttributes {
         && Objects.equals(this.orgId, dataDeletionResponseItemAttributes.orgId)
         && Objects.equals(this.product, dataDeletionResponseItemAttributes.product)
         && Objects.equals(this.query, dataDeletionResponseItemAttributes.query)
+        && Objects.equals(
+            this.recoverableUntil, dataDeletionResponseItemAttributes.recoverableUntil)
         && Objects.equals(this.source, dataDeletionResponseItemAttributes.source)
         && Objects.equals(this.startingAt, dataDeletionResponseItemAttributes.startingAt)
         && Objects.equals(this.status, dataDeletionResponseItemAttributes.status)
@@ -574,6 +605,7 @@ public class DataDeletionResponseItemAttributes {
         orgId,
         product,
         query,
+        recoverableUntil,
         source,
         startingAt,
         status,
@@ -598,6 +630,7 @@ public class DataDeletionResponseItemAttributes {
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    recoverableUntil: ").append(toIndentedString(recoverableUntil)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    startingAt: ").append(toIndentedString(startingAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
