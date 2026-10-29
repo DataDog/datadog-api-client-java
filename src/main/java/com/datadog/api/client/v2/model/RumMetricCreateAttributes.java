@@ -66,7 +66,8 @@ public class RumMetricCreateAttributes {
   }
 
   /**
-   * The compute rule to compute the RUM-based metric.
+   * The compute rule to compute the RUM-based metric. It is set at creation and only <code>
+   * include_percentiles</code> can be updated afterwards.
    *
    * @return compute
    */
@@ -90,7 +91,8 @@ public class RumMetricCreateAttributes {
   }
 
   /**
-   * The type of RUM events to filter on.
+   * The type of RUM events the metric is generated from. It is set at creation and cannot be
+   * changed.
    *
    * @return eventType
    */
@@ -114,7 +116,8 @@ public class RumMetricCreateAttributes {
   }
 
   /**
-   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric. The
+   * <code>event_type</code> filter is added automatically.
    *
    * @return filter
    */
@@ -152,7 +155,8 @@ public class RumMetricCreateAttributes {
   }
 
   /**
-   * The rules for the group by.
+   * The rules to group the metric by. Each rule creates a tag on the generated metric. If omitted,
+   * the metric is not grouped.
    *
    * @return groupBy
    */
@@ -179,8 +183,9 @@ public class RumMetricCreateAttributes {
   }
 
   /**
-   * The rule to count updatable events. Is only set if <code>event_type</code> is <code>sessions
-   * </code> or <code>views</code>.
+   * The rule to count updatable events. Required when <code>event_type</code> is <code>session
+   * </code> or <code>view</code>, and must be omitted for other event types. It cannot be changed
+   * after creation.
    *
    * @return uniqueness
    */

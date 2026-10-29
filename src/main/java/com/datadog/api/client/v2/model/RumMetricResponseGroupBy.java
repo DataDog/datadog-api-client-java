@@ -37,7 +37,7 @@ public class RumMetricResponseGroupBy {
   }
 
   /**
-   * The path to the value the RUM-based metric will be aggregated over.
+   * The path of the RUM event attribute the metric is grouped by.
    *
    * @return path
    */
@@ -58,8 +58,7 @@ public class RumMetricResponseGroupBy {
   }
 
   /**
-   * Eventual name of the tag that gets created. By default, <code>path</code> is used as the tag
-   * name.
+   * Name of the tag created on the metric. By default, <code>path</code> is used as the tag name.
    *
    * @return tagName
    */

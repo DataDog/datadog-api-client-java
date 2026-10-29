@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The new RUM-based metric properties. */
+/**
+ * The RUM-based metric properties to update. <code>id</code> is required by the API and must match
+ * the <code>metric_id</code> path parameter.
+ */
 @JsonPropertyOrder({
   RumMetricUpdateData.JSON_PROPERTY_ATTRIBUTES,
   RumMetricUpdateData.JSON_PROPERTY_ID,
@@ -56,7 +59,8 @@ public class RumMetricUpdateData {
   }
 
   /**
-   * The RUM-based metric properties that will be updated.
+   * The RUM-based metric properties that will be updated. Omitted properties keep their current
+   * value.
    *
    * @return attributes
    */
@@ -79,7 +83,9 @@ public class RumMetricUpdateData {
   }
 
   /**
-   * The name of the RUM-based metric.
+   * The name of the RUM-based metric. On creation, it must be 1 to 200 characters long, contain
+   * only ASCII letters, digits, underscores, and periods, start with a letter, and not start with
+   * <code>rum.measure</code> or <code>rum.investigate</code>. It cannot be changed after creation.
    *
    * @return id
    */
@@ -101,7 +107,7 @@ public class RumMetricUpdateData {
   }
 
   /**
-   * The type of the resource. The value should always be rum_metrics.
+   * The type of the resource. The value must be <code>rum_metrics</code>.
    *
    * @return type
    */

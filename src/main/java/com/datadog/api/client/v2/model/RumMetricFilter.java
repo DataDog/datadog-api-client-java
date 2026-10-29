@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The RUM-based metric filter. Events matching this filter will be aggregated in this metric. */
+/**
+ * The RUM-based metric filter. Events matching this filter will be aggregated in this metric. The
+ * <code>event_type</code> filter is added automatically.
+ */
 @JsonPropertyOrder({RumMetricFilter.JSON_PROPERTY_QUERY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -39,7 +42,11 @@ public class RumMetricFilter {
   }
 
   /**
-   * The search query - following the RUM search syntax.
+   * The search query, following the <a
+   * href="https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/">RUM search
+   * syntax</a>. Do not include a <code>@type</code> filter, it is derived from <code>event_type
+   * </code>. It must not contain invisible or control characters such as non-breaking or zero-width
+   * spaces. When updating a metric, an empty query leaves the filter unchanged.
    *
    * @return query
    */
