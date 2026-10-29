@@ -23,31 +23,35 @@ import java.util.Objects;
 public class SensitiveDataScannerReorderGroupsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_META = "meta";
-  private SensitiveDataScannerMeta meta;
+  private Map<String, Object> meta = null;
 
-  public SensitiveDataScannerReorderGroupsResponse meta(SensitiveDataScannerMeta meta) {
+  public SensitiveDataScannerReorderGroupsResponse meta(Map<String, Object> meta) {
     this.meta = meta;
-    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  public SensitiveDataScannerReorderGroupsResponse putMetaItem(String key, Object metaItem) {
+    if (this.meta == null) {
+      this.meta = new HashMap<>();
+    }
+    this.meta.put(key, metaItem);
     return this;
   }
 
   /**
-   * Meta response containing information about the API.
+   * Meta response. Always an empty object.
    *
    * @return meta
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SensitiveDataScannerMeta getMeta() {
+  public Map<String, Object> getMeta() {
     return meta;
   }
 
-  public void setMeta(SensitiveDataScannerMeta meta) {
+  public void setMeta(Map<String, Object> meta) {
     this.meta = meta;
-    if (meta != null) {
-      this.unparsed |= meta.unparsed;
-    }
   }
 
   /**
