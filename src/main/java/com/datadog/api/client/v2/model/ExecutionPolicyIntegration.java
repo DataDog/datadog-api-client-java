@@ -25,7 +25,10 @@ public class ExecutionPolicyIntegration extends ModelEnum<String> {
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
-              "INTEGRATION_KUBERNETES", "INTEGRATION_SCRIPT", "INTEGRATION_REMOTE_ACTION"));
+              "INTEGRATION_KUBERNETES",
+              "INTEGRATION_SCRIPT",
+              "INTEGRATION_REMOTE_ACTION",
+              "INTEGRATION_SLACK"));
 
   public static final ExecutionPolicyIntegration INTEGRATION_KUBERNETES =
       new ExecutionPolicyIntegration("INTEGRATION_KUBERNETES");
@@ -33,6 +36,8 @@ public class ExecutionPolicyIntegration extends ModelEnum<String> {
       new ExecutionPolicyIntegration("INTEGRATION_SCRIPT");
   public static final ExecutionPolicyIntegration INTEGRATION_REMOTE_ACTION =
       new ExecutionPolicyIntegration("INTEGRATION_REMOTE_ACTION");
+  public static final ExecutionPolicyIntegration INTEGRATION_SLACK =
+      new ExecutionPolicyIntegration("INTEGRATION_SLACK");
 
   ExecutionPolicyIntegration(String value) {
     super(value, allowedValues);
