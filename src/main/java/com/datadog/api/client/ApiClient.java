@@ -1209,7 +1209,6 @@ public class ApiClient {
           put("v2.getHistoricalJob", false);
           put("v2.getIndicatorOfCompromise", false);
           put("v2.getMatchingSignals", false);
-          put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
           put("v2.getSecurityFindingsAutomationDefaultInboxRule", false);
           put("v2.getSecurityFindingsAutomationDueDateRule", false);
@@ -1257,7 +1256,6 @@ public class ApiClient {
           put("v2.reorderSecurityFindingsAutomationMuteRules", false);
           put("v2.reorderSecurityFindingsAutomationSeverityModifierRules", false);
           put("v2.reorderSecurityFindingsAutomationTicketCreationRules", false);
-          put("v2.restoreSecurityMonitoringRule", false);
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.startSecurityMonitoringBatchMigration", false);
