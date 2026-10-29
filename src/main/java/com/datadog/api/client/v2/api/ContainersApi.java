@@ -58,7 +58,9 @@ public class ContainersApi {
     /**
      * Set filterTags.
      *
-     * @param filterTags Comma-separated list of tags to filter containers by. (optional)
+     * @param filterTags Comma-separated <code>key:value</code> tags. A container must match every
+     *     tag. Wildcards, negation (<code>-key:value</code>), spaces, and <code>IN (...)</code> are
+     *     not supported. To cover several hosts, make one request per host. (optional)
      * @return ListContainersOptionalParameters
      */
     public ListContainersOptionalParameters filterTags(String filterTags) {
@@ -69,7 +71,11 @@ public class ContainersApi {
     /**
      * Set groupBy.
      *
-     * @param groupBy Comma-separated list of tags to group containers by. (optional)
+     * @param groupBy Comma-separated list of up to three tag keys to group containers by. Returns
+     *     <code>container_group</code> objects with counts and tags. Grouped results ignore <code>
+     *     sort</code> and do not support pagination. Containers with multiple values for a grouping
+     *     tag can appear in multiple groups. Summing group counts can overcount distinct
+     *     containers. (optional)
      * @return ListContainersOptionalParameters
      */
     public ListContainersOptionalParameters groupBy(String groupBy) {
@@ -80,7 +86,12 @@ public class ContainersApi {
     /**
      * Set sort.
      *
-     * @param sort Attribute to sort containers by. (optional)
+     * @param sort Attribute to sort individual containers by: <code>name</code>, <code>created_at
+     *     </code>, <code>started_at</code>, <code>state</code>, <code>container_id</code>, <code>
+     *     host</code>, <code>image_name</code>, or <code>image_digest</code>. Defaults to <code>
+     *     started_at</code> in ascending order. Prefix the attribute with <code>-</code> for
+     *     descending order, such as <code>-started_at</code>. Ignored when <code>group_by</code> is
+     *     specified. (optional)
      * @return ListContainersOptionalParameters
      */
     public ListContainersOptionalParameters sort(String sort) {
@@ -91,7 +102,8 @@ public class ContainersApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Maximum number of results returned. (optional, default to 1000)
+     * @param pageSize Maximum number of results returned. For grouped results, defaults to <code>
+     *     100</code> with a maximum of <code>1000</code> groups. (optional, default to 1000)
      * @return ListContainersOptionalParameters
      */
     public ListContainersOptionalParameters pageSize(Integer pageSize) {
@@ -225,7 +237,12 @@ public class ContainersApi {
   }
 
   /**
-   * Get all containers for your organization.
+   * Get all containers for your organization. Use <code>group_by</code> to return container groups
+   * with counts. Grouped results are limited by <code>page[size]</code> and do not support
+   * pagination.
+   *
+   * <p>To get CPU or memory metrics, use a <code>container</code> data source query with <code>
+   * /api/v2/query/scalar</code> or <code>/api/v2/query/timeseries</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ContainersResponse&gt;

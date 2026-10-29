@@ -47,7 +47,9 @@ public class ContainerGroupRelationshipsLink {
   }
 
   /**
-   * Links data.
+   * This array is always empty, even when the group includes containers. To retrieve the containers
+   * in this group, make a new request to this endpoint with the <code>filter[tags]</code> value
+   * from <code>links.related</code>, using your site's API host.
    *
    * @return data
    */

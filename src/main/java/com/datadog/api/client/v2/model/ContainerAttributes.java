@@ -19,7 +19,11 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for a container. */
+/**
+ * Attributes for a container. For CPU or memory metrics, use its full <code>container_id</code> as
+ * <code>container_id:&lt;container_id&gt;</code> in <code>tag_filters</code> with the <code>
+ * container</code> data source.
+ */
 @JsonPropertyOrder({
   ContainerAttributes.JSON_PROPERTY_CONTAINER_ID,
   ContainerAttributes.JSON_PROPERTY_CREATED_AT,

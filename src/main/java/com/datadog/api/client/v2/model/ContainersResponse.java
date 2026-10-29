@@ -57,7 +57,7 @@ public class ContainersResponse {
   }
 
   /**
-   * Array of Container objects.
+   * Array of containers or container group objects.
    *
    * @return data
    */
