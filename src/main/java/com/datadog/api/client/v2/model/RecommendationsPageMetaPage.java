@@ -87,7 +87,7 @@ public class RecommendationsPageMetaPage {
   }
 
   /**
-   * Number of items returned in this page (1–10000). minimum: 1 maximum: 10000
+   * Number of items returned in this page (1–5000). minimum: 1 maximum: 5000
    *
    * @return pageSize
    */

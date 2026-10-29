@@ -139,8 +139,9 @@ public class RecommendationsFilterRequestDataAttributes {
   }
 
   /**
-   * Active view name (for example, <code>active</code>, <code>dismissed</code>, <code>open</code>,
-   * <code>in-progress</code>, or <code>completed</code>).
+   * Status view to return: <code>all</code>, <code>active</code> (not dismissed), <code>dismissed
+   * </code>, <code>open</code>, <code>in-progress</code>, or <code>completed</code>. Defaults to
+   * <code>all</code>, which returns recommendations in every status.
    *
    * @return view
    */

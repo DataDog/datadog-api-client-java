@@ -11427,16 +11427,17 @@ public class CloudCostManagementApi {
 
   /** Manage optional parameters to searchCostRecommendations. */
   public static class SearchCostRecommendationsOptionalParameters {
-    private String pageSize;
+    private Integer pageSize;
     private String pageToken;
 
     /**
      * Set pageSize.
      *
-     * @param pageSize Number of results per page (1–10000). (optional)
+     * @param pageSize Number of results per page, from 1 to 5000. Defaults to 50. (optional,
+     *     default to 50)
      * @return SearchCostRecommendationsOptionalParameters
      */
-    public SearchCostRecommendationsOptionalParameters pageSize(String pageSize) {
+    public SearchCostRecommendationsOptionalParameters pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -11533,6 +11534,7 @@ public class CloudCostManagementApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -11553,7 +11555,7 @@ public class CloudCostManagementApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling searchCostRecommendations");
     }
-    String pageSize = parameters.pageSize;
+    Integer pageSize = parameters.pageSize;
     String pageToken = parameters.pageToken;
     // create path and map variables
     String localVarPath = "/api/v2/cost/recommendations";
@@ -11617,7 +11619,7 @@ public class CloudCostManagementApi {
               400, "Missing the required parameter 'body' when calling searchCostRecommendations"));
       return result;
     }
-    String pageSize = parameters.pageSize;
+    Integer pageSize = parameters.pageSize;
     String pageToken = parameters.pageToken;
     // create path and map variables
     String localVarPath = "/api/v2/cost/recommendations";
