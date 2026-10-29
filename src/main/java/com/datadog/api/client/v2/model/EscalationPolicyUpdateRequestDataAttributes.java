@@ -87,7 +87,7 @@ public class EscalationPolicyUpdateRequestDataAttributes {
   }
 
   /**
-   * Indicates whether the page is automatically resolved when the policy ends.
+   * Indicates whether the Page is automatically resolved when the policy ends.
    *
    * @return resolvePageOnPolicyEnd
    */

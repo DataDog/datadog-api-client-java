@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the resource is of type 'notification_channels'. */
+/** Indicates that the resource is of type <code>notification_channels</code>. */
 @JsonSerialize(using = NotificationChannelType.NotificationChannelTypeSerializer.class)
 public class NotificationChannelType extends ModelEnum<String> {
 

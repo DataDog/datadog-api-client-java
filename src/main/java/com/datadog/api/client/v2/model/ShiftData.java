@@ -126,7 +126,7 @@ public class ShiftData {
   }
 
   /**
-   * Indicates that the resource is of type 'shifts'.
+   * Indicates that the resource is of type <code>shifts</code>.
    *
    * @return type
    */

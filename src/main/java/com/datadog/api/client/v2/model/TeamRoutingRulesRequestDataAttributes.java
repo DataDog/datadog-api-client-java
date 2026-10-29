@@ -47,7 +47,7 @@ public class TeamRoutingRulesRequestDataAttributes {
   }
 
   /**
-   * A list of routing rule items that define how incoming pages should be handled.
+   * A list of routing rule items that define how incoming Pages should be handled.
    *
    * @return rules
    */

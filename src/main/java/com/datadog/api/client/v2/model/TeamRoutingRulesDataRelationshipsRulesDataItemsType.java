@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the resource is of type 'team_routing_rules'. */
+/** Indicates that the resource is of type <code>team_routing_rules</code>. */
 @JsonSerialize(
     using =
         TeamRoutingRulesDataRelationshipsRulesDataItemsType

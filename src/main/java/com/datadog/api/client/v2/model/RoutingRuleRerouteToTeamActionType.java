@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the action reroutes the page to another team's routing rules. */
+/** Indicates that the action reroutes the Page to another team's routing rules. */
 @JsonSerialize(
     using = RoutingRuleRerouteToTeamActionType.RoutingRuleRerouteToTeamActionTypeSerializer.class)
 public class RoutingRuleRerouteToTeamActionType extends ModelEnum<String> {

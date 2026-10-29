@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the resource is of type 'notification_rules'. */
+/** Indicates that the resource is of type <code>notification_rules</code>. */
 @JsonSerialize(using = OnCallNotificationRuleType.OnCallNotificationRuleTypeSerializer.class)
 public class OnCallNotificationRuleType extends ModelEnum<String> {
 
