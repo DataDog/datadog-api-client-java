@@ -10,11 +10,8 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
-    // there is a valid "agent_rule" in the system
-    String AGENT_RULE_DATA_ID = System.getenv("AGENT_RULE_DATA_ID");
-
     try {
-      apiInstance.deleteCloudWorkloadSecurityAgentRule(AGENT_RULE_DATA_ID);
+      apiInstance.deleteCloudWorkloadSecurityAgentRule("3b5-v82-ns6");
     } catch (ApiException e) {
       System.err.println(
           "Exception when calling CsmThreatsApi#deleteCloudWorkloadSecurityAgentRule");
