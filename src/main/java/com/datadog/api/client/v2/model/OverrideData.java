@@ -128,7 +128,7 @@ public class OverrideData {
   }
 
   /**
-   * Indicates that the resource is of type 'overrides'.
+   * Indicates that the resource is of type <code>overrides</code>.
    *
    * @return type
    */

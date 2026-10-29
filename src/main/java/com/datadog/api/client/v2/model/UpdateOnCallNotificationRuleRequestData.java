@@ -129,7 +129,7 @@ public class UpdateOnCallNotificationRuleRequestData {
   }
 
   /**
-   * Indicates that the resource is of type 'notification_rules'.
+   * Indicates that the resource is of type <code>notification_rules</code>.
    *
    * @return type
    */

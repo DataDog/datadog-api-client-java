@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * Reroutes the page to another team, which then evaluates it against its own routing rules. Each
+ * Reroutes the Page to another team, which then evaluates it against its own routing rules. Each
  * routing rule can include this action only once. It can be combined only with <code>
  * send_slack_message</code> and <code>send_teams_message</code> actions. It can't be used with
  * <code>escalation_policy</code> or <code>workflow</code> actions, or when the routing rule sets
@@ -59,7 +59,7 @@ public class RoutingRuleRerouteToTeamAction {
   }
 
   /**
-   * The ID of the team to reroute the page to.
+   * The ID of the team to reroute the Page to.
    *
    * @return destinationTeamId
    */
@@ -80,7 +80,7 @@ public class RoutingRuleRerouteToTeamAction {
   }
 
   /**
-   * Indicates that the action reroutes the page to another team's routing rules.
+   * Indicates that the action reroutes the Page to another team's routing rules.
    *
    * @return type
    */

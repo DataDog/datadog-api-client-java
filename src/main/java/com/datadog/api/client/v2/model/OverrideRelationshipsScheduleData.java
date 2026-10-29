@@ -75,7 +75,7 @@ public class OverrideRelationshipsScheduleData {
   }
 
   /**
-   * Indicates that the related resource is of type 'schedules'.
+   * Indicates that the related resource is of type <code>schedules</code>.
    *
    * @return type
    */

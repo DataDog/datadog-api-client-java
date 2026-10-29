@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the related resource is of type 'users'. */
+/** Indicates that the related resource is of type <code>users</code>. */
 @JsonSerialize(
     using = ShiftDataRelationshipsUserDataType.ShiftDataRelationshipsUserDataTypeSerializer.class)
 public class ShiftDataRelationshipsUserDataType extends ModelEnum<String> {

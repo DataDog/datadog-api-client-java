@@ -17,6 +17,10 @@ import com.datadog.api.client.v2.model.ListNotificationChannelsResponse;
 import com.datadog.api.client.v2.model.ListOnCallNotificationRulesResponse;
 import com.datadog.api.client.v2.model.NotificationChannel;
 import com.datadog.api.client.v2.model.OnCallNotificationRule;
+import com.datadog.api.client.v2.model.OnCallPageData;
+import com.datadog.api.client.v2.model.OnCallPageResponse;
+import com.datadog.api.client.v2.model.OnCallPagesResponse;
+import com.datadog.api.client.v2.model.OnCallPagesSort;
 import com.datadog.api.client.v2.model.OverrideCreateResponse;
 import com.datadog.api.client.v2.model.OverrideData;
 import com.datadog.api.client.v2.model.Overrides;
@@ -1999,6 +2003,142 @@ public class OnCallApi {
         new GenericType<EscalationPolicy>() {});
   }
 
+  /**
+   * Get On-Call Page.
+   *
+   * <p>See {@link #getOnCallPageWithHttpInfo}.
+   *
+   * @param pageId The ID of the Page, or its key. (required)
+   * @return OnCallPageResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallPageResponse getOnCallPage(String pageId) throws ApiException {
+    return getOnCallPageWithHttpInfo(pageId).getData();
+  }
+
+  /**
+   * Get On-Call Page.
+   *
+   * <p>See {@link #getOnCallPageWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the Page, or its key. (required)
+   * @return CompletableFuture&lt;OnCallPageResponse&gt;
+   */
+  public CompletableFuture<OnCallPageResponse> getOnCallPageAsync(String pageId) {
+    return getOnCallPageWithHttpInfoAsync(pageId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of an On-Call Page.
+   *
+   * @param pageId The ID of the Page, or its key. (required)
+   * @return ApiResponse&lt;OnCallPageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OnCallPageResponse> getOnCallPageWithHttpInfo(String pageId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling getOnCallPage");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/pages/{page_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.getOnCallPage",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallPageResponse>() {});
+  }
+
+  /**
+   * Get On-Call Page.
+   *
+   * <p>See {@link #getOnCallPageWithHttpInfo}.
+   *
+   * @param pageId The ID of the Page, or its key. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OnCallPageResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OnCallPageResponse>> getOnCallPageWithHttpInfoAsync(
+      String pageId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<OnCallPageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling getOnCallPage"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/pages/{page_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.getOnCallPage",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OnCallPageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallPageResponse>() {});
+  }
+
   /** Manage optional parameters to getOnCallSchedule. */
   public static class GetOnCallScheduleOptionalParameters {
     private String include;
@@ -3850,6 +3990,286 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EscalationPolicies>() {});
+  }
+
+  /** Manage optional parameters to listOnCallPages. */
+  public static class ListOnCallPagesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String filterQuery;
+    private OnCallPagesSort sort;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of On-Call Pages to return per page of results. The maximum allowed
+     *     value is 1000. (optional, default to 100)
+     * @return ListOnCallPagesOptionalParameters
+     */
+    public ListOnCallPagesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page of results to return, starting at 0. <code>page[number]</code>
+     *     multiplied by <code>page[size]</code> must be less than 50000. (optional, default to 0)
+     * @return ListOnCallPagesOptionalParameters
+     */
+    public ListOnCallPagesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery Search query to filter Pages. Supports filters such as <code>status</code>
+     *     , <code>urgency</code>, <code>team</code>, <code>service</code>, and <code>tags</code>,
+     *     for example <code>status:triggered</code>. (optional)
+     * @return ListOnCallPagesOptionalParameters
+     */
+    public ListOnCallPagesOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort Pages by the given field. Only one field is allowed. (optional, default to
+     *     "created_at")
+     * @return ListOnCallPagesOptionalParameters
+     */
+    public ListOnCallPagesOptionalParameters sort(OnCallPagesSort sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * List On-Call Pages.
+   *
+   * <p>See {@link #listOnCallPagesWithHttpInfo}.
+   *
+   * @return OnCallPagesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallPagesResponse listOnCallPages() throws ApiException {
+    return listOnCallPagesWithHttpInfo(new ListOnCallPagesOptionalParameters()).getData();
+  }
+
+  /**
+   * List On-Call Pages.
+   *
+   * <p>See {@link #listOnCallPagesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OnCallPagesResponse&gt;
+   */
+  public CompletableFuture<OnCallPagesResponse> listOnCallPagesAsync() {
+    return listOnCallPagesWithHttpInfoAsync(new ListOnCallPagesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call Pages.
+   *
+   * <p>See {@link #listOnCallPagesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return OnCallPagesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallPagesResponse listOnCallPages(ListOnCallPagesOptionalParameters parameters)
+      throws ApiException {
+    return listOnCallPagesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List On-Call Pages.
+   *
+   * <p>See {@link #listOnCallPagesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;OnCallPagesResponse&gt;
+   */
+  public CompletableFuture<OnCallPagesResponse> listOnCallPagesAsync(
+      ListOnCallPagesOptionalParameters parameters) {
+    return listOnCallPagesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call Pages.
+   *
+   * <p>See {@link #listOnCallPagesWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;OnCallPageData&gt;
+   */
+  public PaginationIterable<OnCallPageData> listOnCallPagesWithPagination() {
+    ListOnCallPagesOptionalParameters parameters = new ListOnCallPagesOptionalParameters();
+    return listOnCallPagesWithPagination(parameters);
+  }
+
+  /**
+   * List On-Call Pages.
+   *
+   * <p>See {@link #listOnCallPagesWithHttpInfo}.
+   *
+   * @return OnCallPagesResponse
+   */
+  public PaginationIterable<OnCallPageData> listOnCallPagesWithPagination(
+      ListOnCallPagesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 100l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listOnCallPages",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Retrieve a paginated list of On-Call Pages, optionally filtered by a search query and sorted by
+   * a field.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;OnCallPagesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OnCallPagesResponse> listOnCallPagesWithHttpInfo(
+      ListOnCallPagesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    OnCallPagesSort sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/pages";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.listOnCallPages",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallPagesResponse>() {});
+  }
+
+  /**
+   * List On-Call Pages.
+   *
+   * <p>See {@link #listOnCallPagesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;OnCallPagesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OnCallPagesResponse>> listOnCallPagesWithHttpInfoAsync(
+      ListOnCallPagesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String filterQuery = parameters.filterQuery;
+    OnCallPagesSort sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/pages";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.listOnCallPages",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OnCallPagesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallPagesResponse>() {});
   }
 
   /** Manage optional parameters to listOnCallSchedules. */

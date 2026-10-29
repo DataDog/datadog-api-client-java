@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Indicates that the related resource is of type 'schedules'. */
+/** Indicates that the related resource is of type <code>schedules</code>. */
 @JsonSerialize(
     using =
         OverrideRelationshipsScheduleDataType.OverrideRelationshipsScheduleDataTypeSerializer.class)

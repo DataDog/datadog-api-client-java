@@ -71,7 +71,7 @@ public class OverrideRelationshipsUserData {
   }
 
   /**
-   * Indicates that the related resource is of type 'users'.
+   * Indicates that the related resource is of type <code>users</code>.
    *
    * @return type
    */
