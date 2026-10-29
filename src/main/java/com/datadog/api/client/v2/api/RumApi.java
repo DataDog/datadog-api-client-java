@@ -22,6 +22,7 @@ import com.datadog.api.client.v2.model.ServiceRepositoryInfoResponse;
 import com.datadog.api.client.v2.model.SourcemapFileResponse;
 import com.datadog.api.client.v2.model.SourcemapMapKind;
 import com.datadog.api.client.v2.model.SourcemapSearchBy;
+import com.datadog.api.client.v2.model.SourcemapSymbolType;
 import com.datadog.api.client.v2.model.SourcemapsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -465,6 +466,7 @@ public class RumApi {
 
   /** Manage optional parameters to deleteSourcemaps. */
   public static class DeleteSourcemapsOptionalParameters {
+    private SourcemapSymbolType symbolType;
     private List<String> filterService;
     private List<String> filterVersion;
     private List<String> filterVariant;
@@ -485,11 +487,25 @@ public class RumApi {
     private String filterFileHash;
 
     /**
+     * Set symbolType.
+     *
+     * @param symbolType WASM symbol representation. Only supported for <code>mapkind=wasm</code>.
+     *     Defaults to <code>dwarf</code>, which requires <code>filter[build_id]</code>. <code>
+     *     sourcemap</code> requires <code>filter[service]</code> and <code>filter[version]</code>.
+     *     (optional)
+     * @return DeleteSourcemapsOptionalParameters
+     */
+    public DeleteSourcemapsOptionalParameters symbolType(SourcemapSymbolType symbolType) {
+      this.symbolType = symbolType;
+      return this;
+    }
+
+    /**
      * Set filterService.
      *
      * @param filterService Filter by service names (multiple values allowed). Required for <code>js
-     *     </code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map kinds.
-     *     (optional)
+     *     </code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map kinds, and
+     *     for <code>wasm</code> with <code>symbol_type=sourcemap</code>. (optional)
      * @return DeleteSourcemapsOptionalParameters
      */
     public DeleteSourcemapsOptionalParameters filterService(List<String> filterService) {
@@ -502,7 +518,7 @@ public class RumApi {
      *
      * @param filterVersion Filter by version values (multiple values allowed, maximum 10). Required
      *     for <code>js</code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map
-     *     kinds. (optional)
+     *     kinds, and for <code>wasm</code> with <code>symbol_type=sourcemap</code>. (optional)
      * @return DeleteSourcemapsOptionalParameters
      */
     public DeleteSourcemapsOptionalParameters filterVersion(List<String> filterVersion) {
@@ -539,7 +555,8 @@ public class RumApi {
      *
      * @param filterBuildId Filter by build ID values (multiple values allowed). Supported for
      *     <code>jvm</code>, <code>ndk</code>, <code>il2cpp</code>, <code>wasm</code>, and <code>
-     *     portable_pdb</code>. (optional)
+     *     portable_pdb</code>. Required for <code>wasm</code> with <code>symbol_type=dwarf</code>.
+     *     (optional)
      * @return DeleteSourcemapsOptionalParameters
      */
     public DeleteSourcemapsOptionalParameters filterBuildId(List<String> filterBuildId) {
@@ -840,6 +857,7 @@ public class RumApi {
       throw new ApiException(
           400, "Missing the required parameter 'dryRun' when calling deleteSourcemaps");
     }
+    SourcemapSymbolType symbolType = parameters.symbolType;
     List<String> filterService = parameters.filterService;
     List<String> filterVersion = parameters.filterVersion;
     List<String> filterVariant = parameters.filterVariant;
@@ -866,6 +884,7 @@ public class RumApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "dry_run", dryRun));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "symbol_type", symbolType));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[service]", filterService));
     localVarQueryParams.addAll(
@@ -961,6 +980,7 @@ public class RumApi {
               400, "Missing the required parameter 'dryRun' when calling deleteSourcemaps"));
       return result;
     }
+    SourcemapSymbolType symbolType = parameters.symbolType;
     List<String> filterService = parameters.filterService;
     List<String> filterVersion = parameters.filterVersion;
     List<String> filterVariant = parameters.filterVariant;
@@ -987,6 +1007,7 @@ public class RumApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "dry_run", dryRun));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "symbol_type", symbolType));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[service]", filterService));
     localVarQueryParams.addAll(
@@ -1320,7 +1341,9 @@ public class RumApi {
   }
 
   /**
-   * Returns the repository URL and commit SHA associated with a given service and version.
+   * Returns the repository URL and commit SHA associated with a debug ID or a given service and
+   * version. Provide either <code>debug_id</code>, or both <code>service</code> and <code>version
+   * </code>. When <code>debug_id</code> is set, it takes precedence.
    *
    * @param body (required)
    * @return ApiResponse&lt;ServiceRepositoryInfoResponse&gt;
@@ -1330,6 +1353,7 @@ public class RumApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -2022,6 +2046,7 @@ public class RumApi {
   public static class ListSourcemapsOptionalParameters {
     private SourcemapSearchBy searchBy;
     private SourcemapMapKind mapkind;
+    private SourcemapSymbolType symbolType;
     private String pageAfter;
     private Long pageSize;
     private Long pageNumber;
@@ -2070,6 +2095,20 @@ public class RumApi {
     }
 
     /**
+     * Set symbolType.
+     *
+     * @param symbolType WASM symbol representation. Only supported for <code>mapkind=wasm</code>.
+     *     Defaults to <code>dwarf</code>, which requires <code>filter[build_id]</code>. <code>
+     *     sourcemap</code> requires <code>filter[service]</code> and <code>filter[version]</code>.
+     *     (optional)
+     * @return ListSourcemapsOptionalParameters
+     */
+    public ListSourcemapsOptionalParameters symbolType(SourcemapSymbolType symbolType) {
+      this.symbolType = symbolType;
+      return this;
+    }
+
+    /**
      * Set pageAfter.
      *
      * @param pageAfter Cursor for the next page of a JavaScript listing. Use the value from <code>
@@ -2112,9 +2151,10 @@ public class RumApi {
      * Set filterService.
      *
      * @param filterService Filter by service names (multiple values allowed). Required for <code>
-     *     jvm</code>, <code>react</code>, and <code>flutter</code> map kinds. Also required for
-     *     <code>js</code> unless searching by <code>filter[debug_id]</code> or browsing with <code>
-     *     search_by=debug_id</code>. (optional)
+     *     jvm</code>, <code>react</code>, and <code>flutter</code> map kinds, and for <code>wasm
+     *     </code> with <code>symbol_type=sourcemap</code>. Also required for <code>js</code> unless
+     *     searching by <code>filter[debug_id]</code> or browsing with <code>search_by=debug_id
+     *     </code>. (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters filterService(List<String> filterService) {
@@ -2126,9 +2166,10 @@ public class RumApi {
      * Set filterVersion.
      *
      * @param filterVersion Filter by version values (multiple values allowed). Required for <code>
-     *     jvm</code>, <code>react</code>, and <code>flutter</code> map kinds. Also required for
-     *     <code>js</code> unless searching by <code>filter[debug_id]</code> or browsing with <code>
-     *     search_by=debug_id</code>. (optional)
+     *     jvm</code>, <code>react</code>, and <code>flutter</code> map kinds, and for <code>wasm
+     *     </code> with <code>symbol_type=sourcemap</code>. Also required for <code>js</code> unless
+     *     searching by <code>filter[debug_id]</code> or browsing with <code>search_by=debug_id
+     *     </code>. (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters filterVersion(List<String> filterVersion) {
@@ -2165,7 +2206,8 @@ public class RumApi {
      *
      * @param filterBuildId Filter by build ID values (multiple values allowed). Supported for
      *     <code>jvm</code>, <code>ndk</code>, <code>il2cpp</code>, <code>wasm</code>, and <code>
-     *     portable_pdb</code>. (optional)
+     *     portable_pdb</code>. Required for <code>wasm</code> with <code>symbol_type=dwarf</code>.
+     *     (optional)
      * @return ListSourcemapsOptionalParameters
      */
     public ListSourcemapsOptionalParameters filterBuildId(List<String> filterBuildId) {
@@ -2498,6 +2540,7 @@ public class RumApi {
     Object localVarPostBody = null;
     SourcemapSearchBy searchBy = parameters.searchBy;
     SourcemapMapKind mapkind = parameters.mapkind;
+    SourcemapSymbolType symbolType = parameters.symbolType;
     String pageAfter = parameters.pageAfter;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -2527,6 +2570,7 @@ public class RumApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_by", searchBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "symbol_type", symbolType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[after]", pageAfter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -2603,6 +2647,7 @@ public class RumApi {
     Object localVarPostBody = null;
     SourcemapSearchBy searchBy = parameters.searchBy;
     SourcemapMapKind mapkind = parameters.mapkind;
+    SourcemapSymbolType symbolType = parameters.symbolType;
     String pageAfter = parameters.pageAfter;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -2632,6 +2677,7 @@ public class RumApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_by", searchBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "symbol_type", symbolType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[after]", pageAfter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -2694,6 +2740,7 @@ public class RumApi {
 
   /** Manage optional parameters to restoreSourcemaps. */
   public static class RestoreSourcemapsOptionalParameters {
+    private SourcemapSymbolType symbolType;
     private List<String> filterService;
     private List<String> filterVersion;
     private List<String> filterVariant;
@@ -2714,11 +2761,25 @@ public class RumApi {
     private String filterFileHash;
 
     /**
+     * Set symbolType.
+     *
+     * @param symbolType WASM symbol representation. Only supported for <code>mapkind=wasm</code>.
+     *     Defaults to <code>dwarf</code>, which requires <code>filter[build_id]</code>. <code>
+     *     sourcemap</code> requires <code>filter[service]</code> and <code>filter[version]</code>.
+     *     (optional)
+     * @return RestoreSourcemapsOptionalParameters
+     */
+    public RestoreSourcemapsOptionalParameters symbolType(SourcemapSymbolType symbolType) {
+      this.symbolType = symbolType;
+      return this;
+    }
+
+    /**
      * Set filterService.
      *
      * @param filterService Filter by service names (multiple values allowed). Required for <code>js
-     *     </code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map kinds.
-     *     (optional)
+     *     </code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map kinds, and
+     *     for <code>wasm</code> with <code>symbol_type=sourcemap</code>. (optional)
      * @return RestoreSourcemapsOptionalParameters
      */
     public RestoreSourcemapsOptionalParameters filterService(List<String> filterService) {
@@ -2731,7 +2792,7 @@ public class RumApi {
      *
      * @param filterVersion Filter by version values (multiple values allowed, maximum 10). Required
      *     for <code>js</code>, <code>jvm</code>, <code>react</code>, and <code>flutter</code> map
-     *     kinds. (optional)
+     *     kinds, and for <code>wasm</code> with <code>symbol_type=sourcemap</code>. (optional)
      * @return RestoreSourcemapsOptionalParameters
      */
     public RestoreSourcemapsOptionalParameters filterVersion(List<String> filterVersion) {
@@ -2768,7 +2829,8 @@ public class RumApi {
      *
      * @param filterBuildId Filter by build ID values (multiple values allowed). Supported for
      *     <code>jvm</code>, <code>ndk</code>, <code>il2cpp</code>, <code>wasm</code>, and <code>
-     *     portable_pdb</code>. (optional)
+     *     portable_pdb</code>. Required for <code>wasm</code> with <code>symbol_type=dwarf</code>.
+     *     (optional)
      * @return RestoreSourcemapsOptionalParameters
      */
     public RestoreSourcemapsOptionalParameters filterBuildId(List<String> filterBuildId) {
@@ -3070,6 +3132,7 @@ public class RumApi {
       throw new ApiException(
           400, "Missing the required parameter 'dryRun' when calling restoreSourcemaps");
     }
+    SourcemapSymbolType symbolType = parameters.symbolType;
     List<String> filterService = parameters.filterService;
     List<String> filterVersion = parameters.filterVersion;
     List<String> filterVariant = parameters.filterVariant;
@@ -3096,6 +3159,7 @@ public class RumApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "dry_run", dryRun));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "symbol_type", symbolType));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[service]", filterService));
     localVarQueryParams.addAll(
@@ -3191,6 +3255,7 @@ public class RumApi {
               400, "Missing the required parameter 'dryRun' when calling restoreSourcemaps"));
       return result;
     }
+    SourcemapSymbolType symbolType = parameters.symbolType;
     List<String> filterService = parameters.filterService;
     List<String> filterVersion = parameters.filterVersion;
     List<String> filterVariant = parameters.filterVariant;
@@ -3217,6 +3282,7 @@ public class RumApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mapkind", mapkind));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "dry_run", dryRun));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "symbol_type", symbolType));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[service]", filterService));
     localVarQueryParams.addAll(
