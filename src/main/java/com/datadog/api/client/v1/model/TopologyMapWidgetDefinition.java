@@ -180,6 +180,52 @@ public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
             e);
       }
 
+      // deserialize TopologyMapWidgetDefinitionCustom
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TopologyMapWidgetDefinitionCustom.class.equals(Integer.class)
+            || TopologyMapWidgetDefinitionCustom.class.equals(Long.class)
+            || TopologyMapWidgetDefinitionCustom.class.equals(Float.class)
+            || TopologyMapWidgetDefinitionCustom.class.equals(Double.class)
+            || TopologyMapWidgetDefinitionCustom.class.equals(Boolean.class)
+            || TopologyMapWidgetDefinitionCustom.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TopologyMapWidgetDefinitionCustom.class.equals(Integer.class)
+                        || TopologyMapWidgetDefinitionCustom.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TopologyMapWidgetDefinitionCustom.class.equals(Float.class)
+                        || TopologyMapWidgetDefinitionCustom.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TopologyMapWidgetDefinitionCustom.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TopologyMapWidgetDefinitionCustom.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(TopologyMapWidgetDefinitionCustom.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((TopologyMapWidgetDefinitionCustom) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'TopologyMapWidgetDefinitionCustom'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'TopologyMapWidgetDefinitionCustom'", e);
+      }
+
       TopologyMapWidgetDefinition ret = new TopologyMapWidgetDefinition();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -220,6 +266,11 @@ public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public TopologyMapWidgetDefinition(TopologyMapWidgetDefinitionCustom o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "TopologyMapWidgetDefinitionDataStreams",
@@ -227,6 +278,9 @@ public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
     schemas.put(
         "TopologyMapWidgetDefinitionServiceMap",
         new GenericType<TopologyMapWidgetDefinitionServiceMap>() {});
+    schemas.put(
+        "TopologyMapWidgetDefinitionCustom",
+        new GenericType<TopologyMapWidgetDefinitionCustom>() {});
     JSON.registerDescendants(
         TopologyMapWidgetDefinition.class, Collections.unmodifiableMap(schemas));
   }
@@ -239,7 +293,7 @@ public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: TopologyMapWidgetDefinitionDataStreams,
-   * TopologyMapWidgetDefinitionServiceMap
+   * TopologyMapWidgetDefinitionServiceMap, TopologyMapWidgetDefinitionCustom
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -256,6 +310,11 @@ public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        TopologyMapWidgetDefinitionCustom.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -263,15 +322,15 @@ public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be TopologyMapWidgetDefinitionDataStreams,"
-            + " TopologyMapWidgetDefinitionServiceMap");
+            + " TopologyMapWidgetDefinitionServiceMap, TopologyMapWidgetDefinitionCustom");
   }
 
   /**
    * Get the actual instance, which can be the following: TopologyMapWidgetDefinitionDataStreams,
-   * TopologyMapWidgetDefinitionServiceMap
+   * TopologyMapWidgetDefinitionServiceMap, TopologyMapWidgetDefinitionCustom
    *
    * @return The actual instance (TopologyMapWidgetDefinitionDataStreams,
-   *     TopologyMapWidgetDefinitionServiceMap)
+   *     TopologyMapWidgetDefinitionServiceMap, TopologyMapWidgetDefinitionCustom)
    */
   @Override
   public Object getActualInstance() {
@@ -300,5 +359,17 @@ public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
   public TopologyMapWidgetDefinitionServiceMap getTopologyMapWidgetDefinitionServiceMap()
       throws ClassCastException {
     return (TopologyMapWidgetDefinitionServiceMap) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TopologyMapWidgetDefinitionCustom`. If the actual instance is not
+   * `TopologyMapWidgetDefinitionCustom`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TopologyMapWidgetDefinitionCustom`
+   * @throws ClassCastException if the instance is not `TopologyMapWidgetDefinitionCustom`
+   */
+  public TopologyMapWidgetDefinitionCustom getTopologyMapWidgetDefinitionCustom()
+      throws ClassCastException {
+    return (TopologyMapWidgetDefinitionCustom) super.getActualInstance();
   }
 }
