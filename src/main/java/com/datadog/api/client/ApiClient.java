@@ -1223,6 +1223,7 @@ public class ApiClient {
           put("v2.getSecurityMonitoringHistsignal", false);
           put("v2.getSecurityMonitoringHistsignalsByJobId", false);
           put("v2.getSecurityMonitoringIntegrationConfig", false);
+          put("v2.getSecurityMonitoringRuleProposal", false);
           put("v2.getSignalEntities", false);
           put("v2.getSingleEntityContext", false);
           put("v2.getStaticAnalysisDefaultRulesets", false);
@@ -1260,6 +1261,7 @@ public class ApiClient {
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.startSecurityMonitoringBatchMigration", false);
+          put("v2.startSecurityMonitoringRuleProposal", false);
           put("v2.updateFindingsAssignee", false);
           put("v2.updateFindingsSeverity", false);
           put("v2.updateSecurityFindingsAutomationDueDateRule", false);

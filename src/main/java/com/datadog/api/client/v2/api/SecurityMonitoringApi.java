@@ -154,6 +154,9 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertBulkPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleProposalResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleProposalStartRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleProposalStartResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestRequest;
@@ -5380,7 +5383,8 @@ public class SecurityMonitoringApi {
    * resources. Each resource holds one source rule to translate into a Cloud SIEM detection rule.
    * To load more rules, add them with the add resources endpoint before starting the batch
    * migration. A batch migration can hold up to 1000 resources. The response does not include the
-   * created resources: list the resources of the batch migration to retrieve them.
+   * created resources: list the resources of the batch migration to retrieve them. Alternatively,
+   * use the start-a-rule-proposal endpoint to get a single proposed rule.
    *
    * @param body (required)
    * @return ApiResponse&lt;SecurityMonitoringBatchMigrationResponse&gt;
@@ -17236,6 +17240,183 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringRuleResponse>() {});
+  }
+
+  /**
+   * Get a rule proposal.
+   *
+   * <p>See {@link #getSecurityMonitoringRuleProposalWithHttpInfo}.
+   *
+   * @param proposalId The ID of the rule proposal, returned by the start a rule proposal endpoint.
+   *     (required)
+   * @return SecurityMonitoringRuleProposalResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleProposalResponse getSecurityMonitoringRuleProposal(UUID proposalId)
+      throws ApiException {
+    return getSecurityMonitoringRuleProposalWithHttpInfo(proposalId).getData();
+  }
+
+  /**
+   * Get a rule proposal.
+   *
+   * <p>See {@link #getSecurityMonitoringRuleProposalWithHttpInfoAsync}.
+   *
+   * @param proposalId The ID of the rule proposal, returned by the start a rule proposal endpoint.
+   *     (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleProposalResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleProposalResponse>
+      getSecurityMonitoringRuleProposalAsync(UUID proposalId) {
+    return getSecurityMonitoringRuleProposalWithHttpInfoAsync(proposalId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the status of a rule proposal started with the start-a-rule-proposal endpoint. While the
+   * status is <code>pending</code> or <code>in_progress</code>, the proposed rule is still being
+   * generated. Poll this endpoint again later. If the status is <code>completed</code>, the
+   * response's <code>rule</code> field contains the proposed Cloud SIEM detection rule. If the
+   * status is <code>failed</code>, the response's <code>error</code> field contains the reason a
+   * rule could not be generated.
+   *
+   * <p>This endpoint does not create or modify any detection rules in Cloud SIEM. To create the
+   * proposed rule, use the create-a-detection-rule endpoint.
+   *
+   * @param proposalId The ID of the rule proposal, returned by the start a rule proposal endpoint.
+   *     (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleProposalResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleProposalResponse>
+      getSecurityMonitoringRuleProposalWithHttpInfo(UUID proposalId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringRuleProposal";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'proposalId' is set
+    if (proposalId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'proposalId' when calling"
+              + " getSecurityMonitoringRuleProposal");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/proposals/{proposal_id}"
+            .replaceAll(
+                "\\{" + "proposal_id" + "\\}", apiClient.escapeString(proposalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringRuleProposal",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleProposalResponse>() {});
+  }
+
+  /**
+   * Get a rule proposal.
+   *
+   * <p>See {@link #getSecurityMonitoringRuleProposalWithHttpInfo}.
+   *
+   * @param proposalId The ID of the rule proposal, returned by the start a rule proposal endpoint.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleProposalResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalResponse>>
+      getSecurityMonitoringRuleProposalWithHttpInfoAsync(UUID proposalId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringRuleProposal";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'proposalId' is set
+    if (proposalId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'proposalId' when calling"
+                  + " getSecurityMonitoringRuleProposal"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/proposals/{proposal_id}"
+            .replaceAll(
+                "\\{" + "proposal_id" + "\\}", apiClient.escapeString(proposalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringRuleProposal",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleProposalResponse>() {});
   }
 
   /**
@@ -30533,6 +30714,177 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Start a rule proposal.
+   *
+   * <p>See {@link #startSecurityMonitoringRuleProposalWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringRuleProposalStartResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleProposalStartResponse startSecurityMonitoringRuleProposal(
+      SecurityMonitoringRuleProposalStartRequest body) throws ApiException {
+    return startSecurityMonitoringRuleProposalWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Start a rule proposal.
+   *
+   * <p>See {@link #startSecurityMonitoringRuleProposalWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleProposalStartResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleProposalStartResponse>
+      startSecurityMonitoringRuleProposalAsync(SecurityMonitoringRuleProposalStartRequest body) {
+    return startSecurityMonitoringRuleProposalWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Start generating a proposed Cloud SIEM detection rule from a natural-language description, or
+   * from an SPL or KQL rule. The proposal is based on your organization's log sources, log fields,
+   * and existing detection rules. When logs from the matching source are available, the proposed
+   * query is tested against your recent logs.
+   *
+   * <p>The proposed rule is generated asynchronously. This endpoint returns a proposal <code>id
+   * </code> with the status <code>pending</code>. To get the proposed rule, pass this <code>id
+   * </code> to the get-a-rule-proposal endpoint and poll the endpoint until the status is <code>
+   * completed</code> or <code>failed</code>. A proposal usually takes a few minutes, and up to 10
+   * minutes.
+   *
+   * <p>This endpoint does not create or modify any detection rules in Cloud SIEM. To translate many
+   * rules at once, use batch migrations instead.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleProposalStartResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleProposalStartResponse>
+      startSecurityMonitoringRuleProposalWithHttpInfo(
+          SecurityMonitoringRuleProposalStartRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "startSecurityMonitoringRuleProposal";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling startSecurityMonitoringRuleProposal");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/proposals";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.startSecurityMonitoringRuleProposal",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleProposalStartResponse>() {});
+  }
+
+  /**
+   * Start a rule proposal.
+   *
+   * <p>See {@link #startSecurityMonitoringRuleProposalWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleProposalStartResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalStartResponse>>
+      startSecurityMonitoringRuleProposalWithHttpInfoAsync(
+          SecurityMonitoringRuleProposalStartRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "startSecurityMonitoringRuleProposal";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalStartResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalStartResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " startSecurityMonitoringRuleProposal"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/proposals";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.startSecurityMonitoringRuleProposal",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleProposalStartResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleProposalStartResponse>() {});
   }
 
   /**
