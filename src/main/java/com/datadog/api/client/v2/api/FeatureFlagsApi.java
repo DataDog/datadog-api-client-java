@@ -17,6 +17,7 @@ import com.datadog.api.client.v2.model.FeatureFlagResponse;
 import com.datadog.api.client.v2.model.FeatureFlagStalenessStatus;
 import com.datadog.api.client.v2.model.ListAllocationsResponse;
 import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
+import com.datadog.api.client.v2.model.ListFeatureFlagHistoryResponse;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
 import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
 import com.datadog.api.client.v2.model.PatchSavedFilterRequest;
@@ -28,6 +29,7 @@ import com.datadog.api.client.v2.model.ValueType;
 import com.datadog.api.client.v2.model.Variant;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -1501,6 +1503,299 @@ public class FeatureFlagsApi {
         null);
   }
 
+  /** Manage optional parameters to exportFeatureFlagHistory. */
+  public static class ExportFeatureFlagHistoryOptionalParameters {
+    private OffsetDateTime startDate;
+    private OffsetDateTime endDate;
+    private List<String> teams;
+    private List<String> tags;
+    private UUID featureFlagId;
+    private UUID environmentId;
+    private Boolean includeSuggestionEvents;
+
+    /**
+     * Set startDate.
+     *
+     * @param startDate Only include changes made after this time, for example <code>
+     *     2026-01-01T00:00:00Z</code>. Omit for no lower bound. (optional)
+     * @return ExportFeatureFlagHistoryOptionalParameters
+     */
+    public ExportFeatureFlagHistoryOptionalParameters startDate(OffsetDateTime startDate) {
+      this.startDate = startDate;
+      return this;
+    }
+
+    /**
+     * Set endDate.
+     *
+     * @param endDate Only include changes made before this time, for example <code>
+     *     2026-02-01T00:00:00Z</code>. Omit for no upper bound. Must be after <code>start_date
+     *     </code> when both are set. (optional)
+     * @return ExportFeatureFlagHistoryOptionalParameters
+     */
+    public ExportFeatureFlagHistoryOptionalParameters endDate(OffsetDateTime endDate) {
+      this.endDate = endDate;
+      return this;
+    }
+
+    /**
+     * Set teams.
+     *
+     * @param teams Only include changes to flags that belong to at least one of these teams. Use
+     *     team handles without the <code>team:</code> prefix, as repeated parameters, such as
+     *     <code>teams=checkout&amp;teams=payments</code>. Handles from <code>teams</code> and
+     *     <code>team:&lt;handle&gt;</code> values from <code>tags</code> are treated as one set.
+     *     Handles that are empty, have surrounding white space, or include the <code>team:</code>
+     *     prefix return a <code>400 Bad Request</code> error. (optional)
+     * @return ExportFeatureFlagHistoryOptionalParameters
+     */
+    public ExportFeatureFlagHistoryOptionalParameters teams(List<String> teams) {
+      this.teams = teams;
+      return this;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param tags Only include changes to flags that have all of these exact tags, as repeated
+     *     parameters, such as <code>tags=env:prod&amp;tags=tier:1</code>. Values of the form <code>
+     *     team:&lt;handle&gt;</code> match any selected team and are combined with <code>teams
+     *     </code>. Empty values are ignored. (optional)
+     * @return ExportFeatureFlagHistoryOptionalParameters
+     */
+    public ExportFeatureFlagHistoryOptionalParameters tags(List<String> tags) {
+      this.tags = tags;
+      return this;
+    }
+
+    /**
+     * Set featureFlagId.
+     *
+     * @param featureFlagId Only include changes to this feature flag. (optional)
+     * @return ExportFeatureFlagHistoryOptionalParameters
+     */
+    public ExportFeatureFlagHistoryOptionalParameters featureFlagId(UUID featureFlagId) {
+      this.featureFlagId = featureFlagId;
+      return this;
+    }
+
+    /**
+     * Set environmentId.
+     *
+     * @param environmentId Only include changes to this environment. Changes to the flag itself,
+     *     which have no environment, are always included. (optional)
+     * @return ExportFeatureFlagHistoryOptionalParameters
+     */
+    public ExportFeatureFlagHistoryOptionalParameters environmentId(UUID environmentId) {
+      this.environmentId = environmentId;
+      return this;
+    }
+
+    /**
+     * Set includeSuggestionEvents.
+     *
+     * @param includeSuggestionEvents Also include review events for change requests that needed
+     *     approval: rejected requests and requests still pending review. Applies only to
+     *     organizations with flag approvals enabled. (optional, default to false)
+     * @return ExportFeatureFlagHistoryOptionalParameters
+     */
+    public ExportFeatureFlagHistoryOptionalParameters includeSuggestionEvents(
+        Boolean includeSuggestionEvents) {
+      this.includeSuggestionEvents = includeSuggestionEvents;
+      return this;
+    }
+  }
+
+  /**
+   * Export feature flag change history.
+   *
+   * <p>See {@link #exportFeatureFlagHistoryWithHttpInfo}.
+   *
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String exportFeatureFlagHistory() throws ApiException {
+    return exportFeatureFlagHistoryWithHttpInfo(new ExportFeatureFlagHistoryOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Export feature flag change history.
+   *
+   * <p>See {@link #exportFeatureFlagHistoryWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;String&gt;
+   */
+  public CompletableFuture<String> exportFeatureFlagHistoryAsync() {
+    return exportFeatureFlagHistoryWithHttpInfoAsync(
+            new ExportFeatureFlagHistoryOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Export feature flag change history.
+   *
+   * <p>See {@link #exportFeatureFlagHistoryWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String exportFeatureFlagHistory(ExportFeatureFlagHistoryOptionalParameters parameters)
+      throws ApiException {
+    return exportFeatureFlagHistoryWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Export feature flag change history.
+   *
+   * <p>See {@link #exportFeatureFlagHistoryWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;String&gt;
+   */
+  public CompletableFuture<String> exportFeatureFlagHistoryAsync(
+      ExportFeatureFlagHistoryOptionalParameters parameters) {
+    return exportFeatureFlagHistoryWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Exports the organization's feature flag change events as a CSV file, newest first, without
+   * pagination. It accepts the same filters as the List feature flag change history endpoint, and
+   * its columns match the CSV export on the flag history page: Flag Version, Flag Name, Flag Key,
+   * Flag UUID, Action, User Name, User Email, User Type, Environment, and Timestamp.
+   *
+   * <p>If an export fails before the file starts, the response is a JSON:API error. Large exports
+   * stream as they are read. If an export fails after streaming starts, the connection closes
+   * before the file ends, so the download fails instead of returning a file with missing rows. An
+   * export must finish within the 60-second request timeout. If an export times out, narrow the
+   * date range.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<String> exportFeatureFlagHistoryWithHttpInfo(
+      ExportFeatureFlagHistoryOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    OffsetDateTime startDate = parameters.startDate;
+    OffsetDateTime endDate = parameters.endDate;
+    List<String> teams = parameters.teams;
+    List<String> tags = parameters.tags;
+    UUID featureFlagId = parameters.featureFlagId;
+    UUID environmentId = parameters.environmentId;
+    Boolean includeSuggestionEvents = parameters.includeSuggestionEvents;
+    // create path and map variables
+    String localVarPath = "/api/v2/feature-flags/history/export";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "teams", teams));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "feature_flag_id", featureFlagId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "environment_id", environmentId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_suggestion_events", includeSuggestionEvents));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.exportFeatureFlagHistory",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"text/csv", "application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<String>() {});
+  }
+
+  /**
+   * Export feature flag change history.
+   *
+   * <p>See {@link #exportFeatureFlagHistoryWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;String&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<String>> exportFeatureFlagHistoryWithHttpInfoAsync(
+      ExportFeatureFlagHistoryOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    OffsetDateTime startDate = parameters.startDate;
+    OffsetDateTime endDate = parameters.endDate;
+    List<String> teams = parameters.teams;
+    List<String> tags = parameters.tags;
+    UUID featureFlagId = parameters.featureFlagId;
+    UUID environmentId = parameters.environmentId;
+    Boolean includeSuggestionEvents = parameters.includeSuggestionEvents;
+    // create path and map variables
+    String localVarPath = "/api/v2/feature-flags/history/export";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "teams", teams));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "feature_flag_id", featureFlagId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "environment_id", environmentId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_suggestion_events", includeSuggestionEvents));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.exportFeatureFlagHistory",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"text/csv", "application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<String>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<String>() {});
+  }
+
   /**
    * Get a feature flag.
    *
@@ -1923,6 +2218,331 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SavedFilterResponse>() {});
+  }
+
+  /** Manage optional parameters to listFeatureFlagHistory. */
+  public static class ListFeatureFlagHistoryOptionalParameters {
+    private OffsetDateTime startDate;
+    private OffsetDateTime endDate;
+    private List<String> teams;
+    private List<String> tags;
+    private UUID featureFlagId;
+    private UUID environmentId;
+    private Boolean includeSuggestionEvents;
+    private Long pageLimit;
+    private Long pageOffset;
+
+    /**
+     * Set startDate.
+     *
+     * @param startDate Only include changes made after this time, for example <code>
+     *     2026-01-01T00:00:00Z</code>. Omit for no lower bound. (optional)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters startDate(OffsetDateTime startDate) {
+      this.startDate = startDate;
+      return this;
+    }
+
+    /**
+     * Set endDate.
+     *
+     * @param endDate Only include changes made before this time, for example <code>
+     *     2026-02-01T00:00:00Z</code>. Omit for no upper bound. Must be after <code>start_date
+     *     </code> when both are set. (optional)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters endDate(OffsetDateTime endDate) {
+      this.endDate = endDate;
+      return this;
+    }
+
+    /**
+     * Set teams.
+     *
+     * @param teams Only include changes to flags that belong to at least one of these teams. Use
+     *     team handles without the <code>team:</code> prefix, as repeated parameters, such as
+     *     <code>teams=checkout&amp;teams=payments</code>. Handles from <code>teams</code> and
+     *     <code>team:&lt;handle&gt;</code> values from <code>tags</code> are treated as one set.
+     *     Handles that are empty, have surrounding white space, or include the <code>team:</code>
+     *     prefix return a <code>400 Bad Request</code> error. (optional)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters teams(List<String> teams) {
+      this.teams = teams;
+      return this;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param tags Only include changes to flags that have all of these exact tags, as repeated
+     *     parameters, such as <code>tags=env:prod&amp;tags=tier:1</code>. Values of the form <code>
+     *     team:&lt;handle&gt;</code> match any selected team and are combined with <code>teams
+     *     </code>. Empty values are ignored. (optional)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters tags(List<String> tags) {
+      this.tags = tags;
+      return this;
+    }
+
+    /**
+     * Set featureFlagId.
+     *
+     * @param featureFlagId Only include changes to this feature flag. (optional)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters featureFlagId(UUID featureFlagId) {
+      this.featureFlagId = featureFlagId;
+      return this;
+    }
+
+    /**
+     * Set environmentId.
+     *
+     * @param environmentId Only include changes to this environment. Changes to the flag itself,
+     *     which have no environment, are always included. (optional)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters environmentId(UUID environmentId) {
+      this.environmentId = environmentId;
+      return this;
+    }
+
+    /**
+     * Set includeSuggestionEvents.
+     *
+     * @param includeSuggestionEvents Also include review events for change requests that needed
+     *     approval: rejected requests and requests still pending review. Applies only to
+     *     organizations with flag approvals enabled. (optional, default to false)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters includeSuggestionEvents(
+        Boolean includeSuggestionEvents) {
+      this.includeSuggestionEvents = includeSuggestionEvents;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of events to return. Defaults to <code>25</code>. Values
+     *     above <code>50</code> return <code>50</code> events. Non-positive or empty values use the
+     *     default. A non-integer value returns a <code>400 Bad Request</code> error. (optional,
+     *     default to 25)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Number of matching events to skip before returning results. Defaults to
+     *     <code>0</code>. Negative or empty values are set to <code>0</code>. A non-integer value
+     *     returns a <code>400 Bad Request</code> error. (optional, default to 0)
+     * @return ListFeatureFlagHistoryOptionalParameters
+     */
+    public ListFeatureFlagHistoryOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+  }
+
+  /**
+   * List feature flag change history.
+   *
+   * <p>See {@link #listFeatureFlagHistoryWithHttpInfo}.
+   *
+   * @return ListFeatureFlagHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFeatureFlagHistoryResponse listFeatureFlagHistory() throws ApiException {
+    return listFeatureFlagHistoryWithHttpInfo(new ListFeatureFlagHistoryOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List feature flag change history.
+   *
+   * <p>See {@link #listFeatureFlagHistoryWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListFeatureFlagHistoryResponse&gt;
+   */
+  public CompletableFuture<ListFeatureFlagHistoryResponse> listFeatureFlagHistoryAsync() {
+    return listFeatureFlagHistoryWithHttpInfoAsync(new ListFeatureFlagHistoryOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List feature flag change history.
+   *
+   * <p>See {@link #listFeatureFlagHistoryWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListFeatureFlagHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFeatureFlagHistoryResponse listFeatureFlagHistory(
+      ListFeatureFlagHistoryOptionalParameters parameters) throws ApiException {
+    return listFeatureFlagHistoryWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List feature flag change history.
+   *
+   * <p>See {@link #listFeatureFlagHistoryWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListFeatureFlagHistoryResponse&gt;
+   */
+  public CompletableFuture<ListFeatureFlagHistoryResponse> listFeatureFlagHistoryAsync(
+      ListFeatureFlagHistoryOptionalParameters parameters) {
+    return listFeatureFlagHistoryWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the organization's feature flag change events, newest first. Each event includes a
+   * readable description of the change. All filters are optional, and events must match every
+   * filter you set. Without a date range, the whole history is listed. Results are paginated with
+   * <code>page[limit]</code> and <code>page[offset]</code>; follow <code>links.next</code> to read
+   * further back.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListFeatureFlagHistoryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListFeatureFlagHistoryResponse> listFeatureFlagHistoryWithHttpInfo(
+      ListFeatureFlagHistoryOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    OffsetDateTime startDate = parameters.startDate;
+    OffsetDateTime endDate = parameters.endDate;
+    List<String> teams = parameters.teams;
+    List<String> tags = parameters.tags;
+    UUID featureFlagId = parameters.featureFlagId;
+    UUID environmentId = parameters.environmentId;
+    Boolean includeSuggestionEvents = parameters.includeSuggestionEvents;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    // create path and map variables
+    String localVarPath = "/api/v2/feature-flags/history";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "teams", teams));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "feature_flag_id", featureFlagId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "environment_id", environmentId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_suggestion_events", includeSuggestionEvents));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.listFeatureFlagHistory",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFeatureFlagHistoryResponse>() {});
+  }
+
+  /**
+   * List feature flag change history.
+   *
+   * <p>See {@link #listFeatureFlagHistoryWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListFeatureFlagHistoryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListFeatureFlagHistoryResponse>>
+      listFeatureFlagHistoryWithHttpInfoAsync(ListFeatureFlagHistoryOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    OffsetDateTime startDate = parameters.startDate;
+    OffsetDateTime endDate = parameters.endDate;
+    List<String> teams = parameters.teams;
+    List<String> tags = parameters.tags;
+    UUID featureFlagId = parameters.featureFlagId;
+    UUID environmentId = parameters.environmentId;
+    Boolean includeSuggestionEvents = parameters.includeSuggestionEvents;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    // create path and map variables
+    String localVarPath = "/api/v2/feature-flags/history";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "teams", teams));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "feature_flag_id", featureFlagId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "environment_id", environmentId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_suggestion_events", includeSuggestionEvents));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.listFeatureFlagHistory",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListFeatureFlagHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFeatureFlagHistoryResponse>() {});
   }
 
   /** Manage optional parameters to listFeatureFlags. */
