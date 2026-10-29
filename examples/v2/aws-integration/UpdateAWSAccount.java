@@ -16,7 +16,7 @@ import com.datadog.api.client.v2.model.AWSLambdaForwarderConfigLogSourceConfig;
 import com.datadog.api.client.v2.model.AWSLogSourceTagFilter;
 import com.datadog.api.client.v2.model.AWSLogsConfig;
 import com.datadog.api.client.v2.model.AWSMetricsConfig;
-import com.datadog.api.client.v2.model.AWSNamespaceTagFilter;
+import com.datadog.api.client.v2.model.AWSResourceTypeTagFilter;
 import com.datadog.api.client.v2.model.AWSResourcesConfig;
 import com.datadog.api.client.v2.model.AWSTracesConfig;
 import java.util.Collections;
@@ -65,11 +65,13 @@ public class Example {
                                     .collectCloudwatchAlarms(true)
                                     .collectCustomMetrics(true)
                                     .enabled(true)
-                                    .tagFilters(
+                                    .resourceTypeTagFilters(
                                         Collections.singletonList(
-                                            new AWSNamespaceTagFilter()
-                                                .namespace("AWS/EC2")
-                                                .tags(Collections.singletonList("key:value")))))
+                                            new AWSResourceTypeTagFilter()
+                                                .service("ec2")
+                                                .resourceTypes(
+                                                    Collections.singletonList("instance"))
+                                                .expression("env:staging"))))
                             .resourcesConfig(
                                 new AWSResourcesConfig()
                                     .cloudSecurityPostureManagementCollection(false)

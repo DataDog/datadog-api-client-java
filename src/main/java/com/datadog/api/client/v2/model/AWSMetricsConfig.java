@@ -27,6 +27,7 @@ import java.util.Objects;
   AWSMetricsConfig.JSON_PROPERTY_ENABLED,
   AWSMetricsConfig.JSON_PROPERTY_METRIC_NAME_FILTERS,
   AWSMetricsConfig.JSON_PROPERTY_NAMESPACE_FILTERS,
+  AWSMetricsConfig.JSON_PROPERTY_RESOURCE_TYPE_TAG_FILTERS,
   AWSMetricsConfig.JSON_PROPERTY_TAG_FILTERS
 })
 @jakarta.annotation.Generated(
@@ -53,6 +54,9 @@ public class AWSMetricsConfig {
 
   public static final String JSON_PROPERTY_NAMESPACE_FILTERS = "namespace_filters";
   private AWSNamespaceFilters namespaceFilters;
+
+  public static final String JSON_PROPERTY_RESOURCE_TYPE_TAG_FILTERS = "resource_type_tag_filters";
+  private List<AWSResourceTypeTagFilter> resourceTypeTagFilters = null;
 
   public static final String JSON_PROPERTY_TAG_FILTERS = "tag_filters";
   private List<AWSNamespaceTagFilter> tagFilters = null;
@@ -228,6 +232,48 @@ public class AWSMetricsConfig {
     }
   }
 
+  public AWSMetricsConfig resourceTypeTagFilters(
+      List<AWSResourceTypeTagFilter> resourceTypeTagFilters) {
+    this.resourceTypeTagFilters = resourceTypeTagFilters;
+    if (resourceTypeTagFilters != null) {
+      for (AWSResourceTypeTagFilter item : resourceTypeTagFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public AWSMetricsConfig addResourceTypeTagFiltersItem(
+      AWSResourceTypeTagFilter resourceTypeTagFiltersItem) {
+    if (this.resourceTypeTagFilters == null) {
+      this.resourceTypeTagFilters = new ArrayList<>();
+    }
+    this.resourceTypeTagFilters.add(resourceTypeTagFiltersItem);
+    this.unparsed |= resourceTypeTagFiltersItem.unparsed;
+    return this;
+  }
+
+  /**
+   * AWS Metrics collection resource type tag filters list. Defaults to <code>[]</code>.
+   *
+   * @return resourceTypeTagFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE_TAG_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AWSResourceTypeTagFilter> getResourceTypeTagFilters() {
+    return resourceTypeTagFilters;
+  }
+
+  public void setResourceTypeTagFilters(List<AWSResourceTypeTagFilter> resourceTypeTagFilters) {
+    this.resourceTypeTagFilters = resourceTypeTagFilters;
+    if (resourceTypeTagFilters != null) {
+      for (AWSResourceTypeTagFilter item : resourceTypeTagFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
   public AWSMetricsConfig tagFilters(List<AWSNamespaceTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
     if (tagFilters != null) {
@@ -248,10 +294,13 @@ public class AWSMetricsConfig {
   }
 
   /**
-   * AWS Metrics collection tag filters list. Defaults to <code>[]</code>.
+   * AWS Metrics collection tag filters list. Defaults to <code>[]</code>. Deprecated in favor of
+   * <code>resource_type_tag_filters</code>. The two fields are mutually exclusive on an account.
    *
    * @return tagFilters
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,6 +308,7 @@ public class AWSMetricsConfig {
     return tagFilters;
   }
 
+  @Deprecated
   public void setTagFilters(List<AWSNamespaceTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
     if (tagFilters != null) {
@@ -331,6 +381,7 @@ public class AWSMetricsConfig {
         && Objects.equals(this.enabled, awsMetricsConfig.enabled)
         && Objects.equals(this.metricNameFilters, awsMetricsConfig.metricNameFilters)
         && Objects.equals(this.namespaceFilters, awsMetricsConfig.namespaceFilters)
+        && Objects.equals(this.resourceTypeTagFilters, awsMetricsConfig.resourceTypeTagFilters)
         && Objects.equals(this.tagFilters, awsMetricsConfig.tagFilters)
         && Objects.equals(this.additionalProperties, awsMetricsConfig.additionalProperties);
   }
@@ -345,6 +396,7 @@ public class AWSMetricsConfig {
         enabled,
         metricNameFilters,
         namespaceFilters,
+        resourceTypeTagFilters,
         tagFilters,
         additionalProperties);
   }
@@ -366,6 +418,9 @@ public class AWSMetricsConfig {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    metricNameFilters: ").append(toIndentedString(metricNameFilters)).append("\n");
     sb.append("    namespaceFilters: ").append(toIndentedString(namespaceFilters)).append("\n");
+    sb.append("    resourceTypeTagFilters: ")
+        .append(toIndentedString(resourceTypeTagFilters))
+        .append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
