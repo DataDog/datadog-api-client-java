@@ -15,39 +15,93 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Update rule response. */
-@JsonPropertyOrder({SensitiveDataScannerRuleUpdateResponse.JSON_PROPERTY_META})
+@JsonPropertyOrder({
+  SensitiveDataScannerRuleUpdateResponse.JSON_PROPERTY_DATA,
+  SensitiveDataScannerRuleUpdateResponse.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerRuleUpdateResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_META = "meta";
-  private SensitiveDataScannerMetaVersionOnly meta;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private JsonNullable<Map<String, Object>> data = JsonNullable.<Map<String, Object>>undefined();
 
-  public SensitiveDataScannerRuleUpdateResponse meta(SensitiveDataScannerMetaVersionOnly meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
+  public static final String JSON_PROPERTY_META = "meta";
+  private Map<String, Object> meta = null;
+
+  public SensitiveDataScannerRuleUpdateResponse data(Map<String, Object> data) {
+    this.data = JsonNullable.<Map<String, Object>>of(data);
+    return this;
+  }
+
+  public SensitiveDataScannerRuleUpdateResponse putDataItem(String key, Object dataItem) {
+    if (this.data == null || !this.data.isPresent()) {
+      this.data = JsonNullable.<Map<String, Object>>of(new HashMap<>());
+    }
+    try {
+      this.data.get().put(key, dataItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * Meta payload containing information about the API.
+   * Always <code>null</code>.
+   *
+   * @return data
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Map<String, Object> getData() {
+    return data.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Map<String, Object>> getData_JsonNullable() {
+    return data;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATA)
+  public void setData_JsonNullable(JsonNullable<Map<String, Object>> data) {
+    this.data = data;
+  }
+
+  public void setData(Map<String, Object> data) {
+    this.data = JsonNullable.<Map<String, Object>>of(data);
+  }
+
+  public SensitiveDataScannerRuleUpdateResponse meta(Map<String, Object> meta) {
+    this.meta = meta;
+    return this;
+  }
+
+  public SensitiveDataScannerRuleUpdateResponse putMetaItem(String key, Object metaItem) {
+    if (this.meta == null) {
+      this.meta = new HashMap<>();
+    }
+    this.meta.put(key, metaItem);
+    return this;
+  }
+
+  /**
+   * Meta response. Always an empty object.
    *
    * @return meta
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SensitiveDataScannerMetaVersionOnly getMeta() {
+  public Map<String, Object> getMeta() {
     return meta;
   }
 
-  public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
+  public void setMeta(Map<String, Object> meta) {
     this.meta = meta;
-    if (meta != null) {
-      this.unparsed |= meta.unparsed;
-    }
   }
 
   /**
@@ -107,20 +161,22 @@ public class SensitiveDataScannerRuleUpdateResponse {
     }
     SensitiveDataScannerRuleUpdateResponse sensitiveDataScannerRuleUpdateResponse =
         (SensitiveDataScannerRuleUpdateResponse) o;
-    return Objects.equals(this.meta, sensitiveDataScannerRuleUpdateResponse.meta)
+    return Objects.equals(this.data, sensitiveDataScannerRuleUpdateResponse.data)
+        && Objects.equals(this.meta, sensitiveDataScannerRuleUpdateResponse.meta)
         && Objects.equals(
             this.additionalProperties, sensitiveDataScannerRuleUpdateResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(meta, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SensitiveDataScannerRuleUpdateResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

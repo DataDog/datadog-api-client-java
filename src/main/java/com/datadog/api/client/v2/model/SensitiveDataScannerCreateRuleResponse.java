@@ -29,7 +29,7 @@ public class SensitiveDataScannerCreateRuleResponse {
   private SensitiveDataScannerRuleResponse data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private SensitiveDataScannerMetaVersionOnly meta;
+  private Map<String, Object> meta = null;
 
   public SensitiveDataScannerCreateRuleResponse data(SensitiveDataScannerRuleResponse data) {
     this.data = data;
@@ -56,29 +56,33 @@ public class SensitiveDataScannerCreateRuleResponse {
     }
   }
 
-  public SensitiveDataScannerCreateRuleResponse meta(SensitiveDataScannerMetaVersionOnly meta) {
+  public SensitiveDataScannerCreateRuleResponse meta(Map<String, Object> meta) {
     this.meta = meta;
-    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  public SensitiveDataScannerCreateRuleResponse putMetaItem(String key, Object metaItem) {
+    if (this.meta == null) {
+      this.meta = new HashMap<>();
+    }
+    this.meta.put(key, metaItem);
     return this;
   }
 
   /**
-   * Meta payload containing information about the API.
+   * Meta response. Always an empty object.
    *
    * @return meta
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SensitiveDataScannerMetaVersionOnly getMeta() {
+  public Map<String, Object> getMeta() {
     return meta;
   }
 
-  public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
+  public void setMeta(Map<String, Object> meta) {
     this.meta = meta;
-    if (meta != null) {
-      this.unparsed |= meta.unparsed;
-    }
   }
 
   /**
