@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,9 +15,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Attributes for the service repository info request. */
 @JsonPropertyOrder({
+  ServiceRepositoryInfoRequestAttributes.JSON_PROPERTY_DEBUG_ID,
   ServiceRepositoryInfoRequestAttributes.JSON_PROPERTY_SERVICE,
   ServiceRepositoryInfoRequestAttributes.JSON_PROPERTY_VERSION
 })
@@ -26,20 +27,35 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceRepositoryInfoRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DEBUG_ID = "debug_id";
+  private UUID debugId;
+
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
 
-  public ServiceRepositoryInfoRequestAttributes() {}
+  public ServiceRepositoryInfoRequestAttributes debugId(UUID debugId) {
+    this.debugId = debugId;
+    return this;
+  }
 
-  @JsonCreator
-  public ServiceRepositoryInfoRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) String version) {
-    this.service = service;
-    this.version = version;
+  /**
+   * The debug ID of a JavaScript source map, in UUID format. Alternative to <code>service</code>
+   * and <code>version</code>.
+   *
+   * @return debugId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEBUG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getDebugId() {
+    return debugId;
+  }
+
+  public void setDebugId(UUID debugId) {
+    this.debugId = debugId;
   }
 
   public ServiceRepositoryInfoRequestAttributes service(String service) {
@@ -48,12 +64,14 @@ public class ServiceRepositoryInfoRequestAttributes {
   }
 
   /**
-   * The name of the service.
+   * The name of the service. Required with <code>version</code> when <code>debug_id</code> is not
+   * set.
    *
    * @return service
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getService() {
     return service;
   }
@@ -68,12 +86,14 @@ public class ServiceRepositoryInfoRequestAttributes {
   }
 
   /**
-   * The version of the service.
+   * The version of the service. Required with <code>service</code> when <code>debug_id</code> is
+   * not set.
    *
    * @return version
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVersion() {
     return version;
   }
@@ -139,7 +159,8 @@ public class ServiceRepositoryInfoRequestAttributes {
     }
     ServiceRepositoryInfoRequestAttributes serviceRepositoryInfoRequestAttributes =
         (ServiceRepositoryInfoRequestAttributes) o;
-    return Objects.equals(this.service, serviceRepositoryInfoRequestAttributes.service)
+    return Objects.equals(this.debugId, serviceRepositoryInfoRequestAttributes.debugId)
+        && Objects.equals(this.service, serviceRepositoryInfoRequestAttributes.service)
         && Objects.equals(this.version, serviceRepositoryInfoRequestAttributes.version)
         && Objects.equals(
             this.additionalProperties, serviceRepositoryInfoRequestAttributes.additionalProperties);
@@ -147,13 +168,14 @@ public class ServiceRepositoryInfoRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(service, version, additionalProperties);
+    return Objects.hash(debugId, service, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceRepositoryInfoRequestAttributes {\n");
+    sb.append("    debugId: ").append(toIndentedString(debugId)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
