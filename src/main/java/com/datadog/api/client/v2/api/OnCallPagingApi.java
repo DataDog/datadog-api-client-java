@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreatePageRequest;
 import com.datadog.api.client.v2.model.CreatePageResponse;
+import com.datadog.api.client.v2.model.RerouteOnCallPageRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -428,6 +429,161 @@ public class OnCallPagingApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Reroute On-Call Page.
+   *
+   * <p>See {@link #rerouteOnCallPageWithHttpInfo}.
+   *
+   * @param pageId The page ID. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void rerouteOnCallPage(UUID pageId, RerouteOnCallPageRequest body) throws ApiException {
+    rerouteOnCallPageWithHttpInfo(pageId, body);
+  }
+
+  /**
+   * Reroute On-Call Page.
+   *
+   * <p>See {@link #rerouteOnCallPageWithHttpInfoAsync}.
+   *
+   * @param pageId The page ID. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> rerouteOnCallPageAsync(
+      UUID pageId, RerouteOnCallPageRequest body) {
+    return rerouteOnCallPageWithHttpInfoAsync(pageId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reroutes an On-Call Page.
+   *
+   * @param pageId The page ID. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> rerouteOnCallPageWithHttpInfo(UUID pageId, RerouteOnCallPageRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling rerouteOnCallPage");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling rerouteOnCallPage");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/pages/{page_id}/reroute"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallPagingApi.rerouteOnCallPage",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Reroute On-Call Page.
+   *
+   * <p>See {@link #rerouteOnCallPageWithHttpInfo}.
+   *
+   * @param pageId The page ID. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> rerouteOnCallPageWithHttpInfoAsync(
+      UUID pageId, RerouteOnCallPageRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling rerouteOnCallPage"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling rerouteOnCallPage"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/pages/{page_id}/reroute"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallPagingApi.rerouteOnCallPage",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
