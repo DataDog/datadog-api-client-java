@@ -1483,6 +1483,11 @@ public class ApiClient {
           put("v2.getSnowflakeIntegrationAccount", false);
           put("v2.listSnowflakeIntegrationAccounts", false);
           put("v2.updateSnowflakeIntegrationAccount", false);
+          put("v2.createTemporalCloudOpenMetricsIntegrationAccount", false);
+          put("v2.deleteTemporalCloudOpenMetricsIntegrationAccount", false);
+          put("v2.getTemporalCloudOpenMetricsIntegrationAccount", false);
+          put("v2.listTemporalCloudOpenMetricsIntegrationAccounts", false);
+          put("v2.updateTemporalCloudOpenMetricsIntegrationAccount", false);
           put("v2.createTwilioIntegrationAccount", false);
           put("v2.deleteTwilioIntegrationAccount", false);
           put("v2.getTwilioIntegrationAccount", false);
