@@ -20,7 +20,8 @@ import java.util.Set;
 
 /**
  * When to count updatable events. <code>match</code> when the event is first seen, or <code>end
- * </code> when the event is complete.
+ * </code> when the event is complete. Sessions and views are updated over time, each one is counted
+ * once.
  */
 @JsonSerialize(using = RumMetricUniquenessWhen.RumMetricUniquenessWhenSerializer.class)
 public class RumMetricUniquenessWhen extends ModelEnum<String> {

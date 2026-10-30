@@ -52,7 +52,7 @@ public class RumMetricResponseAttributes {
   }
 
   /**
-   * The compute rule to compute the RUM-based metric.
+   * The compute rule of the RUM-based metric.
    *
    * @return compute
    */
@@ -77,7 +77,8 @@ public class RumMetricResponseAttributes {
   }
 
   /**
-   * The type of RUM events to filter on.
+   * The type of RUM events the metric is generated from. It is set at creation and cannot be
+   * changed.
    *
    * @return eventType
    */
@@ -102,7 +103,8 @@ public class RumMetricResponseAttributes {
   }
 
   /**
-   * The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
+   * The RUM-based metric filter. RUM events matching this filter are aggregated in this metric.
+   * Omitted if the metric only filters on the event type.
    *
    * @return filter
    */
@@ -140,7 +142,7 @@ public class RumMetricResponseAttributes {
   }
 
   /**
-   * The rules for the group by.
+   * The rules the metric is grouped by. Omitted if the metric is not grouped.
    *
    * @return groupBy
    */
@@ -167,8 +169,8 @@ public class RumMetricResponseAttributes {
   }
 
   /**
-   * The rule to count updatable events. Is only set if <code>event_type</code> is <code>session
-   * </code> or <code>view</code>.
+   * The rule to count updatable events. Only present if <code>event_type</code> is <code>session
+   * </code> or <code>view</code>, and absent on older metrics created before this setting existed.
    *
    * @return uniqueness
    */

@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The compute rule to compute the RUM-based metric. */
+/**
+ * The compute rule to compute the RUM-based metric. It is set at creation and only <code>
+ * include_percentiles</code> can be updated afterwards.
+ */
 @JsonPropertyOrder({
   RumMetricCompute.JSON_PROPERTY_AGGREGATION_TYPE,
   RumMetricCompute.JSON_PROPERTY_INCLUDE_PERCENTILES,
@@ -53,7 +56,8 @@ public class RumMetricCompute {
   }
 
   /**
-   * The type of aggregation to use.
+   * The type of aggregation to use. <code>count</code> counts the matching events. <code>
+   * distribution</code> aggregates the values found at <code>path</code>.
    *
    * @return aggregationType
    */
@@ -76,8 +80,9 @@ public class RumMetricCompute {
   }
 
   /**
-   * Toggle to include or exclude percentile aggregations for distribution metrics. Only present
-   * when <code>aggregation_type</code> is <code>distribution</code>.
+   * Toggle to include or exclude percentile aggregations (p50, p75, p90, p95, p99) for distribution
+   * metrics. Required when <code>aggregation_type</code> is <code>distribution</code>, and must be
+   * omitted otherwise.
    *
    * @return includePercentiles
    */
@@ -98,7 +103,7 @@ public class RumMetricCompute {
   }
 
   /**
-   * The path to the value the RUM-based metric will aggregate on. Only present when <code>
+   * The path of the numeric RUM event attribute the metric aggregates on. Only valid when <code>
    * aggregation_type</code> is <code>distribution</code>.
    *
    * @return path

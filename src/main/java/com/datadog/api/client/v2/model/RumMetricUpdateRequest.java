@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The new RUM-based metric body. */
+/** The RUM-based metric update body. */
 @JsonPropertyOrder({RumMetricUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,8 @@ public class RumMetricUpdateRequest {
   }
 
   /**
-   * The new RUM-based metric properties.
+   * The RUM-based metric properties to update. <code>id</code> is required by the API and must
+   * match the <code>metric_id</code> path parameter.
    *
    * @return data
    */

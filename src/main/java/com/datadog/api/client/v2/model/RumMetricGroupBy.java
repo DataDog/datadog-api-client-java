@@ -42,7 +42,7 @@ public class RumMetricGroupBy {
   }
 
   /**
-   * The path to the value the RUM-based metric will be aggregated over.
+   * The path of the RUM event attribute to group the metric by.
    *
    * @return path
    */
@@ -62,8 +62,9 @@ public class RumMetricGroupBy {
   }
 
   /**
-   * Eventual name of the tag that gets created. By default, <code>path</code> is used as the tag
-   * name.
+   * Name of the tag that gets created on the metric. By default, <code>path</code> is used as the
+   * tag name. It must be at most 200 characters long, start with a letter, and contain only
+   * lowercase letters, digits, underscores, hyphens, colons, periods, and slashes.
    *
    * @return tagName
    */

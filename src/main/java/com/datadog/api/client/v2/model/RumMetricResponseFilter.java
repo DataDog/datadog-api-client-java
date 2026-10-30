@@ -17,7 +17,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
+ * The RUM-based metric filter. RUM events matching this filter are aggregated in this metric.
+ * Omitted if the metric only filters on the event type.
  */
 @JsonPropertyOrder({RumMetricResponseFilter.JSON_PROPERTY_QUERY})
 @jakarta.annotation.Generated(
@@ -33,7 +34,9 @@ public class RumMetricResponseFilter {
   }
 
   /**
-   * The search query - following the RUM search syntax.
+   * The search query, following the <a
+   * href="https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/">RUM search
+   * syntax</a>. It does not include the event type filter.
    *
    * @return query
    */

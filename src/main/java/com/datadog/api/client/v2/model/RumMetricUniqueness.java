@@ -18,8 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The rule to count updatable events. Is only set if <code>event_type</code> is <code>sessions
- * </code> or <code>views</code>.
+ * The rule to count updatable events. Required when <code>event_type</code> is <code>session</code>
+ * or <code>view</code>, and must be omitted for other event types. It cannot be changed after
+ * creation.
  */
 @JsonPropertyOrder({RumMetricUniqueness.JSON_PROPERTY_WHEN})
 @jakarta.annotation.Generated(
@@ -46,7 +47,8 @@ public class RumMetricUniqueness {
 
   /**
    * When to count updatable events. <code>match</code> when the event is first seen, or <code>end
-   * </code> when the event is complete.
+   * </code> when the event is complete. Sessions and views are updated over time, each one is
+   * counted once.
    *
    * @return when
    */

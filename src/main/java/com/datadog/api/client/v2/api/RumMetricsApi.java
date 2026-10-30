@@ -76,8 +76,17 @@ public class RumMetricsApi {
   }
 
   /**
-   * Create a metric based on your organization's RUM data. Returns the RUM-based metric object from
-   * the request body when the request is successful.
+   * Create a metric based on your organization's RUM data. The metric name is set in <code>data.id
+   * </code>, is unique within your organization, and cannot be changed after creation. The <code>
+   * event_type</code>, <code>compute</code>, and <code>uniqueness</code> settings cannot be changed
+   * after creation either. Only <code>filter</code>, <code>group_by</code>, and <code>
+   * compute.include_percentiles</code> can be changed with <code>UpdateRumMetric</code>. <code>
+   * uniqueness</code> is required when <code>event_type</code> is <code>session</code> or <code>
+   * view</code>, and must be omitted for any other event type. When <code>aggregation_type</code>
+   * is <code>distribution</code>, <code>include_percentiles</code> is required. When it is <code>
+   * count</code>, <code>include_percentiles</code> and <code>path</code> must be omitted. Returns
+   * the created RUM-based metric when the request is successful. The request returns a <code>
+   * 409 Conflict</code> error if a metric with the same name already exists.
    *
    * @param body The definition of the new RUM-based metric. (required)
    * @return ApiResponse&lt;RumMetricResponse&gt;
@@ -184,7 +193,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #deleteRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRumMetric(String metricId) throws ApiException {
@@ -196,7 +206,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #deleteRumMetricWithHttpInfoAsync}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRumMetricAsync(String metricId) {
@@ -208,9 +219,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Delete a specific RUM-based metric from your organization.
+   * Delete a specific RUM-based metric from your organization. Metric data that was already
+   * generated is not deleted. Deleting a metric cannot be undone.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -263,7 +276,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #deleteRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRumMetricWithHttpInfoAsync(String metricId) {
@@ -316,7 +330,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #getRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @return RumMetricResponse
    * @throws ApiException if fails to make API call
    */
@@ -329,7 +344,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #getRumMetricWithHttpInfoAsync}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @return CompletableFuture&lt;RumMetricResponse&gt;
    */
   public CompletableFuture<RumMetricResponse> getRumMetricAsync(String metricId) {
@@ -341,9 +357,12 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get a specific RUM-based metric from your organization.
+   * Get a specific RUM-based metric from your organization. The <code>metric_id</code> is the
+   * metric name returned in <code>data.id</code> by <code>ListRumMetrics</code> and <code>
+   * CreateRumMetric</code>.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @return ApiResponse&lt;RumMetricResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -397,7 +416,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #getRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RumMetricResponse>> getRumMetricWithHttpInfoAsync(
@@ -474,7 +494,9 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get the list of configured RUM-based metrics with their definitions.
+   * Get the list of all RUM-based metrics configured for your organization, with their definitions.
+   * The list is not paginated. Metrics whose stored definition cannot be converted to the RUM
+   * format are omitted from the list. To retrieve a single metric, use <code>GetRumMetric</code>.
    *
    * @return ApiResponse&lt;RumMetricsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -560,7 +582,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #updateRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
    * @return RumMetricResponse
    * @throws ApiException if fails to make API call
@@ -575,7 +598,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #updateRumMetricWithHttpInfoAsync}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
    * @return CompletableFuture&lt;RumMetricResponse&gt;
    */
@@ -589,10 +613,21 @@ public class RumMetricsApi {
   }
 
   /**
-   * Update a specific RUM-based metric from your organization. Returns the RUM-based metric object
-   * from the request body when the request is successful.
+   * Update a specific RUM-based metric from your organization. Only <code>filter</code>, <code>
+   * group_by</code>, and <code>compute.include_percentiles</code> can be updated. <code>event_type
+   * </code>, <code>uniqueness</code>, <code>compute.aggregation_type</code>, <code>compute.path
+   * </code>, and the metric name are immutable. To change them, delete the metric and create a new
+   * one. Omitted attributes keep their current value. When provided, <code>filter.query</code>
+   * replaces the whole filter query (an empty query is ignored) and <code>group_by</code> replaces
+   * the whole list of group by rules. <code>data.id</code> is required and must match the <code>
+   * metric_id</code> path parameter, otherwise the request returns a <code>409 Conflict</code>
+   * error. The request also returns a <code>409 Conflict</code> error when <code>
+   * compute.include_percentiles</code> is set on a metric whose <code>aggregation_type</code> is
+   * not <code>distribution</code>. Returns the updated RUM-based metric when the request is
+   * successful.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
    * @return ApiResponse&lt;RumMetricResponse&gt;
    * @throws ApiException if fails to make API call
@@ -655,7 +690,8 @@ public class RumMetricsApi {
    *
    * <p>See {@link #updateRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
+   *     ListRumMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
    */
