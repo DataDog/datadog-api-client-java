@@ -19,7 +19,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
-    defaultClient.setUnstableOperationEnabled("v2.updateTagIndexingRule", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     // there is a valid "tag_indexing_rule" in the system
