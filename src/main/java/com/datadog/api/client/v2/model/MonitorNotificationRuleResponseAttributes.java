@@ -27,7 +27,8 @@ import java.util.Objects;
   MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_FILTER,
   MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_MODIFIED,
   MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_NAME,
-  MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_RECIPIENTS
+  MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_RECIPIENTS,
+  MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -53,6 +54,9 @@ public class MonitorNotificationRuleResponseAttributes {
 
   public static final String JSON_PROPERTY_RECIPIENTS = "recipients";
   private List<String> recipients = null;
+
+  public static final String JSON_PROPERTY_RULE_OPTIONS = "rule_options";
+  private MonitorNotificationRuleOptions ruleOptions;
 
   public MonitorNotificationRuleResponseAttributes bundleConfig(
       MonitorNotificationRuleBundleConfig bundleConfig) {
@@ -228,6 +232,32 @@ public class MonitorNotificationRuleResponseAttributes {
     this.recipients = recipients;
   }
 
+  public MonitorNotificationRuleResponseAttributes ruleOptions(
+      MonitorNotificationRuleOptions ruleOptions) {
+    this.ruleOptions = ruleOptions;
+    this.unparsed |= ruleOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Additional options for the monitor notification rule.
+   *
+   * @return ruleOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorNotificationRuleOptions getRuleOptions() {
+    return ruleOptions;
+  }
+
+  public void setRuleOptions(MonitorNotificationRuleOptions ruleOptions) {
+    this.ruleOptions = ruleOptions;
+    if (ruleOptions != null) {
+      this.unparsed |= ruleOptions.unparsed;
+    }
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -294,6 +324,7 @@ public class MonitorNotificationRuleResponseAttributes {
         && Objects.equals(this.modified, monitorNotificationRuleResponseAttributes.modified)
         && Objects.equals(this.name, monitorNotificationRuleResponseAttributes.name)
         && Objects.equals(this.recipients, monitorNotificationRuleResponseAttributes.recipients)
+        && Objects.equals(this.ruleOptions, monitorNotificationRuleResponseAttributes.ruleOptions)
         && Objects.equals(
             this.additionalProperties,
             monitorNotificationRuleResponseAttributes.additionalProperties);
@@ -309,6 +340,7 @@ public class MonitorNotificationRuleResponseAttributes {
         modified,
         name,
         recipients,
+        ruleOptions,
         additionalProperties);
   }
 
@@ -325,6 +357,7 @@ public class MonitorNotificationRuleResponseAttributes {
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
+    sb.append("    ruleOptions: ").append(toIndentedString(ruleOptions)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
