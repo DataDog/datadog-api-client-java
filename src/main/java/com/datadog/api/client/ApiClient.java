@@ -1145,6 +1145,7 @@ public class ApiClient {
           put("v2.getExecutionPolicy", false);
           put("v2.listExecutionPolicies", false);
           put("v2.updateExecutionPolicy", false);
+          put("v2.evaluateAIGuardRequest", false);
           put("v2.createAnnotation", false);
           put("v2.deleteAnnotation", false);
           put("v2.getPageAnnotations", false);
