@@ -4,6 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AWSCloudAuthIntakeMappingCreateRequest;
+import com.datadog.api.client.v2.model.AWSCloudAuthIntakeMappingResponse;
+import com.datadog.api.client.v2.model.AWSCloudAuthIntakeMappingsResponse;
 import com.datadog.api.client.v2.model.AWSCloudAuthPersonaMappingCreateRequest;
 import com.datadog.api.client.v2.model.AWSCloudAuthPersonaMappingResponse;
 import com.datadog.api.client.v2.model.AWSCloudAuthPersonaMappingsResponse;
@@ -49,6 +52,167 @@ public class CloudAuthenticationApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #createAWSCloudAuthIntakeMappingWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return AWSCloudAuthIntakeMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSCloudAuthIntakeMappingResponse createAWSCloudAuthIntakeMapping(
+      AWSCloudAuthIntakeMappingCreateRequest body) throws ApiException {
+    return createAWSCloudAuthIntakeMappingWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #createAWSCloudAuthIntakeMappingWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;AWSCloudAuthIntakeMappingResponse&gt;
+   */
+  public CompletableFuture<AWSCloudAuthIntakeMappingResponse> createAWSCloudAuthIntakeMappingAsync(
+      AWSCloudAuthIntakeMappingCreateRequest body) {
+    return createAWSCloudAuthIntakeMappingWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an AWS cloud authentication intake mapping to authorize an AWS ARN pattern for Agent
+   * authentication. The AWS account must already be integrated with Datadog, and managed API key
+   * rotation must be enabled for the organization. Patterns that conflict with existing intake or
+   * persona mappings are rejected.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;AWSCloudAuthIntakeMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSCloudAuthIntakeMappingResponse> createAWSCloudAuthIntakeMappingWithHttpInfo(
+      AWSCloudAuthIntakeMappingCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createAWSCloudAuthIntakeMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createAWSCloudAuthIntakeMapping");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/aws/intake_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.createAWSCloudAuthIntakeMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCloudAuthIntakeMappingResponse>() {});
+  }
+
+  /**
+   * Create an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #createAWSCloudAuthIntakeMappingWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSCloudAuthIntakeMappingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>>
+      createAWSCloudAuthIntakeMappingWithHttpInfoAsync(
+          AWSCloudAuthIntakeMappingCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createAWSCloudAuthIntakeMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createAWSCloudAuthIntakeMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/aws/intake_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.createAWSCloudAuthIntakeMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCloudAuthIntakeMappingResponse>() {});
   }
 
   /**
@@ -532,6 +696,165 @@ public class CloudAuthenticationApi {
   }
 
   /**
+   * Delete an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #deleteAWSCloudAuthIntakeMappingWithHttpInfo}.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAWSCloudAuthIntakeMapping(String intakeMappingId) throws ApiException {
+    deleteAWSCloudAuthIntakeMappingWithHttpInfo(intakeMappingId);
+  }
+
+  /**
+   * Delete an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #deleteAWSCloudAuthIntakeMappingWithHttpInfoAsync}.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteAWSCloudAuthIntakeMappingAsync(String intakeMappingId) {
+    return deleteAWSCloudAuthIntakeMappingWithHttpInfoAsync(intakeMappingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an AWS cloud authentication intake mapping by ID.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteAWSCloudAuthIntakeMappingWithHttpInfo(String intakeMappingId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAWSCloudAuthIntakeMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'intakeMappingId' is set
+    if (intakeMappingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'intakeMappingId' when calling"
+              + " deleteAWSCloudAuthIntakeMapping");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/aws/intake_mapping/{intake_mapping_id}"
+            .replaceAll(
+                "\\{" + "intake_mapping_id" + "\\}",
+                apiClient.escapeString(intakeMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.deleteAWSCloudAuthIntakeMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #deleteAWSCloudAuthIntakeMappingWithHttpInfo}.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteAWSCloudAuthIntakeMappingWithHttpInfoAsync(
+      String intakeMappingId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAWSCloudAuthIntakeMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'intakeMappingId' is set
+    if (intakeMappingId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'intakeMappingId' when calling"
+                  + " deleteAWSCloudAuthIntakeMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/aws/intake_mapping/{intake_mapping_id}"
+            .replaceAll(
+                "\\{" + "intake_mapping_id" + "\\}",
+                apiClient.escapeString(intakeMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.deleteAWSCloudAuthIntakeMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete an AWS cloud authentication persona mapping.
    *
    * <p>See {@link #deleteAWSCloudAuthPersonaMappingWithHttpInfo}.
@@ -1009,6 +1332,171 @@ public class CloudAuthenticationApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Get an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #getAWSCloudAuthIntakeMappingWithHttpInfo}.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @return AWSCloudAuthIntakeMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSCloudAuthIntakeMappingResponse getAWSCloudAuthIntakeMapping(String intakeMappingId)
+      throws ApiException {
+    return getAWSCloudAuthIntakeMappingWithHttpInfo(intakeMappingId).getData();
+  }
+
+  /**
+   * Get an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #getAWSCloudAuthIntakeMappingWithHttpInfoAsync}.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @return CompletableFuture&lt;AWSCloudAuthIntakeMappingResponse&gt;
+   */
+  public CompletableFuture<AWSCloudAuthIntakeMappingResponse> getAWSCloudAuthIntakeMappingAsync(
+      String intakeMappingId) {
+    return getAWSCloudAuthIntakeMappingWithHttpInfoAsync(intakeMappingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an AWS cloud authentication intake mapping by ID.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @return ApiResponse&lt;AWSCloudAuthIntakeMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSCloudAuthIntakeMappingResponse> getAWSCloudAuthIntakeMappingWithHttpInfo(
+      String intakeMappingId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAWSCloudAuthIntakeMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'intakeMappingId' is set
+    if (intakeMappingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'intakeMappingId' when calling"
+              + " getAWSCloudAuthIntakeMapping");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/aws/intake_mapping/{intake_mapping_id}"
+            .replaceAll(
+                "\\{" + "intake_mapping_id" + "\\}",
+                apiClient.escapeString(intakeMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.getAWSCloudAuthIntakeMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCloudAuthIntakeMappingResponse>() {});
+  }
+
+  /**
+   * Get an AWS cloud authentication intake mapping.
+   *
+   * <p>See {@link #getAWSCloudAuthIntakeMappingWithHttpInfo}.
+   *
+   * @param intakeMappingId The ID of the intake mapping (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSCloudAuthIntakeMappingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>>
+      getAWSCloudAuthIntakeMappingWithHttpInfoAsync(String intakeMappingId) {
+    // Check if unstable operation is enabled
+    String operationId = "getAWSCloudAuthIntakeMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'intakeMappingId' is set
+    if (intakeMappingId == null) {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'intakeMappingId' when calling"
+                  + " getAWSCloudAuthIntakeMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/aws/intake_mapping/{intake_mapping_id}"
+            .replaceAll(
+                "\\{" + "intake_mapping_id" + "\\}",
+                apiClient.escapeString(intakeMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.getAWSCloudAuthIntakeMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCloudAuthIntakeMappingResponse>() {});
   }
 
   /**
@@ -1509,6 +1997,138 @@ public class CloudAuthenticationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GitHubCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
+   * List AWS cloud authentication intake mappings.
+   *
+   * <p>See {@link #listAWSCloudAuthIntakeMappingsWithHttpInfo}.
+   *
+   * @return AWSCloudAuthIntakeMappingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSCloudAuthIntakeMappingsResponse listAWSCloudAuthIntakeMappings() throws ApiException {
+    return listAWSCloudAuthIntakeMappingsWithHttpInfo().getData();
+  }
+
+  /**
+   * List AWS cloud authentication intake mappings.
+   *
+   * <p>See {@link #listAWSCloudAuthIntakeMappingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AWSCloudAuthIntakeMappingsResponse&gt;
+   */
+  public CompletableFuture<AWSCloudAuthIntakeMappingsResponse>
+      listAWSCloudAuthIntakeMappingsAsync() {
+    return listAWSCloudAuthIntakeMappingsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List AWS cloud authentication intake mappings configured for the organization.
+   *
+   * @return ApiResponse&lt;AWSCloudAuthIntakeMappingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSCloudAuthIntakeMappingsResponse>
+      listAWSCloudAuthIntakeMappingsWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAWSCloudAuthIntakeMappings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/aws/intake_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.listAWSCloudAuthIntakeMappings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCloudAuthIntakeMappingsResponse>() {});
+  }
+
+  /**
+   * List AWS cloud authentication intake mappings.
+   *
+   * <p>See {@link #listAWSCloudAuthIntakeMappingsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSCloudAuthIntakeMappingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingsResponse>>
+      listAWSCloudAuthIntakeMappingsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listAWSCloudAuthIntakeMappings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/aws/intake_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.listAWSCloudAuthIntakeMappings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSCloudAuthIntakeMappingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCloudAuthIntakeMappingsResponse>() {});
   }
 
   /**
