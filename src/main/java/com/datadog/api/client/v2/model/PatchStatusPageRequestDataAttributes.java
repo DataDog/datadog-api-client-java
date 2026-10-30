@@ -23,6 +23,7 @@ import java.util.Objects;
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_EMAIL_HEADER_IMAGE,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_FAVICON,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_NAME,
+  PatchStatusPageRequestDataAttributes.JSON_PROPERTY_RSS_FEED_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_APP_ICON,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SUBSCRIPTIONS_ENABLED,
@@ -47,6 +48,9 @@ public class PatchStatusPageRequestDataAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_RSS_FEED_ENABLED = "rss_feed_enabled";
+  private Boolean rssFeedEnabled;
 
   public static final String JSON_PROPERTY_SLACK_APP_ICON = "slack_app_icon";
   private String slackAppIcon;
@@ -169,6 +173,27 @@ public class PatchStatusPageRequestDataAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public PatchStatusPageRequestDataAttributes rssFeedEnabled(Boolean rssFeedEnabled) {
+    this.rssFeedEnabled = rssFeedEnabled;
+    return this;
+  }
+
+  /**
+   * Whether the RSS feed is enabled for the status page.
+   *
+   * @return rssFeedEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RSS_FEED_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRssFeedEnabled() {
+    return rssFeedEnabled;
+  }
+
+  public void setRssFeedEnabled(Boolean rssFeedEnabled) {
+    this.rssFeedEnabled = rssFeedEnabled;
   }
 
   public PatchStatusPageRequestDataAttributes slackAppIcon(String slackAppIcon) {
@@ -350,6 +375,7 @@ public class PatchStatusPageRequestDataAttributes {
             this.emailHeaderImage, patchStatusPageRequestDataAttributes.emailHeaderImage)
         && Objects.equals(this.favicon, patchStatusPageRequestDataAttributes.favicon)
         && Objects.equals(this.name, patchStatusPageRequestDataAttributes.name)
+        && Objects.equals(this.rssFeedEnabled, patchStatusPageRequestDataAttributes.rssFeedEnabled)
         && Objects.equals(this.slackAppIcon, patchStatusPageRequestDataAttributes.slackAppIcon)
         && Objects.equals(
             this.slackSubscriptionsEnabled,
@@ -371,6 +397,7 @@ public class PatchStatusPageRequestDataAttributes {
         emailHeaderImage,
         favicon,
         name,
+        rssFeedEnabled,
         slackAppIcon,
         slackSubscriptionsEnabled,
         subscriptionsEnabled,
@@ -388,6 +415,7 @@ public class PatchStatusPageRequestDataAttributes {
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rssFeedEnabled: ").append(toIndentedString(rssFeedEnabled)).append("\n");
     sb.append("    slackAppIcon: ").append(toIndentedString(slackAppIcon)).append("\n");
     sb.append("    slackSubscriptionsEnabled: ")
         .append(toIndentedString(slackSubscriptionsEnabled))

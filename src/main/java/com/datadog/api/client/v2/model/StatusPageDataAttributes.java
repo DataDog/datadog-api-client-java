@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   StatusPageDataAttributes.JSON_PROPERTY_MODIFIED_AT,
   StatusPageDataAttributes.JSON_PROPERTY_NAME,
   StatusPageDataAttributes.JSON_PROPERTY_PAGE_URL,
+  StatusPageDataAttributes.JSON_PROPERTY_RSS_FEED_ENABLED,
   StatusPageDataAttributes.JSON_PROPERTY_SLACK_APP_ICON,
   StatusPageDataAttributes.JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED,
   StatusPageDataAttributes.JSON_PROPERTY_SUBSCRIPTIONS_ENABLED,
@@ -79,6 +80,9 @@ public class StatusPageDataAttributes {
 
   public static final String JSON_PROPERTY_PAGE_URL = "page_url";
   private String pageUrl;
+
+  public static final String JSON_PROPERTY_RSS_FEED_ENABLED = "rss_feed_enabled";
+  private Boolean rssFeedEnabled;
 
   public static final String JSON_PROPERTY_SLACK_APP_ICON = "slack_app_icon";
   private String slackAppIcon;
@@ -411,6 +415,27 @@ public class StatusPageDataAttributes {
     this.pageUrl = pageUrl;
   }
 
+  public StatusPageDataAttributes rssFeedEnabled(Boolean rssFeedEnabled) {
+    this.rssFeedEnabled = rssFeedEnabled;
+    return this;
+  }
+
+  /**
+   * Whether the RSS feed is enabled for the status page.
+   *
+   * @return rssFeedEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RSS_FEED_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRssFeedEnabled() {
+    return rssFeedEnabled;
+  }
+
+  public void setRssFeedEnabled(Boolean rssFeedEnabled) {
+    this.rssFeedEnabled = rssFeedEnabled;
+  }
+
   public StatusPageDataAttributes slackAppIcon(String slackAppIcon) {
     this.slackAppIcon = slackAppIcon;
     return this;
@@ -594,6 +619,7 @@ public class StatusPageDataAttributes {
         && Objects.equals(this.modifiedAt, statusPageDataAttributes.modifiedAt)
         && Objects.equals(this.name, statusPageDataAttributes.name)
         && Objects.equals(this.pageUrl, statusPageDataAttributes.pageUrl)
+        && Objects.equals(this.rssFeedEnabled, statusPageDataAttributes.rssFeedEnabled)
         && Objects.equals(this.slackAppIcon, statusPageDataAttributes.slackAppIcon)
         && Objects.equals(
             this.slackSubscriptionsEnabled, statusPageDataAttributes.slackSubscriptionsEnabled)
@@ -618,6 +644,7 @@ public class StatusPageDataAttributes {
         modifiedAt,
         name,
         pageUrl,
+        rssFeedEnabled,
         slackAppIcon,
         slackSubscriptionsEnabled,
         subscriptionsEnabled,
@@ -644,6 +671,7 @@ public class StatusPageDataAttributes {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageUrl: ").append(toIndentedString(pageUrl)).append("\n");
+    sb.append("    rssFeedEnabled: ").append(toIndentedString(rssFeedEnabled)).append("\n");
     sb.append("    slackAppIcon: ").append(toIndentedString(slackAppIcon)).append("\n");
     sb.append("    slackSubscriptionsEnabled: ")
         .append(toIndentedString(slackSubscriptionsEnabled))
