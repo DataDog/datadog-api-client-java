@@ -1298,10 +1298,18 @@ public class ApiClient {
           put("v2.searchCostRecommendations", false);
           put("v2.updateUnitCost", false);
           put("v2.createQuotas", false);
+          put("v2.createTemporaryGrantRequest", false);
           put("v2.deletePendingQuota", false);
           put("v2.deleteQuota", false);
+          put("v2.deleteRequestedTemporaryGrant", false);
+          put("v2.deleteTemporaryGrantRequest", false);
+          put("v2.getMyTemporaryGrantRequest", false);
+          put("v2.getTemporaryGrantRequest", false);
+          put("v2.listMyTemporaryGrantRequests", false);
           put("v2.listQuotas", false);
+          put("v2.listTemporaryGrantRequests", false);
           put("v2.updateQuota", false);
+          put("v2.updateTemporaryGrantRequest", false);
           put("v2.createOwnershipFeedback", false);
           put("v2.getOwnershipEvidence", false);
           put("v2.getOwnershipInference", false);

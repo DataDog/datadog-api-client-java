@@ -1,0 +1,29 @@
+// List organization temporary grant requests returns "OK" response with pagination
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
+import com.datadog.api.client.v2.api.UsageMeteringApi;
+import com.datadog.api.client.v2.model.TemporaryGrantRequestData;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    defaultClient.setUnstableOperationEnabled("v2.listTemporaryGrantRequests", true);
+    UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+
+    try {
+      PaginationIterable<TemporaryGrantRequestData> iterable =
+          apiInstance.listTemporaryGrantRequestsWithPagination();
+
+      for (TemporaryGrantRequestData item : iterable) {
+        System.out.println(item);
+      }
+    } catch (RuntimeException e) {
+      System.err.println(
+          "Exception when calling UsageMeteringApi#listTemporaryGrantRequestsWithPagination");
+      System.err.println("Reason: " + e.getMessage());
+      e.printStackTrace();
+    }
+  }
+}
