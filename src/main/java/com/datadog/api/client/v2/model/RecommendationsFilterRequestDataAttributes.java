@@ -73,7 +73,8 @@ public class RecommendationsFilterRequestDataAttributes {
 
   /**
    * Recommendations scope. Defaults to <code>ccm</code>; use <code>experiment</code> for
-   * experimental recommendations or <code>*</code> for both.
+   * experimental recommendations or <code>*</code> for both. An empty value is treated as <code>ccm
+   * </code>.
    *
    * @return scope
    */
