@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Schema of a cost file's metadata. */
 @JsonPropertyOrder({
+  CustomCostsFileMetadataWithContent.JSON_PROPERTY_AI_PROVIDER,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_BILLED_COST,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_BILLING_CURRENCY,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_CHARGE_PERIOD,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CustomCostsFileMetadataWithContent {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AI_PROVIDER = "ai_provider";
+  private Boolean aiProvider;
+
   public static final String JSON_PROPERTY_BILLED_COST = "billed_cost";
   private Double billedCost;
 
@@ -60,6 +64,27 @@ public class CustomCostsFileMetadataWithContent {
 
   public static final String JSON_PROPERTY_UPLOADED_BY = "uploaded_by";
   private CustomCostsUser uploadedBy;
+
+  public CustomCostsFileMetadataWithContent aiProvider(Boolean aiProvider) {
+    this.aiProvider = aiProvider;
+    return this;
+  }
+
+  /**
+   * Whether the Custom Costs file contains the costs of an AI provider.
+   *
+   * @return aiProvider
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_PROVIDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAiProvider() {
+    return aiProvider;
+  }
+
+  public void setAiProvider(Boolean aiProvider) {
+    this.aiProvider = aiProvider;
+  }
 
   public CustomCostsFileMetadataWithContent billedCost(Double billedCost) {
     this.billedCost = billedCost;
@@ -343,7 +368,8 @@ public class CustomCostsFileMetadataWithContent {
     }
     CustomCostsFileMetadataWithContent customCostsFileMetadataWithContent =
         (CustomCostsFileMetadataWithContent) o;
-    return Objects.equals(this.billedCost, customCostsFileMetadataWithContent.billedCost)
+    return Objects.equals(this.aiProvider, customCostsFileMetadataWithContent.aiProvider)
+        && Objects.equals(this.billedCost, customCostsFileMetadataWithContent.billedCost)
         && Objects.equals(this.billingCurrency, customCostsFileMetadataWithContent.billingCurrency)
         && Objects.equals(this.chargePeriod, customCostsFileMetadataWithContent.chargePeriod)
         && Objects.equals(this.content, customCostsFileMetadataWithContent.content)
@@ -359,6 +385,7 @@ public class CustomCostsFileMetadataWithContent {
   @Override
   public int hashCode() {
     return Objects.hash(
+        aiProvider,
         billedCost,
         billingCurrency,
         chargePeriod,
@@ -375,6 +402,7 @@ public class CustomCostsFileMetadataWithContent {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomCostsFileMetadataWithContent {\n");
+    sb.append("    aiProvider: ").append(toIndentedString(aiProvider)).append("\n");
     sb.append("    billedCost: ").append(toIndentedString(billedCost)).append("\n");
     sb.append("    billingCurrency: ").append(toIndentedString(billingCurrency)).append("\n");
     sb.append("    chargePeriod: ").append(toIndentedString(chargePeriod)).append("\n");

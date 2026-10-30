@@ -12823,6 +12823,23 @@ public class CloudCostManagementApi {
         new GenericType<UnitCostResponse>() {});
   }
 
+  /** Manage optional parameters to uploadCustomCostsFile. */
+  public static class UploadCustomCostsFileOptionalParameters {
+    private Boolean aiProvider;
+
+    /**
+     * Set aiProvider.
+     *
+     * @param aiProvider Whether the uploaded file contains the costs of an AI provider. (optional,
+     *     default to false)
+     * @return UploadCustomCostsFileOptionalParameters
+     */
+    public UploadCustomCostsFileOptionalParameters aiProvider(Boolean aiProvider) {
+      this.aiProvider = aiProvider;
+      return this;
+    }
+  }
+
   /**
    * Upload Custom Costs file.
    *
@@ -12834,7 +12851,8 @@ public class CloudCostManagementApi {
    */
   public CustomCostsFileUploadResponse uploadCustomCostsFile(List<CustomCostsFileLineItem> body)
       throws ApiException {
-    return uploadCustomCostsFileWithHttpInfo(body).getData();
+    return uploadCustomCostsFileWithHttpInfo(body, new UploadCustomCostsFileOptionalParameters())
+        .getData();
   }
 
   /**
@@ -12847,7 +12865,42 @@ public class CloudCostManagementApi {
    */
   public CompletableFuture<CustomCostsFileUploadResponse> uploadCustomCostsFileAsync(
       List<CustomCostsFileLineItem> body) {
-    return uploadCustomCostsFileWithHttpInfoAsync(body)
+    return uploadCustomCostsFileWithHttpInfoAsync(
+            body, new UploadCustomCostsFileOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Upload Custom Costs file.
+   *
+   * <p>See {@link #uploadCustomCostsFileWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CustomCostsFileUploadResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomCostsFileUploadResponse uploadCustomCostsFile(
+      List<CustomCostsFileLineItem> body, UploadCustomCostsFileOptionalParameters parameters)
+      throws ApiException {
+    return uploadCustomCostsFileWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Upload Custom Costs file.
+   *
+   * <p>See {@link #uploadCustomCostsFileWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CustomCostsFileUploadResponse&gt;
+   */
+  public CompletableFuture<CustomCostsFileUploadResponse> uploadCustomCostsFileAsync(
+      List<CustomCostsFileLineItem> body, UploadCustomCostsFileOptionalParameters parameters) {
+    return uploadCustomCostsFileWithHttpInfoAsync(body, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -12858,6 +12911,7 @@ public class CloudCostManagementApi {
    * Upload a Custom Costs file.
    *
    * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CustomCostsFileUploadResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -12871,7 +12925,8 @@ public class CloudCostManagementApi {
    *     </table>
    */
   public ApiResponse<CustomCostsFileUploadResponse> uploadCustomCostsFileWithHttpInfo(
-      List<CustomCostsFileLineItem> body) throws ApiException {
+      List<CustomCostsFileLineItem> body, UploadCustomCostsFileOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -12879,16 +12934,20 @@ public class CloudCostManagementApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling uploadCustomCostsFile");
     }
+    Boolean aiProvider = parameters.aiProvider;
     // create path and map variables
     String localVarPath = "/api/v2/cost/custom_costs";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ai_provider", aiProvider));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.CloudCostManagementApi.uploadCustomCostsFile",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -12910,10 +12969,12 @@ public class CloudCostManagementApi {
    * <p>See {@link #uploadCustomCostsFileWithHttpInfo}.
    *
    * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CustomCostsFileUploadResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CustomCostsFileUploadResponse>>
-      uploadCustomCostsFileWithHttpInfoAsync(List<CustomCostsFileLineItem> body) {
+      uploadCustomCostsFileWithHttpInfoAsync(
+          List<CustomCostsFileLineItem> body, UploadCustomCostsFileOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -12925,10 +12986,14 @@ public class CloudCostManagementApi {
               400, "Missing the required parameter 'body' when calling uploadCustomCostsFile"));
       return result;
     }
+    Boolean aiProvider = parameters.aiProvider;
     // create path and map variables
     String localVarPath = "/api/v2/cost/custom_costs";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ai_provider", aiProvider));
 
     Invocation.Builder builder;
     try {
@@ -12936,7 +13001,7 @@ public class CloudCostManagementApi {
           apiClient.createBuilder(
               "v2.CloudCostManagementApi.uploadCustomCostsFile",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
