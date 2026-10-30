@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to create a variant. */
+/** Attributes for creating a variant. */
 @JsonPropertyOrder({
   CreateVariant.JSON_PROPERTY_KEY,
   CreateVariant.JSON_PROPERTY_NAME,

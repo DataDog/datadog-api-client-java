@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.AllocationResponse;
 import com.datadog.api.client.v2.model.CreateAllocationsRequest;
 import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
 import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
-import com.datadog.api.client.v2.model.CreateVariant;
+import com.datadog.api.client.v2.model.CreateVariantRequest;
 import com.datadog.api.client.v2.model.EnvironmentResponse;
 import com.datadog.api.client.v2.model.FeatureFlagDistributionChannel;
 import com.datadog.api.client.v2.model.FeatureFlagProductionStatus;
@@ -25,7 +25,7 @@ import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
 import com.datadog.api.client.v2.model.UpdateVariantRequest;
 import com.datadog.api.client.v2.model.ValueType;
-import com.datadog.api.client.v2.model.Variant;
+import com.datadog.api.client.v2.model.VariantResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -684,10 +684,10 @@ public class FeatureFlagsApi {
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param body (required)
-   * @return Variant
+   * @return VariantResponse
    * @throws ApiException if fails to make API call
    */
-  public Variant createVariantForFeatureFlag(UUID featureFlagId, CreateVariant body)
+  public VariantResponse createVariantForFeatureFlag(UUID featureFlagId, CreateVariantRequest body)
       throws ApiException {
     return createVariantForFeatureFlagWithHttpInfo(featureFlagId, body).getData();
   }
@@ -699,10 +699,10 @@ public class FeatureFlagsApi {
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;Variant&gt;
+   * @return CompletableFuture&lt;VariantResponse&gt;
    */
-  public CompletableFuture<Variant> createVariantForFeatureFlagAsync(
-      UUID featureFlagId, CreateVariant body) {
+  public CompletableFuture<VariantResponse> createVariantForFeatureFlagAsync(
+      UUID featureFlagId, CreateVariantRequest body) {
     return createVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, body)
         .thenApply(
             response -> {
@@ -720,7 +720,7 @@ public class FeatureFlagsApi {
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param body (required)
-   * @return ApiResponse&lt;Variant&gt;
+   * @return ApiResponse&lt;VariantResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -734,8 +734,8 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Variant> createVariantForFeatureFlagWithHttpInfo(
-      UUID featureFlagId, CreateVariant body) throws ApiException {
+  public ApiResponse<VariantResponse> createVariantForFeatureFlagWithHttpInfo(
+      UUID featureFlagId, CreateVariantRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
@@ -777,7 +777,7 @@ public class FeatureFlagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Variant>() {});
+        new GenericType<VariantResponse>() {});
   }
 
   /**
@@ -787,15 +787,15 @@ public class FeatureFlagsApi {
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Variant&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;VariantResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Variant>> createVariantForFeatureFlagWithHttpInfoAsync(
-      UUID featureFlagId, CreateVariant body) {
+  public CompletableFuture<ApiResponse<VariantResponse>>
+      createVariantForFeatureFlagWithHttpInfoAsync(UUID featureFlagId, CreateVariantRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<VariantResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -806,7 +806,7 @@ public class FeatureFlagsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<VariantResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -834,7 +834,7 @@ public class FeatureFlagsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<VariantResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -846,7 +846,7 @@ public class FeatureFlagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Variant>() {});
+        new GenericType<VariantResponse>() {});
   }
 
   /**
@@ -4113,12 +4113,11 @@ public class FeatureFlagsApi {
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
    * @param body (required)
-   * @return Variant
    * @throws ApiException if fails to make API call
    */
-  public Variant updateVariantForFeatureFlag(
+  public void updateVariantForFeatureFlag(
       UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
-    return updateVariantForFeatureFlagWithHttpInfo(featureFlagId, variantId, body).getData();
+    updateVariantForFeatureFlagWithHttpInfo(featureFlagId, variantId, body);
   }
 
   /**
@@ -4129,9 +4128,9 @@ public class FeatureFlagsApi {
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;Variant&gt;
+   * @return CompletableFuture
    */
-  public CompletableFuture<Variant> updateVariantForFeatureFlagAsync(
+  public CompletableFuture<Void> updateVariantForFeatureFlagAsync(
       UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
     return updateVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, variantId, body)
         .thenApply(
@@ -4152,7 +4151,7 @@ public class FeatureFlagsApi {
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
    * @param body (required)
-   * @return ApiResponse&lt;Variant&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -4166,7 +4165,7 @@ public class FeatureFlagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Variant> updateVariantForFeatureFlagWithHttpInfo(
+  public ApiResponse<Void> updateVariantForFeatureFlagWithHttpInfo(
       UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -4206,7 +4205,7 @@ public class FeatureFlagsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PUT",
@@ -4216,7 +4215,7 @@ public class FeatureFlagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Variant>() {});
+        null);
   }
 
   /**
@@ -4227,15 +4226,15 @@ public class FeatureFlagsApi {
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Variant&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Variant>> updateVariantForFeatureFlagWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Void>> updateVariantForFeatureFlagWithHttpInfoAsync(
       UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
     if (featureFlagId == null) {
-      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -4246,7 +4245,7 @@ public class FeatureFlagsApi {
 
     // verify the required parameter 'variantId' is set
     if (variantId == null) {
-      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -4257,7 +4256,7 @@ public class FeatureFlagsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -4282,10 +4281,10 @@ public class FeatureFlagsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -4297,6 +4296,6 @@ public class FeatureFlagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Variant>() {});
+        null);
   }
 }
