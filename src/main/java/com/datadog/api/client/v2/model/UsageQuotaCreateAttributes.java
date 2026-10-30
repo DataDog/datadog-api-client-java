@@ -109,13 +109,8 @@ public class UsageQuotaCreateAttributes {
 
   /**
    * A namespace-specific key and value identifying what the quota applies to within an
-   * organization. The object must contain exactly one entry. Use <code>"*"</code> as the value for
-   * the default quota applied to entities without a specific quota, or omit the scope for an
-   * organization-wide quota. A specific value must identify an existing user handle in the caller's
-   * organization when <code>include_descendants</code> is false. When <code>include_descendants
-   * </code> is true, the handle must exist in the caller's organization or in at least one targeted
-   * descendant organization; the quota is then applied only to the organizations where that handle
-   * exists, and the request fails only if the handle exists in none of them.
+   * organization. See the endpoint description for the supported scope keys, values, and validation
+   * rules.
    *
    * @return scope
    */

@@ -179,6 +179,44 @@ public class UsageMeteringApi {
    * update an existing quota by itself. Scheduled changes follow <code>include_descendants</code>
    * like the other fields. Requires the <code>billing_edit</code> permission.
    *
+   * <h3>Quota namespaces and scope keys</h3>
+   *
+   * <p>The <code>quota_namespace</code> path parameter selects the product whose usage quotas are
+   * managed. Each namespace supports its own scope keys, described below. Omit <code>scope</code>
+   * for the organization-wide quota.
+   *
+   * <h3><code>ai_credits</code> scope keys</h3>
+   *
+   * <p>Each item's <code>scope</code> contains exactly one of the following keys.
+   *
+   * <p><strong><code>user_handle</code></strong>
+   *
+   * <ul>
+   *   <li><strong>Value:</strong> The handle of a user, for example <code>jane@example.com</code>,
+   *       or <code>"*"</code> for the default quota applied to users without a specific quota. User
+   *       handles are returned in the <code>data[].attributes.handle</code> field by the <a
+   *       href="https://docs.datadoghq.com/api/latest/users/#list-all-users">Users API</a>.
+   *   <li><strong>Validation:</strong> A specific handle must identify an existing user in the
+   *       caller's organization when <code>include_descendants</code> is false. When <code>
+   *       include_descendants</code> is true, the handle must exist in the caller's organization or
+   *       in at least one targeted descendant organization. The quota is then applied only to the
+   *       organizations where the handle exists, and the item fails only if the handle exists in
+   *       none of them.
+   * </ul>
+   *
+   * <p><strong><code>role_uuid</code></strong>
+   *
+   * <ul>
+   *   <li><strong>Value:</strong> The UUID of a role, for example <code>
+   *       12345678-1234-1234-1234-123456789012</code>. <code>"*"</code> is not accepted because
+   *       there is no default role quota. Role UUIDs are returned in the <code>data[].id</code>
+   *       field by the <a href="https://docs.datadoghq.com/api/latest/roles/#list-roles">Roles
+   *       API</a>.
+   *   <li><strong>Validation:</strong> The role must exist in the caller's organization. Role UUIDs
+   *       are unique, so <code>include_descendants</code> has no effect on a <code>role_uuid</code>
+   *       scope: the role is validated against the caller's organization only.
+   * </ul>
+   *
    * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
    *     (required)
    * @param body The usage quotas to create or update. (required)
