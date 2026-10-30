@@ -134,8 +134,9 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * List of platform-specific images associated with the image record. The list contains more than
-   * 1 entry for multi-architecture images.
+   * Platform-specific image metadata, including size in bytes and available build and operating
+   * system details. Use these objects to associate sizes with platforms when platform information
+   * is available.
    *
    * @return imageFlavors
    */
@@ -169,7 +170,9 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * List of image tags associated with the Container Image.
+   * Image version tags, such as <code>latest</code> or <code>v1.2.3</code>. Tags can change; use
+   * the returned <code>id</code> to identify an image record. The corresponding filter and grouping
+   * key is <code>image_tag</code>.
    *
    * @return imageTags
    */
@@ -349,7 +352,8 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * Registry the Container Image was pushed to.
+   * Registry where the image is stored. Use the <code>image_registry</code> tag key for filtering
+   * and grouping.
    *
    * @return registry
    */
@@ -370,7 +374,8 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * Digest of the compressed image manifest.
+   * Digest of the compressed image manifest. Use the <code>repo_digest</code> tag key to filter by
+   * this value.
    *
    * @return repoDigest
    */
@@ -391,7 +396,8 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * Repository where the Container Image is stored in.
+   * Repository where the image is stored. Use the <code>image_repository</code> tag key for
+   * filtering and grouping.
    *
    * @return repository
    */
@@ -441,8 +447,9 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * List of size for each platform-specific image associated with the image record. The list
-   * contains more than 1 entry for multi-architecture images.
+   * Reported sizes in bytes of platform-specific images, with multiple values possible for
+   * multi-architecture images. Use <code>image_flavors</code> for available platform associations;
+   * use <code>size</code> as the sort key.
    *
    * @return sizes
    */
@@ -471,7 +478,8 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * List of sources where the Container Image was collected from.
+   * Collection sources, such as <code>live_containers</code>, <code>image_check</code>, <code>
+   * aws_ecr</code>, or <code>agentless_scanner</code>.
    *
    * @return sources
    */
@@ -500,7 +508,9 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * List of tags associated with the Container Image.
+   * Image tags in <code>key:value</code> form, such as <code>image_registry:docker.io</code> or
+   * <code>status:running</code>. Use tag keys in <code>group_by</code>. Tags used in <code>
+   * filter[tags]</code> must satisfy its syntax restrictions.
    *
    * @return tags
    */
@@ -523,7 +533,8 @@ public class ContainerImageAttributes {
   }
 
   /**
-   * Vulnerability counts associated with the Container Image.
+   * Vulnerability counts by severity, when available. An absent <code>vulnerability_count</code>
+   * does not mean the image has no vulnerabilities.
    *
    * @return vulnerabilityCount
    */

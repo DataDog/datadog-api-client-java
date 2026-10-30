@@ -47,7 +47,10 @@ public class ContainerImageGroupImagesRelationshipsLink {
   }
 
   /**
-   * Links data.
+   * This array is always empty, even when the group includes images. To retrieve the images in this
+   * group, make a new request without <code>group_by</code>, using the <code>filter[tags]</code>
+   * value from <code>links.related</code> and your site's API host. The tags must satisfy <code>
+   * filter[tags]</code> syntax restrictions.
    *
    * @return data
    */

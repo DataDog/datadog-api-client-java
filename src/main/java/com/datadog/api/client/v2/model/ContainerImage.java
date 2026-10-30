@@ -66,7 +66,8 @@ public class ContainerImage {
   }
 
   /**
-   * Container Image ID.
+   * Opaque Container Image ID. Often contains a registry, repository, and digest, but the format
+   * varies by collection source. Preserve the returned value rather than constructing an ID.
    *
    * @return id
    */
