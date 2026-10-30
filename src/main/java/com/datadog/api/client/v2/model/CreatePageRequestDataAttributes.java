@@ -96,7 +96,7 @@ public class CreatePageRequestDataAttributes {
   }
 
   /**
-   * Tags to help categorize or filter the page.
+   * Tags to help categorize or filter the Page.
    *
    * @return tags
    */
@@ -141,7 +141,7 @@ public class CreatePageRequestDataAttributes {
   }
 
   /**
-   * The title of the page.
+   * The title of the Page.
    *
    * @return title
    */
