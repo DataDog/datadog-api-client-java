@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,60 +18,45 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Request to update an existing variant's name and value. */
-@JsonPropertyOrder({
-  UpdateVariantRequest.JSON_PROPERTY_NAME,
-  UpdateVariantRequest.JSON_PROPERTY_VALUE
-})
+@JsonPropertyOrder({UpdateVariantRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UpdateVariantRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private UpdateVariantData data;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+  public UpdateVariantRequest() {}
 
-  public UpdateVariantRequest name(String name) {
-    this.name = name;
+  @JsonCreator
+  public UpdateVariantRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) UpdateVariantData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public UpdateVariantRequest data(UpdateVariantData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The display name of the variant.
+   * Data for updating a variant.
    *
-   * @return name
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UpdateVariantData getData() {
+    return data;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public UpdateVariantRequest value(String value) {
-    this.value = value;
-    return this;
-  }
-
-  /**
-   * The value of the variant as a string.
-   *
-   * @return value
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setData(UpdateVariantData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**
@@ -129,22 +115,20 @@ public class UpdateVariantRequest {
       return false;
     }
     UpdateVariantRequest updateVariantRequest = (UpdateVariantRequest) o;
-    return Objects.equals(this.name, updateVariantRequest.name)
-        && Objects.equals(this.value, updateVariantRequest.value)
+    return Objects.equals(this.data, updateVariantRequest.data)
         && Objects.equals(this.additionalProperties, updateVariantRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateVariantRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
