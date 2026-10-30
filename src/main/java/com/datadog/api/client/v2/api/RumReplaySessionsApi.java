@@ -85,7 +85,9 @@ public class RumReplaySessionsApi {
     /**
      * Set paging.
      *
-     * @param paging Paging token for pagination. (optional)
+     * @param paging Token of the next page from the <code>X-Paging</code> header of the previous
+     *     response. Send it without changes, URL-encoded in the query string. Omit it to get the
+     *     first page. (optional)
      * @return GetSegmentsOptionalParameters
      */
     public GetSegmentsOptionalParameters paging(String paging) {
