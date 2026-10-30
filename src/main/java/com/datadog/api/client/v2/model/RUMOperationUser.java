@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A Datadog user referenced by a RUM operation. */
+/**
+ * A Datadog user referenced by a RUM operation. <code>null</code> when the user could not be
+ * resolved.
+ */
 @JsonPropertyOrder({
   RUMOperationUser.JSON_PROPERTY_EMAIL,
   RUMOperationUser.JSON_PROPERTY_HANDLE,
