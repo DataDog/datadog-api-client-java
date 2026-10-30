@@ -24,7 +24,8 @@ import java.util.Set;
 public class LLMObsCustomEvalConfigParsingType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("structured_output", "json", "keyword_search"));
+      new HashSet<String>(
+          Arrays.asList("structured_output", "json", "keyword_search", "typed_questions"));
 
   public static final LLMObsCustomEvalConfigParsingType STRUCTURED_OUTPUT =
       new LLMObsCustomEvalConfigParsingType("structured_output");
@@ -32,6 +33,8 @@ public class LLMObsCustomEvalConfigParsingType extends ModelEnum<String> {
       new LLMObsCustomEvalConfigParsingType("json");
   public static final LLMObsCustomEvalConfigParsingType KEYWORD_SEARCH =
       new LLMObsCustomEvalConfigParsingType("keyword_search");
+  public static final LLMObsCustomEvalConfigParsingType TYPED_QUESTIONS =
+      new LLMObsCustomEvalConfigParsingType("typed_questions");
 
   LLMObsCustomEvalConfigParsingType(String value) {
     super(value, allowedValues);
