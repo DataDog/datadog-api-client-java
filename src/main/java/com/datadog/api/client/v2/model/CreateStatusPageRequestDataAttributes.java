@@ -31,6 +31,7 @@ import java.util.Objects;
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_SUBSCRIPTIONS_ENABLED,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_TYPE,
+  CreateStatusPageRequestDataAttributes.JSON_PROPERTY_VISUALIZATION_LAYOUT,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_VISUALIZATION_TYPE
 })
 @jakarta.annotation.Generated(
@@ -67,6 +68,9 @@ public class CreateStatusPageRequestDataAttributes {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CreateStatusPageRequestDataAttributesType type;
+
+  public static final String JSON_PROPERTY_VISUALIZATION_LAYOUT = "visualization_layout";
+  private CreateStatusPageRequestDataAttributesVisualizationLayout visualizationLayout;
 
   public static final String JSON_PROPERTY_VISUALIZATION_TYPE = "visualization_type";
   private CreateStatusPageRequestDataAttributesVisualizationType visualizationType;
@@ -325,6 +329,35 @@ public class CreateStatusPageRequestDataAttributes {
     this.type = type;
   }
 
+  public CreateStatusPageRequestDataAttributes visualizationLayout(
+      CreateStatusPageRequestDataAttributesVisualizationLayout visualizationLayout) {
+    this.visualizationLayout = visualizationLayout;
+    this.unparsed |= !visualizationLayout.isValid();
+    return this;
+  }
+
+  /**
+   * The layout of components on the status page. Defaults to <code>list</code>. <code>grid</code>
+   * requires <code>visualization_type</code> to be <code>component_name_only</code>; changing
+   * <code>visualization_type</code> to any other value resets the layout to <code>list</code>.
+   *
+   * @return visualizationLayout
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VISUALIZATION_LAYOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateStatusPageRequestDataAttributesVisualizationLayout getVisualizationLayout() {
+    return visualizationLayout;
+  }
+
+  public void setVisualizationLayout(
+      CreateStatusPageRequestDataAttributesVisualizationLayout visualizationLayout) {
+    if (!visualizationLayout.isValid()) {
+      this.unparsed = true;
+    }
+    this.visualizationLayout = visualizationLayout;
+  }
+
   public CreateStatusPageRequestDataAttributes visualizationType(
       CreateStatusPageRequestDataAttributesVisualizationType visualizationType) {
     this.visualizationType = visualizationType;
@@ -423,6 +456,8 @@ public class CreateStatusPageRequestDataAttributes {
             this.subscriptionsEnabled, createStatusPageRequestDataAttributes.subscriptionsEnabled)
         && Objects.equals(this.type, createStatusPageRequestDataAttributes.type)
         && Objects.equals(
+            this.visualizationLayout, createStatusPageRequestDataAttributes.visualizationLayout)
+        && Objects.equals(
             this.visualizationType, createStatusPageRequestDataAttributes.visualizationType)
         && Objects.equals(
             this.additionalProperties, createStatusPageRequestDataAttributes.additionalProperties);
@@ -441,6 +476,7 @@ public class CreateStatusPageRequestDataAttributes {
         slackSubscriptionsEnabled,
         subscriptionsEnabled,
         type,
+        visualizationLayout,
         visualizationType,
         additionalProperties);
   }
@@ -463,6 +499,9 @@ public class CreateStatusPageRequestDataAttributes {
         .append(toIndentedString(subscriptionsEnabled))
         .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    visualizationLayout: ")
+        .append(toIndentedString(visualizationLayout))
+        .append("\n");
     sb.append("    visualizationType: ").append(toIndentedString(visualizationType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
