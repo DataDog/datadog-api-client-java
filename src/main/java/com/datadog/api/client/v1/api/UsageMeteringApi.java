@@ -1360,8 +1360,10 @@ public class UsageMeteringApi {
     /**
      * Set endMonth.
      *
-     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
-     *     for usage ending this month. (optional)
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>.
+     *     If omitted or different from <code>start_month</code>, it is treated as equal to <code>
+     *     start_month</code>. Only usage for <code>start_month</code> is returned; this parameter
+     *     does not extend the requested range. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters endMonth(OffsetDateTime endMonth) {
@@ -1444,7 +1446,8 @@ public class UsageMeteringApi {
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
-   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   *     for the month to retrieve. Maximum of 15 months ago. Only one month is supported per
+   *     request. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
    *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
@@ -1469,7 +1472,8 @@ public class UsageMeteringApi {
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfoAsync}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
-   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   *     for the month to retrieve. Maximum of 15 months ago. Only one month is supported per
+   *     request. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
    *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
@@ -1495,7 +1499,8 @@ public class UsageMeteringApi {
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
-   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   *     for the month to retrieve. Maximum of 15 months ago. Only one month is supported per
+   *     request. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
    *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
@@ -1521,7 +1526,8 @@ public class UsageMeteringApi {
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfoAsync}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
-   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   *     for the month to retrieve. Maximum of 15 months ago. Only one month is supported per
+   *     request. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
    *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
@@ -1549,6 +1555,10 @@ public class UsageMeteringApi {
    * <p><strong>Note</strong>: All <code>estimated_*</code> usage types will be deprecated on
    * February 1, 2027.
    *
+   * <p>Each request returns usage for the month specified by <code>start_month</code>. If <code>
+   * end_month</code> is omitted or differs from <code>start_month</code>, it is treated as equal to
+   * <code>start_month</code>. To retrieve multiple months, make a separate request for each month.
+   *
    * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
    * <code>next_record_id</code> is set in the response. If it is, make another request and pass
    * <code>next_record_id</code> as a parameter. Pseudo code example:
@@ -1562,7 +1572,8 @@ public class UsageMeteringApi {
    * END</code>
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
-   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   *     for the month to retrieve. Maximum of 15 months ago. Only one month is supported per
+   *     request. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
    *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
@@ -1650,7 +1661,8 @@ public class UsageMeteringApi {
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
-   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   *     for the month to retrieve. Maximum of 15 months ago. Only one month is supported per
+   *     request. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
    *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
