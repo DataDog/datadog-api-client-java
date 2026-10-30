@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Vulnerability counts associated with the Container Image. */
+/**
+ * Vulnerability counts by severity, when available. An absent <code>vulnerability_count</code> does
+ * not mean the image has no vulnerabilities.
+ */
 @JsonPropertyOrder({
   ContainerImageVulnerabilities.JSON_PROPERTY_ASSET_ID,
   ContainerImageVulnerabilities.JSON_PROPERTY_CRITICAL,
