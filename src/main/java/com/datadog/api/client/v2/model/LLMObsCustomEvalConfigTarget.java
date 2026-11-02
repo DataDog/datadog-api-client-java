@@ -113,7 +113,8 @@ public class LLMObsCustomEvalConfigTarget {
   }
 
   /**
-   * Scope at which to evaluate spans.
+   * Scope at which to evaluate spans. <code>trace_fan_out</code> requires <code>
+   * llm_judge_config.target_query</code>.
    *
    * @return evalScope
    */

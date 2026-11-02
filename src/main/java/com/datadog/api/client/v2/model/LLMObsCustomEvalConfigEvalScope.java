@@ -18,18 +18,23 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Scope at which to evaluate spans. */
+/**
+ * Scope at which to evaluate spans. <code>trace_fan_out</code> requires <code>
+ * llm_judge_config.target_query</code>.
+ */
 @JsonSerialize(
     using = LLMObsCustomEvalConfigEvalScope.LLMObsCustomEvalConfigEvalScopeSerializer.class)
 public class LLMObsCustomEvalConfigEvalScope extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("span", "trace", "session"));
+      new HashSet<String>(Arrays.asList("span", "trace", "trace_fan_out", "session"));
 
   public static final LLMObsCustomEvalConfigEvalScope SPAN =
       new LLMObsCustomEvalConfigEvalScope("span");
   public static final LLMObsCustomEvalConfigEvalScope TRACE =
       new LLMObsCustomEvalConfigEvalScope("trace");
+  public static final LLMObsCustomEvalConfigEvalScope TRACE_FAN_OUT =
+      new LLMObsCustomEvalConfigEvalScope("trace_fan_out");
   public static final LLMObsCustomEvalConfigEvalScope SESSION =
       new LLMObsCustomEvalConfigEvalScope("session");
 

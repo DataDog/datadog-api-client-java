@@ -251,7 +251,8 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   }
 
   /**
-   * JSON schema describing the expected output format of the LLM judge.
+   * JSON schema describing the expected output format of the LLM judge. Omit for a <code>
+   * deterministic</code> evaluator.
    *
    * @return outputSchema
    */
@@ -324,7 +325,8 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   }
 
   /**
-   * List of messages forming the LLM judge prompt template.
+   * List of messages forming the LLM judge prompt template. Omit for a <code>deterministic</code>
+   * evaluator.
    *
    * @return promptTemplate
    */
@@ -383,7 +385,13 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   }
 
   /**
-   * User-provided function applied to post-process the JSON output of the LLM judge.
+   * User-provided JavaScript function applied to post-process the JSON output of the LLM judge. For
+   * a <code>deterministic</code> evaluator it is the evaluator itself: it receives the evaluated
+   * span (span scope), <code>{spans}</code> (trace scope), or <code>{session_id, traces}</code>
+   * (session scope), and its return value sets the result. A boolean, number, string or object
+   * becomes a boolean, score, categorical or JSON metric; <code>null</code> skips the evaluation;
+   * and <code>{value, assessment, reasoning, metadata}</code> also sets pass or fail, reasoning,
+   * and metadata.
    *
    * @return userSpecifiedJsonPostProcessingFunction
    */
