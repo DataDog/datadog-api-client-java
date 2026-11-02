@@ -133,7 +133,7 @@ public class ContainerImageFlavor {
   }
 
   /**
-   * Size of the platform-specific Container Image.
+   * Size of the platform-specific Container Image in bytes.
    *
    * @return size
    */

@@ -75,7 +75,7 @@ public class ContainerImageMetaPage {
   }
 
   /**
-   * Number of results returned minimum: 0 maximum: 10000
+   * Maximum number of results requested. minimum: 0 maximum: 10000
    *
    * @return limit
    */
@@ -96,7 +96,9 @@ public class ContainerImageMetaPage {
   }
 
   /**
-   * The cursor used to get the next results, if any.
+   * The cursor used to get the next results, if any. To make the next request, use the same
+   * parameters with the addition of <code>page[cursor]</code>. Always empty for grouped results,
+   * even when additional groups exist.
    *
    * @return nextCursor
    */
@@ -148,7 +150,7 @@ public class ContainerImageMetaPage {
   }
 
   /**
-   * Total number of records that match the query.
+   * Total number of images that match the query. Always <code>0</code> for grouped results.
    *
    * @return total
    */

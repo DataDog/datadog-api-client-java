@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** List of Container Images. */
+/** List of Container Images or Container Image groups. */
 @JsonPropertyOrder({
   ContainerImagesResponse.JSON_PROPERTY_DATA,
   ContainerImagesResponse.JSON_PROPERTY_LINKS,
@@ -57,7 +57,8 @@ public class ContainerImagesResponse {
   }
 
   /**
-   * Array of Container Image objects.
+   * Array of <code>container_image</code> objects, or <code>container_image_group</code> objects
+   * when <code>group_by</code> is specified.
    *
    * @return data
    */

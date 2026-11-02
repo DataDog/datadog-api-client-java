@@ -58,7 +58,10 @@ public class ContainerImagesApi {
     /**
      * Set filterTags.
      *
-     * @param filterTags Comma-separated list of tags to filter Container Images by. (optional)
+     * @param filterTags Comma-separated <code>key:value</code> tags. An image must match every tag.
+     *     Wildcards, negation (<code>-key:value</code>), spaces, and <code>IN (...)</code> are not
+     *     supported. Use keys such as <code>image_registry</code> and <code>image_tag</code>. To
+     *     match any of several values of the same key, make one request per value. (optional)
      * @return ListContainerImagesOptionalParameters
      */
     public ListContainerImagesOptionalParameters filterTags(String filterTags) {
@@ -69,7 +72,16 @@ public class ContainerImagesApi {
     /**
      * Set groupBy.
      *
-     * @param groupBy Comma-separated list of tags to group Container Images by. (optional)
+     * @param groupBy Comma-separated list of up to three tag keys, such as <code>
+     *     image_registry,image_tag</code>. Returns <code>container_image_group</code> objects with
+     *     counts and tags. Grouped results ignore <code>sort</code> and do not support pagination.
+     *     Images missing a grouping key are excluded. An image with multiple values for a grouping
+     *     tag can appear in multiple groups. Grouped results may be incomplete. Compare counts only
+     *     within the returned groups; they do not establish the most common tags or proportions
+     *     across the inventory. For inventory-wide comparisons, omit <code>group_by</code>, keep
+     *     the same filters, paginate all results, and deduplicate by returned image ID. For an
+     *     inventory total, use <code>meta.pagination.total</code> from a query without grouping.
+     *     (optional)
      * @return ListContainerImagesOptionalParameters
      */
     public ListContainerImagesOptionalParameters groupBy(String groupBy) {
@@ -80,7 +92,10 @@ public class ContainerImagesApi {
     /**
      * Set sort.
      *
-     * @param sort Attribute to sort Container Images by. (optional)
+     * @param sort Attribute to sort individual images by, such as <code>size</code> or <code>
+     *     container_count</code>. Defaults to <code>image_name</code> in ascending order. Prefix
+     *     the attribute with <code>-</code> for descending order, such as <code>-size</code>.
+     *     Ignored when <code>group_by</code> is specified. (optional)
      * @return ListContainerImagesOptionalParameters
      */
     public ListContainerImagesOptionalParameters sort(String sort) {
@@ -91,7 +106,10 @@ public class ContainerImagesApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Maximum number of results returned. (optional, default to 1000)
+     * @param pageSize Maximum number of results returned. Grouped queries default to <code>100
+     *     </code>, with a maximum of <code>1000</code> groups. Without grouping, queries default to
+     *     <code>1000</code>, with a maximum of <code>10000</code> images. Minimum is <code>1</code>
+     *     . (optional, default to 1000)
      * @return ListContainerImagesOptionalParameters
      */
     public ListContainerImagesOptionalParameters pageSize(Integer pageSize) {
@@ -102,8 +120,9 @@ public class ContainerImagesApi {
     /**
      * Set pageCursor.
      *
-     * @param pageCursor String to query the next page of results. This key is provided with each
-     *     valid response from the API in <code>meta.pagination.next_cursor</code>. (optional)
+     * @param pageCursor Opaque cursor from <code>meta.pagination.next_cursor</code> for individual
+     *     images. Keep the same filters and sort order. Stop when absent or empty. Grouped queries
+     *     do not support pagination. (optional)
      * @return ListContainerImagesOptionalParameters
      */
     public ListContainerImagesOptionalParameters pageCursor(String pageCursor) {
@@ -225,8 +244,14 @@ public class ContainerImagesApi {
   }
 
   /**
-   * Get all Container Images for your organization. <strong>Note</strong>: To enrich the data
-   * returned by this endpoint with security scans, see the new <a
+   * Get all container images for your organization. This endpoint queries current inventory and
+   * does not support time-range parameters.
+   *
+   * <p>Use <code>group_by</code> to return image groups with counts. Grouped results are limited by
+   * <code>page[size]</code>, may be incomplete, and do not support pagination.
+   *
+   * <p><strong>Note</strong>: To enrich the data returned by this endpoint with security scans, see
+   * the new <a
    * href="https://docs.datadoghq.com/api/latest/security-monitoring/#list-scanned-assets-metadata">api/v2/security/scanned-assets-metadata</a>
    * endpoint.
    *
