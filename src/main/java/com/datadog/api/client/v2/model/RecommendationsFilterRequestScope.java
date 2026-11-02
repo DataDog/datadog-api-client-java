@@ -20,14 +20,14 @@ import java.util.Set;
 
 /**
  * Recommendations scope. Defaults to <code>ccm</code>; use <code>experiment</code> for experimental
- * recommendations or <code>*</code> for both.
+ * recommendations or <code>*</code> for both. An empty value is treated as <code>ccm</code>.
  */
 @JsonSerialize(
     using = RecommendationsFilterRequestScope.RecommendationsFilterRequestScopeSerializer.class)
 public class RecommendationsFilterRequestScope extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("ccm", "experiment", "*"));
+      new HashSet<String>(Arrays.asList("ccm", "experiment", "*", ""));
 
   public static final RecommendationsFilterRequestScope CCM =
       new RecommendationsFilterRequestScope("ccm");
@@ -35,6 +35,8 @@ public class RecommendationsFilterRequestScope extends ModelEnum<String> {
       new RecommendationsFilterRequestScope("experiment");
   public static final RecommendationsFilterRequestScope ALL =
       new RecommendationsFilterRequestScope("*");
+  public static final RecommendationsFilterRequestScope EMPTY =
+      new RecommendationsFilterRequestScope("");
 
   RecommendationsFilterRequestScope(String value) {
     super(value, allowedValues);

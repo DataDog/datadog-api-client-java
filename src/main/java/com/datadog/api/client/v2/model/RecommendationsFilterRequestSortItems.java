@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,6 +31,14 @@ public class RecommendationsFilterRequestSortItems {
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private String order;
+
+  public RecommendationsFilterRequestSortItems() {}
+
+  @JsonCreator
+  public RecommendationsFilterRequestSortItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ORDER) String order) {
+    this.order = order;
+  }
 
   public RecommendationsFilterRequestSortItems expression(String expression) {
     this.expression = expression;
@@ -58,13 +67,12 @@ public class RecommendationsFilterRequestSortItems {
   }
 
   /**
-   * Sort direction, either <code>ASC</code> or <code>DESC</code>.
+   * Sort direction, either <code>ASC</code> or <code>DESC</code> (case-insensitive).
    *
    * @return order
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getOrder() {
     return order;
   }
