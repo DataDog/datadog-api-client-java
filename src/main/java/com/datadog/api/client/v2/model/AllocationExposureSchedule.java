@@ -135,7 +135,8 @@ public class AllocationExposureSchedule {
   }
 
   /**
-   * The targeting rule allocation ID this progressive rollout belongs to.
+   * The unique identifier (UUID) of the targeting rule allocation this progressive rollout belongs
+   * to. This is not the allocation key that SDKs report in evaluation results and exposure events.
    *
    * @return allocationId
    */

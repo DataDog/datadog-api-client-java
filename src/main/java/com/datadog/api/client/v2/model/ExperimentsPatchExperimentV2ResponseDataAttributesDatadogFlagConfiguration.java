@@ -72,7 +72,8 @@ public class ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfig
   }
 
   /**
-   * Key of the feature flag allocation linked to the experiment.
+   * Key of the feature flag allocation linked to the experiment. Matches the allocation key that
+   * SDKs report in flag evaluation results and exposure events.
    *
    * @return allocationKey
    */

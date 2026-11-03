@@ -81,7 +81,9 @@ public class AllocationDataResponse {
   }
 
   /**
-   * The unique identifier of the targeting rule allocation.
+   * The unique identifier of the targeting rule allocation. Use this ID with the allocation
+   * management endpoints, such as <code>/api/v2/allocations/{allocation_id}</code>. It is not
+   * included in SDK evaluation results or exposure events.
    *
    * @return id
    */
