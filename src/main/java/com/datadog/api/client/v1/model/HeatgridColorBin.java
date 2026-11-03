@@ -13,9 +13,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** A color and optional lower threshold for a discrete bin. */
+/** A color, optional lower threshold, and optional label for a discrete bin. */
 @JsonPropertyOrder({
   HeatgridColorBin.JSON_PROPERTY_COLOR,
+  HeatgridColorBin.JSON_PROPERTY_LABEL,
   HeatgridColorBin.JSON_PROPERTY_LOWER_BOUND
 })
 @jakarta.annotation.Generated(
@@ -24,6 +25,9 @@ public class HeatgridColorBin {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR = "color";
   private HeatgridColor color;
+
+  public static final String JSON_PROPERTY_LABEL = "label";
+  private String label;
 
   public static final String JSON_PROPERTY_LOWER_BOUND = "lower_bound";
   private Double lowerBound;
@@ -61,6 +65,27 @@ public class HeatgridColorBin {
     }
   }
 
+  public HeatgridColorBin label(String label) {
+    this.label = label;
+    return this;
+  }
+
+  /**
+   * Name of the bin.
+   *
+   * @return label
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
   public HeatgridColorBin lowerBound(Double lowerBound) {
     this.lowerBound = lowerBound;
     return this;
@@ -93,12 +118,13 @@ public class HeatgridColorBin {
     }
     HeatgridColorBin heatgridColorBin = (HeatgridColorBin) o;
     return Objects.equals(this.color, heatgridColorBin.color)
+        && Objects.equals(this.label, heatgridColorBin.label)
         && Objects.equals(this.lowerBound, heatgridColorBin.lowerBound);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(color, lowerBound);
+    return Objects.hash(color, label, lowerBound);
   }
 
   @Override
@@ -106,6 +132,7 @@ public class HeatgridColorBin {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeatgridColorBin {\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    lowerBound: ").append(toIndentedString(lowerBound)).append("\n");
     sb.append('}');
     return sb.toString();
