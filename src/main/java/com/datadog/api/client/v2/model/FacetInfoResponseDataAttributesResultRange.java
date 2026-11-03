@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The numeric range of a facet attribute, representing the minimum and maximum observed values. */
 @JsonPropertyOrder({
@@ -26,51 +27,71 @@ import java.util.Objects;
 public class FacetInfoResponseDataAttributesResultRange {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MAX = "max";
-  private Object max;
+  private JsonNullable<Double> max = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_MIN = "min";
-  private Object min;
+  private JsonNullable<Double> min = JsonNullable.<Double>undefined();
 
-  public FacetInfoResponseDataAttributesResultRange max(Object max) {
-    this.max = max;
+  public FacetInfoResponseDataAttributesResultRange max(Double max) {
+    this.max = JsonNullable.<Double>of(max);
     return this;
   }
 
   /**
-   * The maximum observed value for the numeric facet attribute.
+   * The maximum observed value for the numeric facet attribute. Null when no records match.
    *
    * @return max
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getMax() {
+    return max.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getMax() {
+  public JsonNullable<Double> getMax_JsonNullable() {
     return max;
   }
 
-  public void setMax(Object max) {
+  @JsonProperty(JSON_PROPERTY_MAX)
+  public void setMax_JsonNullable(JsonNullable<Double> max) {
     this.max = max;
   }
 
-  public FacetInfoResponseDataAttributesResultRange min(Object min) {
-    this.min = min;
+  public void setMax(Double max) {
+    this.max = JsonNullable.<Double>of(max);
+  }
+
+  public FacetInfoResponseDataAttributesResultRange min(Double min) {
+    this.min = JsonNullable.<Double>of(min);
     return this;
   }
 
   /**
-   * The minimum observed value for the numeric facet attribute.
+   * The minimum observed value for the numeric facet attribute. Null when no records match.
    *
    * @return min
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getMin() {
+    return min.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getMin() {
+  public JsonNullable<Double> getMin_JsonNullable() {
     return min;
   }
 
-  public void setMin(Object min) {
+  @JsonProperty(JSON_PROPERTY_MIN)
+  public void setMin_JsonNullable(JsonNullable<Double> min) {
     this.min = min;
+  }
+
+  public void setMin(Double min) {
+    this.min = JsonNullable.<Double>of(min);
   }
 
   /**

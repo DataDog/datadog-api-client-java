@@ -26,10 +26,12 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_CREATED_AT,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_CREATED_BY,
+  ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_DETAILS,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_FIELDS,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_ID,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_JOIN,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_METADATA,
+  ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_NAME,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_TYPE,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_UPDATED_AT,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_UPDATED_BY
@@ -44,6 +46,9 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
   private String createdBy;
 
+  public static final String JSON_PROPERTY_DETAILS = "details";
+  private ListConnectionsResponseDataAttributesConnectionsItemsDetails details;
+
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<CreateConnectionRequestDataAttributesFieldsItems> fields = null;
 
@@ -55,6 +60,9 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata = null;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -105,6 +113,33 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
 
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
+  }
+
+  public ListConnectionsResponseDataAttributesConnectionsItems details(
+      ListConnectionsResponseDataAttributesConnectionsItemsDetails details) {
+    this.details = details;
+    this.unparsed |= details.unparsed;
+    return this;
+  }
+
+  /**
+   * Type-specific configuration of the connection. Only the field matching the connection type is
+   * set.
+   *
+   * @return details
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListConnectionsResponseDataAttributesConnectionsItemsDetails getDetails() {
+    return details;
+  }
+
+  public void setDetails(ListConnectionsResponseDataAttributesConnectionsItemsDetails details) {
+    this.details = details;
+    if (details != null) {
+      this.unparsed |= details.unparsed;
+    }
   }
 
   public ListConnectionsResponseDataAttributesConnectionsItems fields(
@@ -225,6 +260,27 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
 
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+  public ListConnectionsResponseDataAttributesConnectionsItems name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Display name of the connection.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public ListConnectionsResponseDataAttributesConnectionsItems type(String type) {
@@ -355,11 +411,14 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
             this.createdAt, listConnectionsResponseDataAttributesConnectionsItems.createdAt)
         && Objects.equals(
             this.createdBy, listConnectionsResponseDataAttributesConnectionsItems.createdBy)
+        && Objects.equals(
+            this.details, listConnectionsResponseDataAttributesConnectionsItems.details)
         && Objects.equals(this.fields, listConnectionsResponseDataAttributesConnectionsItems.fields)
         && Objects.equals(this.id, listConnectionsResponseDataAttributesConnectionsItems.id)
         && Objects.equals(this.join, listConnectionsResponseDataAttributesConnectionsItems.join)
         && Objects.equals(
             this.metadata, listConnectionsResponseDataAttributesConnectionsItems.metadata)
+        && Objects.equals(this.name, listConnectionsResponseDataAttributesConnectionsItems.name)
         && Objects.equals(this.type, listConnectionsResponseDataAttributesConnectionsItems.type)
         && Objects.equals(
             this.updatedAt, listConnectionsResponseDataAttributesConnectionsItems.updatedAt)
@@ -375,10 +434,12 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
     return Objects.hash(
         createdAt,
         createdBy,
+        details,
         fields,
         id,
         join,
         metadata,
+        name,
         type,
         updatedAt,
         updatedBy,
@@ -391,10 +452,12 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
     sb.append("class ListConnectionsResponseDataAttributesConnectionsItems {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    join: ").append(toIndentedString(join)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");

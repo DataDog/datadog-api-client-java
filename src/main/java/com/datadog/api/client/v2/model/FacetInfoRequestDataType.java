@@ -18,15 +18,17 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Users facet info request resource type. */
+/** Facet info request resource type. */
 @JsonSerialize(using = FacetInfoRequestDataType.FacetInfoRequestDataTypeSerializer.class)
 public class FacetInfoRequestDataType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("users_facet_info_request"));
+      new HashSet<String>(Arrays.asList("users_facet_info_request", "accounts_facet_info_request"));
 
   public static final FacetInfoRequestDataType USERS_FACET_INFO_REQUEST =
       new FacetInfoRequestDataType("users_facet_info_request");
+  public static final FacetInfoRequestDataType ACCOUNTS_FACET_INFO_REQUEST =
+      new FacetInfoRequestDataType("accounts_facet_info_request");
 
   FacetInfoRequestDataType(String value) {
     super(value, allowedValues);
