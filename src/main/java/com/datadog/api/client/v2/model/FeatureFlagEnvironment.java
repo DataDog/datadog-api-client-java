@@ -143,7 +143,10 @@ public class FeatureFlagEnvironment {
   }
 
   /**
-   * The allocation key used for the default variant.
+   * A system-generated allocation key, in the format <code>allocation-default-&lt;hash&gt;</code>,
+   * that SDKs report in flag evaluation results and exposure events when a subject receives the
+   * environment's default variant because no targeting rule matched. It has no corresponding
+   * allocation ID and cannot be used with the allocation endpoints.
    *
    * @return defaultAllocationKey
    */
@@ -308,7 +311,10 @@ public class FeatureFlagEnvironment {
   }
 
   /**
-   * The allocation key used for the override variant.
+   * A system-generated allocation key, in the format <code>allocation-override-&lt;hash&gt;</code>,
+   * that SDKs report in flag evaluation results and exposure events when the environment's override
+   * variant is served. It has no corresponding allocation ID and cannot be used with the allocation
+   * endpoints.
    *
    * @return overrideAllocationKey
    */
