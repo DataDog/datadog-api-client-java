@@ -13,13 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Trigger a workflow on a schedule for an incident. */
 @JsonPropertyOrder({
   IncidentScheduleTrigger.JSON_PROPERTY_INCIDENT_TYPE,
+  IncidentScheduleTrigger.JSON_PROPERTY_INCIDENT_TYPES,
   IncidentScheduleTrigger.JSON_PROPERTY_RRULE,
   IncidentScheduleTrigger.JSON_PROPERTY_TAG_CONDITION
 })
@@ -29,6 +32,9 @@ public class IncidentScheduleTrigger {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INCIDENT_TYPE = "incidentType";
   private String incidentType;
+
+  public static final String JSON_PROPERTY_INCIDENT_TYPES = "incidentTypes";
+  private List<String> incidentTypes = null;
 
   public static final String JSON_PROPERTY_RRULE = "rrule";
   private String rrule;
@@ -50,10 +56,13 @@ public class IncidentScheduleTrigger {
   }
 
   /**
-   * The type of incident that triggers the workflow.
+   * The type of incident that triggers the workflow. Deprecated. Use <code>incidentTypes</code>
+   * instead.
    *
    * @return incidentType
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -61,8 +70,38 @@ public class IncidentScheduleTrigger {
     return incidentType;
   }
 
+  @Deprecated
   public void setIncidentType(String incidentType) {
     this.incidentType = incidentType;
+  }
+
+  public IncidentScheduleTrigger incidentTypes(List<String> incidentTypes) {
+    this.incidentTypes = incidentTypes;
+    return this;
+  }
+
+  public IncidentScheduleTrigger addIncidentTypesItem(String incidentTypesItem) {
+    if (this.incidentTypes == null) {
+      this.incidentTypes = new ArrayList<>();
+    }
+    this.incidentTypes.add(incidentTypesItem);
+    return this;
+  }
+
+  /**
+   * The types of incidents that trigger the workflow.
+   *
+   * @return incidentTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIncidentTypes() {
+    return incidentTypes;
+  }
+
+  public void setIncidentTypes(List<String> incidentTypes) {
+    this.incidentTypes = incidentTypes;
   }
 
   public IncidentScheduleTrigger rrule(String rrule) {
@@ -167,6 +206,7 @@ public class IncidentScheduleTrigger {
     }
     IncidentScheduleTrigger incidentScheduleTrigger = (IncidentScheduleTrigger) o;
     return Objects.equals(this.incidentType, incidentScheduleTrigger.incidentType)
+        && Objects.equals(this.incidentTypes, incidentScheduleTrigger.incidentTypes)
         && Objects.equals(this.rrule, incidentScheduleTrigger.rrule)
         && Objects.equals(this.tagCondition, incidentScheduleTrigger.tagCondition)
         && Objects.equals(this.additionalProperties, incidentScheduleTrigger.additionalProperties);
@@ -174,7 +214,7 @@ public class IncidentScheduleTrigger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentType, rrule, tagCondition, additionalProperties);
+    return Objects.hash(incidentType, incidentTypes, rrule, tagCondition, additionalProperties);
   }
 
   @Override
@@ -182,6 +222,7 @@ public class IncidentScheduleTrigger {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentScheduleTrigger {\n");
     sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
+    sb.append("    incidentTypes: ").append(toIndentedString(incidentTypes)).append("\n");
     sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
     sb.append("    tagCondition: ").append(toIndentedString(tagCondition)).append("\n");
     sb.append("    additionalProperties: ")

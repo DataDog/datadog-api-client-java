@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -20,6 +22,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IncidentPostmortemUpdatedTrigger.JSON_PROPERTY_EXECUTION_LIMIT,
   IncidentPostmortemUpdatedTrigger.JSON_PROPERTY_INCIDENT_TYPE,
+  IncidentPostmortemUpdatedTrigger.JSON_PROPERTY_INCIDENT_TYPES,
   IncidentPostmortemUpdatedTrigger.JSON_PROPERTY_TAG_CONDITION
 })
 @jakarta.annotation.Generated(
@@ -31,6 +34,9 @@ public class IncidentPostmortemUpdatedTrigger {
 
   public static final String JSON_PROPERTY_INCIDENT_TYPE = "incidentType";
   private String incidentType;
+
+  public static final String JSON_PROPERTY_INCIDENT_TYPES = "incidentTypes";
+  private List<String> incidentTypes = null;
 
   public static final String JSON_PROPERTY_TAG_CONDITION = "tagCondition";
   private IncidentCondition tagCondition;
@@ -66,10 +72,13 @@ public class IncidentPostmortemUpdatedTrigger {
   }
 
   /**
-   * The type of incident that triggers the workflow.
+   * The type of incident that triggers the workflow. Deprecated. Use <code>incidentTypes</code>
+   * instead.
    *
    * @return incidentType
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,8 +86,38 @@ public class IncidentPostmortemUpdatedTrigger {
     return incidentType;
   }
 
+  @Deprecated
   public void setIncidentType(String incidentType) {
     this.incidentType = incidentType;
+  }
+
+  public IncidentPostmortemUpdatedTrigger incidentTypes(List<String> incidentTypes) {
+    this.incidentTypes = incidentTypes;
+    return this;
+  }
+
+  public IncidentPostmortemUpdatedTrigger addIncidentTypesItem(String incidentTypesItem) {
+    if (this.incidentTypes == null) {
+      this.incidentTypes = new ArrayList<>();
+    }
+    this.incidentTypes.add(incidentTypesItem);
+    return this;
+  }
+
+  /**
+   * The types of incidents that trigger the workflow.
+   *
+   * @return incidentTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIncidentTypes() {
+    return incidentTypes;
+  }
+
+  public void setIncidentTypes(List<String> incidentTypes) {
+    this.incidentTypes = incidentTypes;
   }
 
   public IncidentPostmortemUpdatedTrigger tagCondition(IncidentCondition tagCondition) {
@@ -165,6 +204,7 @@ public class IncidentPostmortemUpdatedTrigger {
         (IncidentPostmortemUpdatedTrigger) o;
     return Objects.equals(this.executionLimit, incidentPostmortemUpdatedTrigger.executionLimit)
         && Objects.equals(this.incidentType, incidentPostmortemUpdatedTrigger.incidentType)
+        && Objects.equals(this.incidentTypes, incidentPostmortemUpdatedTrigger.incidentTypes)
         && Objects.equals(this.tagCondition, incidentPostmortemUpdatedTrigger.tagCondition)
         && Objects.equals(
             this.additionalProperties, incidentPostmortemUpdatedTrigger.additionalProperties);
@@ -172,7 +212,8 @@ public class IncidentPostmortemUpdatedTrigger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(executionLimit, incidentType, tagCondition, additionalProperties);
+    return Objects.hash(
+        executionLimit, incidentType, incidentTypes, tagCondition, additionalProperties);
   }
 
   @Override
@@ -181,6 +222,7 @@ public class IncidentPostmortemUpdatedTrigger {
     sb.append("class IncidentPostmortemUpdatedTrigger {\n");
     sb.append("    executionLimit: ").append(toIndentedString(executionLimit)).append("\n");
     sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
+    sb.append("    incidentTypes: ").append(toIndentedString(incidentTypes)).append("\n");
     sb.append("    tagCondition: ").append(toIndentedString(tagCondition)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

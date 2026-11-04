@@ -21,7 +21,8 @@ import java.util.Objects;
   MonitorNotificationRuleAttributes.JSON_PROPERTY_CONDITIONAL_RECIPIENTS,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_FILTER,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_NAME,
-  MonitorNotificationRuleAttributes.JSON_PROPERTY_RECIPIENTS
+  MonitorNotificationRuleAttributes.JSON_PROPERTY_RECIPIENTS,
+  MonitorNotificationRuleAttributes.JSON_PROPERTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,6 +42,9 @@ public class MonitorNotificationRuleAttributes {
 
   public static final String JSON_PROPERTY_RECIPIENTS = "recipients";
   private List<String> recipients = null;
+
+  public static final String JSON_PROPERTY_RULE_OPTIONS = "rule_options";
+  private MonitorNotificationRuleOptions ruleOptions;
 
   public MonitorNotificationRuleAttributes() {}
 
@@ -181,6 +185,31 @@ public class MonitorNotificationRuleAttributes {
     this.recipients = recipients;
   }
 
+  public MonitorNotificationRuleAttributes ruleOptions(MonitorNotificationRuleOptions ruleOptions) {
+    this.ruleOptions = ruleOptions;
+    this.unparsed |= ruleOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Additional options for the monitor notification rule.
+   *
+   * @return ruleOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorNotificationRuleOptions getRuleOptions() {
+    return ruleOptions;
+  }
+
+  public void setRuleOptions(MonitorNotificationRuleOptions ruleOptions) {
+    this.ruleOptions = ruleOptions;
+    if (ruleOptions != null) {
+      this.unparsed |= ruleOptions.unparsed;
+    }
+  }
+
   /** Return true if this MonitorNotificationRuleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -197,12 +226,13 @@ public class MonitorNotificationRuleAttributes {
             this.conditionalRecipients, monitorNotificationRuleAttributes.conditionalRecipients)
         && Objects.equals(this.filter, monitorNotificationRuleAttributes.filter)
         && Objects.equals(this.name, monitorNotificationRuleAttributes.name)
-        && Objects.equals(this.recipients, monitorNotificationRuleAttributes.recipients);
+        && Objects.equals(this.recipients, monitorNotificationRuleAttributes.recipients)
+        && Objects.equals(this.ruleOptions, monitorNotificationRuleAttributes.ruleOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bundleConfig, conditionalRecipients, filter, name, recipients);
+    return Objects.hash(bundleConfig, conditionalRecipients, filter, name, recipients, ruleOptions);
   }
 
   @Override
@@ -216,6 +246,7 @@ public class MonitorNotificationRuleAttributes {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
+    sb.append("    ruleOptions: ").append(toIndentedString(ruleOptions)).append("\n");
     sb.append('}');
     return sb.toString();
   }
