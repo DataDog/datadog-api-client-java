@@ -22,7 +22,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_ADD,
   UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_DELETE,
-  UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_UPDATE
+  UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_UPDATE,
+  UpdateConnectionRequestDataAttributes.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -36,6 +37,9 @@ public class UpdateConnectionRequestDataAttributes {
 
   public static final String JSON_PROPERTY_FIELDS_TO_UPDATE = "fields_to_update";
   private List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate = null;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public UpdateConnectionRequestDataAttributes fieldsToAdd(
       List<CreateConnectionRequestDataAttributesFieldsItems> fieldsToAdd) {
@@ -151,6 +155,27 @@ public class UpdateConnectionRequestDataAttributes {
     }
   }
 
+  public UpdateConnectionRequestDataAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * New display name for the connection.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -211,13 +236,14 @@ public class UpdateConnectionRequestDataAttributes {
     return Objects.equals(this.fieldsToAdd, updateConnectionRequestDataAttributes.fieldsToAdd)
         && Objects.equals(this.fieldsToDelete, updateConnectionRequestDataAttributes.fieldsToDelete)
         && Objects.equals(this.fieldsToUpdate, updateConnectionRequestDataAttributes.fieldsToUpdate)
+        && Objects.equals(this.name, updateConnectionRequestDataAttributes.name)
         && Objects.equals(
             this.additionalProperties, updateConnectionRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldsToAdd, fieldsToDelete, fieldsToUpdate, additionalProperties);
+    return Objects.hash(fieldsToAdd, fieldsToDelete, fieldsToUpdate, name, additionalProperties);
   }
 
   @Override
@@ -227,6 +253,7 @@ public class UpdateConnectionRequestDataAttributes {
     sb.append("    fieldsToAdd: ").append(toIndentedString(fieldsToAdd)).append("\n");
     sb.append("    fieldsToDelete: ").append(toIndentedString(fieldsToDelete)).append("\n");
     sb.append("    fieldsToUpdate: ").append(toIndentedString(fieldsToUpdate)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

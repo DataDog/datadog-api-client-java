@@ -98,7 +98,7 @@ public class FacetInfoResponseData {
   }
 
   /**
-   * Users facet info resource type.
+   * Facet info resource type.
    *
    * @return type
    */
