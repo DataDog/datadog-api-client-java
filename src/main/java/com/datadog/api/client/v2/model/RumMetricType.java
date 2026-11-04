@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of the resource. The value should always be rum_metrics. */
+/** The type of the resource. The value must be <code>rum_metrics</code>. */
 @JsonSerialize(using = RumMetricType.RumMetricTypeSerializer.class)
 public class RumMetricType extends ModelEnum<String> {
 

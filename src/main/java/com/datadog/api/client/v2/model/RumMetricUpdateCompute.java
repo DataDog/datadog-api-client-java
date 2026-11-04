@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The compute rule to compute the RUM-based metric. */
+/**
+ * The compute rule properties that can be updated. Only valid for metrics whose <code>
+ * aggregation_type</code> is <code>distribution</code>.
+ */
 @JsonPropertyOrder({RumMetricUpdateCompute.JSON_PROPERTY_INCLUDE_PERCENTILES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,8 +34,9 @@ public class RumMetricUpdateCompute {
   }
 
   /**
-   * Toggle to include or exclude percentile aggregations for distribution metrics. Only present
-   * when <code>aggregation_type</code> is <code>distribution</code>.
+   * Toggle to include or exclude percentile aggregations (p50, p75, p90, p95, p99) for distribution
+   * metrics. Required when <code>aggregation_type</code> is <code>distribution</code>, and must be
+   * omitted otherwise.
    *
    * @return includePercentiles
    */
