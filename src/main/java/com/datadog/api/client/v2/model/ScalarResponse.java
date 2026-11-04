@@ -17,13 +17,20 @@ import java.util.Map;
 import java.util.Objects;
 
 /** A message containing the response to a scalar query. */
-@JsonPropertyOrder({ScalarResponse.JSON_PROPERTY_ATTRIBUTES, ScalarResponse.JSON_PROPERTY_TYPE})
+@JsonPropertyOrder({
+  ScalarResponse.JSON_PROPERTY_ATTRIBUTES,
+  ScalarResponse.JSON_PROPERTY_ID,
+  ScalarResponse.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScalarResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private ScalarFormulaResponseAtrributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ScalarFormulaResponseType type = ScalarFormulaResponseType.SCALAR_RESPONSE;
@@ -51,6 +58,27 @@ public class ScalarResponse {
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
+  }
+
+  public ScalarResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The identifier of the scalar response resource.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ScalarResponse type(ScalarFormulaResponseType type) {
@@ -135,13 +163,14 @@ public class ScalarResponse {
     }
     ScalarResponse scalarResponse = (ScalarResponse) o;
     return Objects.equals(this.attributes, scalarResponse.attributes)
+        && Objects.equals(this.id, scalarResponse.id)
         && Objects.equals(this.type, scalarResponse.type)
         && Objects.equals(this.additionalProperties, scalarResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -149,6 +178,7 @@ public class ScalarResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScalarResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
