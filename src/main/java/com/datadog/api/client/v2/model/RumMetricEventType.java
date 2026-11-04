@@ -18,7 +18,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of RUM events to filter on. */
+/**
+ * The type of RUM events the metric is generated from. It is set at creation and cannot be changed.
+ */
 @JsonSerialize(using = RumMetricEventType.RumMetricEventTypeSerializer.class)
 public class RumMetricEventType extends ModelEnum<String> {
 

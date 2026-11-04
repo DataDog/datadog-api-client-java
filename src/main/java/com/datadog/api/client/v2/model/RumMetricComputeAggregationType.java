@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of aggregation to use. */
+/**
+ * The type of aggregation to use. <code>count</code> counts the matching events. <code>distribution
+ * </code> aggregates the values found at <code>path</code>.
+ */
 @JsonSerialize(
     using = RumMetricComputeAggregationType.RumMetricComputeAggregationTypeSerializer.class)
 public class RumMetricComputeAggregationType extends ModelEnum<String> {
