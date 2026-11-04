@@ -23,7 +23,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   NotificationChannelEmailConfig.JSON_PROPERTY_ADDRESS,
   NotificationChannelEmailConfig.JSON_PROPERTY_FORMATS,
-  NotificationChannelEmailConfig.JSON_PROPERTY_TYPE
+  NotificationChannelEmailConfig.JSON_PROPERTY_TYPE,
+  NotificationChannelEmailConfig.JSON_PROPERTY_VERIFIED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,6 +38,9 @@ public class NotificationChannelEmailConfig {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private NotificationChannelEmailConfigType type = NotificationChannelEmailConfigType.EMAIL;
+
+  public static final String JSON_PROPERTY_VERIFIED = "verified";
+  private Boolean verified;
 
   public NotificationChannelEmailConfig() {}
 
@@ -124,6 +128,27 @@ public class NotificationChannelEmailConfig {
     this.type = type;
   }
 
+  public NotificationChannelEmailConfig verified(Boolean verified) {
+    this.verified = verified;
+    return this;
+  }
+
+  /**
+   * Whether this email address has been verified.
+   *
+   * @return verified
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getVerified() {
+    return verified;
+  }
+
+  public void setVerified(Boolean verified) {
+    this.verified = verified;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -184,13 +209,14 @@ public class NotificationChannelEmailConfig {
     return Objects.equals(this.address, notificationChannelEmailConfig.address)
         && Objects.equals(this.formats, notificationChannelEmailConfig.formats)
         && Objects.equals(this.type, notificationChannelEmailConfig.type)
+        && Objects.equals(this.verified, notificationChannelEmailConfig.verified)
         && Objects.equals(
             this.additionalProperties, notificationChannelEmailConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, formats, type, additionalProperties);
+    return Objects.hash(address, formats, type, verified, additionalProperties);
   }
 
   @Override
@@ -200,6 +226,7 @@ public class NotificationChannelEmailConfig {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    formats: ").append(toIndentedString(formats)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

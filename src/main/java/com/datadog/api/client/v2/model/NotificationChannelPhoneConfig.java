@@ -14,13 +14,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Phone notification channel configuration */
 @JsonPropertyOrder({
+  NotificationChannelPhoneConfig.JSON_PROPERTY_AVAILABLE_NOTIFICATION_TYPES,
   NotificationChannelPhoneConfig.JSON_PROPERTY_FORMATTED_NUMBER,
   NotificationChannelPhoneConfig.JSON_PROPERTY_NUMBER,
   NotificationChannelPhoneConfig.JSON_PROPERTY_REGION,
@@ -32,6 +35,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotificationChannelPhoneConfig {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AVAILABLE_NOTIFICATION_TYPES =
+      "available_notification_types";
+  private List<OnCallPhoneNotificationRuleMethod> availableNotificationTypes = null;
+
   public static final String JSON_PROPERTY_FORMATTED_NUMBER = "formatted_number";
   private String formattedNumber;
 
@@ -66,6 +73,40 @@ public class NotificationChannelPhoneConfig {
     this.type = type;
     this.unparsed |= !type.isValid();
     this.verified = verified;
+  }
+
+  public NotificationChannelPhoneConfig availableNotificationTypes(
+      List<OnCallPhoneNotificationRuleMethod> availableNotificationTypes) {
+    this.availableNotificationTypes = availableNotificationTypes;
+    return this;
+  }
+
+  public NotificationChannelPhoneConfig addAvailableNotificationTypesItem(
+      OnCallPhoneNotificationRuleMethod availableNotificationTypesItem) {
+    if (this.availableNotificationTypes == null) {
+      this.availableNotificationTypes = new ArrayList<>();
+    }
+    this.availableNotificationTypes.add(availableNotificationTypesItem);
+    this.unparsed |= !availableNotificationTypesItem.isValid();
+    return this;
+  }
+
+  /**
+   * Notification methods currently available for this phone number. Omitted when no methods are
+   * available.
+   *
+   * @return availableNotificationTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AVAILABLE_NOTIFICATION_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<OnCallPhoneNotificationRuleMethod> getAvailableNotificationTypes() {
+    return availableNotificationTypes;
+  }
+
+  public void setAvailableNotificationTypes(
+      List<OnCallPhoneNotificationRuleMethod> availableNotificationTypes) {
+    this.availableNotificationTypes = availableNotificationTypes;
   }
 
   public NotificationChannelPhoneConfig formattedNumber(String formattedNumber) {
@@ -260,7 +301,10 @@ public class NotificationChannelPhoneConfig {
     }
     NotificationChannelPhoneConfig notificationChannelPhoneConfig =
         (NotificationChannelPhoneConfig) o;
-    return Objects.equals(this.formattedNumber, notificationChannelPhoneConfig.formattedNumber)
+    return Objects.equals(
+            this.availableNotificationTypes,
+            notificationChannelPhoneConfig.availableNotificationTypes)
+        && Objects.equals(this.formattedNumber, notificationChannelPhoneConfig.formattedNumber)
         && Objects.equals(this.number, notificationChannelPhoneConfig.number)
         && Objects.equals(this.region, notificationChannelPhoneConfig.region)
         && Objects.equals(this.smsSubscribedAt, notificationChannelPhoneConfig.smsSubscribedAt)
@@ -273,13 +317,23 @@ public class NotificationChannelPhoneConfig {
   @Override
   public int hashCode() {
     return Objects.hash(
-        formattedNumber, number, region, smsSubscribedAt, type, verified, additionalProperties);
+        availableNotificationTypes,
+        formattedNumber,
+        number,
+        region,
+        smsSubscribedAt,
+        type,
+        verified,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NotificationChannelPhoneConfig {\n");
+    sb.append("    availableNotificationTypes: ")
+        .append(toIndentedString(availableNotificationTypes))
+        .append("\n");
     sb.append("    formattedNumber: ").append(toIndentedString(formattedNumber)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
