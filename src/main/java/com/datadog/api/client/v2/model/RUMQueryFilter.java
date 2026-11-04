@@ -41,10 +41,11 @@ public class RUMQueryFilter {
   }
 
   /**
-   * The minimum time for the requested events; supports date (in <a
+   * The minimum time for the requested events, inclusive. Accepts date math relative to now (for
+   * example <code>now-15m</code>, <code>now-1h</code>, <code>now-7d</code>), an absolute date in <a
    * href="https://www.w3.org/TR/NOTE-datetime">ISO 8601</a> format with full date, hours, minutes,
-   * and the <code>Z</code> UTC indicator - seconds and fractional seconds are optional), math, and
-   * regular timestamps (in milliseconds).
+   * and the <code>Z</code> UTC indicator (seconds and fractional seconds are optional), or a
+   * timestamp in milliseconds since the Unix epoch.
    *
    * @return from
    */
@@ -65,7 +66,13 @@ public class RUMQueryFilter {
   }
 
   /**
-   * The search query following the RUM search syntax.
+   * The search query following the <a
+   * href="https://docs.datadoghq.com/real_user_monitoring/explorer/search_syntax/">RUM search
+   * syntax</a>. Filter on attributes with <code>@attribute:value</code>, for example <code>
+   * @type:view @application.id:&lt;application_id&gt; @view.name:"/checkout"</code>, and combine
+   * terms with <code>AND</code>, <code>OR</code> and <code>-</code> (negation). Event types are
+   * <code>session</code>, <code>view</code>, <code>action</code>, <code>resource</code>, <code>
+   * error</code>, <code>long_task</code> and <code>vital</code>.
    *
    * @return query
    */
@@ -86,10 +93,7 @@ public class RUMQueryFilter {
   }
 
   /**
-   * The maximum time for the requested events; supports date (in <a
-   * href="https://www.w3.org/TR/NOTE-datetime">ISO 8601</a> format with full date, hours, minutes,
-   * and the <code>Z</code> UTC indicator - seconds and fractional seconds are optional), math, and
-   * regular timestamps (in milliseconds).
+   * The maximum time for the requested events. Accepts the same formats as <code>from</code>.
    *
    * @return to
    */

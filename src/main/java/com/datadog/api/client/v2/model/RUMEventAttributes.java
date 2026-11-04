@@ -56,7 +56,13 @@ public class RUMEventAttributes {
   }
 
   /**
-   * JSON object of attributes from RUM events.
+   * JSON object of attributes from RUM events. Attributes are nested by path: the facet <code>
+   * @view.name</code> used in queries is returned as <code>attributes.view.name</code>. Common
+   * attributes include <code>type</code> (the event type: <code>session</code>, <code>view</code>,
+   * <code>action</code>, <code>resource</code>, <code>error</code>, <code>long_task</code> or
+   * <code>vital</code>), <code>application.id</code>, <code>session.id</code>, <code>view.id</code>
+   * , <code>view.name</code> and <code>usr.id</code>. Durations such as <code>view.time_spent
+   * </code>, <code>view.loading_time</code> and <code>resource.duration</code> are in nanoseconds.
    *
    * @return attributes
    */
@@ -107,7 +113,7 @@ public class RUMEventAttributes {
   }
 
   /**
-   * Array of tags associated with your event.
+   * Array of tags associated with your event, in <code>key:value</code> format.
    *
    * @return tags
    */
@@ -128,7 +134,7 @@ public class RUMEventAttributes {
   }
 
   /**
-   * Timestamp of your event.
+   * Timestamp of your event, in ISO 8601 format.
    *
    * @return timestamp
    */

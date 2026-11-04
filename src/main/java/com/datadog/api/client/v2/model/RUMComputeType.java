@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of compute. */
+/**
+ * The type of compute. <code>total</code> returns one value per bucket, <code>timeseries</code>
+ * returns a list of time points per bucket.
+ */
 @JsonSerialize(using = RUMComputeType.RUMComputeTypeSerializer.class)
 public class RUMComputeType extends ModelEnum<String> {
 

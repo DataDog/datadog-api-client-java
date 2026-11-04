@@ -623,9 +623,12 @@ public class RUMApplicationListAttributes {
   }
 
   /**
-   * Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>,
-   * <code>android</code>, <code>react-native</code>, <code>flutter</code>, <code>roku</code>,
-   * <code>electron</code>, <code>unity</code>, <code>kotlin-multiplatform</code>.
+   * Type of the RUM application. Possible values are <code>browser</code>, <code>ios</code>, <code>
+   * android</code>, <code>react-native</code>, <code>flutter</code>, <code>roku</code>, <code>
+   * electron</code>, <code>unity</code>, <code>kotlin-multiplatform</code>, <code>react</code>,
+   * <code>nextjs</code>, <code>angular</code>, <code>vuejs</code>, <code>nuxt</code>, <code>
+   * tanstack</code>, <code>maui</code>, <code>salesforce-lwc</code>, <code>shopify</code>, <code>
+   * cpp</code>, <code>rum-cpp</code>, <code>unreal</code>.
    *
    * @return type
    */

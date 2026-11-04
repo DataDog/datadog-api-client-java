@@ -37,7 +37,9 @@ public class RUMQueryPageOptions {
   }
 
   /**
-   * List following results with a cursor provided in the previous query.
+   * Cursor to get the next page of results, taken from <code>meta.page.after</code> of the previous
+   * response. Send it with the same <code>filter</code> and <code>sort</code> as the request that
+   * returned it.
    *
    * @return cursor
    */
@@ -58,7 +60,7 @@ public class RUMQueryPageOptions {
   }
 
   /**
-   * Maximum number of events in the response. maximum: 1000
+   * Maximum number of events in the response. Between 1 and 1000. maximum: 1000
    *
    * @return limit
    */
