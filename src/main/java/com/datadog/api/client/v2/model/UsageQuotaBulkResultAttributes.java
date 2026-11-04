@@ -182,9 +182,9 @@ public class UsageQuotaBulkResultAttributes {
 
   /**
    * A namespace-specific key and value identifying what the quota applies to within an
-   * organization. The object contains exactly one entry. A value of <code>"*"</code> identifies the
-   * default quota applied to entities without a specific quota. This field is omitted for an
-   * organization-wide quota.
+   * organization. The object contains exactly one entry. A <code>user_handle</code> value of <code>
+   * "*"</code> identifies the default quota applied to users without a specific quota. This field
+   * is omitted for an organization-wide quota.
    *
    * @return scope
    */
