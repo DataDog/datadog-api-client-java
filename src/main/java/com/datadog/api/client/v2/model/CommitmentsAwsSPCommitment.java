@@ -22,10 +22,12 @@ import java.util.Objects;
   CommitmentsAwsSPCommitment.JSON_PROPERTY_COMMITMENT_ID,
   CommitmentsAwsSPCommitment.JSON_PROPERTY_COMMITTED_SPEND_PER_HOUR,
   CommitmentsAwsSPCommitment.JSON_PROPERTY_EXPIRATION_DATE,
+  CommitmentsAwsSPCommitment.JSON_PROPERTY_INSTANCE_TYPE_FAMILY,
   CommitmentsAwsSPCommitment.JSON_PROPERTY_PURCHASE_OPTION,
+  CommitmentsAwsSPCommitment.JSON_PROPERTY_REGION,
   CommitmentsAwsSPCommitment.JSON_PROPERTY_SAVINGS_PLAN_TYPE,
   CommitmentsAwsSPCommitment.JSON_PROPERTY_START_DATE,
-  CommitmentsAwsSPCommitment.JSON_PROPERTY_TERM_LENGTH,
+  CommitmentsAwsSPCommitment.JSON_PROPERTY_TERM_LENGTH_MONTHS,
   CommitmentsAwsSPCommitment.JSON_PROPERTY_UTILIZATION
 })
 @jakarta.annotation.Generated(
@@ -41,8 +43,14 @@ public class CommitmentsAwsSPCommitment {
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expiration_date";
   private String expirationDate;
 
+  public static final String JSON_PROPERTY_INSTANCE_TYPE_FAMILY = "instance_type_family";
+  private String instanceTypeFamily;
+
   public static final String JSON_PROPERTY_PURCHASE_OPTION = "purchase_option";
   private String purchaseOption;
+
+  public static final String JSON_PROPERTY_REGION = "region";
+  private String region;
 
   public static final String JSON_PROPERTY_SAVINGS_PLAN_TYPE = "savings_plan_type";
   private String savingsPlanType;
@@ -50,8 +58,8 @@ public class CommitmentsAwsSPCommitment {
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private String startDate;
 
-  public static final String JSON_PROPERTY_TERM_LENGTH = "term_length";
-  private Double termLength;
+  public static final String JSON_PROPERTY_TERM_LENGTH_MONTHS = "term_length_months";
+  private Long termLengthMonths;
 
   public static final String JSON_PROPERTY_UTILIZATION = "utilization";
   private Double utilization;
@@ -131,6 +139,28 @@ public class CommitmentsAwsSPCommitment {
     this.expirationDate = expirationDate;
   }
 
+  public CommitmentsAwsSPCommitment instanceTypeFamily(String instanceTypeFamily) {
+    this.instanceTypeFamily = instanceTypeFamily;
+    return this;
+  }
+
+  /**
+   * The EC2 instance family covered by the Savings Plan. Returned only for EC2 Instance Savings
+   * Plans.
+   *
+   * @return instanceTypeFamily
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getInstanceTypeFamily() {
+    return instanceTypeFamily;
+  }
+
+  public void setInstanceTypeFamily(String instanceTypeFamily) {
+    this.instanceTypeFamily = instanceTypeFamily;
+  }
+
   public CommitmentsAwsSPCommitment purchaseOption(String purchaseOption) {
     this.purchaseOption = purchaseOption;
     return this;
@@ -149,6 +179,27 @@ public class CommitmentsAwsSPCommitment {
 
   public void setPurchaseOption(String purchaseOption) {
     this.purchaseOption = purchaseOption;
+  }
+
+  public CommitmentsAwsSPCommitment region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The AWS region covered by the Savings Plan. Returned only for EC2 Instance Savings Plans.
+   *
+   * @return region
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
   }
 
   public CommitmentsAwsSPCommitment savingsPlanType(String savingsPlanType) {
@@ -192,25 +243,25 @@ public class CommitmentsAwsSPCommitment {
     this.startDate = startDate;
   }
 
-  public CommitmentsAwsSPCommitment termLength(Double termLength) {
-    this.termLength = termLength;
+  public CommitmentsAwsSPCommitment termLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
     return this;
   }
 
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    *
-   * @return termLength
+   * @return termLengthMonths
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERM_LENGTH)
+  @JsonProperty(JSON_PROPERTY_TERM_LENGTH_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTermLength() {
-    return termLength;
+  public Long getTermLengthMonths() {
+    return termLengthMonths;
   }
 
-  public void setTermLength(Double termLength) {
-    this.termLength = termLength;
+  public void setTermLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
   }
 
   public CommitmentsAwsSPCommitment utilization(Double utilization) {
@@ -219,7 +270,7 @@ public class CommitmentsAwsSPCommitment {
   }
 
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    *
    * @return utilization
    */
@@ -294,10 +345,12 @@ public class CommitmentsAwsSPCommitment {
         && Objects.equals(
             this.committedSpendPerHour, commitmentsAwsSpCommitment.committedSpendPerHour)
         && Objects.equals(this.expirationDate, commitmentsAwsSpCommitment.expirationDate)
+        && Objects.equals(this.instanceTypeFamily, commitmentsAwsSpCommitment.instanceTypeFamily)
         && Objects.equals(this.purchaseOption, commitmentsAwsSpCommitment.purchaseOption)
+        && Objects.equals(this.region, commitmentsAwsSpCommitment.region)
         && Objects.equals(this.savingsPlanType, commitmentsAwsSpCommitment.savingsPlanType)
         && Objects.equals(this.startDate, commitmentsAwsSpCommitment.startDate)
-        && Objects.equals(this.termLength, commitmentsAwsSpCommitment.termLength)
+        && Objects.equals(this.termLengthMonths, commitmentsAwsSpCommitment.termLengthMonths)
         && Objects.equals(this.utilization, commitmentsAwsSpCommitment.utilization)
         && Objects.equals(
             this.additionalProperties, commitmentsAwsSpCommitment.additionalProperties);
@@ -309,10 +362,12 @@ public class CommitmentsAwsSPCommitment {
         commitmentId,
         committedSpendPerHour,
         expirationDate,
+        instanceTypeFamily,
         purchaseOption,
+        region,
         savingsPlanType,
         startDate,
-        termLength,
+        termLengthMonths,
         utilization,
         additionalProperties);
   }
@@ -326,10 +381,12 @@ public class CommitmentsAwsSPCommitment {
         .append(toIndentedString(committedSpendPerHour))
         .append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    instanceTypeFamily: ").append(toIndentedString(instanceTypeFamily)).append("\n");
     sb.append("    purchaseOption: ").append(toIndentedString(purchaseOption)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    savingsPlanType: ").append(toIndentedString(savingsPlanType)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    termLength: ").append(toIndentedString(termLength)).append("\n");
+    sb.append("    termLengthMonths: ").append(toIndentedString(termLengthMonths)).append("\n");
     sb.append("    utilization: ").append(toIndentedString(utilization)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

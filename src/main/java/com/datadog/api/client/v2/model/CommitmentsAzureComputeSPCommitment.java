@@ -23,8 +23,9 @@ import java.util.Objects;
   CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_COMMITMENT_ID,
   CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_COMMITTED_SPEND_PER_HOUR,
   CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_EXPIRATION_DATE,
+  CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_SAVINGS_PLAN_TYPE,
   CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_START_DATE,
-  CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_TERM_LENGTH,
+  CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_TERM_LENGTH_MONTHS,
   CommitmentsAzureComputeSPCommitment.JSON_PROPERTY_UTILIZATION
 })
 @jakarta.annotation.Generated(
@@ -43,11 +44,14 @@ public class CommitmentsAzureComputeSPCommitment {
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expiration_date";
   private String expirationDate;
 
+  public static final String JSON_PROPERTY_SAVINGS_PLAN_TYPE = "savings_plan_type";
+  private String savingsPlanType;
+
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private String startDate;
 
-  public static final String JSON_PROPERTY_TERM_LENGTH = "term_length";
-  private Double termLength;
+  public static final String JSON_PROPERTY_TERM_LENGTH_MONTHS = "term_length_months";
+  private Long termLengthMonths;
 
   public static final String JSON_PROPERTY_UTILIZATION = "utilization";
   private Double utilization;
@@ -144,6 +148,28 @@ public class CommitmentsAzureComputeSPCommitment {
     this.expirationDate = expirationDate;
   }
 
+  public CommitmentsAzureComputeSPCommitment savingsPlanType(String savingsPlanType) {
+    this.savingsPlanType = savingsPlanType;
+    return this;
+  }
+
+  /**
+   * The Azure Savings Plan type, <code>Compute</code> or <code>Database</code>, based on the
+   * product order name. Omitted when the type can't be classified.
+   *
+   * @return savingsPlanType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SAVINGS_PLAN_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSavingsPlanType() {
+    return savingsPlanType;
+  }
+
+  public void setSavingsPlanType(String savingsPlanType) {
+    this.savingsPlanType = savingsPlanType;
+  }
+
   public CommitmentsAzureComputeSPCommitment startDate(String startDate) {
     this.startDate = startDate;
     return this;
@@ -165,25 +191,25 @@ public class CommitmentsAzureComputeSPCommitment {
     this.startDate = startDate;
   }
 
-  public CommitmentsAzureComputeSPCommitment termLength(Double termLength) {
-    this.termLength = termLength;
+  public CommitmentsAzureComputeSPCommitment termLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
     return this;
   }
 
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    *
-   * @return termLength
+   * @return termLengthMonths
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERM_LENGTH)
+  @JsonProperty(JSON_PROPERTY_TERM_LENGTH_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTermLength() {
-    return termLength;
+  public Long getTermLengthMonths() {
+    return termLengthMonths;
   }
 
-  public void setTermLength(Double termLength) {
-    this.termLength = termLength;
+  public void setTermLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
   }
 
   public CommitmentsAzureComputeSPCommitment utilization(Double utilization) {
@@ -192,7 +218,7 @@ public class CommitmentsAzureComputeSPCommitment {
   }
 
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    *
    * @return utilization
    */
@@ -269,8 +295,10 @@ public class CommitmentsAzureComputeSPCommitment {
         && Objects.equals(
             this.committedSpendPerHour, commitmentsAzureComputeSpCommitment.committedSpendPerHour)
         && Objects.equals(this.expirationDate, commitmentsAzureComputeSpCommitment.expirationDate)
+        && Objects.equals(this.savingsPlanType, commitmentsAzureComputeSpCommitment.savingsPlanType)
         && Objects.equals(this.startDate, commitmentsAzureComputeSpCommitment.startDate)
-        && Objects.equals(this.termLength, commitmentsAzureComputeSpCommitment.termLength)
+        && Objects.equals(
+            this.termLengthMonths, commitmentsAzureComputeSpCommitment.termLengthMonths)
         && Objects.equals(this.utilization, commitmentsAzureComputeSpCommitment.utilization)
         && Objects.equals(
             this.additionalProperties, commitmentsAzureComputeSpCommitment.additionalProperties);
@@ -283,8 +311,9 @@ public class CommitmentsAzureComputeSPCommitment {
         commitmentId,
         committedSpendPerHour,
         expirationDate,
+        savingsPlanType,
         startDate,
-        termLength,
+        termLengthMonths,
         utilization,
         additionalProperties);
   }
@@ -299,8 +328,9 @@ public class CommitmentsAzureComputeSPCommitment {
         .append(toIndentedString(committedSpendPerHour))
         .append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    savingsPlanType: ").append(toIndentedString(savingsPlanType)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    termLength: ").append(toIndentedString(termLength)).append("\n");
+    sb.append("    termLengthMonths: ").append(toIndentedString(termLengthMonths)).append("\n");
     sb.append("    utilization: ").append(toIndentedString(utilization)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
