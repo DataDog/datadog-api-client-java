@@ -3,6 +3,8 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
+import com.datadog.api.client.v2.api.CloudCostManagementApi.GetCommitmentsCommitmentListOptionalParameters;
+import com.datadog.api.client.v2.model.CommitmentsCommitmentType;
 import com.datadog.api.client.v2.model.CommitmentsListResponse;
 import com.datadog.api.client.v2.model.CommitmentsProvider;
 
@@ -16,7 +18,12 @@ public class Example {
     try {
       CommitmentsListResponse result =
           apiInstance.getCommitmentsCommitmentList(
-              CommitmentsProvider.AWS, "ec2", 1693526400000L, 1696118400000L);
+              CommitmentsProvider.AWS,
+              "ec2",
+              1788220800000L,
+              1790812799000L,
+              new GetCommitmentsCommitmentListOptionalParameters()
+                  .commitmentType(CommitmentsCommitmentType.RESERVED_INSTANCES));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

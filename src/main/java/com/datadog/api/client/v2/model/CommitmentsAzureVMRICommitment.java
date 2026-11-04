@@ -24,10 +24,11 @@ import java.util.Objects;
   CommitmentsAzureVMRICommitment.JSON_PROPERTY_EXPIRATION_DATE,
   CommitmentsAzureVMRICommitment.JSON_PROPERTY_INSTANCE_TYPE,
   CommitmentsAzureVMRICommitment.JSON_PROPERTY_METER_SUB_CATEGORY,
+  CommitmentsAzureVMRICommitment.JSON_PROPERTY_PRODUCT,
   CommitmentsAzureVMRICommitment.JSON_PROPERTY_REGION,
   CommitmentsAzureVMRICommitment.JSON_PROPERTY_START_DATE,
   CommitmentsAzureVMRICommitment.JSON_PROPERTY_STATUS,
-  CommitmentsAzureVMRICommitment.JSON_PROPERTY_TERM_LENGTH,
+  CommitmentsAzureVMRICommitment.JSON_PROPERTY_TERM_LENGTH_MONTHS,
   CommitmentsAzureVMRICommitment.JSON_PROPERTY_UTILIZATION
 })
 @jakarta.annotation.Generated(
@@ -49,6 +50,9 @@ public class CommitmentsAzureVMRICommitment {
   public static final String JSON_PROPERTY_METER_SUB_CATEGORY = "meter_sub_category";
   private String meterSubCategory;
 
+  public static final String JSON_PROPERTY_PRODUCT = "product";
+  private String product;
+
   public static final String JSON_PROPERTY_REGION = "region";
   private String region;
 
@@ -58,8 +62,8 @@ public class CommitmentsAzureVMRICommitment {
   public static final String JSON_PROPERTY_STATUS = "status";
   private CommitmentsAzureVMRIStatus status;
 
-  public static final String JSON_PROPERTY_TERM_LENGTH = "term_length";
-  private Double termLength;
+  public static final String JSON_PROPERTY_TERM_LENGTH_MONTHS = "term_length_months";
+  private Long termLengthMonths;
 
   public static final String JSON_PROPERTY_UTILIZATION = "utilization";
   private Double utilization;
@@ -186,6 +190,27 @@ public class CommitmentsAzureVMRICommitment {
     this.meterSubCategory = meterSubCategory;
   }
 
+  public CommitmentsAzureVMRICommitment product(String product) {
+    this.product = product;
+    return this;
+  }
+
+  /**
+   * The Azure product of the reservation. Omitted when it cannot be classified.
+   *
+   * @return product
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProduct() {
+    return product;
+  }
+
+  public void setProduct(String product) {
+    this.product = product;
+  }
+
   public CommitmentsAzureVMRICommitment region(String region) {
     this.region = region;
     return this;
@@ -251,25 +276,25 @@ public class CommitmentsAzureVMRICommitment {
     this.status = status;
   }
 
-  public CommitmentsAzureVMRICommitment termLength(Double termLength) {
-    this.termLength = termLength;
+  public CommitmentsAzureVMRICommitment termLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
     return this;
   }
 
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    *
-   * @return termLength
+   * @return termLengthMonths
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERM_LENGTH)
+  @JsonProperty(JSON_PROPERTY_TERM_LENGTH_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTermLength() {
-    return termLength;
+  public Long getTermLengthMonths() {
+    return termLengthMonths;
   }
 
-  public void setTermLength(Double termLength) {
-    this.termLength = termLength;
+  public void setTermLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
   }
 
   public CommitmentsAzureVMRICommitment utilization(Double utilization) {
@@ -278,7 +303,7 @@ public class CommitmentsAzureVMRICommitment {
   }
 
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    *
    * @return utilization
    */
@@ -355,10 +380,11 @@ public class CommitmentsAzureVMRICommitment {
         && Objects.equals(this.expirationDate, commitmentsAzureVmriCommitment.expirationDate)
         && Objects.equals(this.instanceType, commitmentsAzureVmriCommitment.instanceType)
         && Objects.equals(this.meterSubCategory, commitmentsAzureVmriCommitment.meterSubCategory)
+        && Objects.equals(this.product, commitmentsAzureVmriCommitment.product)
         && Objects.equals(this.region, commitmentsAzureVmriCommitment.region)
         && Objects.equals(this.startDate, commitmentsAzureVmriCommitment.startDate)
         && Objects.equals(this.status, commitmentsAzureVmriCommitment.status)
-        && Objects.equals(this.termLength, commitmentsAzureVmriCommitment.termLength)
+        && Objects.equals(this.termLengthMonths, commitmentsAzureVmriCommitment.termLengthMonths)
         && Objects.equals(this.utilization, commitmentsAzureVmriCommitment.utilization)
         && Objects.equals(
             this.additionalProperties, commitmentsAzureVmriCommitment.additionalProperties);
@@ -372,10 +398,11 @@ public class CommitmentsAzureVMRICommitment {
         expirationDate,
         instanceType,
         meterSubCategory,
+        product,
         region,
         startDate,
         status,
-        termLength,
+        termLengthMonths,
         utilization,
         additionalProperties);
   }
@@ -389,10 +416,11 @@ public class CommitmentsAzureVMRICommitment {
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    meterSubCategory: ").append(toIndentedString(meterSubCategory)).append("\n");
+    sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    termLength: ").append(toIndentedString(termLength)).append("\n");
+    sb.append("    termLengthMonths: ").append(toIndentedString(termLengthMonths)).append("\n");
     sb.append("    utilization: ").append(toIndentedString(utilization)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

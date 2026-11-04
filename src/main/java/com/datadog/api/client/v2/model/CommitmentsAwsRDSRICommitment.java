@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** AWS RDS Reserved Instance commitment details. */
 @JsonPropertyOrder({
@@ -29,7 +30,7 @@ import java.util.Objects;
   CommitmentsAwsRDSRICommitment.JSON_PROPERTY_PURCHASE_OPTION,
   CommitmentsAwsRDSRICommitment.JSON_PROPERTY_REGION,
   CommitmentsAwsRDSRICommitment.JSON_PROPERTY_START_DATE,
-  CommitmentsAwsRDSRICommitment.JSON_PROPERTY_TERM_LENGTH,
+  CommitmentsAwsRDSRICommitment.JSON_PROPERTY_TERM_LENGTH_MONTHS,
   CommitmentsAwsRDSRICommitment.JSON_PROPERTY_UTILIZATION
 })
 @jakarta.annotation.Generated(
@@ -52,10 +53,10 @@ public class CommitmentsAwsRDSRICommitment {
   private Boolean isMultiAz;
 
   public static final String JSON_PROPERTY_NUMBER_OF_NFUS = "number_of_nfus";
-  private Double numberOfNfus;
+  private JsonNullable<Double> numberOfNfus = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_NUMBER_OF_RESERVATIONS = "number_of_reservations";
-  private Double numberOfReservations;
+  private JsonNullable<Double> numberOfReservations = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PURCHASE_OPTION = "purchase_option";
   private String purchaseOption;
@@ -66,8 +67,8 @@ public class CommitmentsAwsRDSRICommitment {
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private String startDate;
 
-  public static final String JSON_PROPERTY_TERM_LENGTH = "term_length";
-  private Double termLength;
+  public static final String JSON_PROPERTY_TERM_LENGTH_MONTHS = "term_length_months";
+  private Long termLengthMonths;
 
   public static final String JSON_PROPERTY_UTILIZATION = "utilization";
   private Double utilization;
@@ -191,7 +192,7 @@ public class CommitmentsAwsRDSRICommitment {
   }
 
   public CommitmentsAwsRDSRICommitment numberOfNfus(Double numberOfNfus) {
-    this.numberOfNfus = numberOfNfus;
+    this.numberOfNfus = JsonNullable.<Double>of(numberOfNfus);
     return this;
   }
 
@@ -201,18 +202,28 @@ public class CommitmentsAwsRDSRICommitment {
    * @return numberOfNfus
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getNumberOfNfus() {
+    return numberOfNfus.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NFUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getNumberOfNfus() {
+  public JsonNullable<Double> getNumberOfNfus_JsonNullable() {
     return numberOfNfus;
   }
 
-  public void setNumberOfNfus(Double numberOfNfus) {
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_NFUS)
+  public void setNumberOfNfus_JsonNullable(JsonNullable<Double> numberOfNfus) {
     this.numberOfNfus = numberOfNfus;
   }
 
+  public void setNumberOfNfus(Double numberOfNfus) {
+    this.numberOfNfus = JsonNullable.<Double>of(numberOfNfus);
+  }
+
   public CommitmentsAwsRDSRICommitment numberOfReservations(Double numberOfReservations) {
-    this.numberOfReservations = numberOfReservations;
+    this.numberOfReservations = JsonNullable.<Double>of(numberOfReservations);
     return this;
   }
 
@@ -222,14 +233,24 @@ public class CommitmentsAwsRDSRICommitment {
    * @return numberOfReservations
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getNumberOfReservations() {
+    return numberOfReservations.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_RESERVATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getNumberOfReservations() {
+  public JsonNullable<Double> getNumberOfReservations_JsonNullable() {
     return numberOfReservations;
   }
 
-  public void setNumberOfReservations(Double numberOfReservations) {
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_RESERVATIONS)
+  public void setNumberOfReservations_JsonNullable(JsonNullable<Double> numberOfReservations) {
     this.numberOfReservations = numberOfReservations;
+  }
+
+  public void setNumberOfReservations(Double numberOfReservations) {
+    this.numberOfReservations = JsonNullable.<Double>of(numberOfReservations);
   }
 
   public CommitmentsAwsRDSRICommitment purchaseOption(String purchaseOption) {
@@ -293,25 +314,25 @@ public class CommitmentsAwsRDSRICommitment {
     this.startDate = startDate;
   }
 
-  public CommitmentsAwsRDSRICommitment termLength(Double termLength) {
-    this.termLength = termLength;
+  public CommitmentsAwsRDSRICommitment termLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
     return this;
   }
 
   /**
-   * The term length in years.
+   * The commitment term in whole months. Omitted when the term is unknown.
    *
-   * @return termLength
+   * @return termLengthMonths
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERM_LENGTH)
+  @JsonProperty(JSON_PROPERTY_TERM_LENGTH_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTermLength() {
-    return termLength;
+  public Long getTermLengthMonths() {
+    return termLengthMonths;
   }
 
-  public void setTermLength(Double termLength) {
-    this.termLength = termLength;
+  public void setTermLengthMonths(Long termLengthMonths) {
+    this.termLengthMonths = termLengthMonths;
   }
 
   public CommitmentsAwsRDSRICommitment utilization(Double utilization) {
@@ -320,7 +341,7 @@ public class CommitmentsAwsRDSRICommitment {
   }
 
   /**
-   * The utilization percentage of the commitment.
+   * The utilization percentage of the commitment, from 0 to 100.
    *
    * @return utilization
    */
@@ -402,7 +423,7 @@ public class CommitmentsAwsRDSRICommitment {
         && Objects.equals(this.purchaseOption, commitmentsAwsRdsriCommitment.purchaseOption)
         && Objects.equals(this.region, commitmentsAwsRdsriCommitment.region)
         && Objects.equals(this.startDate, commitmentsAwsRdsriCommitment.startDate)
-        && Objects.equals(this.termLength, commitmentsAwsRdsriCommitment.termLength)
+        && Objects.equals(this.termLengthMonths, commitmentsAwsRdsriCommitment.termLengthMonths)
         && Objects.equals(this.utilization, commitmentsAwsRdsriCommitment.utilization)
         && Objects.equals(
             this.additionalProperties, commitmentsAwsRdsriCommitment.additionalProperties);
@@ -421,7 +442,7 @@ public class CommitmentsAwsRDSRICommitment {
         purchaseOption,
         region,
         startDate,
-        termLength,
+        termLengthMonths,
         utilization,
         additionalProperties);
   }
@@ -442,7 +463,7 @@ public class CommitmentsAwsRDSRICommitment {
     sb.append("    purchaseOption: ").append(toIndentedString(purchaseOption)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    termLength: ").append(toIndentedString(termLength)).append("\n");
+    sb.append("    termLengthMonths: ").append(toIndentedString(termLengthMonths)).append("\n");
     sb.append("    utilization: ").append(toIndentedString(utilization)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

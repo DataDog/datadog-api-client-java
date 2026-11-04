@@ -13,95 +13,49 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Response containing a list of cloud commitment details. */
-@JsonPropertyOrder({
-  CommitmentsListResponse.JSON_PROPERTY_COMMITMENTS,
-  CommitmentsListResponse.JSON_PROPERTY_META
-})
+@JsonPropertyOrder({CommitmentsListResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsListResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COMMITMENTS = "commitments";
-  private List<CommitmentsListItem> commitments = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private CommitmentsListMeta meta;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CommitmentsListResponseData data;
 
   public CommitmentsListResponse() {}
 
   @JsonCreator
   public CommitmentsListResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMMITMENTS)
-          List<CommitmentsListItem> commitments) {
-    this.commitments = commitments;
-    for (CommitmentsListItem item : commitments) {
-      this.unparsed |= item.unparsed;
-    }
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) CommitmentsListResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public CommitmentsListResponse commitments(List<CommitmentsListItem> commitments) {
-    this.commitments = commitments;
-    for (CommitmentsListItem item : commitments) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public CommitmentsListResponse addCommitmentsItem(CommitmentsListItem commitmentsItem) {
-    this.commitments.add(commitmentsItem);
-    this.unparsed |= commitmentsItem.unparsed;
+  public CommitmentsListResponse data(CommitmentsListResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Array of commitment items.
+   * The commitments list resource.
    *
-   * @return commitments
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_COMMITMENTS)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CommitmentsListItem> getCommitments() {
-    return commitments;
+  public CommitmentsListResponseData getData() {
+    return data;
   }
 
-  public void setCommitments(List<CommitmentsListItem> commitments) {
-    this.commitments = commitments;
-    if (commitments != null) {
-      for (CommitmentsListItem item : commitments) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-  }
-
-  public CommitmentsListResponse meta(CommitmentsListMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Metadata for a commitments list response.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CommitmentsListMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(CommitmentsListMeta meta) {
-    this.meta = meta;
-    if (meta != null) {
-      this.unparsed |= meta.unparsed;
+  public void setData(CommitmentsListResponseData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
   }
 
@@ -161,22 +115,20 @@ public class CommitmentsListResponse {
       return false;
     }
     CommitmentsListResponse commitmentsListResponse = (CommitmentsListResponse) o;
-    return Objects.equals(this.commitments, commitmentsListResponse.commitments)
-        && Objects.equals(this.meta, commitmentsListResponse.meta)
+    return Objects.equals(this.data, commitmentsListResponse.data)
         && Objects.equals(this.additionalProperties, commitmentsListResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commitments, meta, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommitmentsListResponse {\n");
-    sb.append("    commitments: ").append(toIndentedString(commitments)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

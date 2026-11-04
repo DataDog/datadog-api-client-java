@@ -17,13 +17,19 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Metadata for a commitments list response. */
-@JsonPropertyOrder({CommitmentsListMeta.JSON_PROPERTY_COMMITTED_SPEND_UNIT})
+@JsonPropertyOrder({
+  CommitmentsListMeta.JSON_PROPERTY_COMMITTED_SPEND_UNIT,
+  CommitmentsListMeta.JSON_PROPERTY_UNUSED_COST_UNAVAILABLE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsListMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMITTED_SPEND_UNIT = "committed_spend_unit";
   private CommitmentsUnit committedSpendUnit;
+
+  public static final String JSON_PROPERTY_UNUSED_COST_UNAVAILABLE = "unused_cost_unavailable";
+  private Boolean unusedCostUnavailable;
 
   public CommitmentsListMeta committedSpendUnit(CommitmentsUnit committedSpendUnit) {
     this.committedSpendUnit = committedSpendUnit;
@@ -48,6 +54,28 @@ public class CommitmentsListMeta {
     if (committedSpendUnit != null) {
       this.unparsed |= committedSpendUnit.unparsed;
     }
+  }
+
+  public CommitmentsListMeta unusedCostUnavailable(Boolean unusedCostUnavailable) {
+    this.unusedCostUnavailable = unusedCostUnavailable;
+    return this;
+  }
+
+  /**
+   * Whether Azure cost data lacks the unused cost of some commitments, for example when an export
+   * is scoped below the billing profile. When <code>true</code>, utilization is overstated.
+   *
+   * @return unusedCostUnavailable
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNUSED_COST_UNAVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getUnusedCostUnavailable() {
+    return unusedCostUnavailable;
+  }
+
+  public void setUnusedCostUnavailable(Boolean unusedCostUnavailable) {
+    this.unusedCostUnavailable = unusedCostUnavailable;
   }
 
   /**
@@ -107,12 +135,13 @@ public class CommitmentsListMeta {
     }
     CommitmentsListMeta commitmentsListMeta = (CommitmentsListMeta) o;
     return Objects.equals(this.committedSpendUnit, commitmentsListMeta.committedSpendUnit)
+        && Objects.equals(this.unusedCostUnavailable, commitmentsListMeta.unusedCostUnavailable)
         && Objects.equals(this.additionalProperties, commitmentsListMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(committedSpendUnit, additionalProperties);
+    return Objects.hash(committedSpendUnit, unusedCostUnavailable, additionalProperties);
   }
 
   @Override
@@ -120,6 +149,9 @@ public class CommitmentsListMeta {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommitmentsListMeta {\n");
     sb.append("    committedSpendUnit: ").append(toIndentedString(committedSpendUnit)).append("\n");
+    sb.append("    unusedCostUnavailable: ")
+        .append(toIndentedString(unusedCostUnavailable))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
