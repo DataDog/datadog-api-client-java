@@ -24,7 +24,7 @@ import java.util.Objects;
 public class AnthropicAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private AnthropicAPIKeyApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private AnthropicAPIKeyType type;
@@ -33,15 +33,18 @@ public class AnthropicAPIKey {
 
   @JsonCreator
   public AnthropicAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) String apiToken,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN)
+          AnthropicAPIKeyApiToken apiToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AnthropicAPIKeyType type) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public AnthropicAPIKey apiToken(String apiToken) {
+  public AnthropicAPIKey apiToken(AnthropicAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -52,12 +55,15 @@ public class AnthropicAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiToken() {
+  public AnthropicAPIKeyApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(AnthropicAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public AnthropicAPIKey type(AnthropicAPIKeyType type) {

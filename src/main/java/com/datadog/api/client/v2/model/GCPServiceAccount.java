@@ -28,10 +28,10 @@ import java.util.Objects;
 public class GCPServiceAccount {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
-  private String privateKey;
+  private GCPServiceAccountPrivateKey privateKey;
 
   public static final String JSON_PROPERTY_SERVICE_ACCOUNT_EMAIL = "service_account_email";
-  private String serviceAccountEmail;
+  private GCPServiceAccountServiceAccountEmail serviceAccountEmail;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private GCPServiceAccountCredentialType type;
@@ -40,19 +40,23 @@ public class GCPServiceAccount {
 
   @JsonCreator
   public GCPServiceAccount(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRIVATE_KEY) String privateKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PRIVATE_KEY)
+          GCPServiceAccountPrivateKey privateKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_ACCOUNT_EMAIL)
-          String serviceAccountEmail,
+          GCPServiceAccountServiceAccountEmail serviceAccountEmail,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           GCPServiceAccountCredentialType type) {
     this.privateKey = privateKey;
+    this.unparsed |= privateKey.unparsed;
     this.serviceAccountEmail = serviceAccountEmail;
+    this.unparsed |= serviceAccountEmail.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public GCPServiceAccount privateKey(String privateKey) {
+  public GCPServiceAccount privateKey(GCPServiceAccountPrivateKey privateKey) {
     this.privateKey = privateKey;
+    this.unparsed |= privateKey.unparsed;
     return this;
   }
 
@@ -63,16 +67,21 @@ public class GCPServiceAccount {
    */
   @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPrivateKey() {
+  public GCPServiceAccountPrivateKey getPrivateKey() {
     return privateKey;
   }
 
-  public void setPrivateKey(String privateKey) {
+  public void setPrivateKey(GCPServiceAccountPrivateKey privateKey) {
     this.privateKey = privateKey;
+    if (privateKey != null) {
+      this.unparsed |= privateKey.unparsed;
+    }
   }
 
-  public GCPServiceAccount serviceAccountEmail(String serviceAccountEmail) {
+  public GCPServiceAccount serviceAccountEmail(
+      GCPServiceAccountServiceAccountEmail serviceAccountEmail) {
     this.serviceAccountEmail = serviceAccountEmail;
+    this.unparsed |= serviceAccountEmail.unparsed;
     return this;
   }
 
@@ -83,12 +92,15 @@ public class GCPServiceAccount {
    */
   @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getServiceAccountEmail() {
+  public GCPServiceAccountServiceAccountEmail getServiceAccountEmail() {
     return serviceAccountEmail;
   }
 
-  public void setServiceAccountEmail(String serviceAccountEmail) {
+  public void setServiceAccountEmail(GCPServiceAccountServiceAccountEmail serviceAccountEmail) {
     this.serviceAccountEmail = serviceAccountEmail;
+    if (serviceAccountEmail != null) {
+      this.unparsed |= serviceAccountEmail.unparsed;
+    }
   }
 
   public GCPServiceAccount type(GCPServiceAccountCredentialType type) {

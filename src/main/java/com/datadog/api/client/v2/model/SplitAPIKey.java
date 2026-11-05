@@ -24,7 +24,7 @@ import java.util.Objects;
 public class SplitAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private SplitAPIKeyApiKey apiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SplitAPIKeyType type;
@@ -33,15 +33,17 @@ public class SplitAPIKey {
 
   @JsonCreator
   public SplitAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) String apiKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) SplitAPIKeyApiKey apiKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SplitAPIKeyType type) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public SplitAPIKey apiKey(String apiKey) {
+  public SplitAPIKey apiKey(SplitAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -52,12 +54,15 @@ public class SplitAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiKey() {
+  public SplitAPIKeyApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(SplitAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public SplitAPIKey type(SplitAPIKeyType type) {

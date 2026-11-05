@@ -27,7 +27,7 @@ import java.util.Objects;
 public class ClickupAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private ClickupAPIKeyUpdateApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ClickupAPIKeyType type;
@@ -41,8 +41,9 @@ public class ClickupAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public ClickupAPIKeyUpdate apiToken(String apiToken) {
+  public ClickupAPIKeyUpdate apiToken(ClickupAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -54,12 +55,15 @@ public class ClickupAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiToken() {
+  public ClickupAPIKeyUpdateApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(ClickupAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public ClickupAPIKeyUpdate type(ClickupAPIKeyType type) {

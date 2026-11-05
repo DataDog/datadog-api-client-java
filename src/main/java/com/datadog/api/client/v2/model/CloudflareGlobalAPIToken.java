@@ -28,10 +28,10 @@ import java.util.Objects;
 public class CloudflareGlobalAPIToken {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_EMAIL = "auth_email";
-  private String authEmail;
+  private CloudflareGlobalAPITokenAuthEmail authEmail;
 
   public static final String JSON_PROPERTY_GLOBAL_API_KEY = "global_api_key";
-  private String globalApiKey;
+  private CloudflareGlobalAPITokenGlobalApiKey globalApiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CloudflareGlobalAPITokenType type;
@@ -40,18 +40,23 @@ public class CloudflareGlobalAPIToken {
 
   @JsonCreator
   public CloudflareGlobalAPIToken(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_EMAIL) String authEmail,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GLOBAL_API_KEY) String globalApiKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_EMAIL)
+          CloudflareGlobalAPITokenAuthEmail authEmail,
+      @JsonProperty(required = true, value = JSON_PROPERTY_GLOBAL_API_KEY)
+          CloudflareGlobalAPITokenGlobalApiKey globalApiKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           CloudflareGlobalAPITokenType type) {
     this.authEmail = authEmail;
+    this.unparsed |= authEmail.unparsed;
     this.globalApiKey = globalApiKey;
+    this.unparsed |= globalApiKey.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public CloudflareGlobalAPIToken authEmail(String authEmail) {
+  public CloudflareGlobalAPIToken authEmail(CloudflareGlobalAPITokenAuthEmail authEmail) {
     this.authEmail = authEmail;
+    this.unparsed |= authEmail.unparsed;
     return this;
   }
 
@@ -62,16 +67,20 @@ public class CloudflareGlobalAPIToken {
    */
   @JsonProperty(JSON_PROPERTY_AUTH_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAuthEmail() {
+  public CloudflareGlobalAPITokenAuthEmail getAuthEmail() {
     return authEmail;
   }
 
-  public void setAuthEmail(String authEmail) {
+  public void setAuthEmail(CloudflareGlobalAPITokenAuthEmail authEmail) {
     this.authEmail = authEmail;
+    if (authEmail != null) {
+      this.unparsed |= authEmail.unparsed;
+    }
   }
 
-  public CloudflareGlobalAPIToken globalApiKey(String globalApiKey) {
+  public CloudflareGlobalAPIToken globalApiKey(CloudflareGlobalAPITokenGlobalApiKey globalApiKey) {
     this.globalApiKey = globalApiKey;
+    this.unparsed |= globalApiKey.unparsed;
     return this;
   }
 
@@ -82,12 +91,15 @@ public class CloudflareGlobalAPIToken {
    */
   @JsonProperty(JSON_PROPERTY_GLOBAL_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getGlobalApiKey() {
+  public CloudflareGlobalAPITokenGlobalApiKey getGlobalApiKey() {
     return globalApiKey;
   }
 
-  public void setGlobalApiKey(String globalApiKey) {
+  public void setGlobalApiKey(CloudflareGlobalAPITokenGlobalApiKey globalApiKey) {
     this.globalApiKey = globalApiKey;
+    if (globalApiKey != null) {
+      this.unparsed |= globalApiKey.unparsed;
+    }
   }
 
   public CloudflareGlobalAPIToken type(CloudflareGlobalAPITokenType type) {

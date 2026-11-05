@@ -28,10 +28,10 @@ import java.util.Objects;
 public class FreshserviceAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private FreshserviceAPIKeyUpdateApiKey apiKey;
 
   public static final String JSON_PROPERTY_DOMAIN = "domain";
-  private String domain;
+  private FreshserviceAPIKeyUpdateDomain domain;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private FreshserviceAPIKeyType type;
@@ -45,8 +45,9 @@ public class FreshserviceAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public FreshserviceAPIKeyUpdate apiKey(String apiKey) {
+  public FreshserviceAPIKeyUpdate apiKey(FreshserviceAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -58,16 +59,20 @@ public class FreshserviceAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiKey() {
+  public FreshserviceAPIKeyUpdateApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(FreshserviceAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
-  public FreshserviceAPIKeyUpdate domain(String domain) {
+  public FreshserviceAPIKeyUpdate domain(FreshserviceAPIKeyUpdateDomain domain) {
     this.domain = domain;
+    this.unparsed |= domain.unparsed;
     return this;
   }
 
@@ -79,12 +84,15 @@ public class FreshserviceAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDomain() {
+  public FreshserviceAPIKeyUpdateDomain getDomain() {
     return domain;
   }
 
-  public void setDomain(String domain) {
+  public void setDomain(FreshserviceAPIKeyUpdateDomain domain) {
     this.domain = domain;
+    if (domain != null) {
+      this.unparsed |= domain.unparsed;
+    }
   }
 
   public FreshserviceAPIKeyUpdate type(FreshserviceAPIKeyType type) {

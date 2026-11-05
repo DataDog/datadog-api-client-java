@@ -34,7 +34,7 @@ public class HTTPToken {
   private TokenType type;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+  private HTTPTokenValue value;
 
   public HTTPToken() {}
 
@@ -42,11 +42,12 @@ public class HTTPToken {
   public HTTPToken(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TokenType type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) HTTPTokenValue value) {
     this.name = name;
     this.type = type;
     this.unparsed |= !type.isValid();
     this.value = value;
+    this.unparsed |= value.unparsed;
   }
 
   public HTTPToken name(String name) {
@@ -93,8 +94,9 @@ public class HTTPToken {
     this.type = type;
   }
 
-  public HTTPToken value(String value) {
+  public HTTPToken value(HTTPTokenValue value) {
     this.value = value;
+    this.unparsed |= value.unparsed;
     return this;
   }
 
@@ -105,12 +107,15 @@ public class HTTPToken {
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getValue() {
+  public HTTPTokenValue getValue() {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(HTTPTokenValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

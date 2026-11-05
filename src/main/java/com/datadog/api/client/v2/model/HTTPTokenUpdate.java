@@ -38,7 +38,7 @@ public class HTTPTokenUpdate {
   private TokenType type;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+  private HTTPTokenValue value;
 
   public HTTPTokenUpdate() {}
 
@@ -46,11 +46,12 @@ public class HTTPTokenUpdate {
   public HTTPTokenUpdate(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TokenType type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) HTTPTokenValue value) {
     this.name = name;
     this.type = type;
     this.unparsed |= !type.isValid();
     this.value = value;
+    this.unparsed |= value.unparsed;
   }
 
   public HTTPTokenUpdate deleted(Boolean deleted) {
@@ -118,8 +119,9 @@ public class HTTPTokenUpdate {
     this.type = type;
   }
 
-  public HTTPTokenUpdate value(String value) {
+  public HTTPTokenUpdate value(HTTPTokenValue value) {
     this.value = value;
+    this.unparsed |= value.unparsed;
     return this;
   }
 
@@ -130,12 +132,15 @@ public class HTTPTokenUpdate {
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getValue() {
+  public HTTPTokenValue getValue() {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(HTTPTokenValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

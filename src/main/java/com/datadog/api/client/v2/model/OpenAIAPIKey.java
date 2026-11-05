@@ -24,7 +24,7 @@ import java.util.Objects;
 public class OpenAIAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private OpenAIAPIKeyApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private OpenAIAPIKeyType type;
@@ -33,15 +33,17 @@ public class OpenAIAPIKey {
 
   @JsonCreator
   public OpenAIAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) String apiToken,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) OpenAIAPIKeyApiToken apiToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) OpenAIAPIKeyType type) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public OpenAIAPIKey apiToken(String apiToken) {
+  public OpenAIAPIKey apiToken(OpenAIAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -52,12 +54,15 @@ public class OpenAIAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiToken() {
+  public OpenAIAPIKeyApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(OpenAIAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public OpenAIAPIKey type(OpenAIAPIKeyType type) {

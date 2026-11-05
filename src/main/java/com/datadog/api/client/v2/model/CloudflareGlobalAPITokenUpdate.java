@@ -28,10 +28,10 @@ import java.util.Objects;
 public class CloudflareGlobalAPITokenUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_EMAIL = "auth_email";
-  private String authEmail;
+  private CloudflareGlobalAPITokenUpdateAuthEmail authEmail;
 
   public static final String JSON_PROPERTY_GLOBAL_API_KEY = "global_api_key";
-  private String globalApiKey;
+  private CloudflareGlobalAPITokenUpdateGlobalApiKey globalApiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CloudflareGlobalAPITokenType type;
@@ -46,8 +46,10 @@ public class CloudflareGlobalAPITokenUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public CloudflareGlobalAPITokenUpdate authEmail(String authEmail) {
+  public CloudflareGlobalAPITokenUpdate authEmail(
+      CloudflareGlobalAPITokenUpdateAuthEmail authEmail) {
     this.authEmail = authEmail;
+    this.unparsed |= authEmail.unparsed;
     return this;
   }
 
@@ -59,16 +61,21 @@ public class CloudflareGlobalAPITokenUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAuthEmail() {
+  public CloudflareGlobalAPITokenUpdateAuthEmail getAuthEmail() {
     return authEmail;
   }
 
-  public void setAuthEmail(String authEmail) {
+  public void setAuthEmail(CloudflareGlobalAPITokenUpdateAuthEmail authEmail) {
     this.authEmail = authEmail;
+    if (authEmail != null) {
+      this.unparsed |= authEmail.unparsed;
+    }
   }
 
-  public CloudflareGlobalAPITokenUpdate globalApiKey(String globalApiKey) {
+  public CloudflareGlobalAPITokenUpdate globalApiKey(
+      CloudflareGlobalAPITokenUpdateGlobalApiKey globalApiKey) {
     this.globalApiKey = globalApiKey;
+    this.unparsed |= globalApiKey.unparsed;
     return this;
   }
 
@@ -80,12 +87,15 @@ public class CloudflareGlobalAPITokenUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GLOBAL_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getGlobalApiKey() {
+  public CloudflareGlobalAPITokenUpdateGlobalApiKey getGlobalApiKey() {
     return globalApiKey;
   }
 
-  public void setGlobalApiKey(String globalApiKey) {
+  public void setGlobalApiKey(CloudflareGlobalAPITokenUpdateGlobalApiKey globalApiKey) {
     this.globalApiKey = globalApiKey;
+    if (globalApiKey != null) {
+      this.unparsed |= globalApiKey.unparsed;
+    }
   }
 
   public CloudflareGlobalAPITokenUpdate type(CloudflareGlobalAPITokenType type) {

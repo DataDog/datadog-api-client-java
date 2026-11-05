@@ -24,7 +24,7 @@ import java.util.Objects;
 public class FastlyAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private FastlyAPIKeyApiKey apiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private FastlyAPIKeyType type;
@@ -33,15 +33,17 @@ public class FastlyAPIKey {
 
   @JsonCreator
   public FastlyAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) String apiKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) FastlyAPIKeyApiKey apiKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FastlyAPIKeyType type) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public FastlyAPIKey apiKey(String apiKey) {
+  public FastlyAPIKey apiKey(FastlyAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -52,12 +54,15 @@ public class FastlyAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiKey() {
+  public FastlyAPIKeyApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(FastlyAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public FastlyAPIKey type(FastlyAPIKeyType type) {

@@ -17,9 +17,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The definition of <code>ActionConnectionAttributesUpdate</code> object. */
 @JsonPropertyOrder({
+  ActionConnectionAttributesUpdate.JSON_PROPERTY_EXTERNAL_SECRETS_MANAGER,
   ActionConnectionAttributesUpdate.JSON_PROPERTY_INTEGRATION,
   ActionConnectionAttributesUpdate.JSON_PROPERTY_NAME,
   ActionConnectionAttributesUpdate.JSON_PROPERTY_TAGS
@@ -28,6 +30,10 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ActionConnectionAttributesUpdate {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXTERNAL_SECRETS_MANAGER = "external_secrets_manager";
+  private JsonNullable<ActionConnectionAWSSecretsManager> externalSecretsManager =
+      JsonNullable.<ActionConnectionAWSSecretsManager>undefined();
+
   public static final String JSON_PROPERTY_INTEGRATION = "integration";
   private ActionConnectionIntegrationUpdate integration;
 
@@ -36,6 +42,42 @@ public class ActionConnectionAttributesUpdate {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public ActionConnectionAttributesUpdate externalSecretsManager(
+      ActionConnectionAWSSecretsManager externalSecretsManager) {
+    this.externalSecretsManager =
+        JsonNullable.<ActionConnectionAWSSecretsManager>of(externalSecretsManager);
+    return this;
+  }
+
+  /**
+   * AWS Secrets Manager settings shared by the credential references on a <code>DATACENTER</code>
+   * connection. These settings are required whenever a field uses an AWS Secrets Manager reference.
+   *
+   * @return externalSecretsManager
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public ActionConnectionAWSSecretsManager getExternalSecretsManager() {
+    return externalSecretsManager.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_SECRETS_MANAGER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<ActionConnectionAWSSecretsManager> getExternalSecretsManager_JsonNullable() {
+    return externalSecretsManager;
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_SECRETS_MANAGER)
+  public void setExternalSecretsManager_JsonNullable(
+      JsonNullable<ActionConnectionAWSSecretsManager> externalSecretsManager) {
+    this.externalSecretsManager = externalSecretsManager;
+  }
+
+  public void setExternalSecretsManager(ActionConnectionAWSSecretsManager externalSecretsManager) {
+    this.externalSecretsManager =
+        JsonNullable.<ActionConnectionAWSSecretsManager>of(externalSecretsManager);
+  }
 
   public ActionConnectionAttributesUpdate integration(
       ActionConnectionIntegrationUpdate integration) {
@@ -171,7 +213,9 @@ public class ActionConnectionAttributesUpdate {
     }
     ActionConnectionAttributesUpdate actionConnectionAttributesUpdate =
         (ActionConnectionAttributesUpdate) o;
-    return Objects.equals(this.integration, actionConnectionAttributesUpdate.integration)
+    return Objects.equals(
+            this.externalSecretsManager, actionConnectionAttributesUpdate.externalSecretsManager)
+        && Objects.equals(this.integration, actionConnectionAttributesUpdate.integration)
         && Objects.equals(this.name, actionConnectionAttributesUpdate.name)
         && Objects.equals(this.tags, actionConnectionAttributesUpdate.tags)
         && Objects.equals(
@@ -180,13 +224,16 @@ public class ActionConnectionAttributesUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(integration, name, tags, additionalProperties);
+    return Objects.hash(externalSecretsManager, integration, name, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActionConnectionAttributesUpdate {\n");
+    sb.append("    externalSecretsManager: ")
+        .append(toIndentedString(externalSecretsManager))
+        .append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
