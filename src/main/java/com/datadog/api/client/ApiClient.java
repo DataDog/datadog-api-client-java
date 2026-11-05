@@ -1643,6 +1643,9 @@ public class ApiClient {
           put("v2.getEntityRiskScore", false);
           put("v2.listEntityRiskScores", false);
           put("v2.addSTIXThreatIntel", false);
+          put("v2.countSecurityAgentInvestigations", false);
+          put("v2.getSecurityAgentInvestigation", false);
+          put("v2.listSecurityAgentInvestigations", false);
           put("v2.createSLOReportJob", false);
           put("v2.getSLOReport", false);
           put("v2.getSLOReportJobStatus", false);
