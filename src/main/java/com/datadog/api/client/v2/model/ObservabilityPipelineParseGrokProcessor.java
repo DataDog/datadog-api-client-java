@@ -58,7 +58,7 @@ public class ObservabilityPipelineParseGrokProcessor {
   private String include;
 
   public static final String JSON_PROPERTY_RULES = "rules";
-  private List<ObservabilityPipelineParseGrokProcessorRuleItem> rules = new ArrayList<>();
+  private List<ObservabilityPipelineParseGrokProcessorRuleItem> rules = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineParseGrokProcessorType type =
@@ -71,17 +71,11 @@ public class ObservabilityPipelineParseGrokProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
-          List<ObservabilityPipelineParseGrokProcessorRuleItem> rules,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineParseGrokProcessorType type) {
     this.enabled = enabled;
     this.id = id;
     this.include = include;
-    this.rules = rules;
-    for (ObservabilityPipelineParseGrokProcessorRuleItem item : rules) {
-      this.unparsed |= item.unparsed;
-    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -212,26 +206,33 @@ public class ObservabilityPipelineParseGrokProcessor {
   public ObservabilityPipelineParseGrokProcessor rules(
       List<ObservabilityPipelineParseGrokProcessorRuleItem> rules) {
     this.rules = rules;
-    for (ObservabilityPipelineParseGrokProcessorRuleItem item : rules) {
-      this.unparsed |= item.unparsed;
+    if (rules != null) {
+      for (ObservabilityPipelineParseGrokProcessorRuleItem item : rules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
 
   public ObservabilityPipelineParseGrokProcessor addRulesItem(
       ObservabilityPipelineParseGrokProcessorRuleItem rulesItem) {
+    if (this.rules == null) {
+      this.rules = new ArrayList<>();
+    }
     this.rules.add(rulesItem);
     this.unparsed |= rulesItem.unparsed;
     return this;
   }
 
   /**
-   * The list of Grok parsing rules selected by either source field or include query.
+   * The list of custom Grok parsing rules selected by either source field or include query. Omit to
+   * use only the Datadog library rules.
    *
    * @return rules
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RULES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ObservabilityPipelineParseGrokProcessorRuleItem> getRules() {
     return rules;
   }
