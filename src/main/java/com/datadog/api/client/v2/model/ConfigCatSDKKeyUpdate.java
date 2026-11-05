@@ -29,13 +29,13 @@ import java.util.Objects;
 public class ConfigCatSDKKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_PASSWORD = "api_password";
-  private String apiPassword;
+  private ConfigCatSDKKeyUpdateApiPassword apiPassword;
 
   public static final String JSON_PROPERTY_API_USERNAME = "api_username";
-  private String apiUsername;
+  private ConfigCatSDKKeyUpdateApiUsername apiUsername;
 
   public static final String JSON_PROPERTY_SDK_KEY = "sdk_key";
-  private String sdkKey;
+  private ConfigCatSDKKeyUpdateSdkKey sdkKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ConfigCatSDKKeyType type;
@@ -49,8 +49,9 @@ public class ConfigCatSDKKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public ConfigCatSDKKeyUpdate apiPassword(String apiPassword) {
+  public ConfigCatSDKKeyUpdate apiPassword(ConfigCatSDKKeyUpdateApiPassword apiPassword) {
     this.apiPassword = apiPassword;
+    this.unparsed |= apiPassword.unparsed;
     return this;
   }
 
@@ -62,16 +63,20 @@ public class ConfigCatSDKKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiPassword() {
+  public ConfigCatSDKKeyUpdateApiPassword getApiPassword() {
     return apiPassword;
   }
 
-  public void setApiPassword(String apiPassword) {
+  public void setApiPassword(ConfigCatSDKKeyUpdateApiPassword apiPassword) {
     this.apiPassword = apiPassword;
+    if (apiPassword != null) {
+      this.unparsed |= apiPassword.unparsed;
+    }
   }
 
-  public ConfigCatSDKKeyUpdate apiUsername(String apiUsername) {
+  public ConfigCatSDKKeyUpdate apiUsername(ConfigCatSDKKeyUpdateApiUsername apiUsername) {
     this.apiUsername = apiUsername;
+    this.unparsed |= apiUsername.unparsed;
     return this;
   }
 
@@ -83,16 +88,20 @@ public class ConfigCatSDKKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiUsername() {
+  public ConfigCatSDKKeyUpdateApiUsername getApiUsername() {
     return apiUsername;
   }
 
-  public void setApiUsername(String apiUsername) {
+  public void setApiUsername(ConfigCatSDKKeyUpdateApiUsername apiUsername) {
     this.apiUsername = apiUsername;
+    if (apiUsername != null) {
+      this.unparsed |= apiUsername.unparsed;
+    }
   }
 
-  public ConfigCatSDKKeyUpdate sdkKey(String sdkKey) {
+  public ConfigCatSDKKeyUpdate sdkKey(ConfigCatSDKKeyUpdateSdkKey sdkKey) {
     this.sdkKey = sdkKey;
+    this.unparsed |= sdkKey.unparsed;
     return this;
   }
 
@@ -104,12 +113,15 @@ public class ConfigCatSDKKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SDK_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSdkKey() {
+  public ConfigCatSDKKeyUpdateSdkKey getSdkKey() {
     return sdkKey;
   }
 
-  public void setSdkKey(String sdkKey) {
+  public void setSdkKey(ConfigCatSDKKeyUpdateSdkKey sdkKey) {
     this.sdkKey = sdkKey;
+    if (sdkKey != null) {
+      this.unparsed |= sdkKey.unparsed;
+    }
   }
 
   public ConfigCatSDKKeyUpdate type(ConfigCatSDKKeyType type) {

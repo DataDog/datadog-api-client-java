@@ -24,7 +24,7 @@ import java.util.Objects;
 public class GreyNoiseAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private GreyNoiseAPIKeyApiKey apiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private GreyNoiseAPIKeyType type;
@@ -33,15 +33,17 @@ public class GreyNoiseAPIKey {
 
   @JsonCreator
   public GreyNoiseAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) String apiKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) GreyNoiseAPIKeyApiKey apiKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GreyNoiseAPIKeyType type) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public GreyNoiseAPIKey apiKey(String apiKey) {
+  public GreyNoiseAPIKey apiKey(GreyNoiseAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -52,12 +54,15 @@ public class GreyNoiseAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiKey() {
+  public GreyNoiseAPIKeyApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(GreyNoiseAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public GreyNoiseAPIKey type(GreyNoiseAPIKeyType type) {

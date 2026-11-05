@@ -27,7 +27,7 @@ import java.util.Objects;
 public class GeminiAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private GeminiAPIKeyUpdateApiKey apiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private GeminiAPIKeyType type;
@@ -41,8 +41,9 @@ public class GeminiAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public GeminiAPIKeyUpdate apiKey(String apiKey) {
+  public GeminiAPIKeyUpdate apiKey(GeminiAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -54,12 +55,15 @@ public class GeminiAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiKey() {
+  public GeminiAPIKeyUpdateApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(GeminiAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public GeminiAPIKeyUpdate type(GeminiAPIKeyType type) {

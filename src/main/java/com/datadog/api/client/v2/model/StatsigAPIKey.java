@@ -24,7 +24,7 @@ import java.util.Objects;
 public class StatsigAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private StatsigAPIKeyApiKey apiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private StatsigAPIKeyType type;
@@ -33,15 +33,17 @@ public class StatsigAPIKey {
 
   @JsonCreator
   public StatsigAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) String apiKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) StatsigAPIKeyApiKey apiKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) StatsigAPIKeyType type) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public StatsigAPIKey apiKey(String apiKey) {
+  public StatsigAPIKey apiKey(StatsigAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -52,12 +54,15 @@ public class StatsigAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiKey() {
+  public StatsigAPIKeyApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(StatsigAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public StatsigAPIKey type(StatsigAPIKeyType type) {

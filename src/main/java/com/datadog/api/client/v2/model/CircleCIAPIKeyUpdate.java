@@ -27,7 +27,7 @@ import java.util.Objects;
 public class CircleCIAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private CircleCIAPIKeyUpdateApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CircleCIAPIKeyType type;
@@ -41,8 +41,9 @@ public class CircleCIAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public CircleCIAPIKeyUpdate apiToken(String apiToken) {
+  public CircleCIAPIKeyUpdate apiToken(CircleCIAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -54,12 +55,15 @@ public class CircleCIAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiToken() {
+  public CircleCIAPIKeyUpdateApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(CircleCIAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public CircleCIAPIKeyUpdate type(CircleCIAPIKeyType type) {

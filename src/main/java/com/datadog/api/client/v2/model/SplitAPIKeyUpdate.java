@@ -24,7 +24,7 @@ import java.util.Objects;
 public class SplitAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private SplitAPIKeyUpdateApiKey apiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SplitAPIKeyType type;
@@ -38,8 +38,9 @@ public class SplitAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public SplitAPIKeyUpdate apiKey(String apiKey) {
+  public SplitAPIKeyUpdate apiKey(SplitAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -51,12 +52,15 @@ public class SplitAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiKey() {
+  public SplitAPIKeyUpdateApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(SplitAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public SplitAPIKeyUpdate type(SplitAPIKeyType type) {

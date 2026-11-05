@@ -27,7 +27,7 @@ import java.util.Objects;
 public class VirusTotalAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private VirusTotalAPIKeyUpdateApiKey apiKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private VirusTotalAPIKeyType type;
@@ -41,8 +41,9 @@ public class VirusTotalAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public VirusTotalAPIKeyUpdate apiKey(String apiKey) {
+  public VirusTotalAPIKeyUpdate apiKey(VirusTotalAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -54,12 +55,15 @@ public class VirusTotalAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiKey() {
+  public VirusTotalAPIKeyUpdateApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(VirusTotalAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public VirusTotalAPIKeyUpdate type(VirusTotalAPIKeyType type) {

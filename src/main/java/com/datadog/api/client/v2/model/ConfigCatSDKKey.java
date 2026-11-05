@@ -29,13 +29,13 @@ import java.util.Objects;
 public class ConfigCatSDKKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_PASSWORD = "api_password";
-  private String apiPassword;
+  private ConfigCatSDKKeyApiPassword apiPassword;
 
   public static final String JSON_PROPERTY_API_USERNAME = "api_username";
-  private String apiUsername;
+  private ConfigCatSDKKeyApiUsername apiUsername;
 
   public static final String JSON_PROPERTY_SDK_KEY = "sdk_key";
-  private String sdkKey;
+  private ConfigCatSDKKeySdkKey sdkKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ConfigCatSDKKeyType type;
@@ -44,19 +44,25 @@ public class ConfigCatSDKKey {
 
   @JsonCreator
   public ConfigCatSDKKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_PASSWORD) String apiPassword,
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_USERNAME) String apiUsername,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SDK_KEY) String sdkKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_PASSWORD)
+          ConfigCatSDKKeyApiPassword apiPassword,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_USERNAME)
+          ConfigCatSDKKeyApiUsername apiUsername,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SDK_KEY) ConfigCatSDKKeySdkKey sdkKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ConfigCatSDKKeyType type) {
     this.apiPassword = apiPassword;
+    this.unparsed |= apiPassword.unparsed;
     this.apiUsername = apiUsername;
+    this.unparsed |= apiUsername.unparsed;
     this.sdkKey = sdkKey;
+    this.unparsed |= sdkKey.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ConfigCatSDKKey apiPassword(String apiPassword) {
+  public ConfigCatSDKKey apiPassword(ConfigCatSDKKeyApiPassword apiPassword) {
     this.apiPassword = apiPassword;
+    this.unparsed |= apiPassword.unparsed;
     return this;
   }
 
@@ -67,16 +73,20 @@ public class ConfigCatSDKKey {
    */
   @JsonProperty(JSON_PROPERTY_API_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiPassword() {
+  public ConfigCatSDKKeyApiPassword getApiPassword() {
     return apiPassword;
   }
 
-  public void setApiPassword(String apiPassword) {
+  public void setApiPassword(ConfigCatSDKKeyApiPassword apiPassword) {
     this.apiPassword = apiPassword;
+    if (apiPassword != null) {
+      this.unparsed |= apiPassword.unparsed;
+    }
   }
 
-  public ConfigCatSDKKey apiUsername(String apiUsername) {
+  public ConfigCatSDKKey apiUsername(ConfigCatSDKKeyApiUsername apiUsername) {
     this.apiUsername = apiUsername;
+    this.unparsed |= apiUsername.unparsed;
     return this;
   }
 
@@ -87,16 +97,20 @@ public class ConfigCatSDKKey {
    */
   @JsonProperty(JSON_PROPERTY_API_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiUsername() {
+  public ConfigCatSDKKeyApiUsername getApiUsername() {
     return apiUsername;
   }
 
-  public void setApiUsername(String apiUsername) {
+  public void setApiUsername(ConfigCatSDKKeyApiUsername apiUsername) {
     this.apiUsername = apiUsername;
+    if (apiUsername != null) {
+      this.unparsed |= apiUsername.unparsed;
+    }
   }
 
-  public ConfigCatSDKKey sdkKey(String sdkKey) {
+  public ConfigCatSDKKey sdkKey(ConfigCatSDKKeySdkKey sdkKey) {
     this.sdkKey = sdkKey;
+    this.unparsed |= sdkKey.unparsed;
     return this;
   }
 
@@ -107,12 +121,15 @@ public class ConfigCatSDKKey {
    */
   @JsonProperty(JSON_PROPERTY_SDK_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSdkKey() {
+  public ConfigCatSDKKeySdkKey getSdkKey() {
     return sdkKey;
   }
 
-  public void setSdkKey(String sdkKey) {
+  public void setSdkKey(ConfigCatSDKKeySdkKey sdkKey) {
     this.sdkKey = sdkKey;
+    if (sdkKey != null) {
+      this.unparsed |= sdkKey.unparsed;
+    }
   }
 
   public ConfigCatSDKKey type(ConfigCatSDKKeyType type) {

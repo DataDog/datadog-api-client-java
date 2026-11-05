@@ -28,10 +28,10 @@ import java.util.Objects;
 public class OktaAPITokenUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private OktaAPITokenUpdateApiToken apiToken;
 
   public static final String JSON_PROPERTY_DOMAIN = "domain";
-  private String domain;
+  private OktaAPITokenUpdateDomain domain;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private OktaAPITokenType type;
@@ -45,8 +45,9 @@ public class OktaAPITokenUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public OktaAPITokenUpdate apiToken(String apiToken) {
+  public OktaAPITokenUpdate apiToken(OktaAPITokenUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -58,16 +59,20 @@ public class OktaAPITokenUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiToken() {
+  public OktaAPITokenUpdateApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(OktaAPITokenUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
-  public OktaAPITokenUpdate domain(String domain) {
+  public OktaAPITokenUpdate domain(OktaAPITokenUpdateDomain domain) {
     this.domain = domain;
+    this.unparsed |= domain.unparsed;
     return this;
   }
 
@@ -79,12 +84,15 @@ public class OktaAPITokenUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDomain() {
+  public OktaAPITokenUpdateDomain getDomain() {
     return domain;
   }
 
-  public void setDomain(String domain) {
+  public void setDomain(OktaAPITokenUpdateDomain domain) {
     this.domain = domain;
+    if (domain != null) {
+      this.unparsed |= domain.unparsed;
+    }
   }
 
   public OktaAPITokenUpdate type(OktaAPITokenType type) {

@@ -29,34 +29,41 @@ import java.util.Objects;
 public class ServiceNowBasicAuth {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private String instance;
+  private ServiceNowBasicAuthInstance instance;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  private String password;
+  private ServiceNowBasicAuthPassword password;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ServiceNowBasicAuthType type;
 
   public static final String JSON_PROPERTY_USERNAME = "username";
-  private String username;
+  private ServiceNowBasicAuthUsername username;
 
   public ServiceNowBasicAuth() {}
 
   @JsonCreator
   public ServiceNowBasicAuth(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INSTANCE) String instance,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INSTANCE)
+          ServiceNowBasicAuthInstance instance,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD)
+          ServiceNowBasicAuthPassword password,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ServiceNowBasicAuthType type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME)
+          ServiceNowBasicAuthUsername username) {
     this.instance = instance;
+    this.unparsed |= instance.unparsed;
     this.password = password;
+    this.unparsed |= password.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
     this.username = username;
+    this.unparsed |= username.unparsed;
   }
 
-  public ServiceNowBasicAuth instance(String instance) {
+  public ServiceNowBasicAuth instance(ServiceNowBasicAuthInstance instance) {
     this.instance = instance;
+    this.unparsed |= instance.unparsed;
     return this;
   }
 
@@ -67,16 +74,20 @@ public class ServiceNowBasicAuth {
    */
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getInstance() {
+  public ServiceNowBasicAuthInstance getInstance() {
     return instance;
   }
 
-  public void setInstance(String instance) {
+  public void setInstance(ServiceNowBasicAuthInstance instance) {
     this.instance = instance;
+    if (instance != null) {
+      this.unparsed |= instance.unparsed;
+    }
   }
 
-  public ServiceNowBasicAuth password(String password) {
+  public ServiceNowBasicAuth password(ServiceNowBasicAuthPassword password) {
     this.password = password;
+    this.unparsed |= password.unparsed;
     return this;
   }
 
@@ -87,12 +98,15 @@ public class ServiceNowBasicAuth {
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPassword() {
+  public ServiceNowBasicAuthPassword getPassword() {
     return password;
   }
 
-  public void setPassword(String password) {
+  public void setPassword(ServiceNowBasicAuthPassword password) {
     this.password = password;
+    if (password != null) {
+      this.unparsed |= password.unparsed;
+    }
   }
 
   public ServiceNowBasicAuth type(ServiceNowBasicAuthType type) {
@@ -119,8 +133,9 @@ public class ServiceNowBasicAuth {
     this.type = type;
   }
 
-  public ServiceNowBasicAuth username(String username) {
+  public ServiceNowBasicAuth username(ServiceNowBasicAuthUsername username) {
     this.username = username;
+    this.unparsed |= username.unparsed;
     return this;
   }
 
@@ -131,12 +146,15 @@ public class ServiceNowBasicAuth {
    */
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUsername() {
+  public ServiceNowBasicAuthUsername getUsername() {
     return username;
   }
 
-  public void setUsername(String username) {
+  public void setUsername(ServiceNowBasicAuthUsername username) {
     this.username = username;
+    if (username != null) {
+      this.unparsed |= username.unparsed;
+    }
   }
 
   /**

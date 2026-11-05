@@ -27,7 +27,7 @@ import java.util.Objects;
 public class OpenAIAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private OpenAIAPIKeyUpdateApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private OpenAIAPIKeyType type;
@@ -41,8 +41,9 @@ public class OpenAIAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public OpenAIAPIKeyUpdate apiToken(String apiToken) {
+  public OpenAIAPIKeyUpdate apiToken(OpenAIAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -54,12 +55,15 @@ public class OpenAIAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiToken() {
+  public OpenAIAPIKeyUpdateApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(OpenAIAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public OpenAIAPIKeyUpdate type(OpenAIAPIKeyType type) {

@@ -28,10 +28,10 @@ import java.util.Objects;
 public class OktaAPIToken {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private OktaAPITokenApiToken apiToken;
 
   public static final String JSON_PROPERTY_DOMAIN = "domain";
-  private String domain;
+  private OktaAPITokenDomain domain;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private OktaAPITokenType type;
@@ -40,17 +40,20 @@ public class OktaAPIToken {
 
   @JsonCreator
   public OktaAPIToken(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) String apiToken,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) OktaAPITokenApiToken apiToken,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) OktaAPITokenDomain domain,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) OktaAPITokenType type) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     this.domain = domain;
+    this.unparsed |= domain.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public OktaAPIToken apiToken(String apiToken) {
+  public OktaAPIToken apiToken(OktaAPITokenApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -61,16 +64,20 @@ public class OktaAPIToken {
    */
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiToken() {
+  public OktaAPITokenApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(OktaAPITokenApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
-  public OktaAPIToken domain(String domain) {
+  public OktaAPIToken domain(OktaAPITokenDomain domain) {
     this.domain = domain;
+    this.unparsed |= domain.unparsed;
     return this;
   }
 
@@ -81,12 +88,15 @@ public class OktaAPIToken {
    */
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDomain() {
+  public OktaAPITokenDomain getDomain() {
     return domain;
   }
 
-  public void setDomain(String domain) {
+  public void setDomain(OktaAPITokenDomain domain) {
     this.domain = domain;
+    if (domain != null) {
+      this.unparsed |= domain.unparsed;
+    }
   }
 
   public OktaAPIToken type(OktaAPITokenType type) {

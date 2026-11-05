@@ -27,7 +27,7 @@ import java.util.Objects;
 public class CloudflareAPITokenUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private CloudflareAPITokenUpdateApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CloudflareAPITokenType type;
@@ -41,8 +41,9 @@ public class CloudflareAPITokenUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public CloudflareAPITokenUpdate apiToken(String apiToken) {
+  public CloudflareAPITokenUpdate apiToken(CloudflareAPITokenUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -54,12 +55,15 @@ public class CloudflareAPITokenUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiToken() {
+  public CloudflareAPITokenUpdateApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(CloudflareAPITokenUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public CloudflareAPITokenUpdate type(CloudflareAPITokenType type) {

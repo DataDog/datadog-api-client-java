@@ -24,7 +24,7 @@ import java.util.Objects;
 public class NotionAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private NotionAPIKeyApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private NotionAPIKeyType type;
@@ -33,15 +33,17 @@ public class NotionAPIKey {
 
   @JsonCreator
   public NotionAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) String apiToken,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) NotionAPIKeyApiToken apiToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) NotionAPIKeyType type) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public NotionAPIKey apiToken(String apiToken) {
+  public NotionAPIKey apiToken(NotionAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -52,12 +54,15 @@ public class NotionAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiToken() {
+  public NotionAPIKeyApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(NotionAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public NotionAPIKey type(NotionAPIKeyType type) {

@@ -27,7 +27,7 @@ import java.util.Objects;
 public class AsanaAccessToken {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
-  private String accessToken;
+  private AsanaAccessTokenAccessToken accessToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private AsanaAccessTokenType type;
@@ -36,15 +36,18 @@ public class AsanaAccessToken {
 
   @JsonCreator
   public AsanaAccessToken(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCESS_TOKEN) String accessToken,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCESS_TOKEN)
+          AsanaAccessTokenAccessToken accessToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AsanaAccessTokenType type) {
     this.accessToken = accessToken;
+    this.unparsed |= accessToken.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public AsanaAccessToken accessToken(String accessToken) {
+  public AsanaAccessToken accessToken(AsanaAccessTokenAccessToken accessToken) {
     this.accessToken = accessToken;
+    this.unparsed |= accessToken.unparsed;
     return this;
   }
 
@@ -55,12 +58,15 @@ public class AsanaAccessToken {
    */
   @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAccessToken() {
+  public AsanaAccessTokenAccessToken getAccessToken() {
     return accessToken;
   }
 
-  public void setAccessToken(String accessToken) {
+  public void setAccessToken(AsanaAccessTokenAccessToken accessToken) {
     this.accessToken = accessToken;
+    if (accessToken != null) {
+      this.unparsed |= accessToken.unparsed;
+    }
   }
 
   public AsanaAccessToken type(AsanaAccessTokenType type) {

@@ -24,7 +24,7 @@ import java.util.Objects;
 public class GitlabAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private GitlabAPIKeyApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private GitlabAPIKeyType type;
@@ -33,15 +33,17 @@ public class GitlabAPIKey {
 
   @JsonCreator
   public GitlabAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) String apiToken,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) GitlabAPIKeyApiToken apiToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GitlabAPIKeyType type) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public GitlabAPIKey apiToken(String apiToken) {
+  public GitlabAPIKey apiToken(GitlabAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -52,12 +54,15 @@ public class GitlabAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiToken() {
+  public GitlabAPIKeyApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(GitlabAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public GitlabAPIKey type(GitlabAPIKeyType type) {

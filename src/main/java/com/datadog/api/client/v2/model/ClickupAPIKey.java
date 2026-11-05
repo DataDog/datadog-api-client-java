@@ -24,7 +24,7 @@ import java.util.Objects;
 public class ClickupAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private ClickupAPIKeyApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ClickupAPIKeyType type;
@@ -33,15 +33,18 @@ public class ClickupAPIKey {
 
   @JsonCreator
   public ClickupAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN) String apiToken,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_TOKEN)
+          ClickupAPIKeyApiToken apiToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ClickupAPIKeyType type) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ClickupAPIKey apiToken(String apiToken) {
+  public ClickupAPIKey apiToken(ClickupAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -52,12 +55,15 @@ public class ClickupAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiToken() {
+  public ClickupAPIKeyApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(ClickupAPIKeyApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public ClickupAPIKey type(ClickupAPIKeyType type) {

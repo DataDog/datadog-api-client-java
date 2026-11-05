@@ -28,10 +28,10 @@ import java.util.Objects;
 public class GCPServiceAccountUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
-  private String privateKey;
+  private GCPServiceAccountUpdatePrivateKey privateKey;
 
   public static final String JSON_PROPERTY_SERVICE_ACCOUNT_EMAIL = "service_account_email";
-  private String serviceAccountEmail;
+  private GCPServiceAccountUpdateServiceAccountEmail serviceAccountEmail;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private GCPServiceAccountCredentialType type;
@@ -46,8 +46,9 @@ public class GCPServiceAccountUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public GCPServiceAccountUpdate privateKey(String privateKey) {
+  public GCPServiceAccountUpdate privateKey(GCPServiceAccountUpdatePrivateKey privateKey) {
     this.privateKey = privateKey;
+    this.unparsed |= privateKey.unparsed;
     return this;
   }
 
@@ -59,16 +60,21 @@ public class GCPServiceAccountUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPrivateKey() {
+  public GCPServiceAccountUpdatePrivateKey getPrivateKey() {
     return privateKey;
   }
 
-  public void setPrivateKey(String privateKey) {
+  public void setPrivateKey(GCPServiceAccountUpdatePrivateKey privateKey) {
     this.privateKey = privateKey;
+    if (privateKey != null) {
+      this.unparsed |= privateKey.unparsed;
+    }
   }
 
-  public GCPServiceAccountUpdate serviceAccountEmail(String serviceAccountEmail) {
+  public GCPServiceAccountUpdate serviceAccountEmail(
+      GCPServiceAccountUpdateServiceAccountEmail serviceAccountEmail) {
     this.serviceAccountEmail = serviceAccountEmail;
+    this.unparsed |= serviceAccountEmail.unparsed;
     return this;
   }
 
@@ -80,12 +86,16 @@ public class GCPServiceAccountUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getServiceAccountEmail() {
+  public GCPServiceAccountUpdateServiceAccountEmail getServiceAccountEmail() {
     return serviceAccountEmail;
   }
 
-  public void setServiceAccountEmail(String serviceAccountEmail) {
+  public void setServiceAccountEmail(
+      GCPServiceAccountUpdateServiceAccountEmail serviceAccountEmail) {
     this.serviceAccountEmail = serviceAccountEmail;
+    if (serviceAccountEmail != null) {
+      this.unparsed |= serviceAccountEmail.unparsed;
+    }
   }
 
   public GCPServiceAccountUpdate type(GCPServiceAccountCredentialType type) {

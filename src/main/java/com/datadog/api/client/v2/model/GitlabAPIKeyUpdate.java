@@ -27,7 +27,7 @@ import java.util.Objects;
 public class GitlabAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
-  private String apiToken;
+  private GitlabAPIKeyUpdateApiToken apiToken;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private GitlabAPIKeyType type;
@@ -41,8 +41,9 @@ public class GitlabAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public GitlabAPIKeyUpdate apiToken(String apiToken) {
+  public GitlabAPIKeyUpdate apiToken(GitlabAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    this.unparsed |= apiToken.unparsed;
     return this;
   }
 
@@ -54,12 +55,15 @@ public class GitlabAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiToken() {
+  public GitlabAPIKeyUpdateApiToken getApiToken() {
     return apiToken;
   }
 
-  public void setApiToken(String apiToken) {
+  public void setApiToken(GitlabAPIKeyUpdateApiToken apiToken) {
     this.apiToken = apiToken;
+    if (apiToken != null) {
+      this.unparsed |= apiToken.unparsed;
+    }
   }
 
   public GitlabAPIKeyUpdate type(GitlabAPIKeyType type) {

@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   HTTPTokenAuth.JSON_PROPERTY_BODY,
   HTTPTokenAuth.JSON_PROPERTY_HEADERS,
+  HTTPTokenAuth.JSON_PROPERTY_HTTP_TOKENS,
   HTTPTokenAuth.JSON_PROPERTY_TOKENS,
   HTTPTokenAuth.JSON_PROPERTY_TYPE,
   HTTPTokenAuth.JSON_PROPERTY_URL_PARAMETERS
@@ -36,6 +37,9 @@ public class HTTPTokenAuth {
 
   public static final String JSON_PROPERTY_HEADERS = "headers";
   private List<HTTPHeader> headers = null;
+
+  public static final String JSON_PROPERTY_HTTP_TOKENS = "http_tokens";
+  private List<HTTPTokenResponse> httpTokens = null;
 
   public static final String JSON_PROPERTY_TOKENS = "tokens";
   private List<HTTPToken> tokens = null;
@@ -118,6 +122,19 @@ public class HTTPTokenAuth {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  /**
+   * HTTP authentication tokens returned by the API. Use <code>tokens</code> when creating or
+   * updating tokens.
+   *
+   * @return httpTokens
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_TOKENS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<HTTPTokenResponse> getHttpTokens() {
+    return httpTokens;
   }
 
   public HTTPTokenAuth tokens(List<HTTPToken> tokens) {
@@ -282,6 +299,7 @@ public class HTTPTokenAuth {
     HTTPTokenAuth httpTokenAuth = (HTTPTokenAuth) o;
     return Objects.equals(this.body, httpTokenAuth.body)
         && Objects.equals(this.headers, httpTokenAuth.headers)
+        && Objects.equals(this.httpTokens, httpTokenAuth.httpTokens)
         && Objects.equals(this.tokens, httpTokenAuth.tokens)
         && Objects.equals(this.type, httpTokenAuth.type)
         && Objects.equals(this.urlParameters, httpTokenAuth.urlParameters)
@@ -290,7 +308,8 @@ public class HTTPTokenAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, headers, tokens, type, urlParameters, additionalProperties);
+    return Objects.hash(
+        body, headers, httpTokens, tokens, type, urlParameters, additionalProperties);
   }
 
   @Override
@@ -299,6 +318,7 @@ public class HTTPTokenAuth {
     sb.append("class HTTPTokenAuth {\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
+    sb.append("    httpTokens: ").append(toIndentedString(httpTokens)).append("\n");
     sb.append("    tokens: ").append(toIndentedString(tokens)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    urlParameters: ").append(toIndentedString(urlParameters)).append("\n");

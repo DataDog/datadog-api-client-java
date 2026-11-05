@@ -30,16 +30,16 @@ import java.util.Objects;
 public class DatadogAPIKeyUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private DatadogAPIKeyUpdateApiKey apiKey;
 
   public static final String JSON_PROPERTY_APP_KEY = "app_key";
-  private String appKey;
+  private DatadogAPIKeyUpdateAppKey appKey;
 
   public static final String JSON_PROPERTY_DATACENTER = "datacenter";
-  private String datacenter;
+  private DatadogAPIKeyUpdateDatacenter datacenter;
 
   public static final String JSON_PROPERTY_SUBDOMAIN = "subdomain";
-  private String subdomain;
+  private DatadogAPIKeySubdomain subdomain;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private DatadogAPIKeyType type;
@@ -53,8 +53,9 @@ public class DatadogAPIKeyUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public DatadogAPIKeyUpdate apiKey(String apiKey) {
+  public DatadogAPIKeyUpdate apiKey(DatadogAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -66,16 +67,20 @@ public class DatadogAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiKey() {
+  public DatadogAPIKeyUpdateApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(DatadogAPIKeyUpdateApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
-  public DatadogAPIKeyUpdate appKey(String appKey) {
+  public DatadogAPIKeyUpdate appKey(DatadogAPIKeyUpdateAppKey appKey) {
     this.appKey = appKey;
+    this.unparsed |= appKey.unparsed;
     return this;
   }
 
@@ -87,16 +92,20 @@ public class DatadogAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APP_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAppKey() {
+  public DatadogAPIKeyUpdateAppKey getAppKey() {
     return appKey;
   }
 
-  public void setAppKey(String appKey) {
+  public void setAppKey(DatadogAPIKeyUpdateAppKey appKey) {
     this.appKey = appKey;
+    if (appKey != null) {
+      this.unparsed |= appKey.unparsed;
+    }
   }
 
-  public DatadogAPIKeyUpdate datacenter(String datacenter) {
+  public DatadogAPIKeyUpdate datacenter(DatadogAPIKeyUpdateDatacenter datacenter) {
     this.datacenter = datacenter;
+    this.unparsed |= datacenter.unparsed;
     return this;
   }
 
@@ -108,16 +117,20 @@ public class DatadogAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATACENTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDatacenter() {
+  public DatadogAPIKeyUpdateDatacenter getDatacenter() {
     return datacenter;
   }
 
-  public void setDatacenter(String datacenter) {
+  public void setDatacenter(DatadogAPIKeyUpdateDatacenter datacenter) {
     this.datacenter = datacenter;
+    if (datacenter != null) {
+      this.unparsed |= datacenter.unparsed;
+    }
   }
 
-  public DatadogAPIKeyUpdate subdomain(String subdomain) {
+  public DatadogAPIKeyUpdate subdomain(DatadogAPIKeySubdomain subdomain) {
     this.subdomain = subdomain;
+    this.unparsed |= subdomain.unparsed;
     return this;
   }
 
@@ -133,12 +146,15 @@ public class DatadogAPIKeyUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBDOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSubdomain() {
+  public DatadogAPIKeySubdomain getSubdomain() {
     return subdomain;
   }
 
-  public void setSubdomain(String subdomain) {
+  public void setSubdomain(DatadogAPIKeySubdomain subdomain) {
     this.subdomain = subdomain;
+    if (subdomain != null) {
+      this.unparsed |= subdomain.unparsed;
+    }
   }
 
   public DatadogAPIKeyUpdate type(DatadogAPIKeyType type) {

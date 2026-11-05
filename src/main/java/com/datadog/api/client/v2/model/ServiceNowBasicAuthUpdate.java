@@ -29,16 +29,16 @@ import java.util.Objects;
 public class ServiceNowBasicAuthUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private String instance;
+  private ServiceNowBasicAuthUpdateInstance instance;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
-  private String password;
+  private ServiceNowBasicAuthUpdatePassword password;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ServiceNowBasicAuthType type;
 
   public static final String JSON_PROPERTY_USERNAME = "username";
-  private String username;
+  private ServiceNowBasicAuthUpdateUsername username;
 
   public ServiceNowBasicAuthUpdate() {}
 
@@ -49,8 +49,9 @@ public class ServiceNowBasicAuthUpdate {
     this.unparsed |= !type.isValid();
   }
 
-  public ServiceNowBasicAuthUpdate instance(String instance) {
+  public ServiceNowBasicAuthUpdate instance(ServiceNowBasicAuthUpdateInstance instance) {
     this.instance = instance;
+    this.unparsed |= instance.unparsed;
     return this;
   }
 
@@ -62,16 +63,20 @@ public class ServiceNowBasicAuthUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInstance() {
+  public ServiceNowBasicAuthUpdateInstance getInstance() {
     return instance;
   }
 
-  public void setInstance(String instance) {
+  public void setInstance(ServiceNowBasicAuthUpdateInstance instance) {
     this.instance = instance;
+    if (instance != null) {
+      this.unparsed |= instance.unparsed;
+    }
   }
 
-  public ServiceNowBasicAuthUpdate password(String password) {
+  public ServiceNowBasicAuthUpdate password(ServiceNowBasicAuthUpdatePassword password) {
     this.password = password;
+    this.unparsed |= password.unparsed;
     return this;
   }
 
@@ -83,12 +88,15 @@ public class ServiceNowBasicAuthUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPassword() {
+  public ServiceNowBasicAuthUpdatePassword getPassword() {
     return password;
   }
 
-  public void setPassword(String password) {
+  public void setPassword(ServiceNowBasicAuthUpdatePassword password) {
     this.password = password;
+    if (password != null) {
+      this.unparsed |= password.unparsed;
+    }
   }
 
   public ServiceNowBasicAuthUpdate type(ServiceNowBasicAuthType type) {
@@ -115,8 +123,9 @@ public class ServiceNowBasicAuthUpdate {
     this.type = type;
   }
 
-  public ServiceNowBasicAuthUpdate username(String username) {
+  public ServiceNowBasicAuthUpdate username(ServiceNowBasicAuthUpdateUsername username) {
     this.username = username;
+    this.unparsed |= username.unparsed;
     return this;
   }
 
@@ -128,12 +137,15 @@ public class ServiceNowBasicAuthUpdate {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUsername() {
+  public ServiceNowBasicAuthUpdateUsername getUsername() {
     return username;
   }
 
-  public void setUsername(String username) {
+  public void setUsername(ServiceNowBasicAuthUpdateUsername username) {
     this.username = username;
+    if (username != null) {
+      this.unparsed |= username.unparsed;
+    }
   }
 
   /**

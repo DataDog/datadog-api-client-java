@@ -28,10 +28,10 @@ import java.util.Objects;
 public class FreshserviceAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private String apiKey;
+  private FreshserviceAPIKeyApiKey apiKey;
 
   public static final String JSON_PROPERTY_DOMAIN = "domain";
-  private String domain;
+  private FreshserviceAPIKeyDomain domain;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private FreshserviceAPIKeyType type;
@@ -40,17 +40,20 @@ public class FreshserviceAPIKey {
 
   @JsonCreator
   public FreshserviceAPIKey(
-      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) String apiKey,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) FreshserviceAPIKeyApiKey apiKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) FreshserviceAPIKeyDomain domain,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FreshserviceAPIKeyType type) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     this.domain = domain;
+    this.unparsed |= domain.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public FreshserviceAPIKey apiKey(String apiKey) {
+  public FreshserviceAPIKey apiKey(FreshserviceAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    this.unparsed |= apiKey.unparsed;
     return this;
   }
 
@@ -61,16 +64,20 @@ public class FreshserviceAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApiKey() {
+  public FreshserviceAPIKeyApiKey getApiKey() {
     return apiKey;
   }
 
-  public void setApiKey(String apiKey) {
+  public void setApiKey(FreshserviceAPIKeyApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
-  public FreshserviceAPIKey domain(String domain) {
+  public FreshserviceAPIKey domain(FreshserviceAPIKeyDomain domain) {
     this.domain = domain;
+    this.unparsed |= domain.unparsed;
     return this;
   }
 
@@ -81,12 +88,15 @@ public class FreshserviceAPIKey {
    */
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDomain() {
+  public FreshserviceAPIKeyDomain getDomain() {
     return domain;
   }
 
-  public void setDomain(String domain) {
+  public void setDomain(FreshserviceAPIKeyDomain domain) {
     this.domain = domain;
+    if (domain != null) {
+      this.unparsed |= domain.unparsed;
+    }
   }
 
   public FreshserviceAPIKey type(FreshserviceAPIKeyType type) {
