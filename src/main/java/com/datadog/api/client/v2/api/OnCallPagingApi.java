@@ -51,7 +51,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #acknowledgeOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @throws ApiException if fails to make API call
    */
   public void acknowledgeOnCallPage(UUID pageId) throws ApiException {
@@ -63,7 +63,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #acknowledgeOnCallPageWithHttpInfoAsync}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> acknowledgeOnCallPageAsync(UUID pageId) {
@@ -77,14 +77,14 @@ public class OnCallPagingApi {
   /**
    * Acknowledges an On-Call Page.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Accepted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -128,7 +128,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #acknowledgeOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> acknowledgeOnCallPageWithHttpInfoAsync(UUID pageId) {
@@ -215,7 +215,7 @@ public class OnCallPagingApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -310,7 +310,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #escalateOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @throws ApiException if fails to make API call
    */
   public void escalateOnCallPage(UUID pageId) throws ApiException {
@@ -322,7 +322,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #escalateOnCallPageWithHttpInfoAsync}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> escalateOnCallPageAsync(UUID pageId) {
@@ -336,14 +336,14 @@ public class OnCallPagingApi {
   /**
    * Escalates an On-Call Page.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Accepted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -387,7 +387,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #escalateOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> escalateOnCallPageWithHttpInfoAsync(UUID pageId) {
@@ -440,7 +440,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #rerouteOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @param body (required)
    * @throws ApiException if fails to make API call
    */
@@ -453,7 +453,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #rerouteOnCallPageWithHttpInfoAsync}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @param body (required)
    * @return CompletableFuture
    */
@@ -469,7 +469,7 @@ public class OnCallPagingApi {
   /**
    * Reroutes an On-Call Page.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @param body (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -531,7 +531,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #rerouteOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -595,7 +595,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #resolveOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @throws ApiException if fails to make API call
    */
   public void resolveOnCallPage(UUID pageId) throws ApiException {
@@ -607,7 +607,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #resolveOnCallPageWithHttpInfoAsync}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> resolveOnCallPageAsync(UUID pageId) {
@@ -621,14 +621,14 @@ public class OnCallPagingApi {
   /**
    * Resolves an On-Call Page.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Accepted. </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -672,7 +672,7 @@ public class OnCallPagingApi {
    *
    * <p>See {@link #resolveOnCallPageWithHttpInfo}.
    *
-   * @param pageId The page ID. (required)
+   * @param pageId The Page ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> resolveOnCallPageWithHttpInfoAsync(UUID pageId) {

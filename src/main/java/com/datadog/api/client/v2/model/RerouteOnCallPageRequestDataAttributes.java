@@ -48,7 +48,7 @@ public class RerouteOnCallPageRequestDataAttributes {
   }
 
   /**
-   * An optional comment explaining why the page is being rerouted.
+   * An optional comment explaining why the Page is being rerouted.
    *
    * @return comment
    */

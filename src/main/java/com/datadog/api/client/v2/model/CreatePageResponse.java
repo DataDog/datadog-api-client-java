@@ -32,7 +32,7 @@ public class CreatePageResponse {
   }
 
   /**
-   * The information returned after successfully creating a page.
+   * The information returned after successfully creating a Page.
    *
    * @return data
    */
