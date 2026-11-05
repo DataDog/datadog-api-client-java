@@ -48,7 +48,7 @@ public class ObservabilityPipelineConfigProcessorGroup {
   private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROCESSORS = "processors";
-  private List<ObservabilityPipelineConfigProcessorItem> processors = new ArrayList<>();
+  private List<ObservabilityPipelineConfigProcessorItem> processors = null;
 
   public ObservabilityPipelineConfigProcessorGroup() {}
 
@@ -57,17 +57,11 @@ public class ObservabilityPipelineConfigProcessorGroup {
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROCESSORS)
-          List<ObservabilityPipelineConfigProcessorItem> processors) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs) {
     this.enabled = enabled;
     this.id = id;
     this.include = include;
     this.inputs = inputs;
-    this.processors = processors;
-    for (ObservabilityPipelineConfigProcessorItem item : processors) {
-      this.unparsed |= item.unparsed;
-    }
   }
 
   public ObservabilityPipelineConfigProcessorGroup displayName(String displayName) {
@@ -179,14 +173,19 @@ public class ObservabilityPipelineConfigProcessorGroup {
   public ObservabilityPipelineConfigProcessorGroup processors(
       List<ObservabilityPipelineConfigProcessorItem> processors) {
     this.processors = processors;
-    for (ObservabilityPipelineConfigProcessorItem item : processors) {
-      this.unparsed |= item.unparsed;
+    if (processors != null) {
+      for (ObservabilityPipelineConfigProcessorItem item : processors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
 
   public ObservabilityPipelineConfigProcessorGroup addProcessorsItem(
       ObservabilityPipelineConfigProcessorItem processorsItem) {
+    if (this.processors == null) {
+      this.processors = new ArrayList<>();
+    }
     this.processors.add(processorsItem);
     this.unparsed |= processorsItem.unparsed;
     return this;
@@ -194,11 +193,13 @@ public class ObservabilityPipelineConfigProcessorGroup {
 
   /**
    * Processors applied sequentially within this group. Events flow through each processor in order.
+   * Omit or use an empty array for a group without processors.
    *
    * @return processors
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ObservabilityPipelineConfigProcessorItem> getProcessors() {
     return processors;
   }
