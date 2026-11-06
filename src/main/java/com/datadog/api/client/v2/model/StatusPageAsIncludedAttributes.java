@@ -28,9 +28,11 @@ import java.util.Objects;
   StatusPageAsIncludedAttributes.JSON_PROPERTY_CUSTOM_DOMAIN_ENABLED,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_DOMAIN_PREFIX,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_EMAIL_HEADER_IMAGE,
+  StatusPageAsIncludedAttributes.JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_ENABLED,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_FAVICON,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_MODIFIED_AT,
+  StatusPageAsIncludedAttributes.JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_NAME,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_PAGE_URL,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_RSS_FEED_ENABLED,
@@ -66,6 +68,10 @@ public class StatusPageAsIncludedAttributes {
   public static final String JSON_PROPERTY_EMAIL_HEADER_IMAGE = "email_header_image";
   private String emailHeaderImage;
 
+  public static final String JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED =
+      "email_notifications_enabled";
+  private Boolean emailNotificationsEnabled;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -74,6 +80,10 @@ public class StatusPageAsIncludedAttributes {
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
+
+  public static final String JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED =
+      "ms_teams_subscriptions_enabled";
+  private Boolean msTeamsSubscriptionsEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -273,6 +283,29 @@ public class StatusPageAsIncludedAttributes {
     this.emailHeaderImage = emailHeaderImage;
   }
 
+  public StatusPageAsIncludedAttributes emailNotificationsEnabled(
+      Boolean emailNotificationsEnabled) {
+    this.emailNotificationsEnabled = emailNotificationsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether email notifications are enabled for the status page. Must be enabled when <code>
+   * subscriptions_enabled</code> is <code>true</code>.
+   *
+   * @return emailNotificationsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEmailNotificationsEnabled() {
+    return emailNotificationsEnabled;
+  }
+
+  public void setEmailNotificationsEnabled(Boolean emailNotificationsEnabled) {
+    this.emailNotificationsEnabled = emailNotificationsEnabled;
+  }
+
   public StatusPageAsIncludedAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -334,6 +367,28 @@ public class StatusPageAsIncludedAttributes {
 
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
+  }
+
+  public StatusPageAsIncludedAttributes msTeamsSubscriptionsEnabled(
+      Boolean msTeamsSubscriptionsEnabled) {
+    this.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Microsoft Teams subscriptions are enabled for the status page.
+   *
+   * @return msTeamsSubscriptionsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMsTeamsSubscriptionsEnabled() {
+    return msTeamsSubscriptionsEnabled;
+  }
+
+  public void setMsTeamsSubscriptionsEnabled(Boolean msTeamsSubscriptionsEnabled) {
+    this.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
   }
 
   public StatusPageAsIncludedAttributes name(String name) {
@@ -609,9 +664,15 @@ public class StatusPageAsIncludedAttributes {
             this.customDomainEnabled, statusPageAsIncludedAttributes.customDomainEnabled)
         && Objects.equals(this.domainPrefix, statusPageAsIncludedAttributes.domainPrefix)
         && Objects.equals(this.emailHeaderImage, statusPageAsIncludedAttributes.emailHeaderImage)
+        && Objects.equals(
+            this.emailNotificationsEnabled,
+            statusPageAsIncludedAttributes.emailNotificationsEnabled)
         && Objects.equals(this.enabled, statusPageAsIncludedAttributes.enabled)
         && Objects.equals(this.favicon, statusPageAsIncludedAttributes.favicon)
         && Objects.equals(this.modifiedAt, statusPageAsIncludedAttributes.modifiedAt)
+        && Objects.equals(
+            this.msTeamsSubscriptionsEnabled,
+            statusPageAsIncludedAttributes.msTeamsSubscriptionsEnabled)
         && Objects.equals(this.name, statusPageAsIncludedAttributes.name)
         && Objects.equals(this.pageUrl, statusPageAsIncludedAttributes.pageUrl)
         && Objects.equals(this.rssFeedEnabled, statusPageAsIncludedAttributes.rssFeedEnabled)
@@ -639,9 +700,11 @@ public class StatusPageAsIncludedAttributes {
         customDomainEnabled,
         domainPrefix,
         emailHeaderImage,
+        emailNotificationsEnabled,
         enabled,
         favicon,
         modifiedAt,
+        msTeamsSubscriptionsEnabled,
         name,
         pageUrl,
         rssFeedEnabled,
@@ -667,9 +730,15 @@ public class StatusPageAsIncludedAttributes {
         .append("\n");
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
+    sb.append("    emailNotificationsEnabled: ")
+        .append(toIndentedString(emailNotificationsEnabled))
+        .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    msTeamsSubscriptionsEnabled: ")
+        .append(toIndentedString(msTeamsSubscriptionsEnabled))
+        .append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageUrl: ").append(toIndentedString(pageUrl)).append("\n");
     sb.append("    rssFeedEnabled: ").append(toIndentedString(rssFeedEnabled)).append("\n");
