@@ -26,10 +26,8 @@ import java.util.Set;
 public class MonitorFormulaAndFunctionCostDataSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("metrics", "cloud_cost", "datadog_usage"));
+      new HashSet<String>(Arrays.asList("cloud_cost", "datadog_usage"));
 
-  public static final MonitorFormulaAndFunctionCostDataSource METRICS =
-      new MonitorFormulaAndFunctionCostDataSource("metrics");
   public static final MonitorFormulaAndFunctionCostDataSource CLOUD_COST =
       new MonitorFormulaAndFunctionCostDataSource("cloud_cost");
   public static final MonitorFormulaAndFunctionCostDataSource DATADOG_USAGE =
