@@ -14,7 +14,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
@@ -33,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayRateLimitAttributes.JSON_PROPERTY_REQUESTS_PER_MINUTE,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_REVISION,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_SCOPE_RESTRICTED,
+  AiGatewayRateLimitAttributes.JSON_PROPERTY_SELECTOR,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_TAGS,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_TEAM_ID,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_UPDATED_AT,
@@ -75,6 +78,10 @@ public class AiGatewayRateLimitAttributes {
 
   public static final String JSON_PROPERTY_SCOPE_RESTRICTED = "scope_restricted";
   private Boolean scopeRestricted;
+
+  public static final String JSON_PROPERTY_SELECTOR = "selector";
+  private JsonNullable<List<AiGatewayRateLimitSelectorEntry>> selector =
+      JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>undefined();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<String, String>();
@@ -185,8 +192,9 @@ public class AiGatewayRateLimitAttributes {
   }
 
   /**
-   * Maximum input tokens per rolling minute shared by all matching traffic. Null when this rule
-   * does not limit input tokens. minimum: 1 maximum: 100000000000
+   * Maximum input tokens per rolling minute shared by all matching traffic, or per counter for a
+   * template rate limit. Null when this rule does not limit input tokens. minimum: 1 maximum:
+   * 100000000000
    *
    * @return inputTokensPerMinute
    */
@@ -292,8 +300,9 @@ public class AiGatewayRateLimitAttributes {
   }
 
   /**
-   * Maximum output tokens per rolling minute shared by all matching traffic. Null when this rule
-   * does not limit output tokens. minimum: 1 maximum: 100000000000
+   * Maximum output tokens per rolling minute shared by all matching traffic, or per counter for a
+   * template rate limit. Null when this rule does not limit output tokens. minimum: 1 maximum:
+   * 100000000000
    *
    * @return outputTokensPerMinute
    */
@@ -324,8 +333,8 @@ public class AiGatewayRateLimitAttributes {
   }
 
   /**
-   * Maximum requests per rolling minute shared by all matching traffic. Null when this rule does
-   * not limit requests. minimum: 1 maximum: 10000000
+   * Maximum requests per rolling minute shared by all matching traffic, or per counter for a
+   * template rate limit. Null when this rule does not limit requests. minimum: 1 maximum: 10000000
    *
    * @return requestsPerMinute
    */
@@ -389,6 +398,53 @@ public class AiGatewayRateLimitAttributes {
 
   public void setScopeRestricted(Boolean scopeRestricted) {
     this.scopeRestricted = scopeRestricted;
+  }
+
+  public AiGatewayRateLimitAttributes selector(List<AiGatewayRateLimitSelectorEntry> selector) {
+    this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(selector);
+    return this;
+  }
+
+  public AiGatewayRateLimitAttributes addSelectorItem(
+      AiGatewayRateLimitSelectorEntry selectorItem) {
+    if (this.selector == null || !this.selector.isPresent()) {
+      this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(new ArrayList<>());
+    }
+    try {
+      this.selector.get().add(selectorItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Dimension rules for a template rate limit, which gives each matched user, Team, or value its
+   * own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and
+   * can't be changed after creation. Omit for a rule with one shared allowance.
+   *
+   * @return selector
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<AiGatewayRateLimitSelectorEntry> getSelector() {
+    return selector.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<AiGatewayRateLimitSelectorEntry>> getSelector_JsonNullable() {
+    return selector;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SELECTOR)
+  public void setSelector_JsonNullable(
+      JsonNullable<List<AiGatewayRateLimitSelectorEntry>> selector) {
+    this.selector = selector;
+  }
+
+  public void setSelector(List<AiGatewayRateLimitSelectorEntry> selector) {
+    this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(selector);
   }
 
   public AiGatewayRateLimitAttributes tags(Map<String, String> tags) {
@@ -588,6 +644,7 @@ public class AiGatewayRateLimitAttributes {
         && Objects.equals(this.requestsPerMinute, aiGatewayRateLimitAttributes.requestsPerMinute)
         && Objects.equals(this.revision, aiGatewayRateLimitAttributes.revision)
         && Objects.equals(this.scopeRestricted, aiGatewayRateLimitAttributes.scopeRestricted)
+        && Objects.equals(this.selector, aiGatewayRateLimitAttributes.selector)
         && Objects.equals(this.tags, aiGatewayRateLimitAttributes.tags)
         && Objects.equals(this.teamId, aiGatewayRateLimitAttributes.teamId)
         && Objects.equals(this.updatedAt, aiGatewayRateLimitAttributes.updatedAt)
@@ -611,6 +668,7 @@ public class AiGatewayRateLimitAttributes {
         requestsPerMinute,
         revision,
         scopeRestricted,
+        selector,
         tags,
         teamId,
         updatedAt,
@@ -638,6 +696,7 @@ public class AiGatewayRateLimitAttributes {
     sb.append("    requestsPerMinute: ").append(toIndentedString(requestsPerMinute)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    scopeRestricted: ").append(toIndentedString(scopeRestricted)).append("\n");
+    sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
