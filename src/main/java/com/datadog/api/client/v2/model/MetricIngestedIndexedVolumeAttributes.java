@@ -19,7 +19,9 @@ import java.util.Objects;
 /** Object containing the definition of a metric's ingested and indexed volume. */
 @JsonPropertyOrder({
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
-  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
+  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME_DELTA,
+  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME,
+  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME_DELTA
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -28,8 +30,14 @@ public class MetricIngestedIndexedVolumeAttributes {
   public static final String JSON_PROPERTY_INDEXED_VOLUME = "indexed_volume";
   private Long indexedVolume;
 
+  public static final String JSON_PROPERTY_INDEXED_VOLUME_DELTA = "indexed_volume_delta";
+  private Long indexedVolumeDelta;
+
   public static final String JSON_PROPERTY_INGESTED_VOLUME = "ingested_volume";
   private Long ingestedVolume;
+
+  public static final String JSON_PROPERTY_INGESTED_VOLUME_DELTA = "ingested_volume_delta";
+  private Long ingestedVolumeDelta;
 
   public MetricIngestedIndexedVolumeAttributes indexedVolume(Long indexedVolume) {
     this.indexedVolume = indexedVolume;
@@ -54,6 +62,28 @@ public class MetricIngestedIndexedVolumeAttributes {
     this.indexedVolume = indexedVolume;
   }
 
+  public MetricIngestedIndexedVolumeAttributes indexedVolumeDelta(Long indexedVolumeDelta) {
+    this.indexedVolumeDelta = indexedVolumeDelta;
+    return this;
+  }
+
+  /**
+   * Change in <code>indexed_volume</code> compared with the previous hour: the last hour's value
+   * minus the value for the hour before. Negative when volume decreased.
+   *
+   * @return indexedVolumeDelta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME_DELTA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIndexedVolumeDelta() {
+    return indexedVolumeDelta;
+  }
+
+  public void setIndexedVolumeDelta(Long indexedVolumeDelta) {
+    this.indexedVolumeDelta = indexedVolumeDelta;
+  }
+
   public MetricIngestedIndexedVolumeAttributes ingestedVolume(Long ingestedVolume) {
     this.ingestedVolume = ingestedVolume;
     return this;
@@ -76,6 +106,28 @@ public class MetricIngestedIndexedVolumeAttributes {
 
   public void setIngestedVolume(Long ingestedVolume) {
     this.ingestedVolume = ingestedVolume;
+  }
+
+  public MetricIngestedIndexedVolumeAttributes ingestedVolumeDelta(Long ingestedVolumeDelta) {
+    this.ingestedVolumeDelta = ingestedVolumeDelta;
+    return this;
+  }
+
+  /**
+   * Change in <code>ingested_volume</code> compared with the previous hour: the last hour's value
+   * minus the value for the hour before. Negative when volume decreased.
+   *
+   * @return ingestedVolumeDelta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME_DELTA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIngestedVolumeDelta() {
+    return ingestedVolumeDelta;
+  }
+
+  public void setIngestedVolumeDelta(Long ingestedVolumeDelta) {
+    this.ingestedVolumeDelta = ingestedVolumeDelta;
   }
 
   /**
@@ -136,14 +188,23 @@ public class MetricIngestedIndexedVolumeAttributes {
     MetricIngestedIndexedVolumeAttributes metricIngestedIndexedVolumeAttributes =
         (MetricIngestedIndexedVolumeAttributes) o;
     return Objects.equals(this.indexedVolume, metricIngestedIndexedVolumeAttributes.indexedVolume)
+        && Objects.equals(
+            this.indexedVolumeDelta, metricIngestedIndexedVolumeAttributes.indexedVolumeDelta)
         && Objects.equals(this.ingestedVolume, metricIngestedIndexedVolumeAttributes.ingestedVolume)
+        && Objects.equals(
+            this.ingestedVolumeDelta, metricIngestedIndexedVolumeAttributes.ingestedVolumeDelta)
         && Objects.equals(
             this.additionalProperties, metricIngestedIndexedVolumeAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(indexedVolume, ingestedVolume, additionalProperties);
+    return Objects.hash(
+        indexedVolume,
+        indexedVolumeDelta,
+        ingestedVolume,
+        ingestedVolumeDelta,
+        additionalProperties);
   }
 
   @Override
@@ -151,7 +212,11 @@ public class MetricIngestedIndexedVolumeAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricIngestedIndexedVolumeAttributes {\n");
     sb.append("    indexedVolume: ").append(toIndentedString(indexedVolume)).append("\n");
+    sb.append("    indexedVolumeDelta: ").append(toIndentedString(indexedVolumeDelta)).append("\n");
     sb.append("    ingestedVolume: ").append(toIndentedString(ingestedVolume)).append("\n");
+    sb.append("    ingestedVolumeDelta: ")
+        .append(toIndentedString(ingestedVolumeDelta))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
