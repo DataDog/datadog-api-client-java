@@ -1185,6 +1185,7 @@ public class ApiClient {
           put("v2.getAiGatewayPolicy", false);
           put("v2.getAiGatewayProvider", false);
           put("v2.getAiGatewayRateLimit", false);
+          put("v2.getAiGatewayRateLimitInstancesSummary", false);
           put("v2.getAiGatewayRateLimitUsage", false);
           put("v2.getAiGatewayRoutingRule", false);
           put("v2.listAiGatewayBudgetInstanceDimensions", false);
@@ -1196,6 +1197,7 @@ public class ApiClient {
           put("v2.listAiGatewayPolicies", false);
           put("v2.listAiGatewayProviderModels", false);
           put("v2.listAiGatewayProviders", false);
+          put("v2.listAiGatewayRateLimitInstances", false);
           put("v2.listAiGatewayRateLimits", false);
           put("v2.listAiGatewayRoutingRules", false);
           put("v2.overrideAiGatewayBudgetInstanceCapacity", false);

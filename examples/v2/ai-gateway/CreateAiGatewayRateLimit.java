@@ -8,7 +8,9 @@ import com.datadog.api.client.v2.model.AiGatewayRateLimitCreateData;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitCreateRequest;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitMode;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitResponse;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitSelectorEntry;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitType;
+import java.util.Collections;
 import java.util.UUID;
 
 public class Example {
@@ -29,6 +31,14 @@ public class Example {
                             .name("Default rate limit")
                             .outputTokensPerMinute(null)
                             .requestsPerMinute(600L)
+                            .selector(
+                                Collections.singletonList(
+                                    new AiGatewayRateLimitSelectorEntry()
+                                        .dim("user_id")
+                                        .perValue(true)
+                                        .values(
+                                            Collections.singletonList(
+                                                "11111111-1111-1111-1111-111111111111"))))
                             .teamId(UUID.fromString("00000000-0000-4000-8000-000000000002"))
                             .userId(UUID.fromString("00000000-0000-4000-8000-000000000001")))
                     .type(AiGatewayRateLimitType.RATE_LIMITS));
