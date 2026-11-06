@@ -580,8 +580,19 @@ public class MetricsApi {
 
   /**
    * Create a tag indexing rule for the org. <code>rule_order</code> is assigned server-side as
-   * max+1 among existing rules; use the reorder endpoint to change the evaluation order. Requires
-   * the <code>Manage Tags for Metrics</code> permission.
+   * max+1 among existing rules; use the reorder endpoint to change the evaluation order. Every rule
+   * that matches a metric applies, in <code>rule_order</code>; a rule with <code>
+   * override_previous_rules</code> set to <code>false</code> (merge) adds to the tags configured by
+   * earlier rules, and a rule with <code>override_previous_rules</code> set to <code>true</code>
+   * replaces them. Requires the <code>Manage Tags for Metrics</code> permission.
+   *
+   * <p>Limits: - An org can have at most 1,000 active tag indexing rules. Creating a rule when the
+   * org already has 1,000 active rules returns a 403 error with the title <code>
+   * Tag indexing rule limit reached</code>. - Tag indexing rules are unavailable for orgs with more
+   * than 700,000 custom metrics; requests from those orgs return a 403 error with the title <code>
+   * Tag indexing rules unavailable</code>. - <code>name</code> can be at most 200 characters, and
+   * <code>metric_name_matches</code> can contain at most 50 patterns of at most 200 characters
+   * each. Requests that exceed these limits return a 400 error.
    *
    * @param body (required)
    * @return ApiResponse&lt;TagIndexingRuleResponse&gt;
@@ -5283,8 +5294,9 @@ public class MetricsApi {
   /**
    * Atomically re-sequence the tag indexing rules for an org to match the supplied list of rule
    * UUIDs. The server assigns <code>rule_order</code> 1, 2, … matching each rule UUID by position
-   * in the list. The UUIDs of all active rules must be provided; omitting any active rule UUID
-   * returns a 400 error. Requires the <code>Manage Tags for Metrics</code> permission.
+   * in the list. The UUIDs of all active rules (at most 1,000) must be provided; omitting any
+   * active rule UUID returns a 400 error. Requires the <code>Manage Tags for Metrics</code>
+   * permission.
    *
    * @param body (required)
    * @return ApiResponse&lt;Void&gt;
@@ -5960,8 +5972,10 @@ public class MetricsApi {
   /**
    * Partially update a tag indexing rule. Fields omitted from the request body are left unchanged.
    * Setting <code>rule_order</code> to a value already used by another rule returns 409; use the
-   * reorder endpoint for atomic re-sequencing. Requires the <code>Manage Tags for Metrics</code>
-   * permission.
+   * reorder endpoint for atomic re-sequencing. <code>name</code> can be at most 200 characters, and
+   * <code>metric_name_matches</code> can contain at most 50 patterns of at most 200 characters
+   * each; requests that exceed these limits return a 400 error. Requires the <code>
+   * Manage Tags for Metrics</code> permission.
    *
    * @param id ID of the tag indexing rule. (required)
    * @param body (required)
