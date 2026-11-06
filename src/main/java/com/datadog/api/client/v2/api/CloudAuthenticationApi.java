@@ -16,11 +16,18 @@ import com.datadog.api.client.v2.model.GitHubCloudAuthIntakeMappingsResponse;
 import com.datadog.api.client.v2.model.GitHubCloudAuthPersonaMappingCreateRequest;
 import com.datadog.api.client.v2.model.GitHubCloudAuthPersonaMappingResponse;
 import com.datadog.api.client.v2.model.GitHubCloudAuthPersonaMappingsResponse;
+import com.datadog.api.client.v2.model.OIDCCloudAuthPersonaMappingCreateRequest;
+import com.datadog.api.client.v2.model.OIDCCloudAuthPersonaMappingResponse;
+import com.datadog.api.client.v2.model.OIDCCloudAuthPersonaMappingsResponse;
+import com.datadog.api.client.v2.model.OIDCCloudAuthProviderCreateRequest;
+import com.datadog.api.client.v2.model.OIDCCloudAuthProviderResponse;
+import com.datadog.api.client.v2.model.OIDCCloudAuthProvidersResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -696,6 +703,322 @@ public class CloudAuthenticationApi {
   }
 
   /**
+   * Create a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #createOIDCCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return OIDCCloudAuthPersonaMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OIDCCloudAuthPersonaMappingResponse createOIDCCloudAuthPersonaMapping(
+      OIDCCloudAuthPersonaMappingCreateRequest body) throws ApiException {
+    return createOIDCCloudAuthPersonaMappingWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #createOIDCCloudAuthPersonaMappingWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;OIDCCloudAuthPersonaMappingResponse&gt;
+   */
+  public CompletableFuture<OIDCCloudAuthPersonaMappingResponse>
+      createOIDCCloudAuthPersonaMappingAsync(OIDCCloudAuthPersonaMappingCreateRequest body) {
+    return createOIDCCloudAuthPersonaMappingWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Map token claims from a registered Custom OIDC provider to a Datadog user or service account.
+   * The caller must be authorized to map to the target account.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;OIDCCloudAuthPersonaMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OIDCCloudAuthPersonaMappingResponse>
+      createOIDCCloudAuthPersonaMappingWithHttpInfo(OIDCCloudAuthPersonaMappingCreateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createOIDCCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createOIDCCloudAuthPersonaMapping");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.createOIDCCloudAuthPersonaMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
+   * Create a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #createOIDCCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OIDCCloudAuthPersonaMappingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>>
+      createOIDCCloudAuthPersonaMappingWithHttpInfoAsync(
+          OIDCCloudAuthPersonaMappingCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createOIDCCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createOIDCCloudAuthPersonaMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.createOIDCCloudAuthPersonaMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
+   * Create a Custom OIDC provider.
+   *
+   * <p>See {@link #createOIDCCloudAuthProviderWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return OIDCCloudAuthProviderResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OIDCCloudAuthProviderResponse createOIDCCloudAuthProvider(
+      OIDCCloudAuthProviderCreateRequest body) throws ApiException {
+    return createOIDCCloudAuthProviderWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a Custom OIDC provider.
+   *
+   * <p>See {@link #createOIDCCloudAuthProviderWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;OIDCCloudAuthProviderResponse&gt;
+   */
+  public CompletableFuture<OIDCCloudAuthProviderResponse> createOIDCCloudAuthProviderAsync(
+      OIDCCloudAuthProviderCreateRequest body) {
+    return createOIDCCloudAuthProviderWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Register an OIDC issuer, signing-key discovery configuration, and accepted audiences. Provider
+   * names and issuer URLs must be unique within the organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;OIDCCloudAuthProviderResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OIDCCloudAuthProviderResponse> createOIDCCloudAuthProviderWithHttpInfo(
+      OIDCCloudAuthProviderCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createOIDCCloudAuthProvider";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createOIDCCloudAuthProvider");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/provider";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.createOIDCCloudAuthProvider",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthProviderResponse>() {});
+  }
+
+  /**
+   * Create a Custom OIDC provider.
+   *
+   * <p>See {@link #createOIDCCloudAuthProviderWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OIDCCloudAuthProviderResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>>
+      createOIDCCloudAuthProviderWithHttpInfoAsync(OIDCCloudAuthProviderCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createOIDCCloudAuthProvider";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createOIDCCloudAuthProvider"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/provider";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.createOIDCCloudAuthProvider",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthProviderResponse>() {});
+  }
+
+  /**
    * Delete an AWS cloud authentication intake mapping.
    *
    * <p>See {@link #deleteAWSCloudAuthIntakeMappingWithHttpInfo}.
@@ -1312,6 +1635,325 @@ public class CloudAuthenticationApi {
       builder =
           apiClient.createBuilder(
               "v2.CloudAuthenticationApi.deleteGitHubCloudAuthPersonaMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #deleteOIDCCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteOIDCCloudAuthPersonaMapping(UUID personaMappingId) throws ApiException {
+    deleteOIDCCloudAuthPersonaMappingWithHttpInfo(personaMappingId);
+  }
+
+  /**
+   * Delete a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #deleteOIDCCloudAuthPersonaMappingWithHttpInfoAsync}.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteOIDCCloudAuthPersonaMappingAsync(UUID personaMappingId) {
+    return deleteOIDCCloudAuthPersonaMappingWithHttpInfoAsync(personaMappingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Custom OIDC persona mapping.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteOIDCCloudAuthPersonaMappingWithHttpInfo(UUID personaMappingId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteOIDCCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'personaMappingId' when calling"
+              + " deleteOIDCCloudAuthPersonaMapping");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.deleteOIDCCloudAuthPersonaMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #deleteOIDCCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteOIDCCloudAuthPersonaMappingWithHttpInfoAsync(
+      UUID personaMappingId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteOIDCCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'personaMappingId' when calling"
+                  + " deleteOIDCCloudAuthPersonaMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.deleteOIDCCloudAuthPersonaMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Custom OIDC provider.
+   *
+   * <p>See {@link #deleteOIDCCloudAuthProviderWithHttpInfo}.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteOIDCCloudAuthProvider(UUID providerId) throws ApiException {
+    deleteOIDCCloudAuthProviderWithHttpInfo(providerId);
+  }
+
+  /**
+   * Delete a Custom OIDC provider.
+   *
+   * <p>See {@link #deleteOIDCCloudAuthProviderWithHttpInfoAsync}.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteOIDCCloudAuthProviderAsync(UUID providerId) {
+    return deleteOIDCCloudAuthProviderWithHttpInfoAsync(providerId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Custom OIDC provider. Delete all persona and intake mappings referencing it first;
+   * otherwise the request returns a conflict.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteOIDCCloudAuthProviderWithHttpInfo(UUID providerId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteOIDCCloudAuthProvider";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'providerId' when calling deleteOIDCCloudAuthProvider");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/provider/{provider_id}"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.deleteOIDCCloudAuthProvider",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Custom OIDC provider.
+   *
+   * <p>See {@link #deleteOIDCCloudAuthProviderWithHttpInfo}.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteOIDCCloudAuthProviderWithHttpInfoAsync(
+      UUID providerId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteOIDCCloudAuthProvider";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'providerId' when calling"
+                  + " deleteOIDCCloudAuthProvider"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/provider/{provider_id}"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.deleteOIDCCloudAuthProvider",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2000,6 +2642,333 @@ public class CloudAuthenticationApi {
   }
 
   /**
+   * Get a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #getOIDCCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @return OIDCCloudAuthPersonaMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OIDCCloudAuthPersonaMappingResponse getOIDCCloudAuthPersonaMapping(UUID personaMappingId)
+      throws ApiException {
+    return getOIDCCloudAuthPersonaMappingWithHttpInfo(personaMappingId).getData();
+  }
+
+  /**
+   * Get a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #getOIDCCloudAuthPersonaMappingWithHttpInfoAsync}.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @return CompletableFuture&lt;OIDCCloudAuthPersonaMappingResponse&gt;
+   */
+  public CompletableFuture<OIDCCloudAuthPersonaMappingResponse> getOIDCCloudAuthPersonaMappingAsync(
+      UUID personaMappingId) {
+    return getOIDCCloudAuthPersonaMappingWithHttpInfoAsync(personaMappingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Custom OIDC persona mapping by UUID.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @return ApiResponse&lt;OIDCCloudAuthPersonaMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OIDCCloudAuthPersonaMappingResponse>
+      getOIDCCloudAuthPersonaMappingWithHttpInfo(UUID personaMappingId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOIDCCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'personaMappingId' when calling"
+              + " getOIDCCloudAuthPersonaMapping");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.getOIDCCloudAuthPersonaMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
+   * Get a Custom OIDC persona mapping.
+   *
+   * <p>See {@link #getOIDCCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId UUID of the Custom OIDC persona mapping. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OIDCCloudAuthPersonaMappingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>>
+      getOIDCCloudAuthPersonaMappingWithHttpInfoAsync(UUID personaMappingId) {
+    // Check if unstable operation is enabled
+    String operationId = "getOIDCCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'personaMappingId' when calling"
+                  + " getOIDCCloudAuthPersonaMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.getOIDCCloudAuthPersonaMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
+   * Get a Custom OIDC provider.
+   *
+   * <p>See {@link #getOIDCCloudAuthProviderWithHttpInfo}.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @return OIDCCloudAuthProviderResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OIDCCloudAuthProviderResponse getOIDCCloudAuthProvider(UUID providerId)
+      throws ApiException {
+    return getOIDCCloudAuthProviderWithHttpInfo(providerId).getData();
+  }
+
+  /**
+   * Get a Custom OIDC provider.
+   *
+   * <p>See {@link #getOIDCCloudAuthProviderWithHttpInfoAsync}.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @return CompletableFuture&lt;OIDCCloudAuthProviderResponse&gt;
+   */
+  public CompletableFuture<OIDCCloudAuthProviderResponse> getOIDCCloudAuthProviderAsync(
+      UUID providerId) {
+    return getOIDCCloudAuthProviderWithHttpInfoAsync(providerId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Custom OIDC provider by UUID.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @return ApiResponse&lt;OIDCCloudAuthProviderResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OIDCCloudAuthProviderResponse> getOIDCCloudAuthProviderWithHttpInfo(
+      UUID providerId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOIDCCloudAuthProvider";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'providerId' when calling getOIDCCloudAuthProvider");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/provider/{provider_id}"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.getOIDCCloudAuthProvider",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthProviderResponse>() {});
+  }
+
+  /**
+   * Get a Custom OIDC provider.
+   *
+   * <p>See {@link #getOIDCCloudAuthProviderWithHttpInfo}.
+   *
+   * @param providerId UUID of the Custom OIDC provider. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OIDCCloudAuthProviderResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>>
+      getOIDCCloudAuthProviderWithHttpInfoAsync(UUID providerId) {
+    // Check if unstable operation is enabled
+    String operationId = "getOIDCCloudAuthProvider";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'providerId' when calling getOIDCCloudAuthProvider"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/oidc/provider/{provider_id}"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.getOIDCCloudAuthProvider",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProviderResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthProviderResponse>() {});
+  }
+
+  /**
    * List AWS cloud authentication intake mappings.
    *
    * <p>See {@link #listAWSCloudAuthIntakeMappingsWithHttpInfo}.
@@ -2532,5 +3501,269 @@ public class CloudAuthenticationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GitHubCloudAuthPersonaMappingsResponse>() {});
+  }
+
+  /**
+   * List all Custom OIDC persona mappings.
+   *
+   * <p>See {@link #listOIDCCloudAuthPersonaMappingsWithHttpInfo}.
+   *
+   * @return OIDCCloudAuthPersonaMappingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OIDCCloudAuthPersonaMappingsResponse listOIDCCloudAuthPersonaMappings()
+      throws ApiException {
+    return listOIDCCloudAuthPersonaMappingsWithHttpInfo().getData();
+  }
+
+  /**
+   * List all Custom OIDC persona mappings.
+   *
+   * <p>See {@link #listOIDCCloudAuthPersonaMappingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OIDCCloudAuthPersonaMappingsResponse&gt;
+   */
+  public CompletableFuture<OIDCCloudAuthPersonaMappingsResponse>
+      listOIDCCloudAuthPersonaMappingsAsync() {
+    return listOIDCCloudAuthPersonaMappingsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all Custom OIDC persona mappings in the organization.
+   *
+   * @return ApiResponse&lt;OIDCCloudAuthPersonaMappingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OIDCCloudAuthPersonaMappingsResponse>
+      listOIDCCloudAuthPersonaMappingsWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listOIDCCloudAuthPersonaMappings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.listOIDCCloudAuthPersonaMappings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthPersonaMappingsResponse>() {});
+  }
+
+  /**
+   * List all Custom OIDC persona mappings.
+   *
+   * <p>See {@link #listOIDCCloudAuthPersonaMappingsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OIDCCloudAuthPersonaMappingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingsResponse>>
+      listOIDCCloudAuthPersonaMappingsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listOIDCCloudAuthPersonaMappings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.listOIDCCloudAuthPersonaMappings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthPersonaMappingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthPersonaMappingsResponse>() {});
+  }
+
+  /**
+   * List all Custom OIDC providers.
+   *
+   * <p>See {@link #listOIDCCloudAuthProvidersWithHttpInfo}.
+   *
+   * @return OIDCCloudAuthProvidersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OIDCCloudAuthProvidersResponse listOIDCCloudAuthProviders() throws ApiException {
+    return listOIDCCloudAuthProvidersWithHttpInfo().getData();
+  }
+
+  /**
+   * List all Custom OIDC providers.
+   *
+   * <p>See {@link #listOIDCCloudAuthProvidersWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OIDCCloudAuthProvidersResponse&gt;
+   */
+  public CompletableFuture<OIDCCloudAuthProvidersResponse> listOIDCCloudAuthProvidersAsync() {
+    return listOIDCCloudAuthProvidersWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all Custom OIDC providers in the organization.
+   *
+   * @return ApiResponse&lt;OIDCCloudAuthProvidersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OIDCCloudAuthProvidersResponse> listOIDCCloudAuthProvidersWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listOIDCCloudAuthProviders";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/provider";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.listOIDCCloudAuthProviders",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthProvidersResponse>() {});
+  }
+
+  /**
+   * List all Custom OIDC providers.
+   *
+   * <p>See {@link #listOIDCCloudAuthProvidersWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OIDCCloudAuthProvidersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OIDCCloudAuthProvidersResponse>>
+      listOIDCCloudAuthProvidersWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listOIDCCloudAuthProviders";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProvidersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/oidc/provider";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.listOIDCCloudAuthProviders",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OIDCCloudAuthProvidersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OIDCCloudAuthProvidersResponse>() {});
   }
 }
