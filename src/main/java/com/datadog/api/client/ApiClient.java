@@ -1749,18 +1749,26 @@ public class ApiClient {
           put("v2.createAWSCloudAuthPersonaMapping", false);
           put("v2.createGitHubCloudAuthIntakeMapping", false);
           put("v2.createGitHubCloudAuthPersonaMapping", false);
+          put("v2.createOIDCCloudAuthPersonaMapping", false);
+          put("v2.createOIDCCloudAuthProvider", false);
           put("v2.deleteAWSCloudAuthIntakeMapping", false);
           put("v2.deleteAWSCloudAuthPersonaMapping", false);
           put("v2.deleteGitHubCloudAuthIntakeMapping", false);
           put("v2.deleteGitHubCloudAuthPersonaMapping", false);
+          put("v2.deleteOIDCCloudAuthPersonaMapping", false);
+          put("v2.deleteOIDCCloudAuthProvider", false);
           put("v2.getAWSCloudAuthIntakeMapping", false);
           put("v2.getAWSCloudAuthPersonaMapping", false);
           put("v2.getGitHubCloudAuthIntakeMapping", false);
           put("v2.getGitHubCloudAuthPersonaMapping", false);
+          put("v2.getOIDCCloudAuthPersonaMapping", false);
+          put("v2.getOIDCCloudAuthProvider", false);
           put("v2.listAWSCloudAuthIntakeMappings", false);
           put("v2.listAWSCloudAuthPersonaMappings", false);
           put("v2.listGitHubCloudAuthIntakeMappings", false);
           put("v2.listGitHubCloudAuthPersonaMappings", false);
+          put("v2.listOIDCCloudAuthPersonaMappings", false);
+          put("v2.listOIDCCloudAuthProviders", false);
         }
       };
   protected static final java.util.logging.Logger logger =
