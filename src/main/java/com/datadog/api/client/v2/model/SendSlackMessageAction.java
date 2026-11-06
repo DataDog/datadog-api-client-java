@@ -20,6 +20,7 @@ import java.util.Objects;
 /** Sends a message to a Slack channel. */
 @JsonPropertyOrder({
   SendSlackMessageAction.JSON_PROPERTY_CHANNEL,
+  SendSlackMessageAction.JSON_PROPERTY_CUSTOMIZABLE_CONTENT,
   SendSlackMessageAction.JSON_PROPERTY_TYPE,
   SendSlackMessageAction.JSON_PROPERTY_WORKSPACE
 })
@@ -29,6 +30,9 @@ public class SendSlackMessageAction {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANNEL = "channel";
   private String channel;
+
+  public static final String JSON_PROPERTY_CUSTOMIZABLE_CONTENT = "customizable_content";
+  private SendSlackMessageActionCustomizableContent customizableContent;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SendSlackMessageActionType type = SendSlackMessageActionType.SEND_SLACK_MESSAGE;
@@ -67,6 +71,33 @@ public class SendSlackMessageAction {
 
   public void setChannel(String channel) {
     this.channel = channel;
+  }
+
+  public SendSlackMessageAction customizableContent(
+      SendSlackMessageActionCustomizableContent customizableContent) {
+    this.customizableContent = customizableContent;
+    this.unparsed |= customizableContent.unparsed;
+    return this;
+  }
+
+  /**
+   * Options that customize the content of the Slack message sent for a Page.
+   *
+   * @return customizableContent
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOMIZABLE_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SendSlackMessageActionCustomizableContent getCustomizableContent() {
+    return customizableContent;
+  }
+
+  public void setCustomizableContent(
+      SendSlackMessageActionCustomizableContent customizableContent) {
+    this.customizableContent = customizableContent;
+    if (customizableContent != null) {
+      this.unparsed |= customizableContent.unparsed;
+    }
   }
 
   public SendSlackMessageAction type(SendSlackMessageActionType type) {
@@ -170,6 +201,7 @@ public class SendSlackMessageAction {
     }
     SendSlackMessageAction sendSlackMessageAction = (SendSlackMessageAction) o;
     return Objects.equals(this.channel, sendSlackMessageAction.channel)
+        && Objects.equals(this.customizableContent, sendSlackMessageAction.customizableContent)
         && Objects.equals(this.type, sendSlackMessageAction.type)
         && Objects.equals(this.workspace, sendSlackMessageAction.workspace)
         && Objects.equals(this.additionalProperties, sendSlackMessageAction.additionalProperties);
@@ -177,7 +209,7 @@ public class SendSlackMessageAction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, type, workspace, additionalProperties);
+    return Objects.hash(channel, customizableContent, type, workspace, additionalProperties);
   }
 
   @Override
@@ -185,6 +217,9 @@ public class SendSlackMessageAction {
     StringBuilder sb = new StringBuilder();
     sb.append("class SendSlackMessageAction {\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
+    sb.append("    customizableContent: ")
+        .append(toIndentedString(customizableContent))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    workspace: ").append(toIndentedString(workspace)).append("\n");
     sb.append("    additionalProperties: ")
