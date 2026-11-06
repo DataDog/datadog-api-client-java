@@ -2430,7 +2430,8 @@ public class FeatureFlagsApi {
     /**
      * Set name.
      *
-     * @param name Filter environments by name (partial matching). (optional)
+     * @param name This parameter is currently ignored. Use dd_env to filter environments.
+     *     (optional)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
     public ListFeatureFlagsEnvironmentsOptionalParameters name(String name) {
@@ -2441,7 +2442,7 @@ public class FeatureFlagsApi {
     /**
      * Set key.
      *
-     * @param key Filter environments by key (partial matching). (optional)
+     * @param key This parameter is currently ignored. Use dd_env to filter environments. (optional)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
     public ListFeatureFlagsEnvironmentsOptionalParameters key(String key) {
@@ -2452,8 +2453,8 @@ public class FeatureFlagsApi {
     /**
      * Set ddEnv.
      *
-     * @param ddEnv Filter environments by queries that contain the provided DD_ENV value.
-     *     (optional)
+     * @param ddEnv Filter environments whose queries list contains an exact match for the provided
+     *     DD_ENV value. (optional)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
     public ListFeatureFlagsEnvironmentsOptionalParameters ddEnv(String ddEnv) {
@@ -2464,7 +2465,8 @@ public class FeatureFlagsApi {
     /**
      * Set limit.
      *
-     * @param limit Maximum number of results to return. (optional, default to 100)
+     * @param limit This parameter is currently ignored. All matching environments are returned.
+     *     (optional, default to 100)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
     public ListFeatureFlagsEnvironmentsOptionalParameters limit(Long limit) {
@@ -2475,7 +2477,8 @@ public class FeatureFlagsApi {
     /**
      * Set offset.
      *
-     * @param offset Number of results to skip. (optional, default to 0)
+     * @param offset This parameter is currently ignored. All matching environments are returned.
+     *     (optional, default to 0)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
     public ListFeatureFlagsEnvironmentsOptionalParameters offset(Long offset) {
@@ -2546,8 +2549,8 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Returns a list of environments for the organization. Supports filtering by name, key, and
-   * DD_ENV.
+   * Returns a list of environments for the organization. Use <code>dd_env</code> to filter by an
+   * exact DD_ENV value in an environment's <code>queries</code> list.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListEnvironmentsResponse&gt;
@@ -3798,7 +3801,15 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Updates an existing environment's metadata such as name and description.
+   * Updates an environment's name, DD_ENV values, and settings.
+   *
+   * <p>Every request must include <code>name</code> and <code>queries</code>, even when changing
+   * only <code>observe_full_evaluation_data</code>. To preserve the current name and DD_ENV values,
+   * get the environment first and include those values in the request.
+   *
+   * <p>Omitting <code>is_production</code> or <code>require_feature_flag_approval</code> resets
+   * that setting to <code>false</code>. Include their current values to preserve them. Omitting
+   * <code>observe_full_evaluation_data</code> preserves its current value.
    *
    * @param environmentId The ID of the environment. (required)
    * @param body (required)

@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   CreateEnvironmentAttributes.JSON_PROPERTY_IS_PRODUCTION,
   CreateEnvironmentAttributes.JSON_PROPERTY_NAME,
+  CreateEnvironmentAttributes.JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA,
   CreateEnvironmentAttributes.JSON_PROPERTY_QUERIES,
   CreateEnvironmentAttributes.JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL
 })
@@ -35,6 +36,10 @@ public class CreateEnvironmentAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA =
+      "observe_full_evaluation_data";
+  private Boolean observeFullEvaluationData;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
   private List<String> queries = new ArrayList<>();
@@ -80,7 +85,9 @@ public class CreateEnvironmentAttributes {
   }
 
   /**
-   * The name of the environment.
+   * The name of the environment. Required on every request and unique within the organization. Must
+   * contain 1 to 200 ASCII characters, start with a letter or digit, and contain only letters,
+   * digits, spaces, underscores, hyphens, and periods.
    *
    * @return name
    */
@@ -94,6 +101,29 @@ public class CreateEnvironmentAttributes {
     this.name = name;
   }
 
+  public CreateEnvironmentAttributes observeFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
+    return this;
+  }
+
+  /**
+   * Controls whether feature flag evaluation events may include original targeting identifiers and
+   * full evaluation context. When true, SDKs may include this data. When false, SDKs hash targeting
+   * identifiers and omit evaluation context. If omitted, defaults to false.
+   *
+   * @return observeFullEvaluationData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getObserveFullEvaluationData() {
+    return observeFullEvaluationData;
+  }
+
+  public void setObserveFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
+  }
+
   public CreateEnvironmentAttributes queries(List<String> queries) {
     this.queries = queries;
     return this;
@@ -105,7 +135,9 @@ public class CreateEnvironmentAttributes {
   }
 
   /**
-   * List of queries to define the environment scope.
+   * Required list of at least one exact DD_ENV value associated with this environment. Values
+   * cannot be used by another environment in the same organization. Wildcards and search
+   * expressions are not supported.
    *
    * @return queries
    */
@@ -199,6 +231,8 @@ public class CreateEnvironmentAttributes {
     CreateEnvironmentAttributes createEnvironmentAttributes = (CreateEnvironmentAttributes) o;
     return Objects.equals(this.isProduction, createEnvironmentAttributes.isProduction)
         && Objects.equals(this.name, createEnvironmentAttributes.name)
+        && Objects.equals(
+            this.observeFullEvaluationData, createEnvironmentAttributes.observeFullEvaluationData)
         && Objects.equals(this.queries, createEnvironmentAttributes.queries)
         && Objects.equals(
             this.requireFeatureFlagApproval, createEnvironmentAttributes.requireFeatureFlagApproval)
@@ -209,7 +243,12 @@ public class CreateEnvironmentAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        isProduction, name, queries, requireFeatureFlagApproval, additionalProperties);
+        isProduction,
+        name,
+        observeFullEvaluationData,
+        queries,
+        requireFeatureFlagApproval,
+        additionalProperties);
   }
 
   @Override
@@ -218,6 +257,9 @@ public class CreateEnvironmentAttributes {
     sb.append("class CreateEnvironmentAttributes {\n");
     sb.append("    isProduction: ").append(toIndentedString(isProduction)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    observeFullEvaluationData: ")
+        .append(toIndentedString(observeFullEvaluationData))
+        .append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    requireFeatureFlagApproval: ")
         .append(toIndentedString(requireFeatureFlagApproval))
