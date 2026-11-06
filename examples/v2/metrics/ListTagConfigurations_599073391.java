@@ -1,0 +1,27 @@
+// List all metrics with volumes and query activity returns "Success" response with pagination
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
+import com.datadog.api.client.v2.api.MetricsApi;
+import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurations;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    MetricsApi apiInstance = new MetricsApi(defaultClient);
+
+    try {
+      PaginationIterable<MetricsAndMetricTagConfigurations> iterable =
+          apiInstance.listTagConfigurationsWithPagination();
+
+      for (MetricsAndMetricTagConfigurations item : iterable) {
+        System.out.println(item);
+      }
+    } catch (RuntimeException e) {
+      System.err.println("Exception when calling MetricsApi#listTagConfigurationsWithPagination");
+      System.err.println("Reason: " + e.getMessage());
+      e.printStackTrace();
+    }
+  }
+}
