@@ -1356,6 +1356,7 @@ public class ApiClient {
           put("v2.deleteRequestedTemporaryGrant", false);
           put("v2.deleteTemporaryGrantRequest", false);
           put("v2.getMyTemporaryGrantRequest", false);
+          put("v2.getQuota", false);
           put("v2.getTemporaryGrantRequest", false);
           put("v2.listMyTemporaryGrantRequests", false);
           put("v2.listQuotas", false);

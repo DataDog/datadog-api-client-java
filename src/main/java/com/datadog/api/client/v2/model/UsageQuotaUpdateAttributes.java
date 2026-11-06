@@ -82,9 +82,9 @@ public class UsageQuotaUpdateAttributes {
    * units defined by the quota namespace. It is not checked against current usage. Each write
    * schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any
    * previously scheduled change; the server computes <code>pending_effective_from</code>. Omit this
-   * field to leave any scheduled change unchanged, including when raising <code>usage_limit</code>;
-   * use <code>DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending</code> to cancel one.
-   * minimum: 0
+   * field to leave any scheduled change unchanged, including when raising <code>usage_limit</code>,
+   * unless <code>enforced=false</code> is supplied, which clears the pending change; use <code>
+   * DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending</code> to cancel one. minimum: 0
    *
    * @return pendingUsageLimit
    */
