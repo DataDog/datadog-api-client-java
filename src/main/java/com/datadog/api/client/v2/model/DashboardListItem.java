@@ -264,7 +264,7 @@ public class DashboardListItem {
   }
 
   /**
-   * List of team names representing ownership of a dashboard.
+   * Tags associated with the dashboard. Supports up to five team tags and two AI tags.
    *
    * @return tags
    */
