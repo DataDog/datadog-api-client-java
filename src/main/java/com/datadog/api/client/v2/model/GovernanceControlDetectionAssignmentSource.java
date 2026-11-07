@@ -20,7 +20,8 @@ import java.util.Set;
 
 /**
  * How the detection's current assignment was determined. Possible values are <code>auto_resolved
- * </code>, <code>manual</code>, <code>reassigned</code>, and <code>cleared</code>.
+ * </code>, <code>manual</code>, <code>reassigned</code>, and <code>cleared</code>. <code>null
+ * </code> when not set.
  */
 @JsonSerialize(
     using =
