@@ -23,10 +23,11 @@ import java.util.Set;
 public class IncidentRelatedObject extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("users", "attachments"));
+      new HashSet<String>(Arrays.asList("users", "attachments", "responders"));
 
   public static final IncidentRelatedObject USERS = new IncidentRelatedObject("users");
   public static final IncidentRelatedObject ATTACHMENTS = new IncidentRelatedObject("attachments");
+  public static final IncidentRelatedObject RESPONDERS = new IncidentRelatedObject("responders");
 
   IncidentRelatedObject(String value) {
     super(value, allowedValues);
