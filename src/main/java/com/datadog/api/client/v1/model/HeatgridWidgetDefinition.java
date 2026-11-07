@@ -182,7 +182,7 @@ public class HeatgridWidgetDefinition {
   }
 
   /**
-   * Configuration of the group label column.
+   * Configuration of the group label column. Its width is sized automatically when omitted.
    *
    * @return labelColumn
    */

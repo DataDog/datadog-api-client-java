@@ -6,29 +6,67 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-/** Configuration of the group label column. */
-@JsonPropertyOrder({HeatgridLabelColumn.JSON_PROPERTY_WIDTH})
+/** Configuration of the group label column. Its width is sized automatically when omitted. */
+@JsonPropertyOrder({
+  HeatgridLabelColumn.JSON_PROPERTY_TEXT_FORMATS,
+  HeatgridLabelColumn.JSON_PROPERTY_WIDTH
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HeatgridLabelColumn {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TEXT_FORMATS = "text_formats";
+  private List<HeatgridTextFormatRule> textFormats = null;
+
   public static final String JSON_PROPERTY_WIDTH = "width";
   private HeatgridLabelColumnWidth width;
 
-  public HeatgridLabelColumn() {}
+  public HeatgridLabelColumn textFormats(List<HeatgridTextFormatRule> textFormats) {
+    this.textFormats = textFormats;
+    if (textFormats != null) {
+      for (HeatgridTextFormatRule item : textFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
 
-  @JsonCreator
-  public HeatgridLabelColumn(
-      @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) HeatgridLabelColumnWidth width) {
-    this.width = width;
-    this.unparsed |= !width.isValid();
+  public HeatgridLabelColumn addTextFormatsItem(HeatgridTextFormatRule textFormatsItem) {
+    if (this.textFormats == null) {
+      this.textFormats = new ArrayList<>();
+    }
+    this.textFormats.add(textFormatsItem);
+    this.unparsed |= textFormatsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Ordered string replacement rules for the group labels.
+   *
+   * @return textFormats
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEXT_FORMATS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<HeatgridTextFormatRule> getTextFormats() {
+    return textFormats;
+  }
+
+  public void setTextFormats(List<HeatgridTextFormatRule> textFormats) {
+    this.textFormats = textFormats;
+    if (textFormats != null) {
+      for (HeatgridTextFormatRule item : textFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HeatgridLabelColumn width(HeatgridLabelColumnWidth width) {
@@ -42,8 +80,9 @@ public class HeatgridLabelColumn {
    *
    * @return width
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WIDTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HeatgridLabelColumnWidth getWidth() {
     return width;
   }
@@ -65,18 +104,20 @@ public class HeatgridLabelColumn {
       return false;
     }
     HeatgridLabelColumn heatgridLabelColumn = (HeatgridLabelColumn) o;
-    return Objects.equals(this.width, heatgridLabelColumn.width);
+    return Objects.equals(this.textFormats, heatgridLabelColumn.textFormats)
+        && Objects.equals(this.width, heatgridLabelColumn.width);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(width);
+    return Objects.hash(textFormats, width);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeatgridLabelColumn {\n");
+    sb.append("    textFormats: ").append(toIndentedString(textFormats)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append('}');
     return sb.toString();
