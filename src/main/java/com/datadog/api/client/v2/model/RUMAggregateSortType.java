@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of sorting algorithm. */
+/**
+ * The type of sorting algorithm. <code>alphabetical</code> sorts buckets by the facet value, <code>
+ * measure</code> sorts them by a computed aggregation.
+ */
 @JsonSerialize(using = RUMAggregateSortType.RUMAggregateSortTypeSerializer.class)
 public class RUMAggregateSortType extends ModelEnum<String> {
 

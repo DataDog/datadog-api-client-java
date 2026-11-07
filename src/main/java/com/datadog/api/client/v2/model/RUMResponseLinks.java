@@ -31,8 +31,11 @@ public class RUMResponseLinks {
   }
 
   /**
-   * Link for the next set of results. Note that the request can also be made using the POST
-   * endpoint.
+   * Link for the next set of results, only present when there are more results. It always points to
+   * the <code>GET /api/v2/rum/events</code> endpoint, and keeps <code>filter[query]</code>, <code>
+   * filter[from]</code>, <code>filter[to]</code>, <code>sort</code> and <code>page[limit]</code> of
+   * the request. Note that the request can also be made using the POST endpoint with <code>
+   * page.cursor</code> set to <code>meta.page.after</code>.
    *
    * @return next
    */

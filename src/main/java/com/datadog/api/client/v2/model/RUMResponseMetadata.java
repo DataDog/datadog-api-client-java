@@ -119,7 +119,8 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * The status of the response.
+   * The status of the response. <code>timeout</code> means the query did not complete in time and
+   * the results are partial.
    *
    * @return status
    */

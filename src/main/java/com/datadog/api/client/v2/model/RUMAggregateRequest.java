@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /**
  * The object sent with the request to retrieve aggregation buckets of RUM events from your
- * organization.
+ * organization. <code>filter.indexes</code> is not supported and ignored.
  */
 @JsonPropertyOrder({
   RUMAggregateRequest.JSON_PROPERTY_COMPUTE,

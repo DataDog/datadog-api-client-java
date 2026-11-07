@@ -54,7 +54,10 @@ public class RUMApplicationUpdate {
   }
 
   /**
-   * RUM application update attributes.
+   * RUM application update attributes. Only the attributes you provide are changed, omitted
+   * attributes keep their current value. Changing <code>product_analytics_retention_state</code> or
+   * <code>product_analytics_replay_sample_rate</code> requires the <code>
+   * product_analytics_apps_write</code> permission.
    *
    * @return attributes
    */
