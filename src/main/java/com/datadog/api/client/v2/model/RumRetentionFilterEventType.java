@@ -24,7 +24,16 @@ public class RumRetentionFilterEventType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("session", "view", "action", "error", "resource", "long_task", "vital"));
+          Arrays.asList(
+              "session",
+              "view",
+              "action",
+              "error",
+              "resource",
+              "long_task",
+              "vital",
+              "operation",
+              "execution_context"));
 
   public static final RumRetentionFilterEventType SESSION =
       new RumRetentionFilterEventType("session");
@@ -37,6 +46,10 @@ public class RumRetentionFilterEventType extends ModelEnum<String> {
   public static final RumRetentionFilterEventType LONG_TASK =
       new RumRetentionFilterEventType("long_task");
   public static final RumRetentionFilterEventType VITAL = new RumRetentionFilterEventType("vital");
+  public static final RumRetentionFilterEventType OPERATION =
+      new RumRetentionFilterEventType("operation");
+  public static final RumRetentionFilterEventType EXECUTION_CONTEXT =
+      new RumRetentionFilterEventType("execution_context");
 
   RumRetentionFilterEventType(String value) {
     super(value, allowedValues);

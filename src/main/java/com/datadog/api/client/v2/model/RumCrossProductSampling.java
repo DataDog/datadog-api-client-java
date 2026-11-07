@@ -18,6 +18,8 @@ import java.util.Objects;
 
 /** The configuration for cross-product retention filters. */
 @JsonPropertyOrder({
+  RumCrossProductSampling.JSON_PROPERTY_SESSION_REPLAY_ENABLED,
+  RumCrossProductSampling.JSON_PROPERTY_SESSION_REPLAY_SAMPLE_RATE,
   RumCrossProductSampling.JSON_PROPERTY_TRACE_ENABLED,
   RumCrossProductSampling.JSON_PROPERTY_TRACE_SAMPLE_RATE
 })
@@ -25,11 +27,61 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RumCrossProductSampling {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_SESSION_REPLAY_ENABLED = "session_replay_enabled";
+  private Boolean sessionReplayEnabled;
+
+  public static final String JSON_PROPERTY_SESSION_REPLAY_SAMPLE_RATE =
+      "session_replay_sample_rate";
+  private Double sessionReplaySampleRate;
+
   public static final String JSON_PROPERTY_TRACE_ENABLED = "trace_enabled";
   private Boolean traceEnabled;
 
   public static final String JSON_PROPERTY_TRACE_SAMPLE_RATE = "trace_sample_rate";
   private Double traceSampleRate;
+
+  public RumCrossProductSampling sessionReplayEnabled(Boolean sessionReplayEnabled) {
+    this.sessionReplayEnabled = sessionReplayEnabled;
+    return this;
+  }
+
+  /**
+   * Whether the cross-product retention filter for Session Replay is enabled.
+   *
+   * @return sessionReplayEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SESSION_REPLAY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSessionReplayEnabled() {
+    return sessionReplayEnabled;
+  }
+
+  public void setSessionReplayEnabled(Boolean sessionReplayEnabled) {
+    this.sessionReplayEnabled = sessionReplayEnabled;
+  }
+
+  public RumCrossProductSampling sessionReplaySampleRate(Double sessionReplaySampleRate) {
+    this.sessionReplaySampleRate = sessionReplaySampleRate;
+    return this;
+  }
+
+  /**
+   * The sample rate for the Session Replay cross-product retention filter, between 0 and 100.
+   * minimum: 0 maximum: 100
+   *
+   * @return sessionReplaySampleRate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SESSION_REPLAY_SAMPLE_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSessionReplaySampleRate() {
+    return sessionReplaySampleRate;
+  }
+
+  public void setSessionReplaySampleRate(Double sessionReplaySampleRate) {
+    this.sessionReplaySampleRate = sessionReplaySampleRate;
+  }
 
   public RumCrossProductSampling traceEnabled(Boolean traceEnabled) {
     this.traceEnabled = traceEnabled;
@@ -130,20 +182,34 @@ public class RumCrossProductSampling {
       return false;
     }
     RumCrossProductSampling rumCrossProductSampling = (RumCrossProductSampling) o;
-    return Objects.equals(this.traceEnabled, rumCrossProductSampling.traceEnabled)
+    return Objects.equals(this.sessionReplayEnabled, rumCrossProductSampling.sessionReplayEnabled)
+        && Objects.equals(
+            this.sessionReplaySampleRate, rumCrossProductSampling.sessionReplaySampleRate)
+        && Objects.equals(this.traceEnabled, rumCrossProductSampling.traceEnabled)
         && Objects.equals(this.traceSampleRate, rumCrossProductSampling.traceSampleRate)
         && Objects.equals(this.additionalProperties, rumCrossProductSampling.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(traceEnabled, traceSampleRate, additionalProperties);
+    return Objects.hash(
+        sessionReplayEnabled,
+        sessionReplaySampleRate,
+        traceEnabled,
+        traceSampleRate,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RumCrossProductSampling {\n");
+    sb.append("    sessionReplayEnabled: ")
+        .append(toIndentedString(sessionReplayEnabled))
+        .append("\n");
+    sb.append("    sessionReplaySampleRate: ")
+        .append(toIndentedString(sessionReplaySampleRate))
+        .append("\n");
     sb.append("    traceEnabled: ").append(toIndentedString(traceEnabled)).append("\n");
     sb.append("    traceSampleRate: ").append(toIndentedString(traceSampleRate)).append("\n");
     sb.append("    additionalProperties: ")
