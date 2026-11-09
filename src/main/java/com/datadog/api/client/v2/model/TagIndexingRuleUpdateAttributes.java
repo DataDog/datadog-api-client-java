@@ -123,7 +123,8 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * Metric name prefixes (glob patterns) this rule applies to.
+   * Metric name prefixes (glob patterns) this rule applies to. At most 50 patterns, each at most
+   * 200 characters.
    *
    * @return metricNameMatches
    */
@@ -144,7 +145,7 @@ public class TagIndexingRuleUpdateAttributes {
   }
 
   /**
-   * Human-readable name for the rule.
+   * Human-readable name for the rule. At most 200 characters.
    *
    * @return name
    */
