@@ -78,12 +78,16 @@ public class UsageQuotaUpdateAttributes {
   }
 
   /**
-   * The non-negative, whole-number limit to schedule for the organization-wide quota in the usage
-   * units defined by the quota namespace. It is not checked against current usage. Each write
-   * schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any
-   * previously scheduled change; the server computes <code>pending_effective_from</code>. Omit this
-   * field to leave any scheduled change unchanged, including when raising <code>usage_limit</code>;
-   * use <code>DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending</code> to cancel one.
+   * The limit to apply to the organization-wide quota at 00:00 UTC on the first day of the next
+   * calendar month. Must be a non-negative integer in the usage units defined by the quota
+   * namespace. This value is not checked against current usage.
+   *
+   * <p>Setting this field replaces any previously scheduled limit. The server sets <code>
+   * pending_effective_from</code>.
+   *
+   * <p>Omitting this field preserves the scheduled change, even when increasing <code>usage_limit
+   * </code>. Setting <code>enforced=false</code> clears the scheduled change. To cancel it
+   * explicitly, use <code>DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending</code>.
    * minimum: 0
    *
    * @return pendingUsageLimit
