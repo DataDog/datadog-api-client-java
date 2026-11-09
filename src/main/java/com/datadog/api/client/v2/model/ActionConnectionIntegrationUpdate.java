@@ -668,6 +668,51 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'GeminiIntegrationUpdate'", e);
       }
 
+      // deserialize GithubIntegrationUpdate
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (GithubIntegrationUpdate.class.equals(Integer.class)
+            || GithubIntegrationUpdate.class.equals(Long.class)
+            || GithubIntegrationUpdate.class.equals(Float.class)
+            || GithubIntegrationUpdate.class.equals(Double.class)
+            || GithubIntegrationUpdate.class.equals(Boolean.class)
+            || GithubIntegrationUpdate.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((GithubIntegrationUpdate.class.equals(Integer.class)
+                        || GithubIntegrationUpdate.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((GithubIntegrationUpdate.class.equals(Float.class)
+                        || GithubIntegrationUpdate.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (GithubIntegrationUpdate.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (GithubIntegrationUpdate.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(GithubIntegrationUpdate.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((GithubIntegrationUpdate) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'GithubIntegrationUpdate'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'GithubIntegrationUpdate'", e);
+      }
+
       // deserialize GitlabIntegrationUpdate
       try {
         boolean attemptParsing = true;
@@ -1258,6 +1303,11 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public ActionConnectionIntegrationUpdate(GithubIntegrationUpdate o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ActionConnectionIntegrationUpdate(GitlabIntegrationUpdate o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1328,6 +1378,7 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
         "FreshserviceIntegrationUpdate", new GenericType<FreshserviceIntegrationUpdate>() {});
     schemas.put("GCPIntegrationUpdate", new GenericType<GCPIntegrationUpdate>() {});
     schemas.put("GeminiIntegrationUpdate", new GenericType<GeminiIntegrationUpdate>() {});
+    schemas.put("GithubIntegrationUpdate", new GenericType<GithubIntegrationUpdate>() {});
     schemas.put("GitlabIntegrationUpdate", new GenericType<GitlabIntegrationUpdate>() {});
     schemas.put("GreyNoiseIntegrationUpdate", new GenericType<GreyNoiseIntegrationUpdate>() {});
     schemas.put("HTTPIntegrationUpdate", new GenericType<HTTPIntegrationUpdate>() {});
@@ -1355,11 +1406,11 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
    * AsanaIntegrationUpdate, AzureIntegrationUpdate, CircleCIIntegrationUpdate,
    * ClickupIntegrationUpdate, CloudflareIntegrationUpdate, ConfigCatIntegrationUpdate,
    * DatadogIntegrationUpdate, FastlyIntegrationUpdate, FreshserviceIntegrationUpdate,
-   * GCPIntegrationUpdate, GeminiIntegrationUpdate, GitlabIntegrationUpdate,
-   * GreyNoiseIntegrationUpdate, HTTPIntegrationUpdate, LaunchDarklyIntegrationUpdate,
-   * NotionIntegrationUpdate, OktaIntegrationUpdate, OpenAIIntegrationUpdate,
-   * ServiceNowIntegrationUpdate, SplitIntegrationUpdate, StatsigIntegrationUpdate,
-   * VirusTotalIntegrationUpdate
+   * GCPIntegrationUpdate, GeminiIntegrationUpdate, GithubIntegrationUpdate,
+   * GitlabIntegrationUpdate, GreyNoiseIntegrationUpdate, HTTPIntegrationUpdate,
+   * LaunchDarklyIntegrationUpdate, NotionIntegrationUpdate, OktaIntegrationUpdate,
+   * OpenAIIntegrationUpdate, ServiceNowIntegrationUpdate, SplitIntegrationUpdate,
+   * StatsigIntegrationUpdate, VirusTotalIntegrationUpdate
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1418,6 +1469,10 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(GithubIntegrationUpdate.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(GitlabIntegrationUpdate.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1472,11 +1527,11 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
             + " AsanaIntegrationUpdate, AzureIntegrationUpdate, CircleCIIntegrationUpdate,"
             + " ClickupIntegrationUpdate, CloudflareIntegrationUpdate, ConfigCatIntegrationUpdate,"
             + " DatadogIntegrationUpdate, FastlyIntegrationUpdate, FreshserviceIntegrationUpdate,"
-            + " GCPIntegrationUpdate, GeminiIntegrationUpdate, GitlabIntegrationUpdate,"
-            + " GreyNoiseIntegrationUpdate, HTTPIntegrationUpdate, LaunchDarklyIntegrationUpdate,"
-            + " NotionIntegrationUpdate, OktaIntegrationUpdate, OpenAIIntegrationUpdate,"
-            + " ServiceNowIntegrationUpdate, SplitIntegrationUpdate, StatsigIntegrationUpdate,"
-            + " VirusTotalIntegrationUpdate");
+            + " GCPIntegrationUpdate, GeminiIntegrationUpdate, GithubIntegrationUpdate,"
+            + " GitlabIntegrationUpdate, GreyNoiseIntegrationUpdate, HTTPIntegrationUpdate,"
+            + " LaunchDarklyIntegrationUpdate, NotionIntegrationUpdate, OktaIntegrationUpdate,"
+            + " OpenAIIntegrationUpdate, ServiceNowIntegrationUpdate, SplitIntegrationUpdate,"
+            + " StatsigIntegrationUpdate, VirusTotalIntegrationUpdate");
   }
 
   /**
@@ -1485,20 +1540,20 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
    * CircleCIIntegrationUpdate, ClickupIntegrationUpdate, CloudflareIntegrationUpdate,
    * ConfigCatIntegrationUpdate, DatadogIntegrationUpdate, FastlyIntegrationUpdate,
    * FreshserviceIntegrationUpdate, GCPIntegrationUpdate, GeminiIntegrationUpdate,
-   * GitlabIntegrationUpdate, GreyNoiseIntegrationUpdate, HTTPIntegrationUpdate,
-   * LaunchDarklyIntegrationUpdate, NotionIntegrationUpdate, OktaIntegrationUpdate,
-   * OpenAIIntegrationUpdate, ServiceNowIntegrationUpdate, SplitIntegrationUpdate,
-   * StatsigIntegrationUpdate, VirusTotalIntegrationUpdate
+   * GithubIntegrationUpdate, GitlabIntegrationUpdate, GreyNoiseIntegrationUpdate,
+   * HTTPIntegrationUpdate, LaunchDarklyIntegrationUpdate, NotionIntegrationUpdate,
+   * OktaIntegrationUpdate, OpenAIIntegrationUpdate, ServiceNowIntegrationUpdate,
+   * SplitIntegrationUpdate, StatsigIntegrationUpdate, VirusTotalIntegrationUpdate
    *
    * @return The actual instance (AWSIntegrationUpdate, AnthropicIntegrationUpdate,
    *     AsanaIntegrationUpdate, AzureIntegrationUpdate, CircleCIIntegrationUpdate,
    *     ClickupIntegrationUpdate, CloudflareIntegrationUpdate, ConfigCatIntegrationUpdate,
    *     DatadogIntegrationUpdate, FastlyIntegrationUpdate, FreshserviceIntegrationUpdate,
-   *     GCPIntegrationUpdate, GeminiIntegrationUpdate, GitlabIntegrationUpdate,
-   *     GreyNoiseIntegrationUpdate, HTTPIntegrationUpdate, LaunchDarklyIntegrationUpdate,
-   *     NotionIntegrationUpdate, OktaIntegrationUpdate, OpenAIIntegrationUpdate,
-   *     ServiceNowIntegrationUpdate, SplitIntegrationUpdate, StatsigIntegrationUpdate,
-   *     VirusTotalIntegrationUpdate)
+   *     GCPIntegrationUpdate, GeminiIntegrationUpdate, GithubIntegrationUpdate,
+   *     GitlabIntegrationUpdate, GreyNoiseIntegrationUpdate, HTTPIntegrationUpdate,
+   *     LaunchDarklyIntegrationUpdate, NotionIntegrationUpdate, OktaIntegrationUpdate,
+   *     OpenAIIntegrationUpdate, ServiceNowIntegrationUpdate, SplitIntegrationUpdate,
+   *     StatsigIntegrationUpdate, VirusTotalIntegrationUpdate)
    */
   @Override
   public Object getActualInstance() {
@@ -1647,6 +1702,17 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
    */
   public GeminiIntegrationUpdate getGeminiIntegrationUpdate() throws ClassCastException {
     return (GeminiIntegrationUpdate) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `GithubIntegrationUpdate`. If the actual instance is not
+   * `GithubIntegrationUpdate`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `GithubIntegrationUpdate`
+   * @throws ClassCastException if the instance is not `GithubIntegrationUpdate`
+   */
+  public GithubIntegrationUpdate getGithubIntegrationUpdate() throws ClassCastException {
+    return (GithubIntegrationUpdate) super.getActualInstance();
   }
 
   /**
