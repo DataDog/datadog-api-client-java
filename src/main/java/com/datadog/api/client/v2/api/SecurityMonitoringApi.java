@@ -31393,13 +31393,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<AssigneeResponse> updateFindingsAssigneeWithHttpInfo(AssigneeRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateFindingsAssignee";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -31442,16 +31435,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<AssigneeResponse>> updateFindingsAssigneeWithHttpInfoAsync(
       AssigneeRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateFindingsAssignee";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AssigneeResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -31560,13 +31543,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<SeverityOverrideResponse> updateFindingsSeverityWithHttpInfo(
       SeverityOverrideRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateFindingsSeverity";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -31609,16 +31585,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<SeverityOverrideResponse>>
       updateFindingsSeverityWithHttpInfoAsync(SeverityOverrideRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateFindingsSeverity";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SeverityOverrideResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
