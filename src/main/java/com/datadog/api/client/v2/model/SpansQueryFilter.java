@@ -63,7 +63,18 @@ public class SpansQueryFilter {
   }
 
   /**
-   * The search query - following the span search syntax.
+   * The search query, following the <a
+   * href="https://docs.datadoghq.com/tracing/trace_explorer/query_syntax/">span search syntax</a>.
+   * Reserved fields (<code>service</code>, <code>env</code>, <code>version</code>, <code>
+   * resource_name</code>, <code>operation_name</code>, <code>status</code>, <code>span_id</code>,
+   * <code>trace_id</code>, <code>type</code>) take no <code>@</code> prefix, and neither do tags
+   * such as <code>host</code> or primary tags such as <code>datacenter</code>. Span attributes need
+   * one, for example <code>@span.kind:server</code> or <code>@http.status_code:500</code>. Wrap
+   * values that contain special characters such as <code>:</code>, <code>{</code>, <code>}</code>,
+   * <code>(</code>, <code>)</code>, or spaces in double quotes, for example <code>
+   * @http.route:"/api/v1/users/{id}"</code> or <code>resource_name:"GET /api/v1/users"</code>.
+   * Wildcards do not work inside quotes, so to combine a wildcard with special characters, escape
+   * each one with <code>\</code> instead, for example <code>resource_name:Clients\:\:*</code>.
    *
    * @return query
    */

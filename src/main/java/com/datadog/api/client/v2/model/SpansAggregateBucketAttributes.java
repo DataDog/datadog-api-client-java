@@ -70,7 +70,8 @@ public class SpansAggregateBucketAttributes {
   }
 
   /**
-   * The compute data.
+   * Map of compute ID (<code>c0</code>, <code>c1</code>, ... in request order) to the computed
+   * value, or to a list of <code>{time, value}</code> points for a <code>timeseries</code> compute.
    *
    * @return compute
    */
@@ -100,7 +101,7 @@ public class SpansAggregateBucketAttributes {
   }
 
   /**
-   * A map of the metric name -&gt; value for regular compute or list of values for a timeseries.
+   * Not returned by this endpoint. Read the values from <code>compute</code> instead.
    *
    * @return computes
    */
