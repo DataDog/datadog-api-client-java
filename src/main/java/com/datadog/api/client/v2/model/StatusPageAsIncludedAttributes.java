@@ -245,9 +245,10 @@ public class StatusPageAsIncludedAttributes {
   }
 
   /**
-   * The subdomain of the status page's url taking the form <code>
-   * https://{domain_prefix}.statuspage.datadoghq.com</code>. Globally unique across Datadog Status
-   * Pages.
+   * The subdomain of the status page URL. Public pages use <code>
+   * https://{domain_prefix}.statuspage.datadoghq.com</code>, while private pages use <code>
+   * https://{domain_prefix}.private.statuspage.datadoghq.com</code>. Globally unique across Datadog
+   * Status Pages.
    *
    * @return domainPrefix
    */
@@ -525,7 +526,10 @@ public class StatusPageAsIncludedAttributes {
   }
 
   /**
-   * The type of the status page controlling how the status page is accessed.
+   * The type of the status page controlling how the status page is accessed. Public pages are
+   * accessible to anyone, internal pages are accessible to authenticated users in the Datadog
+   * organization, and private pages are accessible only to users matching an allow email access
+   * policy and no deny email access policy.
    *
    * @return type
    */

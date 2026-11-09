@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.CreateDegradationRequest;
 import com.datadog.api.client.v2.model.CreateDegradationTemplateRequest;
 import com.datadog.api.client.v2.model.CreateMaintenanceRequest;
 import com.datadog.api.client.v2.model.CreateMaintenanceTemplateRequest;
+import com.datadog.api.client.v2.model.CreateStatusPageEmailAccessPolicyRequest;
 import com.datadog.api.client.v2.model.CreateStatusPageRequest;
 import com.datadog.api.client.v2.model.Degradation;
 import com.datadog.api.client.v2.model.DegradationArray;
@@ -32,6 +33,8 @@ import com.datadog.api.client.v2.model.PatchMaintenanceUpdateRequest;
 import com.datadog.api.client.v2.model.PatchStatusPageRequest;
 import com.datadog.api.client.v2.model.StatusPage;
 import com.datadog.api.client.v2.model.StatusPageArray;
+import com.datadog.api.client.v2.model.StatusPageEmailAccessPolicyArrayResponse;
+import com.datadog.api.client.v2.model.StatusPageEmailAccessPolicyResponse;
 import com.datadog.api.client.v2.model.StatusPagesComponent;
 import com.datadog.api.client.v2.model.StatusPagesComponentArray;
 import jakarta.ws.rs.client.Invocation;
@@ -1225,6 +1228,243 @@ public class StatusPagesApi {
         new GenericType<DegradationTemplate>() {});
   }
 
+  /** Manage optional parameters to createEmailAccessPolicy. */
+  public static class CreateEmailAccessPolicyOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, status_page. (optional)
+     * @return CreateEmailAccessPolicyOptionalParameters
+     */
+    public CreateEmailAccessPolicyOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create an email access policy.
+   *
+   * <p>See {@link #createEmailAccessPolicyWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param body (required)
+   * @return StatusPageEmailAccessPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public StatusPageEmailAccessPolicyResponse createEmailAccessPolicy(
+      UUID pageId, CreateStatusPageEmailAccessPolicyRequest body) throws ApiException {
+    return createEmailAccessPolicyWithHttpInfo(
+            pageId, body, new CreateEmailAccessPolicyOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create an email access policy.
+   *
+   * <p>See {@link #createEmailAccessPolicyWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;StatusPageEmailAccessPolicyResponse&gt;
+   */
+  public CompletableFuture<StatusPageEmailAccessPolicyResponse> createEmailAccessPolicyAsync(
+      UUID pageId, CreateStatusPageEmailAccessPolicyRequest body) {
+    return createEmailAccessPolicyWithHttpInfoAsync(
+            pageId, body, new CreateEmailAccessPolicyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an email access policy.
+   *
+   * <p>See {@link #createEmailAccessPolicyWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return StatusPageEmailAccessPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public StatusPageEmailAccessPolicyResponse createEmailAccessPolicy(
+      UUID pageId,
+      CreateStatusPageEmailAccessPolicyRequest body,
+      CreateEmailAccessPolicyOptionalParameters parameters)
+      throws ApiException {
+    return createEmailAccessPolicyWithHttpInfo(pageId, body, parameters).getData();
+  }
+
+  /**
+   * Create an email access policy.
+   *
+   * <p>See {@link #createEmailAccessPolicyWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;StatusPageEmailAccessPolicyResponse&gt;
+   */
+  public CompletableFuture<StatusPageEmailAccessPolicyResponse> createEmailAccessPolicyAsync(
+      UUID pageId,
+      CreateStatusPageEmailAccessPolicyRequest body,
+      CreateEmailAccessPolicyOptionalParameters parameters) {
+    return createEmailAccessPolicyWithHttpInfoAsync(pageId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates an email access policy for a private status page.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;StatusPageEmailAccessPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<StatusPageEmailAccessPolicyResponse> createEmailAccessPolicyWithHttpInfo(
+      UUID pageId,
+      CreateStatusPageEmailAccessPolicyRequest body,
+      CreateEmailAccessPolicyOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling createEmailAccessPolicy");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createEmailAccessPolicy");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/access_policies/email"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.createEmailAccessPolicy",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<StatusPageEmailAccessPolicyResponse>() {});
+  }
+
+  /**
+   * Create an email access policy.
+   *
+   * <p>See {@link #createEmailAccessPolicyWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;StatusPageEmailAccessPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<StatusPageEmailAccessPolicyResponse>>
+      createEmailAccessPolicyWithHttpInfoAsync(
+          UUID pageId,
+          CreateStatusPageEmailAccessPolicyRequest body,
+          CreateEmailAccessPolicyOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<StatusPageEmailAccessPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling createEmailAccessPolicy"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<StatusPageEmailAccessPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createEmailAccessPolicy"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/access_policies/email"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.createEmailAccessPolicy",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<StatusPageEmailAccessPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<StatusPageEmailAccessPolicyResponse>() {});
+  }
+
   /** Manage optional parameters to createMaintenance. */
   public static class CreateMaintenanceOptionalParameters {
     private Boolean notifySubscribers;
@@ -2336,6 +2576,163 @@ public class StatusPagesApi {
       builder =
           apiClient.createBuilder(
               "v2.StatusPagesApi.deleteDegradationTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an email access policy.
+   *
+   * <p>See {@link #deleteEmailAccessPolicyWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param policyId The ID of the email access policy. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteEmailAccessPolicy(UUID pageId, UUID policyId) throws ApiException {
+    deleteEmailAccessPolicyWithHttpInfo(pageId, policyId);
+  }
+
+  /**
+   * Delete an email access policy.
+   *
+   * <p>See {@link #deleteEmailAccessPolicyWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param policyId The ID of the email access policy. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteEmailAccessPolicyAsync(UUID pageId, UUID policyId) {
+    return deleteEmailAccessPolicyWithHttpInfoAsync(pageId, policyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes an email access policy from a private status page.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param policyId The ID of the email access policy. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteEmailAccessPolicyWithHttpInfo(UUID pageId, UUID policyId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling deleteEmailAccessPolicy");
+    }
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'policyId' when calling deleteEmailAccessPolicy");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/access_policies/email/{policy_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.deleteEmailAccessPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an email access policy.
+   *
+   * <p>See {@link #deleteEmailAccessPolicyWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param policyId The ID of the email access policy. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteEmailAccessPolicyWithHttpInfoAsync(
+      UUID pageId, UUID policyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling deleteEmailAccessPolicy"));
+      return result;
+    }
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'policyId' when calling deleteEmailAccessPolicy"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/access_policies/email/{policy_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.deleteEmailAccessPolicy",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -4905,6 +5302,210 @@ public class StatusPagesApi {
         new GenericType<DegradationTemplateArray>() {});
   }
 
+  /** Manage optional parameters to listEmailAccessPolicies. */
+  public static class ListEmailAccessPoliciesOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, status_page. (optional)
+     * @return ListEmailAccessPoliciesOptionalParameters
+     */
+    public ListEmailAccessPoliciesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * List email access policies.
+   *
+   * <p>See {@link #listEmailAccessPoliciesWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @return StatusPageEmailAccessPolicyArrayResponse
+   * @throws ApiException if fails to make API call
+   */
+  public StatusPageEmailAccessPolicyArrayResponse listEmailAccessPolicies(UUID pageId)
+      throws ApiException {
+    return listEmailAccessPoliciesWithHttpInfo(
+            pageId, new ListEmailAccessPoliciesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List email access policies.
+   *
+   * <p>See {@link #listEmailAccessPoliciesWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @return CompletableFuture&lt;StatusPageEmailAccessPolicyArrayResponse&gt;
+   */
+  public CompletableFuture<StatusPageEmailAccessPolicyArrayResponse> listEmailAccessPoliciesAsync(
+      UUID pageId) {
+    return listEmailAccessPoliciesWithHttpInfoAsync(
+            pageId, new ListEmailAccessPoliciesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List email access policies.
+   *
+   * <p>See {@link #listEmailAccessPoliciesWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param parameters Optional parameters for the request.
+   * @return StatusPageEmailAccessPolicyArrayResponse
+   * @throws ApiException if fails to make API call
+   */
+  public StatusPageEmailAccessPolicyArrayResponse listEmailAccessPolicies(
+      UUID pageId, ListEmailAccessPoliciesOptionalParameters parameters) throws ApiException {
+    return listEmailAccessPoliciesWithHttpInfo(pageId, parameters).getData();
+  }
+
+  /**
+   * List email access policies.
+   *
+   * <p>See {@link #listEmailAccessPoliciesWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;StatusPageEmailAccessPolicyArrayResponse&gt;
+   */
+  public CompletableFuture<StatusPageEmailAccessPolicyArrayResponse> listEmailAccessPoliciesAsync(
+      UUID pageId, ListEmailAccessPoliciesOptionalParameters parameters) {
+    return listEmailAccessPoliciesWithHttpInfoAsync(pageId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Lists the email access policies for a private status page.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;StatusPageEmailAccessPolicyArrayResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<StatusPageEmailAccessPolicyArrayResponse> listEmailAccessPoliciesWithHttpInfo(
+      UUID pageId, ListEmailAccessPoliciesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling listEmailAccessPolicies");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/access_policies/email"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.listEmailAccessPolicies",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<StatusPageEmailAccessPolicyArrayResponse>() {});
+  }
+
+  /**
+   * List email access policies.
+   *
+   * <p>See {@link #listEmailAccessPoliciesWithHttpInfo}.
+   *
+   * @param pageId The ID of the private status page. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;StatusPageEmailAccessPolicyArrayResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<StatusPageEmailAccessPolicyArrayResponse>>
+      listEmailAccessPoliciesWithHttpInfoAsync(
+          UUID pageId, ListEmailAccessPoliciesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<StatusPageEmailAccessPolicyArrayResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling listEmailAccessPolicies"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/access_policies/email"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.listEmailAccessPolicies",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<StatusPageEmailAccessPolicyArrayResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<StatusPageEmailAccessPolicyArrayResponse>() {});
+  }
+
   /** Manage optional parameters to listMaintenances. */
   public static class ListMaintenancesOptionalParameters {
     private String filterPageId;
@@ -5827,7 +6428,10 @@ public class StatusPagesApi {
    * on the public internet and requires the <code>status_pages_public_page_publish</code>
    * permission. For pages of type <code>internal</code>, makes the status page available under the
    * <code>status-pages/$domain_prefix/view</code> route within the Datadog organization and
-   * requires the <code>status_pages_internal_page_publish</code> permission.
+   * requires the <code>status_pages_internal_page_publish</code> permission. For pages of type
+   * <code>private</code>, makes the status page available to users authorized by its email access
+   * policies and requires the <code>status_pages_private_page_publish</code> permission. A private
+   * status page must have at least one email access policy before it can be published.
    *
    * @param pageId The ID of the status page. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -6147,7 +6751,9 @@ public class StatusPagesApi {
    * the public internet and requires the <code>status_pages_public_page_publish</code> permission.
    * For pages of type <code>internal</code>, removes the <code>status-pages/$domain_prefix/view
    * </code> route from the Datadog organization and requires the <code>
-   * status_pages_internal_page_publish</code> permission.
+   * status_pages_internal_page_publish</code> permission. For pages of type <code>private</code>,
+   * removes access to the private status page and requires the <code>
+   * status_pages_private_page_publish</code> permission.
    *
    * @param pageId The ID of the status page. (required)
    * @return ApiResponse&lt;Void&gt;
