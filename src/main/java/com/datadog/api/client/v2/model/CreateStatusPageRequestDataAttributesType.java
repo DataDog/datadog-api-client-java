@@ -18,7 +18,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of the status page controlling how the status page is accessed. */
+/**
+ * The type of the status page controlling how the status page is accessed. Public pages are
+ * accessible to anyone, internal pages are accessible to authenticated users in the Datadog
+ * organization, and private pages are accessible only to users matching an allow email access
+ * policy and no deny email access policy.
+ */
 @JsonSerialize(
     using =
         CreateStatusPageRequestDataAttributesType
@@ -26,12 +31,14 @@ import java.util.Set;
 public class CreateStatusPageRequestDataAttributesType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("public", "internal"));
+      new HashSet<String>(Arrays.asList("public", "internal", "private"));
 
   public static final CreateStatusPageRequestDataAttributesType PUBLIC =
       new CreateStatusPageRequestDataAttributesType("public");
   public static final CreateStatusPageRequestDataAttributesType INTERNAL =
       new CreateStatusPageRequestDataAttributesType("internal");
+  public static final CreateStatusPageRequestDataAttributesType PRIVATE =
+      new CreateStatusPageRequestDataAttributesType("private");
 
   CreateStatusPageRequestDataAttributesType(String value) {
     super(value, allowedValues);
