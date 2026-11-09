@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Routing fallback tier containing targets and their effective ordering. */
 @JsonPropertyOrder({
+  AiGatewayRoutingRuleTier.JSON_PROPERTY_CLASSIFIER,
   AiGatewayRoutingRuleTier.JSON_PROPERTY_ORDERING,
   AiGatewayRoutingRuleTier.JSON_PROPERTY_ORDERING_ISSUE,
   AiGatewayRoutingRuleTier.JSON_PROPERTY_TARGETS
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleTier {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CLASSIFIER = "classifier";
+  private AiGatewayRoutingRuleClassifier classifier;
+
   public static final String JSON_PROPERTY_ORDERING = "ordering";
   private AiGatewayRoutingRuleTierOrdering ordering;
 
@@ -51,6 +55,31 @@ public class AiGatewayRoutingRuleTier {
     this.targets = targets;
     for (AiGatewayRoutingRuleTarget item : targets) {
       this.unparsed |= item.unparsed;
+    }
+  }
+
+  public AiGatewayRoutingRuleTier classifier(AiGatewayRoutingRuleClassifier classifier) {
+    this.classifier = classifier;
+    this.unparsed |= classifier.unparsed;
+    return this;
+  }
+
+  /**
+   * Decision model of a classified tier.
+   *
+   * @return classifier
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLASSIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AiGatewayRoutingRuleClassifier getClassifier() {
+    return classifier;
+  }
+
+  public void setClassifier(AiGatewayRoutingRuleClassifier classifier) {
+    this.classifier = classifier;
+    if (classifier != null) {
+      this.unparsed |= classifier.unparsed;
     }
   }
 
@@ -183,7 +212,8 @@ public class AiGatewayRoutingRuleTier {
       return false;
     }
     AiGatewayRoutingRuleTier aiGatewayRoutingRuleTier = (AiGatewayRoutingRuleTier) o;
-    return Objects.equals(this.ordering, aiGatewayRoutingRuleTier.ordering)
+    return Objects.equals(this.classifier, aiGatewayRoutingRuleTier.classifier)
+        && Objects.equals(this.ordering, aiGatewayRoutingRuleTier.ordering)
         && Objects.equals(this.orderingIssue, aiGatewayRoutingRuleTier.orderingIssue)
         && Objects.equals(this.targets, aiGatewayRoutingRuleTier.targets)
         && Objects.equals(this.additionalProperties, aiGatewayRoutingRuleTier.additionalProperties);
@@ -191,13 +221,14 @@ public class AiGatewayRoutingRuleTier {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ordering, orderingIssue, targets, additionalProperties);
+    return Objects.hash(classifier, ordering, orderingIssue, targets, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleTier {\n");
+    sb.append("    classifier: ").append(toIndentedString(classifier)).append("\n");
     sb.append("    ordering: ").append(toIndentedString(ordering)).append("\n");
     sb.append("    orderingIssue: ").append(toIndentedString(orderingIssue)).append("\n");
     sb.append("    targets: ").append(toIndentedString(targets)).append("\n");

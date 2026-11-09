@@ -20,11 +20,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Model target or reference to another routing rule. */
 @JsonPropertyOrder({
+  AiGatewayRoutingRuleTarget.JSON_PROPERTY_DEFAULT,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_ID,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_MODEL,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_MODEL_ID,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_PROVIDER,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_REASONING_LEVEL,
+  AiGatewayRoutingRuleTarget.JSON_PROPERTY_RUBRIC,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_SLUG,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_TYPE,
   AiGatewayRoutingRuleTarget.JSON_PROPERTY_WEIGHT
@@ -33,6 +35,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleTarget {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DEFAULT = "default";
+  private Boolean _default;
+
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
@@ -48,6 +53,9 @@ public class AiGatewayRoutingRuleTarget {
   public static final String JSON_PROPERTY_REASONING_LEVEL = "reasoning_level";
   private JsonNullable<AiGatewayRoutingReasoningLevel> reasoningLevel =
       JsonNullable.<AiGatewayRoutingReasoningLevel>undefined();
+
+  public static final String JSON_PROPERTY_RUBRIC = "rubric";
+  private String rubric;
 
   public static final String JSON_PROPERTY_SLUG = "slug";
   private String slug;
@@ -66,6 +74,27 @@ public class AiGatewayRoutingRuleTarget {
           AiGatewayRoutingRuleTargetType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public AiGatewayRoutingRuleTarget _default(Boolean _default) {
+    this._default = _default;
+    return this;
+  }
+
+  /**
+   * True on the default destination of a classified tier. Omitted on other targets.
+   *
+   * @return _default
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDefault() {
+    return _default;
+  }
+
+  public void setDefault(Boolean _default) {
+    this._default = _default;
   }
 
   public AiGatewayRoutingRuleTarget id(Long id) {
@@ -203,6 +232,28 @@ public class AiGatewayRoutingRuleTarget {
     this.reasoningLevel = JsonNullable.<AiGatewayRoutingReasoningLevel>of(reasoningLevel);
   }
 
+  public AiGatewayRoutingRuleTarget rubric(String rubric) {
+    this.rubric = rubric;
+    return this;
+  }
+
+  /**
+   * Describes when the decision model picks this destination. Returned only for destinations of
+   * classified tiers, not for the default.
+   *
+   * @return rubric
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUBRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRubric() {
+    return rubric;
+  }
+
+  public void setRubric(String rubric) {
+    this.rubric = rubric;
+  }
+
   public AiGatewayRoutingRuleTarget slug(String slug) {
     this.slug = slug;
     return this;
@@ -326,11 +377,13 @@ public class AiGatewayRoutingRuleTarget {
       return false;
     }
     AiGatewayRoutingRuleTarget aiGatewayRoutingRuleTarget = (AiGatewayRoutingRuleTarget) o;
-    return Objects.equals(this.id, aiGatewayRoutingRuleTarget.id)
+    return Objects.equals(this._default, aiGatewayRoutingRuleTarget._default)
+        && Objects.equals(this.id, aiGatewayRoutingRuleTarget.id)
         && Objects.equals(this.model, aiGatewayRoutingRuleTarget.model)
         && Objects.equals(this.modelId, aiGatewayRoutingRuleTarget.modelId)
         && Objects.equals(this.provider, aiGatewayRoutingRuleTarget.provider)
         && Objects.equals(this.reasoningLevel, aiGatewayRoutingRuleTarget.reasoningLevel)
+        && Objects.equals(this.rubric, aiGatewayRoutingRuleTarget.rubric)
         && Objects.equals(this.slug, aiGatewayRoutingRuleTarget.slug)
         && Objects.equals(this.type, aiGatewayRoutingRuleTarget.type)
         && Objects.equals(this.weight, aiGatewayRoutingRuleTarget.weight)
@@ -341,18 +394,30 @@ public class AiGatewayRoutingRuleTarget {
   @Override
   public int hashCode() {
     return Objects.hash(
-        id, model, modelId, provider, reasoningLevel, slug, type, weight, additionalProperties);
+        _default,
+        id,
+        model,
+        modelId,
+        provider,
+        reasoningLevel,
+        rubric,
+        slug,
+        type,
+        weight,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleTarget {\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    reasoningLevel: ").append(toIndentedString(reasoningLevel)).append("\n");
+    sb.append("    rubric: ").append(toIndentedString(rubric)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
