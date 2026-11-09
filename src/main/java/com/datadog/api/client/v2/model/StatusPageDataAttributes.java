@@ -29,9 +29,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
   StatusPageDataAttributes.JSON_PROPERTY_CUSTOM_DOMAIN_ENABLED,
   StatusPageDataAttributes.JSON_PROPERTY_DOMAIN_PREFIX,
   StatusPageDataAttributes.JSON_PROPERTY_EMAIL_HEADER_IMAGE,
+  StatusPageDataAttributes.JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED,
   StatusPageDataAttributes.JSON_PROPERTY_ENABLED,
   StatusPageDataAttributes.JSON_PROPERTY_FAVICON,
   StatusPageDataAttributes.JSON_PROPERTY_MODIFIED_AT,
+  StatusPageDataAttributes.JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED,
   StatusPageDataAttributes.JSON_PROPERTY_NAME,
   StatusPageDataAttributes.JSON_PROPERTY_PAGE_URL,
   StatusPageDataAttributes.JSON_PROPERTY_RSS_FEED_ENABLED,
@@ -67,6 +69,10 @@ public class StatusPageDataAttributes {
   public static final String JSON_PROPERTY_EMAIL_HEADER_IMAGE = "email_header_image";
   private JsonNullable<String> emailHeaderImage = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED =
+      "email_notifications_enabled";
+  private Boolean emailNotificationsEnabled;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -75,6 +81,10 @@ public class StatusPageDataAttributes {
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
+
+  public static final String JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED =
+      "ms_teams_subscriptions_enabled";
+  private Boolean msTeamsSubscriptionsEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -86,7 +96,7 @@ public class StatusPageDataAttributes {
   private Boolean rssFeedEnabled;
 
   public static final String JSON_PROPERTY_SLACK_APP_ICON = "slack_app_icon";
-  private String slackAppIcon;
+  private JsonNullable<String> slackAppIcon = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED =
       "slack_subscriptions_enabled";
@@ -304,6 +314,28 @@ public class StatusPageDataAttributes {
     this.emailHeaderImage = JsonNullable.<String>of(emailHeaderImage);
   }
 
+  public StatusPageDataAttributes emailNotificationsEnabled(Boolean emailNotificationsEnabled) {
+    this.emailNotificationsEnabled = emailNotificationsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether email notifications are enabled for the status page. Must be enabled when <code>
+   * subscriptions_enabled</code> is <code>true</code>.
+   *
+   * @return emailNotificationsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEmailNotificationsEnabled() {
+    return emailNotificationsEnabled;
+  }
+
+  public void setEmailNotificationsEnabled(Boolean emailNotificationsEnabled) {
+    this.emailNotificationsEnabled = emailNotificationsEnabled;
+  }
+
   public StatusPageDataAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -377,6 +409,27 @@ public class StatusPageDataAttributes {
     this.modifiedAt = modifiedAt;
   }
 
+  public StatusPageDataAttributes msTeamsSubscriptionsEnabled(Boolean msTeamsSubscriptionsEnabled) {
+    this.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Microsoft Teams subscriptions are enabled for the status page.
+   *
+   * @return msTeamsSubscriptionsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMsTeamsSubscriptionsEnabled() {
+    return msTeamsSubscriptionsEnabled;
+  }
+
+  public void setMsTeamsSubscriptionsEnabled(Boolean msTeamsSubscriptionsEnabled) {
+    this.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
+  }
+
   public StatusPageDataAttributes name(String name) {
     this.name = name;
     return this;
@@ -441,7 +494,7 @@ public class StatusPageDataAttributes {
   }
 
   public StatusPageDataAttributes slackAppIcon(String slackAppIcon) {
-    this.slackAppIcon = slackAppIcon;
+    this.slackAppIcon = JsonNullable.<String>of(slackAppIcon);
     return this;
   }
 
@@ -451,14 +504,24 @@ public class StatusPageDataAttributes {
    * @return slackAppIcon
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getSlackAppIcon() {
+    return slackAppIcon.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SLACK_APP_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSlackAppIcon() {
+  public JsonNullable<String> getSlackAppIcon_JsonNullable() {
     return slackAppIcon;
   }
 
-  public void setSlackAppIcon(String slackAppIcon) {
+  @JsonProperty(JSON_PROPERTY_SLACK_APP_ICON)
+  public void setSlackAppIcon_JsonNullable(JsonNullable<String> slackAppIcon) {
     this.slackAppIcon = slackAppIcon;
+  }
+
+  public void setSlackAppIcon(String slackAppIcon) {
+    this.slackAppIcon = JsonNullable.<String>of(slackAppIcon);
   }
 
   public StatusPageDataAttributes slackSubscriptionsEnabled(Boolean slackSubscriptionsEnabled) {
@@ -647,9 +710,13 @@ public class StatusPageDataAttributes {
         && Objects.equals(this.customDomainEnabled, statusPageDataAttributes.customDomainEnabled)
         && Objects.equals(this.domainPrefix, statusPageDataAttributes.domainPrefix)
         && Objects.equals(this.emailHeaderImage, statusPageDataAttributes.emailHeaderImage)
+        && Objects.equals(
+            this.emailNotificationsEnabled, statusPageDataAttributes.emailNotificationsEnabled)
         && Objects.equals(this.enabled, statusPageDataAttributes.enabled)
         && Objects.equals(this.favicon, statusPageDataAttributes.favicon)
         && Objects.equals(this.modifiedAt, statusPageDataAttributes.modifiedAt)
+        && Objects.equals(
+            this.msTeamsSubscriptionsEnabled, statusPageDataAttributes.msTeamsSubscriptionsEnabled)
         && Objects.equals(this.name, statusPageDataAttributes.name)
         && Objects.equals(this.pageUrl, statusPageDataAttributes.pageUrl)
         && Objects.equals(this.rssFeedEnabled, statusPageDataAttributes.rssFeedEnabled)
@@ -673,9 +740,11 @@ public class StatusPageDataAttributes {
         customDomainEnabled,
         domainPrefix,
         emailHeaderImage,
+        emailNotificationsEnabled,
         enabled,
         favicon,
         modifiedAt,
+        msTeamsSubscriptionsEnabled,
         name,
         pageUrl,
         rssFeedEnabled,
@@ -701,9 +770,15 @@ public class StatusPageDataAttributes {
         .append("\n");
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
+    sb.append("    emailNotificationsEnabled: ")
+        .append(toIndentedString(emailNotificationsEnabled))
+        .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    msTeamsSubscriptionsEnabled: ")
+        .append(toIndentedString(msTeamsSubscriptionsEnabled))
+        .append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageUrl: ").append(toIndentedString(pageUrl)).append("\n");
     sb.append("    rssFeedEnabled: ").append(toIndentedString(rssFeedEnabled)).append("\n");
