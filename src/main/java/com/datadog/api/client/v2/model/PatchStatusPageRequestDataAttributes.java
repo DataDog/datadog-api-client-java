@@ -21,7 +21,9 @@ import java.util.Objects;
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_COMPANY_LOGO,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_DOMAIN_PREFIX,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_EMAIL_HEADER_IMAGE,
+  PatchStatusPageRequestDataAttributes.JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_FAVICON,
+  PatchStatusPageRequestDataAttributes.JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_NAME,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_RSS_FEED_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_APP_ICON,
@@ -44,8 +46,16 @@ public class PatchStatusPageRequestDataAttributes {
   public static final String JSON_PROPERTY_EMAIL_HEADER_IMAGE = "email_header_image";
   private String emailHeaderImage;
 
+  public static final String JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED =
+      "email_notifications_enabled";
+  private Boolean emailNotificationsEnabled;
+
   public static final String JSON_PROPERTY_FAVICON = "favicon";
   private String favicon;
+
+  public static final String JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED =
+      "ms_teams_subscriptions_enabled";
+  private Boolean msTeamsSubscriptionsEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -137,6 +147,29 @@ public class PatchStatusPageRequestDataAttributes {
     this.emailHeaderImage = emailHeaderImage;
   }
 
+  public PatchStatusPageRequestDataAttributes emailNotificationsEnabled(
+      Boolean emailNotificationsEnabled) {
+    this.emailNotificationsEnabled = emailNotificationsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether email notifications are enabled for the status page. Must be enabled when <code>
+   * subscriptions_enabled</code> is <code>true</code>.
+   *
+   * @return emailNotificationsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL_NOTIFICATIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEmailNotificationsEnabled() {
+    return emailNotificationsEnabled;
+  }
+
+  public void setEmailNotificationsEnabled(Boolean emailNotificationsEnabled) {
+    this.emailNotificationsEnabled = emailNotificationsEnabled;
+  }
+
   public PatchStatusPageRequestDataAttributes favicon(String favicon) {
     this.favicon = favicon;
     return this;
@@ -156,6 +189,28 @@ public class PatchStatusPageRequestDataAttributes {
 
   public void setFavicon(String favicon) {
     this.favicon = favicon;
+  }
+
+  public PatchStatusPageRequestDataAttributes msTeamsSubscriptionsEnabled(
+      Boolean msTeamsSubscriptionsEnabled) {
+    this.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Microsoft Teams subscriptions are enabled for the status page.
+   *
+   * @return msTeamsSubscriptionsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MS_TEAMS_SUBSCRIPTIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMsTeamsSubscriptionsEnabled() {
+    return msTeamsSubscriptionsEnabled;
+  }
+
+  public void setMsTeamsSubscriptionsEnabled(Boolean msTeamsSubscriptionsEnabled) {
+    this.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
   }
 
   public PatchStatusPageRequestDataAttributes name(String name) {
@@ -206,7 +261,7 @@ public class PatchStatusPageRequestDataAttributes {
   }
 
   /**
-   * The Slack app icon URL for the status page.
+   * The base64-encoded image data used as the Slack app icon.
    *
    * @return slackAppIcon
    */
@@ -406,7 +461,13 @@ public class PatchStatusPageRequestDataAttributes {
         && Objects.equals(this.domainPrefix, patchStatusPageRequestDataAttributes.domainPrefix)
         && Objects.equals(
             this.emailHeaderImage, patchStatusPageRequestDataAttributes.emailHeaderImage)
+        && Objects.equals(
+            this.emailNotificationsEnabled,
+            patchStatusPageRequestDataAttributes.emailNotificationsEnabled)
         && Objects.equals(this.favicon, patchStatusPageRequestDataAttributes.favicon)
+        && Objects.equals(
+            this.msTeamsSubscriptionsEnabled,
+            patchStatusPageRequestDataAttributes.msTeamsSubscriptionsEnabled)
         && Objects.equals(this.name, patchStatusPageRequestDataAttributes.name)
         && Objects.equals(this.rssFeedEnabled, patchStatusPageRequestDataAttributes.rssFeedEnabled)
         && Objects.equals(this.slackAppIcon, patchStatusPageRequestDataAttributes.slackAppIcon)
@@ -430,7 +491,9 @@ public class PatchStatusPageRequestDataAttributes {
         companyLogo,
         domainPrefix,
         emailHeaderImage,
+        emailNotificationsEnabled,
         favicon,
+        msTeamsSubscriptionsEnabled,
         name,
         rssFeedEnabled,
         slackAppIcon,
@@ -449,7 +512,13 @@ public class PatchStatusPageRequestDataAttributes {
     sb.append("    companyLogo: ").append(toIndentedString(companyLogo)).append("\n");
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
+    sb.append("    emailNotificationsEnabled: ")
+        .append(toIndentedString(emailNotificationsEnabled))
+        .append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
+    sb.append("    msTeamsSubscriptionsEnabled: ")
+        .append(toIndentedString(msTeamsSubscriptionsEnabled))
+        .append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rssFeedEnabled: ").append(toIndentedString(rssFeedEnabled)).append("\n");
     sb.append("    slackAppIcon: ").append(toIndentedString(slackAppIcon)).append("\n");
