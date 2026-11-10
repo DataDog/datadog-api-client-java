@@ -194,8 +194,11 @@ public class ErrorTrackingApi {
      * Set include.
      *
      * @param include Comma-separated list of relationship objects that should be included in the
-     *     response. Possible values are <code>assignee</code>, <code>case</code>, <code>team_owners
-     *     </code>, and <code>samples</code>. (optional)
+     *     response. Possible values are <code>assignee</code>, <code>bits_investigation</code>,
+     *     <code>case</code>, <code>pull_requests</code>, <code>samples</code>, <code>team_owners
+     *     </code>, and <code>watches</code>. Values must not contain spaces. <code>case</code> and
+     *     <code>assignee</code> return nothing, without an error, if the caller lacks the <code>
+     *     cases_read</code> permission. (optional)
      * @return GetIssueOptionalParameters
      */
     public GetIssueOptionalParameters include(List<GetIssueIncludeQueryParameterItem> include) {
@@ -282,7 +285,8 @@ public class ErrorTrackingApi {
 
   /**
    * Retrieve the full details for a specific error tracking issue, including attributes and
-   * relationships.
+   * relationships. Returns 403 if the caller lacks the <code>error_tracking_read</code> permission
+   * or does not have access to the issue's data.
    *
    * @param issueId The identifier of the issue. (required)
    * @param parameters Optional parameters for the request.
@@ -412,7 +416,9 @@ public class ErrorTrackingApi {
      *
      * @param include Comma-separated list of relationship objects that should be included in the
      *     response. Possible values are <code>issue</code>, <code>issue.assignee</code>, <code>
-     *     issue.case</code>, and <code>issue.team_owners</code>. (optional)
+     *     issue.bits_investigation</code>, <code>issue.case</code>, <code>issue.impacted_sessions
+     *     </code>, <code>issue.impacted_users</code>, <code>issue.pull_requests</code>, <code>
+     *     issue.team_owners</code>, and <code>issue.watches</code>. (optional)
      * @return SearchIssuesOptionalParameters
      */
     public SearchIssuesOptionalParameters include(

@@ -50,6 +50,7 @@ public class IssueLanguage extends ModelEnum<String> {
               "SCALA",
               "SWIFT",
               "TERRAFORM",
+              "TF",
               "TYPESCRIPT",
               "UNKNOWN"));
 
@@ -78,6 +79,7 @@ public class IssueLanguage extends ModelEnum<String> {
   public static final IssueLanguage SCALA = new IssueLanguage("SCALA");
   public static final IssueLanguage SWIFT = new IssueLanguage("SWIFT");
   public static final IssueLanguage TERRAFORM = new IssueLanguage("TERRAFORM");
+  public static final IssueLanguage TF = new IssueLanguage("TF");
   public static final IssueLanguage TYPESCRIPT = new IssueLanguage("TYPESCRIPT");
   public static final IssueLanguage UNKNOWN = new IssueLanguage("UNKNOWN");
 
