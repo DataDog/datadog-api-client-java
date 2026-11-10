@@ -35,8 +35,10 @@ public class RUMOperationJourneyRum {
       @JsonProperty(required = true, value = JSON_PROPERTY_RUM_STEPS)
           List<RUMOperationJourneyStep> rumSteps) {
     this.rumSteps = rumSteps;
-    for (RUMOperationJourneyStep item : rumSteps) {
-      this.unparsed |= item.unparsed;
+    if (rumSteps != null) {
+      for (RUMOperationJourneyStep item : rumSteps) {
+        this.unparsed |= item.unparsed;
+      }
     }
   }
 
@@ -55,10 +57,12 @@ public class RUMOperationJourneyRum {
   }
 
   /**
-   * The ordered list of steps composing the RUM journey.
+   * The ordered list of steps composing the RUM journey. <code>null</code> when the operation has
+   * no steps. On create and update, <code>null</code> and an empty list are equivalent.
    *
    * @return rumSteps
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<RUMOperationJourneyStep> getRumSteps() {
