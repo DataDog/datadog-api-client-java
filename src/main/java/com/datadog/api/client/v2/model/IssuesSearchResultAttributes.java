@@ -41,7 +41,10 @@ public class IssuesSearchResultAttributes {
   }
 
   /**
-   * Count of sessions impacted by the issue over the queried time window.
+   * Count of sessions impacted by the issue over the queried time window. Returned for RUM, LLM
+   * Observability, browser, and mobile searches, or when <code>issue.impacted_sessions</code> is
+   * requested in the <code>include</code> query parameter. Omitted when zero unless requested in
+   * the <code>include</code> query parameter.
    *
    * @return impactedSessions
    */
@@ -62,7 +65,10 @@ public class IssuesSearchResultAttributes {
   }
 
   /**
-   * Count of users impacted by the issue over the queried time window.
+   * Count of users impacted by the issue over the queried time window. Returned for RUM, browser,
+   * and mobile searches, or when <code>issue.impacted_users</code> is requested in the <code>
+   * include</code> query parameter. Omitted when zero unless requested in the <code>include</code>
+   * query parameter.
    *
    * @return impactedUsers
    */

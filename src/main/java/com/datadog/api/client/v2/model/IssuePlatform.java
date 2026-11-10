@@ -28,6 +28,7 @@ public class IssuePlatform extends ModelEnum<String> {
               "ANDROID",
               "BACKEND",
               "BROWSER",
+              "ELECTRON",
               "FLUTTER",
               "IOS",
               "REACT_NATIVE",
@@ -37,6 +38,7 @@ public class IssuePlatform extends ModelEnum<String> {
   public static final IssuePlatform ANDROID = new IssuePlatform("ANDROID");
   public static final IssuePlatform BACKEND = new IssuePlatform("BACKEND");
   public static final IssuePlatform BROWSER = new IssuePlatform("BROWSER");
+  public static final IssuePlatform ELECTRON = new IssuePlatform("ELECTRON");
   public static final IssuePlatform FLUTTER = new IssuePlatform("FLUTTER");
   public static final IssuePlatform IOS = new IssuePlatform("IOS");
   public static final IssuePlatform REACT_NATIVE = new IssuePlatform("REACT_NATIVE");

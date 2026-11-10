@@ -34,6 +34,8 @@ import java.util.Objects;
   IssueCaseAttributes.JSON_PROPERTY_MODIFIED_AT,
   IssueCaseAttributes.JSON_PROPERTY_PRIORITY,
   IssueCaseAttributes.JSON_PROPERTY_STATUS,
+  IssueCaseAttributes.JSON_PROPERTY_STATUS_GROUP,
+  IssueCaseAttributes.JSON_PROPERTY_STATUS_NAME,
   IssueCaseAttributes.JSON_PROPERTY_TITLE,
   IssueCaseAttributes.JSON_PROPERTY_TYPE
 })
@@ -79,6 +81,12 @@ public class IssueCaseAttributes {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private CaseStatus status;
+
+  public static final String JSON_PROPERTY_STATUS_GROUP = "status_group";
+  private CaseStatusGroup statusGroup;
+
+  public static final String JSON_PROPERTY_STATUS_NAME = "status_name";
+  private String statusName;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -398,6 +406,52 @@ public class IssueCaseAttributes {
     this.status = status;
   }
 
+  public IssueCaseAttributes statusGroup(CaseStatusGroup statusGroup) {
+    this.statusGroup = statusGroup;
+    this.unparsed |= !statusGroup.isValid();
+    return this;
+  }
+
+  /**
+   * Status group of the work item.
+   *
+   * @return statusGroup
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CaseStatusGroup getStatusGroup() {
+    return statusGroup;
+  }
+
+  public void setStatusGroup(CaseStatusGroup statusGroup) {
+    if (!statusGroup.isValid()) {
+      this.unparsed = true;
+    }
+    this.statusGroup = statusGroup;
+  }
+
+  public IssueCaseAttributes statusName(String statusName) {
+    this.statusName = statusName;
+    return this;
+  }
+
+  /**
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
+   *
+   * @return statusName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatusName() {
+    return statusName;
+  }
+
+  public void setStatusName(String statusName) {
+    this.statusName = statusName;
+  }
+
   public IssueCaseAttributes title(String title) {
     this.title = title;
     return this;
@@ -509,6 +563,8 @@ public class IssueCaseAttributes {
         && Objects.equals(this.modifiedAt, issueCaseAttributes.modifiedAt)
         && Objects.equals(this.priority, issueCaseAttributes.priority)
         && Objects.equals(this.status, issueCaseAttributes.status)
+        && Objects.equals(this.statusGroup, issueCaseAttributes.statusGroup)
+        && Objects.equals(this.statusName, issueCaseAttributes.statusName)
         && Objects.equals(this.title, issueCaseAttributes.title)
         && Objects.equals(this.type, issueCaseAttributes.type)
         && Objects.equals(this.additionalProperties, issueCaseAttributes.additionalProperties);
@@ -530,6 +586,8 @@ public class IssueCaseAttributes {
         modifiedAt,
         priority,
         status,
+        statusGroup,
+        statusName,
         title,
         type,
         additionalProperties);
@@ -552,6 +610,8 @@ public class IssueCaseAttributes {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusGroup: ").append(toIndentedString(statusGroup)).append("\n");
+    sb.append("    statusName: ").append(toIndentedString(statusName)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

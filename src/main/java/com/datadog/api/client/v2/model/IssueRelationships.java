@@ -16,12 +16,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Relationship between the issue and an assignee, case and/or teams. */
+/**
+ * Relationship between the issue and other resources, such as an assignee, case, teams, pull
+ * requests, watches, samples, or a Bits AI investigation.
+ */
 @JsonPropertyOrder({
   IssueRelationships.JSON_PROPERTY_ASSIGNEE,
+  IssueRelationships.JSON_PROPERTY_BITS_INVESTIGATION,
   IssueRelationships.JSON_PROPERTY_CASE,
+  IssueRelationships.JSON_PROPERTY_PULL_REQUESTS,
   IssueRelationships.JSON_PROPERTY_SAMPLES,
-  IssueRelationships.JSON_PROPERTY_TEAM_OWNERS
+  IssueRelationships.JSON_PROPERTY_TEAM_OWNERS,
+  IssueRelationships.JSON_PROPERTY_WATCHES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,14 +36,23 @@ public class IssueRelationships {
   public static final String JSON_PROPERTY_ASSIGNEE = "assignee";
   private IssueAssigneeRelationship assignee;
 
+  public static final String JSON_PROPERTY_BITS_INVESTIGATION = "bits_investigation";
+  private IssueBitsInvestigationRelationship bitsInvestigation;
+
   public static final String JSON_PROPERTY_CASE = "case";
   private IssueCaseRelationship _case;
+
+  public static final String JSON_PROPERTY_PULL_REQUESTS = "pull_requests";
+  private IssuePullRequestsRelationship pullRequests;
 
   public static final String JSON_PROPERTY_SAMPLES = "samples";
   private IssueSamplesRelationship samples;
 
   public static final String JSON_PROPERTY_TEAM_OWNERS = "team_owners";
   private IssueTeamOwnersRelationship teamOwners;
+
+  public static final String JSON_PROPERTY_WATCHES = "watches";
+  private IssueWatchesRelationship watches;
 
   public IssueRelationships assignee(IssueAssigneeRelationship assignee) {
     this.assignee = assignee;
@@ -64,6 +79,33 @@ public class IssueRelationships {
     }
   }
 
+  public IssueRelationships bitsInvestigation(
+      IssueBitsInvestigationRelationship bitsInvestigation) {
+    this.bitsInvestigation = bitsInvestigation;
+    this.unparsed |= bitsInvestigation.unparsed;
+    return this;
+  }
+
+  /**
+   * Bits AI investigation linked to the issue, returned when <code>bits_investigation</code> is
+   * requested in the <code>include</code> query parameter.
+   *
+   * @return bitsInvestigation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BITS_INVESTIGATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IssueBitsInvestigationRelationship getBitsInvestigation() {
+    return bitsInvestigation;
+  }
+
+  public void setBitsInvestigation(IssueBitsInvestigationRelationship bitsInvestigation) {
+    this.bitsInvestigation = bitsInvestigation;
+    if (bitsInvestigation != null) {
+      this.unparsed |= bitsInvestigation.unparsed;
+    }
+  }
+
   public IssueRelationships _case(IssueCaseRelationship _case) {
     this._case = _case;
     this.unparsed |= _case.unparsed;
@@ -86,6 +128,32 @@ public class IssueRelationships {
     this._case = _case;
     if (_case != null) {
       this.unparsed |= _case.unparsed;
+    }
+  }
+
+  public IssueRelationships pullRequests(IssuePullRequestsRelationship pullRequests) {
+    this.pullRequests = pullRequests;
+    this.unparsed |= pullRequests.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship between the issue and its linked pull requests. Returned when <code>pull_requests
+   * </code> is included and the issue has linked pull requests.
+   *
+   * @return pullRequests
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PULL_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IssuePullRequestsRelationship getPullRequests() {
+    return pullRequests;
+  }
+
+  public void setPullRequests(IssuePullRequestsRelationship pullRequests) {
+    this.pullRequests = pullRequests;
+    if (pullRequests != null) {
+      this.unparsed |= pullRequests.unparsed;
     }
   }
 
@@ -136,6 +204,32 @@ public class IssueRelationships {
     this.teamOwners = teamOwners;
     if (teamOwners != null) {
       this.unparsed |= teamOwners.unparsed;
+    }
+  }
+
+  public IssueRelationships watches(IssueWatchesRelationship watches) {
+    this.watches = watches;
+    this.unparsed |= watches.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship between the issue and its active watches. Returned when <code>watches</code> is
+   * included and the issue has an active watch.
+   *
+   * @return watches
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WATCHES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IssueWatchesRelationship getWatches() {
+    return watches;
+  }
+
+  public void setWatches(IssueWatchesRelationship watches) {
+    this.watches = watches;
+    if (watches != null) {
+      this.unparsed |= watches.unparsed;
     }
   }
 
@@ -196,15 +290,26 @@ public class IssueRelationships {
     }
     IssueRelationships issueRelationships = (IssueRelationships) o;
     return Objects.equals(this.assignee, issueRelationships.assignee)
+        && Objects.equals(this.bitsInvestigation, issueRelationships.bitsInvestigation)
         && Objects.equals(this._case, issueRelationships._case)
+        && Objects.equals(this.pullRequests, issueRelationships.pullRequests)
         && Objects.equals(this.samples, issueRelationships.samples)
         && Objects.equals(this.teamOwners, issueRelationships.teamOwners)
+        && Objects.equals(this.watches, issueRelationships.watches)
         && Objects.equals(this.additionalProperties, issueRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignee, _case, samples, teamOwners, additionalProperties);
+    return Objects.hash(
+        assignee,
+        bitsInvestigation,
+        _case,
+        pullRequests,
+        samples,
+        teamOwners,
+        watches,
+        additionalProperties);
   }
 
   @Override
@@ -212,9 +317,12 @@ public class IssueRelationships {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssueRelationships {\n");
     sb.append("    assignee: ").append(toIndentedString(assignee)).append("\n");
+    sb.append("    bitsInvestigation: ").append(toIndentedString(bitsInvestigation)).append("\n");
     sb.append("    _case: ").append(toIndentedString(_case)).append("\n");
+    sb.append("    pullRequests: ").append(toIndentedString(pullRequests)).append("\n");
     sb.append("    samples: ").append(toIndentedString(samples)).append("\n");
     sb.append("    teamOwners: ").append(toIndentedString(teamOwners)).append("\n");
+    sb.append("    watches: ").append(toIndentedString(watches)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

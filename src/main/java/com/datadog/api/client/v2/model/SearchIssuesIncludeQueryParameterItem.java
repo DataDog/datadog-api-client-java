@@ -26,16 +26,35 @@ public class SearchIssuesIncludeQueryParameterItem extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("issue", "issue.assignee", "issue.case", "issue.team_owners"));
+          Arrays.asList(
+              "issue",
+              "issue.assignee",
+              "issue.bits_investigation",
+              "issue.case",
+              "issue.impacted_sessions",
+              "issue.impacted_users",
+              "issue.pull_requests",
+              "issue.team_owners",
+              "issue.watches"));
 
   public static final SearchIssuesIncludeQueryParameterItem ISSUE =
       new SearchIssuesIncludeQueryParameterItem("issue");
   public static final SearchIssuesIncludeQueryParameterItem ISSUE_ASSIGNEE =
       new SearchIssuesIncludeQueryParameterItem("issue.assignee");
+  public static final SearchIssuesIncludeQueryParameterItem ISSUE_BITS_INVESTIGATION =
+      new SearchIssuesIncludeQueryParameterItem("issue.bits_investigation");
   public static final SearchIssuesIncludeQueryParameterItem ISSUE_CASE =
       new SearchIssuesIncludeQueryParameterItem("issue.case");
+  public static final SearchIssuesIncludeQueryParameterItem ISSUE_IMPACTED_SESSIONS =
+      new SearchIssuesIncludeQueryParameterItem("issue.impacted_sessions");
+  public static final SearchIssuesIncludeQueryParameterItem ISSUE_IMPACTED_USERS =
+      new SearchIssuesIncludeQueryParameterItem("issue.impacted_users");
+  public static final SearchIssuesIncludeQueryParameterItem ISSUE_PULL_REQUESTS =
+      new SearchIssuesIncludeQueryParameterItem("issue.pull_requests");
   public static final SearchIssuesIncludeQueryParameterItem ISSUE_TEAM_OWNERS =
       new SearchIssuesIncludeQueryParameterItem("issue.team_owners");
+  public static final SearchIssuesIncludeQueryParameterItem ISSUE_WATCHES =
+      new SearchIssuesIncludeQueryParameterItem("issue.watches");
 
   SearchIssuesIncludeQueryParameterItem(String value) {
     super(value, allowedValues);

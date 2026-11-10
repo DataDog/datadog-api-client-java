@@ -24,16 +24,30 @@ import java.util.Set;
 public class GetIssueIncludeQueryParameterItem extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("assignee", "case", "team_owners", "samples"));
+      new HashSet<String>(
+          Arrays.asList(
+              "assignee",
+              "bits_investigation",
+              "case",
+              "pull_requests",
+              "samples",
+              "team_owners",
+              "watches"));
 
   public static final GetIssueIncludeQueryParameterItem ASSIGNEE =
       new GetIssueIncludeQueryParameterItem("assignee");
+  public static final GetIssueIncludeQueryParameterItem BITS_INVESTIGATION =
+      new GetIssueIncludeQueryParameterItem("bits_investigation");
   public static final GetIssueIncludeQueryParameterItem CASE =
       new GetIssueIncludeQueryParameterItem("case");
-  public static final GetIssueIncludeQueryParameterItem TEAM_OWNERS =
-      new GetIssueIncludeQueryParameterItem("team_owners");
+  public static final GetIssueIncludeQueryParameterItem PULL_REQUESTS =
+      new GetIssueIncludeQueryParameterItem("pull_requests");
   public static final GetIssueIncludeQueryParameterItem SAMPLES =
       new GetIssueIncludeQueryParameterItem("samples");
+  public static final GetIssueIncludeQueryParameterItem TEAM_OWNERS =
+      new GetIssueIncludeQueryParameterItem("team_owners");
+  public static final GetIssueIncludeQueryParameterItem WATCHES =
+      new GetIssueIncludeQueryParameterItem("watches");
 
   GetIssueIncludeQueryParameterItem(String value) {
     super(value, allowedValues);
