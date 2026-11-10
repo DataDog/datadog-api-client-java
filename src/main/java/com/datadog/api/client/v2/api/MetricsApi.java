@@ -3324,8 +3324,9 @@ public class MetricsApi {
      *     http.request*</code>): it matches names that start with that text and is case-sensitive.
      *     Spaces are treated as <code>*</code>. Only one value is accepted; repeating the parameter
      *     returns <code>400 Bad Request</code>. Allowed characters are letters, digits, <code>_
-     *     </code>, <code>.</code>, <code>*</code>, and spaces. An empty value is ignored.
-     *     (optional)
+     *     </code>, <code>.</code>, <code>*</code>, and spaces. Surrounding spaces are ignored, and
+     *     an empty or spaces-only value is ignored. The value can be at most 200 characters (the
+     *     longest metric name); a longer value returns <code>400 Bad Request</code>. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterMetricsId(String filterMetricsId) {
