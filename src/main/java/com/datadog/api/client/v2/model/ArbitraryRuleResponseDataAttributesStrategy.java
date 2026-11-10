@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The definition of <code>ArbitraryRuleResponseDataAttributesStrategy</code> object. */
 @JsonPropertyOrder({
@@ -29,7 +30,11 @@ import java.util.Objects;
   ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_EVALUATE_GROUPED_BY_FILTERS,
   ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_EVALUATE_GROUPED_BY_TAG_KEYS,
   ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_GRANULARITY,
-  ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_METHOD
+  ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_MAPPING_TRANSFORM,
+  ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_METHOD,
+  ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_STATIC_TAGS,
+  ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_SUPPORTING_TIMESERIES,
+  ArbitraryRuleResponseDataAttributesStrategy.JSON_PROPERTY_TAG_TRANSFORMS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -63,8 +68,22 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
   public static final String JSON_PROPERTY_GRANULARITY = "granularity";
   private String granularity;
 
+  public static final String JSON_PROPERTY_MAPPING_TRANSFORM = "mapping_transform";
+  private ArbitraryRuleMappingTransform mappingTransform;
+
   public static final String JSON_PROPERTY_METHOD = "method";
   private String method;
+
+  public static final String JSON_PROPERTY_STATIC_TAGS = "static_tags";
+  private List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>
+      staticTags = null;
+
+  public static final String JSON_PROPERTY_SUPPORTING_TIMESERIES = "supporting_timeseries";
+  private JsonNullable<Map<String, Object>> supportingTimeseries =
+      JsonNullable.<Map<String, Object>>undefined();
+
+  public static final String JSON_PROPERTY_TAG_TRANSFORMS = "tag_transforms";
+  private ArbitraryRuleTagTransforms tagTransforms;
 
   public ArbitraryRuleResponseDataAttributesStrategy() {}
 
@@ -369,6 +388,34 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
     this.granularity = granularity;
   }
 
+  public ArbitraryRuleResponseDataAttributesStrategy mappingTransform(
+      ArbitraryRuleMappingTransform mappingTransform) {
+    this.mappingTransform = mappingTransform;
+    this.unparsed |= mappingTransform.unparsed;
+    return this;
+  }
+
+  /**
+   * Only supported for <code>proportional_timeseries</code> and <code>even_timeseries</code> rules.
+   * Creates a synthetic tag from timeseries input rows before <code>tag_transforms</code> are
+   * applied.
+   *
+   * @return mappingTransform
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAPPING_TRANSFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ArbitraryRuleMappingTransform getMappingTransform() {
+    return mappingTransform;
+  }
+
+  public void setMappingTransform(ArbitraryRuleMappingTransform mappingTransform) {
+    this.mappingTransform = mappingTransform;
+    if (mappingTransform != null) {
+      this.unparsed |= mappingTransform.unparsed;
+    }
+  }
+
   public ArbitraryRuleResponseDataAttributesStrategy method(String method) {
     this.method = method;
     return this;
@@ -387,6 +434,129 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
 
   public void setMethod(String method) {
     this.method = method;
+  }
+
+  public ArbitraryRuleResponseDataAttributesStrategy staticTags(
+      List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>
+          staticTags) {
+    this.staticTags = staticTags;
+    if (staticTags != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems item :
+          staticTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public ArbitraryRuleResponseDataAttributesStrategy addStaticTagsItem(
+      ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems
+          staticTagsItem) {
+    if (this.staticTags == null) {
+      this.staticTags = new ArrayList<>();
+    }
+    this.staticTags.add(staticTagsItem);
+    this.unparsed |= staticTagsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Tags added to every cost row allocated by the rule.
+   *
+   * @return staticTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATIC_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>
+      getStaticTags() {
+    return staticTags;
+  }
+
+  public void setStaticTags(
+      List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>
+          staticTags) {
+    this.staticTags = staticTags;
+    if (staticTags != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems item :
+          staticTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
+  public ArbitraryRuleResponseDataAttributesStrategy supportingTimeseries(
+      Map<String, Object> supportingTimeseries) {
+    this.supportingTimeseries = JsonNullable.<Map<String, Object>>of(supportingTimeseries);
+    return this;
+  }
+
+  public ArbitraryRuleResponseDataAttributesStrategy putSupportingTimeseriesItem(
+      String key, Object supportingTimeseriesItem) {
+    if (this.supportingTimeseries == null || !this.supportingTimeseries.isPresent()) {
+      this.supportingTimeseries = JsonNullable.<Map<String, Object>>of(new HashMap<>());
+    }
+    try {
+      this.supportingTimeseries.get().put(key, supportingTimeseriesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Integration metrics query used to calculate coverage.
+   *
+   * @return supportingTimeseries
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Map<String, Object> getSupportingTimeseries() {
+    return supportingTimeseries.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUPPORTING_TIMESERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Map<String, Object>> getSupportingTimeseries_JsonNullable() {
+    return supportingTimeseries;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUPPORTING_TIMESERIES)
+  public void setSupportingTimeseries_JsonNullable(
+      JsonNullable<Map<String, Object>> supportingTimeseries) {
+    this.supportingTimeseries = supportingTimeseries;
+  }
+
+  public void setSupportingTimeseries(Map<String, Object> supportingTimeseries) {
+    this.supportingTimeseries = JsonNullable.<Map<String, Object>>of(supportingTimeseries);
+  }
+
+  public ArbitraryRuleResponseDataAttributesStrategy tagTransforms(
+      ArbitraryRuleTagTransforms tagTransforms) {
+    this.tagTransforms = tagTransforms;
+    this.unparsed |= tagTransforms.unparsed;
+    return this;
+  }
+
+  /**
+   * Only supported for <code>proportional_timeseries</code> and <code>even_timeseries</code> rules.
+   * Applies tag key renames and tag value transforms to timeseries input rows after <code>
+   * mapping_transform</code>.
+   *
+   * @return tagTransforms
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAG_TRANSFORMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ArbitraryRuleTagTransforms getTagTransforms() {
+    return tagTransforms;
+  }
+
+  public void setTagTransforms(ArbitraryRuleTagTransforms tagTransforms) {
+    this.tagTransforms = tagTransforms;
+    if (tagTransforms != null) {
+      this.unparsed |= tagTransforms.unparsed;
+    }
   }
 
   /**
@@ -463,7 +633,15 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
             this.evaluateGroupedByTagKeys,
             arbitraryRuleResponseDataAttributesStrategy.evaluateGroupedByTagKeys)
         && Objects.equals(this.granularity, arbitraryRuleResponseDataAttributesStrategy.granularity)
+        && Objects.equals(
+            this.mappingTransform, arbitraryRuleResponseDataAttributesStrategy.mappingTransform)
         && Objects.equals(this.method, arbitraryRuleResponseDataAttributesStrategy.method)
+        && Objects.equals(this.staticTags, arbitraryRuleResponseDataAttributesStrategy.staticTags)
+        && Objects.equals(
+            this.supportingTimeseries,
+            arbitraryRuleResponseDataAttributesStrategy.supportingTimeseries)
+        && Objects.equals(
+            this.tagTransforms, arbitraryRuleResponseDataAttributesStrategy.tagTransforms)
         && Objects.equals(
             this.additionalProperties,
             arbitraryRuleResponseDataAttributesStrategy.additionalProperties);
@@ -480,7 +658,11 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
         evaluateGroupedByFilters,
         evaluateGroupedByTagKeys,
         granularity,
+        mappingTransform,
         method,
+        staticTags,
+        supportingTimeseries,
+        tagTransforms,
         additionalProperties);
   }
 
@@ -500,7 +682,13 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
         .append(toIndentedString(evaluateGroupedByTagKeys))
         .append("\n");
     sb.append("    granularity: ").append(toIndentedString(granularity)).append("\n");
+    sb.append("    mappingTransform: ").append(toIndentedString(mappingTransform)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
+    sb.append("    staticTags: ").append(toIndentedString(staticTags)).append("\n");
+    sb.append("    supportingTimeseries: ")
+        .append(toIndentedString(supportingTimeseries))
+        .append("\n");
+    sb.append("    tagTransforms: ").append(toIndentedString(tagTransforms)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

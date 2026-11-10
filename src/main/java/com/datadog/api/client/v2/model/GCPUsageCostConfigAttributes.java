@@ -25,6 +25,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   GCPUsageCostConfigAttributes.JSON_PROPERTY_ACCOUNT_ID,
   GCPUsageCostConfigAttributes.JSON_PROPERTY_BUCKET_NAME,
   GCPUsageCostConfigAttributes.JSON_PROPERTY_CREATED_AT,
+  GCPUsageCostConfigAttributes.JSON_PROPERTY_CUD_METADATA_CONFIG,
+  GCPUsageCostConfigAttributes.JSON_PROPERTY_CUD_METADATA_ERROR_CODES,
+  GCPUsageCostConfigAttributes.JSON_PROPERTY_CUD_METADATA_STATE,
+  GCPUsageCostConfigAttributes.JSON_PROPERTY_CUD_METADATA_STATUS_UPDATED_AT,
   GCPUsageCostConfigAttributes.JSON_PROPERTY_DATASET,
   GCPUsageCostConfigAttributes.JSON_PROPERTY_ERROR_MESSAGES,
   GCPUsageCostConfigAttributes.JSON_PROPERTY_EXPORT_PREFIX,
@@ -48,6 +52,19 @@ public class GCPUsageCostConfigAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private String createdAt;
+
+  public static final String JSON_PROPERTY_CUD_METADATA_CONFIG = "cud_metadata_config";
+  private GCPCudMetadataConfig cudMetadataConfig;
+
+  public static final String JSON_PROPERTY_CUD_METADATA_ERROR_CODES = "cud_metadata_error_codes";
+  private List<Integer> cudMetadataErrorCodes = null;
+
+  public static final String JSON_PROPERTY_CUD_METADATA_STATE = "cud_metadata_state";
+  private String cudMetadataState;
+
+  public static final String JSON_PROPERTY_CUD_METADATA_STATUS_UPDATED_AT =
+      "cud_metadata_status_updated_at";
+  private String cudMetadataStatusUpdatedAt;
 
   public static final String JSON_PROPERTY_DATASET = "dataset";
   private String dataset;
@@ -159,6 +176,108 @@ public class GCPUsageCostConfigAttributes {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public GCPUsageCostConfigAttributes cudMetadataConfig(GCPCudMetadataConfig cudMetadataConfig) {
+    this.cudMetadataConfig = cudMetadataConfig;
+    this.unparsed |= cudMetadataConfig.unparsed;
+    return this;
+  }
+
+  /**
+   * The BigQuery table the committed use discount (CUD) metadata is read from. Only returned when
+   * CUD metadata is configured for the account.
+   *
+   * @return cudMetadataConfig
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUD_METADATA_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GCPCudMetadataConfig getCudMetadataConfig() {
+    return cudMetadataConfig;
+  }
+
+  public void setCudMetadataConfig(GCPCudMetadataConfig cudMetadataConfig) {
+    this.cudMetadataConfig = cudMetadataConfig;
+    if (cudMetadataConfig != null) {
+      this.unparsed |= cudMetadataConfig.unparsed;
+    }
+  }
+
+  public GCPUsageCostConfigAttributes cudMetadataErrorCodes(List<Integer> cudMetadataErrorCodes) {
+    this.cudMetadataErrorCodes = cudMetadataErrorCodes;
+    return this;
+  }
+
+  public GCPUsageCostConfigAttributes addCudMetadataErrorCodesItem(
+      Integer cudMetadataErrorCodesItem) {
+    if (this.cudMetadataErrorCodes == null) {
+      this.cudMetadataErrorCodes = new ArrayList<>();
+    }
+    this.cudMetadataErrorCodes.add(cudMetadataErrorCodesItem);
+    return this;
+  }
+
+  /**
+   * The error codes reported for the committed use discount (CUD) metadata export. Only returned
+   * when CUD metadata is configured for the account.
+   *
+   * @return cudMetadataErrorCodes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUD_METADATA_ERROR_CODES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Integer> getCudMetadataErrorCodes() {
+    return cudMetadataErrorCodes;
+  }
+
+  public void setCudMetadataErrorCodes(List<Integer> cudMetadataErrorCodes) {
+    this.cudMetadataErrorCodes = cudMetadataErrorCodes;
+  }
+
+  public GCPUsageCostConfigAttributes cudMetadataState(String cudMetadataState) {
+    this.cudMetadataState = cudMetadataState;
+    return this;
+  }
+
+  /**
+   * The state of the Google Cloud committed use discount (CUD) metadata export. Only returned when
+   * CUD metadata is configured for the account.
+   *
+   * @return cudMetadataState
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUD_METADATA_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCudMetadataState() {
+    return cudMetadataState;
+  }
+
+  public void setCudMetadataState(String cudMetadataState) {
+    this.cudMetadataState = cudMetadataState;
+  }
+
+  public GCPUsageCostConfigAttributes cudMetadataStatusUpdatedAt(
+      String cudMetadataStatusUpdatedAt) {
+    this.cudMetadataStatusUpdatedAt = cudMetadataStatusUpdatedAt;
+    return this;
+  }
+
+  /**
+   * The timestamp when the committed use discount (CUD) metadata state was last updated. Only
+   * returned when CUD metadata is configured for the account.
+   *
+   * @return cudMetadataStatusUpdatedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUD_METADATA_STATUS_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCudMetadataStatusUpdatedAt() {
+    return cudMetadataStatusUpdatedAt;
+  }
+
+  public void setCudMetadataStatusUpdatedAt(String cudMetadataStatusUpdatedAt) {
+    this.cudMetadataStatusUpdatedAt = cudMetadataStatusUpdatedAt;
   }
 
   public GCPUsageCostConfigAttributes dataset(String dataset) {
@@ -450,6 +569,13 @@ public class GCPUsageCostConfigAttributes {
     return Objects.equals(this.accountId, gcpUsageCostConfigAttributes.accountId)
         && Objects.equals(this.bucketName, gcpUsageCostConfigAttributes.bucketName)
         && Objects.equals(this.createdAt, gcpUsageCostConfigAttributes.createdAt)
+        && Objects.equals(this.cudMetadataConfig, gcpUsageCostConfigAttributes.cudMetadataConfig)
+        && Objects.equals(
+            this.cudMetadataErrorCodes, gcpUsageCostConfigAttributes.cudMetadataErrorCodes)
+        && Objects.equals(this.cudMetadataState, gcpUsageCostConfigAttributes.cudMetadataState)
+        && Objects.equals(
+            this.cudMetadataStatusUpdatedAt,
+            gcpUsageCostConfigAttributes.cudMetadataStatusUpdatedAt)
         && Objects.equals(this.dataset, gcpUsageCostConfigAttributes.dataset)
         && Objects.equals(this.errorMessages, gcpUsageCostConfigAttributes.errorMessages)
         && Objects.equals(this.exportPrefix, gcpUsageCostConfigAttributes.exportPrefix)
@@ -470,6 +596,10 @@ public class GCPUsageCostConfigAttributes {
         accountId,
         bucketName,
         createdAt,
+        cudMetadataConfig,
+        cudMetadataErrorCodes,
+        cudMetadataState,
+        cudMetadataStatusUpdatedAt,
         dataset,
         errorMessages,
         exportPrefix,
@@ -490,6 +620,14 @@ public class GCPUsageCostConfigAttributes {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    cudMetadataConfig: ").append(toIndentedString(cudMetadataConfig)).append("\n");
+    sb.append("    cudMetadataErrorCodes: ")
+        .append(toIndentedString(cudMetadataErrorCodes))
+        .append("\n");
+    sb.append("    cudMetadataState: ").append(toIndentedString(cudMetadataState)).append("\n");
+    sb.append("    cudMetadataStatusUpdatedAt: ")
+        .append(toIndentedString(cudMetadataStatusUpdatedAt))
+        .append("\n");
     sb.append("    dataset: ").append(toIndentedString(dataset)).append("\n");
     sb.append("    errorMessages: ").append(toIndentedString(errorMessages)).append("\n");
     sb.append("    exportPrefix: ").append(toIndentedString(exportPrefix)).append("\n");

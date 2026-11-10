@@ -1406,6 +1406,8 @@ public class ApiClient {
           put("v2.triggerDeploymentGatesEvaluation", false);
           put("v2.updateDeploymentGate", false);
           put("v2.updateDeploymentRule", false);
+          put("v2.getEUDMDevice", false);
+          put("v2.getEUDMDevices", false);
           put("v2.cloneForm", false);
           put("v2.createAndPublishForm", false);
           put("v2.createForm", false);
