@@ -21,7 +21,9 @@ import java.util.Objects;
 
 /** Specifies the pipeline's configuration, including its sources, processors, and destinations. */
 @JsonPropertyOrder({
+  ObservabilityPipelineConfig.JSON_PROPERTY_ANOMALY_DETECTION,
   ObservabilityPipelineConfig.JSON_PROPERTY_DESTINATIONS,
+  ObservabilityPipelineConfig.JSON_PROPERTY_END_TO_END_ACKNOWLEDGEMENTS,
   ObservabilityPipelineConfig.JSON_PROPERTY_PIPELINE_TYPE,
   ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSOR_GROUPS,
   ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSORS,
@@ -32,8 +34,15 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineConfig {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANOMALY_DETECTION = "anomaly_detection";
+  private ObservabilityPipelineAnomalyDetection anomalyDetection;
+
   public static final String JSON_PROPERTY_DESTINATIONS = "destinations";
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_END_TO_END_ACKNOWLEDGEMENTS =
+      "end_to_end_acknowledgements";
+  private Boolean endToEndAcknowledgements;
 
   public static final String JSON_PROPERTY_PIPELINE_TYPE = "pipeline_type";
   private ObservabilityPipelineConfigPipelineType pipelineType =
@@ -66,6 +75,33 @@ public class ObservabilityPipelineConfig {
     this.sources = sources;
     for (ObservabilityPipelineConfigSourceItem item : sources) {
       this.unparsed |= item.unparsed;
+    }
+  }
+
+  public ObservabilityPipelineConfig anomalyDetection(
+      ObservabilityPipelineAnomalyDetection anomalyDetection) {
+    this.anomalyDetection = anomalyDetection;
+    this.unparsed |= anomalyDetection.unparsed;
+    return this;
+  }
+
+  /**
+   * Anomaly detection settings for the pipeline. Only applies to <code>logs</code> pipelines.
+   * Requires Observability Pipelines Worker 2.25 or later.
+   *
+   * @return anomalyDetection
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANOMALY_DETECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineAnomalyDetection getAnomalyDetection() {
+    return anomalyDetection;
+  }
+
+  public void setAnomalyDetection(ObservabilityPipelineAnomalyDetection anomalyDetection) {
+    this.anomalyDetection = anomalyDetection;
+    if (anomalyDetection != null) {
+      this.unparsed |= anomalyDetection.unparsed;
     }
   }
 
@@ -103,6 +139,28 @@ public class ObservabilityPipelineConfig {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public ObservabilityPipelineConfig endToEndAcknowledgements(Boolean endToEndAcknowledgements) {
+    this.endToEndAcknowledgements = endToEndAcknowledgements;
+    return this;
+  }
+
+  /**
+   * Set to <code>true</code> to enable end-to-end acknowledgments for the pipeline. Requires
+   * Observability Pipelines Worker 2.14 or later.
+   *
+   * @return endToEndAcknowledgements
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_END_TO_END_ACKNOWLEDGEMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEndToEndAcknowledgements() {
+    return endToEndAcknowledgements;
+  }
+
+  public void setEndToEndAcknowledgements(Boolean endToEndAcknowledgements) {
+    this.endToEndAcknowledgements = endToEndAcknowledgements;
   }
 
   public ObservabilityPipelineConfig pipelineType(
@@ -339,7 +397,10 @@ public class ObservabilityPipelineConfig {
       return false;
     }
     ObservabilityPipelineConfig observabilityPipelineConfig = (ObservabilityPipelineConfig) o;
-    return Objects.equals(this.destinations, observabilityPipelineConfig.destinations)
+    return Objects.equals(this.anomalyDetection, observabilityPipelineConfig.anomalyDetection)
+        && Objects.equals(this.destinations, observabilityPipelineConfig.destinations)
+        && Objects.equals(
+            this.endToEndAcknowledgements, observabilityPipelineConfig.endToEndAcknowledgements)
         && Objects.equals(this.pipelineType, observabilityPipelineConfig.pipelineType)
         && Objects.equals(this.processorGroups, observabilityPipelineConfig.processorGroups)
         && Objects.equals(this.processors, observabilityPipelineConfig.processors)
@@ -353,7 +414,9 @@ public class ObservabilityPipelineConfig {
   @Override
   public int hashCode() {
     return Objects.hash(
+        anomalyDetection,
         destinations,
+        endToEndAcknowledgements,
         pipelineType,
         processorGroups,
         processors,
@@ -366,7 +429,11 @@ public class ObservabilityPipelineConfig {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineConfig {\n");
+    sb.append("    anomalyDetection: ").append(toIndentedString(anomalyDetection)).append("\n");
     sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+    sb.append("    endToEndAcknowledgements: ")
+        .append(toIndentedString(endToEndAcknowledgements))
+        .append("\n");
     sb.append("    pipelineType: ").append(toIndentedString(pipelineType)).append("\n");
     sb.append("    processorGroups: ").append(toIndentedString(processorGroups)).append("\n");
     sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
