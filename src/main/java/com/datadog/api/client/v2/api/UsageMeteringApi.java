@@ -75,6 +75,7 @@ public class UsageMeteringApi {
   /** Manage optional parameters to createQuotas. */
   public static class CreateQuotasOptionalParameters {
     private Boolean includeDescendants;
+    private Boolean createOnly;
 
     /**
      * Set includeDescendants.
@@ -89,6 +90,21 @@ public class UsageMeteringApi {
      */
     public CreateQuotasOptionalParameters includeDescendants(Boolean includeDescendants) {
       this.includeDescendants = includeDescendants;
+      return this;
+    }
+
+    /**
+     * Set createOnly.
+     *
+     * @param createOnly Create one quota without updating an existing quota. Requires exactly one
+     *     item that specifies <code>usage_limit</code> and <code>enforced</code>, omits <code>
+     *     pending_usage_limit</code>, and sets <code>include_descendants=false</code>. The quota
+     *     belongs to the caller's organization. An existing quota returns <code>409</code> without
+     *     being modified. (optional, default to false)
+     * @return CreateQuotasOptionalParameters
+     */
+    public CreateQuotasOptionalParameters createOnly(Boolean createOnly) {
+      this.createOnly = createOnly;
       return this;
     }
   }
@@ -174,10 +190,16 @@ public class UsageMeteringApi {
   /**
    * Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied
    * scope, it is updated. Otherwise, a quota is created only when <code>usage_limit</code> and
-   * <code>enforced</code> are provided. For the organization-wide quota, <code>pending_usage_limit
-   * </code> schedules a limit for the next usage period and can accompany an immediate limit or
-   * update an existing quota by itself. Scheduled changes follow <code>include_descendants</code>
-   * like the other fields. Requires the <code>billing_edit</code> permission.
+   * <code>enforced</code> are provided. Set <code>create_only=true</code> to atomically create
+   * exactly one quota in the caller's organization and reject an existing quota with <code>409
+   * </code> instead of updating it. This mode does not support pending limits or descendant writes.
+   * Repeated create-only requests do not replay the original response. If a response is lost, a
+   * retry can return <code>409</code> even if the first request succeeded; reconcile the outcome
+   * before retrying or importing the quota. For the organization-wide quota, <code>
+   * pending_usage_limit</code> schedules a limit for the next usage period and can accompany an
+   * immediate limit or update an existing quota by itself. Scheduled changes follow <code>
+   * include_descendants</code> like the other fields. Requires the <code>billing_edit</code>
+   * permission.
    *
    * <h3>Quota namespaces and scope keys</h3>
    *
@@ -228,8 +250,9 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK. The response includes each item&#39;s result; see each item&#39;s &#x60;error&#x60; attribute for any that failed to write. </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request. Returned if the request is malformed, including when an item sets &#x60;pending_usage_limit&#x60; on a scoped quota, provides &#x60;enforced&#x60; without &#x60;usage_limit&#x60;, or provides neither limit. A pending-only item for a quota that does not exist is reported in that item&#39;s &#x60;error&#x60;; when only the caller&#39;s organization is targeted, this failure returns &#x60;400&#x60;. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request. Returned when &#x60;create_only&#x3D;true&#x60; is combined with multiple items, &#x60;pending_usage_limit&#x60;, or &#x60;include_descendants&#x3D;true&#x60;, or when an item sets &#x60;pending_usage_limit&#x60; on a scoped quota, provides &#x60;enforced&#x60; without &#x60;usage_limit&#x60;, or provides neither limit. A pending-only item for a nonexistent quota reports an error in the item&#39;s &#x60;error&#x60; field. If only the caller&#39;s organization is targeted, this failure returns &#x60;400&#x60;. </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict. With &#x60;create_only&#x3D;true&#x60;, a quota already exists for this namespace and scope in the caller&#39;s organization. The existing quota is unchanged. The error&#39;s &#x60;meta&#x60; contains &#x60;error_code&#x60; set to &#x60;already_exists&#x60; and &#x60;quota_id&#x60; set to the existing quota&#39;s opaque ID. Import the existing quota before managing it with Terraform. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Internal Server Error. Every item in the batch failed to write. </td><td>  -  </td></tr>
    *     </table>
@@ -260,6 +283,7 @@ public class UsageMeteringApi {
           400, "Missing the required parameter 'body' when calling createQuotas");
     }
     Boolean includeDescendants = parameters.includeDescendants;
+    Boolean createOnly = parameters.createOnly;
     // create path and map variables
     String localVarPath =
         "/api/v2/usage/quotas/{quota_namespace}"
@@ -272,6 +296,7 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "create_only", createOnly));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -337,6 +362,7 @@ public class UsageMeteringApi {
       return result;
     }
     Boolean includeDescendants = parameters.includeDescendants;
+    Boolean createOnly = parameters.createOnly;
     // create path and map variables
     String localVarPath =
         "/api/v2/usage/quotas/{quota_namespace}"
@@ -349,6 +375,7 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "create_only", createOnly));
 
     Invocation.Builder builder;
     try {
