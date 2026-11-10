@@ -25,15 +25,19 @@ import java.util.Objects;
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_COSTS_TO_ALLOCATE,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_CREATED,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_ENABLED,
+  ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_IS_OOTB,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_LAST_MODIFIED_USER_UUID,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_ORDER_ID,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_PROCESSING_STATUS,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_PROVIDER,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_REJECTED,
+  ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_RULE_CATEGORY,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_RULE_NAME,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_STRATEGY,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_TYPE,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_UPDATED,
+  ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_VALID_FROM_DATE,
+  ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_VALID_THROUGH_DATE,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -50,6 +54,9 @@ public class ArbitraryRuleResponseDataAttributes {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  public static final String JSON_PROPERTY_IS_OOTB = "is_ootb";
+  private Boolean isOotb;
+
   public static final String JSON_PROPERTY_LAST_MODIFIED_USER_UUID = "last_modified_user_uuid";
   private String lastModifiedUserUuid;
 
@@ -65,6 +72,9 @@ public class ArbitraryRuleResponseDataAttributes {
   public static final String JSON_PROPERTY_REJECTED = "rejected";
   private Boolean rejected;
 
+  public static final String JSON_PROPERTY_RULE_CATEGORY = "rule_category";
+  private ArbitraryRuleResponseDataAttributesRuleCategory ruleCategory;
+
   public static final String JSON_PROPERTY_RULE_NAME = "rule_name";
   private String ruleName;
 
@@ -76,6 +86,12 @@ public class ArbitraryRuleResponseDataAttributes {
 
   public static final String JSON_PROPERTY_UPDATED = "updated";
   private OffsetDateTime updated;
+
+  public static final String JSON_PROPERTY_VALID_FROM_DATE = "valid_from_date";
+  private OffsetDateTime validFromDate;
+
+  public static final String JSON_PROPERTY_VALID_THROUGH_DATE = "valid_through_date";
+  private OffsetDateTime validThroughDate;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
@@ -192,6 +208,28 @@ public class ArbitraryRuleResponseDataAttributes {
     this.enabled = enabled;
   }
 
+  public ArbitraryRuleResponseDataAttributes isOotb(Boolean isOotb) {
+    this.isOotb = isOotb;
+    return this;
+  }
+
+  /**
+   * Whether the rule is an out-of-the-box rule provided by Datadog. Omitted when <code>false</code>
+   * .
+   *
+   * @return isOotb
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_OOTB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsOotb() {
+    return isOotb;
+  }
+
+  public void setIsOotb(Boolean isOotb) {
+    this.isOotb = isOotb;
+  }
+
   public ArbitraryRuleResponseDataAttributes lastModifiedUserUuid(String lastModifiedUserUuid) {
     this.lastModifiedUserUuid = lastModifiedUserUuid;
     return this;
@@ -299,6 +337,32 @@ public class ArbitraryRuleResponseDataAttributes {
     this.rejected = rejected;
   }
 
+  public ArbitraryRuleResponseDataAttributes ruleCategory(
+      ArbitraryRuleResponseDataAttributesRuleCategory ruleCategory) {
+    this.ruleCategory = ruleCategory;
+    this.unparsed |= !ruleCategory.isValid();
+    return this;
+  }
+
+  /**
+   * Rule category. Omitted for custom rules.
+   *
+   * @return ruleCategory
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ArbitraryRuleResponseDataAttributesRuleCategory getRuleCategory() {
+    return ruleCategory;
+  }
+
+  public void setRuleCategory(ArbitraryRuleResponseDataAttributesRuleCategory ruleCategory) {
+    if (!ruleCategory.isValid()) {
+      this.unparsed = true;
+    }
+    this.ruleCategory = ruleCategory;
+  }
+
   public ArbitraryRuleResponseDataAttributes ruleName(String ruleName) {
     this.ruleName = ruleName;
     return this;
@@ -384,6 +448,48 @@ public class ArbitraryRuleResponseDataAttributes {
     this.updated = updated;
   }
 
+  public ArbitraryRuleResponseDataAttributes validFromDate(OffsetDateTime validFromDate) {
+    this.validFromDate = validFromDate;
+    return this;
+  }
+
+  /**
+   * The first date the rule applies to. Omitted when the rule has no start date.
+   *
+   * @return validFromDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALID_FROM_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getValidFromDate() {
+    return validFromDate;
+  }
+
+  public void setValidFromDate(OffsetDateTime validFromDate) {
+    this.validFromDate = validFromDate;
+  }
+
+  public ArbitraryRuleResponseDataAttributes validThroughDate(OffsetDateTime validThroughDate) {
+    this.validThroughDate = validThroughDate;
+    return this;
+  }
+
+  /**
+   * The last date the rule applies to. Omitted when the rule has no end date.
+   *
+   * @return validThroughDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALID_THROUGH_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getValidThroughDate() {
+    return validThroughDate;
+  }
+
+  public void setValidThroughDate(OffsetDateTime validThroughDate) {
+    this.validThroughDate = validThroughDate;
+  }
+
   public ArbitraryRuleResponseDataAttributes version(Integer version) {
     this.version = version;
     return this;
@@ -464,6 +570,7 @@ public class ArbitraryRuleResponseDataAttributes {
     return Objects.equals(this.costsToAllocate, arbitraryRuleResponseDataAttributes.costsToAllocate)
         && Objects.equals(this.created, arbitraryRuleResponseDataAttributes.created)
         && Objects.equals(this.enabled, arbitraryRuleResponseDataAttributes.enabled)
+        && Objects.equals(this.isOotb, arbitraryRuleResponseDataAttributes.isOotb)
         && Objects.equals(
             this.lastModifiedUserUuid, arbitraryRuleResponseDataAttributes.lastModifiedUserUuid)
         && Objects.equals(this.orderId, arbitraryRuleResponseDataAttributes.orderId)
@@ -471,10 +578,14 @@ public class ArbitraryRuleResponseDataAttributes {
             this.processingStatus, arbitraryRuleResponseDataAttributes.processingStatus)
         && Objects.equals(this.provider, arbitraryRuleResponseDataAttributes.provider)
         && Objects.equals(this.rejected, arbitraryRuleResponseDataAttributes.rejected)
+        && Objects.equals(this.ruleCategory, arbitraryRuleResponseDataAttributes.ruleCategory)
         && Objects.equals(this.ruleName, arbitraryRuleResponseDataAttributes.ruleName)
         && Objects.equals(this.strategy, arbitraryRuleResponseDataAttributes.strategy)
         && Objects.equals(this.type, arbitraryRuleResponseDataAttributes.type)
         && Objects.equals(this.updated, arbitraryRuleResponseDataAttributes.updated)
+        && Objects.equals(this.validFromDate, arbitraryRuleResponseDataAttributes.validFromDate)
+        && Objects.equals(
+            this.validThroughDate, arbitraryRuleResponseDataAttributes.validThroughDate)
         && Objects.equals(this.version, arbitraryRuleResponseDataAttributes.version)
         && Objects.equals(
             this.additionalProperties, arbitraryRuleResponseDataAttributes.additionalProperties);
@@ -486,15 +597,19 @@ public class ArbitraryRuleResponseDataAttributes {
         costsToAllocate,
         created,
         enabled,
+        isOotb,
         lastModifiedUserUuid,
         orderId,
         processingStatus,
         provider,
         rejected,
+        ruleCategory,
         ruleName,
         strategy,
         type,
         updated,
+        validFromDate,
+        validThroughDate,
         version,
         additionalProperties);
   }
@@ -506,6 +621,7 @@ public class ArbitraryRuleResponseDataAttributes {
     sb.append("    costsToAllocate: ").append(toIndentedString(costsToAllocate)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    isOotb: ").append(toIndentedString(isOotb)).append("\n");
     sb.append("    lastModifiedUserUuid: ")
         .append(toIndentedString(lastModifiedUserUuid))
         .append("\n");
@@ -513,10 +629,13 @@ public class ArbitraryRuleResponseDataAttributes {
     sb.append("    processingStatus: ").append(toIndentedString(processingStatus)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    rejected: ").append(toIndentedString(rejected)).append("\n");
+    sb.append("    ruleCategory: ").append(toIndentedString(ruleCategory)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
+    sb.append("    validFromDate: ").append(toIndentedString(validFromDate)).append("\n");
+    sb.append("    validThroughDate: ").append(toIndentedString(validThroughDate)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

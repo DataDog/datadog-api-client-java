@@ -23,7 +23,7 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RulesValidateQueryRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_QUERY = "Query";
+  public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
   public RulesValidateQueryRequestDataAttributes() {}
@@ -40,7 +40,8 @@ public class RulesValidateQueryRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>Query</code>.
+   * The tag pipeline rule query to validate, in Datadog tag query syntax: <code>tag:value</code>
+   * terms combined with <code>AND</code>, <code>OR</code>, and <code>NOT</code>.
    *
    * @return query
    */
