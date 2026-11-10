@@ -22,6 +22,7 @@ import java.util.Objects;
 /** The evaluation result with the recommended action and detected threat information. */
 @JsonPropertyOrder({
   AIGuardEvaluateAttributesResponse.JSON_PROPERTY_ACTION,
+  AIGuardEvaluateAttributesResponse.JSON_PROPERTY_EXTRA_TAGS,
   AIGuardEvaluateAttributesResponse.JSON_PROPERTY_GLOBAL_PROB,
   AIGuardEvaluateAttributesResponse.JSON_PROPERTY_IS_BLOCKING_ENABLED,
   AIGuardEvaluateAttributesResponse.JSON_PROPERTY_REASON,
@@ -37,6 +38,9 @@ public class AIGuardEvaluateAttributesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private AIGuardAction action;
+
+  public static final String JSON_PROPERTY_EXTRA_TAGS = "extra_tags";
+  private List<AIGuardExtraTag> extraTags = null;
 
   public static final String JSON_PROPERTY_GLOBAL_PROB = "global_prob";
   private Double globalProb;
@@ -103,6 +107,48 @@ public class AIGuardEvaluateAttributesResponse {
       this.unparsed = true;
     }
     this.action = action;
+  }
+
+  public AIGuardEvaluateAttributesResponse extraTags(List<AIGuardExtraTag> extraTags) {
+    this.extraTags = extraTags;
+    if (extraTags != null) {
+      for (AIGuardExtraTag item : extraTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public AIGuardEvaluateAttributesResponse addExtraTagsItem(AIGuardExtraTag extraTagsItem) {
+    if (this.extraTags == null) {
+      this.extraTags = new ArrayList<>();
+    }
+    this.extraTags.add(extraTagsItem);
+    this.unparsed |= extraTagsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The span tags that tracers should add to the <code>ai_guard</code> span. Each item contains a
+   * backend-defined key and value, and clients should not assume a fixed set of keys. Example keys
+   * include <code>ai_guard.evaluate_id</code> and <code>ai_guard.evaluation_context</code>.
+   *
+   * @return extraTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTRA_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AIGuardExtraTag> getExtraTags() {
+    return extraTags;
+  }
+
+  public void setExtraTags(List<AIGuardExtraTag> extraTags) {
+    this.extraTags = extraTags;
+    if (extraTags != null) {
+      for (AIGuardExtraTag item : extraTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AIGuardEvaluateAttributesResponse globalProb(Double globalProb) {
@@ -396,6 +442,7 @@ public class AIGuardEvaluateAttributesResponse {
     AIGuardEvaluateAttributesResponse aiGuardEvaluateAttributesResponse =
         (AIGuardEvaluateAttributesResponse) o;
     return Objects.equals(this.action, aiGuardEvaluateAttributesResponse.action)
+        && Objects.equals(this.extraTags, aiGuardEvaluateAttributesResponse.extraTags)
         && Objects.equals(this.globalProb, aiGuardEvaluateAttributesResponse.globalProb)
         && Objects.equals(
             this.isBlockingEnabled, aiGuardEvaluateAttributesResponse.isBlockingEnabled)
@@ -414,6 +461,7 @@ public class AIGuardEvaluateAttributesResponse {
   public int hashCode() {
     return Objects.hash(
         action,
+        extraTags,
         globalProb,
         isBlockingEnabled,
         reason,
@@ -430,6 +478,7 @@ public class AIGuardEvaluateAttributesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class AIGuardEvaluateAttributesResponse {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    extraTags: ").append(toIndentedString(extraTags)).append("\n");
     sb.append("    globalProb: ").append(toIndentedString(globalProb)).append("\n");
     sb.append("    isBlockingEnabled: ").append(toIndentedString(isBlockingEnabled)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
