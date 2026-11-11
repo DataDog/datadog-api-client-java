@@ -1273,7 +1273,14 @@ public class AiGatewayApi {
    * Each tier has an ordering, which defaults to configured. A weighted_affinity tier distributes
    * first-choice assignments by relative target weights (1 to 10000, default 1) and accepts only
    * distinct model targets with an explicit provider. Weights need not total 100. Configured tiers
-   * must omit weights or set them to null.
+   * must omit weights or set them to null. In a classified tier, the decision model set in
+   * classifier picks one destination for each request by its rubric. Only the first tier can be
+   * classified. It accepts only model targets with an explicit provider: one default destination
+   * without a rubric, and 1 to 9 other destinations, each with a different rubric.
+   *
+   * <p><strong>Note</strong>: Classified routing is in Preview and may not be available for all
+   * organizations. Saving a classified tier returns 403 Forbidden unless the feature is enabled for
+   * your organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;AiGatewayRoutingRuleResponse&gt;
@@ -1284,6 +1291,7 @@ public class AiGatewayApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -8977,8 +8985,14 @@ public class AiGatewayApi {
    * Replace a routing rule's tiers. The slug is immutable; data capture is managed independently.
    * This is a full replacement: omitted or null ordering resets the tier to configured, and omitted
    * or null weights in a weighted_affinity tier reset to 1. Omitted or null reasoning_level clears
-   * a model destination's reasoning override. Replacing a rule repairs tiers reported with an
-   * ordering_issue.
+   * a model destination's reasoning override. In a classified tier, omit both the classifier's
+   * provider and model to keep the saved decision model. An omitted context clears it, and an
+   * omitted or null confidence_threshold resets to 0.5. Replacing a rule repairs tiers reported
+   * with an ordering_issue.
+   *
+   * <p><strong>Note</strong>: Classified routing is in Preview and may not be available for all
+   * organizations. Saving a classified tier returns 403 Forbidden unless the feature is enabled for
+   * your organization.
    *
    * @param slug Organization-unique routing rule slug. (required)
    * @param body (required)
@@ -8990,6 +9004,7 @@ public class AiGatewayApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
