@@ -1642,7 +1642,8 @@ public class MetricsApi {
      * Set filterHoursAgo.
      *
      * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality
-     *     with. If unspecified, it defaults to 0 hours (the most recent data). (optional)
+     *     with. If unspecified, it defaults to 0 hours (the most recent data). Values below 0
+     *     return <code>400 Bad Request</code>. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterHoursAgo(Integer filterHoursAgo) {
@@ -1678,7 +1679,8 @@ public class MetricsApi {
      * Set filterTimespanH.
      *
      * @param filterTimespanH A window, in hours, from the look back to estimate cardinality with.
-     *     The minimum and default is 1 hour. (optional)
+     *     The minimum and default is 1 hour. Smaller values return <code>400 Bad Request</code>.
+     *     (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterTimespanH(Integer filterTimespanH) {
@@ -1760,6 +1762,11 @@ public class MetricsApi {
    *
    * <p>To compare current volumes across many metrics, use <code>GET /api/v2/metrics</code> with
    * <code>include=metric_volumes</code> instead of calling this endpoint for each metric.
+   *
+   * <p>A <code>404 Not Found</code> response means that no metric with this name exists in your
+   * organization. A <code>400 Bad Request</code> response means that a query parameter is invalid,
+   * or that the metric has no data in the queried window. For no data, the error message says so
+   * and names the window that was queried, which can differ from the requested one.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
@@ -3050,9 +3057,11 @@ public class MetricsApi {
   /**
    * Returns the tag configuration for the given metric name.
    *
-   * <p>A metric may exist and submit data without having a tag configuration. A <code>404 Not Found
-   * </code> response usually means that the metric has no tag configuration, but it is also
-   * returned when no metric with this name exists in your organization.
+   * <p>A metric may exist and submit data without having a tag configuration. Both cases return
+   * <code>404 Not Found</code>, with different messages: <code>
+   * No tag configuration for &lt;metric_name&gt;</code> when the metric exists without a tag
+   * configuration, and <code>&lt;metric_name&gt; not found</code> when no metric with this name
+   * exists in your organization.
    *
    * <p>To list tag configurations for many metrics, use <code>GET /api/v2/metrics</code> with
    * <code>filter[configured]=true</code> instead of calling this endpoint for each metric.
