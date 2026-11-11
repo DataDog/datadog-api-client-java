@@ -18,6 +18,7 @@ import com.datadog.api.client.v2.model.ExperimentsCreateMetricSQLModelV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCreateMetricV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCreateSubjectTypeV2Request;
 import com.datadog.api.client.v2.model.ExperimentsExperimentDiagnosticsV2DTO;
+import com.datadog.api.client.v2.model.ExperimentsExperimentHoldoutV2DTOArray;
 import com.datadog.api.client.v2.model.ExperimentsExperimentMetricGroupMutationV2;
 import com.datadog.api.client.v2.model.ExperimentsExperimentMetricGroupV2DTOArray;
 import com.datadog.api.client.v2.model.ExperimentsExperimentV2DTO;
@@ -4945,6 +4946,156 @@ public class ExperimentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ExperimentsSubjectTypeV2DTO>() {});
+  }
+
+  /**
+   * List experiment holdouts.
+   *
+   * <p>See {@link #listExperimentHoldoutsWithHttpInfo}.
+   *
+   * @param experimentId The UUID of the experiment. (required)
+   * @return ExperimentsExperimentHoldoutV2DTOArray
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsExperimentHoldoutV2DTOArray listExperimentHoldouts(UUID experimentId)
+      throws ApiException {
+    return listExperimentHoldoutsWithHttpInfo(experimentId).getData();
+  }
+
+  /**
+   * List experiment holdouts.
+   *
+   * <p>See {@link #listExperimentHoldoutsWithHttpInfoAsync}.
+   *
+   * @param experimentId The UUID of the experiment. (required)
+   * @return CompletableFuture&lt;ExperimentsExperimentHoldoutV2DTOArray&gt;
+   */
+  public CompletableFuture<ExperimentsExperimentHoldoutV2DTOArray> listExperimentHoldoutsAsync(
+      UUID experimentId) {
+    return listExperimentHoldoutsWithHttpInfoAsync(experimentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the holdouts an experiment is attached to, in evaluation order: MANAGED holdouts first,
+   * starting with the GLOBAL holdout, followed by EXTERNAL holdouts. For a draft experiment, the
+   * response includes the GLOBAL holdout that the experiment would join if it started. The response
+   * excludes archived and deleted holdouts, and MANAGED holdouts past their analysis window.
+   * EXTERNAL holdouts are listed until they are archived. MANAGED holdouts are listed only for
+   * experiments that use a Datadog feature flag, because Datadog serves holdouts only through its
+   * flags. The order matches the experiment's <code>holdout_ids</code> attribute.
+   *
+   * @param experimentId The UUID of the experiment. (required)
+   * @return ApiResponse&lt;ExperimentsExperimentHoldoutV2DTOArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed experiment ID (not a valid UUID). </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> The caller lacks the &#x60;product_analytics_experiments_read&#x60; permission or lacks permission to view this experiment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No experiment with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsExperimentHoldoutV2DTOArray> listExperimentHoldoutsWithHttpInfo(
+      UUID experimentId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'experimentId' when calling listExperimentHoldouts");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/{experiment_id}/holdouts"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.listExperimentHoldouts",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsExperimentHoldoutV2DTOArray>() {});
+  }
+
+  /**
+   * List experiment holdouts.
+   *
+   * <p>See {@link #listExperimentHoldoutsWithHttpInfo}.
+   *
+   * @param experimentId The UUID of the experiment. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsExperimentHoldoutV2DTOArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsExperimentHoldoutV2DTOArray>>
+      listExperimentHoldoutsWithHttpInfoAsync(UUID experimentId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      CompletableFuture<ApiResponse<ExperimentsExperimentHoldoutV2DTOArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'experimentId' when calling listExperimentHoldouts"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/{experiment_id}/holdouts"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.listExperimentHoldouts",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsExperimentHoldoutV2DTOArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsExperimentHoldoutV2DTOArray>() {});
   }
 
   /**
