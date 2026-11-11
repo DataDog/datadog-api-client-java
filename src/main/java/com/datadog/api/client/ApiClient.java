@@ -1660,6 +1660,7 @@ public class ApiClient {
           put("v2.queryProductAnalyticsSankey", false);
           put("v2.createConnection", false);
           put("v2.deleteConnection", false);
+          put("v2.deleteUserProfile", false);
           put("v2.getAccountFacetInfo", false);
           put("v2.getMapping", false);
           put("v2.getUserFacetInfo", false);

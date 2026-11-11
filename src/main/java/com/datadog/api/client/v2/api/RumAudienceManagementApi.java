@@ -392,6 +392,161 @@ public class RumAudienceManagementApi {
   }
 
   /**
+   * Delete a user profile.
+   *
+   * <p>See {@link #deleteUserProfileWithHttpInfo}.
+   *
+   * @param userId The ID of the user to delete, as sent in the <code>usr.id</code> attribute.
+   *     (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteUserProfile(String userId) throws ApiException {
+    deleteUserProfileWithHttpInfo(userId);
+  }
+
+  /**
+   * Delete a user profile.
+   *
+   * <p>See {@link #deleteUserProfileWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user to delete, as sent in the <code>usr.id</code> attribute.
+   *     (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteUserProfileAsync(String userId) {
+    return deleteUserProfileWithHttpInfoAsync(userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Product Analytics user profile. Deletion is asynchronous: the request is accepted and
+   * the profile is removed shortly after, usually within a few minutes. This only deletes the user
+   * profile. To delete the RUM events of the user, use the RUM data deletion API.
+   *
+   * @param userId The ID of the user to delete, as sent in the <code>usr.id</code> attribute.
+   *     (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Deletion accepted; the profile will be removed asynchronously </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteUserProfileWithHttpInfo(String userId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteUserProfile";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling deleteUserProfile");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/users/{user_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumAudienceManagementApi.deleteUserProfile",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a user profile.
+   *
+   * <p>See {@link #deleteUserProfileWithHttpInfo}.
+   *
+   * @param userId The ID of the user to delete, as sent in the <code>usr.id</code> attribute.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteUserProfileWithHttpInfoAsync(String userId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteUserProfile";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userId' when calling deleteUserProfile"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/users/{user_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumAudienceManagementApi.deleteUserProfile",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Get account facet info.
    *
    * <p>See {@link #getAccountFacetInfoWithHttpInfo}.
