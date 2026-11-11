@@ -1530,6 +1530,11 @@ public class ApiClient {
           put("v2.updateIncidentUserDefinedField", false);
           put("v2.updateIncidentUserDefinedRole", false);
           put("v2.updateTimestampOverride", false);
+          put("v2.createChatGPTEnterpriseIntegrationAccount", false);
+          put("v2.deleteChatGPTEnterpriseIntegrationAccount", false);
+          put("v2.getChatGPTEnterpriseIntegrationAccount", false);
+          put("v2.listChatGPTEnterpriseIntegrationAccounts", false);
+          put("v2.updateChatGPTEnterpriseIntegrationAccount", false);
           put("v2.createDatabricksIntegrationAccount", false);
           put("v2.deleteDatabricksIntegrationAccount", false);
           put("v2.getDatabricksIntegrationAccount", false);
