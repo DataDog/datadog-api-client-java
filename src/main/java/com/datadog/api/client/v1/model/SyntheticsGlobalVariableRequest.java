@@ -19,11 +19,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Details of the global variable to create. */
+/** Details of the global variable to create or update. */
 @JsonPropertyOrder({
   SyntheticsGlobalVariableRequest.JSON_PROPERTY_ATTRIBUTES,
   SyntheticsGlobalVariableRequest.JSON_PROPERTY_DESCRIPTION,
   SyntheticsGlobalVariableRequest.JSON_PROPERTY_ID,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_IS_EMAIL,
   SyntheticsGlobalVariableRequest.JSON_PROPERTY_IS_FIDO,
   SyntheticsGlobalVariableRequest.JSON_PROPERTY_IS_TOTP,
   SyntheticsGlobalVariableRequest.JSON_PROPERTY_NAME,
@@ -44,6 +45,9 @@ public class SyntheticsGlobalVariableRequest {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_IS_EMAIL = "is_email";
+  private Boolean isEmail;
 
   public static final String JSON_PROPERTY_IS_FIDO = "is_fido";
   private Boolean isFido;
@@ -133,6 +137,31 @@ public class SyntheticsGlobalVariableRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
+  }
+
+  public SyntheticsGlobalVariableRequest isEmail(Boolean isEmail) {
+    this.isEmail = isEmail;
+    return this;
+  }
+
+  /**
+   * Whether this global variable is a persistent email variable. Set to <code>true</code> and omit
+   * <code>value</code> when creating a persistent email variable; Datadog generates an immutable
+   * email address. When updating an existing persistent email variable, omit <code>value</code> and
+   * either keep <code>is_email</code> set to <code>true</code> or omit it. The variable cannot be
+   * converted to or from a persistent email variable.
+   *
+   * @return isEmail
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsEmail() {
+    return isEmail;
+  }
+
+  public void setIsEmail(Boolean isEmail) {
+    this.isEmail = isEmail;
   }
 
   public SyntheticsGlobalVariableRequest isFido(Boolean isFido) {
@@ -355,6 +384,7 @@ public class SyntheticsGlobalVariableRequest {
     return Objects.equals(this.attributes, syntheticsGlobalVariableRequest.attributes)
         && Objects.equals(this.description, syntheticsGlobalVariableRequest.description)
         && Objects.equals(this.id, syntheticsGlobalVariableRequest.id)
+        && Objects.equals(this.isEmail, syntheticsGlobalVariableRequest.isEmail)
         && Objects.equals(this.isFido, syntheticsGlobalVariableRequest.isFido)
         && Objects.equals(this.isTotp, syntheticsGlobalVariableRequest.isTotp)
         && Objects.equals(this.name, syntheticsGlobalVariableRequest.name)
@@ -372,6 +402,7 @@ public class SyntheticsGlobalVariableRequest {
         attributes,
         description,
         id,
+        isEmail,
         isFido,
         isTotp,
         name,
@@ -389,6 +420,7 @@ public class SyntheticsGlobalVariableRequest {
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isEmail: ").append(toIndentedString(isEmail)).append("\n");
     sb.append("    isFido: ").append(toIndentedString(isFido)).append("\n");
     sb.append("    isTotp: ").append(toIndentedString(isTotp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
