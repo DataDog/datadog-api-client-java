@@ -1540,6 +1540,11 @@ public class ApiClient {
           put("v2.getElasticCloudIntegrationAccount", false);
           put("v2.listElasticCloudIntegrationAccounts", false);
           put("v2.updateElasticCloudIntegrationAccount", false);
+          put("v2.createNebiusCloudIntegrationAccount", false);
+          put("v2.deleteNebiusCloudIntegrationAccount", false);
+          put("v2.getNebiusCloudIntegrationAccount", false);
+          put("v2.listNebiusCloudIntegrationAccounts", false);
+          put("v2.updateNebiusCloudIntegrationAccount", false);
           put("v2.createSnowflakeIntegrationAccount", false);
           put("v2.deleteSnowflakeIntegrationAccount", false);
           put("v2.getSnowflakeIntegrationAccount", false);
