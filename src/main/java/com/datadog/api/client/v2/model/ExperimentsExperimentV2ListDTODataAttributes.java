@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Summary fields for an experiment returned in a list. */
@@ -30,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ExperimentsExperimentV2ListDTODataAttributes.JSON_PROPERTY_EVENTS_END_DATE,
   ExperimentsExperimentV2ListDTODataAttributes.JSON_PROPERTY_EVENTS_START_DATE,
   ExperimentsExperimentV2ListDTODataAttributes.JSON_PROPERTY_EXPERIMENT_TYPE,
+  ExperimentsExperimentV2ListDTODataAttributes.JSON_PROPERTY_HOLDOUT_IDS,
   ExperimentsExperimentV2ListDTODataAttributes.JSON_PROPERTY_HYPOTHESIS,
   ExperimentsExperimentV2ListDTODataAttributes.JSON_PROPERTY_MIGRATION_METADATA,
   ExperimentsExperimentV2ListDTODataAttributes.JSON_PROPERTY_NAME,
@@ -74,6 +76,9 @@ public class ExperimentsExperimentV2ListDTODataAttributes {
 
   public static final String JSON_PROPERTY_EXPERIMENT_TYPE = "experiment_type";
   private String experimentType;
+
+  public static final String JSON_PROPERTY_HOLDOUT_IDS = "holdout_ids";
+  private List<UUID> holdoutIds = null;
 
   public static final String JSON_PROPERTY_HYPOTHESIS = "hypothesis";
   private String hypothesis;
@@ -347,6 +352,38 @@ public class ExperimentsExperimentV2ListDTODataAttributes {
 
   public void setExperimentType(String experimentType) {
     this.experimentType = experimentType;
+  }
+
+  public ExperimentsExperimentV2ListDTODataAttributes holdoutIds(List<UUID> holdoutIds) {
+    this.holdoutIds = holdoutIds;
+    return this;
+  }
+
+  public ExperimentsExperimentV2ListDTODataAttributes addHoldoutIdsItem(UUID holdoutIdsItem) {
+    if (this.holdoutIds == null) {
+      this.holdoutIds = new ArrayList<>();
+    }
+    this.holdoutIds.add(holdoutIdsItem);
+    return this;
+  }
+
+  /**
+   * IDs of the holdouts the experiment is attached to, in evaluation order: MANAGED holdouts first,
+   * starting with the GLOBAL holdout, followed by EXTERNAL holdouts. For a draft experiment, the
+   * list includes the GLOBAL holdout that the experiment would join if it started. <code>
+   * GET /api/v2/experiments/{experiment_id}/holdouts</code> returns their details.
+   *
+   * @return holdoutIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOLDOUT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UUID> getHoldoutIds() {
+    return holdoutIds;
+  }
+
+  public void setHoldoutIds(List<UUID> holdoutIds) {
+    this.holdoutIds = holdoutIds;
   }
 
   public ExperimentsExperimentV2ListDTODataAttributes hypothesis(String hypothesis) {
@@ -807,6 +844,7 @@ public class ExperimentsExperimentV2ListDTODataAttributes {
             this.eventsStartDate, experimentsExperimentV2ListDtoDataAttributes.eventsStartDate)
         && Objects.equals(
             this.experimentType, experimentsExperimentV2ListDtoDataAttributes.experimentType)
+        && Objects.equals(this.holdoutIds, experimentsExperimentV2ListDtoDataAttributes.holdoutIds)
         && Objects.equals(this.hypothesis, experimentsExperimentV2ListDtoDataAttributes.hypothesis)
         && Objects.equals(
             this.migrationMetadata, experimentsExperimentV2ListDtoDataAttributes.migrationMetadata)
@@ -846,6 +884,7 @@ public class ExperimentsExperimentV2ListDTODataAttributes {
         eventsEndDate,
         eventsStartDate,
         experimentType,
+        holdoutIds,
         hypothesis,
         migrationMetadata,
         name,
@@ -877,6 +916,7 @@ public class ExperimentsExperimentV2ListDTODataAttributes {
     sb.append("    eventsEndDate: ").append(toIndentedString(eventsEndDate)).append("\n");
     sb.append("    eventsStartDate: ").append(toIndentedString(eventsStartDate)).append("\n");
     sb.append("    experimentType: ").append(toIndentedString(experimentType)).append("\n");
+    sb.append("    holdoutIds: ").append(toIndentedString(holdoutIds)).append("\n");
     sb.append("    hypothesis: ").append(toIndentedString(hypothesis)).append("\n");
     sb.append("    migrationMetadata: ").append(toIndentedString(migrationMetadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
