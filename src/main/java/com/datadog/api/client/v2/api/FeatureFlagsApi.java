@@ -6,22 +6,27 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AllocationExposureScheduleResponse;
 import com.datadog.api.client.v2.model.AllocationResponse;
+import com.datadog.api.client.v2.model.ApproveFlagSuggestionRequest;
 import com.datadog.api.client.v2.model.CreateAllocationsRequest;
 import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
 import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
+import com.datadog.api.client.v2.model.CreateFlagSuggestionRequest;
 import com.datadog.api.client.v2.model.CreateVariantRequest;
 import com.datadog.api.client.v2.model.EnvironmentResponse;
 import com.datadog.api.client.v2.model.FeatureFlagDistributionChannel;
 import com.datadog.api.client.v2.model.FeatureFlagProductionStatus;
 import com.datadog.api.client.v2.model.FeatureFlagResponse;
 import com.datadog.api.client.v2.model.FeatureFlagStalenessStatus;
+import com.datadog.api.client.v2.model.FeatureFlagSuggestionResponse;
 import com.datadog.api.client.v2.model.ListAllocationsResponse;
 import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
 import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
 import com.datadog.api.client.v2.model.PatchSavedFilterRequest;
+import com.datadog.api.client.v2.model.RejectFlagSuggestionRequest;
 import com.datadog.api.client.v2.model.SavedFilterResponse;
 import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
+import com.datadog.api.client.v2.model.UpdateFeatureFlagApprovalsRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
 import com.datadog.api.client.v2.model.UpdateVariantRequest;
 import com.datadog.api.client.v2.model.ValueType;
@@ -67,6 +72,338 @@ public class FeatureFlagsApi {
   }
 
   /**
+   * Apply an approved flag change suggestion.
+   *
+   * <p>See {@link #applyFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return FeatureFlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagSuggestionResponse applyFlagSuggestion(UUID suggestionId) throws ApiException {
+    return applyFlagSuggestionWithHttpInfo(suggestionId).getData();
+  }
+
+  /**
+   * Apply an approved flag change suggestion.
+   *
+   * <p>See {@link #applyFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return CompletableFuture&lt;FeatureFlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagSuggestionResponse> applyFlagSuggestionAsync(
+      UUID suggestionId) {
+    return applyFlagSuggestionWithHttpInfoAsync(suggestionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Applies a previously approved feature flag change suggestion. Requires contributor or editor
+   * access to the flag. Pending, rejected, or discarded suggestions return <code>409 Conflict
+   * </code>. An already applied suggestion also returns <code>409 Conflict</code>, except that
+   * retrying an applied experiment action succeeds. This endpoint does not require a request body.
+   *
+   * <p>When an <code>ALLOCATIONS</code> suggestion is applied, either by this endpoint or by an
+   * approval that applies it, each exposure schedule with <code>autostart</code> set to <code>true
+   * </code>, no <code>absolute_start_time</code>, and no future <code>scheduled_start_time</code>
+   * starts at apply time. This includes a schedule that is already running, so a suggestion that
+   * omits its <code>absolute_start_time</code> restarts its rollout. If its <code>
+   * selection_interval_ms</code> is greater than <code>0</code>, every step except the last uses
+   * that interval. An <code>absolute_start_time</code> in the suggestion is kept, including one set
+   * by the allocations request that built the suggestion, so time spent waiting for approval counts
+   * toward its rollout steps. Schedules with <code>apm_retention</code>, in the suggestion or on
+   * the saved schedule, are the exception: apply does not start them, and they start only through
+   * the exposure schedule start endpoint. When the suggestion omits <code>apm_retention</code> or
+   * <code>absolute_start_time</code> for a saved schedule with <code>apm_retention</code>, apply
+   * keeps the saved values, so a running schedule keeps its start, unless the suggestion changes
+   * its rollout strategy, which stops it.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return ApiResponse&lt;FeatureFlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request - Invalid request parameters or body. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - The suggestion is not approved or the proposed change conflicts with current configuration. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FeatureFlagSuggestionResponse> applyFlagSuggestionWithHttpInfo(
+      UUID suggestionId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling applyFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/apply"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.applyFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Apply an approved flag change suggestion.
+   *
+   * <p>See {@link #applyFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>>
+      applyFlagSuggestionWithHttpInfoAsync(UUID suggestionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suggestionId' when calling applyFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/apply"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.applyFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Approve a flag change suggestion.
+   *
+   * <p>See {@link #approveFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return FeatureFlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagSuggestionResponse approveFlagSuggestion(
+      UUID suggestionId, ApproveFlagSuggestionRequest body) throws ApiException {
+    return approveFlagSuggestionWithHttpInfo(suggestionId, body).getData();
+  }
+
+  /**
+   * Approve a flag change suggestion.
+   *
+   * <p>See {@link #approveFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FeatureFlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagSuggestionResponse> approveFlagSuggestionAsync(
+      UUID suggestionId, ApproveFlagSuggestionRequest body) {
+    return approveFlagSuggestionWithHttpInfoAsync(suggestionId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Approves a feature flag change suggestion and applies the change immediately by default. Set
+   * <code>apply</code> to <code>false</code> to approve without applying, then call <code>
+   * ApplyFlagSuggestion</code> later. Until it is applied or deleted, an approved suggestion still
+   * blocks conflicting changes. Requires editor access to the flag or the Feature Flag Approvals
+   * Override permission. A creator cannot approve their own suggestion unless they have override
+   * permission. Applied or discarded suggestions return <code>409 Conflict</code>. Retrying
+   * approval of an already applied experiment action with <code>apply</code> set to <code>true
+   * </code> succeeds.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FeatureFlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request - Invalid request parameters or body. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - The suggestion is already applied or discarded, or the proposed change conflicts with current configuration. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FeatureFlagSuggestionResponse> approveFlagSuggestionWithHttpInfo(
+      UUID suggestionId, ApproveFlagSuggestionRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling approveFlagSuggestion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling approveFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/approve"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.approveFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Approve a flag change suggestion.
+   *
+   * <p>See {@link #approveFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>>
+      approveFlagSuggestionWithHttpInfoAsync(UUID suggestionId, ApproveFlagSuggestionRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suggestionId' when calling approveFlagSuggestion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling approveFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/approve"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.approveFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
    * Archive a feature flag.
    *
    * <p>See {@link #archiveFeatureFlagWithHttpInfo}.
@@ -99,6 +436,16 @@ public class FeatureFlagsApi {
    * Archives a feature flag. Archived flags are hidden from the main list but remain accessible and
    * can be unarchived.
    *
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>201 Created</code> with a persisted
+   * suggestion. The change is not applied until the suggestion is approved and applied. Use the
+   * returned suggestion ID with <code>GetFlagSuggestion</code>, <code>ApproveFlagSuggestion</code>,
+   * <code>RejectFlagSuggestion</code>, or <code>DeleteFlagSuggestion</code>.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code> without applying the change, including for callers with override permission
+   * or when approval is no longer required.
+   *
    * @param featureFlagId The ID of the feature flag. (required)
    * @return ApiResponse&lt;FeatureFlagResponse&gt;
    * @throws ApiException if fails to make API call
@@ -107,9 +454,11 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created - Approval is required. A suggestion was created and the change has not been applied. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - The flag is already archived or a conflicting suggestion is pending. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -247,8 +596,19 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Creates a new targeting rule (allocation) for a specific feature flag in a specific
-   * environment.
+   * Creates a new targeting rule (allocation) for a feature flag in an environment.
+   *
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>202 Accepted</code> with an <code>
+   * approval-required</code> resource. No allocation is created and no suggestion is persisted. The
+   * resource ID is the flag ID. Submit its <code>property</code>, <code>action</code>, <code>
+   * suggestion</code>, and <code>environment_id</code> to <code>CreateFlagSuggestion</code>,
+   * together with <code>notification_rule_targets</code>, to request approval. The suggestion value
+   * contains the complete desired allocation set, including the new rule.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code>, including for callers with override permission or when approval is no
+   * longer required.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
@@ -264,7 +624,7 @@ public class FeatureFlagsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A conflicting suggestion is pending or an allocation with this key already exists. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -678,6 +1038,199 @@ public class FeatureFlagsApi {
   }
 
   /**
+   * Create a flag change suggestion.
+   *
+   * <p>See {@link #createFlagSuggestionWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return FeatureFlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagSuggestionResponse createFlagSuggestion(
+      UUID featureFlagId, CreateFlagSuggestionRequest body) throws ApiException {
+    return createFlagSuggestionWithHttpInfo(featureFlagId, body).getData();
+  }
+
+  /**
+   * Create a flag change suggestion.
+   *
+   * <p>See {@link #createFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FeatureFlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagSuggestionResponse> createFlagSuggestionAsync(
+      UUID featureFlagId, CreateFlagSuggestionRequest body) {
+    return createFlagSuggestionWithHttpInfoAsync(featureFlagId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a persisted suggestion for a feature flag change that requires approval. The change is
+   * not applied until the suggestion is approved and applied. Requires contributor or editor access
+   * to the flag. The request must contain at least one <code>notification_rule_targets</code>
+   * handle for review notifications.
+   *
+   * <p>Use this endpoint to submit the proposed change from the <code>202 Accepted</code>
+   * approval-required response of <code>CreateAllocationsForFeatureFlagInEnvironment</code>. Other
+   * approval-gated mutation endpoints return <code>201 Created</code> with a persisted suggestion.
+   * Do not submit those suggestions again.
+   *
+   * <p>An <code>environment_id</code> is required for <code>ALLOCATIONS</code>, <code>
+   * DEFAULT_VARIANT</code>, and <code>OVERRIDE_VARIANT</code>. For allocation and variant changes,
+   * <code>suggestion</code> is a JSON-encoded string, not a nested JSON object. Conflicting
+   * suggestions that are pending, or approved but not yet applied, return <code>409 Conflict</code>
+   * .
+   *
+   * <p>The allocations in an <code>ALLOCATIONS</code> suggestion are validated with the rules that
+   * <code>UpdateAllocationsForFeatureFlagInEnvironment</code> applies to a change that requires
+   * approval, including the rules for request fields, targeting rules and their <code>ONE_OF</code>
+   * and <code>NOT_ONE_OF</code> value limits, variant and metric references, draft allocations, and
+   * exposure schedules. A schedule with <code>apm_retention</code> that has not started must be
+   * started with the exposure schedule start endpoint, not with <code>autostart</code> or an <code>
+   * absolute_start_time</code>. That endpoint's Product Analytics Experiments Write permission
+   * checks also apply. If that endpoint would reject the allocations, this endpoint returns the
+   * same error: <code>400 Bad Request</code> for invalid allocations, for example a <code>
+   * UNIFORM_INTERVALS</code> schedule with a <code>selection_interval_ms</code> of <code>0</code>,
+   * <code>403 Forbidden</code> when the caller lacks the Experiments Write permission the lineup
+   * needs, and <code>409 Conflict</code> for a lineup that changes or omits a draft allocation.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FeatureFlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request - Invalid request parameters or body. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A conflicting suggestion is pending, or the lineup changes or omits a draft allocation. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FeatureFlagSuggestionResponse> createFlagSuggestionWithHttpInfo(
+      UUID featureFlagId, CreateFlagSuggestionRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'featureFlagId' when calling createFlagSuggestion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/suggestions"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Create a flag change suggestion.
+   *
+   * <p>See {@link #createFlagSuggestionWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>>
+      createFlagSuggestionWithHttpInfoAsync(UUID featureFlagId, CreateFlagSuggestionRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling createFlagSuggestion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/suggestions"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
    * Add a variant to a feature flag.
    *
    * <p>See {@link #createVariantForFeatureFlagWithHttpInfo}.
@@ -990,6 +1543,147 @@ public class FeatureFlagsApi {
   }
 
   /**
+   * Delete or discard a flag change suggestion.
+   *
+   * <p>See {@link #deleteFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteFlagSuggestion(UUID suggestionId) throws ApiException {
+    deleteFlagSuggestionWithHttpInfo(suggestionId);
+  }
+
+  /**
+   * Delete or discard a flag change suggestion.
+   *
+   * <p>See {@link #deleteFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteFlagSuggestionAsync(UUID suggestionId) {
+    return deleteFlagSuggestionWithHttpInfoAsync(suggestionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes a pending suggestion or discards an approved suggestion that has not been applied.
+   * Requires editor access to the flag, or contributor access for the suggestion's creator. Applied
+   * and rejected suggestions return <code>409 Conflict</code>. A missing or already discarded
+   * suggestion returns <code>204 No Content</code>.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request - Invalid request parameters or body. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - Applied or rejected suggestions cannot be deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteFlagSuggestionWithHttpInfo(UUID suggestionId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling deleteFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.deleteFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete or discard a flag change suggestion.
+   *
+   * <p>See {@link #deleteFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteFlagSuggestionWithHttpInfoAsync(
+      UUID suggestionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suggestionId' when calling deleteFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.deleteFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete a variant.
    *
    * <p>See {@link #deleteVariantFromFeatureFlagWithHttpInfo}.
@@ -1023,10 +1717,16 @@ public class FeatureFlagsApi {
   /**
    * Deletes a variant from a feature flag.
    *
-   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and
-   * returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of deleting the
-   * variant immediately. If a pending suggestion already exists for this flag's variant property,
-   * the endpoint returns <code>409 Conflict</code>.
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>201 Created</code> with a persisted
+   * suggestion, in the same format as the <code>GetFlagSuggestion</code> response. The change is
+   * not applied until the suggestion is approved and applied. Use the returned suggestion ID with
+   * <code>GetFlagSuggestion</code>, <code>ApproveFlagSuggestion</code>, <code>RejectFlagSuggestion
+   * </code>, or <code>DeleteFlagSuggestion</code>.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code> without applying the change, including for callers with override permission
+   * or when approval is no longer required.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
@@ -1036,6 +1736,7 @@ public class FeatureFlagsApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created - Approval is required. A suggestion was created and the change has not been applied. </td><td>  -  </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -1194,7 +1895,18 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Disable a feature flag in a specific environment.
+   * Disables a feature flag in a specific environment.
+   *
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>201 Created</code> with a persisted
+   * suggestion, in the same format as the <code>GetFlagSuggestion</code> response. The change is
+   * not applied until the suggestion is approved and applied. Use the returned suggestion ID with
+   * <code>GetFlagSuggestion</code>, <code>ApproveFlagSuggestion</code>, <code>RejectFlagSuggestion
+   * </code>, or <code>DeleteFlagSuggestion</code>.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code> without applying the change, including for callers with override permission
+   * or when approval is no longer required.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
@@ -1205,9 +1917,11 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created - Approval is required. A suggestion was created and the change has not been applied. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A conflicting suggestion is pending for this flag and environment. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -1364,7 +2078,18 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Enable a feature flag in a specific environment.
+   * Enables a feature flag in a specific environment.
+   *
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>201 Created</code> with a persisted
+   * suggestion, in the same format as the <code>GetFlagSuggestion</code> response. The change is
+   * not applied until the suggestion is approved and applied. Use the returned suggestion ID with
+   * <code>GetFlagSuggestion</code>, <code>ApproveFlagSuggestion</code>, <code>RejectFlagSuggestion
+   * </code>, or <code>DeleteFlagSuggestion</code>.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code> without applying the change, including for callers with override permission
+   * or when approval is no longer required.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
@@ -1375,9 +2100,11 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created - Approval is required. A suggestion was created and the change has not been applied. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A conflicting suggestion is pending for this flag and environment. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -1779,6 +2506,149 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EnvironmentResponse>() {});
+  }
+
+  /**
+   * Get a flag change suggestion.
+   *
+   * <p>See {@link #getFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return FeatureFlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagSuggestionResponse getFlagSuggestion(UUID suggestionId) throws ApiException {
+    return getFlagSuggestionWithHttpInfo(suggestionId).getData();
+  }
+
+  /**
+   * Get a flag change suggestion.
+   *
+   * <p>See {@link #getFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return CompletableFuture&lt;FeatureFlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagSuggestionResponse> getFlagSuggestionAsync(
+      UUID suggestionId) {
+    return getFlagSuggestionWithHttpInfoAsync(suggestionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a feature flag change suggestion by ID. Use <code>lifecycle_status</code> to
+   * distinguish pending, approved, applied, rejected, and discarded suggestions. An approved
+   * suggestion has not yet been applied; an applied suggestion has changed the flag.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return ApiResponse&lt;FeatureFlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request - Invalid request parameters or body. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FeatureFlagSuggestionResponse> getFlagSuggestionWithHttpInfo(UUID suggestionId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling getFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.getFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Get a flag change suggestion.
+   *
+   * <p>See {@link #getFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>>
+      getFlagSuggestionWithHttpInfoAsync(UUID suggestionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'suggestionId' when calling getFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.getFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
   }
 
   /**
@@ -2806,6 +3676,173 @@ public class FeatureFlagsApi {
   }
 
   /**
+   * Reject a flag change suggestion.
+   *
+   * <p>See {@link #rejectFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return FeatureFlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagSuggestionResponse rejectFlagSuggestion(
+      UUID suggestionId, RejectFlagSuggestionRequest body) throws ApiException {
+    return rejectFlagSuggestionWithHttpInfo(suggestionId, body).getData();
+  }
+
+  /**
+   * Reject a flag change suggestion.
+   *
+   * <p>See {@link #rejectFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FeatureFlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagSuggestionResponse> rejectFlagSuggestionAsync(
+      UUID suggestionId, RejectFlagSuggestionRequest body) {
+    return rejectFlagSuggestionWithHttpInfoAsync(suggestionId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Rejects a pending feature flag change suggestion without applying the change. Requires editor
+   * access to the flag or the Feature Flag Approvals Override permission. Rejecting an already
+   * rejected suggestion succeeds. Approved, applied, or discarded suggestions return <code>
+   * 409 Conflict</code>.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FeatureFlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request - Invalid request parameters or body. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - The suggestion is already approved, applied, or discarded. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FeatureFlagSuggestionResponse> rejectFlagSuggestionWithHttpInfo(
+      UUID suggestionId, RejectFlagSuggestionRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling rejectFlagSuggestion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling rejectFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/reject"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.rejectFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Reject a flag change suggestion.
+   *
+   * <p>See {@link #rejectFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the feature flag change suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>>
+      rejectFlagSuggestionWithHttpInfoAsync(UUID suggestionId, RejectFlagSuggestionRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suggestionId' when calling rejectFlagSuggestion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling rejectFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/reject"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.rejectFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagSuggestionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagSuggestionResponse>() {});
+  }
+
+  /**
    * Resume a progressive rollout.
    *
    * <p>See {@link #resumeExposureScheduleWithHttpInfo}.
@@ -3282,6 +4319,16 @@ public class FeatureFlagsApi {
   /**
    * Unarchives a previously archived feature flag, making it visible in the main list again.
    *
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>201 Created</code> with a persisted
+   * suggestion. The change is not applied until the suggestion is approved and applied. Use the
+   * returned suggestion ID with <code>GetFlagSuggestion</code>, <code>ApproveFlagSuggestion</code>,
+   * <code>RejectFlagSuggestion</code>, or <code>DeleteFlagSuggestion</code>.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code> without applying the change, including for callers with override permission
+   * or when approval is no longer required.
+   *
    * @param featureFlagId The ID of the feature flag. (required)
    * @return ApiResponse&lt;FeatureFlagResponse&gt;
    * @throws ApiException if fails to make API call
@@ -3290,9 +4337,11 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created - Approval is required. A suggestion was created and the change has not been applied. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - The flag is not archived or a conflicting suggestion is pending. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -3391,6 +4440,25 @@ public class FeatureFlagsApi {
         new GenericType<FeatureFlagResponse>() {});
   }
 
+  /** Manage optional parameters to updateAllocationsForFeatureFlagInEnvironment. */
+  public static class UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters {
+    private String defaultVariantKey;
+
+    /**
+     * Set defaultVariantKey.
+     *
+     * @param defaultVariantKey The key of the default variant to set. When approval is required,
+     *     omit this parameter and submit a <code>DEFAULT_VARIANT</code> suggestion separately.
+     *     (optional)
+     * @return UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters
+     */
+    public UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters defaultVariantKey(
+        String defaultVariantKey) {
+      this.defaultVariantKey = defaultVariantKey;
+      return this;
+    }
+  }
+
   /**
    * Update targeting rules for a flag.
    *
@@ -3406,7 +4474,10 @@ public class FeatureFlagsApi {
       UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body)
       throws ApiException {
     return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
-            featureFlagId, environmentId, body)
+            featureFlagId,
+            environmentId,
+            body,
+            new UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters())
         .getData();
   }
 
@@ -3424,7 +4495,10 @@ public class FeatureFlagsApi {
       updateAllocationsForFeatureFlagInEnvironmentAsync(
           UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
     return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
-            featureFlagId, environmentId, body)
+            featureFlagId,
+            environmentId,
+            body,
+            new UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -3432,12 +4506,76 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Updates targeting rules (allocations) for a specific feature flag in a specific environment.
-   * This operation replaces the existing allocation set with the request payload.
+   * Update targeting rules for a flag.
+   *
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
    * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ListAllocationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAllocationsResponse updateAllocationsForFeatureFlagInEnvironment(
+      UUID featureFlagId,
+      UUID environmentId,
+      OverwriteAllocationsRequest body,
+      UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters parameters)
+      throws ApiException {
+    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+            featureFlagId, environmentId, body, parameters)
+        .getData();
+  }
+
+  /**
+   * Update targeting rules for a flag.
+   *
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListAllocationsResponse&gt;
+   */
+  public CompletableFuture<ListAllocationsResponse>
+      updateAllocationsForFeatureFlagInEnvironmentAsync(
+          UUID featureFlagId,
+          UUID environmentId,
+          OverwriteAllocationsRequest body,
+          UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters parameters) {
+    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+            featureFlagId, environmentId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates targeting rules (allocations) for a feature flag in an environment. This operation
+   * replaces the existing allocation set with the request payload.
+   *
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>201 Created</code> with a persisted
+   * suggestion. The change is not applied until the suggestion is approved and applied. Use the
+   * returned suggestion ID with <code>GetFlagSuggestion</code>, <code>ApproveFlagSuggestion</code>,
+   * <code>RejectFlagSuggestion</code>, or <code>DeleteFlagSuggestion</code>.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code> without applying the change, including for callers with override permission
+   * or when approval is no longer required.
+   *
+   * <p>When approval is required, combining allocation replacement with <code>default_variant_key
+   * </code> returns <code>400 Bad Request</code>. Omit that parameter and submit the default
+   * variant change separately with <code>CreateFlagSuggestion</code> using the <code>
+   * DEFAULT_VARIANT</code> property and the variant ID.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListAllocationsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3445,17 +4583,20 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created - Approval is required. A suggestion was created and the change has not been applied. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A conflicting suggestion is pending or the allocation update conflicts with the current configuration. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<ListAllocationsResponse>
       updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
-          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body)
+          UUID featureFlagId,
+          UUID environmentId,
+          OverwriteAllocationsRequest body,
+          UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters parameters)
           throws ApiException {
     Object localVarPostBody = body;
 
@@ -3482,6 +4623,7 @@ public class FeatureFlagsApi {
           "Missing the required parameter 'body' when calling"
               + " updateAllocationsForFeatureFlagInEnvironment");
     }
+    String defaultVariantKey = parameters.defaultVariantKey;
     // create path and map variables
     String localVarPath =
         "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
@@ -3490,13 +4632,17 @@ public class FeatureFlagsApi {
             .replaceAll(
                 "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "default_variant_key", defaultVariantKey));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -3520,11 +4666,15 @@ public class FeatureFlagsApi {
    * @param featureFlagId The ID of the feature flag. (required)
    * @param environmentId The ID of the environment. (required)
    * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ListAllocationsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ListAllocationsResponse>>
       updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
-          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
+          UUID featureFlagId,
+          UUID environmentId,
+          OverwriteAllocationsRequest body,
+          UpdateAllocationsForFeatureFlagInEnvironmentOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'featureFlagId' is set
@@ -3559,6 +4709,7 @@ public class FeatureFlagsApi {
                   + " updateAllocationsForFeatureFlagInEnvironment"));
       return result;
     }
+    String defaultVariantKey = parameters.defaultVariantKey;
     // create path and map variables
     String localVarPath =
         "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
@@ -3567,7 +4718,11 @@ public class FeatureFlagsApi {
             .replaceAll(
                 "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "default_variant_key", defaultVariantKey));
 
     Invocation.Builder builder;
     try {
@@ -3575,7 +4730,7 @@ public class FeatureFlagsApi {
           apiClient.createBuilder(
               "v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -3630,13 +4785,32 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Updates an existing feature flag's metadata such as name and description. Does not modify
-   * targeting rules or allocations.
+   * Updates an existing feature flag's metadata, including its name, description, distribution
+   * channel, and tags. Does not modify targeting rules or allocations.
    *
    * <p>To change the owning team, update <code>tags</code> and include a tag of the form <code>
    * team:&lt;team-handle&gt;</code> in the array. <code>tags</code> is a full replacement of the
    * existing tag set (including any <code>team:</code> tag), so include every tag you want to keep,
    * not just the ones you're adding.
+   *
+   * <p>To change the lifecycle, set <code>staleness_status</code> to <code>ACTIVE</code>
+   * (temporary) or <code>PERMANENT</code>. Either value clears any snooze; omit it to keep the
+   * lifecycle. Send <code>staleness_status</code> in a separate request from <code>
+   * distribution_channel</code>. Do not copy the top-level <code>staleness_status</code> from a
+   * response into the request: that legacy response field is always <code>ACTIVE</code>, so copying
+   * it makes a <code>PERMANENT</code> flag temporary.
+   *
+   * <p>When backend approvals are enabled and a distribution channel change requires approval,
+   * callers without the Feature Flag Approvals Override permission receive <code>201 Created</code>
+   * with a suggestion instead of an updated flag. No fields in the request are applied. The
+   * suggestion contains only the distribution channel change. To update other fields, such as name,
+   * description, JSON schema, and tags, send a separate request without <code>distribution_channel
+   * </code>.
+   *
+   * <p>While backend approvals are enabled, a request that includes <code>distribution_channel
+   * </code> returns <code>409 Conflict</code> if a distribution channel suggestion for the flag is
+   * pending, or approved but not yet applied. No fields are applied, including for callers with
+   * override permission.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param body (required)
@@ -3647,9 +4821,11 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created - A distribution channel suggestion was created because approval is required. No flag fields were updated. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A feature flag with this name already exists, a distribution channel suggestion is pending, or a pending experiment request or running approved experiment uses this flag. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -3755,6 +4931,178 @@ public class FeatureFlagsApi {
     }
     return apiClient.invokeAPIAsync(
         "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
+  }
+
+  /**
+   * Set the approval requirement for a feature flag.
+   *
+   * <p>See {@link #updateFeatureFlagApprovalsWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return FeatureFlagResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FeatureFlagResponse updateFeatureFlagApprovals(
+      UUID featureFlagId, UpdateFeatureFlagApprovalsRequest body) throws ApiException {
+    return updateFeatureFlagApprovalsWithHttpInfo(featureFlagId, body).getData();
+  }
+
+  /**
+   * Set the approval requirement for a feature flag.
+   *
+   * <p>See {@link #updateFeatureFlagApprovalsWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FeatureFlagResponse&gt;
+   */
+  public CompletableFuture<FeatureFlagResponse> updateFeatureFlagApprovalsAsync(
+      UUID featureFlagId, UpdateFeatureFlagApprovalsRequest body) {
+    return updateFeatureFlagApprovalsWithHttpInfoAsync(featureFlagId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Enables or disables the approval requirement for a feature flag. Requires the Feature Flag
+   * Write permission and contributor or editor access to the flag. Disabling approvals also
+   * requires the Feature Flag Approvals Override permission, even if approvals are already
+   * disabled. This operation updates the setting directly and does not create a suggestion.
+   * Changing the setting returns <code>409 Conflict</code> when a pending experiment request or a
+   * running approved experiment uses the flag.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FeatureFlagResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request - Invalid request parameters or body. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A pending experiment request or a running approved experiment uses this flag. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FeatureFlagResponse> updateFeatureFlagApprovalsWithHttpInfo(
+      UUID featureFlagId, UpdateFeatureFlagApprovalsRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling updateFeatureFlagApprovals");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateFeatureFlagApprovals");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/require-approval"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateFeatureFlagApprovals",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FeatureFlagResponse>() {});
+  }
+
+  /**
+   * Set the approval requirement for a feature flag.
+   *
+   * <p>See {@link #updateFeatureFlagApprovalsWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FeatureFlagResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FeatureFlagResponse>>
+      updateFeatureFlagApprovalsWithHttpInfoAsync(
+          UUID featureFlagId, UpdateFeatureFlagApprovalsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " updateFeatureFlagApprovals"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateFeatureFlagApprovals"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/require-approval"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateFeatureFlagApprovals",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FeatureFlagResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
         builder,
         localVarHeaderParams,
         new String[] {"application/json"},
@@ -4142,11 +5490,16 @@ public class FeatureFlagsApi {
   /**
    * Updates the name and value of an existing variant on a feature flag.
    *
-   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and
-   * returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of applying the
-   * change immediately. Use the returned suggestion <code>id</code> to approve or reject the
-   * change. If a pending suggestion already exists for this flag's variant property, the endpoint
-   * returns <code>409 Conflict</code>.
+   * <p>When backend approvals are enabled and this change requires approval, callers without the
+   * Feature Flag Approvals Override permission receive <code>201 Created</code> with a persisted
+   * suggestion, in the same format as the <code>GetFlagSuggestion</code> response. The change is
+   * not applied until the suggestion is approved and applied. Use the returned suggestion ID with
+   * <code>GetFlagSuggestion</code>, <code>ApproveFlagSuggestion</code>, <code>RejectFlagSuggestion
+   * </code>, or <code>DeleteFlagSuggestion</code>.
+   *
+   * <p>A conflicting suggestion that is pending, or approved but not yet applied, returns <code>
+   * 409 Conflict</code> without applying the change, including for callers with override permission
+   * or when approval is no longer required.
    *
    * @param featureFlagId The ID of the feature flag. (required)
    * @param variantId The ID of the variant. (required)
@@ -4158,6 +5511,7 @@ public class FeatureFlagsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created - Approval is required. A suggestion was created and the change has not been applied. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
