@@ -25,7 +25,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   TenancyConfigDataAttributesMetricsConfig.JSON_PROPERTY_COMPARTMENT_TAG_FILTERS,
   TenancyConfigDataAttributesMetricsConfig.JSON_PROPERTY_ENABLED,
-  TenancyConfigDataAttributesMetricsConfig.JSON_PROPERTY_EXCLUDED_SERVICES
+  TenancyConfigDataAttributesMetricsConfig.JSON_PROPERTY_EXCLUDED_SERVICES,
+  TenancyConfigDataAttributesMetricsConfig.JSON_PROPERTY_RESOURCE_TAG_FILTERS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -39,6 +40,9 @@ public class TenancyConfigDataAttributesMetricsConfig {
 
   public static final String JSON_PROPERTY_EXCLUDED_SERVICES = "excluded_services";
   private List<String> excludedServices = null;
+
+  public static final String JSON_PROPERTY_RESOURCE_TAG_FILTERS = "resource_tag_filters";
+  private Map<String, List<String>> resourceTagFilters = null;
 
   public TenancyConfigDataAttributesMetricsConfig compartmentTagFilters(
       List<String> compartmentTagFilters) {
@@ -122,6 +126,38 @@ public class TenancyConfigDataAttributesMetricsConfig {
     this.excludedServices = excludedServices;
   }
 
+  public TenancyConfigDataAttributesMetricsConfig resourceTagFilters(
+      Map<String, List<String>> resourceTagFilters) {
+    this.resourceTagFilters = resourceTagFilters;
+    return this;
+  }
+
+  public TenancyConfigDataAttributesMetricsConfig putResourceTagFiltersItem(
+      String key, List<String> resourceTagFiltersItem) {
+    if (this.resourceTagFilters == null) {
+      this.resourceTagFilters = new HashMap<>();
+    }
+    this.resourceTagFilters.put(key, resourceTagFiltersItem);
+    return this;
+  }
+
+  /**
+   * Map of OCI service names to the resource tag filters that scope metrics collection for that
+   * service.
+   *
+   * @return resourceTagFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_TAG_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, List<String>> getResourceTagFilters() {
+    return resourceTagFilters;
+  }
+
+  public void setResourceTagFilters(Map<String, List<String>> resourceTagFilters) {
+    this.resourceTagFilters = resourceTagFilters;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -186,13 +222,16 @@ public class TenancyConfigDataAttributesMetricsConfig {
         && Objects.equals(
             this.excludedServices, tenancyConfigDataAttributesMetricsConfig.excludedServices)
         && Objects.equals(
+            this.resourceTagFilters, tenancyConfigDataAttributesMetricsConfig.resourceTagFilters)
+        && Objects.equals(
             this.additionalProperties,
             tenancyConfigDataAttributesMetricsConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compartmentTagFilters, enabled, excludedServices, additionalProperties);
+    return Objects.hash(
+        compartmentTagFilters, enabled, excludedServices, resourceTagFilters, additionalProperties);
   }
 
   @Override
@@ -204,6 +243,7 @@ public class TenancyConfigDataAttributesMetricsConfig {
         .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    excludedServices: ").append(toIndentedString(excludedServices)).append("\n");
+    sb.append("    resourceTagFilters: ").append(toIndentedString(resourceTagFilters)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

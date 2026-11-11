@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -21,17 +23,23 @@ import java.util.Objects;
  * settings, and collection options.
  */
 @JsonPropertyOrder({
+  TenancyConfigDataAttributes.JSON_PROPERTY_ACCOUNT_TAGS,
   TenancyConfigDataAttributes.JSON_PROPERTY_BILLING_PLAN_ID,
   TenancyConfigDataAttributes.JSON_PROPERTY_CONFIG_VERSION,
   TenancyConfigDataAttributes.JSON_PROPERTY_COST_COLLECTION_ENABLED,
   TenancyConfigDataAttributes.JSON_PROPERTY_DD_COMPARTMENT_ID,
+  TenancyConfigDataAttributes.JSON_PROPERTY_DD_IAC_VERSION,
   TenancyConfigDataAttributes.JSON_PROPERTY_DD_STACK_ID,
+  TenancyConfigDataAttributes.JSON_PROPERTY_DEFINED_TAGS,
+  TenancyConfigDataAttributes.JSON_PROPERTY_EVENTS_COLLECTION_ENABLED,
+  TenancyConfigDataAttributes.JSON_PROPERTY_GRACE_RESOURCE,
   TenancyConfigDataAttributes.JSON_PROPERTY_HOME_REGION,
   TenancyConfigDataAttributes.JSON_PROPERTY_LOGS_CONFIG,
   TenancyConfigDataAttributes.JSON_PROPERTY_METRICS_CONFIG,
   TenancyConfigDataAttributes.JSON_PROPERTY_PARENT_TENANCY_NAME,
   TenancyConfigDataAttributes.JSON_PROPERTY_REGIONS_CONFIG,
   TenancyConfigDataAttributes.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED,
+  TenancyConfigDataAttributes.JSON_PROPERTY_SERVICE_QUOTA_COLLECTION_ENABLED,
   TenancyConfigDataAttributes.JSON_PROPERTY_TENANCY_NAME,
   TenancyConfigDataAttributes.JSON_PROPERTY_USER_OCID
 })
@@ -39,6 +47,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TenancyConfigDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_TAGS = "account_tags";
+  private List<String> accountTags = null;
+
   public static final String JSON_PROPERTY_BILLING_PLAN_ID = "billing_plan_id";
   private Integer billingPlanId;
 
@@ -51,8 +62,20 @@ public class TenancyConfigDataAttributes {
   public static final String JSON_PROPERTY_DD_COMPARTMENT_ID = "dd_compartment_id";
   private String ddCompartmentId;
 
+  public static final String JSON_PROPERTY_DD_IAC_VERSION = "dd_iac_version";
+  private String ddIacVersion;
+
   public static final String JSON_PROPERTY_DD_STACK_ID = "dd_stack_id";
   private String ddStackId;
+
+  public static final String JSON_PROPERTY_DEFINED_TAGS = "defined_tags";
+  private List<String> definedTags = null;
+
+  public static final String JSON_PROPERTY_EVENTS_COLLECTION_ENABLED = "events_collection_enabled";
+  private Boolean eventsCollectionEnabled;
+
+  public static final String JSON_PROPERTY_GRACE_RESOURCE = "grace_resource";
+  private TenancyConfigDataAttributesGraceResource graceResource;
 
   public static final String JSON_PROPERTY_HOME_REGION = "home_region";
   private String homeRegion;
@@ -73,11 +96,44 @@ public class TenancyConfigDataAttributes {
       "resource_collection_enabled";
   private Boolean resourceCollectionEnabled;
 
+  public static final String JSON_PROPERTY_SERVICE_QUOTA_COLLECTION_ENABLED =
+      "service_quota_collection_enabled";
+  private Boolean serviceQuotaCollectionEnabled;
+
   public static final String JSON_PROPERTY_TENANCY_NAME = "tenancy_name";
   private String tenancyName;
 
   public static final String JSON_PROPERTY_USER_OCID = "user_ocid";
   private String userOcid;
+
+  public TenancyConfigDataAttributes accountTags(List<String> accountTags) {
+    this.accountTags = accountTags;
+    return this;
+  }
+
+  public TenancyConfigDataAttributes addAccountTagsItem(String accountTagsItem) {
+    if (this.accountTags == null) {
+      this.accountTags = new ArrayList<>();
+    }
+    this.accountTags.add(accountTagsItem);
+    return this;
+  }
+
+  /**
+   * List of Datadog tags applied to data collected from the tenancy.
+   *
+   * @return accountTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getAccountTags() {
+    return accountTags;
+  }
+
+  public void setAccountTags(List<String> accountTags) {
+    this.accountTags = accountTags;
+  }
 
   public TenancyConfigDataAttributes billingPlanId(Integer billingPlanId) {
     this.billingPlanId = billingPlanId;
@@ -163,6 +219,28 @@ public class TenancyConfigDataAttributes {
     this.ddCompartmentId = ddCompartmentId;
   }
 
+  public TenancyConfigDataAttributes ddIacVersion(String ddIacVersion) {
+    this.ddIacVersion = ddIacVersion;
+    return this;
+  }
+
+  /**
+   * The version of the Datadog infrastructure-as-code stack applied to the tenancy (for example,
+   * 1.2.0).
+   *
+   * @return ddIacVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DD_IAC_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDdIacVersion() {
+    return ddIacVersion;
+  }
+
+  public void setDdIacVersion(String ddIacVersion) {
+    this.ddIacVersion = ddIacVersion;
+  }
+
   public TenancyConfigDataAttributes ddStackId(String ddStackId) {
     this.ddStackId = ddStackId;
     return this;
@@ -182,6 +260,83 @@ public class TenancyConfigDataAttributes {
 
   public void setDdStackId(String ddStackId) {
     this.ddStackId = ddStackId;
+  }
+
+  public TenancyConfigDataAttributes definedTags(List<String> definedTags) {
+    this.definedTags = definedTags;
+    return this;
+  }
+
+  public TenancyConfigDataAttributes addDefinedTagsItem(String definedTagsItem) {
+    if (this.definedTags == null) {
+      this.definedTags = new ArrayList<>();
+    }
+    this.definedTags.add(definedTagsItem);
+    return this;
+  }
+
+  /**
+   * List of OCI defined tags applied to the Datadog-managed connector hubs.
+   *
+   * @return definedTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFINED_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDefinedTags() {
+    return definedTags;
+  }
+
+  public void setDefinedTags(List<String> definedTags) {
+    this.definedTags = definedTags;
+  }
+
+  public TenancyConfigDataAttributes eventsCollectionEnabled(Boolean eventsCollectionEnabled) {
+    this.eventsCollectionEnabled = eventsCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * Whether resource change events collection from OCI is enabled for the tenancy.
+   *
+   * @return eventsCollectionEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENTS_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEventsCollectionEnabled() {
+    return eventsCollectionEnabled;
+  }
+
+  public void setEventsCollectionEnabled(Boolean eventsCollectionEnabled) {
+    this.eventsCollectionEnabled = eventsCollectionEnabled;
+  }
+
+  public TenancyConfigDataAttributes graceResource(
+      TenancyConfigDataAttributesGraceResource graceResource) {
+    this.graceResource = graceResource;
+    this.unparsed |= graceResource.unparsed;
+    return this;
+  }
+
+  /**
+   * Access control details for the tenancy configuration, used to determine whether the requesting
+   * user can edit it.
+   *
+   * @return graceResource
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GRACE_RESOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TenancyConfigDataAttributesGraceResource getGraceResource() {
+    return graceResource;
+  }
+
+  public void setGraceResource(TenancyConfigDataAttributesGraceResource graceResource) {
+    this.graceResource = graceResource;
+    if (graceResource != null) {
+      this.unparsed |= graceResource.unparsed;
+    }
   }
 
   public TenancyConfigDataAttributes homeRegion(String homeRegion) {
@@ -327,6 +482,28 @@ public class TenancyConfigDataAttributes {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
   }
 
+  public TenancyConfigDataAttributes serviceQuotaCollectionEnabled(
+      Boolean serviceQuotaCollectionEnabled) {
+    this.serviceQuotaCollectionEnabled = serviceQuotaCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * Whether service quota collection from OCI is enabled for the tenancy.
+   *
+   * @return serviceQuotaCollectionEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE_QUOTA_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getServiceQuotaCollectionEnabled() {
+    return serviceQuotaCollectionEnabled;
+  }
+
+  public void setServiceQuotaCollectionEnabled(Boolean serviceQuotaCollectionEnabled) {
+    this.serviceQuotaCollectionEnabled = serviceQuotaCollectionEnabled;
+  }
+
   public TenancyConfigDataAttributes tenancyName(String tenancyName) {
     this.tenancyName = tenancyName;
     return this;
@@ -425,12 +602,18 @@ public class TenancyConfigDataAttributes {
       return false;
     }
     TenancyConfigDataAttributes tenancyConfigDataAttributes = (TenancyConfigDataAttributes) o;
-    return Objects.equals(this.billingPlanId, tenancyConfigDataAttributes.billingPlanId)
+    return Objects.equals(this.accountTags, tenancyConfigDataAttributes.accountTags)
+        && Objects.equals(this.billingPlanId, tenancyConfigDataAttributes.billingPlanId)
         && Objects.equals(this.configVersion, tenancyConfigDataAttributes.configVersion)
         && Objects.equals(
             this.costCollectionEnabled, tenancyConfigDataAttributes.costCollectionEnabled)
         && Objects.equals(this.ddCompartmentId, tenancyConfigDataAttributes.ddCompartmentId)
+        && Objects.equals(this.ddIacVersion, tenancyConfigDataAttributes.ddIacVersion)
         && Objects.equals(this.ddStackId, tenancyConfigDataAttributes.ddStackId)
+        && Objects.equals(this.definedTags, tenancyConfigDataAttributes.definedTags)
+        && Objects.equals(
+            this.eventsCollectionEnabled, tenancyConfigDataAttributes.eventsCollectionEnabled)
+        && Objects.equals(this.graceResource, tenancyConfigDataAttributes.graceResource)
         && Objects.equals(this.homeRegion, tenancyConfigDataAttributes.homeRegion)
         && Objects.equals(this.logsConfig, tenancyConfigDataAttributes.logsConfig)
         && Objects.equals(this.metricsConfig, tenancyConfigDataAttributes.metricsConfig)
@@ -438,6 +621,9 @@ public class TenancyConfigDataAttributes {
         && Objects.equals(this.regionsConfig, tenancyConfigDataAttributes.regionsConfig)
         && Objects.equals(
             this.resourceCollectionEnabled, tenancyConfigDataAttributes.resourceCollectionEnabled)
+        && Objects.equals(
+            this.serviceQuotaCollectionEnabled,
+            tenancyConfigDataAttributes.serviceQuotaCollectionEnabled)
         && Objects.equals(this.tenancyName, tenancyConfigDataAttributes.tenancyName)
         && Objects.equals(this.userOcid, tenancyConfigDataAttributes.userOcid)
         && Objects.equals(
@@ -447,17 +633,23 @@ public class TenancyConfigDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        accountTags,
         billingPlanId,
         configVersion,
         costCollectionEnabled,
         ddCompartmentId,
+        ddIacVersion,
         ddStackId,
+        definedTags,
+        eventsCollectionEnabled,
+        graceResource,
         homeRegion,
         logsConfig,
         metricsConfig,
         parentTenancyName,
         regionsConfig,
         resourceCollectionEnabled,
+        serviceQuotaCollectionEnabled,
         tenancyName,
         userOcid,
         additionalProperties);
@@ -467,13 +659,20 @@ public class TenancyConfigDataAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TenancyConfigDataAttributes {\n");
+    sb.append("    accountTags: ").append(toIndentedString(accountTags)).append("\n");
     sb.append("    billingPlanId: ").append(toIndentedString(billingPlanId)).append("\n");
     sb.append("    configVersion: ").append(toIndentedString(configVersion)).append("\n");
     sb.append("    costCollectionEnabled: ")
         .append(toIndentedString(costCollectionEnabled))
         .append("\n");
     sb.append("    ddCompartmentId: ").append(toIndentedString(ddCompartmentId)).append("\n");
+    sb.append("    ddIacVersion: ").append(toIndentedString(ddIacVersion)).append("\n");
     sb.append("    ddStackId: ").append(toIndentedString(ddStackId)).append("\n");
+    sb.append("    definedTags: ").append(toIndentedString(definedTags)).append("\n");
+    sb.append("    eventsCollectionEnabled: ")
+        .append(toIndentedString(eventsCollectionEnabled))
+        .append("\n");
+    sb.append("    graceResource: ").append(toIndentedString(graceResource)).append("\n");
     sb.append("    homeRegion: ").append(toIndentedString(homeRegion)).append("\n");
     sb.append("    logsConfig: ").append(toIndentedString(logsConfig)).append("\n");
     sb.append("    metricsConfig: ").append(toIndentedString(metricsConfig)).append("\n");
@@ -481,6 +680,9 @@ public class TenancyConfigDataAttributes {
     sb.append("    regionsConfig: ").append(toIndentedString(regionsConfig)).append("\n");
     sb.append("    resourceCollectionEnabled: ")
         .append(toIndentedString(resourceCollectionEnabled))
+        .append("\n");
+    sb.append("    serviceQuotaCollectionEnabled: ")
+        .append(toIndentedString(serviceQuotaCollectionEnabled))
         .append("\n");
     sb.append("    tenancyName: ").append(toIndentedString(tenancyName)).append("\n");
     sb.append("    userOcid: ").append(toIndentedString(userOcid)).append("\n");

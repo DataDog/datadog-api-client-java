@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Region configuration for an OCI tenancy, indicating which regions are available, enabled, or
@@ -32,99 +33,144 @@ import java.util.Objects;
 public class TenancyConfigDataAttributesRegionsConfig {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVAILABLE = "available";
-  private List<String> available = null;
+  private JsonNullable<List<String>> available = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_DISABLED = "disabled";
-  private List<String> disabled = null;
+  private JsonNullable<List<String>> disabled = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private List<String> enabled = null;
+  private JsonNullable<List<String>> enabled = JsonNullable.<List<String>>undefined();
 
   public TenancyConfigDataAttributesRegionsConfig available(List<String> available) {
-    this.available = available;
+    this.available = JsonNullable.<List<String>>of(available);
     return this;
   }
 
   public TenancyConfigDataAttributesRegionsConfig addAvailableItem(String availableItem) {
-    if (this.available == null) {
-      this.available = new ArrayList<>();
+    if (this.available == null || !this.available.isPresent()) {
+      this.available = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.available.add(availableItem);
+    try {
+      this.available.get().add(availableItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * List of OCI regions available for data collection in the tenancy.
+   * List of OCI regions available for data collection in the tenancy. Returns <code>null</code>
+   * when no regions are set.
    *
    * @return available
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getAvailable() {
+    return available.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getAvailable() {
+  public JsonNullable<List<String>> getAvailable_JsonNullable() {
     return available;
   }
 
-  public void setAvailable(List<String> available) {
+  @JsonProperty(JSON_PROPERTY_AVAILABLE)
+  public void setAvailable_JsonNullable(JsonNullable<List<String>> available) {
     this.available = available;
   }
 
+  public void setAvailable(List<String> available) {
+    this.available = JsonNullable.<List<String>>of(available);
+  }
+
   public TenancyConfigDataAttributesRegionsConfig disabled(List<String> disabled) {
-    this.disabled = disabled;
+    this.disabled = JsonNullable.<List<String>>of(disabled);
     return this;
   }
 
   public TenancyConfigDataAttributesRegionsConfig addDisabledItem(String disabledItem) {
-    if (this.disabled == null) {
-      this.disabled = new ArrayList<>();
+    if (this.disabled == null || !this.disabled.isPresent()) {
+      this.disabled = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.disabled.add(disabledItem);
+    try {
+      this.disabled.get().add(disabledItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * List of OCI regions explicitly disabled for data collection.
+   * List of OCI regions explicitly disabled for data collection. Returns <code>null</code> when no
+   * regions are set.
    *
    * @return disabled
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getDisabled() {
+    return disabled.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDisabled() {
+  public JsonNullable<List<String>> getDisabled_JsonNullable() {
     return disabled;
   }
 
-  public void setDisabled(List<String> disabled) {
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  public void setDisabled_JsonNullable(JsonNullable<List<String>> disabled) {
     this.disabled = disabled;
   }
 
+  public void setDisabled(List<String> disabled) {
+    this.disabled = JsonNullable.<List<String>>of(disabled);
+  }
+
   public TenancyConfigDataAttributesRegionsConfig enabled(List<String> enabled) {
-    this.enabled = enabled;
+    this.enabled = JsonNullable.<List<String>>of(enabled);
     return this;
   }
 
   public TenancyConfigDataAttributesRegionsConfig addEnabledItem(String enabledItem) {
-    if (this.enabled == null) {
-      this.enabled = new ArrayList<>();
+    if (this.enabled == null || !this.enabled.isPresent()) {
+      this.enabled = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.enabled.add(enabledItem);
+    try {
+      this.enabled.get().add(enabledItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * List of OCI regions enabled for data collection.
+   * List of OCI regions enabled for data collection. Returns <code>null</code> when no regions are
+   * set.
    *
    * @return enabled
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getEnabled() {
+    return enabled.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getEnabled() {
+  public JsonNullable<List<String>> getEnabled_JsonNullable() {
     return enabled;
   }
 
-  public void setEnabled(List<String> enabled) {
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  public void setEnabled_JsonNullable(JsonNullable<List<String>> enabled) {
     this.enabled = enabled;
+  }
+
+  public void setEnabled(List<String> enabled) {
+    this.enabled = JsonNullable.<List<String>>of(enabled);
   }
 
   /**
