@@ -37,7 +37,8 @@ public class MonitorFormulaAndFunctionEventsDataSource extends ModelEnum<String>
               "spans",
               "database_queries",
               "network",
-              "network_path"));
+              "network_path",
+              "llm_observability"));
 
   public static final MonitorFormulaAndFunctionEventsDataSource RUM =
       new MonitorFormulaAndFunctionEventsDataSource("rum");
@@ -59,6 +60,8 @@ public class MonitorFormulaAndFunctionEventsDataSource extends ModelEnum<String>
       new MonitorFormulaAndFunctionEventsDataSource("network");
   public static final MonitorFormulaAndFunctionEventsDataSource NETWORK_PATH =
       new MonitorFormulaAndFunctionEventsDataSource("network_path");
+  public static final MonitorFormulaAndFunctionEventsDataSource LLM_OBSERVABILITY =
+      new MonitorFormulaAndFunctionEventsDataSource("llm_observability");
 
   MonitorFormulaAndFunctionEventsDataSource(String value) {
     super(value, allowedValues);
