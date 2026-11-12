@@ -19,10 +19,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * How a tier orders its targets. Omitted or null defaults to configured, which preserves target
- * order. The weighted_affinity ordering distributes first-choice assignments by relative target
- * weights and accepts only model targets with an explicit provider, without repeated provider and
- * model pairs in the same tier.
+ * How a tier orders its targets. Omission preserves the saved same-position tier on update; null
+ * resets to configured. New tiers default to configured. The weighted_affinity ordering distributes
+ * first-choice assignments by relative target weights and accepts only model targets with an
+ * explicit provider, without repeated provider and model pairs in the same tier. The <code>
+ * classified</code> ordering is allowed only in the first tier and requires a classifier,
+ * destination rubrics, and one default destination.
  */
 @JsonSerialize(
     using =
@@ -31,12 +33,14 @@ import java.util.Set;
 public class AiGatewayNullableRoutingRuleTierOrdering extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("configured", "weighted_affinity"));
+      new HashSet<String>(Arrays.asList("configured", "weighted_affinity", "classified"));
 
   public static final AiGatewayNullableRoutingRuleTierOrdering CONFIGURED =
       new AiGatewayNullableRoutingRuleTierOrdering("configured");
   public static final AiGatewayNullableRoutingRuleTierOrdering WEIGHTED_AFFINITY =
       new AiGatewayNullableRoutingRuleTierOrdering("weighted_affinity");
+  public static final AiGatewayNullableRoutingRuleTierOrdering CLASSIFIED =
+      new AiGatewayNullableRoutingRuleTierOrdering("classified");
 
   AiGatewayNullableRoutingRuleTierOrdering(String value) {
     super(value, allowedValues);

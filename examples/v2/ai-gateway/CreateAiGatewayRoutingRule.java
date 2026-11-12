@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AiGatewayApi;
 import com.datadog.api.client.v2.model.AiGatewayNullableRoutingRuleTierOrdering;
+import com.datadog.api.client.v2.model.AiGatewayRoutingClassifierRequest;
 import com.datadog.api.client.v2.model.AiGatewayRoutingReasoningLevel;
 import com.datadog.api.client.v2.model.AiGatewayRoutingRuleCreateAttributes;
 import com.datadog.api.client.v2.model.AiGatewayRoutingRuleCreateData;
@@ -32,17 +33,25 @@ public class Example {
                             .tiers(
                                 Collections.singletonList(
                                     new AiGatewayRoutingRuleTierRequest()
+                                        .classifier(
+                                            new AiGatewayRoutingClassifierRequest()
+                                                .confidenceThreshold(0.5)
+                                                .context("Requests come from engineers.")
+                                                .model("gpt-6-luna")
+                                                .provider("openai"))
                                         .ordering(
                                             AiGatewayNullableRoutingRuleTierOrdering.CONFIGURED)
                                         .targets(
                                             Collections.singletonList(
                                                 new AiGatewayRoutingRuleTargetRequest()
+                                                    ._default(false)
                                                     .id(901L)
                                                     .model("gpt-5.2-codex")
                                                     .modelId(101L)
                                                     .provider("prod-us")
                                                     .reasoningLevel(
                                                         AiGatewayRoutingReasoningLevel.MEDIUM)
+                                                    .rubric("Short factual questions.")
                                                     .slug("coding-fallback")
                                                     .type(AiGatewayRoutingRuleTargetType.MODEL)
                                                     .weight(70L))))))

@@ -22,6 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Routing fallback tier used to create or replace a rule. */
 @JsonPropertyOrder({
+  AiGatewayRoutingRuleTierRequest.JSON_PROPERTY_CLASSIFIER,
   AiGatewayRoutingRuleTierRequest.JSON_PROPERTY_ORDERING,
   AiGatewayRoutingRuleTierRequest.JSON_PROPERTY_TARGETS
 })
@@ -29,10 +30,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleTierRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CLASSIFIER = "classifier";
+  private JsonNullable<AiGatewayRoutingClassifierRequest> classifier =
+      JsonNullable.<AiGatewayRoutingClassifierRequest>undefined();
+
   public static final String JSON_PROPERTY_ORDERING = "ordering";
   private JsonNullable<AiGatewayNullableRoutingRuleTierOrdering> ordering =
-      JsonNullable.<AiGatewayNullableRoutingRuleTierOrdering>of(
-          AiGatewayNullableRoutingRuleTierOrdering.CONFIGURED);
+      JsonNullable.<AiGatewayNullableRoutingRuleTierOrdering>undefined();
 
   public static final String JSON_PROPERTY_TARGETS = "targets";
   private List<AiGatewayRoutingRuleTargetRequest> targets = new ArrayList<>();
@@ -49,6 +53,39 @@ public class AiGatewayRoutingRuleTierRequest {
     }
   }
 
+  public AiGatewayRoutingRuleTierRequest classifier(AiGatewayRoutingClassifierRequest classifier) {
+    this.classifier = JsonNullable.<AiGatewayRoutingClassifierRequest>of(classifier);
+    return this;
+  }
+
+  /**
+   * Decision model and settings for a classified tier. Omission preserves the saved classifier;
+   * null clears it. Newly selected models require provider View.
+   *
+   * @return classifier
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public AiGatewayRoutingClassifierRequest getClassifier() {
+    return classifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CLASSIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<AiGatewayRoutingClassifierRequest> getClassifier_JsonNullable() {
+    return classifier;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CLASSIFIER)
+  public void setClassifier_JsonNullable(
+      JsonNullable<AiGatewayRoutingClassifierRequest> classifier) {
+    this.classifier = classifier;
+  }
+
+  public void setClassifier(AiGatewayRoutingClassifierRequest classifier) {
+    this.classifier = JsonNullable.<AiGatewayRoutingClassifierRequest>of(classifier);
+  }
+
   public AiGatewayRoutingRuleTierRequest ordering(
       AiGatewayNullableRoutingRuleTierOrdering ordering) {
     this.ordering = JsonNullable.<AiGatewayNullableRoutingRuleTierOrdering>of(ordering);
@@ -56,10 +93,12 @@ public class AiGatewayRoutingRuleTierRequest {
   }
 
   /**
-   * How a tier orders its targets. Omitted or null defaults to configured, which preserves target
-   * order. The weighted_affinity ordering distributes first-choice assignments by relative target
-   * weights and accepts only model targets with an explicit provider, without repeated provider and
-   * model pairs in the same tier.
+   * How a tier orders its targets. Omission preserves the saved same-position tier on update; null
+   * resets to configured. New tiers default to configured. The weighted_affinity ordering
+   * distributes first-choice assignments by relative target weights and accepts only model targets
+   * with an explicit provider, without repeated provider and model pairs in the same tier. The
+   * <code>classified</code> ordering is allowed only in the first tier and requires a classifier,
+   * destination rubrics, and one default destination.
    *
    * @return ordering
    */
@@ -180,7 +219,8 @@ public class AiGatewayRoutingRuleTierRequest {
     }
     AiGatewayRoutingRuleTierRequest aiGatewayRoutingRuleTierRequest =
         (AiGatewayRoutingRuleTierRequest) o;
-    return Objects.equals(this.ordering, aiGatewayRoutingRuleTierRequest.ordering)
+    return Objects.equals(this.classifier, aiGatewayRoutingRuleTierRequest.classifier)
+        && Objects.equals(this.ordering, aiGatewayRoutingRuleTierRequest.ordering)
         && Objects.equals(this.targets, aiGatewayRoutingRuleTierRequest.targets)
         && Objects.equals(
             this.additionalProperties, aiGatewayRoutingRuleTierRequest.additionalProperties);
@@ -188,13 +228,14 @@ public class AiGatewayRoutingRuleTierRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ordering, targets, additionalProperties);
+    return Objects.hash(classifier, ordering, targets, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleTierRequest {\n");
+    sb.append("    classifier: ").append(toIndentedString(classifier)).append("\n");
     sb.append("    ordering: ").append(toIndentedString(ordering)).append("\n");
     sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("    additionalProperties: ")

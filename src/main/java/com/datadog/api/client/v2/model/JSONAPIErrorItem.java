@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** API error response body */
 @JsonPropertyOrder({
+  JSONAPIErrorItem.JSON_PROPERTY_CODE,
   JSONAPIErrorItem.JSON_PROPERTY_DETAIL,
   JSONAPIErrorItem.JSON_PROPERTY_META,
   JSONAPIErrorItem.JSON_PROPERTY_SOURCE,
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class JSONAPIErrorItem {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
+
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
 
@@ -42,6 +46,27 @@ public class JSONAPIErrorItem {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public JSONAPIErrorItem code(String code) {
+    this.code = code;
+    return this;
+  }
+
+  /**
+   * An application-specific error code.
+   *
+   * @return code
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
 
   public JSONAPIErrorItem detail(String detail) {
     this.detail = detail;
@@ -216,7 +241,8 @@ public class JSONAPIErrorItem {
       return false;
     }
     JSONAPIErrorItem jsonapiErrorItem = (JSONAPIErrorItem) o;
-    return Objects.equals(this.detail, jsonapiErrorItem.detail)
+    return Objects.equals(this.code, jsonapiErrorItem.code)
+        && Objects.equals(this.detail, jsonapiErrorItem.detail)
         && Objects.equals(this.meta, jsonapiErrorItem.meta)
         && Objects.equals(this.source, jsonapiErrorItem.source)
         && Objects.equals(this.status, jsonapiErrorItem.status)
@@ -226,13 +252,14 @@ public class JSONAPIErrorItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, meta, source, status, title, additionalProperties);
+    return Objects.hash(code, detail, meta, source, status, title, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JSONAPIErrorItem {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
