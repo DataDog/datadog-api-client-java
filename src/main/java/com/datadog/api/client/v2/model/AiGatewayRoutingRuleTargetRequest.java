@@ -20,11 +20,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Model target or reference to another routing rule used to create or replace a rule. */
 @JsonPropertyOrder({
+  AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_DEFAULT,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_ID,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_MODEL,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_MODEL_ID,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_PROVIDER,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_REASONING_LEVEL,
+  AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_RUBRIC,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_SLUG,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_TYPE,
   AiGatewayRoutingRuleTargetRequest.JSON_PROPERTY_WEIGHT
@@ -33,6 +35,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleTargetRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DEFAULT = "default";
+  private JsonNullable<Boolean> _default = JsonNullable.<Boolean>undefined();
+
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
@@ -48,6 +53,9 @@ public class AiGatewayRoutingRuleTargetRequest {
   public static final String JSON_PROPERTY_REASONING_LEVEL = "reasoning_level";
   private JsonNullable<AiGatewayRoutingReasoningLevel> reasoningLevel =
       JsonNullable.<AiGatewayRoutingReasoningLevel>undefined();
+
+  public static final String JSON_PROPERTY_RUBRIC = "rubric";
+  private JsonNullable<String> rubric = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SLUG = "slug";
   private String slug;
@@ -68,6 +76,38 @@ public class AiGatewayRoutingRuleTargetRequest {
     this.unparsed |= !type.isValid();
   }
 
+  public AiGatewayRoutingRuleTargetRequest _default(Boolean _default) {
+    this._default = JsonNullable.<Boolean>of(_default);
+    return this;
+  }
+
+  /**
+   * Whether this is the single default classified destination. Omission preserves a saved value;
+   * null clears it.
+   *
+   * @return _default
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Boolean getDefault() {
+    return _default.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getDefault_JsonNullable() {
+    return _default;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  public void setDefault_JsonNullable(JsonNullable<Boolean> _default) {
+    this._default = _default;
+  }
+
+  public void setDefault(Boolean _default) {
+    this._default = JsonNullable.<Boolean>of(_default);
+  }
+
   public AiGatewayRoutingRuleTargetRequest id(Long id) {
     this.id = id;
     return this;
@@ -75,7 +115,8 @@ public class AiGatewayRoutingRuleTargetRequest {
 
   /**
    * Saved target row ID. On replacement, retain this ID only within its original route and at most
-   * once. A stale or foreign ID is rejected. minimum: 1
+   * once. A stale, foreign, duplicate, or destination-changing ID is rejected. Hidden route targets
+   * can be retained using only this parent-local ID and type. minimum: 1
    *
    * @return id
    */
@@ -166,17 +207,17 @@ public class AiGatewayRoutingRuleTargetRequest {
    * selected model and provider. For provider "*", every eligible provider must support the level.
    * An explicit value overrides the request's reasoning setting, subject to model-group policy.
    * Omitted or null preserves request and provider behavior; none is an explicit level, not the
-   * default. Omitted or null clears an override on full replacement. Routing-rule references cannot
-   * set this field; each referenced model destination owns its override. If an override cannot be
-   * applied at runtime, the gateway keeps the destination and restores the caller's original
-   * reasoning settings, or preserves the provider default when omitted. It rechecks all applicable
-   * route and model-group policies against those settings before sending. Model-group
-   * max_reasoning_level enforces hard limits; the override is not an additional cap. Normal
-   * fallback applies if governance denies the resulting request or the destination cannot otherwise
-   * serve it. Metrics and span tags record the override outcome and incompatibility reason. When
-   * response headers have not already been committed, <code>X-Ai-Gateway-Reasoning-Override</code>
-   * reports applied or not_applied for the returned attempt, and <code>
-   * X-Ai-Gateway-Reasoning-Override-Reason</code> reports the reason when not applied.
+   * default. On update, omission preserves a saved target override; null explicitly clears it.
+   * Routing-rule references cannot set this field; each referenced model destination owns its
+   * override. If an override cannot be applied at runtime, the gateway keeps the destination and
+   * restores the caller's original reasoning settings, or preserves the provider default when
+   * omitted. It rechecks all applicable route and model-group policies against those settings
+   * before sending. Model-group max_reasoning_level enforces hard limits; the override is not an
+   * additional cap. Normal fallback applies if governance denies the resulting request or the
+   * destination cannot otherwise serve it. Metrics and span tags record the override outcome and
+   * incompatibility reason. When response headers have not already been committed, <code>
+   * X-Ai-Gateway-Reasoning-Override</code> reports applied or not_applied for the returned attempt,
+   * and <code>X-Ai-Gateway-Reasoning-Override-Reason</code> reports the reason when not applied.
    *
    * @return reasoningLevel
    */
@@ -205,13 +246,46 @@ public class AiGatewayRoutingRuleTargetRequest {
     this.reasoningLevel = JsonNullable.<AiGatewayRoutingReasoningLevel>of(reasoningLevel);
   }
 
+  public AiGatewayRoutingRuleTargetRequest rubric(String rubric) {
+    this.rubric = JsonNullable.<String>of(rubric);
+    return this;
+  }
+
+  /**
+   * Destination rubric in a classified tier. Omission preserves a saved value; null clears it. Must
+   * be absent on the default destination.
+   *
+   * @return rubric
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getRubric() {
+    return rubric.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RUBRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getRubric_JsonNullable() {
+    return rubric;
+  }
+
+  @JsonProperty(JSON_PROPERTY_RUBRIC)
+  public void setRubric_JsonNullable(JsonNullable<String> rubric) {
+    this.rubric = rubric;
+  }
+
+  public void setRubric(String rubric) {
+    this.rubric = JsonNullable.<String>of(rubric);
+  }
+
   public AiGatewayRoutingRuleTargetRequest slug(String slug) {
     this.slug = slug;
     return this;
   }
 
   /**
-   * Organization-unique routing rule slug. Allowed only in configured tiers.
+   * Organization-unique routing rule slug. New references require route View. Omit to retain a
+   * saved target by its parent-local ID. Allowed only in configured tiers.
    *
    * @return slug
    */
@@ -256,8 +330,9 @@ public class AiGatewayRoutingRuleTargetRequest {
   }
 
   /**
-   * Relative weight in a weighted_affinity tier. Omitted or null defaults to 1. Weights need not
-   * total 100. Must be omitted or null in configured tiers. minimum: 1 maximum: 10000
+   * Relative weight in a weighted_affinity tier. Omission preserves a saved target weight; new
+   * targets and explicit null default to 1. Weights need not total 100. Must be omitted or null in
+   * configured tiers. minimum: 1 maximum: 10000
    *
    * @return weight
    */
@@ -339,11 +414,13 @@ public class AiGatewayRoutingRuleTargetRequest {
     }
     AiGatewayRoutingRuleTargetRequest aiGatewayRoutingRuleTargetRequest =
         (AiGatewayRoutingRuleTargetRequest) o;
-    return Objects.equals(this.id, aiGatewayRoutingRuleTargetRequest.id)
+    return Objects.equals(this._default, aiGatewayRoutingRuleTargetRequest._default)
+        && Objects.equals(this.id, aiGatewayRoutingRuleTargetRequest.id)
         && Objects.equals(this.model, aiGatewayRoutingRuleTargetRequest.model)
         && Objects.equals(this.modelId, aiGatewayRoutingRuleTargetRequest.modelId)
         && Objects.equals(this.provider, aiGatewayRoutingRuleTargetRequest.provider)
         && Objects.equals(this.reasoningLevel, aiGatewayRoutingRuleTargetRequest.reasoningLevel)
+        && Objects.equals(this.rubric, aiGatewayRoutingRuleTargetRequest.rubric)
         && Objects.equals(this.slug, aiGatewayRoutingRuleTargetRequest.slug)
         && Objects.equals(this.type, aiGatewayRoutingRuleTargetRequest.type)
         && Objects.equals(this.weight, aiGatewayRoutingRuleTargetRequest.weight)
@@ -354,18 +431,30 @@ public class AiGatewayRoutingRuleTargetRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
-        id, model, modelId, provider, reasoningLevel, slug, type, weight, additionalProperties);
+        _default,
+        id,
+        model,
+        modelId,
+        provider,
+        reasoningLevel,
+        rubric,
+        slug,
+        type,
+        weight,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleTargetRequest {\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    reasoningLevel: ").append(toIndentedString(reasoningLevel)).append("\n");
+    sb.append("    rubric: ").append(toIndentedString(rubric)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");

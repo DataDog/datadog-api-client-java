@@ -32,6 +32,7 @@ import java.util.Objects;
   AiGatewayModelGroupAttributes.JSON_PROPERTY_PROVIDERS,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_REVISION,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_ROUTING_RULES,
+  AiGatewayModelGroupAttributes.JSON_PROPERTY_ROUTING_RULES_RESTRICTED,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_UPDATED_AT
 })
 @jakarta.annotation.Generated(
@@ -67,6 +68,9 @@ public class AiGatewayModelGroupAttributes {
 
   public static final String JSON_PROPERTY_ROUTING_RULES = "routing_rules";
   private List<AiGatewayModelGroupRoutingRule> routingRules = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_ROUTING_RULES_RESTRICTED = "routing_rules_restricted";
+  private Boolean routingRulesRestricted;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
@@ -381,6 +385,19 @@ public class AiGatewayModelGroupAttributes {
     }
   }
 
+  /**
+   * Whether some saved routes are hidden from the caller. Omit routing_rule_slugs to preserve all
+   * memberships; replacing the visible selection also preserves saved hidden memberships.
+   *
+   * @return routingRulesRestricted
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROUTING_RULES_RESTRICTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRoutingRulesRestricted() {
+    return routingRulesRestricted;
+  }
+
   public AiGatewayModelGroupAttributes updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -467,6 +484,8 @@ public class AiGatewayModelGroupAttributes {
         && Objects.equals(this.providers, aiGatewayModelGroupAttributes.providers)
         && Objects.equals(this.revision, aiGatewayModelGroupAttributes.revision)
         && Objects.equals(this.routingRules, aiGatewayModelGroupAttributes.routingRules)
+        && Objects.equals(
+            this.routingRulesRestricted, aiGatewayModelGroupAttributes.routingRulesRestricted)
         && Objects.equals(this.updatedAt, aiGatewayModelGroupAttributes.updatedAt)
         && Objects.equals(
             this.additionalProperties, aiGatewayModelGroupAttributes.additionalProperties);
@@ -485,6 +504,7 @@ public class AiGatewayModelGroupAttributes {
         providers,
         revision,
         routingRules,
+        routingRulesRestricted,
         updatedAt,
         additionalProperties);
   }
@@ -503,6 +523,9 @@ public class AiGatewayModelGroupAttributes {
     sb.append("    providers: ").append(toIndentedString(providers)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    routingRules: ").append(toIndentedString(routingRules)).append("\n");
+    sb.append("    routingRulesRestricted: ")
+        .append(toIndentedString(routingRulesRestricted))
+        .append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

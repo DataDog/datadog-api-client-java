@@ -24,12 +24,14 @@ import java.util.Set;
 public class AiGatewayRoutingRuleTierOrdering extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("configured", "weighted_affinity"));
+      new HashSet<String>(Arrays.asList("configured", "weighted_affinity", "classified"));
 
   public static final AiGatewayRoutingRuleTierOrdering CONFIGURED =
       new AiGatewayRoutingRuleTierOrdering("configured");
   public static final AiGatewayRoutingRuleTierOrdering WEIGHTED_AFFINITY =
       new AiGatewayRoutingRuleTierOrdering("weighted_affinity");
+  public static final AiGatewayRoutingRuleTierOrdering CLASSIFIED =
+      new AiGatewayRoutingRuleTierOrdering("classified");
 
   AiGatewayRoutingRuleTierOrdering(String value) {
     super(value, allowedValues);

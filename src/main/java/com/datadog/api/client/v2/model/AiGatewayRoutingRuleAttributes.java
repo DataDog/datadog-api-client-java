@@ -48,10 +48,12 @@ public class AiGatewayRoutingRuleAttributes {
   @JsonCreator
   public AiGatewayRoutingRuleAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ROUTE_ID) Long routeId,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIERS)
           List<AiGatewayRoutingRuleTier> tiers,
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt) {
     this.createdAt = createdAt;
+    this.routeId = routeId;
     this.tiers = tiers;
     for (AiGatewayRoutingRuleTier item : tiers) {
       this.unparsed |= item.unparsed;
@@ -85,13 +87,13 @@ public class AiGatewayRoutingRuleAttributes {
   }
 
   /**
-   * Stable numeric route identifier used by scoped policies.
+   * Stable numeric route identifier used by scoped policies and <code>ai-gateway-route</code>
+   * restriction policies.
    *
    * @return routeId
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROUTE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getRouteId() {
     return routeId;
   }

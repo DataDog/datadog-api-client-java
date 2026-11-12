@@ -8,48 +8,106 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes used to replace an AI Gateway routing rule. */
-@JsonPropertyOrder({AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_TIERS})
+/**
+ * Partial route update. Omit tiers to preserve the entire graph, including hidden selections. Saved
+ * target IDs retain omitted settings. Replacing tiers must explicitly retain or remove every hidden
+ * occurrence.
+ */
+@JsonPropertyOrder({
+  AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_EXPECTED_UPDATED_AT,
+  AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_REMOVED_TARGET_IDS,
+  AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_TIERS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleReplaceAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXPECTED_UPDATED_AT = "expected_updated_at";
+  private OffsetDateTime expectedUpdatedAt;
+
+  public static final String JSON_PROPERTY_REMOVED_TARGET_IDS = "removed_target_ids";
+  private List<Long> removedTargetIds = null;
+
   public static final String JSON_PROPERTY_TIERS = "tiers";
-  private List<AiGatewayRoutingRuleTierRequest> tiers = new ArrayList<>();
+  private List<AiGatewayRoutingRuleTierRequest> tiers = null;
 
-  public AiGatewayRoutingRuleReplaceAttributes() {}
+  public AiGatewayRoutingRuleReplaceAttributes expectedUpdatedAt(OffsetDateTime expectedUpdatedAt) {
+    this.expectedUpdatedAt = expectedUpdatedAt;
+    return this;
+  }
 
-  @JsonCreator
-  public AiGatewayRoutingRuleReplaceAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIERS)
-          List<AiGatewayRoutingRuleTierRequest> tiers) {
-    this.tiers = tiers;
-    for (AiGatewayRoutingRuleTierRequest item : tiers) {
-      this.unparsed |= item.unparsed;
+  /**
+   * Saved route revision. A mismatched value returns 409 without changes.
+   *
+   * @return expectedUpdatedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPECTED_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getExpectedUpdatedAt() {
+    return expectedUpdatedAt;
+  }
+
+  public void setExpectedUpdatedAt(OffsetDateTime expectedUpdatedAt) {
+    this.expectedUpdatedAt = expectedUpdatedAt;
+  }
+
+  public AiGatewayRoutingRuleReplaceAttributes removedTargetIds(List<Long> removedTargetIds) {
+    this.removedTargetIds = removedTargetIds;
+    return this;
+  }
+
+  public AiGatewayRoutingRuleReplaceAttributes addRemovedTargetIdsItem(Long removedTargetIdsItem) {
+    if (this.removedTargetIds == null) {
+      this.removedTargetIds = new ArrayList<>();
     }
+    this.removedTargetIds.add(removedTargetIdsItem);
+    return this;
+  }
+
+  /**
+   * Parent-local saved occurrence IDs explicitly removed from the submitted tiers. IDs must be
+   * distinct, belong to this route, and not also be retained.
+   *
+   * @return removedTargetIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMOVED_TARGET_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Long> getRemovedTargetIds() {
+    return removedTargetIds;
+  }
+
+  public void setRemovedTargetIds(List<Long> removedTargetIds) {
+    this.removedTargetIds = removedTargetIds;
   }
 
   public AiGatewayRoutingRuleReplaceAttributes tiers(List<AiGatewayRoutingRuleTierRequest> tiers) {
     this.tiers = tiers;
-    for (AiGatewayRoutingRuleTierRequest item : tiers) {
-      this.unparsed |= item.unparsed;
+    if (tiers != null) {
+      for (AiGatewayRoutingRuleTierRequest item : tiers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
 
   public AiGatewayRoutingRuleReplaceAttributes addTiersItem(
       AiGatewayRoutingRuleTierRequest tiersItem) {
+    if (this.tiers == null) {
+      this.tiers = new ArrayList<>();
+    }
     this.tiers.add(tiersItem);
     this.unparsed |= tiersItem.unparsed;
     return this;
@@ -60,8 +118,9 @@ public class AiGatewayRoutingRuleReplaceAttributes {
    *
    * @return tiers
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AiGatewayRoutingRuleTierRequest> getTiers() {
     return tiers;
   }
@@ -132,20 +191,26 @@ public class AiGatewayRoutingRuleReplaceAttributes {
     }
     AiGatewayRoutingRuleReplaceAttributes aiGatewayRoutingRuleReplaceAttributes =
         (AiGatewayRoutingRuleReplaceAttributes) o;
-    return Objects.equals(this.tiers, aiGatewayRoutingRuleReplaceAttributes.tiers)
+    return Objects.equals(
+            this.expectedUpdatedAt, aiGatewayRoutingRuleReplaceAttributes.expectedUpdatedAt)
+        && Objects.equals(
+            this.removedTargetIds, aiGatewayRoutingRuleReplaceAttributes.removedTargetIds)
+        && Objects.equals(this.tiers, aiGatewayRoutingRuleReplaceAttributes.tiers)
         && Objects.equals(
             this.additionalProperties, aiGatewayRoutingRuleReplaceAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tiers, additionalProperties);
+    return Objects.hash(expectedUpdatedAt, removedTargetIds, tiers, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleReplaceAttributes {\n");
+    sb.append("    expectedUpdatedAt: ").append(toIndentedString(expectedUpdatedAt)).append("\n");
+    sb.append("    removedTargetIds: ").append(toIndentedString(removedTargetIds)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
