@@ -1540,6 +1540,11 @@ public class ApiClient {
           put("v2.getElasticCloudIntegrationAccount", false);
           put("v2.listElasticCloudIntegrationAccounts", false);
           put("v2.updateElasticCloudIntegrationAccount", false);
+          put("v2.createOpenAICodexIntegrationAccount", false);
+          put("v2.deleteOpenAICodexIntegrationAccount", false);
+          put("v2.getOpenAICodexIntegrationAccount", false);
+          put("v2.listOpenAICodexIntegrationAccounts", false);
+          put("v2.updateOpenAICodexIntegrationAccount", false);
           put("v2.createSnowflakeIntegrationAccount", false);
           put("v2.deleteSnowflakeIntegrationAccount", false);
           put("v2.getSnowflakeIntegrationAccount", false);
