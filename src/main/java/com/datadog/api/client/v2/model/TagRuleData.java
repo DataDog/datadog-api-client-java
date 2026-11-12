@@ -131,7 +131,7 @@ public class TagRuleData {
   }
 
   /**
-   * JSON:API resource type for a tag rule.
+   * JSON:API resource type for a tag rule. Responses use the legacy <code>tag_policy</code> value.
    *
    * @return type
    */
