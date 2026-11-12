@@ -214,10 +214,12 @@ public class UsageMeteringApi {
    * <p><strong><code>user_handle</code></strong>
    *
    * <ul>
-   *   <li><strong>Value:</strong> The handle of a user, for example <code>jane@example.com</code>,
-   *       or <code>"*"</code> for the default quota applied to users without a specific quota. User
-   *       handles are returned in the <code>data[].attributes.handle</code> field by the <a
+   *   <li><strong>Value:</strong> One of the following:
+   *   <li>A user's handle, for example <code>jane@example.com</code>. User handles are returned in
+   *       the <code>data[].attributes.handle</code> field by the <a
    *       href="https://docs.datadoghq.com/api/latest/users/#list-all-users">Users API</a>.
+   *   <li><code>"*"</code>, the default quota applied to users without a specific quota.
+   *   <li><code>"*agents*"</code>, the quota shared by all autonomous agents.
    *   <li><strong>Validation:</strong> A specific handle must identify an existing user in the
    *       caller's organization when <code>include_descendants</code> is false. When <code>
    *       include_descendants</code> is true, the handle must exist in the caller's organization or
@@ -237,6 +239,16 @@ public class UsageMeteringApi {
    *   <li><strong>Validation:</strong> The role must exist in the caller's organization. Role UUIDs
    *       are unique, so <code>include_descendants</code> has no effect on a <code>role_uuid</code>
    *       scope: the role is validated against the caller's organization only.
+   * </ul>
+   *
+   * <p><strong><code>team_id</code></strong> (private preview)
+   *
+   * <ul>
+   *   <li><strong>Value:</strong> The ID of a team. Team IDs are returned in the <code>data[].id
+   *       </code> field by the <a
+   *       href="https://docs.datadoghq.com/api/latest/teams/get-all-teams/">Teams API</a>.
+   *   <li><strong>Availability:</strong> Quotas on <code>team_id</code> are in private preview.
+   *       Contact your Datadog account team to request access.
    * </ul>
    *
    * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
