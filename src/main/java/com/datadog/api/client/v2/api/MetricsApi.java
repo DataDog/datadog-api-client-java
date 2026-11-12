@@ -413,8 +413,8 @@ public class MetricsApi {
   }
 
   /**
-   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution
-   * metric. Optionally, include percentile aggregations on any distribution metric. By setting
+   * Define queryable tag keys for an existing count, gauge, rate, distribution, or native histogram
+   * metric. Distribution and native histogram metrics support percentile aggregations. By setting
    * <code>exclude_tags_mode</code> to true, the behavior is changed from an allow-list to a
    * deny-list, and tags in the defined list are not queryable. Can only be used with application
    * keys of users with the <code>Manage Tags for Metrics</code> permission.
@@ -5811,12 +5811,12 @@ public class MetricsApi {
   }
 
   /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or
-   * custom aggregations of a count, rate, or gauge metric. By setting <code>exclude_tags_mode
-   * </code> to true the behavior is changed from an allow-list to a deny-list, and tags in the
-   * defined list will not be queryable. Can only be used with application keys from users with the
-   * <code>Manage Tags for Metrics</code> permission. This endpoint requires a tag configuration to
-   * be created first.
+   * Update the tag configuration of a metric, percentile aggregations of a distribution or native
+   * histogram metric, or custom aggregations of a count, rate, or gauge metric. By setting <code>
+   * exclude_tags_mode</code> to true, the behavior changes from an allow-list to a deny-list, and
+   * tags in the defined list will not be queryable. Can only be used with application keys from
+   * users with the <code>Manage Tags for Metrics</code> permission. This endpoint requires a tag
+   * configuration to be created first.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)

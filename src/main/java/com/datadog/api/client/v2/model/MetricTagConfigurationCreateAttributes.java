@@ -130,8 +130,9 @@ public class MetricTagConfigurationCreateAttributes {
   }
 
   /**
-   * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be
-   * applied to metrics that have a <code>metric_type</code> of <code>distribution</code>.
+   * Include percentile aggregations for metric types <code>distribution</code>, <code>
+   * exponential_histogram</code>, and <code>explicit_histogram</code>. Omit this field to keep the
+   * current setting.
    *
    * @return includePercentiles
    */
@@ -154,7 +155,8 @@ public class MetricTagConfigurationCreateAttributes {
   }
 
   /**
-   * The metric's type.
+   * The metric's type. Contact your Customer Success Manager for instructions on using native
+   * histogram types.
    *
    * @return metricType
    */
