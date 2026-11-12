@@ -23,7 +23,6 @@ import java.util.Objects;
   GovernanceControlDetectionAttributes.JSON_PROPERTY_ASSIGNED_TEAM,
   GovernanceControlDetectionAttributes.JSON_PROPERTY_ASSIGNED_TO,
   GovernanceControlDetectionAttributes.JSON_PROPERTY_ASSIGNMENT_SOURCE,
-  GovernanceControlDetectionAttributes.JSON_PROPERTY_CONTROL_ID,
   GovernanceControlDetectionAttributes.JSON_PROPERTY_CREATED_AT,
   GovernanceControlDetectionAttributes.JSON_PROPERTY_DETECTION_TYPE,
   GovernanceControlDetectionAttributes.JSON_PROPERTY_DISPLAY_NAME,
@@ -49,9 +48,6 @@ public class GovernanceControlDetectionAttributes {
 
   public static final String JSON_PROPERTY_ASSIGNMENT_SOURCE = "assignment_source";
   private GovernanceControlDetectionAssignmentSource assignmentSource;
-
-  public static final String JSON_PROPERTY_CONTROL_ID = "control_id";
-  private String controlId;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -95,7 +91,6 @@ public class GovernanceControlDetectionAttributes {
   public GovernanceControlDetectionAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_ASSIGNMENT_SOURCE)
           GovernanceControlDetectionAssignmentSource assignmentSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONTROL_ID) String controlId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_TYPE) String detectionType,
       @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAY_NAME) String displayName,
@@ -106,7 +101,6 @@ public class GovernanceControlDetectionAttributes {
           GovernanceControlDetectionState state) {
     this.assignmentSource = assignmentSource;
     this.unparsed |= !assignmentSource.isValid();
-    this.controlId = controlId;
     this.createdAt = createdAt;
     this.detectionType = detectionType;
     this.displayName = displayName;
@@ -183,30 +177,6 @@ public class GovernanceControlDetectionAttributes {
       this.unparsed = true;
     }
     this.assignmentSource = assignmentSource;
-  }
-
-  public GovernanceControlDetectionAttributes controlId(String controlId) {
-    this.controlId = controlId;
-    return this;
-  }
-
-  /**
-   * DEPRECATED: mirrors <code>detection_type</code> for backward compatibility; use <code>
-   * detection_type</code> instead.
-   *
-   * @return controlId
-   * @deprecated
-   */
-  @Deprecated
-  @JsonProperty(JSON_PROPERTY_CONTROL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getControlId() {
-    return controlId;
-  }
-
-  @Deprecated
-  public void setControlId(String controlId) {
-    this.controlId = controlId;
   }
 
   public GovernanceControlDetectionAttributes createdAt(OffsetDateTime createdAt) {
@@ -522,7 +492,6 @@ public class GovernanceControlDetectionAttributes {
         && Objects.equals(this.assignedTo, governanceControlDetectionAttributes.assignedTo)
         && Objects.equals(
             this.assignmentSource, governanceControlDetectionAttributes.assignmentSource)
-        && Objects.equals(this.controlId, governanceControlDetectionAttributes.controlId)
         && Objects.equals(this.createdAt, governanceControlDetectionAttributes.createdAt)
         && Objects.equals(this.detectionType, governanceControlDetectionAttributes.detectionType)
         && Objects.equals(this.displayName, governanceControlDetectionAttributes.displayName)
@@ -545,7 +514,6 @@ public class GovernanceControlDetectionAttributes {
         assignedTeam,
         assignedTo,
         assignmentSource,
-        controlId,
         createdAt,
         detectionType,
         displayName,
@@ -568,7 +536,6 @@ public class GovernanceControlDetectionAttributes {
     sb.append("    assignedTeam: ").append(toIndentedString(assignedTeam)).append("\n");
     sb.append("    assignedTo: ").append(toIndentedString(assignedTo)).append("\n");
     sb.append("    assignmentSource: ").append(toIndentedString(assignmentSource)).append("\n");
-    sb.append("    controlId: ").append(toIndentedString(controlId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    detectionType: ").append(toIndentedString(detectionType)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
