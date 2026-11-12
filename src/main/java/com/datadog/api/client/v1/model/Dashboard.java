@@ -26,6 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * metrics, which enable you to monitor the health of your infrastructure.
  */
 @JsonPropertyOrder({
+  Dashboard.JSON_PROPERTY_ARCHIVED_AT,
   Dashboard.JSON_PROPERTY_AUTHOR_HANDLE,
   Dashboard.JSON_PROPERTY_AUTHOR_NAME,
   Dashboard.JSON_PROPERTY_CREATED_AT,
@@ -51,6 +52,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Dashboard {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ARCHIVED_AT = "archived_at";
+  private OffsetDateTime archivedAt;
+
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
   private String authorHandle;
 
@@ -128,6 +132,18 @@ public class Dashboard {
     for (Widget item : widgets) {
       this.unparsed |= item.unparsed;
     }
+  }
+
+  /**
+   * Archive date of the dashboard.
+   *
+   * @return archivedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ARCHIVED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getArchivedAt() {
+    return archivedAt;
   }
 
   /**
@@ -729,7 +745,8 @@ public class Dashboard {
       return false;
     }
     Dashboard dashboard = (Dashboard) o;
-    return Objects.equals(this.authorHandle, dashboard.authorHandle)
+    return Objects.equals(this.archivedAt, dashboard.archivedAt)
+        && Objects.equals(this.authorHandle, dashboard.authorHandle)
         && Objects.equals(this.authorName, dashboard.authorName)
         && Objects.equals(this.createdAt, dashboard.createdAt)
         && Objects.equals(this.defaultTimeframe, dashboard.defaultTimeframe)
@@ -755,6 +772,7 @@ public class Dashboard {
   @Override
   public int hashCode() {
     return Objects.hash(
+        archivedAt,
         authorHandle,
         authorName,
         createdAt,
@@ -782,6 +800,7 @@ public class Dashboard {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Dashboard {\n");
+    sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
     sb.append("    authorHandle: ").append(toIndentedString(authorHandle)).append("\n");
     sb.append("    authorName: ").append(toIndentedString(authorName)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
