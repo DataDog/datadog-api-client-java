@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes used to create an AI Gateway rate limit. */
 @JsonPropertyOrder({
+  AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_INPUT_TOKENS_PER_MINUTE,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_MODE,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_NAME,
@@ -37,6 +38,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRateLimitCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE =
+      "cost_microcents_per_minute";
+  private JsonNullable<Long> costMicrocentsPerMinute = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_INPUT_TOKENS_PER_MINUTE = "input_tokens_per_minute";
   private JsonNullable<Long> inputTokensPerMinute = JsonNullable.<Long>undefined();
 
@@ -71,6 +76,39 @@ public class AiGatewayRateLimitCreateAttributes {
   public AiGatewayRateLimitCreateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public AiGatewayRateLimitCreateAttributes costMicrocentsPerMinute(Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
+    return this;
+  }
+
+  /**
+   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. At most
+   * 10000000000000, that is $100,000. In <code>ENFORCE</code> mode, requests to a model with no
+   * pricing are rejected, because their cost can't be counted. minimum: 1 maximum: 10000000000000
+   *
+   * @return costMicrocentsPerMinute
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCostMicrocentsPerMinute() {
+    return costMicrocentsPerMinute.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getCostMicrocentsPerMinute_JsonNullable() {
+    return costMicrocentsPerMinute;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  public void setCostMicrocentsPerMinute_JsonNullable(JsonNullable<Long> costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = costMicrocentsPerMinute;
+  }
+
+  public void setCostMicrocentsPerMinute(Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
   }
 
   public AiGatewayRateLimitCreateAttributes inputTokensPerMinute(Long inputTokensPerMinute) {
@@ -187,8 +225,8 @@ public class AiGatewayRateLimitCreateAttributes {
 
   /**
    * Maximum requests per rolling minute. At least one of <code>requests_per_minute</code>, <code>
-   * input_tokens_per_minute</code>, and <code>output_tokens_per_minute</code> is required. minimum:
-   * 1 maximum: 10000000
+   * input_tokens_per_minute</code>, <code>output_tokens_per_minute</code>, and <code>
+   * cost_microcents_per_minute</code> is required. minimum: 1 maximum: 10000000
    *
    * @return requestsPerMinute
    */
@@ -392,6 +430,9 @@ public class AiGatewayRateLimitCreateAttributes {
     AiGatewayRateLimitCreateAttributes aiGatewayRateLimitCreateAttributes =
         (AiGatewayRateLimitCreateAttributes) o;
     return Objects.equals(
+            this.costMicrocentsPerMinute,
+            aiGatewayRateLimitCreateAttributes.costMicrocentsPerMinute)
+        && Objects.equals(
             this.inputTokensPerMinute, aiGatewayRateLimitCreateAttributes.inputTokensPerMinute)
         && Objects.equals(this.mode, aiGatewayRateLimitCreateAttributes.mode)
         && Objects.equals(this.name, aiGatewayRateLimitCreateAttributes.name)
@@ -410,6 +451,7 @@ public class AiGatewayRateLimitCreateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        costMicrocentsPerMinute,
         inputTokensPerMinute,
         mode,
         name,
@@ -426,6 +468,9 @@ public class AiGatewayRateLimitCreateAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRateLimitCreateAttributes {\n");
+    sb.append("    costMicrocentsPerMinute: ")
+        .append(toIndentedString(costMicrocentsPerMinute))
+        .append("\n");
     sb.append("    inputTokensPerMinute: ")
         .append(toIndentedString(inputTokensPerMinute))
         .append("\n");

@@ -19,6 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes used to update an AI Gateway rate limit. Only sent fields are changed. */
 @JsonPropertyOrder({
+  AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE,
   AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_ENABLED,
   AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_INPUT_TOKENS_PER_MINUTE,
   AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_MODE,
@@ -33,6 +34,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRateLimitUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE =
+      "cost_microcents_per_minute";
+  private JsonNullable<Long> costMicrocentsPerMinute = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -59,6 +64,38 @@ public class AiGatewayRateLimitUpdateAttributes {
 
   public static final String JSON_PROPERTY_USER_ID = "user_id";
   private JsonNullable<String> userId = JsonNullable.<String>undefined();
+
+  public AiGatewayRateLimitUpdateAttributes costMicrocentsPerMinute(Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
+    return this;
+  }
+
+  /**
+   * Spend limit in microcents per rolling minute. Set to 0 to remove the cost limit. Null is
+   * ignored. At least one limit must remain. minimum: 0 maximum: 10000000000000
+   *
+   * @return costMicrocentsPerMinute
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCostMicrocentsPerMinute() {
+    return costMicrocentsPerMinute.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getCostMicrocentsPerMinute_JsonNullable() {
+    return costMicrocentsPerMinute;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  public void setCostMicrocentsPerMinute_JsonNullable(JsonNullable<Long> costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = costMicrocentsPerMinute;
+  }
+
+  public void setCostMicrocentsPerMinute(Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
+  }
 
   public AiGatewayRateLimitUpdateAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -385,7 +422,10 @@ public class AiGatewayRateLimitUpdateAttributes {
     }
     AiGatewayRateLimitUpdateAttributes aiGatewayRateLimitUpdateAttributes =
         (AiGatewayRateLimitUpdateAttributes) o;
-    return Objects.equals(this.enabled, aiGatewayRateLimitUpdateAttributes.enabled)
+    return Objects.equals(
+            this.costMicrocentsPerMinute,
+            aiGatewayRateLimitUpdateAttributes.costMicrocentsPerMinute)
+        && Objects.equals(this.enabled, aiGatewayRateLimitUpdateAttributes.enabled)
         && Objects.equals(
             this.inputTokensPerMinute, aiGatewayRateLimitUpdateAttributes.inputTokensPerMinute)
         && Objects.equals(this.mode, aiGatewayRateLimitUpdateAttributes.mode)
@@ -404,6 +444,7 @@ public class AiGatewayRateLimitUpdateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        costMicrocentsPerMinute,
         enabled,
         inputTokensPerMinute,
         mode,
@@ -420,6 +461,9 @@ public class AiGatewayRateLimitUpdateAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRateLimitUpdateAttributes {\n");
+    sb.append("    costMicrocentsPerMinute: ")
+        .append(toIndentedString(costMicrocentsPerMinute))
+        .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    inputTokensPerMinute: ")
         .append(toIndentedString(inputTokensPerMinute))

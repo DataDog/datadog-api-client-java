@@ -1200,6 +1200,7 @@ public class ApiClient {
           put("v2.listAiGatewayProviderModels", false);
           put("v2.listAiGatewayProviders", false);
           put("v2.listAiGatewayRateLimitInstances", false);
+          put("v2.listAiGatewayRateLimitInstancesSummaries", false);
           put("v2.listAiGatewayRateLimits", false);
           put("v2.listAiGatewayRoutingRules", false);
           put("v2.overrideAiGatewayBudgetInstanceCapacity", false);

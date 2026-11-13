@@ -24,6 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of an AI Gateway rate limit. */
 @JsonPropertyOrder({
+  AiGatewayRateLimitAttributes.JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_CREATED_AT,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_CREATED_BY,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_ENABLED,
@@ -48,6 +49,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRateLimitAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE =
+      "cost_microcents_per_minute";
+  private JsonNullable<Long> costMicrocentsPerMinute = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -95,7 +100,7 @@ public class AiGatewayRateLimitAttributes {
   private JsonNullable<UUID> teamId = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATE_SPLIT_DIMS = "template_split_dims";
-  private List<String> templateSplitDims = null;
+  private List<String> templateSplitDims = new ArrayList<>();
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
@@ -113,25 +118,63 @@ public class AiGatewayRateLimitAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_TEMPLATE) Boolean isTemplate,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODE) AiGatewayRateLimitMode mode,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_REVISION) Long revision,
       @JsonProperty(required = true, value = JSON_PROPERTY_SCOPE_RESTRICTED)
           Boolean scopeRestricted,
       @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) Map<String, String> tags,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TEMPLATE_SPLIT_DIMS)
+          List<String> templateSplitDims,
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_BY) String updatedBy) {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
     this.enabled = enabled;
+    this.isTemplate = isTemplate;
     this.mode = mode;
     this.unparsed |= !mode.isValid();
     this.name = name;
     this.revision = revision;
     this.scopeRestricted = scopeRestricted;
     this.tags = tags;
+    this.templateSplitDims = templateSplitDims;
     this.updatedAt = updatedAt;
     this.updatedBy = updatedBy;
+  }
+
+  public AiGatewayRateLimitAttributes costMicrocentsPerMinute(Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
+    return this;
+  }
+
+  /**
+   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each, shared by all matching
+   * traffic, or per counter for a template rate limit. Null when this rule does not limit cost.
+   * minimum: 1 maximum: 10000000000000
+   *
+   * @return costMicrocentsPerMinute
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCostMicrocentsPerMinute() {
+    return costMicrocentsPerMinute.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getCostMicrocentsPerMinute_JsonNullable() {
+    return costMicrocentsPerMinute;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  public void setCostMicrocentsPerMinute_JsonNullable(JsonNullable<Long> costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = costMicrocentsPerMinute;
+  }
+
+  public void setCostMicrocentsPerMinute(Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
   }
 
   public AiGatewayRateLimitAttributes createdAt(OffsetDateTime createdAt) {
@@ -238,9 +281,8 @@ public class AiGatewayRateLimitAttributes {
    *
    * @return isTemplate
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getIsTemplate() {
     return isTemplate;
   }
@@ -540,9 +582,6 @@ public class AiGatewayRateLimitAttributes {
   }
 
   public AiGatewayRateLimitAttributes addTemplateSplitDimsItem(String templateSplitDimsItem) {
-    if (this.templateSplitDims == null) {
-      this.templateSplitDims = new ArrayList<>();
-    }
     this.templateSplitDims.add(templateSplitDimsItem);
     return this;
   }
@@ -554,9 +593,8 @@ public class AiGatewayRateLimitAttributes {
    *
    * @return templateSplitDims
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEMPLATE_SPLIT_DIMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTemplateSplitDims() {
     return templateSplitDims;
   }
@@ -692,7 +730,9 @@ public class AiGatewayRateLimitAttributes {
       return false;
     }
     AiGatewayRateLimitAttributes aiGatewayRateLimitAttributes = (AiGatewayRateLimitAttributes) o;
-    return Objects.equals(this.createdAt, aiGatewayRateLimitAttributes.createdAt)
+    return Objects.equals(
+            this.costMicrocentsPerMinute, aiGatewayRateLimitAttributes.costMicrocentsPerMinute)
+        && Objects.equals(this.createdAt, aiGatewayRateLimitAttributes.createdAt)
         && Objects.equals(this.createdBy, aiGatewayRateLimitAttributes.createdBy)
         && Objects.equals(this.enabled, aiGatewayRateLimitAttributes.enabled)
         && Objects.equals(
@@ -720,6 +760,7 @@ public class AiGatewayRateLimitAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        costMicrocentsPerMinute,
         createdAt,
         createdBy,
         enabled,
@@ -746,6 +787,9 @@ public class AiGatewayRateLimitAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRateLimitAttributes {\n");
+    sb.append("    costMicrocentsPerMinute: ")
+        .append(toIndentedString(costMicrocentsPerMinute))
+        .append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
