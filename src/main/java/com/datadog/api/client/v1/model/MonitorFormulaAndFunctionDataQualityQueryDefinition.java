@@ -27,6 +27,7 @@ import java.util.Objects;
   MonitorFormulaAndFunctionDataQualityQueryDefinition.JSON_PROPERTY_MEASURE,
   MonitorFormulaAndFunctionDataQualityQueryDefinition.JSON_PROPERTY_MONITOR_OPTIONS,
   MonitorFormulaAndFunctionDataQualityQueryDefinition.JSON_PROPERTY_NAME,
+  MonitorFormulaAndFunctionDataQualityQueryDefinition.JSON_PROPERTY_RUN_FILTER,
   MonitorFormulaAndFunctionDataQualityQueryDefinition.JSON_PROPERTY_SCHEMA_VERSION,
   MonitorFormulaAndFunctionDataQualityQueryDefinition.JSON_PROPERTY_SCOPE
 })
@@ -51,6 +52,9 @@ public class MonitorFormulaAndFunctionDataQualityQueryDefinition {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_RUN_FILTER = "run_filter";
+  private String runFilter;
 
   public static final String JSON_PROPERTY_SCHEMA_VERSION = "schema_version";
   private String schemaVersion;
@@ -158,7 +162,8 @@ public class MonitorFormulaAndFunctionDataQualityQueryDefinition {
    * </code>, <code>custom</code>, <code>freshness</code>, <code>max</code>, <code>mean</code>,
    * <code>min</code>, <code>nullness</code>, <code>percent_negative</code>, <code>percent_zero
    * </code>, <code>row_count</code>, <code>stddev</code>, <code>sum</code>, <code>uniqueness</code>
-   * . Additional values may be supported.
+   * . <code>data-jobs alert</code> job duration monitors use <code>duration</code>. Additional
+   * values may be supported.
    *
    * @return measure
    */
@@ -216,6 +221,28 @@ public class MonitorFormulaAndFunctionDataQualityQueryDefinition {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public MonitorFormulaAndFunctionDataQualityQueryDefinition runFilter(String runFilter) {
+    this.runFilter = runFilter;
+    return this;
+  }
+
+  /**
+   * Optional filter on individual runs, using metrics filter syntax. Only supported by <code>
+   * data-jobs alert</code> job duration monitors.
+   *
+   * @return runFilter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRunFilter() {
+    return runFilter;
+  }
+
+  public void setRunFilter(String runFilter) {
+    this.runFilter = runFilter;
   }
 
   public MonitorFormulaAndFunctionDataQualityQueryDefinition schemaVersion(String schemaVersion) {
@@ -331,6 +358,8 @@ public class MonitorFormulaAndFunctionDataQualityQueryDefinition {
             this.monitorOptions, monitorFormulaAndFunctionDataQualityQueryDefinition.monitorOptions)
         && Objects.equals(this.name, monitorFormulaAndFunctionDataQualityQueryDefinition.name)
         && Objects.equals(
+            this.runFilter, monitorFormulaAndFunctionDataQualityQueryDefinition.runFilter)
+        && Objects.equals(
             this.schemaVersion, monitorFormulaAndFunctionDataQualityQueryDefinition.schemaVersion)
         && Objects.equals(this.scope, monitorFormulaAndFunctionDataQualityQueryDefinition.scope)
         && Objects.equals(
@@ -347,6 +376,7 @@ public class MonitorFormulaAndFunctionDataQualityQueryDefinition {
         measure,
         monitorOptions,
         name,
+        runFilter,
         schemaVersion,
         scope,
         additionalProperties);
@@ -362,6 +392,7 @@ public class MonitorFormulaAndFunctionDataQualityQueryDefinition {
     sb.append("    measure: ").append(toIndentedString(measure)).append("\n");
     sb.append("    monitorOptions: ").append(toIndentedString(monitorOptions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    runFilter: ").append(toIndentedString(runFilter)).append("\n");
     sb.append("    schemaVersion: ").append(toIndentedString(schemaVersion)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    additionalProperties: ")

@@ -20,9 +20,11 @@ import java.util.Objects;
 
 /** Monitor configuration options for data quality queries. */
 @JsonPropertyOrder({
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CONSECUTIVE_RUNS,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CRONTAB_OVERRIDE,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CUSTOM_SQL,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CUSTOM_WHERE,
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_DETECTION_TYPE,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_GROUP_BY_COLUMNS,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_CONFIGURATION,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_TYPE_OVERRIDE,
@@ -33,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONSECUTIVE_RUNS = "consecutive_runs";
+  private Long consecutiveRuns;
+
   public static final String JSON_PROPERTY_CRONTAB_OVERRIDE = "crontab_override";
   private String crontabOverride;
 
@@ -41,6 +46,9 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
 
   public static final String JSON_PROPERTY_CUSTOM_WHERE = "custom_where";
   private String customWhere;
+
+  public static final String JSON_PROPERTY_DETECTION_TYPE = "detection_type";
+  private MonitorFormulaAndFunctionDataQualityDetectionType detectionType;
 
   public static final String JSON_PROPERTY_GROUP_BY_COLUMNS = "group_by_columns";
   private List<String> groupByColumns = null;
@@ -56,6 +64,28 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
 
   public static final String JSON_PROPERTY_SOURCE_TO_TARGET_CONFIG = "source_to_target_config";
   private MonitorFormulaAndFunctionDataQualitySourceToTargetConfig sourceToTargetConfig;
+
+  public MonitorFormulaAndFunctionDataQualityMonitorOptions consecutiveRuns(Long consecutiveRuns) {
+    this.consecutiveRuns = consecutiveRuns;
+    return this;
+  }
+
+  /**
+   * Number of consecutive runs that must breach before the monitor alerts. Only supported by <code>
+   * data-jobs alert</code> job duration monitors. Defaults to <code>1</code>. minimum: 1
+   *
+   * @return consecutiveRuns
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONSECUTIVE_RUNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getConsecutiveRuns() {
+    return consecutiveRuns;
+  }
+
+  public void setConsecutiveRuns(Long consecutiveRuns) {
+    this.consecutiveRuns = consecutiveRuns;
+  }
 
   public MonitorFormulaAndFunctionDataQualityMonitorOptions crontabOverride(
       String crontabOverride) {
@@ -119,6 +149,33 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
 
   public void setCustomWhere(String customWhere) {
     this.customWhere = customWhere;
+  }
+
+  public MonitorFormulaAndFunctionDataQualityMonitorOptions detectionType(
+      MonitorFormulaAndFunctionDataQualityDetectionType detectionType) {
+    this.detectionType = detectionType;
+    this.unparsed |= !detectionType.isValid();
+    return this;
+  }
+
+  /**
+   * How a <code>data-jobs alert</code> job duration monitor detects a breach. Must match the <code>
+   * .detection()</code> call in the monitor query. Required for job duration monitors.
+   *
+   * @return detectionType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DETECTION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorFormulaAndFunctionDataQualityDetectionType getDetectionType() {
+    return detectionType;
+  }
+
+  public void setDetectionType(MonitorFormulaAndFunctionDataQualityDetectionType detectionType) {
+    if (!detectionType.isValid()) {
+      this.unparsed = true;
+    }
+    this.detectionType = detectionType;
   }
 
   public MonitorFormulaAndFunctionDataQualityMonitorOptions groupByColumns(
@@ -319,12 +376,17 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
         monitorFormulaAndFunctionDataQualityMonitorOptions =
             (MonitorFormulaAndFunctionDataQualityMonitorOptions) o;
     return Objects.equals(
+            this.consecutiveRuns,
+            monitorFormulaAndFunctionDataQualityMonitorOptions.consecutiveRuns)
+        && Objects.equals(
             this.crontabOverride,
             monitorFormulaAndFunctionDataQualityMonitorOptions.crontabOverride)
         && Objects.equals(
             this.customSql, monitorFormulaAndFunctionDataQualityMonitorOptions.customSql)
         && Objects.equals(
             this.customWhere, monitorFormulaAndFunctionDataQualityMonitorOptions.customWhere)
+        && Objects.equals(
+            this.detectionType, monitorFormulaAndFunctionDataQualityMonitorOptions.detectionType)
         && Objects.equals(
             this.groupByColumns, monitorFormulaAndFunctionDataQualityMonitorOptions.groupByColumns)
         && Objects.equals(
@@ -346,9 +408,11 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
+        consecutiveRuns,
         crontabOverride,
         customSql,
         customWhere,
+        detectionType,
         groupByColumns,
         modelConfiguration,
         modelTypeOverride,
@@ -361,9 +425,11 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorFormulaAndFunctionDataQualityMonitorOptions {\n");
+    sb.append("    consecutiveRuns: ").append(toIndentedString(consecutiveRuns)).append("\n");
     sb.append("    crontabOverride: ").append(toIndentedString(crontabOverride)).append("\n");
     sb.append("    customSql: ").append(toIndentedString(customSql)).append("\n");
     sb.append("    customWhere: ").append(toIndentedString(customWhere)).append("\n");
+    sb.append("    detectionType: ").append(toIndentedString(detectionType)).append("\n");
     sb.append("    groupByColumns: ").append(toIndentedString(groupByColumns)).append("\n");
     sb.append("    modelConfiguration: ").append(toIndentedString(modelConfiguration)).append("\n");
     sb.append("    modelTypeOverride: ").append(toIndentedString(modelTypeOverride)).append("\n");
