@@ -20,7 +20,10 @@ import java.util.Objects;
 
 /**
  * Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its current
- * value unchanged. The <code>source</code> of a rule cannot be changed.
+ * value unchanged. The <code>source</code> of a rule cannot be changed. Tag keys, patterns, and
+ * metrics scopes have the same constraints as on creation. If the effective <code>
+ * tag_value_patterns</code> contains <code>*</code>, set <code>required</code> and <code>negated
+ * </code> to different values.
  */
 @JsonPropertyOrder({
   TagRuleUpdateAttributes.JSON_PROPERTY_ENABLED,
@@ -153,7 +156,8 @@ public class TagRuleUpdateAttributes {
 
   /**
    * How the rule is enforced. <code>blocking</code> rejects telemetry that violates the rule.
-   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
+   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it. RUM
+   * supports only <code>surfacing</code> rules.
    *
    * @return ruleType
    */

@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.GetIssueIncludeQueryParameterItem;
 import com.datadog.api.client.v2.model.IssueResponse;
 import com.datadog.api.client.v2.model.IssueSampleBias;
+import com.datadog.api.client.v2.model.IssueSnoozeRequest;
 import com.datadog.api.client.v2.model.IssueUpdateAssigneeRequest;
 import com.datadog.api.client.v2.model.IssueUpdateStateRequest;
 import com.datadog.api.client.v2.model.IssuesSearchRequest;
@@ -604,6 +605,183 @@ public class ErrorTrackingApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IssuesSearchResponse>() {});
+  }
+
+  /**
+   * Snooze an issue.
+   *
+   * <p>See {@link #snoozeIssueWithHttpInfo}.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @param body Snooze issue request payload. (required)
+   * @return IssueResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IssueResponse snoozeIssue(String issueId, IssueSnoozeRequest body) throws ApiException {
+    return snoozeIssueWithHttpInfo(issueId, body).getData();
+  }
+
+  /**
+   * Snooze an issue.
+   *
+   * <p>See {@link #snoozeIssueWithHttpInfoAsync}.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @param body Snooze issue request payload. (required)
+   * @return CompletableFuture&lt;IssueResponse&gt;
+   */
+  public CompletableFuture<IssueResponse> snoozeIssueAsync(
+      String issueId, IssueSnoozeRequest body) {
+    return snoozeIssueWithHttpInfoAsync(issueId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Snooze an issue by <code>issue_id</code>: move it to <code>IGNORED</code> until a condition is
+   * met, then back to <code>OPEN</code>. The condition can be a number of occurrences, a number of
+   * distinct values of an attribute such as <code>@usr.id</code>, an elapsed time, or any or all of
+   * several conditions. Snoozing an issue that is already snoozed replaces its snooze. Updating the
+   * state of the issue with <code>UpdateIssueState</code> cancels the snooze. The response includes
+   * the watch that reopens the issue.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @param body Snooze issue request payload. (required)
+   * @return ApiResponse&lt;IssueResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IssueResponse> snoozeIssueWithHttpInfo(String issueId, IssueSnoozeRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "snoozeIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'issueId' is set
+    if (issueId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'issueId' when calling snoozeIssue");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling snoozeIssue");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/error-tracking/issues/{issue_id}/snooze"
+            .replaceAll("\\{" + "issue_id" + "\\}", apiClient.escapeString(issueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ErrorTrackingApi.snoozeIssue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IssueResponse>() {});
+  }
+
+  /**
+   * Snooze an issue.
+   *
+   * <p>See {@link #snoozeIssueWithHttpInfo}.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @param body Snooze issue request payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IssueResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IssueResponse>> snoozeIssueWithHttpInfoAsync(
+      String issueId, IssueSnoozeRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "snoozeIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IssueResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'issueId' is set
+    if (issueId == null) {
+      CompletableFuture<ApiResponse<IssueResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'issueId' when calling snoozeIssue"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IssueResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling snoozeIssue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/error-tracking/issues/{issue_id}/snooze"
+            .replaceAll("\\{" + "issue_id" + "\\}", apiClient.escapeString(issueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ErrorTrackingApi.snoozeIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IssueResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IssueResponse>() {});
   }
 
   /**

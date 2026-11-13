@@ -23,7 +23,7 @@ public class Example {
                 new TagRuleUpdateData()
                     .attributes(new TagRuleUpdateAttributes().ruleType(TagRuleType.SURFACING))
                     .id("123")
-                    .type(TagRuleResourceType.TAG_RULE));
+                    .type(TagRuleResourceType.TAG_POLICY));
 
     try {
       TagRuleResponse result = apiInstance.updateTagRule("123", body);
