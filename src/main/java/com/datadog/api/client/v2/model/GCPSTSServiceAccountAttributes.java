@@ -33,6 +33,7 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_PROJECT_FILTER_CONFIGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_REGION_FILTER_CONFIGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED
 })
@@ -85,6 +86,9 @@ public class GCPSTSServiceAccountAttributes {
   public static final String JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS =
       "monitored_resource_configs";
   private List<GCPMonitoredResourceConfig> monitoredResourceConfigs = null;
+
+  public static final String JSON_PROPERTY_PROJECT_FILTER_CONFIGS = "project_filter_configs";
+  private List<GCPProjectFilterConfig> projectFilterConfigs = null;
 
   public static final String JSON_PROPERTY_REGION_FILTER_CONFIGS = "region_filter_configs";
   private List<String> regionFilterConfigs = null;
@@ -458,6 +462,52 @@ public class GCPSTSServiceAccountAttributes {
     }
   }
 
+  public GCPSTSServiceAccountAttributes projectFilterConfigs(
+      List<GCPProjectFilterConfig> projectFilterConfigs) {
+    this.projectFilterConfigs = projectFilterConfigs;
+    if (projectFilterConfigs != null) {
+      for (GCPProjectFilterConfig item : projectFilterConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public GCPSTSServiceAccountAttributes addProjectFilterConfigsItem(
+      GCPProjectFilterConfig projectFilterConfigsItem) {
+    if (this.projectFilterConfigs == null) {
+      this.projectFilterConfigs = new ArrayList<>();
+    }
+    this.projectFilterConfigs.add(projectFilterConfigsItem);
+    this.unparsed |= projectFilterConfigsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Configurations that limit which GCP projects Datadog monitors, out of the projects this service
+   * account can access. Each type can have at most one configuration. A project is monitored only
+   * if it passes the filters of every configured type. By default, Datadog monitors every project
+   * the service account can access. When updating a service account, omit this field to keep the
+   * current filters, or send an empty list to remove them.
+   *
+   * @return projectFilterConfigs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROJECT_FILTER_CONFIGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<GCPProjectFilterConfig> getProjectFilterConfigs() {
+    return projectFilterConfigs;
+  }
+
+  public void setProjectFilterConfigs(List<GCPProjectFilterConfig> projectFilterConfigs) {
+    this.projectFilterConfigs = projectFilterConfigs;
+    if (projectFilterConfigs != null) {
+      for (GCPProjectFilterConfig item : projectFilterConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
   public GCPSTSServiceAccountAttributes regionFilterConfigs(List<String> regionFilterConfigs) {
     this.regionFilterConfigs = regionFilterConfigs;
     return this;
@@ -593,6 +643,8 @@ public class GCPSTSServiceAccountAttributes {
         && Objects.equals(
             this.monitoredResourceConfigs, gcpstsServiceAccountAttributes.monitoredResourceConfigs)
         && Objects.equals(
+            this.projectFilterConfigs, gcpstsServiceAccountAttributes.projectFilterConfigs)
+        && Objects.equals(
             this.regionFilterConfigs, gcpstsServiceAccountAttributes.regionFilterConfigs)
         && Objects.equals(
             this.resourceCollectionEnabled,
@@ -617,6 +669,7 @@ public class GCPSTSServiceAccountAttributes {
         isSecurityCommandCenterEnabled,
         metricNamespaceConfigs,
         monitoredResourceConfigs,
+        projectFilterConfigs,
         regionFilterConfigs,
         resourceCollectionEnabled,
         additionalProperties);
@@ -654,6 +707,9 @@ public class GCPSTSServiceAccountAttributes {
         .append("\n");
     sb.append("    monitoredResourceConfigs: ")
         .append(toIndentedString(monitoredResourceConfigs))
+        .append("\n");
+    sb.append("    projectFilterConfigs: ")
+        .append(toIndentedString(projectFilterConfigs))
         .append("\n");
     sb.append("    regionFilterConfigs: ")
         .append(toIndentedString(regionFilterConfigs))
