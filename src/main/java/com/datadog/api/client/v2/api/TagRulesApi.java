@@ -282,7 +282,8 @@ public class TagRulesApi {
   /**
    * Delete a tag rule. By default the rule is soft-deleted so it can be recovered later and so that
    * historical score data remains queryable. Pass <code>hard_delete=true</code> to remove the rule
-   * permanently.
+   * permanently. Deleting a <code>blocking</code> rule additionally requires the <code>
+   * telemetry_rules_activate</code> permission.
    *
    * @param ruleId The unique identifier of the tag rule to delete. (required)
    * @param parameters Optional parameters for the request.
@@ -438,7 +439,9 @@ public class TagRulesApi {
      * Set tsStart.
      *
      * @param tsStart Start of the time window used for compliance score computation, as a Unix
-     *     timestamp in milliseconds. (optional)
+     *     timestamp in milliseconds. Defaults to approximately 4 hours before the current time for
+     *     metrics, or 24 hours before the current time for other sources. The API clamps earlier
+     *     values to this default, regardless of <code>ts_end</code>. (optional)
      * @return GetTagRuleOptionalParameters
      */
     public GetTagRuleOptionalParameters tsStart(Long tsStart) {
@@ -675,7 +678,9 @@ public class TagRulesApi {
      * Set tsStart.
      *
      * @param tsStart Start of the time window used for compliance score computation, as a Unix
-     *     timestamp in milliseconds. (optional)
+     *     timestamp in milliseconds. Defaults to approximately 4 hours before the current time for
+     *     metrics, or 24 hours before the current time for other sources. The API clamps earlier
+     *     values to this default, regardless of <code>ts_end</code>. (optional)
      * @return GetTagRuleScoreOptionalParameters
      */
     public GetTagRuleScoreOptionalParameters tsStart(Long tsStart) {
@@ -962,8 +967,9 @@ public class TagRulesApi {
      * Set tsStart.
      *
      * @param tsStart Start of the time window used for compliance score computation, as a Unix
-     *     timestamp in milliseconds. Defaults to a recent window appropriate for the source.
-     *     (optional)
+     *     timestamp in milliseconds. Defaults to approximately 4 hours before the current time for
+     *     metrics, or 24 hours before the current time for other sources. The API clamps earlier
+     *     values to this default, regardless of <code>ts_end</code>. (optional)
      * @return ListTagRulesOptionalParameters
      */
     public ListTagRulesOptionalParameters tsStart(Long tsStart) {
@@ -1214,7 +1220,10 @@ public class TagRulesApi {
   /**
    * Update one or more attributes of an existing tag rule. Only the fields supplied in the request
    * body are modified; omitted fields retain their current values. The rule's <code>source</code>
-   * cannot be changed after creation.
+   * cannot be changed after creation. Promoting a rule from <code>surfacing</code> to <code>
+   * blocking</code> additionally requires the <code>telemetry_rules_activate</code> permission, and
+   * your organization must have access to blocking rules. You can't promote RUM rules to <code>
+   * blocking</code>.
    *
    * @param ruleId The unique identifier of the tag rule to update. (required)
    * @param body (required)
