@@ -44,10 +44,12 @@ public class TopologyQueryDataStreams {
   public TopologyQueryDataStreams(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
           TopologyQueryDataStreamsDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS) List<String> filters) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS) List<String> filters,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.filters = filters;
+    this.service = service;
   }
 
   public TopologyQueryDataStreams dataSource(TopologyQueryDataStreamsDataSource dataSource) {
@@ -105,7 +107,7 @@ public class TopologyQueryDataStreams {
   }
 
   /**
-   * A search string for filtering services. Replaces the deprecated <code>service</code> field.
+   * A search string for filtering services. When set, this replaces the <code>service</code> field.
    *
    * @return queryString
    */
@@ -126,20 +128,16 @@ public class TopologyQueryDataStreams {
   }
 
   /**
-   * (deprecated) Name of the service. Use <code>query_string</code> instead.
+   * (deprecated) Name of the service. Leave this empty and use query_string instead.
    *
    * @return service
-   * @deprecated
    */
-  @Deprecated
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getService() {
     return service;
   }
 
-  @Deprecated
   public void setService(String service) {
     this.service = service;
   }

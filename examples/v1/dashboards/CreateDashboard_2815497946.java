@@ -49,6 +49,7 @@ public class Example {
                                                             .dataSource(
                                                                 TopologyQueryDataStreamsDataSource
                                                                     .DATA_STREAMS)
+                                                            .service("")
                                                             .filters(
                                                                 Collections.singletonList(
                                                                     "env:prod"))
