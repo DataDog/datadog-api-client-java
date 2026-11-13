@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.SensitiveDataScannerGetConfigResponse;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroupCreateRequest;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroupDeleteRequest;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroupDeleteResponse;
+import com.datadog.api.client.v2.model.SensitiveDataScannerGroupTarget;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroupUpdateRequest;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroupUpdateResponse;
 import com.datadog.api.client.v2.model.SensitiveDataScannerReorderGroupsResponse;
@@ -20,10 +21,13 @@ import com.datadog.api.client.v2.model.SensitiveDataScannerRuleDeleteResponse;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleUpdateRequest;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleUpdateResponse;
 import com.datadog.api.client.v2.model.SensitiveDataScannerStandardPatternsResponseData;
+import com.datadog.api.client.v2.model.SensitiveDataScannerTargetGroupListResponse;
+import com.datadog.api.client.v2.model.SensitiveDataScannerTargetGroupResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -657,6 +661,147 @@ public class SensitiveDataScannerApi {
   }
 
   /**
+   * Get Scanning Group.
+   *
+   * <p>See {@link #getScanningGroupWithHttpInfo}.
+   *
+   * @param groupId The ID of a group of rules. (required)
+   * @return SensitiveDataScannerTargetGroupResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SensitiveDataScannerTargetGroupResponse getScanningGroup(String groupId)
+      throws ApiException {
+    return getScanningGroupWithHttpInfo(groupId).getData();
+  }
+
+  /**
+   * Get Scanning Group.
+   *
+   * <p>See {@link #getScanningGroupWithHttpInfoAsync}.
+   *
+   * @param groupId The ID of a group of rules. (required)
+   * @return CompletableFuture&lt;SensitiveDataScannerTargetGroupResponse&gt;
+   */
+  public CompletableFuture<SensitiveDataScannerTargetGroupResponse> getScanningGroupAsync(
+      String groupId) {
+    return getScanningGroupWithHttpInfoAsync(groupId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a scanning group, with its rules included. Only scanning groups of the <code>
+   * llm_observability</code> target are returned. Other scanning groups are reported as not found.
+   *
+   * @param groupId The ID of a group of rules. (required)
+   * @return ApiResponse&lt;SensitiveDataScannerTargetGroupResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SensitiveDataScannerTargetGroupResponse> getScanningGroupWithHttpInfo(
+      String groupId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'groupId' when calling getScanningGroup");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/sensitive-data-scanner/groups/{group_id}"
+            .replaceAll("\\{" + "group_id" + "\\}", apiClient.escapeString(groupId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SensitiveDataScannerApi.getScanningGroup",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SensitiveDataScannerTargetGroupResponse>() {});
+  }
+
+  /**
+   * Get Scanning Group.
+   *
+   * <p>See {@link #getScanningGroupWithHttpInfo}.
+   *
+   * @param groupId The ID of a group of rules. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SensitiveDataScannerTargetGroupResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SensitiveDataScannerTargetGroupResponse>>
+      getScanningGroupWithHttpInfoAsync(String groupId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      CompletableFuture<ApiResponse<SensitiveDataScannerTargetGroupResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'groupId' when calling getScanningGroup"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/sensitive-data-scanner/groups/{group_id}"
+            .replaceAll("\\{" + "group_id" + "\\}", apiClient.escapeString(groupId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SensitiveDataScannerApi.getScanningGroup",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SensitiveDataScannerTargetGroupResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SensitiveDataScannerTargetGroupResponse>() {});
+  }
+
+  /**
    * List Scanning Groups.
    *
    * <p>See {@link #listScanningGroupsWithHttpInfo}.
@@ -883,6 +1028,155 @@ public class SensitiveDataScannerApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SensitiveDataScannerStandardPatternsResponseData>() {});
+  }
+
+  /**
+   * List Scanning Groups of a target.
+   *
+   * <p>See {@link #listTargetScanningGroupsWithHttpInfo}.
+   *
+   * @param filterTarget Target whose scanning groups are listed. (required)
+   * @return SensitiveDataScannerTargetGroupListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SensitiveDataScannerTargetGroupListResponse listTargetScanningGroups(
+      SensitiveDataScannerGroupTarget filterTarget) throws ApiException {
+    return listTargetScanningGroupsWithHttpInfo(filterTarget).getData();
+  }
+
+  /**
+   * List Scanning Groups of a target.
+   *
+   * <p>See {@link #listTargetScanningGroupsWithHttpInfoAsync}.
+   *
+   * @param filterTarget Target whose scanning groups are listed. (required)
+   * @return CompletableFuture&lt;SensitiveDataScannerTargetGroupListResponse&gt;
+   */
+  public CompletableFuture<SensitiveDataScannerTargetGroupListResponse>
+      listTargetScanningGroupsAsync(SensitiveDataScannerGroupTarget filterTarget) {
+    return listTargetScanningGroupsWithHttpInfoAsync(filterTarget)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the scanning groups of a target, with their rules included. Only the <code>
+   * llm_observability</code> target is supported. Scanning groups of logs, RUM, events, and APM are
+   * listed by the List Scanning Groups endpoint. If the organization has no scanning group for the
+   * target, its default group is stored and returned, so it can be edited. This does not change
+   * what gets scanned, because the default rules already apply.
+   *
+   * @param filterTarget Target whose scanning groups are listed. (required)
+   * @return ApiResponse&lt;SensitiveDataScannerTargetGroupListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SensitiveDataScannerTargetGroupListResponse>
+      listTargetScanningGroupsWithHttpInfo(SensitiveDataScannerGroupTarget filterTarget)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterTarget' is set
+    if (filterTarget == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterTarget' when calling listTargetScanningGroups");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/sensitive-data-scanner/groups";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[target]", filterTarget));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SensitiveDataScannerApi.listTargetScanningGroups",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SensitiveDataScannerTargetGroupListResponse>() {});
+  }
+
+  /**
+   * List Scanning Groups of a target.
+   *
+   * <p>See {@link #listTargetScanningGroupsWithHttpInfo}.
+   *
+   * @param filterTarget Target whose scanning groups are listed. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SensitiveDataScannerTargetGroupListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SensitiveDataScannerTargetGroupListResponse>>
+      listTargetScanningGroupsWithHttpInfoAsync(SensitiveDataScannerGroupTarget filterTarget) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterTarget' is set
+    if (filterTarget == null) {
+      CompletableFuture<ApiResponse<SensitiveDataScannerTargetGroupListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterTarget' when calling"
+                  + " listTargetScanningGroups"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/sensitive-data-scanner/groups";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[target]", filterTarget));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SensitiveDataScannerApi.listTargetScanningGroups",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SensitiveDataScannerTargetGroupListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SensitiveDataScannerTargetGroupListResponse>() {});
   }
 
   /**
