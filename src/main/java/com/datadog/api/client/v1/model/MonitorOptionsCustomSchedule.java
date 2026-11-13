@@ -18,9 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Configuration options for the custom schedule. <strong>This feature is in private beta.</strong>
- */
+/** Configuration options for the custom schedule. */
 @JsonPropertyOrder({MonitorOptionsCustomSchedule.JSON_PROPERTY_RECURRENCES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

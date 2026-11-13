@@ -39,8 +39,7 @@ public class MonitorOptionsSchedulingOptions {
   }
 
   /**
-   * Configuration options for the custom schedule. <strong>This feature is in private
-   * beta.</strong>
+   * Configuration options for the custom schedule.
    *
    * @return customSchedule
    */
