@@ -199,7 +199,8 @@ public class DeploymentRuleResponseDataAttributes {
 
   /**
    * Options for deployment rule response representing either faulty deployment detection or monitor
-   * options.
+   * options. Bits Deployment Analysis rules only accept <code>duration</code>, using the faulty
+   * deployment detection options shape.
    *
    * @return options
    */

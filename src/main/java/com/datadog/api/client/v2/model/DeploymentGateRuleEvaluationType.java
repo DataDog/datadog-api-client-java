@@ -24,12 +24,15 @@ import java.util.Set;
 public class DeploymentGateRuleEvaluationType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("monitor", "faulty_deployment_detection"));
+      new HashSet<String>(
+          Arrays.asList("monitor", "faulty_deployment_detection", "bits_deployment_analysis"));
 
   public static final DeploymentGateRuleEvaluationType MONITOR =
       new DeploymentGateRuleEvaluationType("monitor");
   public static final DeploymentGateRuleEvaluationType FAULTY_DEPLOYMENT_DETECTION =
       new DeploymentGateRuleEvaluationType("faulty_deployment_detection");
+  public static final DeploymentGateRuleEvaluationType BITS_DEPLOYMENT_ANALYSIS =
+      new DeploymentGateRuleEvaluationType("bits_deployment_analysis");
 
   DeploymentGateRuleEvaluationType(String value) {
     super(value, allowedValues);

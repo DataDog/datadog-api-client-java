@@ -102,7 +102,8 @@ public class CreateDeploymentRuleParamsDataAttributes {
 
   /**
    * Options for deployment rule response representing either faulty deployment detection or monitor
-   * options.
+   * options. Bits Deployment Analysis rules only accept <code>duration</code>, using the faulty
+   * deployment detection options shape.
    *
    * @return options
    */
@@ -125,7 +126,8 @@ public class CreateDeploymentRuleParamsDataAttributes {
   }
 
   /**
-   * The type of the deployment rule (faulty_deployment_detection or monitor).
+   * The type of the deployment rule (faulty_deployment_detection, monitor, or
+   * bits_deployment_analysis).
    *
    * @return type
    */
