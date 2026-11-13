@@ -1015,8 +1015,7 @@ public class MonitorOptions {
   }
 
   /**
-   * List of requests that can be used in the monitor query. <strong>This feature is currently in
-   * beta.</strong>
+   * List of requests that can be used in the monitor query.
    *
    * @return variables
    */

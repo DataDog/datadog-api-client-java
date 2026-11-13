@@ -70,7 +70,8 @@ public class TagRuleScoreRelationshipData {
   }
 
   /**
-   * JSON:API resource type for a tag rule compliance score.
+   * JSON:API resource type for a tag rule compliance score. Responses use <code>tag_policy_score
+   * </code>.
    *
    * @return type
    */
