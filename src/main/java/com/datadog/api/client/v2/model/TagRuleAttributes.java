@@ -362,7 +362,8 @@ public class TagRuleAttributes {
 
   /**
    * How the rule is enforced. <code>blocking</code> rejects telemetry that violates the rule.
-   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
+   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it. RUM
+   * supports only <code>surfacing</code> rules.
    *
    * @return ruleType
    */

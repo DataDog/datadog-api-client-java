@@ -30,11 +30,11 @@ public class Example {
                             .negated(false)
                             .required(true)
                             .ruleType(TagRuleCreateType.SURFACING)
-                            .scope("env")
+                            .scope("env:prod")
                             .source(TagRuleSource.LOGS)
                             .tagKey("service")
                             .tagValuePatterns(Arrays.asList("api", "web")))
-                    .type(TagRuleResourceType.TAG_RULE));
+                    .type(TagRuleResourceType.TAG_POLICY));
 
     try {
       TagRuleResponse result = apiInstance.createTagRule(body);
