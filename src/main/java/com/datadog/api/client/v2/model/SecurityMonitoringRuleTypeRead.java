@@ -32,7 +32,8 @@ public class SecurityMonitoringRuleTypeRead extends ModelEnum<String> {
               "cloud_configuration",
               "application_security",
               "api_security",
-              "workload_activity"));
+              "workload_activity",
+              "workload_hardening"));
 
   public static final SecurityMonitoringRuleTypeRead LOG_DETECTION =
       new SecurityMonitoringRuleTypeRead("log_detection");
@@ -48,6 +49,8 @@ public class SecurityMonitoringRuleTypeRead extends ModelEnum<String> {
       new SecurityMonitoringRuleTypeRead("api_security");
   public static final SecurityMonitoringRuleTypeRead WORKLOAD_ACTIVITY =
       new SecurityMonitoringRuleTypeRead("workload_activity");
+  public static final SecurityMonitoringRuleTypeRead WORKLOAD_HARDENING =
+      new SecurityMonitoringRuleTypeRead("workload_hardening");
 
   SecurityMonitoringRuleTypeRead(String value) {
     super(value, allowedValues);
