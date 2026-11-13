@@ -59,7 +59,8 @@ public class RUMEventProcessingScale {
   }
 
   /**
-   * Configures which RUM events are processed and stored for the application.
+   * Configures which RUM events are processed and stored for the application. Defaults to <code>ALL
+   * </code> when creating an application.
    *
    * @return state
    */

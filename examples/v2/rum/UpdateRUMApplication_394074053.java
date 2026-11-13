@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.RUMApplicationUpdateAttributes;
 import com.datadog.api.client.v2.model.RUMApplicationUpdateRequest;
 import com.datadog.api.client.v2.model.RUMApplicationUpdateType;
 import com.datadog.api.client.v2.model.RUMEventProcessingState;
-import com.datadog.api.client.v2.model.RUMProductAnalyticsRetentionState;
+import com.datadog.api.client.v2.model.RUMProductAnalyticsRetentionStateRequest;
 
 public class Example {
   public static void main(String[] args) {
@@ -28,7 +28,8 @@ public class Example {
                         new RUMApplicationUpdateAttributes()
                             .name("updated_rum_with_product_scales")
                             .rumEventProcessingState(RUMEventProcessingState.ALL)
-                            .productAnalyticsRetentionState(RUMProductAnalyticsRetentionState.MAX))
+                            .productAnalyticsRetentionState(
+                                RUMProductAnalyticsRetentionStateRequest.MAX))
                     .id(RUM_APPLICATION_DATA_ID)
                     .type(RUMApplicationUpdateType.RUM_APPLICATION_UPDATE));
 

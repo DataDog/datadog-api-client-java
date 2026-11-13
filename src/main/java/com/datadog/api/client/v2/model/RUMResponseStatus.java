@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The status of the response. */
+/**
+ * The status of the response. <code>timeout</code> means the query did not complete in time and the
+ * results are partial.
+ */
 @JsonSerialize(using = RUMResponseStatus.RUMResponseStatusSerializer.class)
 public class RUMResponseStatus extends ModelEnum<String> {
 

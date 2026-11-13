@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Configures which RUM events are processed and stored for the application. */
+/**
+ * Configures which RUM events are processed and stored for the application. Defaults to <code>ALL
+ * </code> when creating an application.
+ */
 @JsonSerialize(using = RUMEventProcessingState.RUMEventProcessingStateSerializer.class)
 public class RUMEventProcessingState extends ModelEnum<String> {
 
