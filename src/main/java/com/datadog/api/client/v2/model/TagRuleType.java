@@ -20,7 +20,8 @@ import java.util.Set;
 
 /**
  * How the rule is enforced. <code>blocking</code> rejects telemetry that violates the rule. <code>
- * surfacing</code> only highlights non-compliant telemetry without blocking it.
+ * surfacing</code> only highlights non-compliant telemetry without blocking it. RUM supports only
+ * <code>surfacing</code> rules.
  */
 @JsonSerialize(using = TagRuleType.TagRuleTypeSerializer.class)
 public class TagRuleType extends ModelEnum<String> {
