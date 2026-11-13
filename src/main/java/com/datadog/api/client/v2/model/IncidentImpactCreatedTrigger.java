@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -20,6 +22,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IncidentImpactCreatedTrigger.JSON_PROPERTY_EXECUTION_LIMIT,
   IncidentImpactCreatedTrigger.JSON_PROPERTY_INCIDENT_TYPE,
+  IncidentImpactCreatedTrigger.JSON_PROPERTY_INCIDENT_TYPES,
   IncidentImpactCreatedTrigger.JSON_PROPERTY_TAG_CONDITION
 })
 @jakarta.annotation.Generated(
@@ -31,6 +34,9 @@ public class IncidentImpactCreatedTrigger {
 
   public static final String JSON_PROPERTY_INCIDENT_TYPE = "incidentType";
   private String incidentType;
+
+  public static final String JSON_PROPERTY_INCIDENT_TYPES = "incidentTypes";
+  private List<IncidentTriggerIncidentType> incidentTypes = null;
 
   public static final String JSON_PROPERTY_TAG_CONDITION = "tagCondition";
   private IncidentCondition tagCondition;
@@ -66,10 +72,13 @@ public class IncidentImpactCreatedTrigger {
   }
 
   /**
-   * The type of incident that triggers the workflow.
+   * Deprecated. Use <code>incidentTypes</code> instead. The type of incident that triggers the
+   * workflow.
    *
    * @return incidentType
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,8 +86,51 @@ public class IncidentImpactCreatedTrigger {
     return incidentType;
   }
 
+  @Deprecated
   public void setIncidentType(String incidentType) {
     this.incidentType = incidentType;
+  }
+
+  public IncidentImpactCreatedTrigger incidentTypes(
+      List<IncidentTriggerIncidentType> incidentTypes) {
+    this.incidentTypes = incidentTypes;
+    if (incidentTypes != null) {
+      for (IncidentTriggerIncidentType item : incidentTypes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public IncidentImpactCreatedTrigger addIncidentTypesItem(
+      IncidentTriggerIncidentType incidentTypesItem) {
+    if (this.incidentTypes == null) {
+      this.incidentTypes = new ArrayList<>();
+    }
+    this.incidentTypes.add(incidentTypesItem);
+    this.unparsed |= incidentTypesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The types of incident that trigger the workflow.
+   *
+   * @return incidentTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentTriggerIncidentType> getIncidentTypes() {
+    return incidentTypes;
+  }
+
+  public void setIncidentTypes(List<IncidentTriggerIncidentType> incidentTypes) {
+    this.incidentTypes = incidentTypes;
+    if (incidentTypes != null) {
+      for (IncidentTriggerIncidentType item : incidentTypes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentImpactCreatedTrigger tagCondition(IncidentCondition tagCondition) {
@@ -164,6 +216,7 @@ public class IncidentImpactCreatedTrigger {
     IncidentImpactCreatedTrigger incidentImpactCreatedTrigger = (IncidentImpactCreatedTrigger) o;
     return Objects.equals(this.executionLimit, incidentImpactCreatedTrigger.executionLimit)
         && Objects.equals(this.incidentType, incidentImpactCreatedTrigger.incidentType)
+        && Objects.equals(this.incidentTypes, incidentImpactCreatedTrigger.incidentTypes)
         && Objects.equals(this.tagCondition, incidentImpactCreatedTrigger.tagCondition)
         && Objects.equals(
             this.additionalProperties, incidentImpactCreatedTrigger.additionalProperties);
@@ -171,7 +224,8 @@ public class IncidentImpactCreatedTrigger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(executionLimit, incidentType, tagCondition, additionalProperties);
+    return Objects.hash(
+        executionLimit, incidentType, incidentTypes, tagCondition, additionalProperties);
   }
 
   @Override
@@ -180,6 +234,7 @@ public class IncidentImpactCreatedTrigger {
     sb.append("class IncidentImpactCreatedTrigger {\n");
     sb.append("    executionLimit: ").append(toIndentedString(executionLimit)).append("\n");
     sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
+    sb.append("    incidentTypes: ").append(toIndentedString(incidentTypes)).append("\n");
     sb.append("    tagCondition: ").append(toIndentedString(tagCondition)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
