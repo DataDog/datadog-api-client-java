@@ -24,6 +24,7 @@ import java.util.Objects;
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_EVP_QUERY,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_HIERARCHY_DEPTH,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_INTEGRATION_PROVIDER,
+  LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_MIN_CLUSTER_SIZE,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_MODEL_NAME,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_NAME,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_NUM_RECORDS,
@@ -49,6 +50,9 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
 
   public static final String JSON_PROPERTY_INTEGRATION_PROVIDER = "integration_provider";
   private String integrationProvider;
+
+  public static final String JSON_PROPERTY_MIN_CLUSTER_SIZE = "min_cluster_size";
+  private Integer minClusterSize;
 
   public static final String JSON_PROPERTY_MODEL_NAME = "model_name";
   private String modelName;
@@ -186,6 +190,29 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
 
   public void setIntegrationProvider(String integrationProvider) {
     this.integrationProvider = integrationProvider;
+  }
+
+  public LLMObsPatternsConfigUpsertRequestAttributes minClusterSize(Integer minClusterSize) {
+    this.minClusterSize = minClusterSize;
+    return this;
+  }
+
+  /**
+   * Minimum topic size, the smallest number of interactions a topic must contain. Topics with fewer
+   * interactions are moved to Outliers. Must be at least 2 and less than <code>num_records</code>.
+   * Required when creating a configuration. minimum: 2 maximum: 2147483647
+   *
+   * @return minClusterSize
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MIN_CLUSTER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getMinClusterSize() {
+    return minClusterSize;
+  }
+
+  public void setMinClusterSize(Integer minClusterSize) {
+    this.minClusterSize = minClusterSize;
   }
 
   public LLMObsPatternsConfigUpsertRequestAttributes modelName(String modelName) {
@@ -377,6 +404,8 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
         && Objects.equals(
             this.integrationProvider,
             llmObsPatternsConfigUpsertRequestAttributes.integrationProvider)
+        && Objects.equals(
+            this.minClusterSize, llmObsPatternsConfigUpsertRequestAttributes.minClusterSize)
         && Objects.equals(this.modelName, llmObsPatternsConfigUpsertRequestAttributes.modelName)
         && Objects.equals(this.name, llmObsPatternsConfigUpsertRequestAttributes.name)
         && Objects.equals(this.numRecords, llmObsPatternsConfigUpsertRequestAttributes.numRecords)
@@ -397,6 +426,7 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
         evpQuery,
         hierarchyDepth,
         integrationProvider,
+        minClusterSize,
         modelName,
         name,
         numRecords,
@@ -417,6 +447,7 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
     sb.append("    integrationProvider: ")
         .append(toIndentedString(integrationProvider))
         .append("\n");
+    sb.append("    minClusterSize: ").append(toIndentedString(minClusterSize)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    numRecords: ").append(toIndentedString(numRecords)).append("\n");

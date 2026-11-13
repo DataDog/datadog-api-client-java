@@ -27,6 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LLMObsPatternsConfigItem.JSON_PROPERTY_HIERARCHY_DEPTH,
   LLMObsPatternsConfigItem.JSON_PROPERTY_ID,
   LLMObsPatternsConfigItem.JSON_PROPERTY_INTEGRATION_PROVIDER,
+  LLMObsPatternsConfigItem.JSON_PROPERTY_MIN_CLUSTER_SIZE,
   LLMObsPatternsConfigItem.JSON_PROPERTY_MODEL_NAME,
   LLMObsPatternsConfigItem.JSON_PROPERTY_NAME,
   LLMObsPatternsConfigItem.JSON_PROPERTY_NUM_RECORDS,
@@ -57,6 +58,9 @@ public class LLMObsPatternsConfigItem {
   public static final String JSON_PROPERTY_INTEGRATION_PROVIDER = "integration_provider";
   private JsonNullable<String> integrationProvider = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_MIN_CLUSTER_SIZE = "min_cluster_size";
+  private Integer minClusterSize;
+
   public static final String JSON_PROPERTY_MODEL_NAME = "model_name";
   private JsonNullable<String> modelName = JsonNullable.<String>undefined();
 
@@ -86,6 +90,7 @@ public class LLMObsPatternsConfigItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_EVP_QUERY) String evpQuery,
       @JsonProperty(required = true, value = JSON_PROPERTY_HIERARCHY_DEPTH) Integer hierarchyDepth,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MIN_CLUSTER_SIZE) Integer minClusterSize,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_NUM_RECORDS) Integer numRecords,
       @JsonProperty(required = true, value = JSON_PROPERTY_SAMPLING_RATIO) Double samplingRatio,
@@ -95,6 +100,7 @@ public class LLMObsPatternsConfigItem {
     this.evpQuery = evpQuery;
     this.hierarchyDepth = hierarchyDepth;
     this.id = id;
+    this.minClusterSize = minClusterSize;
     this.name = name;
     this.numRecords = numRecords;
     this.samplingRatio = samplingRatio;
@@ -242,6 +248,27 @@ public class LLMObsPatternsConfigItem {
 
   public void setIntegrationProvider(String integrationProvider) {
     this.integrationProvider = JsonNullable.<String>of(integrationProvider);
+  }
+
+  public LLMObsPatternsConfigItem minClusterSize(Integer minClusterSize) {
+    this.minClusterSize = minClusterSize;
+    return this;
+  }
+
+  /**
+   * Minimum topic size, the smallest number of interactions a topic must contain. Topics with fewer
+   * interactions are moved to Outliers. minimum: 2 maximum: 2147483647
+   *
+   * @return minClusterSize
+   */
+  @JsonProperty(JSON_PROPERTY_MIN_CLUSTER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getMinClusterSize() {
+    return minClusterSize;
+  }
+
+  public void setMinClusterSize(Integer minClusterSize) {
+    this.minClusterSize = minClusterSize;
   }
 
   public LLMObsPatternsConfigItem modelName(String modelName) {
@@ -468,6 +495,7 @@ public class LLMObsPatternsConfigItem {
         && Objects.equals(this.hierarchyDepth, llmObsPatternsConfigItem.hierarchyDepth)
         && Objects.equals(this.id, llmObsPatternsConfigItem.id)
         && Objects.equals(this.integrationProvider, llmObsPatternsConfigItem.integrationProvider)
+        && Objects.equals(this.minClusterSize, llmObsPatternsConfigItem.minClusterSize)
         && Objects.equals(this.modelName, llmObsPatternsConfigItem.modelName)
         && Objects.equals(this.name, llmObsPatternsConfigItem.name)
         && Objects.equals(this.numRecords, llmObsPatternsConfigItem.numRecords)
@@ -487,6 +515,7 @@ public class LLMObsPatternsConfigItem {
         hierarchyDepth,
         id,
         integrationProvider,
+        minClusterSize,
         modelName,
         name,
         numRecords,
@@ -509,6 +538,7 @@ public class LLMObsPatternsConfigItem {
     sb.append("    integrationProvider: ")
         .append(toIndentedString(integrationProvider))
         .append("\n");
+    sb.append("    minClusterSize: ").append(toIndentedString(minClusterSize)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    numRecords: ").append(toIndentedString(numRecords)).append("\n");
