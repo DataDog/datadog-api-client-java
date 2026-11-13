@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumApi;
+import com.datadog.api.client.v2.model.RUMApplicationPlatformType;
 import com.datadog.api.client.v2.model.RUMApplicationResponse;
 import com.datadog.api.client.v2.model.RUMApplicationUpdate;
 import com.datadog.api.client.v2.model.RUMApplicationUpdateAttributes;
@@ -25,7 +26,7 @@ public class Example {
                     .attributes(
                         new RUMApplicationUpdateAttributes()
                             .name("updated_name_for_my_existing_rum_application")
-                            .type("browser"))
+                            .type(RUMApplicationPlatformType.BROWSER))
                     .id(RUM_APPLICATION_DATA_ID)
                     .type(RUMApplicationUpdateType.RUM_APPLICATION_UPDATE));
 

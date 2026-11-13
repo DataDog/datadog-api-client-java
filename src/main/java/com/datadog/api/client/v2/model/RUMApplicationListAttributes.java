@@ -201,8 +201,8 @@ public class RUMApplicationListAttributes {
   }
 
   /**
-   * Sample rate (0-100) of Session Replay for APM-correlated RUM sessions when flat sampling is
-   * enabled.
+   * Fraction (0 to 1) of APM-correlated RUM sessions with Session Replay when flat sampling is
+   * enabled. minimum: 0 maximum: 1
    *
    * @return apmRumFlatSamplingReplaySampleRate
    */
@@ -506,7 +506,7 @@ public class RUMApplicationListAttributes {
   }
 
   /**
-   * Sample rate (0-100) of Session Replay for Product Analytics sessions. maximum: 2147483647
+   * Sample rate (0-100) of Session Replay for Product Analytics sessions. minimum: 0 maximum: 100
    *
    * @return productAnalyticsReplaySampleRate
    */
@@ -623,9 +623,12 @@ public class RUMApplicationListAttributes {
   }
 
   /**
-   * Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>,
-   * <code>android</code>, <code>react-native</code>, <code>flutter</code>, <code>roku</code>,
-   * <code>electron</code>, <code>unity</code>, <code>kotlin-multiplatform</code>.
+   * Type of the RUM application. Possible values are <code>browser</code>, <code>ios</code>, <code>
+   * android</code>, <code>react-native</code>, <code>flutter</code>, <code>roku</code>, <code>
+   * electron</code>, <code>unity</code>, <code>kotlin-multiplatform</code>, <code>react</code>,
+   * <code>nextjs</code>, <code>angular</code>, <code>vuejs</code>, <code>nuxt</code>, <code>
+   * tanstack</code>, <code>maui</code>, <code>salesforce-lwc</code>, <code>shopify</code>, <code>
+   * cpp</code>, <code>unreal</code>.
    *
    * @return type
    */

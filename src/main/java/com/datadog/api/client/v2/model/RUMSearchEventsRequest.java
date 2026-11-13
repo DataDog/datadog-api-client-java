@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The request for a RUM events list. */
+/**
+ * The request for a RUM events list. All attributes are optional: without any, the request returns
+ * the first 10 events of the last 15 minutes.
+ */
 @JsonPropertyOrder({
   RUMSearchEventsRequest.JSON_PROPERTY_FILTER,
   RUMSearchEventsRequest.JSON_PROPERTY_OPTIONS,
