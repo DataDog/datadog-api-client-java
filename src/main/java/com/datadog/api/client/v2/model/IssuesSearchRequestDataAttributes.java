@@ -132,7 +132,8 @@ public class IssuesSearchRequestDataAttributes {
   }
 
   /**
-   * The attribute to sort the search results by.
+   * The attribute to sort the search results by, in descending order. Defaults to <code>TOTAL_COUNT
+   * </code>.
    *
    * @return orderBy
    */
@@ -158,7 +159,8 @@ public class IssuesSearchRequestDataAttributes {
   }
 
   /**
-   * Persona for the search. Either track(s) or persona(s) must be specified.
+   * Persona for the search. Either <code>track</code> or <code>persona</code> must be specified.
+   * Ignored if <code>track</code> is specified.
    *
    * @return persona
    */
@@ -282,7 +284,8 @@ public class IssuesSearchRequestDataAttributes {
   }
 
   /**
-   * Track of the events to query. Either track(s) or persona(s) must be specified.
+   * Track of the events to query. Either <code>track</code> or <code>persona</code> must be
+   * specified. If both are specified, <code>persona</code> is ignored.
    *
    * @return track
    */

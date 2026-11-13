@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Track of the events to query. Either track(s) or persona(s) must be specified. */
+/**
+ * Track of the events to query. Either <code>track</code> or <code>persona</code> must be
+ * specified. If both are specified, <code>persona</code> is ignored.
+ */
 @JsonSerialize(
     using =
         IssuesSearchRequestDataAttributesTrack.IssuesSearchRequestDataAttributesTrackSerializer
@@ -26,7 +29,7 @@ import java.util.Set;
 public class IssuesSearchRequestDataAttributesTrack extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("trace", "logs", "rum"));
+      new HashSet<String>(Arrays.asList("trace", "logs", "rum", "llmobs"));
 
   public static final IssuesSearchRequestDataAttributesTrack TRACE =
       new IssuesSearchRequestDataAttributesTrack("trace");
@@ -34,6 +37,8 @@ public class IssuesSearchRequestDataAttributesTrack extends ModelEnum<String> {
       new IssuesSearchRequestDataAttributesTrack("logs");
   public static final IssuesSearchRequestDataAttributesTrack RUM =
       new IssuesSearchRequestDataAttributesTrack("rum");
+  public static final IssuesSearchRequestDataAttributesTrack LLMOBS =
+      new IssuesSearchRequestDataAttributesTrack("llmobs");
 
   IssuesSearchRequestDataAttributesTrack(String value) {
     super(value, allowedValues);
