@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
@@ -26,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_NAME,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_OUTPUT_TOKENS_PER_MINUTE,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_REQUESTS_PER_MINUTE,
+  AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_SELECTOR,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_TAGS,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_TEAM_ID,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_USER_ID
@@ -48,6 +51,10 @@ public class AiGatewayRateLimitCreateAttributes {
 
   public static final String JSON_PROPERTY_REQUESTS_PER_MINUTE = "requests_per_minute";
   private JsonNullable<Long> requestsPerMinute = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_SELECTOR = "selector";
+  private JsonNullable<List<AiGatewayRateLimitSelectorEntry>> selector =
+      JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>undefined();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = null;
@@ -206,6 +213,54 @@ public class AiGatewayRateLimitCreateAttributes {
     this.requestsPerMinute = JsonNullable.<Long>of(requestsPerMinute);
   }
 
+  public AiGatewayRateLimitCreateAttributes selector(
+      List<AiGatewayRateLimitSelectorEntry> selector) {
+    this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(selector);
+    return this;
+  }
+
+  public AiGatewayRateLimitCreateAttributes addSelectorItem(
+      AiGatewayRateLimitSelectorEntry selectorItem) {
+    if (this.selector == null || !this.selector.isPresent()) {
+      this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(new ArrayList<>());
+    }
+    try {
+      this.selector.get().add(selectorItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Dimension rules for a template rate limit, which gives each matched user, Team, or value its
+   * own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and
+   * can't be changed after creation. Omit for a rule with one shared allowance.
+   *
+   * @return selector
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<AiGatewayRateLimitSelectorEntry> getSelector() {
+    return selector.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<AiGatewayRateLimitSelectorEntry>> getSelector_JsonNullable() {
+    return selector;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SELECTOR)
+  public void setSelector_JsonNullable(
+      JsonNullable<List<AiGatewayRateLimitSelectorEntry>> selector) {
+    this.selector = selector;
+  }
+
+  public void setSelector(List<AiGatewayRateLimitSelectorEntry> selector) {
+    this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(selector);
+  }
+
   public AiGatewayRateLimitCreateAttributes tags(Map<String, String> tags) {
     this.tags = tags;
     return this;
@@ -344,6 +399,7 @@ public class AiGatewayRateLimitCreateAttributes {
             this.outputTokensPerMinute, aiGatewayRateLimitCreateAttributes.outputTokensPerMinute)
         && Objects.equals(
             this.requestsPerMinute, aiGatewayRateLimitCreateAttributes.requestsPerMinute)
+        && Objects.equals(this.selector, aiGatewayRateLimitCreateAttributes.selector)
         && Objects.equals(this.tags, aiGatewayRateLimitCreateAttributes.tags)
         && Objects.equals(this.teamId, aiGatewayRateLimitCreateAttributes.teamId)
         && Objects.equals(this.userId, aiGatewayRateLimitCreateAttributes.userId)
@@ -359,6 +415,7 @@ public class AiGatewayRateLimitCreateAttributes {
         name,
         outputTokensPerMinute,
         requestsPerMinute,
+        selector,
         tags,
         teamId,
         userId,
@@ -378,6 +435,7 @@ public class AiGatewayRateLimitCreateAttributes {
         .append(toIndentedString(outputTokensPerMinute))
         .append("\n");
     sb.append("    requestsPerMinute: ").append(toIndentedString(requestsPerMinute)).append("\n");
+    sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");

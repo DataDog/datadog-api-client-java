@@ -14,7 +14,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
@@ -26,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayRateLimitAttributes.JSON_PROPERTY_CREATED_BY,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_ENABLED,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_INPUT_TOKENS_PER_MINUTE,
+  AiGatewayRateLimitAttributes.JSON_PROPERTY_IS_TEMPLATE,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_MODE,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_MONITOR_ID,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_NAME,
@@ -33,8 +36,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayRateLimitAttributes.JSON_PROPERTY_REQUESTS_PER_MINUTE,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_REVISION,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_SCOPE_RESTRICTED,
+  AiGatewayRateLimitAttributes.JSON_PROPERTY_SELECTOR,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_TAGS,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_TEAM_ID,
+  AiGatewayRateLimitAttributes.JSON_PROPERTY_TEMPLATE_SPLIT_DIMS,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_UPDATED_AT,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_UPDATED_BY,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_USER_ID
@@ -54,6 +59,9 @@ public class AiGatewayRateLimitAttributes {
 
   public static final String JSON_PROPERTY_INPUT_TOKENS_PER_MINUTE = "input_tokens_per_minute";
   private JsonNullable<Long> inputTokensPerMinute = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_IS_TEMPLATE = "is_template";
+  private Boolean isTemplate;
 
   public static final String JSON_PROPERTY_MODE = "mode";
   private AiGatewayRateLimitMode mode;
@@ -76,11 +84,18 @@ public class AiGatewayRateLimitAttributes {
   public static final String JSON_PROPERTY_SCOPE_RESTRICTED = "scope_restricted";
   private Boolean scopeRestricted;
 
+  public static final String JSON_PROPERTY_SELECTOR = "selector";
+  private JsonNullable<List<AiGatewayRateLimitSelectorEntry>> selector =
+      JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>undefined();
+
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<String, String>();
 
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
   private JsonNullable<UUID> teamId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_TEMPLATE_SPLIT_DIMS = "template_split_dims";
+  private List<String> templateSplitDims = null;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
@@ -185,8 +200,9 @@ public class AiGatewayRateLimitAttributes {
   }
 
   /**
-   * Maximum input tokens per rolling minute shared by all matching traffic. Null when this rule
-   * does not limit input tokens. minimum: 1 maximum: 100000000000
+   * Maximum input tokens per rolling minute shared by all matching traffic, or per counter for a
+   * template rate limit. Null when this rule does not limit input tokens. minimum: 1 maximum:
+   * 100000000000
    *
    * @return inputTokensPerMinute
    */
@@ -209,6 +225,28 @@ public class AiGatewayRateLimitAttributes {
 
   public void setInputTokensPerMinute(Long inputTokensPerMinute) {
     this.inputTokensPerMinute = JsonNullable.<Long>of(inputTokensPerMinute);
+  }
+
+  public AiGatewayRateLimitAttributes isTemplate(Boolean isTemplate) {
+    this.isTemplate = isTemplate;
+    return this;
+  }
+
+  /**
+   * Whether the selector gives each matching value its own allowance, that is, whether it has at
+   * least one per_value entry. Returned even when scope_restricted hides the selector.
+   *
+   * @return isTemplate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsTemplate() {
+    return isTemplate;
+  }
+
+  public void setIsTemplate(Boolean isTemplate) {
+    this.isTemplate = isTemplate;
   }
 
   public AiGatewayRateLimitAttributes mode(AiGatewayRateLimitMode mode) {
@@ -292,8 +330,9 @@ public class AiGatewayRateLimitAttributes {
   }
 
   /**
-   * Maximum output tokens per rolling minute shared by all matching traffic. Null when this rule
-   * does not limit output tokens. minimum: 1 maximum: 100000000000
+   * Maximum output tokens per rolling minute shared by all matching traffic, or per counter for a
+   * template rate limit. Null when this rule does not limit output tokens. minimum: 1 maximum:
+   * 100000000000
    *
    * @return outputTokensPerMinute
    */
@@ -324,8 +363,8 @@ public class AiGatewayRateLimitAttributes {
   }
 
   /**
-   * Maximum requests per rolling minute shared by all matching traffic. Null when this rule does
-   * not limit requests. minimum: 1 maximum: 10000000
+   * Maximum requests per rolling minute shared by all matching traffic, or per counter for a
+   * template rate limit. Null when this rule does not limit requests. minimum: 1 maximum: 10000000
    *
    * @return requestsPerMinute
    */
@@ -391,6 +430,53 @@ public class AiGatewayRateLimitAttributes {
     this.scopeRestricted = scopeRestricted;
   }
 
+  public AiGatewayRateLimitAttributes selector(List<AiGatewayRateLimitSelectorEntry> selector) {
+    this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(selector);
+    return this;
+  }
+
+  public AiGatewayRateLimitAttributes addSelectorItem(
+      AiGatewayRateLimitSelectorEntry selectorItem) {
+    if (this.selector == null || !this.selector.isPresent()) {
+      this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(new ArrayList<>());
+    }
+    try {
+      this.selector.get().add(selectorItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Dimension rules for a template rate limit, which gives each matched user, Team, or value its
+   * own allowance with the rule's limits. Can't be combined with user_id, team_id, or tags, and
+   * can't be changed after creation. Omit for a rule with one shared allowance.
+   *
+   * @return selector
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<AiGatewayRateLimitSelectorEntry> getSelector() {
+    return selector.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<AiGatewayRateLimitSelectorEntry>> getSelector_JsonNullable() {
+    return selector;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SELECTOR)
+  public void setSelector_JsonNullable(
+      JsonNullable<List<AiGatewayRateLimitSelectorEntry>> selector) {
+    this.selector = selector;
+  }
+
+  public void setSelector(List<AiGatewayRateLimitSelectorEntry> selector) {
+    this.selector = JsonNullable.<List<AiGatewayRateLimitSelectorEntry>>of(selector);
+  }
+
   public AiGatewayRateLimitAttributes tags(Map<String, String> tags) {
     this.tags = tags;
     return this;
@@ -446,6 +532,37 @@ public class AiGatewayRateLimitAttributes {
 
   public void setTeamId(UUID teamId) {
     this.teamId = JsonNullable.<UUID>of(teamId);
+  }
+
+  public AiGatewayRateLimitAttributes templateSplitDims(List<String> templateSplitDims) {
+    this.templateSplitDims = templateSplitDims;
+    return this;
+  }
+
+  public AiGatewayRateLimitAttributes addTemplateSplitDimsItem(String templateSplitDimsItem) {
+    if (this.templateSplitDims == null) {
+      this.templateSplitDims = new ArrayList<>();
+    }
+    this.templateSplitDims.add(templateSplitDimsItem);
+    return this;
+  }
+
+  /**
+   * Dimensions of the selector's per_value entries, such as user_id or tag:env, each matching value
+   * of which gets its own allowance. Empty unless is_template is true. Returned even when
+   * scope_restricted hides the selector.
+   *
+   * @return templateSplitDims
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_SPLIT_DIMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTemplateSplitDims() {
+    return templateSplitDims;
+  }
+
+  public void setTemplateSplitDims(List<String> templateSplitDims) {
+    this.templateSplitDims = templateSplitDims;
   }
 
   public AiGatewayRateLimitAttributes updatedAt(OffsetDateTime updatedAt) {
@@ -580,6 +697,7 @@ public class AiGatewayRateLimitAttributes {
         && Objects.equals(this.enabled, aiGatewayRateLimitAttributes.enabled)
         && Objects.equals(
             this.inputTokensPerMinute, aiGatewayRateLimitAttributes.inputTokensPerMinute)
+        && Objects.equals(this.isTemplate, aiGatewayRateLimitAttributes.isTemplate)
         && Objects.equals(this.mode, aiGatewayRateLimitAttributes.mode)
         && Objects.equals(this.monitorId, aiGatewayRateLimitAttributes.monitorId)
         && Objects.equals(this.name, aiGatewayRateLimitAttributes.name)
@@ -588,8 +706,10 @@ public class AiGatewayRateLimitAttributes {
         && Objects.equals(this.requestsPerMinute, aiGatewayRateLimitAttributes.requestsPerMinute)
         && Objects.equals(this.revision, aiGatewayRateLimitAttributes.revision)
         && Objects.equals(this.scopeRestricted, aiGatewayRateLimitAttributes.scopeRestricted)
+        && Objects.equals(this.selector, aiGatewayRateLimitAttributes.selector)
         && Objects.equals(this.tags, aiGatewayRateLimitAttributes.tags)
         && Objects.equals(this.teamId, aiGatewayRateLimitAttributes.teamId)
+        && Objects.equals(this.templateSplitDims, aiGatewayRateLimitAttributes.templateSplitDims)
         && Objects.equals(this.updatedAt, aiGatewayRateLimitAttributes.updatedAt)
         && Objects.equals(this.updatedBy, aiGatewayRateLimitAttributes.updatedBy)
         && Objects.equals(this.userId, aiGatewayRateLimitAttributes.userId)
@@ -604,6 +724,7 @@ public class AiGatewayRateLimitAttributes {
         createdBy,
         enabled,
         inputTokensPerMinute,
+        isTemplate,
         mode,
         monitorId,
         name,
@@ -611,8 +732,10 @@ public class AiGatewayRateLimitAttributes {
         requestsPerMinute,
         revision,
         scopeRestricted,
+        selector,
         tags,
         teamId,
+        templateSplitDims,
         updatedAt,
         updatedBy,
         userId,
@@ -629,6 +752,7 @@ public class AiGatewayRateLimitAttributes {
     sb.append("    inputTokensPerMinute: ")
         .append(toIndentedString(inputTokensPerMinute))
         .append("\n");
+    sb.append("    isTemplate: ").append(toIndentedString(isTemplate)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -638,8 +762,10 @@ public class AiGatewayRateLimitAttributes {
     sb.append("    requestsPerMinute: ").append(toIndentedString(requestsPerMinute)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    scopeRestricted: ").append(toIndentedString(scopeRestricted)).append("\n");
+    sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    templateSplitDims: ").append(toIndentedString(templateSplitDims)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");

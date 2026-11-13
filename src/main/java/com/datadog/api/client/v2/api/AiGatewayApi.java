@@ -44,6 +44,9 @@ import com.datadog.api.client.v2.model.AiGatewayProviderListResponse;
 import com.datadog.api.client.v2.model.AiGatewayProviderResponse;
 import com.datadog.api.client.v2.model.AiGatewayProviderUpdateRequest;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitCreateRequest;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitInstanceListResponse;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitInstanceSort;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitInstancesSummaryResponse;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitListResponse;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitResponse;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitUpdateRequest;
@@ -1117,9 +1120,11 @@ public class AiGatewayApi {
   }
 
   /**
-   * Create a rate limit. All requests matching its scope share one allowance, and every matching
-   * rate limit applies. Returns 409 when another active rate limit has the same user, Team, and
-   * tags, or when the organization already has the maximum number of rate limits.
+   * Create a rate limit. All requests matching its scope share one allowance, unless a selector
+   * makes it a template, which gives each matched user, Team, or value its own allowance. Every
+   * matching rate limit applies. Returns 409 when another active rate limit has the same user,
+   * Team, tags, and selector, or when the organization already has the maximum number of rate
+   * limits.
    *
    * @param body (required)
    * @return ApiResponse&lt;AiGatewayRateLimitResponse&gt;
@@ -4748,6 +4753,243 @@ public class AiGatewayApi {
         new GenericType<AiGatewayRateLimitResponse>() {});
   }
 
+  /** Manage optional parameters to getAiGatewayRateLimitInstancesSummary. */
+  public static class GetAiGatewayRateLimitInstancesSummaryOptionalParameters {
+    private List<String> splitDim;
+
+    /**
+     * Set splitDim.
+     *
+     * @param splitDim Keep only counters whose split dimension equals a value, written as <code>
+     *     &lt;dim&gt;=&lt;value&gt;</code>, such as <code>
+     *     split_dim=user_id=&lt;uuid&gt;&amp;split_dim=model=gpt-4o</code>. Dimensions use the
+     *     <code>split_dims</code> names <code>user_id</code>, <code>team_id</code>, <code>model
+     *     </code>, <code>provider</code>, and <code>tag:&lt;key&gt;</code>. Repeat the parameter to
+     *     filter on several dimensions; a counter must match all of them. Each dimension may appear
+     *     once and must be a per-value dimension of the rate limit. (optional)
+     * @return GetAiGatewayRateLimitInstancesSummaryOptionalParameters
+     */
+    public GetAiGatewayRateLimitInstancesSummaryOptionalParameters splitDim(List<String> splitDim) {
+      this.splitDim = splitDim;
+      return this;
+    }
+  }
+
+  /**
+   * Get an AI Gateway rate limit counter summary.
+   *
+   * <p>See {@link #getAiGatewayRateLimitInstancesSummaryWithHttpInfo}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @return AiGatewayRateLimitInstancesSummaryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayRateLimitInstancesSummaryResponse getAiGatewayRateLimitInstancesSummary(UUID id)
+      throws ApiException {
+    return getAiGatewayRateLimitInstancesSummaryWithHttpInfo(
+            id, new GetAiGatewayRateLimitInstancesSummaryOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get an AI Gateway rate limit counter summary.
+   *
+   * <p>See {@link #getAiGatewayRateLimitInstancesSummaryWithHttpInfoAsync}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @return CompletableFuture&lt;AiGatewayRateLimitInstancesSummaryResponse&gt;
+   */
+  public CompletableFuture<AiGatewayRateLimitInstancesSummaryResponse>
+      getAiGatewayRateLimitInstancesSummaryAsync(UUID id) {
+    return getAiGatewayRateLimitInstancesSummaryWithHttpInfoAsync(
+            id, new GetAiGatewayRateLimitInstancesSummaryOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an AI Gateway rate limit counter summary.
+   *
+   * <p>See {@link #getAiGatewayRateLimitInstancesSummaryWithHttpInfo}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return AiGatewayRateLimitInstancesSummaryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayRateLimitInstancesSummaryResponse getAiGatewayRateLimitInstancesSummary(
+      UUID id, GetAiGatewayRateLimitInstancesSummaryOptionalParameters parameters)
+      throws ApiException {
+    return getAiGatewayRateLimitInstancesSummaryWithHttpInfo(id, parameters).getData();
+  }
+
+  /**
+   * Get an AI Gateway rate limit counter summary.
+   *
+   * <p>See {@link #getAiGatewayRateLimitInstancesSummaryWithHttpInfoAsync}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;AiGatewayRateLimitInstancesSummaryResponse&gt;
+   */
+  public CompletableFuture<AiGatewayRateLimitInstancesSummaryResponse>
+      getAiGatewayRateLimitInstancesSummaryAsync(
+          UUID id, GetAiGatewayRateLimitInstancesSummaryOptionalParameters parameters) {
+    return getAiGatewayRateLimitInstancesSummaryWithHttpInfoAsync(id, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Aggregate a template rate limit's counters, including how many there are, how many are near or
+   * at their limit, and the fullest counter's utilization. Use split_dim to aggregate only counters
+   * that match every given dimension value. When the caller can't see the template's selector,
+   * every count is zero and scope_restricted is true. Summaries are cached for up to 15 seconds.
+   * Returns 503 when counter usage can't be read.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;AiGatewayRateLimitInstancesSummaryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiGatewayRateLimitInstancesSummaryResponse>
+      getAiGatewayRateLimitInstancesSummaryWithHttpInfo(
+          UUID id, GetAiGatewayRateLimitInstancesSummaryOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAiGatewayRateLimitInstancesSummary";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'id' when calling getAiGatewayRateLimitInstancesSummary");
+    }
+    List<String> splitDim = parameters.splitDim;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rate-limits/{id}/instances/summary"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "split_dim", splitDim));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.getAiGatewayRateLimitInstancesSummary",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayRateLimitInstancesSummaryResponse>() {});
+  }
+
+  /**
+   * Get an AI Gateway rate limit counter summary.
+   *
+   * <p>See {@link #getAiGatewayRateLimitInstancesSummaryWithHttpInfo}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;AiGatewayRateLimitInstancesSummaryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiGatewayRateLimitInstancesSummaryResponse>>
+      getAiGatewayRateLimitInstancesSummaryWithHttpInfoAsync(
+          UUID id, GetAiGatewayRateLimitInstancesSummaryOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getAiGatewayRateLimitInstancesSummary";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstancesSummaryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstancesSummaryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling"
+                  + " getAiGatewayRateLimitInstancesSummary"));
+      return result;
+    }
+    List<String> splitDim = parameters.splitDim;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rate-limits/{id}/instances/summary"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "split_dim", splitDim));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.getAiGatewayRateLimitInstancesSummary",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstancesSummaryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayRateLimitInstancesSummaryResponse>() {});
+  }
+
   /**
    * Get AI Gateway rate limit usage.
    *
@@ -6854,6 +7096,291 @@ public class AiGatewayApi {
         new GenericType<AiGatewayProviderListResponse>() {});
   }
 
+  /** Manage optional parameters to listAiGatewayRateLimitInstances. */
+  public static class ListAiGatewayRateLimitInstancesOptionalParameters {
+    private List<String> splitDim;
+    private AiGatewayRateLimitInstanceSort sort;
+    private Long limit;
+    private Long offset;
+
+    /**
+     * Set splitDim.
+     *
+     * @param splitDim Keep only counters whose split dimension equals a value, written as <code>
+     *     &lt;dim&gt;=&lt;value&gt;</code>, such as <code>
+     *     split_dim=user_id=&lt;uuid&gt;&amp;split_dim=model=gpt-4o</code>. Dimensions use the
+     *     <code>split_dims</code> names <code>user_id</code>, <code>team_id</code>, <code>model
+     *     </code>, <code>provider</code>, and <code>tag:&lt;key&gt;</code>. Repeat the parameter to
+     *     filter on several dimensions; a counter must match all of them. Each dimension may appear
+     *     once and must be a per-value dimension of the rate limit. (optional)
+     * @return ListAiGatewayRateLimitInstancesOptionalParameters
+     */
+    public ListAiGatewayRateLimitInstancesOptionalParameters splitDim(List<String> splitDim) {
+      this.splitDim = splitDim;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort order for rate limit counters. (optional, default to "utilization_desc")
+     * @return ListAiGatewayRateLimitInstancesOptionalParameters
+     */
+    public ListAiGatewayRateLimitInstancesOptionalParameters sort(
+        AiGatewayRateLimitInstanceSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit Maximum number of rate limit counters to return. (optional, default to 50)
+     * @return ListAiGatewayRateLimitInstancesOptionalParameters
+     */
+    public ListAiGatewayRateLimitInstancesOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set offset.
+     *
+     * @param offset Number of rate limit counters to skip. (optional, default to 0)
+     * @return ListAiGatewayRateLimitInstancesOptionalParameters
+     */
+    public ListAiGatewayRateLimitInstancesOptionalParameters offset(Long offset) {
+      this.offset = offset;
+      return this;
+    }
+  }
+
+  /**
+   * List AI Gateway rate limit counters.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesWithHttpInfo}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @return AiGatewayRateLimitInstanceListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayRateLimitInstanceListResponse listAiGatewayRateLimitInstances(UUID id)
+      throws ApiException {
+    return listAiGatewayRateLimitInstancesWithHttpInfo(
+            id, new ListAiGatewayRateLimitInstancesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List AI Gateway rate limit counters.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesWithHttpInfoAsync}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @return CompletableFuture&lt;AiGatewayRateLimitInstanceListResponse&gt;
+   */
+  public CompletableFuture<AiGatewayRateLimitInstanceListResponse>
+      listAiGatewayRateLimitInstancesAsync(UUID id) {
+    return listAiGatewayRateLimitInstancesWithHttpInfoAsync(
+            id, new ListAiGatewayRateLimitInstancesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List AI Gateway rate limit counters.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesWithHttpInfo}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return AiGatewayRateLimitInstanceListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayRateLimitInstanceListResponse listAiGatewayRateLimitInstances(
+      UUID id, ListAiGatewayRateLimitInstancesOptionalParameters parameters) throws ApiException {
+    return listAiGatewayRateLimitInstancesWithHttpInfo(id, parameters).getData();
+  }
+
+  /**
+   * List AI Gateway rate limit counters.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesWithHttpInfoAsync}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;AiGatewayRateLimitInstanceListResponse&gt;
+   */
+  public CompletableFuture<AiGatewayRateLimitInstanceListResponse>
+      listAiGatewayRateLimitInstancesAsync(
+          UUID id, ListAiGatewayRateLimitInstancesOptionalParameters parameters) {
+    return listAiGatewayRateLimitInstancesWithHttpInfoAsync(id, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the counters of a template rate limit, one per matched user, Team, or value, with their
+   * live usage. Counters appear within a few minutes of their first request and are dropped after
+   * 30 days without one. Usage is read for counters seen in the last 20 minutes, at most 200 per
+   * request; past that, rows carry usage_known false. Counters for a provider or model the caller
+   * can't see are left out, and when the caller can't see the template's selector, the list is
+   * empty. A rate limit with one shared allowance, including one whose selector has no per_value
+   * entry, returns an empty list. Returns 503 when counter usage can't be read.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;AiGatewayRateLimitInstanceListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiGatewayRateLimitInstanceListResponse>
+      listAiGatewayRateLimitInstancesWithHttpInfo(
+          UUID id, ListAiGatewayRateLimitInstancesOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAiGatewayRateLimitInstances";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling listAiGatewayRateLimitInstances");
+    }
+    List<String> splitDim = parameters.splitDim;
+    AiGatewayRateLimitInstanceSort sort = parameters.sort;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rate-limits/{id}/instances"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "split_dim", splitDim));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.listAiGatewayRateLimitInstances",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayRateLimitInstanceListResponse>() {});
+  }
+
+  /**
+   * List AI Gateway rate limit counters.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesWithHttpInfo}.
+   *
+   * @param id Rate limit UUID. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;AiGatewayRateLimitInstanceListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiGatewayRateLimitInstanceListResponse>>
+      listAiGatewayRateLimitInstancesWithHttpInfoAsync(
+          UUID id, ListAiGatewayRateLimitInstancesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listAiGatewayRateLimitInstances";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstanceListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstanceListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling listAiGatewayRateLimitInstances"));
+      return result;
+    }
+    List<String> splitDim = parameters.splitDim;
+    AiGatewayRateLimitInstanceSort sort = parameters.sort;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rate-limits/{id}/instances"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "split_dim", splitDim));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.listAiGatewayRateLimitInstances",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstanceListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayRateLimitInstanceListResponse>() {});
+  }
+
   /**
    * List AI Gateway rate limits.
    *
@@ -8824,8 +9351,9 @@ public class AiGatewayApi {
   }
 
   /**
-   * Update a rate limit. Only the attributes sent are changed. Scope stays editable, and changes
-   * never reset current usage. Returns 409 when the rule was changed concurrently or the new scope
+   * Update a rate limit. Only the attributes sent are changed, and changes never reset current
+   * usage. Scope stays editable, except on a template rate limit, whose user_id, team_id, and tags
+   * are rejected with 400. Returns 409 when the rule was changed concurrently or the new scope
    * duplicates another rule.
    *
    * @param id Rate limit UUID. (required)
