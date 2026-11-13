@@ -47,6 +47,8 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_DBM_HOST_TOP99P,
   UsageBillableSummaryKeys.JSON_PROPERTY_DBM_NORMALIZED_QUERIES_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_DBM_NORMALIZED_QUERIES_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_ERROR_TRACKING_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_ERROR_TRACKING_TIERED_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_FARGATE_CONTAINER_APM_AND_PROFILER_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_FARGATE_CONTAINER_APM_AND_PROFILER_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_FARGATE_CONTAINER_AVERAGE,
@@ -205,6 +207,12 @@ public class UsageBillableSummaryKeys {
   public static final String JSON_PROPERTY_DBM_NORMALIZED_QUERIES_SUM =
       "dbm_normalized_queries_sum";
   private UsageBillableSummaryBody dbmNormalizedQueriesSum;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_SUM = "error_tracking_sum";
+  private UsageBillableSummaryBody errorTrackingSum;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_TIERED_SUM = "error_tracking_tiered_sum";
+  private UsageBillableSummaryBody errorTrackingTieredSum;
 
   public static final String JSON_PROPERTY_FARGATE_CONTAINER_APM_AND_PROFILER_AVERAGE =
       "fargate_container_apm_and_profiler_average";
@@ -1132,6 +1140,57 @@ public class UsageBillableSummaryKeys {
     this.dbmNormalizedQueriesSum = dbmNormalizedQueriesSum;
     if (dbmNormalizedQueriesSum != null) {
       this.unparsed |= dbmNormalizedQueriesSum.unparsed;
+    }
+  }
+
+  public UsageBillableSummaryKeys errorTrackingSum(UsageBillableSummaryBody errorTrackingSum) {
+    this.errorTrackingSum = errorTrackingSum;
+    this.unparsed |= errorTrackingSum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return errorTrackingSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getErrorTrackingSum() {
+    return errorTrackingSum;
+  }
+
+  public void setErrorTrackingSum(UsageBillableSummaryBody errorTrackingSum) {
+    this.errorTrackingSum = errorTrackingSum;
+    if (errorTrackingSum != null) {
+      this.unparsed |= errorTrackingSum.unparsed;
+    }
+  }
+
+  public UsageBillableSummaryKeys errorTrackingTieredSum(
+      UsageBillableSummaryBody errorTrackingTieredSum) {
+    this.errorTrackingTieredSum = errorTrackingTieredSum;
+    this.unparsed |= errorTrackingTieredSum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return errorTrackingTieredSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_TIERED_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getErrorTrackingTieredSum() {
+    return errorTrackingTieredSum;
+  }
+
+  public void setErrorTrackingTieredSum(UsageBillableSummaryBody errorTrackingTieredSum) {
+    this.errorTrackingTieredSum = errorTrackingTieredSum;
+    if (errorTrackingTieredSum != null) {
+      this.unparsed |= errorTrackingTieredSum.unparsed;
     }
   }
 
@@ -2765,6 +2824,9 @@ public class UsageBillableSummaryKeys {
             this.dbmNormalizedQueriesAverage, usageBillableSummaryKeys.dbmNormalizedQueriesAverage)
         && Objects.equals(
             this.dbmNormalizedQueriesSum, usageBillableSummaryKeys.dbmNormalizedQueriesSum)
+        && Objects.equals(this.errorTrackingSum, usageBillableSummaryKeys.errorTrackingSum)
+        && Objects.equals(
+            this.errorTrackingTieredSum, usageBillableSummaryKeys.errorTrackingTieredSum)
         && Objects.equals(
             this.fargateContainerApmAndProfilerAverage,
             usageBillableSummaryKeys.fargateContainerApmAndProfilerAverage)
@@ -2884,6 +2946,8 @@ public class UsageBillableSummaryKeys {
         dbmHostTop99p,
         dbmNormalizedQueriesAverage,
         dbmNormalizedQueriesSum,
+        errorTrackingSum,
+        errorTrackingTieredSum,
         fargateContainerApmAndProfilerAverage,
         fargateContainerApmAndProfilerSum,
         fargateContainerAverage,
@@ -2999,6 +3063,10 @@ public class UsageBillableSummaryKeys {
         .append("\n");
     sb.append("    dbmNormalizedQueriesSum: ")
         .append(toIndentedString(dbmNormalizedQueriesSum))
+        .append("\n");
+    sb.append("    errorTrackingSum: ").append(toIndentedString(errorTrackingSum)).append("\n");
+    sb.append("    errorTrackingTieredSum: ")
+        .append(toIndentedString(errorTrackingTieredSum))
         .append("\n");
     sb.append("    fargateContainerApmAndProfilerAverage: ")
         .append(toIndentedString(fargateContainerApmAndProfilerAverage))
