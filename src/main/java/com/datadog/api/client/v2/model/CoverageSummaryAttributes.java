@@ -22,6 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CoverageSummaryAttributes.JSON_PROPERTY_CODEOWNERS,
   CoverageSummaryAttributes.JSON_PROPERTY_EVALUATED_FLAGS_COUNT,
   CoverageSummaryAttributes.JSON_PROPERTY_EVALUATED_REPORTS_COUNT,
+  CoverageSummaryAttributes.JSON_PROPERTY_FLAGS,
   CoverageSummaryAttributes.JSON_PROPERTY_PATCH_COVERAGE,
   CoverageSummaryAttributes.JSON_PROPERTY_SERVICES,
   CoverageSummaryAttributes.JSON_PROPERTY_TOTAL_COVERAGE
@@ -39,6 +40,10 @@ public class CoverageSummaryAttributes {
 
   public static final String JSON_PROPERTY_EVALUATED_REPORTS_COUNT = "evaluated_reports_count";
   private Long evaluatedReportsCount;
+
+  public static final String JSON_PROPERTY_FLAGS = "flags";
+  private JsonNullable<Map<String, CoverageSummaryFlagStats>> flags =
+      JsonNullable.<Map<String, CoverageSummaryFlagStats>>undefined();
 
   public static final String JSON_PROPERTY_PATCH_COVERAGE = "patch_coverage";
   private JsonNullable<Double> patchCoverage = JsonNullable.<Double>undefined();
@@ -137,6 +142,51 @@ public class CoverageSummaryAttributes {
 
   public void setEvaluatedReportsCount(Long evaluatedReportsCount) {
     this.evaluatedReportsCount = evaluatedReportsCount;
+  }
+
+  public CoverageSummaryAttributes flags(Map<String, CoverageSummaryFlagStats> flags) {
+    this.flags = JsonNullable.<Map<String, CoverageSummaryFlagStats>>of(flags);
+    return this;
+  }
+
+  public CoverageSummaryAttributes putFlagsItem(String key, CoverageSummaryFlagStats flagsItem) {
+    if (this.flags == null || !this.flags.isPresent()) {
+      this.flags = JsonNullable.<Map<String, CoverageSummaryFlagStats>>of(new HashMap<>());
+    }
+    try {
+      this.flags.get().put(key, flagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Coverage statistics broken down by flag. Each entry contains only coverage percentages. Branch
+   * summaries include the flags of the latest covered commit, including coverage carried forward to
+   * that commit. Pull request summaries include flags across all commits of the pull request.
+   *
+   * @return flags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Map<String, CoverageSummaryFlagStats> getFlags() {
+    return flags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FLAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Map<String, CoverageSummaryFlagStats>> getFlags_JsonNullable() {
+    return flags;
+  }
+
+  @JsonProperty(JSON_PROPERTY_FLAGS)
+  public void setFlags_JsonNullable(JsonNullable<Map<String, CoverageSummaryFlagStats>> flags) {
+    this.flags = flags;
+  }
+
+  public void setFlags(Map<String, CoverageSummaryFlagStats> flags) {
+    this.flags = JsonNullable.<Map<String, CoverageSummaryFlagStats>>of(flags);
   }
 
   public CoverageSummaryAttributes patchCoverage(Double patchCoverage) {
@@ -306,6 +356,7 @@ public class CoverageSummaryAttributes {
         && Objects.equals(this.evaluatedFlagsCount, coverageSummaryAttributes.evaluatedFlagsCount)
         && Objects.equals(
             this.evaluatedReportsCount, coverageSummaryAttributes.evaluatedReportsCount)
+        && Objects.equals(this.flags, coverageSummaryAttributes.flags)
         && Objects.equals(this.patchCoverage, coverageSummaryAttributes.patchCoverage)
         && Objects.equals(this.services, coverageSummaryAttributes.services)
         && Objects.equals(this.totalCoverage, coverageSummaryAttributes.totalCoverage)
@@ -319,6 +370,7 @@ public class CoverageSummaryAttributes {
         codeowners,
         evaluatedFlagsCount,
         evaluatedReportsCount,
+        flags,
         patchCoverage,
         services,
         totalCoverage,
@@ -336,6 +388,7 @@ public class CoverageSummaryAttributes {
     sb.append("    evaluatedReportsCount: ")
         .append(toIndentedString(evaluatedReportsCount))
         .append("\n");
+    sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    patchCoverage: ").append(toIndentedString(patchCoverage)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("    totalCoverage: ").append(toIndentedString(totalCoverage)).append("\n");
