@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** Live consumption of one AI Gateway rate limit. */
 @JsonPropertyOrder({
+  AiGatewayRateLimitUsageAttributes.JSON_PROPERTY_COST_MICROCENTS,
   AiGatewayRateLimitUsageAttributes.JSON_PROPERTY_INPUT_TOKENS,
   AiGatewayRateLimitUsageAttributes.JSON_PROPERTY_LIMITED_REQUESTS,
   AiGatewayRateLimitUsageAttributes.JSON_PROPERTY_OUTPUT_TOKENS,
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRateLimitUsageAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COST_MICROCENTS = "cost_microcents";
+  private Long costMicrocents;
+
   public static final String JSON_PROPERTY_INPUT_TOKENS = "input_tokens";
   private Long inputTokens;
 
@@ -59,6 +63,28 @@ public class AiGatewayRateLimitUsageAttributes {
     this.outputTokens = outputTokens;
     this.requests = requests;
     this.wouldLimitRequests = wouldLimitRequests;
+  }
+
+  public AiGatewayRateLimitUsageAttributes costMicrocents(Long costMicrocents) {
+    this.costMicrocents = costMicrocents;
+    return this;
+  }
+
+  /**
+   * Priced spend, in microcents, counted in the rolling one-minute window. Only rules with a cost
+   * limit count it, so it is 0 for other rules and for the untracked and total entries.
+   *
+   * @return costMicrocents
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCostMicrocents() {
+    return costMicrocents;
+  }
+
+  public void setCostMicrocents(Long costMicrocents) {
+    this.costMicrocents = costMicrocents;
   }
 
   public AiGatewayRateLimitUsageAttributes inputTokens(Long inputTokens) {
@@ -219,7 +245,8 @@ public class AiGatewayRateLimitUsageAttributes {
     }
     AiGatewayRateLimitUsageAttributes aiGatewayRateLimitUsageAttributes =
         (AiGatewayRateLimitUsageAttributes) o;
-    return Objects.equals(this.inputTokens, aiGatewayRateLimitUsageAttributes.inputTokens)
+    return Objects.equals(this.costMicrocents, aiGatewayRateLimitUsageAttributes.costMicrocents)
+        && Objects.equals(this.inputTokens, aiGatewayRateLimitUsageAttributes.inputTokens)
         && Objects.equals(this.limitedRequests, aiGatewayRateLimitUsageAttributes.limitedRequests)
         && Objects.equals(this.outputTokens, aiGatewayRateLimitUsageAttributes.outputTokens)
         && Objects.equals(this.requests, aiGatewayRateLimitUsageAttributes.requests)
@@ -232,6 +259,7 @@ public class AiGatewayRateLimitUsageAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        costMicrocents,
         inputTokens,
         limitedRequests,
         outputTokens,
@@ -244,6 +272,7 @@ public class AiGatewayRateLimitUsageAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRateLimitUsageAttributes {\n");
+    sb.append("    costMicrocents: ").append(toIndentedString(costMicrocents)).append("\n");
     sb.append("    inputTokens: ").append(toIndentedString(inputTokens)).append("\n");
     sb.append("    limitedRequests: ").append(toIndentedString(limitedRequests)).append("\n");
     sb.append("    outputTokens: ").append(toIndentedString(outputTokens)).append("\n");

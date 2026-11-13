@@ -24,6 +24,7 @@ public class Example {
                 new AiGatewayRateLimitUpdateData()
                     .attributes(
                         new AiGatewayRateLimitUpdateAttributes()
+                            .costMicrocentsPerMinute(null)
                             .inputTokensPerMinute(null)
                             .mode(AiGatewayRateLimitMode.ALERT)
                             .outputTokensPerMinute(null)

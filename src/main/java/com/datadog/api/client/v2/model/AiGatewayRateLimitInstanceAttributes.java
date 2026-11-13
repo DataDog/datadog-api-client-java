@@ -22,6 +22,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** One counter of a template rate limit and its live usage. */
 @JsonPropertyOrder({
+  AiGatewayRateLimitInstanceAttributes.JSON_PROPERTY_COST_MICROCENTS,
+  AiGatewayRateLimitInstanceAttributes.JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE,
   AiGatewayRateLimitInstanceAttributes.JSON_PROPERTY_FIRST_SEEN,
   AiGatewayRateLimitInstanceAttributes.JSON_PROPERTY_INPUT_TOKENS,
   AiGatewayRateLimitInstanceAttributes.JSON_PROPERTY_INPUT_TOKENS_PER_MINUTE,
@@ -42,6 +44,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRateLimitInstanceAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COST_MICROCENTS = "cost_microcents";
+  private Long costMicrocents;
+
+  public static final String JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE =
+      "cost_microcents_per_minute";
+  private JsonNullable<Long> costMicrocentsPerMinute = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_FIRST_SEEN = "first_seen";
   private OffsetDateTime firstSeen;
 
@@ -117,6 +126,60 @@ public class AiGatewayRateLimitInstanceAttributes {
     this.usageKnown = usageKnown;
     this.utilization = utilization;
     this.wouldLimitRequests = wouldLimitRequests;
+  }
+
+  public AiGatewayRateLimitInstanceAttributes costMicrocents(Long costMicrocents) {
+    this.costMicrocents = costMicrocents;
+    return this;
+  }
+
+  /**
+   * Priced spend, in microcents, counted in the rolling one-minute window. 0 when the rate limit
+   * doesn't limit cost.
+   *
+   * @return costMicrocents
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCostMicrocents() {
+    return costMicrocents;
+  }
+
+  public void setCostMicrocents(Long costMicrocents) {
+    this.costMicrocents = costMicrocents;
+  }
+
+  public AiGatewayRateLimitInstanceAttributes costMicrocentsPerMinute(
+      Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
+    return this;
+  }
+
+  /**
+   * The rate limit's per-counter spend limit, in microcents. Null when it doesn't limit cost.
+   *
+   * @return costMicrocentsPerMinute
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCostMicrocentsPerMinute() {
+    return costMicrocentsPerMinute.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getCostMicrocentsPerMinute_JsonNullable() {
+    return costMicrocentsPerMinute;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COST_MICROCENTS_PER_MINUTE)
+  public void setCostMicrocentsPerMinute_JsonNullable(JsonNullable<Long> costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = costMicrocentsPerMinute;
+  }
+
+  public void setCostMicrocentsPerMinute(Long costMicrocentsPerMinute) {
+    this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
   }
 
   public AiGatewayRateLimitInstanceAttributes firstSeen(OffsetDateTime firstSeen) {
@@ -216,8 +279,8 @@ public class AiGatewayRateLimitInstanceAttributes {
   }
 
   /**
-   * When the gateway last recorded a request for this counter; up to a few minutes behind live
-   * traffic.
+   * When the gateway last saw this counter hot, that is near or at a limit or limiting; up to a few
+   * minutes behind live traffic.
    *
    * @return lastSeen
    */
@@ -517,7 +580,11 @@ public class AiGatewayRateLimitInstanceAttributes {
     }
     AiGatewayRateLimitInstanceAttributes aiGatewayRateLimitInstanceAttributes =
         (AiGatewayRateLimitInstanceAttributes) o;
-    return Objects.equals(this.firstSeen, aiGatewayRateLimitInstanceAttributes.firstSeen)
+    return Objects.equals(this.costMicrocents, aiGatewayRateLimitInstanceAttributes.costMicrocents)
+        && Objects.equals(
+            this.costMicrocentsPerMinute,
+            aiGatewayRateLimitInstanceAttributes.costMicrocentsPerMinute)
+        && Objects.equals(this.firstSeen, aiGatewayRateLimitInstanceAttributes.firstSeen)
         && Objects.equals(this.inputTokens, aiGatewayRateLimitInstanceAttributes.inputTokens)
         && Objects.equals(
             this.inputTokensPerMinute, aiGatewayRateLimitInstanceAttributes.inputTokensPerMinute)
@@ -544,6 +611,8 @@ public class AiGatewayRateLimitInstanceAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        costMicrocents,
+        costMicrocentsPerMinute,
         firstSeen,
         inputTokens,
         inputTokensPerMinute,
@@ -566,6 +635,10 @@ public class AiGatewayRateLimitInstanceAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRateLimitInstanceAttributes {\n");
+    sb.append("    costMicrocents: ").append(toIndentedString(costMicrocents)).append("\n");
+    sb.append("    costMicrocentsPerMinute: ")
+        .append(toIndentedString(costMicrocentsPerMinute))
+        .append("\n");
     sb.append("    firstSeen: ").append(toIndentedString(firstSeen)).append("\n");
     sb.append("    inputTokens: ").append(toIndentedString(inputTokens)).append("\n");
     sb.append("    inputTokensPerMinute: ")

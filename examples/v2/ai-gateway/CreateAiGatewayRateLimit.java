@@ -26,6 +26,7 @@ public class Example {
                 new AiGatewayRateLimitCreateData()
                     .attributes(
                         new AiGatewayRateLimitCreateAttributes()
+                            .costMicrocentsPerMinute(100000000L)
                             .inputTokensPerMinute(null)
                             .mode(AiGatewayRateLimitMode.ALERT)
                             .name("Default rate limit")

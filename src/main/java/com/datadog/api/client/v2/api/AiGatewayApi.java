@@ -46,6 +46,7 @@ import com.datadog.api.client.v2.model.AiGatewayProviderUpdateRequest;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitCreateRequest;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitInstanceListResponse;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitInstanceSort;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitInstancesSummaryListResponse;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitInstancesSummaryResponse;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitListResponse;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitResponse;
@@ -4845,11 +4846,12 @@ public class AiGatewayApi {
   }
 
   /**
-   * Aggregate a template rate limit's counters, including how many there are, how many are near or
-   * at their limit, and the fullest counter's utilization. Use split_dim to aggregate only counters
-   * that match every given dimension value. When the caller can't see the template's selector,
-   * every count is zero and scope_restricted is true. Summaries are cached for up to 15 seconds.
-   * Returns 503 when counter usage can't be read.
+   * Aggregate a template rate limit's hot counters (those near or at a limit, or limiting, in the
+   * last hour), including how many there are, how many are near or at their limit, and the fullest
+   * counter's utilization. Use split_dim to aggregate only counters that match every given
+   * dimension value. When the caller can't see the template's selector, every count is zero and
+   * scope_restricted is true. Summaries are cached for up to 15 seconds. Returns 503 when counter
+   * usage can't be read.
    *
    * @param id Rate limit UUID. (required)
    * @param parameters Optional parameters for the request.
@@ -7224,13 +7226,14 @@ public class AiGatewayApi {
   }
 
   /**
-   * List the counters of a template rate limit, one per matched user, Team, or value, with their
-   * live usage. Counters appear within a few minutes of their first request and are dropped after
-   * 30 days without one. Usage is read for counters seen in the last 20 minutes, at most 200 per
-   * request; past that, rows carry usage_known false. Counters for a provider or model the caller
-   * can't see are left out, and when the caller can't see the template's selector, the list is
-   * empty. A rate limit with one shared allowance, including one whose selector has no per_value
-   * entry, returns an empty list. Returns 503 when counter usage can't be read.
+   * List the hot counters of a template rate limit, one per matched user, Team, or value, with
+   * their live usage. Only counters at 80% or more of a limit, or that limited or would have
+   * limited a request, in the last hour are listed. A counter appears within a few minutes of
+   * becoming hot. Usage is read for at most 200 counters per request; past that, rows carry
+   * usage_known false. Counters for a provider or model the caller can't see are left out, and when
+   * the caller can't see the template's selector, the list is empty. A rate limit with one shared
+   * allowance, including one whose selector has no per_value entry, returns an empty list. Returns
+   * 503 when counter usage can't be read.
    *
    * @param id Rate limit UUID. (required)
    * @param parameters Optional parameters for the request.
@@ -7379,6 +7382,142 @@ public class AiGatewayApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AiGatewayRateLimitInstanceListResponse>() {});
+  }
+
+  /**
+   * List AI Gateway rate limit counter summaries.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesSummariesWithHttpInfo}.
+   *
+   * @return AiGatewayRateLimitInstancesSummaryListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayRateLimitInstancesSummaryListResponse listAiGatewayRateLimitInstancesSummaries()
+      throws ApiException {
+    return listAiGatewayRateLimitInstancesSummariesWithHttpInfo().getData();
+  }
+
+  /**
+   * List AI Gateway rate limit counter summaries.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesSummariesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AiGatewayRateLimitInstancesSummaryListResponse&gt;
+   */
+  public CompletableFuture<AiGatewayRateLimitInstancesSummaryListResponse>
+      listAiGatewayRateLimitInstancesSummariesAsync() {
+    return listAiGatewayRateLimitInstancesSummariesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Aggregate the counters of every template rate limit in the organization in one call, with one
+   * summary per template in the order the rate limit list returns them. Each summary is the one the
+   * single-template counter summary endpoint returns without split_dim, including scope_restricted
+   * and truncated. Rate limits with one shared allowance are left out. Summaries are cached for up
+   * to 15 seconds.
+   *
+   * @return ApiResponse&lt;AiGatewayRateLimitInstancesSummaryListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiGatewayRateLimitInstancesSummaryListResponse>
+      listAiGatewayRateLimitInstancesSummariesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAiGatewayRateLimitInstancesSummaries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/rate-limits/instances/summary";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.listAiGatewayRateLimitInstancesSummaries",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayRateLimitInstancesSummaryListResponse>() {});
+  }
+
+  /**
+   * List AI Gateway rate limit counter summaries.
+   *
+   * <p>See {@link #listAiGatewayRateLimitInstancesSummariesWithHttpInfo}.
+   *
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;AiGatewayRateLimitInstancesSummaryListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiGatewayRateLimitInstancesSummaryListResponse>>
+      listAiGatewayRateLimitInstancesSummariesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listAiGatewayRateLimitInstancesSummaries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstancesSummaryListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/rate-limits/instances/summary";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.listAiGatewayRateLimitInstancesSummaries",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiGatewayRateLimitInstancesSummaryListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayRateLimitInstancesSummaryListResponse>() {});
   }
 
   /**
