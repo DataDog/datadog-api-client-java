@@ -24,6 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Targeting rule (allocation) details for a feature flag environment. */
 @JsonPropertyOrder({
+  Allocation.JSON_PROPERTY_BANDIT_ID,
   Allocation.JSON_PROPERTY_CREATED_AT,
   Allocation.JSON_PROPERTY_ENVIRONMENT_IDS,
   Allocation.JSON_PROPERTY_EXPERIMENT_ID,
@@ -42,6 +43,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Allocation {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BANDIT_ID = "bandit_id";
+  private UUID banditId;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -119,6 +123,20 @@ public class Allocation {
     for (VariantWeight item : variantWeights) {
       this.unparsed |= item.unparsed;
     }
+  }
+
+  /**
+   * The bandit that serves through this targeting rule allocation. Absent when no bandit uses it.
+   * Until the bandit ends, only the bandit's own operations can change or delete the allocation;
+   * its position among the flag's targeting rules can still change.
+   *
+   * @return banditId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BANDIT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getBanditId() {
+    return banditId;
   }
 
   public Allocation createdAt(OffsetDateTime createdAt) {
@@ -509,7 +527,8 @@ public class Allocation {
       return false;
     }
     Allocation allocation = (Allocation) o;
-    return Objects.equals(this.createdAt, allocation.createdAt)
+    return Objects.equals(this.banditId, allocation.banditId)
+        && Objects.equals(this.createdAt, allocation.createdAt)
         && Objects.equals(this.environmentIds, allocation.environmentIds)
         && Objects.equals(this.experimentId, allocation.experimentId)
         && Objects.equals(this.exposureSchedule, allocation.exposureSchedule)
@@ -528,6 +547,7 @@ public class Allocation {
   @Override
   public int hashCode() {
     return Objects.hash(
+        banditId,
         createdAt,
         environmentIds,
         experimentId,
@@ -548,6 +568,7 @@ public class Allocation {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Allocation {\n");
+    sb.append("    banditId: ").append(toIndentedString(banditId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    environmentIds: ").append(toIndentedString(environmentIds)).append("\n");
     sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
