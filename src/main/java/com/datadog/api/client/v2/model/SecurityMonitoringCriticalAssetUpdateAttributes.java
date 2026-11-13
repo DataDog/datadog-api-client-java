@@ -147,8 +147,9 @@ public class SecurityMonitoringCriticalAssetUpdateAttributes {
   }
 
   /**
-   * Severity associated with this critical asset. Either an explicit severity can be set, or the
-   * severity can be increased or decreased, or the severity can be left unchanged (no-op).
+   * Severity associated with this dynamic severity rule (previously called critical assets). Either
+   * an explicit severity can be set, or the severity can be increased or decreased, or the severity
+   * can be left unchanged (no-op).
    *
    * @return severity
    */

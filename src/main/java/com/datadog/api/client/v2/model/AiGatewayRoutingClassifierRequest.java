@@ -123,9 +123,7 @@ public class AiGatewayRoutingClassifierRequest {
   }
 
   /**
-   * Decision-model provider slug. It must name a provider of type <code>openai</code>, <code>
-   * baseten</code>, or <code>typesafe</code>, the provider types that serve a decision model. Omit
-   * together with model to preserve the saved selection.
+   * Decision-model provider slug. Omit together with model to preserve the saved selection.
    *
    * @return provider
    */
