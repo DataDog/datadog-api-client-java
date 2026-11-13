@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Persona for the search. Either track(s) or persona(s) must be specified. */
+/**
+ * Persona for the search. Either <code>track</code> or <code>persona</code> must be specified.
+ * Ignored if <code>track</code> is specified.
+ */
 @JsonSerialize(
     using =
         IssuesSearchRequestDataAttributesPersona.IssuesSearchRequestDataAttributesPersonaSerializer
@@ -26,7 +29,7 @@ import java.util.Set;
 public class IssuesSearchRequestDataAttributesPersona extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("ALL", "BROWSER", "MOBILE", "BACKEND"));
+      new HashSet<String>(Arrays.asList("ALL", "BROWSER", "MOBILE", "BACKEND", "AGENT"));
 
   public static final IssuesSearchRequestDataAttributesPersona ALL =
       new IssuesSearchRequestDataAttributesPersona("ALL");
@@ -36,6 +39,8 @@ public class IssuesSearchRequestDataAttributesPersona extends ModelEnum<String> 
       new IssuesSearchRequestDataAttributesPersona("MOBILE");
   public static final IssuesSearchRequestDataAttributesPersona BACKEND =
       new IssuesSearchRequestDataAttributesPersona("BACKEND");
+  public static final IssuesSearchRequestDataAttributesPersona AGENT =
+      new IssuesSearchRequestDataAttributesPersona("AGENT");
 
   IssuesSearchRequestDataAttributesPersona(String value) {
     super(value, allowedValues);

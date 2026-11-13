@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The attribute to sort the search results by. */
+/**
+ * The attribute to sort the search results by, in descending order. Defaults to <code>TOTAL_COUNT
+ * </code>.
+ */
 @JsonSerialize(
     using =
         IssuesSearchRequestDataAttributesOrderBy.IssuesSearchRequestDataAttributesOrderBySerializer
@@ -27,7 +30,8 @@ public class IssuesSearchRequestDataAttributesOrderBy extends ModelEnum<String> 
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("TOTAL_COUNT", "FIRST_SEEN", "IMPACTED_SESSIONS", "PRIORITY"));
+          Arrays.asList(
+              "TOTAL_COUNT", "FIRST_SEEN", "IMPACTED_SESSIONS", "PRIORITY", "IMPACTED_ACCOUNTS"));
 
   public static final IssuesSearchRequestDataAttributesOrderBy TOTAL_COUNT =
       new IssuesSearchRequestDataAttributesOrderBy("TOTAL_COUNT");
@@ -37,6 +41,8 @@ public class IssuesSearchRequestDataAttributesOrderBy extends ModelEnum<String> 
       new IssuesSearchRequestDataAttributesOrderBy("IMPACTED_SESSIONS");
   public static final IssuesSearchRequestDataAttributesOrderBy PRIORITY =
       new IssuesSearchRequestDataAttributesOrderBy("PRIORITY");
+  public static final IssuesSearchRequestDataAttributesOrderBy IMPACTED_ACCOUNTS =
+      new IssuesSearchRequestDataAttributesOrderBy("IMPACTED_ACCOUNTS");
 
   IssuesSearchRequestDataAttributesOrderBy(String value) {
     super(value, allowedValues);

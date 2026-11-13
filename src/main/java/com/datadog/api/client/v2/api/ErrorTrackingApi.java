@@ -493,7 +493,9 @@ public class ErrorTrackingApi {
   /**
    * Search issues endpoint allows you to programmatically search for issues within your
    * organization. This endpoint returns a list of issues that match a given search query, following
-   * the event search syntax. The search results are limited to a maximum of 100 issues per request.
+   * the event search syntax. The search results are limited to a maximum of 100 issues per issue
+   * state. Returns 400 if neither <code>track</code> nor <code>persona</code> is specified, or if a
+   * <code>team_ids</code> value does not match an existing team.
    *
    * @param body Search issues request payload. (required)
    * @param parameters Optional parameters for the request.
