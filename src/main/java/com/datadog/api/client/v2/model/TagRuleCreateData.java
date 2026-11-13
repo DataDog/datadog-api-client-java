@@ -52,7 +52,10 @@ public class TagRuleCreateData {
   }
 
   /**
-   * Attributes that can be supplied when creating a tag rule.
+   * Attributes that can be supplied when creating a tag rule. If <code>tag_value_patterns</code>
+   * contains <code>*</code>, set <code>required</code> and <code>negated</code> to different
+   * values. If both are <code>false</code>, the rule has no effect. If both are <code>true</code>,
+   * no value can satisfy the rule.
    *
    * @return attributes
    */
@@ -76,7 +79,8 @@ public class TagRuleCreateData {
   }
 
   /**
-   * JSON:API resource type for a tag rule.
+   * JSON:API resource type for a tag rule. Requests accept <code>tag_rule</code> or <code>
+   * tag_policy</code>; responses use <code>tag_policy</code>.
    *
    * @return type
    */
