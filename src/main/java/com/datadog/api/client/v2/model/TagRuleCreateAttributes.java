@@ -19,7 +19,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes that can be supplied when creating a tag rule. */
+/**
+ * Attributes that can be supplied when creating a tag rule. If <code>tag_value_patterns</code>
+ * contains <code>*</code>, set <code>required</code> and <code>negated</code> to different values.
+ * If both are <code>false</code>, the rule has no effect. If both are <code>true</code>, no value
+ * can satisfy the rule.
+ */
 @JsonPropertyOrder({
   TagRuleCreateAttributes.JSON_PROPERTY_ENABLED,
   TagRuleCreateAttributes.JSON_PROPERTY_NAME,
@@ -89,7 +94,8 @@ public class TagRuleCreateAttributes {
   }
 
   /**
-   * Whether the rule is currently enforced. Defaults to <code>true</code> for newly created rules.
+   * The API ignores this value on creation and always enables new rules. To disable a rule, use the
+   * "Update a tag rule" endpoint.
    *
    * @return enabled
    */
@@ -199,8 +205,10 @@ public class TagRuleCreateAttributes {
   }
 
   /**
-   * The scope the rule applies within. Typically an environment, team, or organization-level
-   * identifier used to limit where the rule is enforced.
+   * The scope the rule applies within. For logs and spans, use a search query, such as <code>
+   * env:prod</code>, or <code>*</code> to match all telemetry. For metrics, use a metric selector
+   * with an optional tag filter, such as <code>system.cpu.*{env:prod}</code>. A metric wildcard is
+   * allowed only once, at the end of the metric selector.
    *
    * @return scope
    */
@@ -244,7 +252,9 @@ public class TagRuleCreateAttributes {
   }
 
   /**
-   * The tag key that the rule governs (for example, <code>service</code>).
+   * The tag key that the rule governs (for example, <code>service</code>). Allowed characters are
+   * ASCII letters, digits, underscores, hyphens, periods, and slashes. The keys <code>host</code>
+   * and <code>device</code> are not supported in any letter case.
    *
    * @return tagKey
    */
@@ -269,8 +279,9 @@ public class TagRuleCreateAttributes {
   }
 
   /**
-   * One or more patterns that valid values for the tag key must match. At least one pattern is
-   * required.
+   * Between 1 and 30 non-empty patterns that valid values for the tag key must match. Allowed
+   * characters are ASCII letters, digits, underscores, colons, hyphens, periods, commas, slashes,
+   * and asterisks.
    *
    * @return tagValuePatterns
    */

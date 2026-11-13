@@ -55,7 +55,10 @@ public class TagRuleUpdateData {
 
   /**
    * Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its current
-   * value unchanged. The <code>source</code> of a rule cannot be changed.
+   * value unchanged. The <code>source</code> of a rule cannot be changed. Tag keys, patterns, and
+   * metrics scopes have the same constraints as on creation. If the effective <code>
+   * tag_value_patterns</code> contains <code>*</code>, set <code>required</code> and <code>negated
+   * </code> to different values.
    *
    * @return attributes
    */
@@ -100,7 +103,8 @@ public class TagRuleUpdateData {
   }
 
   /**
-   * JSON:API resource type for a tag rule.
+   * JSON:API resource type for a tag rule. Requests accept <code>tag_rule</code> or <code>
+   * tag_policy</code>; responses use <code>tag_policy</code>.
    *
    * @return type
    */
