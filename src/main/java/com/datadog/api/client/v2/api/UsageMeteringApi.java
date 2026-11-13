@@ -11,6 +11,8 @@ import com.datadog.api.client.v2.model.CostAggregationType;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.MonthlyCostAttributionResponse;
+import com.datadog.api.client.v2.model.MonthlyResourcesResponse;
+import com.datadog.api.client.v2.model.MonthlyResourcesView;
 import com.datadog.api.client.v2.model.ProjectedCostResponse;
 import com.datadog.api.client.v2.model.SortDirection;
 import com.datadog.api.client.v2.model.TemporaryGrantRequestCreateRequest;
@@ -4731,6 +4733,365 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageLambdaTracedInvocationsResponse>() {});
+  }
+
+  /** Manage optional parameters to getUsageMonthlyResources. */
+  public static class GetUsageMonthlyResourcesOptionalParameters {
+    private Boolean filterIncludeDescendants;
+    private Long pageLimit;
+    private String pageNextRecordId;
+
+    /**
+     * Set filterIncludeDescendants.
+     *
+     * @param filterIncludeDescendants Include usage for descendant organizations of the
+     *     authenticated organization. (optional, default to false)
+     * @return GetUsageMonthlyResourcesOptionalParameters
+     */
+    public GetUsageMonthlyResourcesOptionalParameters filterIncludeDescendants(
+        Boolean filterIncludeDescendants) {
+      this.filterIncludeDescendants = filterIncludeDescendants;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of resource records per paginated response. Must be a
+     *     positive integer. Values above 100,000 are capped at 100,000. Ignored for billable
+     *     queries using 99th-percentile billing, which return the complete result in one response.
+     *     (optional, default to 100000)
+     * @return GetUsageMonthlyResourcesOptionalParameters
+     */
+    public GetUsageMonthlyResourcesOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageNextRecordId.
+     *
+     * @param pageNextRecordId Opaque cursor from <code>meta.pagination.next_record_id</code> in the
+     *     previous response. Omit for the first request. Ignored for billable queries using
+     *     99th-percentile billing, which always return the complete result. (optional)
+     * @return GetUsageMonthlyResourcesOptionalParameters
+     */
+    public GetUsageMonthlyResourcesOptionalParameters pageNextRecordId(String pageNextRecordId) {
+      this.pageNextRecordId = pageNextRecordId;
+      return this;
+    }
+  }
+
+  /**
+   * Get monthly usage by resource.
+   *
+   * <p>See {@link #getUsageMonthlyResourcesWithHttpInfo}.
+   *
+   * @param filterBillingDimension Billing dimension to retrieve, such as <code>infra_host</code>,
+   *     <code>indexed_points</code>, or <code>logs_indexed_30day</code>. (required)
+   * @param filterMonth Month of usage to retrieve in <code>YYYY-MM</code> format. (required)
+   * @param filterView Set to <code>billable</code> to return resources that contribute to billable
+   *     usage, or <code>all</code> to return the full monthly resource breakdown. (required)
+   * @return MonthlyResourcesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonthlyResourcesResponse getUsageMonthlyResources(
+      String filterBillingDimension, String filterMonth, MonthlyResourcesView filterView)
+      throws ApiException {
+    return getUsageMonthlyResourcesWithHttpInfo(
+            filterBillingDimension,
+            filterMonth,
+            filterView,
+            new GetUsageMonthlyResourcesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get monthly usage by resource.
+   *
+   * <p>See {@link #getUsageMonthlyResourcesWithHttpInfoAsync}.
+   *
+   * @param filterBillingDimension Billing dimension to retrieve, such as <code>infra_host</code>,
+   *     <code>indexed_points</code>, or <code>logs_indexed_30day</code>. (required)
+   * @param filterMonth Month of usage to retrieve in <code>YYYY-MM</code> format. (required)
+   * @param filterView Set to <code>billable</code> to return resources that contribute to billable
+   *     usage, or <code>all</code> to return the full monthly resource breakdown. (required)
+   * @return CompletableFuture&lt;MonthlyResourcesResponse&gt;
+   */
+  public CompletableFuture<MonthlyResourcesResponse> getUsageMonthlyResourcesAsync(
+      String filterBillingDimension, String filterMonth, MonthlyResourcesView filterView) {
+    return getUsageMonthlyResourcesWithHttpInfoAsync(
+            filterBillingDimension,
+            filterMonth,
+            filterView,
+            new GetUsageMonthlyResourcesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get monthly usage by resource.
+   *
+   * <p>See {@link #getUsageMonthlyResourcesWithHttpInfo}.
+   *
+   * @param filterBillingDimension Billing dimension to retrieve, such as <code>infra_host</code>,
+   *     <code>indexed_points</code>, or <code>logs_indexed_30day</code>. (required)
+   * @param filterMonth Month of usage to retrieve in <code>YYYY-MM</code> format. (required)
+   * @param filterView Set to <code>billable</code> to return resources that contribute to billable
+   *     usage, or <code>all</code> to return the full monthly resource breakdown. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MonthlyResourcesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonthlyResourcesResponse getUsageMonthlyResources(
+      String filterBillingDimension,
+      String filterMonth,
+      MonthlyResourcesView filterView,
+      GetUsageMonthlyResourcesOptionalParameters parameters)
+      throws ApiException {
+    return getUsageMonthlyResourcesWithHttpInfo(
+            filterBillingDimension, filterMonth, filterView, parameters)
+        .getData();
+  }
+
+  /**
+   * Get monthly usage by resource.
+   *
+   * <p>See {@link #getUsageMonthlyResourcesWithHttpInfoAsync}.
+   *
+   * @param filterBillingDimension Billing dimension to retrieve, such as <code>infra_host</code>,
+   *     <code>indexed_points</code>, or <code>logs_indexed_30day</code>. (required)
+   * @param filterMonth Month of usage to retrieve in <code>YYYY-MM</code> format. (required)
+   * @param filterView Set to <code>billable</code> to return resources that contribute to billable
+   *     usage, or <code>all</code> to return the full monthly resource breakdown. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MonthlyResourcesResponse&gt;
+   */
+  public CompletableFuture<MonthlyResourcesResponse> getUsageMonthlyResourcesAsync(
+      String filterBillingDimension,
+      String filterMonth,
+      MonthlyResourcesView filterView,
+      GetUsageMonthlyResourcesOptionalParameters parameters) {
+    return getUsageMonthlyResourcesWithHttpInfoAsync(
+            filterBillingDimension, filterMonth, filterView, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get resource-level usage for a billing dimension and month, using the same data as the resource
+   * breakdown in Plan &amp; Usage. Supports all host and non-host resource types available in that
+   * breakdown. Availability depends on the billing dimension and the organization's usage data.
+   *
+   * <p>Results are scoped to the authenticated organization. Set <code>filter[include_descendants]
+   * </code> to <code>true</code> to also return usage from its descendant organizations in all
+   * regions.
+   *
+   * <p>Set <code>filter[view]</code> to <code>billable</code> to return resources that contribute
+   * to billable usage. For dimensions billed at the 99th percentile, this view returns resources at
+   * the selected billing hour. For sum-based dimensions, it returns monthly resource usage. Set
+   * <code>filter[view]</code> to <code>all</code> to return the full monthly resource breakdown.
+   * Requests for unsupported billing dimensions, or dimensions configured with an unsupported
+   * billing aggregation method, return a <code>400 Bad Request</code> error.
+   *
+   * <p>To get the next page of results, pass the <code>meta.pagination.next_record_id</code> value
+   * from the previous response as <code>page[next_record_id]</code>, and keep all filters
+   * unchanged. A null cursor indicates the last page. Paginated responses contain at most <code>
+   * page[limit]</code> resource records, including queries across descendant organizations.
+   *
+   * <p>Exception: for any billing dimension billed at the 99th percentile, <code>
+   * filter[view]=billable</code> returns the complete resource breakdown in one response, including
+   * requested descendants. Eligibility depends on the organization's billing configuration for the
+   * requested dimension and month, not on the product name. For these queries, <code>page[limit]
+   * </code> and <code>page[next_record_id]</code> are ignored, and <code>
+   * meta.pagination.next_record_id</code> is null. Sum-based usage and <code>filter[view]=all
+   * </code> remain paginated.
+   *
+   * @param filterBillingDimension Billing dimension to retrieve, such as <code>infra_host</code>,
+   *     <code>indexed_points</code>, or <code>logs_indexed_30day</code>. (required)
+   * @param filterMonth Month of usage to retrieve in <code>YYYY-MM</code> format. (required)
+   * @param filterView Set to <code>billable</code> to return resources that contribute to billable
+   *     usage, or <code>all</code> to return the full monthly resource breakdown. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MonthlyResourcesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonthlyResourcesResponse> getUsageMonthlyResourcesWithHttpInfo(
+      String filterBillingDimension,
+      String filterMonth,
+      MonthlyResourcesView filterView,
+      GetUsageMonthlyResourcesOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterBillingDimension' is set
+    if (filterBillingDimension == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterBillingDimension' when calling"
+              + " getUsageMonthlyResources");
+    }
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterMonth' when calling getUsageMonthlyResources");
+    }
+
+    // verify the required parameter 'filterView' is set
+    if (filterView == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterView' when calling getUsageMonthlyResources");
+    }
+    Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Long pageLimit = parameters.pageLimit;
+    String pageNextRecordId = parameters.pageNextRecordId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/monthly_resources";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[billing_dimension]", filterBillingDimension));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[view]", filterView));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[next_record_id]", pageNextRecordId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getUsageMonthlyResources",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonthlyResourcesResponse>() {});
+  }
+
+  /**
+   * Get monthly usage by resource.
+   *
+   * <p>See {@link #getUsageMonthlyResourcesWithHttpInfo}.
+   *
+   * @param filterBillingDimension Billing dimension to retrieve, such as <code>infra_host</code>,
+   *     <code>indexed_points</code>, or <code>logs_indexed_30day</code>. (required)
+   * @param filterMonth Month of usage to retrieve in <code>YYYY-MM</code> format. (required)
+   * @param filterView Set to <code>billable</code> to return resources that contribute to billable
+   *     usage, or <code>all</code> to return the full monthly resource breakdown. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;MonthlyResourcesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonthlyResourcesResponse>>
+      getUsageMonthlyResourcesWithHttpInfoAsync(
+          String filterBillingDimension,
+          String filterMonth,
+          MonthlyResourcesView filterView,
+          GetUsageMonthlyResourcesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterBillingDimension' is set
+    if (filterBillingDimension == null) {
+      CompletableFuture<ApiResponse<MonthlyResourcesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterBillingDimension' when calling"
+                  + " getUsageMonthlyResources"));
+      return result;
+    }
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      CompletableFuture<ApiResponse<MonthlyResourcesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterMonth' when calling"
+                  + " getUsageMonthlyResources"));
+      return result;
+    }
+
+    // verify the required parameter 'filterView' is set
+    if (filterView == null) {
+      CompletableFuture<ApiResponse<MonthlyResourcesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterView' when calling getUsageMonthlyResources"));
+      return result;
+    }
+    Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Long pageLimit = parameters.pageLimit;
+    String pageNextRecordId = parameters.pageNextRecordId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/monthly_resources";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[billing_dimension]", filterBillingDimension));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[view]", filterView));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[next_record_id]", pageNextRecordId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getUsageMonthlyResources",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonthlyResourcesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonthlyResourcesResponse>() {});
   }
 
   /** Manage optional parameters to getUsageObservabilityPipelines. */
