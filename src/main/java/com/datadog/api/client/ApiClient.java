@@ -1330,7 +1330,11 @@ public class ApiClient {
           put("v2.validateSecurityMonitoringIntegrationConfig", false);
           put("v2.validateSecurityMonitoringIntegrationCredentials", false);
           put("v2.getRuleBasedView", false);
+          put("v2.createCostRecommendationCustomRule", false);
+          put("v2.createCostRecommendationNotificationRule", false);
           put("v2.createUnitCost", false);
+          put("v2.deleteCostRecommendationCustomRule", false);
+          put("v2.deleteCostRecommendationNotificationRule", false);
           put("v2.deleteUnitCost", false);
           put("v2.getCommitmentsCommitmentList", false);
           put("v2.getCommitmentsCoverageScalar", false);
@@ -1341,9 +1345,13 @@ public class ApiClient {
           put("v2.getCommitmentsUtilizationScalar", false);
           put("v2.getCommitmentsUtilizationTimeseries", false);
           put("v2.getCostAnomaly", false);
+          put("v2.getCostRecommendationCustomRule", false);
+          put("v2.getCostRecommendationNotificationRule", false);
           put("v2.getCostTagMetadataCurrency", false);
           put("v2.getUnitCost", false);
           put("v2.listCostAnomalies", false);
+          put("v2.listCostRecommendationCustomRules", false);
+          put("v2.listCostRecommendationNotificationRules", false);
           put("v2.listCostTagKeySources", false);
           put("v2.listCostTagMetadata", false);
           put("v2.listCostTagMetadataMetrics", false);
@@ -1351,6 +1359,8 @@ public class ApiClient {
           put("v2.listCostTagMetadataOrchestrators", false);
           put("v2.listUnitCosts", false);
           put("v2.searchCostRecommendations", false);
+          put("v2.updateCostRecommendationCustomRule", false);
+          put("v2.updateCostRecommendationNotificationRule", false);
           put("v2.updateUnitCost", false);
           put("v2.createQuotas", false);
           put("v2.createTemporaryGrantRequest", false);

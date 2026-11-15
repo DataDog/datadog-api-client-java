@@ -4,10 +4,11 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,40 +17,48 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Monitor configuration options for data jobs queries. */
-@JsonPropertyOrder({
-  MonitorFormulaAndFunctionDataJobsMonitorOptions.JSON_PROPERTY_ALERT_ON_EVERY_FAILURE
-})
+/** Request to update a custom recommendation rule. */
+@JsonPropertyOrder({CostRecommendationCustomRuleUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
+public class CostRecommendationCustomRuleUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ALERT_ON_EVERY_FAILURE = "alert_on_every_failure";
-  private Boolean alertOnEveryFailure;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CostRecommendationCustomRuleUpdateData data;
 
-  public MonitorFormulaAndFunctionDataJobsMonitorOptions alertOnEveryFailure(
-      Boolean alertOnEveryFailure) {
-    this.alertOnEveryFailure = alertOnEveryFailure;
+  public CostRecommendationCustomRuleUpdateRequest() {}
+
+  @JsonCreator
+  public CostRecommendationCustomRuleUpdateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CostRecommendationCustomRuleUpdateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public CostRecommendationCustomRuleUpdateRequest data(
+      CostRecommendationCustomRuleUpdateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Alert separately for each failed run instead of on the count of trailing failures. Only
-   * supported for <code>failed_runs</code> monitors with the <code>aastra</code> query dialect. It
-   * requires a <code>&gt; 0</code> threshold with no warning threshold, an evaluation window of at
-   * most two days, and renotification disabled.
+   * Changes to a custom recommendation rule.
    *
-   * @return alertOnEveryFailure
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALERT_ON_EVERY_FAILURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getAlertOnEveryFailure() {
-    return alertOnEveryFailure;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CostRecommendationCustomRuleUpdateData getData() {
+    return data;
   }
 
-  public void setAlertOnEveryFailure(Boolean alertOnEveryFailure) {
-    this.alertOnEveryFailure = alertOnEveryFailure;
+  public void setData(CostRecommendationCustomRuleUpdateData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**
@@ -64,11 +73,10 @@ public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MonitorFormulaAndFunctionDataJobsMonitorOptions
+   * @return CostRecommendationCustomRuleUpdateRequest
    */
   @JsonAnySetter
-  public MonitorFormulaAndFunctionDataJobsMonitorOptions putAdditionalProperty(
-      String key, Object value) {
+  public CostRecommendationCustomRuleUpdateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -99,7 +107,7 @@ public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MonitorFormulaAndFunctionDataJobsMonitorOptions object is equal to o. */
+  /** Return true if this CostRecommendationCustomRuleUpdateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,29 +116,24 @@ public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionDataJobsMonitorOptions
-        monitorFormulaAndFunctionDataJobsMonitorOptions =
-            (MonitorFormulaAndFunctionDataJobsMonitorOptions) o;
-    return Objects.equals(
-            this.alertOnEveryFailure,
-            monitorFormulaAndFunctionDataJobsMonitorOptions.alertOnEveryFailure)
+    CostRecommendationCustomRuleUpdateRequest costRecommendationCustomRuleUpdateRequest =
+        (CostRecommendationCustomRuleUpdateRequest) o;
+    return Objects.equals(this.data, costRecommendationCustomRuleUpdateRequest.data)
         && Objects.equals(
             this.additionalProperties,
-            monitorFormulaAndFunctionDataJobsMonitorOptions.additionalProperties);
+            costRecommendationCustomRuleUpdateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertOnEveryFailure, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MonitorFormulaAndFunctionDataJobsMonitorOptions {\n");
-    sb.append("    alertOnEveryFailure: ")
-        .append(toIndentedString(alertOnEveryFailure))
-        .append("\n");
+    sb.append("class CostRecommendationCustomRuleUpdateRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
