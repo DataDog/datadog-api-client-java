@@ -41,7 +41,8 @@ public class CustomCostsUser {
   }
 
   /**
-   * The name of the Custom Costs file.
+   * Handle of the user. This is usually the user's email address, but can be another identifier
+   * (for example, a UUID for a service account).
    *
    * @return email
    */
@@ -62,7 +63,7 @@ public class CustomCostsUser {
   }
 
   /**
-   * The name of the Custom Costs file.
+   * Icon of the user.
    *
    * @return icon
    */

@@ -26,6 +26,7 @@ import java.util.Objects;
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_CHARGE_PERIOD,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_CONTENT,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_NAME,
+  CustomCostsFileMetadataWithContent.JSON_PROPERTY_PREVIEW_UNAVAILABLE_REASON,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_PROVIDER_NAMES,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_STATUS,
   CustomCostsFileMetadataWithContent.JSON_PROPERTY_UPLOADED_AT,
@@ -52,6 +53,10 @@ public class CustomCostsFileMetadataWithContent {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PREVIEW_UNAVAILABLE_REASON =
+      "preview_unavailable_reason";
+  private CustomCostsFilePreviewUnavailableReason previewUnavailableReason;
 
   public static final String JSON_PROPERTY_PROVIDER_NAMES = "provider_names";
   private List<String> providerNames = null;
@@ -215,6 +220,34 @@ public class CustomCostsFileMetadataWithContent {
     this.name = name;
   }
 
+  public CustomCostsFileMetadataWithContent previewUnavailableReason(
+      CustomCostsFilePreviewUnavailableReason previewUnavailableReason) {
+    this.previewUnavailableReason = previewUnavailableReason;
+    this.unparsed |= !previewUnavailableReason.isValid();
+    return this;
+  }
+
+  /**
+   * Reason the content of the Custom Costs file is not returned. Only set when <code>content</code>
+   * is omitted.
+   *
+   * @return previewUnavailableReason
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PREVIEW_UNAVAILABLE_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CustomCostsFilePreviewUnavailableReason getPreviewUnavailableReason() {
+    return previewUnavailableReason;
+  }
+
+  public void setPreviewUnavailableReason(
+      CustomCostsFilePreviewUnavailableReason previewUnavailableReason) {
+    if (!previewUnavailableReason.isValid()) {
+      this.unparsed = true;
+    }
+    this.previewUnavailableReason = previewUnavailableReason;
+  }
+
   public CustomCostsFileMetadataWithContent providerNames(List<String> providerNames) {
     this.providerNames = providerNames;
     return this;
@@ -374,6 +407,9 @@ public class CustomCostsFileMetadataWithContent {
         && Objects.equals(this.chargePeriod, customCostsFileMetadataWithContent.chargePeriod)
         && Objects.equals(this.content, customCostsFileMetadataWithContent.content)
         && Objects.equals(this.name, customCostsFileMetadataWithContent.name)
+        && Objects.equals(
+            this.previewUnavailableReason,
+            customCostsFileMetadataWithContent.previewUnavailableReason)
         && Objects.equals(this.providerNames, customCostsFileMetadataWithContent.providerNames)
         && Objects.equals(this.status, customCostsFileMetadataWithContent.status)
         && Objects.equals(this.uploadedAt, customCostsFileMetadataWithContent.uploadedAt)
@@ -391,6 +427,7 @@ public class CustomCostsFileMetadataWithContent {
         chargePeriod,
         content,
         name,
+        previewUnavailableReason,
         providerNames,
         status,
         uploadedAt,
@@ -408,6 +445,9 @@ public class CustomCostsFileMetadataWithContent {
     sb.append("    chargePeriod: ").append(toIndentedString(chargePeriod)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    previewUnavailableReason: ")
+        .append(toIndentedString(previewUnavailableReason))
+        .append("\n");
     sb.append("    providerNames: ").append(toIndentedString(providerNames)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
