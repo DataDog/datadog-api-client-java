@@ -56,7 +56,9 @@ public class KeyManagementApi {
    * @param body (required)
    * @return ApiKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiKeyResponse createAPIKey(ApiKey body) throws ApiException {
     return createAPIKeyWithHttpInfo(body).getData();
   }
@@ -68,7 +70,9 @@ public class KeyManagementApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiKeyResponse> createAPIKeyAsync(ApiKey body) {
     return createAPIKeyWithHttpInfoAsync(body)
         .thenApply(
@@ -78,7 +82,11 @@ public class KeyManagementApi {
   }
 
   /**
-   * Creates an API key with a given name.
+   * This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#create-an-api-key">Create an API
+   * key</a> (<code>POST /api/v2/api_keys</code>) instead.
+   *
+   * <p>Creates an API key with a given name.
    *
    * <p><strong>Note</strong>: This endpoint is disabled for the Government sites (US1-FED and
    * US2-FED). Use the <a href="https://docs.datadoghq.com/api/latest/key-management/">V2 Key
@@ -96,7 +104,10 @@ public class KeyManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -137,7 +148,9 @@ public class KeyManagementApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApiKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApiKeyResponse>> createAPIKeyWithHttpInfoAsync(ApiKey body) {
     Object localVarPostBody = body;
 
@@ -188,7 +201,9 @@ public class KeyManagementApi {
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApplicationKeyResponse createApplicationKey(ApplicationKey body) throws ApiException {
     return createApplicationKeyWithHttpInfo(body).getData();
   }
@@ -200,7 +215,9 @@ public class KeyManagementApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApplicationKeyResponse> createApplicationKeyAsync(ApplicationKey body) {
     return createApplicationKeyWithHttpInfoAsync(body)
         .thenApply(
@@ -210,7 +227,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key with a given name. This endpoint is disabled for organizations in <a
+   * This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#create-an-application-key-for-current-user">Create
+   * an application key for current user</a> (<code>POST /api/v2/current_user/application_keys
+   * </code>) instead.
+   *
+   * <p>Create an application key with a given name. This endpoint is disabled for organizations in
+   * <a
    * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
    * Read mode</a>.
    *
@@ -231,7 +254,10 @@ public class KeyManagementApi {
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(ApplicationKey body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -273,7 +299,9 @@ public class KeyManagementApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       createApplicationKeyWithHttpInfoAsync(ApplicationKey body) {
     Object localVarPostBody = body;
@@ -326,7 +354,9 @@ public class KeyManagementApi {
    * @param key The specific API key you are working with. (required)
    * @return ApiKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiKeyResponse deleteAPIKey(String key) throws ApiException {
     return deleteAPIKeyWithHttpInfo(key).getData();
   }
@@ -338,7 +368,9 @@ public class KeyManagementApi {
    *
    * @param key The specific API key you are working with. (required)
    * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiKeyResponse> deleteAPIKeyAsync(String key) {
     return deleteAPIKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -348,7 +380,11 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete a given API key.
+   * This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#delete-an-api-key">Delete an API
+   * key</a> (<code>DELETE /api/v2/api_keys/{api_key_id}</code>) instead.
+   *
+   * <p>Delete a given API key.
    *
    * <p><strong>Note</strong>: This endpoint is disabled for the Government sites (US1-FED and
    * US2-FED). Use the <a href="https://docs.datadoghq.com/api/latest/key-management/">V2 Key
@@ -367,7 +403,10 @@ public class KeyManagementApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws ApiException {
     Object localVarPostBody = null;
 
@@ -409,7 +448,9 @@ public class KeyManagementApi {
    *
    * @param key The specific API key you are working with. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApiKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApiKeyResponse>> deleteAPIKeyWithHttpInfoAsync(String key) {
     Object localVarPostBody = null;
 
@@ -462,7 +503,9 @@ public class KeyManagementApi {
    * @param key The specific APP key you are working with. (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApplicationKeyResponse deleteApplicationKey(String key) throws ApiException {
     return deleteApplicationKeyWithHttpInfo(key).getData();
   }
@@ -474,7 +517,9 @@ public class KeyManagementApi {
    *
    * @param key The specific APP key you are working with. (required)
    * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApplicationKeyResponse> deleteApplicationKeyAsync(String key) {
     return deleteApplicationKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -484,7 +529,16 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete a given application key. This endpoint is disabled for organizations in <a
+   * This endpoint is deprecated. To delete your own application key, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#delete-an-application-key-owned-by-current-user">Delete
+   * an application key owned by current user</a> (<code>
+   * DELETE /api/v2/current_user/application_keys/{app_key_id}</code>), which requires the <code>
+   * user_app_keys</code> permission. To delete an application key for your organization, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#delete-an-application-key">Delete
+   * an application key</a> (<code>DELETE /api/v2/application_keys/{app_key_id}</code>), which
+   * requires the <code>org_app_keys_write</code> permission.
+   *
+   * <p>Delete a given application key. This endpoint is disabled for organizations in <a
    * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
    * Read mode</a>.
    *
@@ -504,7 +558,10 @@ public class KeyManagementApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(String key)
       throws ApiException {
     Object localVarPostBody = null;
@@ -548,7 +605,9 @@ public class KeyManagementApi {
    *
    * @param key The specific APP key you are working with. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       deleteApplicationKeyWithHttpInfoAsync(String key) {
     Object localVarPostBody = null;
@@ -603,7 +662,9 @@ public class KeyManagementApi {
    * @param key The specific API key you are working with. (required)
    * @return ApiKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiKeyResponse getAPIKey(String key) throws ApiException {
     return getAPIKeyWithHttpInfo(key).getData();
   }
@@ -615,7 +676,9 @@ public class KeyManagementApi {
    *
    * @param key The specific API key you are working with. (required)
    * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiKeyResponse> getAPIKeyAsync(String key) {
     return getAPIKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -625,7 +688,11 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get a given API key.
+   * This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#get-api-key">Get API key</a> (
+   * <code>GET /api/v2/api_keys/{api_key_id}</code>) instead.
+   *
+   * <p>Get a given API key.
    *
    * <p><strong>Note</strong>: This endpoint is disabled for the Government sites (US1-FED and
    * US2-FED). Use the <a href="https://docs.datadoghq.com/api/latest/key-management/">V2 Key
@@ -643,7 +710,10 @@ public class KeyManagementApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws ApiException {
     Object localVarPostBody = null;
 
@@ -685,7 +755,9 @@ public class KeyManagementApi {
    *
    * @param key The specific API key you are working with. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApiKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApiKeyResponse>> getAPIKeyWithHttpInfoAsync(String key) {
     Object localVarPostBody = null;
 
@@ -738,7 +810,9 @@ public class KeyManagementApi {
    * @param key The specific APP key you are working with. (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApplicationKeyResponse getApplicationKey(String key) throws ApiException {
     return getApplicationKeyWithHttpInfo(key).getData();
   }
@@ -750,7 +824,9 @@ public class KeyManagementApi {
    *
    * @param key The specific APP key you are working with. (required)
    * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(String key) {
     return getApplicationKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -760,7 +836,16 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get a given application key. This endpoint is disabled for organizations in <a
+   * This endpoint is deprecated. To get your own application key, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#get-one-application-key-owned-by-current-user">Get
+   * one application key owned by current user</a> (<code>
+   * GET /api/v2/current_user/application_keys/{app_key_id}</code>), which requires the <code>
+   * user_app_keys</code> permission. To get an application key for your organization, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#get-an-application-key">Get an
+   * application key</a> (<code>GET /api/v2/application_keys/{app_key_id}</code>), which requires
+   * the <code>org_app_keys_read</code> permission.
+   *
+   * <p>Get a given application key. This endpoint is disabled for organizations in <a
    * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
    * Read mode</a>.
    *
@@ -780,7 +865,10 @@ public class KeyManagementApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String key)
       throws ApiException {
     Object localVarPostBody = null;
@@ -824,7 +912,9 @@ public class KeyManagementApi {
    *
    * @param key The specific APP key you are working with. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>> getApplicationKeyWithHttpInfoAsync(
       String key) {
     Object localVarPostBody = null;
@@ -878,7 +968,9 @@ public class KeyManagementApi {
    *
    * @return ApiKeyListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiKeyListResponse listAPIKeys() throws ApiException {
     return listAPIKeysWithHttpInfo().getData();
   }
@@ -889,7 +981,9 @@ public class KeyManagementApi {
    * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ApiKeyListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiKeyListResponse> listAPIKeysAsync() {
     return listAPIKeysWithHttpInfoAsync()
         .thenApply(
@@ -899,7 +993,11 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys available for your account.
+   * This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#get-all-api-keys">Get all API
+   * keys</a> (<code>GET /api/v2/api_keys</code>) instead.
+   *
+   * <p>Get all API keys available for your account.
    *
    * <p><strong>Note</strong>: This endpoint is disabled for the Government sites (US1-FED and
    * US2-FED). Use the <a href="https://docs.datadoghq.com/api/latest/key-management/">V2 Key
@@ -915,7 +1013,10 @@ public class KeyManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
@@ -949,7 +1050,9 @@ public class KeyManagementApi {
    * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;ApiKeyListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApiKeyListResponse>> listAPIKeysWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
@@ -991,7 +1094,9 @@ public class KeyManagementApi {
    *
    * @return ApplicationKeyListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApplicationKeyListResponse listApplicationKeys() throws ApiException {
     return listApplicationKeysWithHttpInfo().getData();
   }
@@ -1002,7 +1107,9 @@ public class KeyManagementApi {
    * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ApplicationKeyListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApplicationKeyListResponse> listApplicationKeysAsync() {
     return listApplicationKeysWithHttpInfoAsync()
         .thenApply(
@@ -1012,7 +1119,16 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys available for your Datadog account. This endpoint is disabled for
+   * This endpoint is deprecated. To list your own application keys, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#get-all-application-keys-owned-by-current-user">Get
+   * all application keys owned by current user</a> (<code>GET /api/v2/current_user/application_keys
+   * </code>), which requires the <code>user_app_keys</code> permission. To list application keys
+   * across your organization, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#get-all-application-keys">Get all
+   * application keys</a> (<code>GET /api/v2/application_keys</code>), which requires the <code>
+   * org_app_keys_read</code> permission.
+   *
+   * <p>Get all application keys available for your Datadog account. This endpoint is disabled for
    * organizations in <a
    * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
    * Read mode</a>.
@@ -1031,7 +1147,10 @@ public class KeyManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo()
       throws ApiException {
     Object localVarPostBody = null;
@@ -1066,7 +1185,9 @@ public class KeyManagementApi {
    * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApplicationKeyListResponse>>
       listApplicationKeysWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -1111,7 +1232,9 @@ public class KeyManagementApi {
    * @param body (required)
    * @return ApiKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiKeyResponse updateAPIKey(String key, ApiKey body) throws ApiException {
     return updateAPIKeyWithHttpInfo(key, body).getData();
   }
@@ -1124,7 +1247,9 @@ public class KeyManagementApi {
    * @param key The specific API key you are working with. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiKeyResponse> updateAPIKeyAsync(String key, ApiKey body) {
     return updateAPIKeyWithHttpInfoAsync(key, body)
         .thenApply(
@@ -1134,7 +1259,11 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key name.
+   * This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#edit-an-api-key">Edit an API
+   * key</a> (<code>PATCH /api/v2/api_keys/{api_key_id}</code>) instead.
+   *
+   * <p>Edit an API key name.
    *
    * <p><strong>Note</strong>: This endpoint is disabled for the Government sites (US1-FED and
    * US2-FED). Use the <a href="https://docs.datadoghq.com/api/latest/key-management/">V2 Key
@@ -1154,7 +1283,10 @@ public class KeyManagementApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -1204,7 +1336,9 @@ public class KeyManagementApi {
    * @param key The specific API key you are working with. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApiKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApiKeyResponse>> updateAPIKeyWithHttpInfoAsync(
       String key, ApiKey body) {
     Object localVarPostBody = body;
@@ -1267,7 +1401,9 @@ public class KeyManagementApi {
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApplicationKeyResponse updateApplicationKey(String key, ApplicationKey body)
       throws ApiException {
     return updateApplicationKeyWithHttpInfo(key, body).getData();
@@ -1281,7 +1417,9 @@ public class KeyManagementApi {
    * @param key The specific APP key you are working with. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApplicationKeyResponse> updateApplicationKeyAsync(
       String key, ApplicationKey body) {
     return updateApplicationKeyWithHttpInfoAsync(key, body)
@@ -1292,7 +1430,16 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key name. This endpoint is disabled for organizations in <a
+   * This endpoint is deprecated. To edit your own application key, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#edit-an-application-key-owned-by-current-user">Edit
+   * an application key owned by current user</a> (<code>
+   * PATCH /api/v2/current_user/application_keys/{app_key_id}</code>), which requires the <code>
+   * user_app_keys</code> permission. To edit an application key for your organization, use <a
+   * href="https://docs.datadoghq.com/api/latest/key-management/#edit-an-application-key">Edit an
+   * application key</a> (<code>PATCH /api/v2/application_keys/{app_key_id}</code>), which requires
+   * the <code>org_app_keys_write</code> permission.
+   *
+   * <p>Edit an application key name. This endpoint is disabled for organizations in <a
    * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
    * Read mode</a>.
    *
@@ -1315,7 +1462,10 @@ public class KeyManagementApi {
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(
       String key, ApplicationKey body) throws ApiException {
     Object localVarPostBody = body;
@@ -1366,7 +1516,9 @@ public class KeyManagementApi {
    * @param key The specific APP key you are working with. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       updateApplicationKeyWithHttpInfoAsync(String key, ApplicationKey body) {
     Object localVarPostBody = body;
