@@ -18,12 +18,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A single annotation to create or update. The annotation is matched by <code>interaction_id</code>
  * and the requesting user's identity.
  */
 @JsonPropertyOrder({
+  LLMObsUpsertAnnotationItem.JSON_PROPERTY_ANNOTATOR,
   LLMObsUpsertAnnotationItem.JSON_PROPERTY_INTERACTION_ID,
   LLMObsUpsertAnnotationItem.JSON_PROPERTY_LABEL_VALUES
 })
@@ -31,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsUpsertAnnotationItem {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANNOTATOR = "annotator";
+  private JsonNullable<String> annotator = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_INTERACTION_ID = "interaction_id";
   private String interactionId;
 
@@ -49,6 +54,42 @@ public class LLMObsUpsertAnnotationItem {
     for (LLMObsAnnotationLabelValue item : labelValues) {
       this.unparsed |= item.unparsed;
     }
+  }
+
+  public LLMObsUpsertAnnotationItem annotator(String annotator) {
+    this.annotator = JsonNullable.<String>of(annotator);
+    return this;
+  }
+
+  /**
+   * Caller-supplied name or identifier for the external person or automated system that produced
+   * the labels. The value is an opaque string with no required format. Use a stable, recognizable
+   * value for the same producer across annotations. The value is stored and returned as provided.
+   * It is not a Datadog user ID or login, and it is not resolved against Datadog users. Omit this
+   * field or set it to <code>null</code> to preserve existing attribution. Set it to an empty
+   * string to clear attribution.
+   *
+   * @return annotator
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getAnnotator() {
+    return annotator.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ANNOTATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAnnotator_JsonNullable() {
+    return annotator;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ANNOTATOR)
+  public void setAnnotator_JsonNullable(JsonNullable<String> annotator) {
+    this.annotator = annotator;
+  }
+
+  public void setAnnotator(String annotator) {
+    this.annotator = JsonNullable.<String>of(annotator);
   }
 
   public LLMObsUpsertAnnotationItem interactionId(String interactionId) {
@@ -162,7 +203,8 @@ public class LLMObsUpsertAnnotationItem {
       return false;
     }
     LLMObsUpsertAnnotationItem llmObsUpsertAnnotationItem = (LLMObsUpsertAnnotationItem) o;
-    return Objects.equals(this.interactionId, llmObsUpsertAnnotationItem.interactionId)
+    return Objects.equals(this.annotator, llmObsUpsertAnnotationItem.annotator)
+        && Objects.equals(this.interactionId, llmObsUpsertAnnotationItem.interactionId)
         && Objects.equals(this.labelValues, llmObsUpsertAnnotationItem.labelValues)
         && Objects.equals(
             this.additionalProperties, llmObsUpsertAnnotationItem.additionalProperties);
@@ -170,13 +212,14 @@ public class LLMObsUpsertAnnotationItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(interactionId, labelValues, additionalProperties);
+    return Objects.hash(annotator, interactionId, labelValues, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsUpsertAnnotationItem {\n");
+    sb.append("    annotator: ").append(toIndentedString(annotator)).append("\n");
     sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    labelValues: ").append(toIndentedString(labelValues)).append("\n");
     sb.append("    additionalProperties: ")

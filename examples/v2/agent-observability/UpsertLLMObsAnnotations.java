@@ -32,6 +32,7 @@ public class Example {
                             .annotations(
                                 Collections.singletonList(
                                     new LLMObsUpsertAnnotationItem()
+                                        .annotator("Alex Contractor")
                                         .interactionId("00000000-0000-0000-0000-000000000001")
                                         .labelValues(
                                             Arrays.asList(
