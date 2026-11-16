@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object with all metric related metadata. */
 @JsonPropertyOrder({
@@ -31,28 +32,28 @@ import java.util.Objects;
 public class MetricMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INTEGRATION = "integration";
-  private String integration;
+  private JsonNullable<String> integration = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PER_UNIT = "per_unit";
-  private String perUnit;
+  private JsonNullable<String> perUnit = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SHORT_NAME = "short_name";
-  private String shortName;
+  private JsonNullable<String> shortName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATSD_INTERVAL = "statsd_interval";
-  private Long statsdInterval;
+  private JsonNullable<Long> statsdInterval = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_UNIT = "unit";
-  private String unit;
+  private JsonNullable<String> unit = JsonNullable.<String>undefined();
 
   public MetricMetadata description(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -62,14 +63,24 @@ public class MetricMetadata {
    * @return description
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDescription() {
+    return description.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
+  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
 
-  public void setDescription(String description) {
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
   /**
@@ -78,14 +89,28 @@ public class MetricMetadata {
    * @return integration
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getIntegration() {
+
+    if (integration == null) {
+      integration = JsonNullable.<String>undefined();
+    }
+    return integration.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIntegration() {
+  public JsonNullable<String> getIntegration_JsonNullable() {
     return integration;
   }
 
+  @JsonProperty(JSON_PROPERTY_INTEGRATION)
+  private void setIntegration_JsonNullable(JsonNullable<String> integration) {
+    this.integration = integration;
+  }
+
   public MetricMetadata perUnit(String perUnit) {
-    this.perUnit = perUnit;
+    this.perUnit = JsonNullable.<String>of(perUnit);
     return this;
   }
 
@@ -95,18 +120,28 @@ public class MetricMetadata {
    * @return perUnit
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getPerUnit() {
+    return perUnit.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PER_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPerUnit() {
+  public JsonNullable<String> getPerUnit_JsonNullable() {
     return perUnit;
   }
 
-  public void setPerUnit(String perUnit) {
+  @JsonProperty(JSON_PROPERTY_PER_UNIT)
+  public void setPerUnit_JsonNullable(JsonNullable<String> perUnit) {
     this.perUnit = perUnit;
   }
 
+  public void setPerUnit(String perUnit) {
+    this.perUnit = JsonNullable.<String>of(perUnit);
+  }
+
   public MetricMetadata shortName(String shortName) {
-    this.shortName = shortName;
+    this.shortName = JsonNullable.<String>of(shortName);
     return this;
   }
 
@@ -116,18 +151,28 @@ public class MetricMetadata {
    * @return shortName
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getShortName() {
+    return shortName.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getShortName() {
+  public JsonNullable<String> getShortName_JsonNullable() {
     return shortName;
   }
 
-  public void setShortName(String shortName) {
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  public void setShortName_JsonNullable(JsonNullable<String> shortName) {
     this.shortName = shortName;
   }
 
+  public void setShortName(String shortName) {
+    this.shortName = JsonNullable.<String>of(shortName);
+  }
+
   public MetricMetadata statsdInterval(Long statsdInterval) {
-    this.statsdInterval = statsdInterval;
+    this.statsdInterval = JsonNullable.<Long>of(statsdInterval);
     return this;
   }
 
@@ -137,18 +182,28 @@ public class MetricMetadata {
    * @return statsdInterval
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getStatsdInterval() {
+    return statsdInterval.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getStatsdInterval() {
+  public JsonNullable<Long> getStatsdInterval_JsonNullable() {
     return statsdInterval;
   }
 
-  public void setStatsdInterval(Long statsdInterval) {
+  @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
+  public void setStatsdInterval_JsonNullable(JsonNullable<Long> statsdInterval) {
     this.statsdInterval = statsdInterval;
   }
 
+  public void setStatsdInterval(Long statsdInterval) {
+    this.statsdInterval = JsonNullable.<Long>of(statsdInterval);
+  }
+
   public MetricMetadata type(String type) {
-    this.type = type;
+    this.type = JsonNullable.<String>of(type);
     return this;
   }
 
@@ -158,18 +213,28 @@ public class MetricMetadata {
    * @return type
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getType() {
+    return type.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public JsonNullable<String> getType_JsonNullable() {
     return type;
   }
 
-  public void setType(String type) {
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
     this.type = type;
   }
 
+  public void setType(String type) {
+    this.type = JsonNullable.<String>of(type);
+  }
+
   public MetricMetadata unit(String unit) {
-    this.unit = unit;
+    this.unit = JsonNullable.<String>of(unit);
     return this;
   }
 
@@ -179,14 +244,24 @@ public class MetricMetadata {
    * @return unit
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getUnit() {
+    return unit.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUnit() {
+  public JsonNullable<String> getUnit_JsonNullable() {
     return unit;
   }
 
-  public void setUnit(String unit) {
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  public void setUnit_JsonNullable(JsonNullable<String> unit) {
     this.unit = unit;
+  }
+
+  public void setUnit(String unit) {
+    this.unit = JsonNullable.<String>of(unit);
   }
 
   /**

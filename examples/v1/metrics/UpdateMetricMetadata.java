@@ -11,7 +11,14 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
-    MetricMetadata body = new MetricMetadata().perUnit("second").type("count").unit("byte");
+    MetricMetadata body =
+        new MetricMetadata()
+            .description("Number of requests received.")
+            .perUnit("second")
+            .shortName("requests")
+            .statsdInterval(10L)
+            .type("count")
+            .unit("byte");
 
     try {
       MetricMetadata result = apiInstance.updateMetricMetadata("metric_name", body);
