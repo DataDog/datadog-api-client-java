@@ -22,8 +22,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Attributes for updating a feature flag. */
 @JsonPropertyOrder({
   UpdateFeatureFlagAttributes.JSON_PROPERTY_DESCRIPTION,
+  UpdateFeatureFlagAttributes.JSON_PROPERTY_DISTRIBUTION_CHANNEL,
   UpdateFeatureFlagAttributes.JSON_PROPERTY_JSON_SCHEMA,
   UpdateFeatureFlagAttributes.JSON_PROPERTY_NAME,
+  UpdateFeatureFlagAttributes.JSON_PROPERTY_STALENESS_STATUS,
   UpdateFeatureFlagAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -33,11 +35,17 @@ public class UpdateFeatureFlagAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_DISTRIBUTION_CHANNEL = "distribution_channel";
+  private FeatureFlagDistributionChannel distributionChannel;
+
   public static final String JSON_PROPERTY_JSON_SCHEMA = "json_schema";
   private JsonNullable<String> jsonSchema = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_STALENESS_STATUS = "staleness_status";
+  private UpdateFeatureFlagStalenessStatus stalenessStatus;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -61,6 +69,32 @@ public class UpdateFeatureFlagAttributes {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public UpdateFeatureFlagAttributes distributionChannel(
+      FeatureFlagDistributionChannel distributionChannel) {
+    this.distributionChannel = distributionChannel;
+    this.unparsed |= !distributionChannel.isValid();
+    return this;
+  }
+
+  /**
+   * The distribution channel for the feature flag.
+   *
+   * @return distributionChannel
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISTRIBUTION_CHANNEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FeatureFlagDistributionChannel getDistributionChannel() {
+    return distributionChannel;
+  }
+
+  public void setDistributionChannel(FeatureFlagDistributionChannel distributionChannel) {
+    if (!distributionChannel.isValid()) {
+      this.unparsed = true;
+    }
+    this.distributionChannel = distributionChannel;
   }
 
   public UpdateFeatureFlagAttributes jsonSchema(String jsonSchema) {
@@ -113,6 +147,35 @@ public class UpdateFeatureFlagAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public UpdateFeatureFlagAttributes stalenessStatus(
+      UpdateFeatureFlagStalenessStatus stalenessStatus) {
+    this.stalenessStatus = stalenessStatus;
+    this.unparsed |= !stalenessStatus.isValid();
+    return this;
+  }
+
+  /**
+   * The lifecycle to set. <code>ACTIVE</code> makes the flag temporary; <code>PERMANENT</code>
+   * excludes it from staleness detection. Either value clears any snooze; omit the field to keep
+   * the lifecycle. Do not copy the top-level <code>staleness_status</code> from a response into
+   * this field: that legacy response field is always <code>ACTIVE</code>.
+   *
+   * @return stalenessStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STALENESS_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UpdateFeatureFlagStalenessStatus getStalenessStatus() {
+    return stalenessStatus;
+  }
+
+  public void setStalenessStatus(UpdateFeatureFlagStalenessStatus stalenessStatus) {
+    if (!stalenessStatus.isValid()) {
+      this.unparsed = true;
+    }
+    this.stalenessStatus = stalenessStatus;
   }
 
   public UpdateFeatureFlagAttributes tags(List<String> tags) {
@@ -203,8 +266,10 @@ public class UpdateFeatureFlagAttributes {
     }
     UpdateFeatureFlagAttributes updateFeatureFlagAttributes = (UpdateFeatureFlagAttributes) o;
     return Objects.equals(this.description, updateFeatureFlagAttributes.description)
+        && Objects.equals(this.distributionChannel, updateFeatureFlagAttributes.distributionChannel)
         && Objects.equals(this.jsonSchema, updateFeatureFlagAttributes.jsonSchema)
         && Objects.equals(this.name, updateFeatureFlagAttributes.name)
+        && Objects.equals(this.stalenessStatus, updateFeatureFlagAttributes.stalenessStatus)
         && Objects.equals(this.tags, updateFeatureFlagAttributes.tags)
         && Objects.equals(
             this.additionalProperties, updateFeatureFlagAttributes.additionalProperties);
@@ -212,7 +277,14 @@ public class UpdateFeatureFlagAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, jsonSchema, name, tags, additionalProperties);
+    return Objects.hash(
+        description,
+        distributionChannel,
+        jsonSchema,
+        name,
+        stalenessStatus,
+        tags,
+        additionalProperties);
   }
 
   @Override
@@ -220,8 +292,12 @@ public class UpdateFeatureFlagAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFeatureFlagAttributes {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    distributionChannel: ")
+        .append(toIndentedString(distributionChannel))
+        .append("\n");
     sb.append("    jsonSchema: ").append(toIndentedString(jsonSchema)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    stalenessStatus: ").append(toIndentedString(stalenessStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

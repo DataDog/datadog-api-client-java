@@ -449,7 +449,9 @@ public class FeatureFlagListItemAttributes {
 
   /**
    * Legacy status retained for compatibility. This field is always <code>ACTIVE</code>; use <code>
-   * staleness_details.staleness_status</code> for the computed status.
+   * staleness_details.staleness_status</code> for the computed status. Do not copy it into an
+   * update request: sending <code>ACTIVE</code> makes a <code>PERMANENT</code> flag temporary and
+   * clears any snooze.
    *
    * @return stalenessStatus
    * @deprecated
