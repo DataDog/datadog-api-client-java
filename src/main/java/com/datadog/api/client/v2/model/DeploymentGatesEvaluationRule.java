@@ -171,6 +171,57 @@ public class DeploymentGatesEvaluationRule extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'DeploymentGatesFDDRule'", e);
       }
 
+      // deserialize DeploymentGatesBitsDeploymentAnalysisRule
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Integer.class)
+            || DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Long.class)
+            || DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Float.class)
+            || DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Double.class)
+            || DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Boolean.class)
+            || DeploymentGatesBitsDeploymentAnalysisRule.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Integer.class)
+                        || DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Float.class)
+                        || DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DeploymentGatesBitsDeploymentAnalysisRule.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DeploymentGatesBitsDeploymentAnalysisRule.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(DeploymentGatesBitsDeploymentAnalysisRule.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DeploymentGatesBitsDeploymentAnalysisRule) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'DeploymentGatesBitsDeploymentAnalysisRule'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'DeploymentGatesBitsDeploymentAnalysisRule'",
+            e);
+      }
+
       DeploymentGatesEvaluationRule ret = new DeploymentGatesEvaluationRule();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -211,9 +262,17 @@ public class DeploymentGatesEvaluationRule extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public DeploymentGatesEvaluationRule(DeploymentGatesBitsDeploymentAnalysisRule o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("DeploymentGatesMonitorRule", new GenericType<DeploymentGatesMonitorRule>() {});
     schemas.put("DeploymentGatesFDDRule", new GenericType<DeploymentGatesFDDRule>() {});
+    schemas.put(
+        "DeploymentGatesBitsDeploymentAnalysisRule",
+        new GenericType<DeploymentGatesBitsDeploymentAnalysisRule>() {});
     JSON.registerDescendants(
         DeploymentGatesEvaluationRule.class, Collections.unmodifiableMap(schemas));
   }
@@ -225,7 +284,8 @@ public class DeploymentGatesEvaluationRule extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: DeploymentGatesMonitorRule, DeploymentGatesFDDRule
+   * against the oneOf child schemas: DeploymentGatesMonitorRule, DeploymentGatesFDDRule,
+   * DeploymentGatesBitsDeploymentAnalysisRule
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -240,20 +300,27 @@ public class DeploymentGatesEvaluationRule extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        DeploymentGatesBitsDeploymentAnalysisRule.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be DeploymentGatesMonitorRule, DeploymentGatesFDDRule");
+        "Invalid instance type. Must be DeploymentGatesMonitorRule, DeploymentGatesFDDRule,"
+            + " DeploymentGatesBitsDeploymentAnalysisRule");
   }
 
   /**
    * Get the actual instance, which can be the following: DeploymentGatesMonitorRule,
-   * DeploymentGatesFDDRule
+   * DeploymentGatesFDDRule, DeploymentGatesBitsDeploymentAnalysisRule
    *
-   * @return The actual instance (DeploymentGatesMonitorRule, DeploymentGatesFDDRule)
+   * @return The actual instance (DeploymentGatesMonitorRule, DeploymentGatesFDDRule,
+   *     DeploymentGatesBitsDeploymentAnalysisRule)
    */
   @Override
   public Object getActualInstance() {
@@ -280,5 +347,17 @@ public class DeploymentGatesEvaluationRule extends AbstractOpenApiSchema {
    */
   public DeploymentGatesFDDRule getDeploymentGatesFDDRule() throws ClassCastException {
     return (DeploymentGatesFDDRule) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DeploymentGatesBitsDeploymentAnalysisRule`. If the actual instance
+   * is not `DeploymentGatesBitsDeploymentAnalysisRule`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DeploymentGatesBitsDeploymentAnalysisRule`
+   * @throws ClassCastException if the instance is not `DeploymentGatesBitsDeploymentAnalysisRule`
+   */
+  public DeploymentGatesBitsDeploymentAnalysisRule getDeploymentGatesBitsDeploymentAnalysisRule()
+      throws ClassCastException {
+    return (DeploymentGatesBitsDeploymentAnalysisRule) super.getActualInstance();
   }
 }
