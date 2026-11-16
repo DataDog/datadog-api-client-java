@@ -66,7 +66,8 @@ public class IssueWatchCondition {
   }
 
   /**
-   * Time that must elapse before the condition is met, as a Go duration string.
+   * Time that must elapse from when the watch started, as a Go duration string, such as <code>24h
+   * </code>, or <code>168h</code> for a week.
    *
    * @return duration
    */
@@ -159,7 +160,11 @@ public class IssueWatchCondition {
   }
 
   /**
-   * Attributes whose distinct values are counted for <code>CARDINALITY</code>.
+   * Attributes whose distinct values <code>CARDINALITY</code> counts, in search syntax: <code>@
+   * </code> for attributes, such as <code>@usr.id</code> or <code>@account.id</code>, and no prefix
+   * for tags and reserved fields, such as <code>org_id</code> or <code>service</code>. Only use
+   * attributes that the issue's errors carry: a condition on an attribute they don't carry is never
+   * met.
    *
    * @return projection
    */
@@ -180,8 +185,8 @@ public class IssueWatchCondition {
   }
 
   /**
-   * Number of occurrences, or of distinct values for <code>CARDINALITY</code>, that triggers the
-   * condition.
+   * Number of new occurrences, or of distinct values for <code>CARDINALITY</code>, that meets the
+   * condition, counted from when the watch started.
    *
    * @return threshold
    */
