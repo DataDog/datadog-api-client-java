@@ -471,7 +471,10 @@ public class AiGatewayApi {
    * overrides. Missing <code>configuration_revision</code> or required full-capture confirmation
    * returns HTTP 400. Retrying an accepted create with the same UUID returns HTTP 409. To undo a
    * create, read the current configuration revision and delete the override using its returned
-   * override revision.
+   * override revision. Requires <code>ai_gateway_config_write</code>. Restriction policies are
+   * saved separately after the returned UUID and revision acknowledge creation. A lost response is
+   * an unknown outcome; absence from a filtered configuration response does not prove creation
+   * failed.
    *
    * @param body (required)
    * @return ApiResponse&lt;AiGatewayCaptureOverrideResponse&gt;
@@ -1591,7 +1594,12 @@ public class AiGatewayApi {
    * confirm_full_capture</code> to <code>true</code>. Returns HTTP 409 when <code>
    * configuration_revision</code> or the override <code>revision</code> is stale, including a
    * concurrent change during deletion. Missing revisions or required full-capture confirmation
-   * returns HTTP 400.
+   * returns HTTP 400. Requires <code>ai_gateway_config_write</code> and View and Edit access to
+   * this override. Hidden overrides return HTTP 404; visible overrides without Edit return HTTP
+   * 403. Authorization failures return HTTP 503. If permission cleanup fails after the deletion is
+   * committed, the response is HTTP 500 with code <code>deletion_permission_cleanup_failed</code>,
+   * <code>meta.configuration_deleted=true</code>, and <code>meta.permissions_cleanup_failed=true
+   * </code>. Do not retry the deletion.
    *
    * @param id Data capture override ID. (required)
    * @param body (required)
@@ -3657,6 +3665,9 @@ public class AiGatewayApi {
 
   /**
    * Get the organization default mode, scoped capture overrides, and configuration revision.
+   * Requires <code>ai_gateway_config_read</code>. Only overrides the caller can View are returned.
+   * Hidden overrides remain effective and contribute to <code>configuration_revision</code>. An
+   * override missing from the response is not necessarily deleted.
    *
    * @return ApiResponse&lt;AiGatewayCaptureConfigurationResponse&gt;
    * @throws ApiException if fails to make API call
@@ -8368,7 +8379,11 @@ public class AiGatewayApi {
    * configuration_revision</code>. Changes to capture overrides don't affect routing rules. Returns
    * HTTP 409 when <code>configuration_revision</code> or the override <code>revision</code> is
    * stale, including a concurrent change during replacement. Missing revisions or required
-   * full-capture confirmation returns HTTP 400.
+   * full-capture confirmation returns HTTP 400. Requires <code>ai_gateway_config_write</code> and
+   * View and Edit access to this override. Hidden overrides return HTTP 404; visible overrides
+   * without Edit return HTTP 403. Authorization failures return HTTP 503. The returned UUID and
+   * revision acknowledge the saved configuration even if the caller can no longer list it.
+   * Restriction policies are saved separately.
    *
    * @param id Data capture override ID. (required)
    * @param body (required)
