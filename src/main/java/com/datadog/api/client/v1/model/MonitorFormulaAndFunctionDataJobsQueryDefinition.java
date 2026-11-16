@@ -21,8 +21,10 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionDataJobsQueryDefinition.JSON_PROPERTY_JOB_TYPE,
   MonitorFormulaAndFunctionDataJobsQueryDefinition.JSON_PROPERTY_JOBS_QUERY,
+  MonitorFormulaAndFunctionDataJobsQueryDefinition.JSON_PROPERTY_MONITOR_OPTIONS,
   MonitorFormulaAndFunctionDataJobsQueryDefinition.JSON_PROPERTY_NAME,
-  MonitorFormulaAndFunctionDataJobsQueryDefinition.JSON_PROPERTY_QUERY_DIALECT
+  MonitorFormulaAndFunctionDataJobsQueryDefinition.JSON_PROPERTY_QUERY_DIALECT,
+  MonitorFormulaAndFunctionDataJobsQueryDefinition.JSON_PROPERTY_RUN_FILTER
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -34,11 +36,17 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
   public static final String JSON_PROPERTY_JOBS_QUERY = "jobs_query";
   private String jobsQuery;
 
+  public static final String JSON_PROPERTY_MONITOR_OPTIONS = "monitor_options";
+  private MonitorFormulaAndFunctionDataJobsMonitorOptions monitorOptions;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_QUERY_DIALECT = "query_dialect";
   private String queryDialect;
+
+  public static final String JSON_PROPERTY_RUN_FILTER = "run_filter";
+  private String runFilter;
 
   public MonitorFormulaAndFunctionDataJobsQueryDefinition() {}
 
@@ -61,9 +69,10 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
 
   /**
    * The type of job being monitored. Valid values include: <code>databricks.job</code>, <code>
-   * spark.application</code>, <code>airflow.dag</code>, <code>dbt.job</code>, <code>dbt.model
-   * </code>, <code>dbt.test</code>, <code>glue.job</code>. Custom job types are supported with the
-   * <code>custom.ol.</code> prefix.
+   * spark.application</code>, <code>airflow.dag</code>, <code>dbt.job</code>, <code>glue.job</code>
+   * , <code>adf.pipeline</code>. The <code>aastra</code> dialect also accepts <code>airflow.job
+   * </code>, <code>dbt.model</code>, and <code>dbt.test</code>. Custom job types are supported with
+   * the <code>custom.ol.</code> prefix.
    *
    * @return jobType
    */
@@ -83,7 +92,10 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
   }
 
   /**
-   * Filter expression used to select the jobs to monitor.
+   * Filter expression used to select the jobs to monitor. Its syntax depends on <code>query_dialect
+   * </code>: a metric tag filter such as <code>job_name:smoke*</code> for <code>metric</code>, or
+   * an Aastra entity search such as <code>search for databricks_job where `@team:data-eng`</code>
+   * for <code>aastra</code>.
    *
    * @return jobsQuery
    */
@@ -95,6 +107,32 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
 
   public void setJobsQuery(String jobsQuery) {
     this.jobsQuery = jobsQuery;
+  }
+
+  public MonitorFormulaAndFunctionDataJobsQueryDefinition monitorOptions(
+      MonitorFormulaAndFunctionDataJobsMonitorOptions monitorOptions) {
+    this.monitorOptions = monitorOptions;
+    this.unparsed |= monitorOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Monitor configuration options for data jobs queries.
+   *
+   * @return monitorOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorFormulaAndFunctionDataJobsMonitorOptions getMonitorOptions() {
+    return monitorOptions;
+  }
+
+  public void setMonitorOptions(MonitorFormulaAndFunctionDataJobsMonitorOptions monitorOptions) {
+    this.monitorOptions = monitorOptions;
+    if (monitorOptions != null) {
+      this.unparsed |= monitorOptions.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionDataJobsQueryDefinition name(String name) {
@@ -123,7 +161,8 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
   }
 
   /**
-   * Query dialect for data jobs queries. Currently only <code>metric</code> is supported.
+   * Query dialect for data jobs queries. Valid values are <code>metric</code> and <code>aastra
+   * </code>.
    *
    * @return queryDialect
    */
@@ -135,6 +174,28 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
 
   public void setQueryDialect(String queryDialect) {
     this.queryDialect = queryDialect;
+  }
+
+  public MonitorFormulaAndFunctionDataJobsQueryDefinition runFilter(String runFilter) {
+    this.runFilter = runFilter;
+    return this;
+  }
+
+  /**
+   * Optional filter on individual runs, using metrics filter syntax. Only supported with the <code>
+   * aastra</code> query dialect.
+   *
+   * @return runFilter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRunFilter() {
+    return runFilter;
+  }
+
+  public void setRunFilter(String runFilter) {
+    this.runFilter = runFilter;
   }
 
   /**
@@ -199,9 +260,13 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
     return Objects.equals(this.jobType, monitorFormulaAndFunctionDataJobsQueryDefinition.jobType)
         && Objects.equals(
             this.jobsQuery, monitorFormulaAndFunctionDataJobsQueryDefinition.jobsQuery)
+        && Objects.equals(
+            this.monitorOptions, monitorFormulaAndFunctionDataJobsQueryDefinition.monitorOptions)
         && Objects.equals(this.name, monitorFormulaAndFunctionDataJobsQueryDefinition.name)
         && Objects.equals(
             this.queryDialect, monitorFormulaAndFunctionDataJobsQueryDefinition.queryDialect)
+        && Objects.equals(
+            this.runFilter, monitorFormulaAndFunctionDataJobsQueryDefinition.runFilter)
         && Objects.equals(
             this.additionalProperties,
             monitorFormulaAndFunctionDataJobsQueryDefinition.additionalProperties);
@@ -209,7 +274,8 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobType, jobsQuery, name, queryDialect, additionalProperties);
+    return Objects.hash(
+        jobType, jobsQuery, monitorOptions, name, queryDialect, runFilter, additionalProperties);
   }
 
   @Override
@@ -218,8 +284,10 @@ public class MonitorFormulaAndFunctionDataJobsQueryDefinition {
     sb.append("class MonitorFormulaAndFunctionDataJobsQueryDefinition {\n");
     sb.append("    jobType: ").append(toIndentedString(jobType)).append("\n");
     sb.append("    jobsQuery: ").append(toIndentedString(jobsQuery)).append("\n");
+    sb.append("    monitorOptions: ").append(toIndentedString(monitorOptions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    queryDialect: ").append(toIndentedString(queryDialect)).append("\n");
+    sb.append("    runFilter: ").append(toIndentedString(runFilter)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
