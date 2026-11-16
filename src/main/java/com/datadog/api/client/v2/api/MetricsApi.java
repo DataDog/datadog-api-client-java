@@ -428,7 +428,7 @@ public class MetricsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request  If the tag configuration is too large to be stored, the error message is &#x60;Tag configuration is too large to be stored. The limit applies to the total encoded size of the tags list, not to a fixed number of tags. Retrying the same request will fail. Remove tags that are not needed for querying, or use shorter tag keys, then resubmit.&#x60; </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
@@ -5827,7 +5827,7 @@ public class MetricsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request  If the tag configuration is too large to be stored, the error message is &#x60;Tag configuration is too large to be stored. The limit applies to the total encoded size of the tags list, not to a fixed number of tags. Retrying the same request will fail. Remove tags that are not needed for querying, or use shorter tag keys, then resubmit.&#x60; </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
