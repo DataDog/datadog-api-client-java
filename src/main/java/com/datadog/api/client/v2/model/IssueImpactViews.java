@@ -4,52 +4,101 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Monitor configuration options for data jobs queries. */
+/** RUM views where the issue occurred. */
 @JsonPropertyOrder({
-  MonitorFormulaAndFunctionDataJobsMonitorOptions.JSON_PROPERTY_ALERT_ON_EVERY_FAILURE
+  IssueImpactViews.JSON_PROPERTY_DISTINCT_COUNT,
+  IssueImpactViews.JSON_PROPERTY_TOP
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
+public class IssueImpactViews {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ALERT_ON_EVERY_FAILURE = "alert_on_every_failure";
-  private Boolean alertOnEveryFailure;
+  public static final String JSON_PROPERTY_DISTINCT_COUNT = "distinct_count";
+  private Long distinctCount;
 
-  public MonitorFormulaAndFunctionDataJobsMonitorOptions alertOnEveryFailure(
-      Boolean alertOnEveryFailure) {
-    this.alertOnEveryFailure = alertOnEveryFailure;
+  public static final String JSON_PROPERTY_TOP = "top";
+  private List<IssueImpactView> top = new ArrayList<>();
+
+  public IssueImpactViews() {}
+
+  @JsonCreator
+  public IssueImpactViews(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DISTINCT_COUNT) Long distinctCount,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOP) List<IssueImpactView> top) {
+    this.distinctCount = distinctCount;
+    this.top = top;
+    for (IssueImpactView item : top) {
+      this.unparsed |= item.unparsed;
+    }
+  }
+
+  public IssueImpactViews distinctCount(Long distinctCount) {
+    this.distinctCount = distinctCount;
     return this;
   }
 
   /**
-   * Alert separately for each failed run instead of on the count of trailing failures. Only
-   * supported for <code>failed_runs</code> monitors with the <code>aastra</code> query dialect. It
-   * requires a <code>&gt; 0</code> threshold with no warning threshold, an evaluation window of at
-   * most two days, and renotification disabled.
+   * Number of distinct view names where the issue occurred in the time window.
    *
-   * @return alertOnEveryFailure
+   * @return distinctCount
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALERT_ON_EVERY_FAILURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getAlertOnEveryFailure() {
-    return alertOnEveryFailure;
+  @JsonProperty(JSON_PROPERTY_DISTINCT_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getDistinctCount() {
+    return distinctCount;
   }
 
-  public void setAlertOnEveryFailure(Boolean alertOnEveryFailure) {
-    this.alertOnEveryFailure = alertOnEveryFailure;
+  public void setDistinctCount(Long distinctCount) {
+    this.distinctCount = distinctCount;
+  }
+
+  public IssueImpactViews top(List<IssueImpactView> top) {
+    this.top = top;
+    for (IssueImpactView item : top) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public IssueImpactViews addTopItem(IssueImpactView topItem) {
+    this.top.add(topItem);
+    this.unparsed |= topItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Up to five views with the most errors, most affected first.
+   *
+   * @return top
+   */
+  @JsonProperty(JSON_PROPERTY_TOP)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<IssueImpactView> getTop() {
+    return top;
+  }
+
+  public void setTop(List<IssueImpactView> top) {
+    this.top = top;
+    if (top != null) {
+      for (IssueImpactView item : top) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -64,11 +113,10 @@ public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MonitorFormulaAndFunctionDataJobsMonitorOptions
+   * @return IssueImpactViews
    */
   @JsonAnySetter
-  public MonitorFormulaAndFunctionDataJobsMonitorOptions putAdditionalProperty(
-      String key, Object value) {
+  public IssueImpactViews putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -99,7 +147,7 @@ public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MonitorFormulaAndFunctionDataJobsMonitorOptions object is equal to o. */
+  /** Return true if this IssueImpactViews object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,29 +156,23 @@ public class MonitorFormulaAndFunctionDataJobsMonitorOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionDataJobsMonitorOptions
-        monitorFormulaAndFunctionDataJobsMonitorOptions =
-            (MonitorFormulaAndFunctionDataJobsMonitorOptions) o;
-    return Objects.equals(
-            this.alertOnEveryFailure,
-            monitorFormulaAndFunctionDataJobsMonitorOptions.alertOnEveryFailure)
-        && Objects.equals(
-            this.additionalProperties,
-            monitorFormulaAndFunctionDataJobsMonitorOptions.additionalProperties);
+    IssueImpactViews issueImpactViews = (IssueImpactViews) o;
+    return Objects.equals(this.distinctCount, issueImpactViews.distinctCount)
+        && Objects.equals(this.top, issueImpactViews.top)
+        && Objects.equals(this.additionalProperties, issueImpactViews.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertOnEveryFailure, additionalProperties);
+    return Objects.hash(distinctCount, top, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MonitorFormulaAndFunctionDataJobsMonitorOptions {\n");
-    sb.append("    alertOnEveryFailure: ")
-        .append(toIndentedString(alertOnEveryFailure))
-        .append("\n");
+    sb.append("class IssueImpactViews {\n");
+    sb.append("    distinctCount: ").append(toIndentedString(distinctCount)).append("\n");
+    sb.append("    top: ").append(toIndentedString(top)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
