@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -28,7 +30,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_REQUESTS_PER_MINUTE,
   AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_TAGS,
   AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_TEAM_ID,
-  AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_USER_ID
+  AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_USER_ID,
+  AiGatewayRateLimitUpdateAttributes.JSON_PROPERTY_WINDOW_LIMITS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -65,6 +68,10 @@ public class AiGatewayRateLimitUpdateAttributes {
   public static final String JSON_PROPERTY_USER_ID = "user_id";
   private JsonNullable<String> userId = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_WINDOW_LIMITS = "window_limits";
+  private JsonNullable<List<AiGatewayRateLimitWindowLimit>> windowLimits =
+      JsonNullable.<List<AiGatewayRateLimitWindowLimit>>undefined();
+
   public AiGatewayRateLimitUpdateAttributes costMicrocentsPerMinute(Long costMicrocentsPerMinute) {
     this.costMicrocentsPerMinute = JsonNullable.<Long>of(costMicrocentsPerMinute);
     return this;
@@ -72,7 +79,8 @@ public class AiGatewayRateLimitUpdateAttributes {
 
   /**
    * Spend limit in microcents per rolling minute. Set to 0 to remove the cost limit. Null is
-   * ignored. At least one limit must remain. minimum: 0 maximum: 10000000000000
+   * ignored. At least one limit, per-minute or in <code>window_limits</code>, must remain. minimum:
+   * 0
    *
    * @return costMicrocentsPerMinute
    */
@@ -124,8 +132,8 @@ public class AiGatewayRateLimitUpdateAttributes {
   }
 
   /**
-   * Set to 0 to remove the request limit. Null is ignored. At least one limit must remain. minimum:
-   * 0 maximum: 100000000000
+   * Set to 0 to remove the input token limit. Null is ignored. At least one limit, per-minute or in
+   * <code>window_limits</code>, must remain. minimum: 0 maximum: 100000000000
    *
    * @return inputTokensPerMinute
    */
@@ -202,8 +210,8 @@ public class AiGatewayRateLimitUpdateAttributes {
   }
 
   /**
-   * Set to 0 to remove the request limit. Null is ignored. At least one limit must remain. minimum:
-   * 0 maximum: 100000000000
+   * Set to 0 to remove the output token limit. Null is ignored. At least one limit, per-minute or
+   * in <code>window_limits</code>, must remain. minimum: 0 maximum: 100000000000
    *
    * @return outputTokensPerMinute
    */
@@ -234,8 +242,8 @@ public class AiGatewayRateLimitUpdateAttributes {
   }
 
   /**
-   * Set to 0 to remove the request limit. Null is ignored. At least one limit must remain. minimum:
-   * 0 maximum: 10000000
+   * Set to 0 to remove the request limit. Null is ignored. At least one limit, per-minute or in
+   * <code>window_limits</code>, must remain. minimum: 0 maximum: 10000000
    *
    * @return requestsPerMinute
    */
@@ -365,6 +373,59 @@ public class AiGatewayRateLimitUpdateAttributes {
     this.userId = JsonNullable.<String>of(userId);
   }
 
+  public AiGatewayRateLimitUpdateAttributes windowLimits(
+      List<AiGatewayRateLimitWindowLimit> windowLimits) {
+    this.windowLimits = JsonNullable.<List<AiGatewayRateLimitWindowLimit>>of(windowLimits);
+    return this;
+  }
+
+  public AiGatewayRateLimitUpdateAttributes addWindowLimitsItem(
+      AiGatewayRateLimitWindowLimit windowLimitsItem) {
+    if (this.windowLimits == null || !this.windowLimits.isPresent()) {
+      this.windowLimits = JsonNullable.<List<AiGatewayRateLimitWindowLimit>>of(new ArrayList<>());
+    }
+    try {
+      this.windowLimits.get().add(windowLimitsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Replaces all limits over rolling windows longer than a minute. If <code>window_limits</code> is
+   * null or omitted, the existing limits are unchanged. An empty array removes them all. This field
+   * is available only to organizations with the feature enabled. Other organizations receive a 400
+   * Bad Request response for a non-empty list. The same rules as on create apply. A rule can have
+   * at most four limits in total, including any per-minute limits that are set. Each metric and
+   * window pair can appear only once, and for the same metric, a longer window must have a larger
+   * amount. In <code>ENFORCE</code> mode, if the list includes a <code>cost</code> limit, the
+   * gateway rejects requests to models with no pricing because their cost can't be counted.
+   *
+   * @return windowLimits
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<AiGatewayRateLimitWindowLimit> getWindowLimits() {
+    return windowLimits.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WINDOW_LIMITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<AiGatewayRateLimitWindowLimit>> getWindowLimits_JsonNullable() {
+    return windowLimits;
+  }
+
+  @JsonProperty(JSON_PROPERTY_WINDOW_LIMITS)
+  public void setWindowLimits_JsonNullable(
+      JsonNullable<List<AiGatewayRateLimitWindowLimit>> windowLimits) {
+    this.windowLimits = windowLimits;
+  }
+
+  public void setWindowLimits(List<AiGatewayRateLimitWindowLimit> windowLimits) {
+    this.windowLimits = JsonNullable.<List<AiGatewayRateLimitWindowLimit>>of(windowLimits);
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -437,6 +498,7 @@ public class AiGatewayRateLimitUpdateAttributes {
         && Objects.equals(this.tags, aiGatewayRateLimitUpdateAttributes.tags)
         && Objects.equals(this.teamId, aiGatewayRateLimitUpdateAttributes.teamId)
         && Objects.equals(this.userId, aiGatewayRateLimitUpdateAttributes.userId)
+        && Objects.equals(this.windowLimits, aiGatewayRateLimitUpdateAttributes.windowLimits)
         && Objects.equals(
             this.additionalProperties, aiGatewayRateLimitUpdateAttributes.additionalProperties);
   }
@@ -454,6 +516,7 @@ public class AiGatewayRateLimitUpdateAttributes {
         tags,
         teamId,
         userId,
+        windowLimits,
         additionalProperties);
   }
 
@@ -477,6 +540,7 @@ public class AiGatewayRateLimitUpdateAttributes {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    windowLimits: ").append(toIndentedString(windowLimits)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
