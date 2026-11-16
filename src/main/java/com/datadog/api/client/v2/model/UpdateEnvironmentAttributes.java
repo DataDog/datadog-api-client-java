@@ -22,6 +22,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UpdateEnvironmentAttributes.JSON_PROPERTY_IS_PRODUCTION,
   UpdateEnvironmentAttributes.JSON_PROPERTY_NAME,
+  UpdateEnvironmentAttributes.JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA,
   UpdateEnvironmentAttributes.JSON_PROPERTY_QUERIES,
   UpdateEnvironmentAttributes.JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL
 })
@@ -34,6 +35,10 @@ public class UpdateEnvironmentAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA =
+      "observe_full_evaluation_data";
+  private Boolean observeFullEvaluationData;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
   private List<String> queries = null;
@@ -48,7 +53,8 @@ public class UpdateEnvironmentAttributes {
   }
 
   /**
-   * Indicates whether this is a production environment.
+   * Indicates whether this is a production environment. If omitted, resets to false. Include the
+   * existing value to preserve it.
    *
    * @return isProduction
    */
@@ -69,7 +75,9 @@ public class UpdateEnvironmentAttributes {
   }
 
   /**
-   * The name of the environment.
+   * The name of the environment. Required on every request and unique within the organization. Must
+   * contain 1 to 200 ASCII characters, start with a letter or digit, and contain only letters,
+   * digits, spaces, underscores, hyphens, and periods.
    *
    * @return name
    */
@@ -82,6 +90,29 @@ public class UpdateEnvironmentAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public UpdateEnvironmentAttributes observeFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
+    return this;
+  }
+
+  /**
+   * Controls whether feature flag evaluation events may include original targeting identifiers and
+   * full evaluation context. When true, SDKs may include this data. When false, SDKs hash targeting
+   * identifiers and omit evaluation context. If omitted, the existing value is preserved.
+   *
+   * @return observeFullEvaluationData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getObserveFullEvaluationData() {
+    return observeFullEvaluationData;
+  }
+
+  public void setObserveFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
   }
 
   public UpdateEnvironmentAttributes queries(List<String> queries) {
@@ -98,7 +129,9 @@ public class UpdateEnvironmentAttributes {
   }
 
   /**
-   * List of queries to define the environment scope.
+   * Required list of at least one exact DD_ENV value associated with this environment. Values
+   * cannot be used by another environment in the same organization. Wildcards and search
+   * expressions are not supported.
    *
    * @return queries
    */
@@ -120,7 +153,8 @@ public class UpdateEnvironmentAttributes {
   }
 
   /**
-   * Indicates whether feature flag changes require approval in this environment.
+   * Indicates whether feature flag changes require approval in this environment. If omitted, resets
+   * to false. Include the existing value to preserve it.
    *
    * @return requireFeatureFlagApproval
    */
@@ -193,6 +227,8 @@ public class UpdateEnvironmentAttributes {
     UpdateEnvironmentAttributes updateEnvironmentAttributes = (UpdateEnvironmentAttributes) o;
     return Objects.equals(this.isProduction, updateEnvironmentAttributes.isProduction)
         && Objects.equals(this.name, updateEnvironmentAttributes.name)
+        && Objects.equals(
+            this.observeFullEvaluationData, updateEnvironmentAttributes.observeFullEvaluationData)
         && Objects.equals(this.queries, updateEnvironmentAttributes.queries)
         && Objects.equals(
             this.requireFeatureFlagApproval, updateEnvironmentAttributes.requireFeatureFlagApproval)
@@ -203,7 +239,12 @@ public class UpdateEnvironmentAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        isProduction, name, queries, requireFeatureFlagApproval, additionalProperties);
+        isProduction,
+        name,
+        observeFullEvaluationData,
+        queries,
+        requireFeatureFlagApproval,
+        additionalProperties);
   }
 
   @Override
@@ -212,6 +253,9 @@ public class UpdateEnvironmentAttributes {
     sb.append("class UpdateEnvironmentAttributes {\n");
     sb.append("    isProduction: ").append(toIndentedString(isProduction)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    observeFullEvaluationData: ")
+        .append(toIndentedString(observeFullEvaluationData))
+        .append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    requireFeatureFlagApproval: ")
         .append(toIndentedString(requireFeatureFlagApproval))
