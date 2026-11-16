@@ -32,7 +32,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_SELECTOR,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_TAGS,
   AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_TEAM_ID,
-  AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_USER_ID
+  AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_USER_ID,
+  AiGatewayRateLimitCreateAttributes.JSON_PROPERTY_WINDOW_LIMITS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -70,6 +71,9 @@ public class AiGatewayRateLimitCreateAttributes {
   public static final String JSON_PROPERTY_USER_ID = "user_id";
   private UUID userId;
 
+  public static final String JSON_PROPERTY_WINDOW_LIMITS = "window_limits";
+  private List<AiGatewayRateLimitWindowLimit> windowLimits = null;
+
   public AiGatewayRateLimitCreateAttributes() {}
 
   @JsonCreator
@@ -84,9 +88,9 @@ public class AiGatewayRateLimitCreateAttributes {
   }
 
   /**
-   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. At most
-   * 10000000000000, that is $100,000. In <code>ENFORCE</code> mode, requests to a model with no
-   * pricing are rejected, because their cost can't be counted. minimum: 1 maximum: 10000000000000
+   * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each. In <code>ENFORCE
+   * </code> mode, the gateway rejects requests to models with no pricing because their cost can't
+   * be counted. minimum: 1
    *
    * @return costMicrocentsPerMinute
    */
@@ -225,8 +229,9 @@ public class AiGatewayRateLimitCreateAttributes {
 
   /**
    * Maximum requests per rolling minute. At least one of <code>requests_per_minute</code>, <code>
-   * input_tokens_per_minute</code>, <code>output_tokens_per_minute</code>, and <code>
-   * cost_microcents_per_minute</code> is required. minimum: 1 maximum: 10000000
+   * input_tokens_per_minute</code>, <code>output_tokens_per_minute</code>, <code>
+   * cost_microcents_per_minute</code>, or a non-empty <code>window_limits</code> is required.
+   * minimum: 1 maximum: 10000000
    *
    * @return requestsPerMinute
    */
@@ -372,6 +377,57 @@ public class AiGatewayRateLimitCreateAttributes {
     this.userId = userId;
   }
 
+  public AiGatewayRateLimitCreateAttributes windowLimits(
+      List<AiGatewayRateLimitWindowLimit> windowLimits) {
+    this.windowLimits = windowLimits;
+    if (windowLimits != null) {
+      for (AiGatewayRateLimitWindowLimit item : windowLimits) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public AiGatewayRateLimitCreateAttributes addWindowLimitsItem(
+      AiGatewayRateLimitWindowLimit windowLimitsItem) {
+    if (this.windowLimits == null) {
+      this.windowLimits = new ArrayList<>();
+    }
+    this.windowLimits.add(windowLimitsItem);
+    this.unparsed |= windowLimitsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Limits over rolling windows longer than a minute, such as $20 of spend per 24 hours. This field
+   * is available only to organizations with the feature enabled. Other organizations receive a 400
+   * Bad Request response for a non-empty list. Each limit counts the rule's matching traffic, or
+   * each counter of a template rate limit, over its window. Set per-minute limits in the <code>
+   * *_per_minute</code> fields. A rule can have at most four limits in total, including any
+   * per-minute limits that are set. Each metric and window pair can appear only once, and for the
+   * same metric, a longer window must have a larger amount. In <code>ENFORCE</code> mode, the
+   * gateway rejects a request that exceeds any limit with HTTP 429 and a <code>Retry-After</code>
+   * header. If the list includes a <code>cost</code> limit, the gateway also rejects requests to
+   * models with no pricing because their cost can't be counted.
+   *
+   * @return windowLimits
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WINDOW_LIMITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AiGatewayRateLimitWindowLimit> getWindowLimits() {
+    return windowLimits;
+  }
+
+  public void setWindowLimits(List<AiGatewayRateLimitWindowLimit> windowLimits) {
+    this.windowLimits = windowLimits;
+    if (windowLimits != null) {
+      for (AiGatewayRateLimitWindowLimit item : windowLimits) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -444,6 +500,7 @@ public class AiGatewayRateLimitCreateAttributes {
         && Objects.equals(this.tags, aiGatewayRateLimitCreateAttributes.tags)
         && Objects.equals(this.teamId, aiGatewayRateLimitCreateAttributes.teamId)
         && Objects.equals(this.userId, aiGatewayRateLimitCreateAttributes.userId)
+        && Objects.equals(this.windowLimits, aiGatewayRateLimitCreateAttributes.windowLimits)
         && Objects.equals(
             this.additionalProperties, aiGatewayRateLimitCreateAttributes.additionalProperties);
   }
@@ -461,6 +518,7 @@ public class AiGatewayRateLimitCreateAttributes {
         tags,
         teamId,
         userId,
+        windowLimits,
         additionalProperties);
   }
 
@@ -484,6 +542,7 @@ public class AiGatewayRateLimitCreateAttributes {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    windowLimits: ").append(toIndentedString(windowLimits)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

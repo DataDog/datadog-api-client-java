@@ -9,6 +9,10 @@ import com.datadog.api.client.v2.model.AiGatewayRateLimitType;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitUpdateAttributes;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitUpdateData;
 import com.datadog.api.client.v2.model.AiGatewayRateLimitUpdateRequest;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitWindowLimit;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitWindowLimitMetric;
+import com.datadog.api.client.v2.model.AiGatewayRateLimitWindowLimitWindow;
+import java.util.Collections;
 import java.util.UUID;
 
 public class Example {
@@ -31,7 +35,15 @@ public class Example {
                             .requestsPerMinute(null)
                             .tags(null)
                             .teamId(null)
-                            .userId(null))
+                            .userId(null)
+                            .windowLimits(
+                                Collections.singletonList(
+                                    new AiGatewayRateLimitWindowLimit()
+                                        .amount(2000000000L)
+                                        .metric(AiGatewayRateLimitWindowLimitMetric.COST)
+                                        .window(
+                                            AiGatewayRateLimitWindowLimitWindow
+                                                .TWENTY_FOUR_HOURS))))
                     .id(UUID.fromString("11111111-1111-1111-1111-111111111111"))
                     .type(AiGatewayRateLimitType.RATE_LIMITS));
 

@@ -43,7 +43,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayRateLimitAttributes.JSON_PROPERTY_TEMPLATE_SPLIT_DIMS,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_UPDATED_AT,
   AiGatewayRateLimitAttributes.JSON_PROPERTY_UPDATED_BY,
-  AiGatewayRateLimitAttributes.JSON_PROPERTY_USER_ID
+  AiGatewayRateLimitAttributes.JSON_PROPERTY_USER_ID,
+  AiGatewayRateLimitAttributes.JSON_PROPERTY_WINDOW_LIMITS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -111,6 +112,9 @@ public class AiGatewayRateLimitAttributes {
   public static final String JSON_PROPERTY_USER_ID = "user_id";
   private JsonNullable<UUID> userId = JsonNullable.<UUID>undefined();
 
+  public static final String JSON_PROPERTY_WINDOW_LIMITS = "window_limits";
+  private List<AiGatewayRateLimitWindowLimit> windowLimits = null;
+
   public AiGatewayRateLimitAttributes() {}
 
   @JsonCreator
@@ -152,7 +156,7 @@ public class AiGatewayRateLimitAttributes {
   /**
    * Maximum priced spend per rolling minute, in microcents of 1e-8 USD each, shared by all matching
    * traffic, or per counter for a template rate limit. Null when this rule does not limit cost.
-   * minimum: 1 maximum: 10000000000000
+   * minimum: 1
    *
    * @return costMicrocentsPerMinute
    */
@@ -674,6 +678,50 @@ public class AiGatewayRateLimitAttributes {
     this.userId = JsonNullable.<UUID>of(userId);
   }
 
+  public AiGatewayRateLimitAttributes windowLimits(
+      List<AiGatewayRateLimitWindowLimit> windowLimits) {
+    this.windowLimits = windowLimits;
+    if (windowLimits != null) {
+      for (AiGatewayRateLimitWindowLimit item : windowLimits) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public AiGatewayRateLimitAttributes addWindowLimitsItem(
+      AiGatewayRateLimitWindowLimit windowLimitsItem) {
+    if (this.windowLimits == null) {
+      this.windowLimits = new ArrayList<>();
+    }
+    this.windowLimits.add(windowLimitsItem);
+    this.unparsed |= windowLimitsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Limits over rolling windows longer than a minute. Each limit counts the rule's matching
+   * traffic, or each counter of a template rate limit, over its window. Per-minute limits are in
+   * the <code>*_per_minute</code> fields. This list is empty when the rule has no window limits.
+   *
+   * @return windowLimits
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WINDOW_LIMITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AiGatewayRateLimitWindowLimit> getWindowLimits() {
+    return windowLimits;
+  }
+
+  public void setWindowLimits(List<AiGatewayRateLimitWindowLimit> windowLimits) {
+    this.windowLimits = windowLimits;
+    if (windowLimits != null) {
+      for (AiGatewayRateLimitWindowLimit item : windowLimits) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -753,6 +801,7 @@ public class AiGatewayRateLimitAttributes {
         && Objects.equals(this.updatedAt, aiGatewayRateLimitAttributes.updatedAt)
         && Objects.equals(this.updatedBy, aiGatewayRateLimitAttributes.updatedBy)
         && Objects.equals(this.userId, aiGatewayRateLimitAttributes.userId)
+        && Objects.equals(this.windowLimits, aiGatewayRateLimitAttributes.windowLimits)
         && Objects.equals(
             this.additionalProperties, aiGatewayRateLimitAttributes.additionalProperties);
   }
@@ -780,6 +829,7 @@ public class AiGatewayRateLimitAttributes {
         updatedAt,
         updatedBy,
         userId,
+        windowLimits,
         additionalProperties);
   }
 
@@ -813,6 +863,7 @@ public class AiGatewayRateLimitAttributes {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    windowLimits: ").append(toIndentedString(windowLimits)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
