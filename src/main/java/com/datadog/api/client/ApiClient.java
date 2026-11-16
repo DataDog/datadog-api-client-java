@@ -1410,6 +1410,7 @@ public class ApiClient {
           put("v2.updateDeploymentGate", false);
           put("v2.updateDeploymentRule", false);
           put("v2.getIssueImpact", false);
+          put("v2.snoozeIssue", false);
           put("v2.getEUDMDevice", false);
           put("v2.getEUDMDevices", false);
           put("v2.cloneForm", false);
