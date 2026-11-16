@@ -272,6 +272,12 @@ public class SeatsApi {
   /**
    * Get the list of users assigned seats for a product code.
    *
+   * <p>This endpoint requires the <code>user_access_read</code> (User Access Read) permission in
+   * addition to at least one of <code>billing_read</code>, <code>incident_read</code>, or <code>
+   * on_call_read</code>. Scoped application keys, personal access tokens, and service access tokens
+   * must include the <code>user_access_read</code> scope. Credentials without this scope receive a
+   * <code>403 Forbidden</code> response.
+   *
    * @param productCode The product code for which to retrieve seat users. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SeatUserDataArray&gt;
@@ -282,6 +288,7 @@ public class SeatsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
