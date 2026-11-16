@@ -14212,10 +14212,13 @@ public class AgentObservabilityApi {
 
   /**
    * Create or update annotations on interactions in a queue. Each annotation is matched by <code>
-   * interaction_id</code> and the requesting user's identity. Results and errors in the response
-   * are linked to request items by <code>interaction_id</code>. Errors for individual items are
-   * returned in the <code>errors</code> field without blocking the rest of the batch. Requests
-   * where every item is denied by queue access rules return <code>403</code>.
+   * interaction_id</code> and the requesting user's identity. Use the optional <code>annotator
+   * </code> field to name an external person or automated system that produced the labels without
+   * changing the authenticated creator, modifier, permissions, or per-user matching behavior.
+   * Results and errors in the response are linked to request items by <code>interaction_id</code>.
+   * Errors for individual items are returned in the <code>errors</code> field without blocking the
+   * rest of the batch. Requests where every item is denied by queue access rules return <code>403
+   * </code>.
    *
    * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Payload for creating or updating annotations. (required)

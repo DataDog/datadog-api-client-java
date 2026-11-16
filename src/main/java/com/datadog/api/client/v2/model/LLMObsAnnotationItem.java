@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** A single annotation on an interaction. */
 @JsonPropertyOrder({
+  LLMObsAnnotationItem.JSON_PROPERTY_ANNOTATOR,
   LLMObsAnnotationItem.JSON_PROPERTY_CREATED_AT,
   LLMObsAnnotationItem.JSON_PROPERTY_CREATED_BY,
   LLMObsAnnotationItem.JSON_PROPERTY_ID,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotationItem {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANNOTATOR = "annotator";
+  private String annotator;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -72,6 +76,29 @@ public class LLMObsAnnotationItem {
     this.labelValues = labelValues;
     this.modifiedAt = modifiedAt;
     this.modifiedBy = modifiedBy;
+  }
+
+  public LLMObsAnnotationItem annotator(String annotator) {
+    this.annotator = annotator;
+    return this;
+  }
+
+  /**
+   * Caller-supplied name or identifier for the external person or automated system that produced
+   * the labels. The value is stored and returned as provided. It is not a Datadog user ID or login,
+   * and it is not resolved against Datadog users.
+   *
+   * @return annotator
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANNOTATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAnnotator() {
+    return annotator;
+  }
+
+  public void setAnnotator(String annotator) {
+    this.annotator = annotator;
   }
 
   public LLMObsAnnotationItem createdAt(OffsetDateTime createdAt) {
@@ -275,7 +302,8 @@ public class LLMObsAnnotationItem {
       return false;
     }
     LLMObsAnnotationItem llmObsAnnotationItem = (LLMObsAnnotationItem) o;
-    return Objects.equals(this.createdAt, llmObsAnnotationItem.createdAt)
+    return Objects.equals(this.annotator, llmObsAnnotationItem.annotator)
+        && Objects.equals(this.createdAt, llmObsAnnotationItem.createdAt)
         && Objects.equals(this.createdBy, llmObsAnnotationItem.createdBy)
         && Objects.equals(this.id, llmObsAnnotationItem.id)
         && Objects.equals(this.interactionId, llmObsAnnotationItem.interactionId)
@@ -288,6 +316,7 @@ public class LLMObsAnnotationItem {
   @Override
   public int hashCode() {
     return Objects.hash(
+        annotator,
         createdAt,
         createdBy,
         id,
@@ -302,6 +331,7 @@ public class LLMObsAnnotationItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsAnnotationItem {\n");
+    sb.append("    annotator: ").append(toIndentedString(annotator)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
