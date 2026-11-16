@@ -592,6 +592,31 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
+   * <p><strong>Data Jobs Alert Query</strong>
+   *
+   * <p>Job status example: <code>
+   * formula("failed_runs(run_query)").by(group_keys).last(time_window) &gt; #</code>
+   *
+   * <p>Job duration examples: <code>
+   * formula("job_duration(run_query)").detection(static).by(group_keys) &gt; duration</code> and
+   * <code>formula("job_duration(run_query)").detection(anomaly).by(group_keys) &gt; 0</code>
+   *
+   * <ul>
+   *   <li><code>run_query</code>: The name of the single query variable in <code>options.variables
+   *       </code>. Job status monitors use a data jobs query; job duration monitors use a data
+   *       quality query with the <code>duration</code> measure.
+   *   <li><code>group_keys</code>: The tags to group by, such as <code>
+   *       entity_id,name,workspace_name</code>.
+   *   <li><code>time_window</code>: Number of minutes (#m), hours (#h), or days (#d), up to <code>
+   *       10d</code>.
+   *   <li><code>#</code>: The number of trailing failed runs to alert above, as a non-negative
+   *       integer.
+   *   <li><code>duration</code>: The duration to alert above, such as <code>2h</code>, <code>30m
+   *       </code>, or a number of seconds.
+   *   <li><code>options.thresholds.critical</code>: Must equal the query threshold, in seconds for
+   *       job duration. Anomaly job duration monitors omit <code>options.thresholds</code>.
+   * </ul>
+   *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
