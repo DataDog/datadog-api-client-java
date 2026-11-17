@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,11 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Information about when experiment results were updated and whether they are stale. */
+/** Selected experiment result run, its recorded EVSI forecast, and results freshness. */
 @JsonPropertyOrder({
+  ExperimentsExperimentResultsV2MetaDTO.JSON_PROPERTY_EVSI_CONTEXT,
   ExperimentsExperimentResultsV2MetaDTO.JSON_PROPERTY_IS_STALE,
+  ExperimentsExperimentResultsV2MetaDTO.JSON_PROPERTY_RESULT_RUN_ID,
   ExperimentsExperimentResultsV2MetaDTO.JSON_PROPERTY_RESULTS_LAST_UPDATED,
   ExperimentsExperimentResultsV2MetaDTO.JSON_PROPERTY_STALE_REASONS
 })
@@ -30,8 +34,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ExperimentsExperimentResultsV2MetaDTO {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EVSI_CONTEXT = "evsi_context";
+  private ExperimentsEVSIContext evsiContext;
+
   public static final String JSON_PROPERTY_IS_STALE = "is_stale";
   private Boolean isStale;
+
+  public static final String JSON_PROPERTY_RESULT_RUN_ID = "result_run_id";
+  private UUID resultRunId;
 
   public static final String JSON_PROPERTY_RESULTS_LAST_UPDATED = "results_last_updated";
   private JsonNullable<OffsetDateTime> resultsLastUpdated =
@@ -39,6 +49,41 @@ public class ExperimentsExperimentResultsV2MetaDTO {
 
   public static final String JSON_PROPERTY_STALE_REASONS = "stale_reasons";
   private List<String> staleReasons = null;
+
+  public ExperimentsExperimentResultsV2MetaDTO() {}
+
+  @JsonCreator
+  public ExperimentsExperimentResultsV2MetaDTO(
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESULT_RUN_ID) UUID resultRunId) {
+    this.resultRunId = resultRunId;
+  }
+
+  public ExperimentsExperimentResultsV2MetaDTO evsiContext(ExperimentsEVSIContext evsiContext) {
+    this.evsiContext = evsiContext;
+    this.unparsed |= evsiContext.unparsed;
+    return this;
+  }
+
+  /**
+   * Forecast horizon and traffic counts used to calculate expected value of sample information
+   * (EVSI) for result_run_id. Assumes traffic continues at the rate observed during the lookback
+   * window. Omitted if the forecast was not recorded or could not be loaded.
+   *
+   * @return evsiContext
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVSI_CONTEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExperimentsEVSIContext getEvsiContext() {
+    return evsiContext;
+  }
+
+  public void setEvsiContext(ExperimentsEVSIContext evsiContext) {
+    this.evsiContext = evsiContext;
+    if (evsiContext != null) {
+      this.unparsed |= evsiContext.unparsed;
+    }
+  }
 
   public ExperimentsExperimentResultsV2MetaDTO isStale(Boolean isStale) {
     this.isStale = isStale;
@@ -60,6 +105,26 @@ public class ExperimentsExperimentResultsV2MetaDTO {
 
   public void setIsStale(Boolean isStale) {
     this.isStale = isStale;
+  }
+
+  public ExperimentsExperimentResultsV2MetaDTO resultRunId(UUID resultRunId) {
+    this.resultRunId = resultRunId;
+    return this;
+  }
+
+  /**
+   * ID of the successful experiment run that produced these results.
+   *
+   * @return resultRunId
+   */
+  @JsonProperty(JSON_PROPERTY_RESULT_RUN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getResultRunId() {
+    return resultRunId;
+  }
+
+  public void setResultRunId(UUID resultRunId) {
+    this.resultRunId = resultRunId;
   }
 
   public ExperimentsExperimentResultsV2MetaDTO resultsLastUpdated(
@@ -180,7 +245,9 @@ public class ExperimentsExperimentResultsV2MetaDTO {
     }
     ExperimentsExperimentResultsV2MetaDTO experimentsExperimentResultsV2MetaDto =
         (ExperimentsExperimentResultsV2MetaDTO) o;
-    return Objects.equals(this.isStale, experimentsExperimentResultsV2MetaDto.isStale)
+    return Objects.equals(this.evsiContext, experimentsExperimentResultsV2MetaDto.evsiContext)
+        && Objects.equals(this.isStale, experimentsExperimentResultsV2MetaDto.isStale)
+        && Objects.equals(this.resultRunId, experimentsExperimentResultsV2MetaDto.resultRunId)
         && Objects.equals(
             this.resultsLastUpdated, experimentsExperimentResultsV2MetaDto.resultsLastUpdated)
         && Objects.equals(this.staleReasons, experimentsExperimentResultsV2MetaDto.staleReasons)
@@ -190,14 +257,17 @@ public class ExperimentsExperimentResultsV2MetaDTO {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isStale, resultsLastUpdated, staleReasons, additionalProperties);
+    return Objects.hash(
+        evsiContext, isStale, resultRunId, resultsLastUpdated, staleReasons, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExperimentsExperimentResultsV2MetaDTO {\n");
+    sb.append("    evsiContext: ").append(toIndentedString(evsiContext)).append("\n");
     sb.append("    isStale: ").append(toIndentedString(isStale)).append("\n");
+    sb.append("    resultRunId: ").append(toIndentedString(resultRunId)).append("\n");
     sb.append("    resultsLastUpdated: ").append(toIndentedString(resultsLastUpdated)).append("\n");
     sb.append("    staleReasons: ").append(toIndentedString(staleReasons)).append("\n");
     sb.append("    additionalProperties: ")

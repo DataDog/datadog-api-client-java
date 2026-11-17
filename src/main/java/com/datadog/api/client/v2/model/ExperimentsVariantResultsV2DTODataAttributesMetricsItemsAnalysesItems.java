@@ -25,6 +25,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
       .JSON_PROPERTY_CONFIDENCE_LEVEL,
   ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems.JSON_PROPERTY_EVSI,
   ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems
+      .JSON_PROPERTY_EVSI_FUTURE_SE,
+  ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems
+      .JSON_PROPERTY_EVSI_UNAVAILABLE_REASON,
+  ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems
       .JSON_PROPERTY_EXPECTATION_ABOVE_ZERO,
   ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems
       .JSON_PROPERTY_EXPECTATION_BELOW_ZERO,
@@ -67,6 +71,12 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
 
   public static final String JSON_PROPERTY_EVSI = "evsi";
   private Double evsi;
+
+  public static final String JSON_PROPERTY_EVSI_FUTURE_SE = "evsi_future_se";
+  private Double evsiFutureSe;
+
+  public static final String JSON_PROPERTY_EVSI_UNAVAILABLE_REASON = "evsi_unavailable_reason";
+  private ExperimentsEVSIUnavailableReason evsiUnavailableReason;
 
   public static final String JSON_PROPERTY_EXPECTATION_ABOVE_ZERO = "expectation_above_zero";
   private Double expectationAboveZero;
@@ -178,7 +188,9 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
   }
 
   /**
-   * Expected reduction in minimum expected regret from collecting more sample data.
+   * Expected value of sample information: expected reduction in minimum expected regret from
+   * additional data over the recorded horizon. Uses the analysis estimand units; relative lift is a
+   * fraction, not a percentage. Zero is a valid estimate. Omitted when unavailable or unrecorded.
    *
    * @return evsi
    */
@@ -191,6 +203,58 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
 
   public void setEvsi(Double evsi) {
     this.evsi = evsi;
+  }
+
+  public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems evsiFutureSe(
+      Double evsiFutureSe) {
+    this.evsiFutureSe = evsiFutureSe;
+    return this;
+  }
+
+  /**
+   * Standard error of the hypothetical additional-data estimate used for EVSI, in the same estimand
+   * units and CUPED setting. May be present when EVSI computation failed. Omitted when unavailable
+   * or unrecorded.
+   *
+   * @return evsiFutureSe
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVSI_FUTURE_SE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEvsiFutureSe() {
+    return evsiFutureSe;
+  }
+
+  public void setEvsiFutureSe(Double evsiFutureSe) {
+    this.evsiFutureSe = evsiFutureSe;
+  }
+
+  public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems
+      evsiUnavailableReason(ExperimentsEVSIUnavailableReason evsiUnavailableReason) {
+    this.evsiUnavailableReason = evsiUnavailableReason;
+    this.unparsed |= !evsiUnavailableReason.isValid();
+    return this;
+  }
+
+  /**
+   * Recorded reason this analysis has no EVSI estimate. Omitted when unrecorded; absence does not
+   * establish availability for historical or imported results. Controls and non-Bayesian analyses
+   * omit this field.
+   *
+   * @return evsiUnavailableReason
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVSI_UNAVAILABLE_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExperimentsEVSIUnavailableReason getEvsiUnavailableReason() {
+    return evsiUnavailableReason;
+  }
+
+  public void setEvsiUnavailableReason(ExperimentsEVSIUnavailableReason evsiUnavailableReason) {
+    if (!evsiUnavailableReason.isValid()) {
+      this.unparsed = true;
+    }
+    this.evsiUnavailableReason = evsiUnavailableReason;
   }
 
   public ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems expectationAboveZero(
@@ -692,6 +756,13 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
         && Objects.equals(
             this.evsi, experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItems.evsi)
         && Objects.equals(
+            this.evsiFutureSe,
+            experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItems.evsiFutureSe)
+        && Objects.equals(
+            this.evsiUnavailableReason,
+            experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItems
+                .evsiUnavailableReason)
+        && Objects.equals(
             this.expectationAboveZero,
             experimentsVariantResultsV2DtoDataAttributesMetricsItemsAnalysesItems
                 .expectationAboveZero)
@@ -765,6 +836,8 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
         confidenceInterval,
         confidenceLevel,
         evsi,
+        evsiFutureSe,
+        evsiUnavailableReason,
         expectationAboveZero,
         expectationBelowZero,
         globalLift,
@@ -793,6 +866,10 @@ public class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
     sb.append("    confidenceInterval: ").append(toIndentedString(confidenceInterval)).append("\n");
     sb.append("    confidenceLevel: ").append(toIndentedString(confidenceLevel)).append("\n");
     sb.append("    evsi: ").append(toIndentedString(evsi)).append("\n");
+    sb.append("    evsiFutureSe: ").append(toIndentedString(evsiFutureSe)).append("\n");
+    sb.append("    evsiUnavailableReason: ")
+        .append(toIndentedString(evsiUnavailableReason))
+        .append("\n");
     sb.append("    expectationAboveZero: ")
         .append(toIndentedString(expectationAboveZero))
         .append("\n");
