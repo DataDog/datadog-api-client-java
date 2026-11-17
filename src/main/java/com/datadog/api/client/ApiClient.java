@@ -1546,6 +1546,11 @@ public class ApiClient {
           put("v2.getChatGPTEnterpriseIntegrationAccount", false);
           put("v2.listChatGPTEnterpriseIntegrationAccounts", false);
           put("v2.updateChatGPTEnterpriseIntegrationAccount", false);
+          put("v2.createCoreWeaveCloudIntegrationAccount", false);
+          put("v2.deleteCoreWeaveCloudIntegrationAccount", false);
+          put("v2.getCoreWeaveCloudIntegrationAccount", false);
+          put("v2.listCoreWeaveCloudIntegrationAccounts", false);
+          put("v2.updateCoreWeaveCloudIntegrationAccount", false);
           put("v2.createDatabricksIntegrationAccount", false);
           put("v2.deleteDatabricksIntegrationAccount", false);
           put("v2.getDatabricksIntegrationAccount", false);
