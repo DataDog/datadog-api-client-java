@@ -1413,6 +1413,10 @@ public class ApiClient {
           put("v2.snoozeIssue", false);
           put("v2.getEUDMDevice", false);
           put("v2.getEUDMDevices", false);
+          put("v2.getBandit", false);
+          put("v2.getBanditResults", false);
+          put("v2.getBanditTrafficSummary", false);
+          put("v2.listBandits", false);
           put("v2.cloneForm", false);
           put("v2.createAndPublishForm", false);
           put("v2.createForm", false);
