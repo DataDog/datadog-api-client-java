@@ -16,6 +16,17 @@ import com.datadog.api.client.v2.model.ProductAnalyticsJourneyListResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsJourneyScalarRequest;
 import com.datadog.api.client.v2.model.ProductAnalyticsJourneyScalarResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsJourneyTimeseriesResponse;
+import com.datadog.api.client.v2.model.ProductAnalyticsLaunchCreateRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsLaunchListScope;
+import com.datadog.api.client.v2.model.ProductAnalyticsLaunchPatchRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsLaunchPhase;
+import com.datadog.api.client.v2.model.ProductAnalyticsLaunchResponse;
+import com.datadog.api.client.v2.model.ProductAnalyticsLaunchesResponse;
+import com.datadog.api.client.v2.model.ProductAnalyticsMonitorCreateRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsMonitorListResponse;
+import com.datadog.api.client.v2.model.ProductAnalyticsMonitorResponse;
+import com.datadog.api.client.v2.model.ProductAnalyticsMonitorUnlinkRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsMonitorUpdateRequest;
 import com.datadog.api.client.v2.model.ProductAnalyticsRetentionGridRequest;
 import com.datadog.api.client.v2.model.ProductAnalyticsRetentionGridResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsRetentionListRequest;
@@ -29,6 +40,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -61,6 +73,1458 @@ public class ProductAnalyticsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create a Product Analytics launch.
+   *
+   * <p>See {@link #createProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsLaunchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsLaunchResponse createProductAnalyticsLaunch(
+      ProductAnalyticsLaunchCreateRequest body) throws ApiException {
+    return createProductAnalyticsLaunchWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a Product Analytics launch.
+   *
+   * <p>See {@link #createProductAnalyticsLaunchWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsLaunchResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsLaunchResponse> createProductAnalyticsLaunchAsync(
+      ProductAnalyticsLaunchCreateRequest body) {
+    return createProductAnalyticsLaunchWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a Product Analytics launch and its tracking plan. The tracking plan lists the events and
+   * event properties to instrument. Events can only reference properties and KPIs defined in the
+   * launch.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsLaunchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsLaunchResponse> createProductAnalyticsLaunchWithHttpInfo(
+      ProductAnalyticsLaunchCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createProductAnalyticsLaunch");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/launches";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.createProductAnalyticsLaunch",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchResponse>() {});
+  }
+
+  /**
+   * Create a Product Analytics launch.
+   *
+   * <p>See {@link #createProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsLaunchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>>
+      createProductAnalyticsLaunchWithHttpInfoAsync(ProductAnalyticsLaunchCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createProductAnalyticsLaunch"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/launches";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.createProductAnalyticsLaunch",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchResponse>() {});
+  }
+
+  /**
+   * Create a Product Analytics monitor.
+   *
+   * <p>See {@link #createProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsMonitorResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsMonitorResponse createProductAnalyticsMonitor(
+      ProductAnalyticsMonitorCreateRequest body) throws ApiException {
+    return createProductAnalyticsMonitorWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a Product Analytics monitor.
+   *
+   * <p>See {@link #createProductAnalyticsMonitorWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsMonitorResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsMonitorResponse> createProductAnalyticsMonitorAsync(
+      ProductAnalyticsMonitorCreateRequest body) {
+    return createProductAnalyticsMonitorWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a Product Analytics monitor that alerts on a Product Analytics query, such as a funnel
+   * conversion rate. Link it to the chart it was created from with the <code>chart_id</code> and
+   * <code>dashboard_id</code> tags.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsMonitorResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsMonitorResponse> createProductAnalyticsMonitorWithHttpInfo(
+      ProductAnalyticsMonitorCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createProductAnalyticsMonitor");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/monitors";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.createProductAnalyticsMonitor",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorResponse>() {});
+  }
+
+  /**
+   * Create a Product Analytics monitor.
+   *
+   * <p>See {@link #createProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsMonitorResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>>
+      createProductAnalyticsMonitorWithHttpInfoAsync(ProductAnalyticsMonitorCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createProductAnalyticsMonitor"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/monitors";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.createProductAnalyticsMonitor",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorResponse>() {});
+  }
+
+  /**
+   * Delete a Product Analytics launch.
+   *
+   * <p>See {@link #deleteProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param id UUID of the launch. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteProductAnalyticsLaunch(String id) throws ApiException {
+    deleteProductAnalyticsLaunchWithHttpInfo(id);
+  }
+
+  /**
+   * Delete a Product Analytics launch.
+   *
+   * <p>See {@link #deleteProductAnalyticsLaunchWithHttpInfoAsync}.
+   *
+   * @param id UUID of the launch. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteProductAnalyticsLaunchAsync(String id) {
+    return deleteProductAnalyticsLaunchWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Product Analytics launch and its tracking plan.
+   *
+   * @param id UUID of the launch. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteProductAnalyticsLaunchWithHttpInfo(String id) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deleteProductAnalyticsLaunch");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/launches/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.deleteProductAnalyticsLaunch",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Product Analytics launch.
+   *
+   * <p>See {@link #deleteProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param id UUID of the launch. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteProductAnalyticsLaunchWithHttpInfoAsync(
+      String id) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling deleteProductAnalyticsLaunch"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/launches/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.deleteProductAnalyticsLaunch",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Product Analytics monitor.
+   *
+   * <p>See {@link #deleteProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteProductAnalyticsMonitor(String monitorId) throws ApiException {
+    deleteProductAnalyticsMonitorWithHttpInfo(monitorId);
+  }
+
+  /**
+   * Delete a Product Analytics monitor.
+   *
+   * <p>See {@link #deleteProductAnalyticsMonitorWithHttpInfoAsync}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteProductAnalyticsMonitorAsync(String monitorId) {
+    return deleteProductAnalyticsMonitorWithHttpInfoAsync(monitorId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Product Analytics monitor.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteProductAnalyticsMonitorWithHttpInfo(String monitorId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'monitorId' when calling deleteProductAnalyticsMonitor");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.deleteProductAnalyticsMonitor",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Product Analytics monitor.
+   *
+   * <p>See {@link #deleteProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteProductAnalyticsMonitorWithHttpInfoAsync(
+      String monitorId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'monitorId' when calling"
+                  + " deleteProductAnalyticsMonitor"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.deleteProductAnalyticsMonitor",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Get a Product Analytics launch.
+   *
+   * <p>See {@link #getProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param id UUID of the launch. (required)
+   * @return ProductAnalyticsLaunchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsLaunchResponse getProductAnalyticsLaunch(String id) throws ApiException {
+    return getProductAnalyticsLaunchWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get a Product Analytics launch.
+   *
+   * <p>See {@link #getProductAnalyticsLaunchWithHttpInfoAsync}.
+   *
+   * @param id UUID of the launch. (required)
+   * @return CompletableFuture&lt;ProductAnalyticsLaunchResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsLaunchResponse> getProductAnalyticsLaunchAsync(
+      String id) {
+    return getProductAnalyticsLaunchWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Product Analytics launch and its tracking plan by UUID.
+   *
+   * @param id UUID of the launch. (required)
+   * @return ApiResponse&lt;ProductAnalyticsLaunchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsLaunchResponse> getProductAnalyticsLaunchWithHttpInfo(
+      String id) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getProductAnalyticsLaunch");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/launches/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.getProductAnalyticsLaunch",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchResponse>() {});
+  }
+
+  /**
+   * Get a Product Analytics launch.
+   *
+   * <p>See {@link #getProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param id UUID of the launch. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsLaunchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>>
+      getProductAnalyticsLaunchWithHttpInfoAsync(String id) {
+    // Check if unstable operation is enabled
+    String operationId = "getProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getProductAnalyticsLaunch"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/launches/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.getProductAnalyticsLaunch",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchResponse>() {});
+  }
+
+  /**
+   * Get a Product Analytics monitor.
+   *
+   * <p>See {@link #getProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @return ProductAnalyticsMonitorResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsMonitorResponse getProductAnalyticsMonitor(String monitorId)
+      throws ApiException {
+    return getProductAnalyticsMonitorWithHttpInfo(monitorId).getData();
+  }
+
+  /**
+   * Get a Product Analytics monitor.
+   *
+   * <p>See {@link #getProductAnalyticsMonitorWithHttpInfoAsync}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @return CompletableFuture&lt;ProductAnalyticsMonitorResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsMonitorResponse> getProductAnalyticsMonitorAsync(
+      String monitorId) {
+    return getProductAnalyticsMonitorWithHttpInfoAsync(monitorId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Product Analytics monitor by its ID.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @return ApiResponse&lt;ProductAnalyticsMonitorResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsMonitorResponse> getProductAnalyticsMonitorWithHttpInfo(
+      String monitorId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'monitorId' when calling getProductAnalyticsMonitor");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.getProductAnalyticsMonitor",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorResponse>() {});
+  }
+
+  /**
+   * Get a Product Analytics monitor.
+   *
+   * <p>See {@link #getProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsMonitorResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>>
+      getProductAnalyticsMonitorWithHttpInfoAsync(String monitorId) {
+    // Check if unstable operation is enabled
+    String operationId = "getProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'monitorId' when calling"
+                  + " getProductAnalyticsMonitor"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.getProductAnalyticsMonitor",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorResponse>() {});
+  }
+
+  /** Manage optional parameters to listProductAnalyticsLaunches. */
+  public static class ListProductAnalyticsLaunchesOptionalParameters {
+    private String sort;
+    private ProductAnalyticsLaunchListScope scope;
+    private List<ProductAnalyticsLaunchPhase> phase;
+    private String applicationId;
+    private String name;
+
+    /**
+     * Set sort.
+     *
+     * @param sort Comma-separated fields to sort by: <code>id</code>, <code>phase</code>, <code>
+     *     feature_flag_id</code>, <code>name</code>, <code>application_id</code>, <code>description
+     *     </code>, <code>created_by</code>, <code>created_at</code>, <code>updated_by</code>, or
+     *     <code>updated_at</code>. Prefix a field with <code>-</code> to sort in descending order.
+     *     (optional)
+     * @return ListProductAnalyticsLaunchesOptionalParameters
+     */
+    public ListProductAnalyticsLaunchesOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set scope.
+     *
+     * @param scope Set to <code>liftoffs</code> to leave out launches in the <code>plan</code>
+     *     phase. (optional)
+     * @return ListProductAnalyticsLaunchesOptionalParameters
+     */
+    public ListProductAnalyticsLaunchesOptionalParameters scope(
+        ProductAnalyticsLaunchListScope scope) {
+      this.scope = scope;
+      return this;
+    }
+
+    /**
+     * Set phase.
+     *
+     * @param phase Return only launches in these phases. Repeat the parameter to pass several
+     *     phases. (optional)
+     * @return ListProductAnalyticsLaunchesOptionalParameters
+     */
+    public ListProductAnalyticsLaunchesOptionalParameters phase(
+        List<ProductAnalyticsLaunchPhase> phase) {
+      this.phase = phase;
+      return this;
+    }
+
+    /**
+     * Set applicationId.
+     *
+     * @param applicationId Return only launches of this RUM application UUID. (optional)
+     * @return ListProductAnalyticsLaunchesOptionalParameters
+     */
+    public ListProductAnalyticsLaunchesOptionalParameters applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
+    }
+
+    /**
+     * Set name.
+     *
+     * @param name Return only launches whose name contains this value, ignoring case. (optional)
+     * @return ListProductAnalyticsLaunchesOptionalParameters
+     */
+    public ListProductAnalyticsLaunchesOptionalParameters name(String name) {
+      this.name = name;
+      return this;
+    }
+  }
+
+  /**
+   * List Product Analytics launches.
+   *
+   * <p>See {@link #listProductAnalyticsLaunchesWithHttpInfo}.
+   *
+   * @return ProductAnalyticsLaunchesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsLaunchesResponse listProductAnalyticsLaunches() throws ApiException {
+    return listProductAnalyticsLaunchesWithHttpInfo(
+            new ListProductAnalyticsLaunchesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Product Analytics launches.
+   *
+   * <p>See {@link #listProductAnalyticsLaunchesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ProductAnalyticsLaunchesResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsLaunchesResponse> listProductAnalyticsLaunchesAsync() {
+    return listProductAnalyticsLaunchesWithHttpInfoAsync(
+            new ListProductAnalyticsLaunchesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Product Analytics launches.
+   *
+   * <p>See {@link #listProductAnalyticsLaunchesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ProductAnalyticsLaunchesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsLaunchesResponse listProductAnalyticsLaunches(
+      ListProductAnalyticsLaunchesOptionalParameters parameters) throws ApiException {
+    return listProductAnalyticsLaunchesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Product Analytics launches.
+   *
+   * <p>See {@link #listProductAnalyticsLaunchesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ProductAnalyticsLaunchesResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsLaunchesResponse> listProductAnalyticsLaunchesAsync(
+      ListProductAnalyticsLaunchesOptionalParameters parameters) {
+    return listProductAnalyticsLaunchesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the Product Analytics launches of your organization. A launch tracks a feature release
+   * with its phase, KPIs, and tracking plan. Results are sorted by <code>-created_at</code> by
+   * default.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ProductAnalyticsLaunchesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsLaunchesResponse> listProductAnalyticsLaunchesWithHttpInfo(
+      ListProductAnalyticsLaunchesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listProductAnalyticsLaunches";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String sort = parameters.sort;
+    ProductAnalyticsLaunchListScope scope = parameters.scope;
+    List<ProductAnalyticsLaunchPhase> phase = parameters.phase;
+    String applicationId = parameters.applicationId;
+    String name = parameters.name;
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/launches";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "scope", scope));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "phase", phase));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "application_id", applicationId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.listProductAnalyticsLaunches",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchesResponse>() {});
+  }
+
+  /**
+   * List Product Analytics launches.
+   *
+   * <p>See {@link #listProductAnalyticsLaunchesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsLaunchesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsLaunchesResponse>>
+      listProductAnalyticsLaunchesWithHttpInfoAsync(
+          ListProductAnalyticsLaunchesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listProductAnalyticsLaunches";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String sort = parameters.sort;
+    ProductAnalyticsLaunchListScope scope = parameters.scope;
+    List<ProductAnalyticsLaunchPhase> phase = parameters.phase;
+    String applicationId = parameters.applicationId;
+    String name = parameters.name;
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/launches";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "scope", scope));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "phase", phase));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "application_id", applicationId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.listProductAnalyticsLaunches",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchesResponse>() {});
+  }
+
+  /** Manage optional parameters to listProductAnalyticsMonitors. */
+  public static class ListProductAnalyticsMonitorsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String chartId;
+    private String dashboardId;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Maximum number of monitors per page, from 1 to 1000. Ignored when <code>
+     *     chart_id</code> is set. (optional, default to 100)
+     * @return ListProductAnalyticsMonitorsOptionalParameters
+     */
+    public ListProductAnalyticsMonitorsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page number, starting at 1. Ignored when <code>chart_id</code> is set.
+     *     (optional, default to 1)
+     * @return ListProductAnalyticsMonitorsOptionalParameters
+     */
+    public ListProductAnalyticsMonitorsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set chartId.
+     *
+     * @param chartId Return only the monitors linked to this chart. Turns off pagination.
+     *     (optional)
+     * @return ListProductAnalyticsMonitorsOptionalParameters
+     */
+    public ListProductAnalyticsMonitorsOptionalParameters chartId(String chartId) {
+      this.chartId = chartId;
+      return this;
+    }
+
+    /**
+     * Set dashboardId.
+     *
+     * @param dashboardId Return only the monitors linked to this dashboard. Requires <code>chart_id
+     *     </code>. (optional)
+     * @return ListProductAnalyticsMonitorsOptionalParameters
+     */
+    public ListProductAnalyticsMonitorsOptionalParameters dashboardId(String dashboardId) {
+      this.dashboardId = dashboardId;
+      return this;
+    }
+  }
+
+  /**
+   * List Product Analytics monitors.
+   *
+   * <p>See {@link #listProductAnalyticsMonitorsWithHttpInfo}.
+   *
+   * @return ProductAnalyticsMonitorListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsMonitorListResponse listProductAnalyticsMonitors() throws ApiException {
+    return listProductAnalyticsMonitorsWithHttpInfo(
+            new ListProductAnalyticsMonitorsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Product Analytics monitors.
+   *
+   * <p>See {@link #listProductAnalyticsMonitorsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ProductAnalyticsMonitorListResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsMonitorListResponse>
+      listProductAnalyticsMonitorsAsync() {
+    return listProductAnalyticsMonitorsWithHttpInfoAsync(
+            new ListProductAnalyticsMonitorsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Product Analytics monitors.
+   *
+   * <p>See {@link #listProductAnalyticsMonitorsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ProductAnalyticsMonitorListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsMonitorListResponse listProductAnalyticsMonitors(
+      ListProductAnalyticsMonitorsOptionalParameters parameters) throws ApiException {
+    return listProductAnalyticsMonitorsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Product Analytics monitors.
+   *
+   * <p>See {@link #listProductAnalyticsMonitorsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ProductAnalyticsMonitorListResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsMonitorListResponse> listProductAnalyticsMonitorsAsync(
+      ListProductAnalyticsMonitorsOptionalParameters parameters) {
+    return listProductAnalyticsMonitorsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the Product Analytics monitors of your organization, one page at a time. When <code>
+   * chart_id</code> is set, optionally with <code>dashboard_id</code>, the response includes every
+   * monitor linked to that chart, without pagination. With <code>chart_id</code> alone, monitors
+   * created from a dashboard widget are not returned. Monitors created in the last few seconds may
+   * be missing.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ProductAnalyticsMonitorListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsMonitorListResponse> listProductAnalyticsMonitorsWithHttpInfo(
+      ListProductAnalyticsMonitorsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listProductAnalyticsMonitors";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String chartId = parameters.chartId;
+    String dashboardId = parameters.dashboardId;
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/monitors";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "chart_id", chartId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dashboard_id", dashboardId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.listProductAnalyticsMonitors",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorListResponse>() {});
+  }
+
+  /**
+   * List Product Analytics monitors.
+   *
+   * <p>See {@link #listProductAnalyticsMonitorsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsMonitorListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsMonitorListResponse>>
+      listProductAnalyticsMonitorsWithHttpInfoAsync(
+          ListProductAnalyticsMonitorsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listProductAnalyticsMonitors";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String chartId = parameters.chartId;
+    String dashboardId = parameters.dashboardId;
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/monitors";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "chart_id", chartId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dashboard_id", dashboardId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.listProductAnalyticsMonitors",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorListResponse>() {});
   }
 
   /**
@@ -1928,6 +3392,191 @@ public class ProductAnalyticsApi {
   }
 
   /**
+   * Unlink a Product Analytics monitor from its chart.
+   *
+   * <p>See {@link #removeChartFromProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void removeChartFromProductAnalyticsMonitor(
+      String monitorId, ProductAnalyticsMonitorUnlinkRequest body) throws ApiException {
+    removeChartFromProductAnalyticsMonitorWithHttpInfo(monitorId, body);
+  }
+
+  /**
+   * Unlink a Product Analytics monitor from its chart.
+   *
+   * <p>See {@link #removeChartFromProductAnalyticsMonitorWithHttpInfoAsync}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> removeChartFromProductAnalyticsMonitorAsync(
+      String monitorId, ProductAnalyticsMonitorUnlinkRequest body) {
+    return removeChartFromProductAnalyticsMonitorWithHttpInfoAsync(monitorId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove the <code>chart_id</code> and <code>dashboard_id</code> tags from a Product Analytics
+   * monitor. The monitor and the rest of its configuration are kept. The request must name the
+   * stored link exactly. A monitor with no link is left unchanged.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> removeChartFromProductAnalyticsMonitorWithHttpInfo(
+      String monitorId, ProductAnalyticsMonitorUnlinkRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "removeChartFromProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'monitorId' when calling"
+              + " removeChartFromProductAnalyticsMonitor");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " removeChartFromProductAnalyticsMonitor");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}/unlink"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.removeChartFromProductAnalyticsMonitor",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Unlink a Product Analytics monitor from its chart.
+   *
+   * <p>See {@link #removeChartFromProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      removeChartFromProductAnalyticsMonitorWithHttpInfoAsync(
+          String monitorId, ProductAnalyticsMonitorUnlinkRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "removeChartFromProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'monitorId' when calling"
+                  + " removeChartFromProductAnalyticsMonitor"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " removeChartFromProductAnalyticsMonitor"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}/unlink"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.removeChartFromProductAnalyticsMonitor",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Send server-side events.
    *
    * <p>See {@link #submitProductAnalyticsEventWithHttpInfo}.
@@ -2091,5 +3740,377 @@ public class ProductAnalyticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Object>() {});
+  }
+
+  /**
+   * Update a Product Analytics launch.
+   *
+   * <p>See {@link #updateProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param id UUID of the launch. (required)
+   * @param body (required)
+   * @return ProductAnalyticsLaunchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsLaunchResponse updateProductAnalyticsLaunch(
+      String id, ProductAnalyticsLaunchPatchRequest body) throws ApiException {
+    return updateProductAnalyticsLaunchWithHttpInfo(id, body).getData();
+  }
+
+  /**
+   * Update a Product Analytics launch.
+   *
+   * <p>See {@link #updateProductAnalyticsLaunchWithHttpInfoAsync}.
+   *
+   * @param id UUID of the launch. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsLaunchResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsLaunchResponse> updateProductAnalyticsLaunchAsync(
+      String id, ProductAnalyticsLaunchPatchRequest body) {
+    return updateProductAnalyticsLaunchWithHttpInfoAsync(id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update some fields of a Product Analytics launch. Fields that are not set are left unchanged.
+   * The <code>id</code> in the body must match the one in the path. Setting <code>
+   * steps.tracking_plan</code> replaces the whole stored tracking plan, not only the fields you
+   * send. Returns <code>409</code> when the launch changed during the update; fetch it again and
+   * retry.
+   *
+   * @param id UUID of the launch. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsLaunchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsLaunchResponse> updateProductAnalyticsLaunchWithHttpInfo(
+      String id, ProductAnalyticsLaunchPatchRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling updateProductAnalyticsLaunch");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateProductAnalyticsLaunch");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/launches/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.updateProductAnalyticsLaunch",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchResponse>() {});
+  }
+
+  /**
+   * Update a Product Analytics launch.
+   *
+   * <p>See {@link #updateProductAnalyticsLaunchWithHttpInfo}.
+   *
+   * @param id UUID of the launch. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsLaunchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>>
+      updateProductAnalyticsLaunchWithHttpInfoAsync(
+          String id, ProductAnalyticsLaunchPatchRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateProductAnalyticsLaunch";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling updateProductAnalyticsLaunch"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateProductAnalyticsLaunch"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/launches/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.updateProductAnalyticsLaunch",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsLaunchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsLaunchResponse>() {});
+  }
+
+  /**
+   * Update a Product Analytics monitor.
+   *
+   * <p>See {@link #updateProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @return ProductAnalyticsMonitorResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsMonitorResponse updateProductAnalyticsMonitor(
+      String monitorId, ProductAnalyticsMonitorUpdateRequest body) throws ApiException {
+    return updateProductAnalyticsMonitorWithHttpInfo(monitorId, body).getData();
+  }
+
+  /**
+   * Update a Product Analytics monitor.
+   *
+   * <p>See {@link #updateProductAnalyticsMonitorWithHttpInfoAsync}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsMonitorResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsMonitorResponse> updateProductAnalyticsMonitorAsync(
+      String monitorId, ProductAnalyticsMonitorUpdateRequest body) {
+    return updateProductAnalyticsMonitorWithHttpInfoAsync(monitorId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a Product Analytics monitor. Fields that are not set are left unchanged, and at least
+   * one field must be set. When set, <code>tags</code> replaces the monitor tags except <code>
+   * chart_id</code> and <code>dashboard_id</code>, which this endpoint ignores. To remove them, use
+   * the unlink endpoint.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsMonitorResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsMonitorResponse> updateProductAnalyticsMonitorWithHttpInfo(
+      String monitorId, ProductAnalyticsMonitorUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'monitorId' when calling updateProductAnalyticsMonitor");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateProductAnalyticsMonitor");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.updateProductAnalyticsMonitor",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorResponse>() {});
+  }
+
+  /**
+   * Update a Product Analytics monitor.
+   *
+   * <p>See {@link #updateProductAnalyticsMonitorWithHttpInfo}.
+   *
+   * @param monitorId Numeric ID of the monitor. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsMonitorResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>>
+      updateProductAnalyticsMonitorWithHttpInfoAsync(
+          String monitorId, ProductAnalyticsMonitorUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateProductAnalyticsMonitor";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'monitorId' when calling"
+                  + " updateProductAnalyticsMonitor"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateProductAnalyticsMonitor"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/monitors/{monitor_id}"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.updateProductAnalyticsMonitor",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsMonitorResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsMonitorResponse>() {});
   }
 }

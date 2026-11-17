@@ -1,0 +1,24 @@
+// Delete a Product Analytics monitor returns "No Content" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.ProductAnalyticsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.deleteProductAnalyticsMonitor", true);
+    ProductAnalyticsApi apiInstance = new ProductAnalyticsApi(defaultClient);
+
+    try {
+      apiInstance.deleteProductAnalyticsMonitor("12345");
+    } catch (ApiException e) {
+      System.err.println(
+          "Exception when calling ProductAnalyticsApi#deleteProductAnalyticsMonitor");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
