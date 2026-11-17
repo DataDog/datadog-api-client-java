@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.AiGatewayCustomProviderSupportedOperation
 import com.datadog.api.client.v2.model.AiGatewayKnownProvider;
 import com.datadog.api.client.v2.model.AiGatewayModelInput;
 import com.datadog.api.client.v2.model.AiGatewayProviderCreateAttributes;
+import com.datadog.api.client.v2.model.AiGatewayProviderCreateCredentialSource;
 import com.datadog.api.client.v2.model.AiGatewayProviderCreateData;
 import com.datadog.api.client.v2.model.AiGatewayProviderCreateRequest;
 import com.datadog.api.client.v2.model.AiGatewayProviderInitialBinding;
@@ -31,6 +32,8 @@ public class Example {
                     .attributes(
                         new AiGatewayProviderCreateAttributes()
                             .costMultiplier(1.0)
+                            .credentialSource(
+                                AiGatewayProviderCreateCredentialSource.INTEGRATION_ACCOUNT)
                             .initialBindings(
                                 Collections.singletonList(
                                     new AiGatewayProviderInitialBinding()
@@ -62,7 +65,8 @@ public class Example {
                                                 AiGatewaySupportedOperation
                                                     .OPENAI_CHAT_COMPLETIONS))))
                             .name("production-us")
-                            .slug("prod-us"))
+                            .slug("prod-us")
+                            .zdrEligible(false))
                     .type(AiGatewayProviderType.PROVIDERS));
 
     try {

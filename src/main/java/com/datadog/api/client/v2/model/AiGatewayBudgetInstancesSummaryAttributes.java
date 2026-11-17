@@ -26,6 +26,7 @@ import java.util.UUID;
   AiGatewayBudgetInstancesSummaryAttributes.JSON_PROPERTY_INSTANCE_COUNT,
   AiGatewayBudgetInstancesSummaryAttributes.JSON_PROPERTY_OVER_WARNING_THRESHOLD_COUNT,
   AiGatewayBudgetInstancesSummaryAttributes.JSON_PROPERTY_RESTRICTED_DETAILS,
+  AiGatewayBudgetInstancesSummaryAttributes.JSON_PROPERTY_TOTAL_CAPACITY_MICROCENTS,
   AiGatewayBudgetInstancesSummaryAttributes.JSON_PROPERTY_TOTAL_SPEND_MICROCENTS,
   AiGatewayBudgetInstancesSummaryAttributes.JSON_PROPERTY_WINDOW_START
 })
@@ -48,6 +49,9 @@ public class AiGatewayBudgetInstancesSummaryAttributes {
 
   public static final String JSON_PROPERTY_RESTRICTED_DETAILS = "restricted_details";
   private Boolean restrictedDetails;
+
+  public static final String JSON_PROPERTY_TOTAL_CAPACITY_MICROCENTS = "total_capacity_microcents";
+  private Long totalCapacityMicrocents;
 
   public static final String JSON_PROPERTY_TOTAL_SPEND_MICROCENTS = "total_spend_microcents";
   private Long totalSpendMicrocents;
@@ -183,6 +187,28 @@ public class AiGatewayBudgetInstancesSummaryAttributes {
     this.restrictedDetails = restrictedDetails;
   }
 
+  public AiGatewayBudgetInstancesSummaryAttributes totalCapacityMicrocents(
+      Long totalCapacityMicrocents) {
+    this.totalCapacityMicrocents = totalCapacityMicrocents;
+    return this;
+  }
+
+  /**
+   * Sum of the capacity of every matching instance in the window, including per-instance overrides.
+   *
+   * @return totalCapacityMicrocents
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_CAPACITY_MICROCENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalCapacityMicrocents() {
+    return totalCapacityMicrocents;
+  }
+
+  public void setTotalCapacityMicrocents(Long totalCapacityMicrocents) {
+    this.totalCapacityMicrocents = totalCapacityMicrocents;
+  }
+
   public AiGatewayBudgetInstancesSummaryAttributes totalSpendMicrocents(Long totalSpendMicrocents) {
     this.totalSpendMicrocents = totalSpendMicrocents;
     return this;
@@ -292,6 +318,9 @@ public class AiGatewayBudgetInstancesSummaryAttributes {
         && Objects.equals(
             this.restrictedDetails, aiGatewayBudgetInstancesSummaryAttributes.restrictedDetails)
         && Objects.equals(
+            this.totalCapacityMicrocents,
+            aiGatewayBudgetInstancesSummaryAttributes.totalCapacityMicrocents)
+        && Objects.equals(
             this.totalSpendMicrocents,
             aiGatewayBudgetInstancesSummaryAttributes.totalSpendMicrocents)
         && Objects.equals(this.windowStart, aiGatewayBudgetInstancesSummaryAttributes.windowStart)
@@ -308,6 +337,7 @@ public class AiGatewayBudgetInstancesSummaryAttributes {
         instanceCount,
         overWarningThresholdCount,
         restrictedDetails,
+        totalCapacityMicrocents,
         totalSpendMicrocents,
         windowStart,
         additionalProperties);
@@ -326,6 +356,9 @@ public class AiGatewayBudgetInstancesSummaryAttributes {
         .append(toIndentedString(overWarningThresholdCount))
         .append("\n");
     sb.append("    restrictedDetails: ").append(toIndentedString(restrictedDetails)).append("\n");
+    sb.append("    totalCapacityMicrocents: ")
+        .append(toIndentedString(totalCapacityMicrocents))
+        .append("\n");
     sb.append("    totalSpendMicrocents: ")
         .append(toIndentedString(totalSpendMicrocents))
         .append("\n");

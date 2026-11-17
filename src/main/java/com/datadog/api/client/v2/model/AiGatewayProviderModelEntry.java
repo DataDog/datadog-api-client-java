@@ -27,10 +27,12 @@ import java.util.Objects;
   AiGatewayProviderModelEntry.JSON_PROPERTY_ID,
   AiGatewayProviderModelEntry.JSON_PROPERTY_METADATA,
   AiGatewayProviderModelEntry.JSON_PROPERTY_MODEL_ID_WIRE,
+  AiGatewayProviderModelEntry.JSON_PROPERTY_PRICING,
   AiGatewayProviderModelEntry.JSON_PROPERTY_PROVIDER_ID,
   AiGatewayProviderModelEntry.JSON_PROPERTY_SOURCE,
   AiGatewayProviderModelEntry.JSON_PROPERTY_SUPPORTED_OPERATIONS,
-  AiGatewayProviderModelEntry.JSON_PROPERTY_UPDATED_AT
+  AiGatewayProviderModelEntry.JSON_PROPERTY_UPDATED_AT,
+  AiGatewayProviderModelEntry.JSON_PROPERTY_ZDR
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -51,6 +53,9 @@ public class AiGatewayProviderModelEntry {
   public static final String JSON_PROPERTY_MODEL_ID_WIRE = "model_id_wire";
   private String modelIdWire;
 
+  public static final String JSON_PROPERTY_PRICING = "pricing";
+  private AiGatewayModelPricingAttributes pricing;
+
   public static final String JSON_PROPERTY_PROVIDER_ID = "provider_id";
   private Long providerId;
 
@@ -62,6 +67,9 @@ public class AiGatewayProviderModelEntry {
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
+
+  public static final String JSON_PROPERTY_ZDR = "zdr";
+  private AiGatewayModelZdr zdr;
 
   public AiGatewayProviderModelEntry() {}
 
@@ -192,6 +200,31 @@ public class AiGatewayProviderModelEntry {
     this.modelIdWire = modelIdWire;
   }
 
+  public AiGatewayProviderModelEntry pricing(AiGatewayModelPricingAttributes pricing) {
+    this.pricing = pricing;
+    this.unparsed |= pricing.unparsed;
+    return this;
+  }
+
+  /**
+   * Attributes of a model pricing resource.
+   *
+   * @return pricing
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRICING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AiGatewayModelPricingAttributes getPricing() {
+    return pricing;
+  }
+
+  public void setPricing(AiGatewayModelPricingAttributes pricing) {
+    this.pricing = pricing;
+    if (pricing != null) {
+      this.unparsed |= pricing.unparsed;
+    }
+  }
+
   public AiGatewayProviderModelEntry providerId(Long providerId) {
     this.providerId = providerId;
     return this;
@@ -284,6 +317,32 @@ public class AiGatewayProviderModelEntry {
     this.updatedAt = updatedAt;
   }
 
+  public AiGatewayProviderModelEntry zdr(AiGatewayModelZdr zdr) {
+    this.zdr = zdr;
+    this.unparsed |= zdr.unparsed;
+    return this;
+  }
+
+  /**
+   * The Datadog side of a model's zero data retention eligibility. The customer side is the
+   * provider's <code>zdr_eligible</code> setting.
+   *
+   * @return zdr
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ZDR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AiGatewayModelZdr getZdr() {
+    return zdr;
+  }
+
+  public void setZdr(AiGatewayModelZdr zdr) {
+    this.zdr = zdr;
+    if (zdr != null) {
+      this.unparsed |= zdr.unparsed;
+    }
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -345,10 +404,12 @@ public class AiGatewayProviderModelEntry {
         && Objects.equals(this.id, aiGatewayProviderModelEntry.id)
         && Objects.equals(this.metadata, aiGatewayProviderModelEntry.metadata)
         && Objects.equals(this.modelIdWire, aiGatewayProviderModelEntry.modelIdWire)
+        && Objects.equals(this.pricing, aiGatewayProviderModelEntry.pricing)
         && Objects.equals(this.providerId, aiGatewayProviderModelEntry.providerId)
         && Objects.equals(this.source, aiGatewayProviderModelEntry.source)
         && Objects.equals(this.supportedOperations, aiGatewayProviderModelEntry.supportedOperations)
         && Objects.equals(this.updatedAt, aiGatewayProviderModelEntry.updatedAt)
+        && Objects.equals(this.zdr, aiGatewayProviderModelEntry.zdr)
         && Objects.equals(
             this.additionalProperties, aiGatewayProviderModelEntry.additionalProperties);
   }
@@ -361,10 +422,12 @@ public class AiGatewayProviderModelEntry {
         id,
         metadata,
         modelIdWire,
+        pricing,
         providerId,
         source,
         supportedOperations,
         updatedAt,
+        zdr,
         additionalProperties);
   }
 
@@ -377,12 +440,14 @@ public class AiGatewayProviderModelEntry {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    modelIdWire: ").append(toIndentedString(modelIdWire)).append("\n");
+    sb.append("    pricing: ").append(toIndentedString(pricing)).append("\n");
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    supportedOperations: ")
         .append(toIndentedString(supportedOperations))
         .append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    zdr: ").append(toIndentedString(zdr)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

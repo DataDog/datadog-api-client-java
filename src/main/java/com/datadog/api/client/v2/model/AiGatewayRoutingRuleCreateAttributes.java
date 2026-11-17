@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Attributes used to create an AI Gateway routing rule. */
 @JsonPropertyOrder({
+  AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_INITIAL_BINDINGS,
   AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_SLUG,
   AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_TIERS
 })
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INITIAL_BINDINGS = "initial_bindings";
+  private List<AiGatewayProviderInitialBinding> initialBindings = null;
+
   public static final String JSON_PROPERTY_SLUG = "slug";
   private String slug;
 
@@ -45,6 +49,50 @@ public class AiGatewayRoutingRuleCreateAttributes {
     this.tiers = tiers;
     for (AiGatewayRoutingRuleTierRequest item : tiers) {
       this.unparsed |= item.unparsed;
+    }
+  }
+
+  public AiGatewayRoutingRuleCreateAttributes initialBindings(
+      List<AiGatewayProviderInitialBinding> initialBindings) {
+    this.initialBindings = initialBindings;
+    if (initialBindings != null) {
+      for (AiGatewayProviderInitialBinding item : initialBindings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public AiGatewayRoutingRuleCreateAttributes addInitialBindingsItem(
+      AiGatewayProviderInitialBinding initialBindingsItem) {
+    if (this.initialBindings == null) {
+      this.initialBindings = new ArrayList<>();
+    }
+    this.initialBindings.add(initialBindingsItem);
+    this.unparsed |= initialBindingsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Reserved for initial View and Edit permissions. Supplying this attribute returns HTTP 400 and
+   * doesn't create the route. Create the route, then set its permissions through the restriction
+   * policy API.
+   *
+   * @return initialBindings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INITIAL_BINDINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AiGatewayProviderInitialBinding> getInitialBindings() {
+    return initialBindings;
+  }
+
+  public void setInitialBindings(List<AiGatewayProviderInitialBinding> initialBindings) {
+    this.initialBindings = initialBindings;
+    if (initialBindings != null) {
+      for (AiGatewayProviderInitialBinding item : initialBindings) {
+        this.unparsed |= item.unparsed;
+      }
     }
   }
 
@@ -160,7 +208,9 @@ public class AiGatewayRoutingRuleCreateAttributes {
     }
     AiGatewayRoutingRuleCreateAttributes aiGatewayRoutingRuleCreateAttributes =
         (AiGatewayRoutingRuleCreateAttributes) o;
-    return Objects.equals(this.slug, aiGatewayRoutingRuleCreateAttributes.slug)
+    return Objects.equals(
+            this.initialBindings, aiGatewayRoutingRuleCreateAttributes.initialBindings)
+        && Objects.equals(this.slug, aiGatewayRoutingRuleCreateAttributes.slug)
         && Objects.equals(this.tiers, aiGatewayRoutingRuleCreateAttributes.tiers)
         && Objects.equals(
             this.additionalProperties, aiGatewayRoutingRuleCreateAttributes.additionalProperties);
@@ -168,13 +218,14 @@ public class AiGatewayRoutingRuleCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(slug, tiers, additionalProperties);
+    return Objects.hash(initialBindings, slug, tiers, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleCreateAttributes {\n");
+    sb.append("    initialBindings: ").append(toIndentedString(initialBindings)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("    additionalProperties: ")

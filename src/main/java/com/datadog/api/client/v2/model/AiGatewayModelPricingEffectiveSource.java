@@ -25,12 +25,17 @@ import java.util.Set;
 public class AiGatewayModelPricingEffectiveSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("catalog_auto", "model_override", "unknown"));
+      new HashSet<String>(
+          Arrays.asList("catalog_auto", "model_override", "models_dev", "unpriced", "unknown"));
 
   public static final AiGatewayModelPricingEffectiveSource CATALOG_AUTO =
       new AiGatewayModelPricingEffectiveSource("catalog_auto");
   public static final AiGatewayModelPricingEffectiveSource MODEL_OVERRIDE =
       new AiGatewayModelPricingEffectiveSource("model_override");
+  public static final AiGatewayModelPricingEffectiveSource MODELS_DEV =
+      new AiGatewayModelPricingEffectiveSource("models_dev");
+  public static final AiGatewayModelPricingEffectiveSource UNPRICED =
+      new AiGatewayModelPricingEffectiveSource("unpriced");
   public static final AiGatewayModelPricingEffectiveSource UNKNOWN =
       new AiGatewayModelPricingEffectiveSource("unknown");
 

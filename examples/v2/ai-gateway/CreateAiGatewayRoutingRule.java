@@ -4,6 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AiGatewayApi;
 import com.datadog.api.client.v2.model.AiGatewayNullableRoutingRuleTierOrdering;
+import com.datadog.api.client.v2.model.AiGatewayProviderInitialBinding;
+import com.datadog.api.client.v2.model.AiGatewayProviderInitialBindingRelation;
 import com.datadog.api.client.v2.model.AiGatewayRoutingClassifierRequest;
 import com.datadog.api.client.v2.model.AiGatewayRoutingReasoningLevel;
 import com.datadog.api.client.v2.model.AiGatewayRoutingRuleCreateAttributes;
@@ -29,6 +31,13 @@ public class Example {
                 new AiGatewayRoutingRuleCreateData()
                     .attributes(
                         new AiGatewayRoutingRuleCreateAttributes()
+                            .initialBindings(
+                                Collections.singletonList(
+                                    new AiGatewayProviderInitialBinding()
+                                        .principals(
+                                            Collections.singletonList(
+                                                "org:11111111-1111-1111-1111-111111111111"))
+                                        .relation(AiGatewayProviderInitialBindingRelation.VIEWER)))
                             .slug("coding")
                             .tiers(
                                 Collections.singletonList(

@@ -23,7 +23,8 @@ public class Example {
                     .attributes(
                         new AiGatewayProviderUpdateAttributes()
                             .costMultiplier(1.0)
-                            .name("production-us-v2"))
+                            .name("production-us-v2")
+                            .zdrEligible(false))
                     .id("42")
                     .type(AiGatewayProviderType.PROVIDERS));
 
