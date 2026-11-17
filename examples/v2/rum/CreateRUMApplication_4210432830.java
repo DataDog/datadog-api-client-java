@@ -7,9 +7,10 @@ import com.datadog.api.client.v2.model.RUMApplicationCreate;
 import com.datadog.api.client.v2.model.RUMApplicationCreateAttributes;
 import com.datadog.api.client.v2.model.RUMApplicationCreateRequest;
 import com.datadog.api.client.v2.model.RUMApplicationCreateType;
+import com.datadog.api.client.v2.model.RUMApplicationPlatformType;
 import com.datadog.api.client.v2.model.RUMApplicationResponse;
 import com.datadog.api.client.v2.model.RUMEventProcessingState;
-import com.datadog.api.client.v2.model.RUMProductAnalyticsRetentionState;
+import com.datadog.api.client.v2.model.RUMProductAnalyticsRetentionStateRequest;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,9 +25,10 @@ public class Example {
                     .attributes(
                         new RUMApplicationCreateAttributes()
                             .name("test-rum-with-product-scales-5c67ebb32077e1d9")
-                            .type("browser")
+                            .type(RUMApplicationPlatformType.BROWSER)
                             .rumEventProcessingState(RUMEventProcessingState.ERROR_FOCUSED_MODE)
-                            .productAnalyticsRetentionState(RUMProductAnalyticsRetentionState.NONE))
+                            .productAnalyticsRetentionState(
+                                RUMProductAnalyticsRetentionStateRequest.NONE))
                     .type(RUMApplicationCreateType.RUM_APPLICATION_CREATE));
 
     try {
