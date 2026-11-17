@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Performance criteria to filter view instances by a metric threshold. */
+/**
+ * Performance criteria to filter view instances by a metric threshold. When criteria are applied,
+ * specify at least one of <code>min</code> or <code>max</code>. When both are provided, <code>min
+ * </code> must be less than <code>max</code>.
+ */
 @JsonPropertyOrder({
   AggregatedWaterfallPerformanceCriteria.JSON_PROPERTY_MAX,
   AggregatedWaterfallPerformanceCriteria.JSON_PROPERTY_METRIC,

@@ -96,7 +96,9 @@ public class AggregatedLongTasksRequestAttributes {
   }
 
   /**
-   * Performance criteria to filter view instances by a metric threshold.
+   * Performance criteria to filter view instances by a metric threshold. When criteria are applied,
+   * specify at least one of <code>min</code> or <code>max</code>. When both are provided, <code>min
+   * </code> must be less than <code>max</code>.
    *
    * @return criteria
    */
