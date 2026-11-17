@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AiGatewayBudgetListAttributes.JSON_PROPERTY_ENFORCEMENT,
   AiGatewayBudgetListAttributes.JSON_PROPERTY_MONITOR_ID,
   AiGatewayBudgetListAttributes.JSON_PROPERTY_NAME,
+  AiGatewayBudgetListAttributes.JSON_PROPERTY_REPORTING_SUMMARY,
   AiGatewayBudgetListAttributes.JSON_PROPERTY_SCOPE_RESTRICTED,
   AiGatewayBudgetListAttributes.JSON_PROPERTY_SELECTOR,
   AiGatewayBudgetListAttributes.JSON_PROPERTY_TAGS,
@@ -75,6 +76,9 @@ public class AiGatewayBudgetListAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_REPORTING_SUMMARY = "reporting_summary";
+  private AiGatewayBudgetReportingSummary reportingSummary;
 
   public static final String JSON_PROPERTY_SCOPE_RESTRICTED = "scope_restricted";
   private Boolean scopeRestricted;
@@ -342,6 +346,33 @@ public class AiGatewayBudgetListAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public AiGatewayBudgetListAttributes reportingSummary(
+      AiGatewayBudgetReportingSummary reportingSummary) {
+    this.reportingSummary = reportingSummary;
+    this.unparsed |= reportingSummary.unparsed;
+    return this;
+  }
+
+  /**
+   * Health across all counters in the active accounting window. Includes hidden counters; contains
+   * no scope values or identities.
+   *
+   * @return reportingSummary
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPORTING_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AiGatewayBudgetReportingSummary getReportingSummary() {
+    return reportingSummary;
+  }
+
+  public void setReportingSummary(AiGatewayBudgetReportingSummary reportingSummary) {
+    this.reportingSummary = reportingSummary;
+    if (reportingSummary != null) {
+      this.unparsed |= reportingSummary.unparsed;
+    }
   }
 
   public AiGatewayBudgetListAttributes scopeRestricted(Boolean scopeRestricted) {
@@ -648,6 +679,7 @@ public class AiGatewayBudgetListAttributes {
         && Objects.equals(this.enforcement, aiGatewayBudgetListAttributes.enforcement)
         && Objects.equals(this.monitorId, aiGatewayBudgetListAttributes.monitorId)
         && Objects.equals(this.name, aiGatewayBudgetListAttributes.name)
+        && Objects.equals(this.reportingSummary, aiGatewayBudgetListAttributes.reportingSummary)
         && Objects.equals(this.scopeRestricted, aiGatewayBudgetListAttributes.scopeRestricted)
         && Objects.equals(this.selector, aiGatewayBudgetListAttributes.selector)
         && Objects.equals(this.tags, aiGatewayBudgetListAttributes.tags)
@@ -674,6 +706,7 @@ public class AiGatewayBudgetListAttributes {
         enforcement,
         monitorId,
         name,
+        reportingSummary,
         scopeRestricted,
         selector,
         tags,
@@ -704,6 +737,7 @@ public class AiGatewayBudgetListAttributes {
     sb.append("    enforcement: ").append(toIndentedString(enforcement)).append("\n");
     sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    reportingSummary: ").append(toIndentedString(reportingSummary)).append("\n");
     sb.append("    scopeRestricted: ").append(toIndentedString(scopeRestricted)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

@@ -22,12 +22,15 @@ import java.util.Objects;
 @JsonPropertyOrder({
   AiGatewayProviderAttributes.JSON_PROPERTY_COST_MULTIPLIER,
   AiGatewayProviderAttributes.JSON_PROPERTY_CREATED_AT,
+  AiGatewayProviderAttributes.JSON_PROPERTY_CREDENTIAL_SOURCE,
   AiGatewayProviderAttributes.JSON_PROPERTY_INTEGRATION_ACCOUNT_ID,
   AiGatewayProviderAttributes.JSON_PROPERTY_INTEGRATION_CONFIG,
   AiGatewayProviderAttributes.JSON_PROPERTY_KNOWN_PROVIDER,
   AiGatewayProviderAttributes.JSON_PROPERTY_NAME,
   AiGatewayProviderAttributes.JSON_PROPERTY_SLUG,
-  AiGatewayProviderAttributes.JSON_PROPERTY_UPDATED_AT
+  AiGatewayProviderAttributes.JSON_PROPERTY_STATUS,
+  AiGatewayProviderAttributes.JSON_PROPERTY_UPDATED_AT,
+  AiGatewayProviderAttributes.JSON_PROPERTY_ZDR_ELIGIBLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +41,9 @@ public class AiGatewayProviderAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_CREDENTIAL_SOURCE = "credential_source";
+  private AiGatewayProviderCredentialSource credentialSource;
 
   public static final String JSON_PROPERTY_INTEGRATION_ACCOUNT_ID = "integration_account_id";
   private String integrationAccountId;
@@ -54,8 +60,14 @@ public class AiGatewayProviderAttributes {
   public static final String JSON_PROPERTY_SLUG = "slug";
   private String slug;
 
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private AiGatewayProviderStatus status;
+
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
+
+  public static final String JSON_PROPERTY_ZDR_ELIGIBLE = "zdr_eligible";
+  private Boolean zdrEligible;
 
   public AiGatewayProviderAttributes() {}
 
@@ -118,6 +130,35 @@ public class AiGatewayProviderAttributes {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public AiGatewayProviderAttributes credentialSource(
+      AiGatewayProviderCredentialSource credentialSource) {
+    this.credentialSource = credentialSource;
+    this.unparsed |= !credentialSource.isValid();
+    return this;
+  }
+
+  /**
+   * Whose credential the gateway sends to the provider. <code>integration_account</code> sends the
+   * integration account's credential. <code>subscription</code> forwards each caller's own
+   * subscription sign-in (<code>ChatGPT</code> for <code>openai</code>, <code>claude.ai</code> for
+   * <code>anthropic</code>) and needs no integration account.
+   *
+   * @return credentialSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREDENTIAL_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AiGatewayProviderCredentialSource getCredentialSource() {
+    return credentialSource;
+  }
+
+  public void setCredentialSource(AiGatewayProviderCredentialSource credentialSource) {
+    if (!credentialSource.isValid()) {
+      this.unparsed = true;
+    }
+    this.credentialSource = credentialSource;
   }
 
   public AiGatewayProviderAttributes integrationAccountId(String integrationAccountId) {
@@ -230,6 +271,33 @@ public class AiGatewayProviderAttributes {
     this.slug = slug;
   }
 
+  public AiGatewayProviderAttributes status(AiGatewayProviderStatus status) {
+    this.status = status;
+    this.unparsed |= status.unparsed;
+    return this;
+  }
+
+  /**
+   * Read-only. Whether the provider is working, based on the model sync and live calls. Omitted for
+   * providers that are never checked, which include providers without an integration account, and
+   * Azure OpenAI and Gemini providers until live traffic records a status.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AiGatewayProviderStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(AiGatewayProviderStatus status) {
+    this.status = status;
+    if (status != null) {
+      this.unparsed |= status.unparsed;
+    }
+  }
+
   public AiGatewayProviderAttributes updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -248,6 +316,27 @@ public class AiGatewayProviderAttributes {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  public AiGatewayProviderAttributes zdrEligible(Boolean zdrEligible) {
+    this.zdrEligible = zdrEligible;
+    return this;
+  }
+
+  /**
+   * Whether this provider connection is covered by a zero data retention agreement.
+   *
+   * @return zdrEligible
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ZDR_ELIGIBLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getZdrEligible() {
+    return zdrEligible;
+  }
+
+  public void setZdrEligible(Boolean zdrEligible) {
+    this.zdrEligible = zdrEligible;
   }
 
   /**
@@ -308,13 +397,16 @@ public class AiGatewayProviderAttributes {
     AiGatewayProviderAttributes aiGatewayProviderAttributes = (AiGatewayProviderAttributes) o;
     return Objects.equals(this.costMultiplier, aiGatewayProviderAttributes.costMultiplier)
         && Objects.equals(this.createdAt, aiGatewayProviderAttributes.createdAt)
+        && Objects.equals(this.credentialSource, aiGatewayProviderAttributes.credentialSource)
         && Objects.equals(
             this.integrationAccountId, aiGatewayProviderAttributes.integrationAccountId)
         && Objects.equals(this.integrationConfig, aiGatewayProviderAttributes.integrationConfig)
         && Objects.equals(this.knownProvider, aiGatewayProviderAttributes.knownProvider)
         && Objects.equals(this.name, aiGatewayProviderAttributes.name)
         && Objects.equals(this.slug, aiGatewayProviderAttributes.slug)
+        && Objects.equals(this.status, aiGatewayProviderAttributes.status)
         && Objects.equals(this.updatedAt, aiGatewayProviderAttributes.updatedAt)
+        && Objects.equals(this.zdrEligible, aiGatewayProviderAttributes.zdrEligible)
         && Objects.equals(
             this.additionalProperties, aiGatewayProviderAttributes.additionalProperties);
   }
@@ -324,12 +416,15 @@ public class AiGatewayProviderAttributes {
     return Objects.hash(
         costMultiplier,
         createdAt,
+        credentialSource,
         integrationAccountId,
         integrationConfig,
         knownProvider,
         name,
         slug,
+        status,
         updatedAt,
+        zdrEligible,
         additionalProperties);
   }
 
@@ -339,6 +434,7 @@ public class AiGatewayProviderAttributes {
     sb.append("class AiGatewayProviderAttributes {\n");
     sb.append("    costMultiplier: ").append(toIndentedString(costMultiplier)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    credentialSource: ").append(toIndentedString(credentialSource)).append("\n");
     sb.append("    integrationAccountId: ")
         .append(toIndentedString(integrationAccountId))
         .append("\n");
@@ -346,7 +442,9 @@ public class AiGatewayProviderAttributes {
     sb.append("    knownProvider: ").append(toIndentedString(knownProvider)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    zdrEligible: ").append(toIndentedString(zdrEligible)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

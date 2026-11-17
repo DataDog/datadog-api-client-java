@@ -22,13 +22,15 @@ import java.util.Objects;
 /** Attributes used to create an AI Gateway provider. */
 @JsonPropertyOrder({
   AiGatewayProviderCreateAttributes.JSON_PROPERTY_COST_MULTIPLIER,
+  AiGatewayProviderCreateAttributes.JSON_PROPERTY_CREDENTIAL_SOURCE,
   AiGatewayProviderCreateAttributes.JSON_PROPERTY_INITIAL_BINDINGS,
   AiGatewayProviderCreateAttributes.JSON_PROPERTY_INTEGRATION_ACCOUNT_ID,
   AiGatewayProviderCreateAttributes.JSON_PROPERTY_INTEGRATION_CONFIG,
   AiGatewayProviderCreateAttributes.JSON_PROPERTY_KNOWN_PROVIDER,
   AiGatewayProviderCreateAttributes.JSON_PROPERTY_MODELS,
   AiGatewayProviderCreateAttributes.JSON_PROPERTY_NAME,
-  AiGatewayProviderCreateAttributes.JSON_PROPERTY_SLUG
+  AiGatewayProviderCreateAttributes.JSON_PROPERTY_SLUG,
+  AiGatewayProviderCreateAttributes.JSON_PROPERTY_ZDR_ELIGIBLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -36,6 +38,10 @@ public class AiGatewayProviderCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COST_MULTIPLIER = "cost_multiplier";
   private Double costMultiplier = 1.0;
+
+  public static final String JSON_PROPERTY_CREDENTIAL_SOURCE = "credential_source";
+  private AiGatewayProviderCreateCredentialSource credentialSource =
+      AiGatewayProviderCreateCredentialSource.INTEGRATION_ACCOUNT;
 
   public static final String JSON_PROPERTY_INITIAL_BINDINGS = "initial_bindings";
   private List<AiGatewayProviderInitialBinding> initialBindings = null;
@@ -57,6 +63,9 @@ public class AiGatewayProviderCreateAttributes {
 
   public static final String JSON_PROPERTY_SLUG = "slug";
   private String slug;
+
+  public static final String JSON_PROPERTY_ZDR_ELIGIBLE = "zdr_eligible";
+  private Boolean zdrEligible;
 
   public AiGatewayProviderCreateAttributes() {}
 
@@ -88,6 +97,38 @@ public class AiGatewayProviderCreateAttributes {
 
   public void setCostMultiplier(Double costMultiplier) {
     this.costMultiplier = costMultiplier;
+  }
+
+  public AiGatewayProviderCreateAttributes credentialSource(
+      AiGatewayProviderCreateCredentialSource credentialSource) {
+    this.credentialSource = credentialSource;
+    this.unparsed |= !credentialSource.isValid();
+    return this;
+  }
+
+  /**
+   * Whose credential the gateway sends to the provider. Defaults to <code>integration_account
+   * </code>, which sends the integration account's credential. <code>subscription</code> forwards
+   * each caller's own subscription sign-in (<code>ChatGPT</code> for <code>openai</code>, <code>
+   * claude.ai</code> for <code>anthropic</code>) and needs no integration account; it is available
+   * only to organizations with subscription providers enabled. A subscription provider's models are
+   * optional: callers can use any model their subscription includes, and a model you add sets its
+   * pricing. Immutable.
+   *
+   * @return credentialSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREDENTIAL_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AiGatewayProviderCreateCredentialSource getCredentialSource() {
+    return credentialSource;
+  }
+
+  public void setCredentialSource(AiGatewayProviderCreateCredentialSource credentialSource) {
+    if (!credentialSource.isValid()) {
+      this.unparsed = true;
+    }
+    this.credentialSource = credentialSource;
   }
 
   public AiGatewayProviderCreateAttributes initialBindings(
@@ -285,6 +326,29 @@ public class AiGatewayProviderCreateAttributes {
     this.slug = slug;
   }
 
+  public AiGatewayProviderCreateAttributes zdrEligible(Boolean zdrEligible) {
+    this.zdrEligible = zdrEligible;
+    return this;
+  }
+
+  /**
+   * Whether this provider connection is covered by a zero data retention agreement. Defaults to
+   * <code>false</code>. For Bedrock, zero data retention is granted per region, so configure one
+   * provider per region and set this only on the covered ones.
+   *
+   * @return zdrEligible
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ZDR_ELIGIBLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getZdrEligible() {
+    return zdrEligible;
+  }
+
+  public void setZdrEligible(Boolean zdrEligible) {
+    this.zdrEligible = zdrEligible;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -343,6 +407,7 @@ public class AiGatewayProviderCreateAttributes {
     AiGatewayProviderCreateAttributes aiGatewayProviderCreateAttributes =
         (AiGatewayProviderCreateAttributes) o;
     return Objects.equals(this.costMultiplier, aiGatewayProviderCreateAttributes.costMultiplier)
+        && Objects.equals(this.credentialSource, aiGatewayProviderCreateAttributes.credentialSource)
         && Objects.equals(this.initialBindings, aiGatewayProviderCreateAttributes.initialBindings)
         && Objects.equals(
             this.integrationAccountId, aiGatewayProviderCreateAttributes.integrationAccountId)
@@ -352,6 +417,7 @@ public class AiGatewayProviderCreateAttributes {
         && Objects.equals(this.models, aiGatewayProviderCreateAttributes.models)
         && Objects.equals(this.name, aiGatewayProviderCreateAttributes.name)
         && Objects.equals(this.slug, aiGatewayProviderCreateAttributes.slug)
+        && Objects.equals(this.zdrEligible, aiGatewayProviderCreateAttributes.zdrEligible)
         && Objects.equals(
             this.additionalProperties, aiGatewayProviderCreateAttributes.additionalProperties);
   }
@@ -360,6 +426,7 @@ public class AiGatewayProviderCreateAttributes {
   public int hashCode() {
     return Objects.hash(
         costMultiplier,
+        credentialSource,
         initialBindings,
         integrationAccountId,
         integrationConfig,
@@ -367,6 +434,7 @@ public class AiGatewayProviderCreateAttributes {
         models,
         name,
         slug,
+        zdrEligible,
         additionalProperties);
   }
 
@@ -375,6 +443,7 @@ public class AiGatewayProviderCreateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayProviderCreateAttributes {\n");
     sb.append("    costMultiplier: ").append(toIndentedString(costMultiplier)).append("\n");
+    sb.append("    credentialSource: ").append(toIndentedString(credentialSource)).append("\n");
     sb.append("    initialBindings: ").append(toIndentedString(initialBindings)).append("\n");
     sb.append("    integrationAccountId: ")
         .append(toIndentedString(integrationAccountId))
@@ -384,6 +453,7 @@ public class AiGatewayProviderCreateAttributes {
     sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    zdrEligible: ").append(toIndentedString(zdrEligible)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

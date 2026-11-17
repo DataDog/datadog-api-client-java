@@ -19,7 +19,8 @@ import java.util.Objects;
 /** Attributes used to update an AI Gateway provider. */
 @JsonPropertyOrder({
   AiGatewayProviderUpdateAttributes.JSON_PROPERTY_COST_MULTIPLIER,
-  AiGatewayProviderUpdateAttributes.JSON_PROPERTY_NAME
+  AiGatewayProviderUpdateAttributes.JSON_PROPERTY_NAME,
+  AiGatewayProviderUpdateAttributes.JSON_PROPERTY_ZDR_ELIGIBLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,6 +31,9 @@ public class AiGatewayProviderUpdateAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_ZDR_ELIGIBLE = "zdr_eligible";
+  private Boolean zdrEligible;
 
   public AiGatewayProviderUpdateAttributes costMultiplier(Double costMultiplier) {
     this.costMultiplier = costMultiplier;
@@ -72,6 +76,28 @@ public class AiGatewayProviderUpdateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public AiGatewayProviderUpdateAttributes zdrEligible(Boolean zdrEligible) {
+    this.zdrEligible = zdrEligible;
+    return this;
+  }
+
+  /**
+   * Whether this provider connection is covered by a zero data retention agreement. Omit to leave
+   * unchanged.
+   *
+   * @return zdrEligible
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ZDR_ELIGIBLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getZdrEligible() {
+    return zdrEligible;
+  }
+
+  public void setZdrEligible(Boolean zdrEligible) {
+    this.zdrEligible = zdrEligible;
   }
 
   /**
@@ -133,13 +159,14 @@ public class AiGatewayProviderUpdateAttributes {
         (AiGatewayProviderUpdateAttributes) o;
     return Objects.equals(this.costMultiplier, aiGatewayProviderUpdateAttributes.costMultiplier)
         && Objects.equals(this.name, aiGatewayProviderUpdateAttributes.name)
+        && Objects.equals(this.zdrEligible, aiGatewayProviderUpdateAttributes.zdrEligible)
         && Objects.equals(
             this.additionalProperties, aiGatewayProviderUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(costMultiplier, name, additionalProperties);
+    return Objects.hash(costMultiplier, name, zdrEligible, additionalProperties);
   }
 
   @Override
@@ -148,6 +175,7 @@ public class AiGatewayProviderUpdateAttributes {
     sb.append("class AiGatewayProviderUpdateAttributes {\n");
     sb.append("    costMultiplier: ").append(toIndentedString(costMultiplier)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    zdrEligible: ").append(toIndentedString(zdrEligible)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
