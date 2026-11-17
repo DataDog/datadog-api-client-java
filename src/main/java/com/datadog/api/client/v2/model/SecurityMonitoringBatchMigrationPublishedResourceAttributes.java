@@ -28,7 +28,7 @@ import java.util.Objects;
 public class SecurityMonitoringBatchMigrationPublishedResourceAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
+  private SecurityMonitoringBatchMigrationPublishError error;
 
   public static final String JSON_PROPERTY_RULE_ID = "ruleId";
   private String ruleId;
@@ -46,8 +46,10 @@ public class SecurityMonitoringBatchMigrationPublishedResourceAttributes {
     this.unparsed |= !status.isValid();
   }
 
-  public SecurityMonitoringBatchMigrationPublishedResourceAttributes error(String error) {
+  public SecurityMonitoringBatchMigrationPublishedResourceAttributes error(
+      SecurityMonitoringBatchMigrationPublishError error) {
     this.error = error;
+    this.unparsed |= error.unparsed;
     return this;
   }
 
@@ -59,12 +61,15 @@ public class SecurityMonitoringBatchMigrationPublishedResourceAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getError() {
+  public SecurityMonitoringBatchMigrationPublishError getError() {
     return error;
   }
 
-  public void setError(String error) {
+  public void setError(SecurityMonitoringBatchMigrationPublishError error) {
     this.error = error;
+    if (error != null) {
+      this.unparsed |= error.unparsed;
+    }
   }
 
   public SecurityMonitoringBatchMigrationPublishedResourceAttributes ruleId(String ruleId) {
