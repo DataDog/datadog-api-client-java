@@ -78,11 +78,14 @@ public class CaseViewCreateAttributes {
   }
 
   /**
-   * The identifier of a notification rule linked to this view. When set, users subscribed to the
-   * view receive alerts for matching work items.
+   * Deprecated. This field is ignored. Use <code>
+   * POST /api/v2/cases/projects/{project_id}/notification_rules</code> to manage project
+   * notifications.
    *
    * @return npRuleId
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NP_RULE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,6 +93,7 @@ public class CaseViewCreateAttributes {
     return npRuleId;
   }
 
+  @Deprecated
   public void setNpRuleId(String npRuleId) {
     this.npRuleId = npRuleId;
   }

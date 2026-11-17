@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a work item view, including the filter query and optional notification rule. */
+/** Attributes of a work item view, including the filter query. */
 @JsonPropertyOrder({
   CaseViewAttributes.JSON_PROPERTY_CREATED_AT,
   CaseViewAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -106,11 +106,12 @@ public class CaseViewAttributes {
   }
 
   /**
-   * The identifier of a notification rule linked to this view. When set, users subscribed to the
-   * view receive alerts for matching work items.
+   * Deprecated. Identifier of a legacy notification rule linked to this view, if any.
    *
    * @return npRuleId
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NP_RULE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,6 +119,7 @@ public class CaseViewAttributes {
     return npRuleId;
   }
 
+  @Deprecated
   public void setNpRuleId(String npRuleId) {
     this.npRuleId = npRuleId;
   }
