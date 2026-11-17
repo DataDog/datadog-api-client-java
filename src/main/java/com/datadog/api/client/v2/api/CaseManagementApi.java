@@ -2122,7 +2122,6 @@ public class CaseManagementApi {
 
   /**
    * Creates a new saved work item view with a name, filter query, and associated project.
-   * Optionally, a notification rule can be linked to the view.
    *
    * @param body Work item view payload. (required)
    * @return ApiResponse&lt;CaseViewResponse&gt;
@@ -9285,7 +9284,7 @@ public class CaseManagementApi {
   }
 
   /**
-   * Updates the name, query, or notification rule of an existing work item view.
+   * Updates the name or query of an existing work item view.
    *
    * @param viewId The UUID of the work item view. (required)
    * @param body Work item view payload. (required)
