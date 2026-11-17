@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.RUMApplicationCreate;
 import com.datadog.api.client.v2.model.RUMApplicationCreateAttributes;
 import com.datadog.api.client.v2.model.RUMApplicationCreateRequest;
 import com.datadog.api.client.v2.model.RUMApplicationCreateType;
+import com.datadog.api.client.v2.model.RUMApplicationPlatformType;
 import com.datadog.api.client.v2.model.RUMApplicationResponse;
 
 public class Example {
@@ -22,7 +23,7 @@ public class Example {
                     .attributes(
                         new RUMApplicationCreateAttributes()
                             .name("test-rum-5c67ebb32077e1d9")
-                            .type("ios"))
+                            .type(RUMApplicationPlatformType.IOS))
                     .type(RUMApplicationCreateType.RUM_APPLICATION_CREATE));
 
     try {
