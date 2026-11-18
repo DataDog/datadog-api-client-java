@@ -59,9 +59,24 @@ public class ContainerImagesApi {
      * Set filterTags.
      *
      * @param filterTags Comma-separated <code>key:value</code> tags. An image must match every tag.
-     *     Wildcards, negation (<code>-key:value</code>), spaces, and <code>IN (...)</code> are not
-     *     supported. Use keys such as <code>image_registry</code> and <code>image_tag</code>. To
-     *     match any of several values of the same key, make one request per value. (optional)
+     *     Use keys such as <code>short_image</code>, <code>image_tag</code>, <code>image_registry
+     *     </code>, and <code>image_repository</code>. Each tag starts with a letter and contains
+     *     only letters, digits, <code>_</code>, <code>-</code>, <code>.</code>, <code>/</code>,
+     *     <code>@</code>, and <code>:</code>. Values match exactly and are case-sensitive (<code>
+     *     short_image:Redis</code> matches nothing if the image is <code>redis</code>). In a value,
+     *     <code>*</code> matches any run of characters, including none. It can appear anywhere in
+     *     the value and more than once, and it can't be escaped. For example, <code>
+     *     short_image:redis*</code> matches <code>redis</code> and <code>redis-stack</code>, and
+     *     <code>image_tag:v1.*</code> matches <code>v1.2.0</code>. These return <code>
+     *     400 Bad Request</code>, with the reason in <code>errors[0].detail</code>: a <code>*
+     *     </code> in a key or in a tag without <code>:</code> (<code>image_*:latest</code>, <code>
+     *     *:latest</code>, <code>redis*</code>), a <code>?</code>, a leading <code>-</code>
+     *     (negation), spaces (so <code>OR</code> and <code>IN (...)</code> can't be used), an empty
+     *     value (<code>image_tag:</code>), and more than 1024 characters in total. A <code>*</code>
+     *     in the value of the numeric and date keys <code>size</code>, <code>container_count</code>
+     *     , <code>built_at</code>, <code>published_at</code>, and <code>vulnerability_scan_at
+     *     </code> also returns 400, but its <code>detail</code> is only <code>Bad Request</code>.
+     *     To match unrelated values of one key, make one request per value. (optional)
      * @return ListContainerImagesOptionalParameters
      */
     public ListContainerImagesOptionalParameters filterTags(String filterTags) {
