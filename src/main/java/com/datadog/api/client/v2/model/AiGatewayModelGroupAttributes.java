@@ -27,9 +27,11 @@ import java.util.Objects;
   AiGatewayModelGroupAttributes.JSON_PROPERTY_MAX_REASONING_LEVEL,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_MODEL_IDS,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_MODELS,
+  AiGatewayModelGroupAttributes.JSON_PROPERTY_MODELS_RESTRICTED,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_NAME,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_PROVIDER_IDS,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_PROVIDERS,
+  AiGatewayModelGroupAttributes.JSON_PROPERTY_PROVIDERS_RESTRICTED,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_REVISION,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_ROUTING_RULES,
   AiGatewayModelGroupAttributes.JSON_PROPERTY_ROUTING_RULES_RESTRICTED,
@@ -54,6 +56,9 @@ public class AiGatewayModelGroupAttributes {
   public static final String JSON_PROPERTY_MODELS = "models";
   private List<AiGatewayModelGroupModel> models = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_MODELS_RESTRICTED = "models_restricted";
+  private Boolean modelsRestricted;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -62,6 +67,9 @@ public class AiGatewayModelGroupAttributes {
 
   public static final String JSON_PROPERTY_PROVIDERS = "providers";
   private List<AiGatewayModelGroupProvider> providers = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PROVIDERS_RESTRICTED = "providers_restricted";
+  private Boolean providersRestricted;
 
   public static final String JSON_PROPERTY_REVISION = "revision";
   private Long revision;
@@ -196,8 +204,8 @@ public class AiGatewayModelGroupAttributes {
   }
 
   /**
-   * All saved model catalog IDs, including selections whose provider metadata is hidden. Preserve
-   * these IDs independently of the visible catalog.
+   * Saved model catalog IDs whose providers the caller can view. Hidden identities are omitted. The
+   * <code>models_restricted</code> field indicates hidden membership.
    *
    * @return modelIds
    */
@@ -226,8 +234,8 @@ public class AiGatewayModelGroupAttributes {
   }
 
   /**
-   * Metadata for saved model selections whose providers the caller can view. Missing metadata does
-   * not remove a saved ID.
+   * Metadata for saved model selections whose providers the caller can view. Hidden model
+   * identities and metadata are omitted.
    *
    * @return models
    */
@@ -244,6 +252,19 @@ public class AiGatewayModelGroupAttributes {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  /**
+   * Whether some saved models are hidden from the caller. Hidden identities, names, and counts are
+   * omitted. Editing visible selections preserves hidden memberships.
+   *
+   * @return modelsRestricted
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODELS_RESTRICTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getModelsRestricted() {
+    return modelsRestricted;
   }
 
   public AiGatewayModelGroupAttributes name(String name) {
@@ -277,8 +298,8 @@ public class AiGatewayModelGroupAttributes {
   }
 
   /**
-   * All explicitly selected provider IDs, including hidden providers. Embedded provider metadata
-   * includes only viewable providers.
+   * Explicitly selected provider IDs the caller can view. Hidden identities are omitted. The <code>
+   * providers_restricted</code> field indicates hidden membership.
    *
    * @return providerIds
    */
@@ -307,8 +328,8 @@ public class AiGatewayModelGroupAttributes {
   }
 
   /**
-   * Viewable explicitly selected providers, separate from individually selected models. Use
-   * provider_ids to retain all selections.
+   * Viewable explicitly selected providers, separate from individually selected models. Hidden
+   * provider identities and metadata are omitted.
    *
    * @return providers
    */
@@ -325,6 +346,19 @@ public class AiGatewayModelGroupAttributes {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  /**
+   * Whether some saved providers are hidden from the caller. Hidden identities, names, and counts
+   * are omitted. Editing visible selections preserves hidden memberships.
+   *
+   * @return providersRestricted
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROVIDERS_RESTRICTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getProvidersRestricted() {
+    return providersRestricted;
   }
 
   public AiGatewayModelGroupAttributes revision(Long revision) {
@@ -479,9 +513,12 @@ public class AiGatewayModelGroupAttributes {
         && Objects.equals(this.maxReasoningLevel, aiGatewayModelGroupAttributes.maxReasoningLevel)
         && Objects.equals(this.modelIds, aiGatewayModelGroupAttributes.modelIds)
         && Objects.equals(this.models, aiGatewayModelGroupAttributes.models)
+        && Objects.equals(this.modelsRestricted, aiGatewayModelGroupAttributes.modelsRestricted)
         && Objects.equals(this.name, aiGatewayModelGroupAttributes.name)
         && Objects.equals(this.providerIds, aiGatewayModelGroupAttributes.providerIds)
         && Objects.equals(this.providers, aiGatewayModelGroupAttributes.providers)
+        && Objects.equals(
+            this.providersRestricted, aiGatewayModelGroupAttributes.providersRestricted)
         && Objects.equals(this.revision, aiGatewayModelGroupAttributes.revision)
         && Objects.equals(this.routingRules, aiGatewayModelGroupAttributes.routingRules)
         && Objects.equals(
@@ -499,9 +536,11 @@ public class AiGatewayModelGroupAttributes {
         maxReasoningLevel,
         modelIds,
         models,
+        modelsRestricted,
         name,
         providerIds,
         providers,
+        providersRestricted,
         revision,
         routingRules,
         routingRulesRestricted,
@@ -518,9 +557,13 @@ public class AiGatewayModelGroupAttributes {
     sb.append("    maxReasoningLevel: ").append(toIndentedString(maxReasoningLevel)).append("\n");
     sb.append("    modelIds: ").append(toIndentedString(modelIds)).append("\n");
     sb.append("    models: ").append(toIndentedString(models)).append("\n");
+    sb.append("    modelsRestricted: ").append(toIndentedString(modelsRestricted)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerIds: ").append(toIndentedString(providerIds)).append("\n");
     sb.append("    providers: ").append(toIndentedString(providers)).append("\n");
+    sb.append("    providersRestricted: ")
+        .append(toIndentedString(providersRestricted))
+        .append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    routingRules: ").append(toIndentedString(routingRules)).append("\n");
     sb.append("    routingRulesRestricted: ")

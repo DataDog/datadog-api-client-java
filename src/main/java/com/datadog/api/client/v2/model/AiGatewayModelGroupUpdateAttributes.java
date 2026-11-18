@@ -148,10 +148,10 @@ public class AiGatewayModelGroupUpdateAttributes {
   }
 
   /**
-   * Individually selected model catalog IDs. Replaces this selection only. Omit to preserve it; an
-   * empty array clears it. Null is invalid. Individual selections do not include future models. New
-   * selections require provider View; retaining or removing saved hidden selections requires only
-   * parent Edit.
+   * Individually selected model catalog IDs. Replaces visible selections and preserves saved hidden
+   * selections. Omit to preserve the complete selection; an empty array clears only visible
+   * selections. Null is invalid. Individual selections do not include future models. New selections
+   * require provider View.
    *
    * @return modelIds
    */
@@ -201,9 +201,9 @@ public class AiGatewayModelGroupUpdateAttributes {
   }
 
   /**
-   * Explicit provider selections, including current and future models. Omit to preserve selections
-   * on update; an empty array clears them. Null is invalid. New selections require provider View;
-   * saved hidden IDs can be retained or removed.
+   * Explicit provider selections, including current and future models. Replaces visible selections
+   * and preserves saved hidden selections. Omit to preserve the complete selection; an empty array
+   * clears only visible selections. Null is invalid. New selections require provider View.
    *
    * @return providerIds
    */
@@ -232,8 +232,9 @@ public class AiGatewayModelGroupUpdateAttributes {
   }
 
   /**
-   * Organization-unique routing rule slugs. Replaces route selections only. Omit to preserve them;
-   * an empty array clears them. Null is invalid.
+   * Organization-unique routing rule slugs. Replaces visible route selections and preserves saved
+   * hidden selections. Omit to preserve all route selections; an empty array clears only visible
+   * selections. Null is invalid. New selections require route View.
    *
    * @return routingRuleSlugs
    */
