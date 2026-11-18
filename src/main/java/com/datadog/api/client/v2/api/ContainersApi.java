@@ -59,8 +59,20 @@ public class ContainersApi {
      * Set filterTags.
      *
      * @param filterTags Comma-separated <code>key:value</code> tags. A container must match every
-     *     tag. Wildcards, negation (<code>-key:value</code>), spaces, and <code>IN (...)</code> are
-     *     not supported. To cover several hosts, make one request per host. (optional)
+     *     tag. Each tag starts with a letter and contains only letters, digits, <code>_</code>,
+     *     <code>-</code>, <code>.</code>, <code>/</code>, <code>@</code>, and <code>:</code>.
+     *     Values match exactly and are case-sensitive (tags are usually lowercase). In a value,
+     *     <code>*</code> matches any run of characters, including none. It can appear anywhere in
+     *     the value and more than once, and it can't be escaped. For example, <code>env:prod*
+     *     </code> matches <code>env:prod</code> and <code>env:prod-eu</code>, <code>
+     *     kube_namespace:*-web</code> matches <code>kube_namespace:shop-web</code>, and <code>
+     *     container_id:a4cf*</code> matches containers whose ID starts with <code>a4cf</code>.
+     *     These return <code>400 Bad Request</code>, with the reason in <code>errors[0].detail
+     *     </code>: a <code>*</code> in a key or in a tag without <code>:</code> (<code>kube_*:prod
+     *     </code>, <code>*:prod</code>, <code>prod*</code>), a <code>?</code>, a leading <code>-
+     *     </code> (negation), spaces (so <code>OR</code> and <code>IN (...)</code> can't be used),
+     *     an empty value (<code>env:</code>), and more than 1024 characters in total. To match
+     *     unrelated values of one key, make one request per value. (optional)
      * @return ListContainersOptionalParameters
      */
     public ListContainersOptionalParameters filterTags(String filterTags) {
