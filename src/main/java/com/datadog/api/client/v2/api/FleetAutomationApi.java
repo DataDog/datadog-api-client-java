@@ -4,6 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.FleetAccessScopeResponse;
+import com.datadog.api.client.v2.model.FleetAccessScopeWriteRequest;
+import com.datadog.api.client.v2.model.FleetAccessScopesResponse;
 import com.datadog.api.client.v2.model.FleetAgentDetailV2Response;
 import com.datadog.api.client.v2.model.FleetAgentVersionsV2Response;
 import com.datadog.api.client.v2.model.FleetAgentsV2Response;
@@ -214,6 +217,158 @@ public class FleetAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FleetDeploymentV2CancelResponse>() {});
+  }
+
+  /**
+   * Create a fleet access scope.
+   *
+   * <p>See {@link #createFleetAccessScopeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FleetAccessScopeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetAccessScopeResponse createFleetAccessScope(FleetAccessScopeWriteRequest body)
+      throws ApiException {
+    return createFleetAccessScopeWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a fleet access scope.
+   *
+   * <p>See {@link #createFleetAccessScopeWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FleetAccessScopeResponse&gt;
+   */
+  public CompletableFuture<FleetAccessScopeResponse> createFleetAccessScopeAsync(
+      FleetAccessScopeWriteRequest body) {
+    return createFleetAccessScopeWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an access scope defining which fleet actions can be performed on matching agents. Manage
+   * its principals separately with a restriction policy on <code>fleet-scope:&lt;id&gt;</code>.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FleetAccessScopeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetAccessScopeResponse> createFleetAccessScopeWithHttpInfo(
+      FleetAccessScopeWriteRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createFleetAccessScope");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/fleet/access_scopes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.createFleetAccessScope",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopeResponse>() {});
+  }
+
+  /**
+   * Create a fleet access scope.
+   *
+   * <p>See {@link #createFleetAccessScopeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAccessScopeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetAccessScopeResponse>>
+      createFleetAccessScopeWithHttpInfoAsync(FleetAccessScopeWriteRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createFleetAccessScope"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/fleet/access_scopes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.createFleetAccessScope",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopeResponse>() {});
   }
 
   /**
@@ -691,6 +846,167 @@ public class FleetAutomationApi {
   }
 
   /**
+   * Delete a fleet access scope.
+   *
+   * <p>See {@link #deleteFleetAccessScopeWithHttpInfo}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteFleetAccessScope(String accessScopeId) throws ApiException {
+    deleteFleetAccessScopeWithHttpInfo(accessScopeId);
+  }
+
+  /**
+   * Delete a fleet access scope.
+   *
+   * <p>See {@link #deleteFleetAccessScopeWithHttpInfoAsync}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteFleetAccessScopeAsync(String accessScopeId) {
+    return deleteFleetAccessScopeWithHttpInfoAsync(accessScopeId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an access scope. The associated restriction policy is deleted on a best-effort basis.
+   * Listing scopes after the last scope is deleted initializes the default scope again.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteFleetAccessScopeWithHttpInfo(String accessScopeId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accessScopeId' is set
+    if (accessScopeId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accessScopeId' when calling deleteFleetAccessScope");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/access_scopes/{access_scope_id}"
+            .replaceAll(
+                "\\{" + "access_scope_id" + "\\}",
+                apiClient.escapeString(accessScopeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.deleteFleetAccessScope",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a fleet access scope.
+   *
+   * <p>See {@link #deleteFleetAccessScopeWithHttpInfo}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteFleetAccessScopeWithHttpInfoAsync(
+      String accessScopeId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accessScopeId' is set
+    if (accessScopeId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accessScopeId' when calling"
+                  + " deleteFleetAccessScope"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/access_scopes/{access_scope_id}"
+            .replaceAll(
+                "\\{" + "access_scope_id" + "\\}",
+                apiClient.escapeString(accessScopeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.deleteFleetAccessScope",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete a schedule.
    *
    * <p>See {@link #deleteFleetScheduleWithHttpInfo}.
@@ -846,6 +1162,166 @@ public class FleetAutomationApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Get a fleet access scope.
+   *
+   * <p>See {@link #getFleetAccessScopeWithHttpInfo}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @return FleetAccessScopeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetAccessScopeResponse getFleetAccessScope(String accessScopeId) throws ApiException {
+    return getFleetAccessScopeWithHttpInfo(accessScopeId).getData();
+  }
+
+  /**
+   * Get a fleet access scope.
+   *
+   * <p>See {@link #getFleetAccessScopeWithHttpInfoAsync}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @return CompletableFuture&lt;FleetAccessScopeResponse&gt;
+   */
+  public CompletableFuture<FleetAccessScopeResponse> getFleetAccessScopeAsync(
+      String accessScopeId) {
+    return getFleetAccessScopeWithHttpInfoAsync(accessScopeId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve an access scope by its unique identifier.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @return ApiResponse&lt;FleetAccessScopeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetAccessScopeResponse> getFleetAccessScopeWithHttpInfo(String accessScopeId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accessScopeId' is set
+    if (accessScopeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'accessScopeId' when calling getFleetAccessScope");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/access_scopes/{access_scope_id}"
+            .replaceAll(
+                "\\{" + "access_scope_id" + "\\}",
+                apiClient.escapeString(accessScopeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.getFleetAccessScope",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopeResponse>() {});
+  }
+
+  /**
+   * Get a fleet access scope.
+   *
+   * <p>See {@link #getFleetAccessScopeWithHttpInfo}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAccessScopeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetAccessScopeResponse>>
+      getFleetAccessScopeWithHttpInfoAsync(String accessScopeId) {
+    // Check if unstable operation is enabled
+    String operationId = "getFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accessScopeId' is set
+    if (accessScopeId == null) {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accessScopeId' when calling getFleetAccessScope"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/access_scopes/{access_scope_id}"
+            .replaceAll(
+                "\\{" + "access_scope_id" + "\\}",
+                apiClient.escapeString(accessScopeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.getFleetAccessScope",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopeResponse>() {});
   }
 
   /** Manage optional parameters to getFleetAgentDetailV2. */
@@ -1343,6 +1819,138 @@ public class FleetAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FleetScheduleV2Response>() {});
+  }
+
+  /**
+   * List all fleet access scopes.
+   *
+   * <p>See {@link #listFleetAccessScopesWithHttpInfo}.
+   *
+   * @return FleetAccessScopesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetAccessScopesResponse listFleetAccessScopes() throws ApiException {
+    return listFleetAccessScopesWithHttpInfo().getData();
+  }
+
+  /**
+   * List all fleet access scopes.
+   *
+   * <p>See {@link #listFleetAccessScopesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;FleetAccessScopesResponse&gt;
+   */
+  public CompletableFuture<FleetAccessScopesResponse> listFleetAccessScopesAsync() {
+    return listFleetAccessScopesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve all access scopes in the organization. This endpoint is not paginated. If the
+   * organization has no scopes, listing initializes its default scope, including after the final
+   * scope has been deleted.
+   *
+   * @return ApiResponse&lt;FleetAccessScopesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetAccessScopesResponse> listFleetAccessScopesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetAccessScopes";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/fleet/access_scopes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.listFleetAccessScopes",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopesResponse>() {});
+  }
+
+  /**
+   * List all fleet access scopes.
+   *
+   * <p>See {@link #listFleetAccessScopesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAccessScopesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetAccessScopesResponse>>
+      listFleetAccessScopesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetAccessScopes";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetAccessScopesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/fleet/access_scopes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.listFleetAccessScopes",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetAccessScopesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopesResponse>() {});
   }
 
   /** Manage optional parameters to listFleetAgentsV2. */
@@ -2773,6 +3381,191 @@ public class FleetAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FleetDeploymentResponse>() {});
+  }
+
+  /**
+   * Replace a fleet access scope.
+   *
+   * <p>See {@link #updateFleetAccessScopeWithHttpInfo}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @param body (required)
+   * @return FleetAccessScopeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetAccessScopeResponse updateFleetAccessScope(
+      String accessScopeId, FleetAccessScopeWriteRequest body) throws ApiException {
+    return updateFleetAccessScopeWithHttpInfo(accessScopeId, body).getData();
+  }
+
+  /**
+   * Replace a fleet access scope.
+   *
+   * <p>See {@link #updateFleetAccessScopeWithHttpInfoAsync}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FleetAccessScopeResponse&gt;
+   */
+  public CompletableFuture<FleetAccessScopeResponse> updateFleetAccessScopeAsync(
+      String accessScopeId, FleetAccessScopeWriteRequest body) {
+    return updateFleetAccessScopeWithHttpInfoAsync(accessScopeId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Replace the mutable attributes of an access scope selected by its path ID. Omitted strings
+   * become empty; omitted feature flags become false. Existing restriction policy bindings are
+   * preserved.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FleetAccessScopeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetAccessScopeResponse> updateFleetAccessScopeWithHttpInfo(
+      String accessScopeId, FleetAccessScopeWriteRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'accessScopeId' is set
+    if (accessScopeId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accessScopeId' when calling updateFleetAccessScope");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateFleetAccessScope");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/access_scopes/{access_scope_id}"
+            .replaceAll(
+                "\\{" + "access_scope_id" + "\\}",
+                apiClient.escapeString(accessScopeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.updateFleetAccessScope",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopeResponse>() {});
+  }
+
+  /**
+   * Replace a fleet access scope.
+   *
+   * <p>See {@link #updateFleetAccessScopeWithHttpInfo}.
+   *
+   * @param accessScopeId The unique identifier of the fleet access scope. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAccessScopeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetAccessScopeResponse>>
+      updateFleetAccessScopeWithHttpInfoAsync(
+          String accessScopeId, FleetAccessScopeWriteRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateFleetAccessScope";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'accessScopeId' is set
+    if (accessScopeId == null) {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accessScopeId' when calling"
+                  + " updateFleetAccessScope"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateFleetAccessScope"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/access_scopes/{access_scope_id}"
+            .replaceAll(
+                "\\{" + "access_scope_id" + "\\}",
+                apiClient.escapeString(accessScopeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.updateFleetAccessScope",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetAccessScopeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAccessScopeResponse>() {});
   }
 
   /**
