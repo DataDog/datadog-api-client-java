@@ -1250,7 +1250,7 @@ public class ActionsDatastoresApi {
   }
 
   /**
-   * Lists all datastores for the organization.
+   * Lists all datastores in the organization.
    *
    * @return ApiResponse&lt;DatastoreArray&gt;
    * @throws ApiException if fails to make API call

@@ -1945,7 +1945,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get the definition of a derived metric by name.
+   * Get the definition of a derived metric from its name.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;DerivedMetricResponse&gt;
