@@ -277,6 +277,76 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
             e);
       }
 
+      // deserialize SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                Integer.class)
+            || SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                Long.class)
+            || SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                Float.class)
+            || SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                Double.class)
+            || SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                Boolean.class)
+            || SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                            Integer.class)
+                        || SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes
+                            .class
+                            .equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                            Float.class)
+                        || SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes
+                            .class
+                            .equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(
+                      SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes) tmp)
+              .unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes'",
+            e);
+      }
+
       // deserialize SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes
       try {
         boolean attemptParsing = true;
@@ -461,6 +531,12 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
   }
 
   public SecurityMonitoringIntegrationConfigUpdateAttributes(
+      SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public SecurityMonitoringIntegrationConfigUpdateAttributes(
       SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -483,6 +559,9 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
         "SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes",
         new GenericType<SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes>() {});
     schemas.put(
+        "SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes",
+        new GenericType<SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes>() {});
+    schemas.put(
         "SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes",
         new GenericType<SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes>() {});
     schemas.put(
@@ -504,6 +583,7 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
    * SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes,
    * SecurityMonitoringOktaIntegrationConfigUpdateAttributes,
    * SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes,
+   * SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes,
    * SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes,
    * SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes
    *
@@ -534,6 +614,13 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
       return;
     }
     if (JSON.isInstanceOf(
+        SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
         SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes.class,
         instance,
         new HashSet<Class<?>>())) {
@@ -557,6 +644,7 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
             + " SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes,"
             + " SecurityMonitoringOktaIntegrationConfigUpdateAttributes,"
             + " SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes,"
+            + " SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes,"
             + " SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes,"
             + " SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes");
   }
@@ -566,6 +654,7 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
    * SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes,
    * SecurityMonitoringOktaIntegrationConfigUpdateAttributes,
    * SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes,
+   * SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes,
    * SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes,
    * SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes
    *
@@ -573,6 +662,7 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
    *     (SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes,
    *     SecurityMonitoringOktaIntegrationConfigUpdateAttributes,
    *     SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes,
+   *     SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes,
    *     SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes,
    *     SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes)
    */
@@ -625,6 +715,24 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes extends Abstrac
   public SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes
       getSecurityMonitoringEntraIdIntegrationConfigUpdateAttributes() throws ClassCastException {
     return (SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of
+   * `SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes`. If the actual instance
+   * is not `SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of
+   *     `SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes`
+   * @throws ClassCastException if the instance is not
+   *     `SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes`
+   */
+  public SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes
+      getSecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes()
+          throws ClassCastException {
+    return (SecurityMonitoringAWSIdentityCenterIntegrationConfigUpdateAttributes)
+        super.getActualInstance();
   }
 
   /**

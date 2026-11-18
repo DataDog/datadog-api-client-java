@@ -1259,6 +1259,7 @@ public class ApiClient {
           put("v2.disableSecurityFindingsAutomationDefaultInboxRule", false);
           put("v2.enableSecurityFindingsAutomationDefaultInboxRule", false);
           put("v2.exportSecurityMonitoringTerraformResource", false);
+          put("v2.getAWSIdentityCenterAWSAccounts", false);
           put("v2.getContentPacksStates", false);
           put("v2.getEntityContext", false);
           put("v2.getEntityContextRecentlyUpdated", false);
