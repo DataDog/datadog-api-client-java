@@ -26,6 +26,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineParseGrokProcessorIncludeRule.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineParseGrokProcessorIncludeRule.JSON_PROPERTY_MATCH_RULES,
+  ObservabilityPipelineParseGrokProcessorIncludeRule.JSON_PROPERTY_NAME,
   ObservabilityPipelineParseGrokProcessorIncludeRule.JSON_PROPERTY_SUPPORT_RULES
 })
 @jakarta.annotation.Generated(
@@ -37,6 +38,9 @@ public class ObservabilityPipelineParseGrokProcessorIncludeRule {
 
   public static final String JSON_PROPERTY_MATCH_RULES = "match_rules";
   private List<ObservabilityPipelineParseGrokProcessorRuleMatchRule> matchRules = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_SUPPORT_RULES = "support_rules";
   private List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> supportRules = null;
@@ -110,6 +114,28 @@ public class ObservabilityPipelineParseGrokProcessorIncludeRule {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public ObservabilityPipelineParseGrokProcessorIncludeRule name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Optional name identifying this include-based Grok rule in worker diagnostics. Names must be
+   * unique within the processor.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public ObservabilityPipelineParseGrokProcessorIncludeRule supportRules(
@@ -219,6 +245,7 @@ public class ObservabilityPipelineParseGrokProcessorIncludeRule {
     return Objects.equals(this.include, observabilityPipelineParseGrokProcessorIncludeRule.include)
         && Objects.equals(
             this.matchRules, observabilityPipelineParseGrokProcessorIncludeRule.matchRules)
+        && Objects.equals(this.name, observabilityPipelineParseGrokProcessorIncludeRule.name)
         && Objects.equals(
             this.supportRules, observabilityPipelineParseGrokProcessorIncludeRule.supportRules)
         && Objects.equals(
@@ -228,7 +255,7 @@ public class ObservabilityPipelineParseGrokProcessorIncludeRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(include, matchRules, supportRules, additionalProperties);
+    return Objects.hash(include, matchRules, name, supportRules, additionalProperties);
   }
 
   @Override
@@ -237,6 +264,7 @@ public class ObservabilityPipelineParseGrokProcessorIncludeRule {
     sb.append("class ObservabilityPipelineParseGrokProcessorIncludeRule {\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    matchRules: ").append(toIndentedString(matchRules)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    supportRules: ").append(toIndentedString(supportRules)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
