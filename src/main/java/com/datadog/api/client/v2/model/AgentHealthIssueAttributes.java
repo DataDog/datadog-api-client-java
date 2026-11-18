@@ -20,13 +20,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an open Agent Health issue. */
+/** Attributes of an open Agent Health issue, including available remediation. */
 @JsonPropertyOrder({
   AgentHealthIssueAttributes.JSON_PROPERTY_CATEGORY,
   AgentHealthIssueAttributes.JSON_PROPERTY_DESCRIPTION,
+  AgentHealthIssueAttributes.JSON_PROPERTY_EXTRA,
   AgentHealthIssueAttributes.JSON_PROPERTY_FIRST_SEEN_AT,
   AgentHealthIssueAttributes.JSON_PROPERTY_ISSUE_NAME,
   AgentHealthIssueAttributes.JSON_PROPERTY_ISSUE_TYPE,
+  AgentHealthIssueAttributes.JSON_PROPERTY_REMEDIATION,
   AgentHealthIssueAttributes.JSON_PROPERTY_RESOURCE_ID,
   AgentHealthIssueAttributes.JSON_PROPERTY_RESOURCE_KIND,
   AgentHealthIssueAttributes.JSON_PROPERTY_RESOURCE_TYPE,
@@ -46,6 +48,9 @@ public class AgentHealthIssueAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_EXTRA = "extra";
+  private Map<String, Object> extra = null;
+
   public static final String JSON_PROPERTY_FIRST_SEEN_AT = "first_seen_at";
   private OffsetDateTime firstSeenAt;
 
@@ -54,6 +59,9 @@ public class AgentHealthIssueAttributes {
 
   public static final String JSON_PROPERTY_ISSUE_TYPE = "issue_type";
   private String issueType;
+
+  public static final String JSON_PROPERTY_REMEDIATION = "remediation";
+  private AgentHealthRemediation remediation;
 
   public static final String JSON_PROPERTY_RESOURCE_ID = "resource_id";
   private String resourceId;
@@ -139,6 +147,36 @@ public class AgentHealthIssueAttributes {
     this.description = description;
   }
 
+  public AgentHealthIssueAttributes extra(Map<String, Object> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  public AgentHealthIssueAttributes putExtraItem(String key, Object extraItem) {
+    if (this.extra == null) {
+      this.extra = new HashMap<>();
+    }
+    this.extra.put(key, extraItem);
+    return this;
+  }
+
+  /**
+   * Free-form, issue-type-specific context. Keys are not part of the stable schema. Omitted when
+   * empty.
+   *
+   * @return extra
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTRA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getExtra() {
+    return extra;
+  }
+
+  public void setExtra(Map<String, Object> extra) {
+    this.extra = extra;
+  }
+
   public AgentHealthIssueAttributes firstSeenAt(OffsetDateTime firstSeenAt) {
     this.firstSeenAt = firstSeenAt;
     return this;
@@ -198,6 +236,31 @@ public class AgentHealthIssueAttributes {
 
   public void setIssueType(String issueType) {
     this.issueType = issueType;
+  }
+
+  public AgentHealthIssueAttributes remediation(AgentHealthRemediation remediation) {
+    this.remediation = remediation;
+    this.unparsed |= remediation.unparsed;
+    return this;
+  }
+
+  /**
+   * Remediation for the issue. Omitted when no remediation is available.
+   *
+   * @return remediation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMEDIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AgentHealthRemediation getRemediation() {
+    return remediation;
+  }
+
+  public void setRemediation(AgentHealthRemediation remediation) {
+    this.remediation = remediation;
+    if (remediation != null) {
+      this.unparsed |= remediation.unparsed;
+    }
   }
 
   public AgentHealthIssueAttributes resourceId(String resourceId) {
@@ -435,9 +498,11 @@ public class AgentHealthIssueAttributes {
     AgentHealthIssueAttributes agentHealthIssueAttributes = (AgentHealthIssueAttributes) o;
     return Objects.equals(this.category, agentHealthIssueAttributes.category)
         && Objects.equals(this.description, agentHealthIssueAttributes.description)
+        && Objects.equals(this.extra, agentHealthIssueAttributes.extra)
         && Objects.equals(this.firstSeenAt, agentHealthIssueAttributes.firstSeenAt)
         && Objects.equals(this.issueName, agentHealthIssueAttributes.issueName)
         && Objects.equals(this.issueType, agentHealthIssueAttributes.issueType)
+        && Objects.equals(this.remediation, agentHealthIssueAttributes.remediation)
         && Objects.equals(this.resourceId, agentHealthIssueAttributes.resourceId)
         && Objects.equals(this.resourceKind, agentHealthIssueAttributes.resourceKind)
         && Objects.equals(this.resourceType, agentHealthIssueAttributes.resourceType)
@@ -455,9 +520,11 @@ public class AgentHealthIssueAttributes {
     return Objects.hash(
         category,
         description,
+        extra,
         firstSeenAt,
         issueName,
         issueType,
+        remediation,
         resourceId,
         resourceKind,
         resourceType,
@@ -475,9 +542,11 @@ public class AgentHealthIssueAttributes {
     sb.append("class AgentHealthIssueAttributes {\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    firstSeenAt: ").append(toIndentedString(firstSeenAt)).append("\n");
     sb.append("    issueName: ").append(toIndentedString(issueName)).append("\n");
     sb.append("    issueType: ").append(toIndentedString(issueType)).append("\n");
+    sb.append("    remediation: ").append(toIndentedString(remediation)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceKind: ").append(toIndentedString(resourceKind)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");

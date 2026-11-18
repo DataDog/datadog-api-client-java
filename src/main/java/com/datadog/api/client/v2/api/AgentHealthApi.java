@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AgentHealthAgentType;
 import com.datadog.api.client.v2.model.AgentHealthHostIssuesResponse;
 import com.datadog.api.client.v2.model.AgentHealthIssueResponse;
+import com.datadog.api.client.v2.model.AgentHealthIssuesCountBy;
 import com.datadog.api.client.v2.model.AgentHealthIssuesResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -428,8 +429,7 @@ public class AgentHealthApi {
 
   /** Manage optional parameters to listAgentHealthIssues. */
   public static class ListAgentHealthIssuesOptionalParameters {
-    private Long pageSize;
-    private Long pageNumber;
+    private AgentHealthIssuesCountBy countBy;
     private String filterSeverity;
     private String filterCategory;
     private String filterIssueType;
@@ -437,26 +437,15 @@ public class AgentHealthApi {
     private String filterResourceId;
 
     /**
-     * Set pageSize.
+     * Set countBy.
      *
-     * @param pageSize The number of issues to return per page, from 1 to 100. Defaults to 25.
-     *     (optional, default to 25)
+     * @param countBy Set to <code>issue_type</code> to include <code>meta.page</code> with <code>
+     *     total_count</code> and per-issue-type counts. If you don't set this parameter, the
+     *     response omits <code>meta</code>. Only <code>issue_type</code> is supported. (optional)
      * @return ListAgentHealthIssuesOptionalParameters
      */
-    public ListAgentHealthIssuesOptionalParameters pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageNumber.
-     *
-     * @param pageNumber The zero-based page number, from 0 to 1000000. Defaults to 0. (optional,
-     *     default to 0)
-     * @return ListAgentHealthIssuesOptionalParameters
-     */
-    public ListAgentHealthIssuesOptionalParameters pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
+    public ListAgentHealthIssuesOptionalParameters countBy(AgentHealthIssuesCountBy countBy) {
+      this.countBy = countBy;
       return this;
     }
 
@@ -591,15 +580,19 @@ public class AgentHealthApi {
   }
 
   /**
-   * List Agent Health issues across your organization. Only open issues are returned. Returns
-   * <code>403</code> if you lack the <code>hosts_read</code> permission.
+   * List open Agent Health issues across your organization. Returns <code>403</code> if you lack
+   * the <code>hosts_read</code> permission.
    *
-   * <p>Results use a stable order: severity rank (<code>high</code>, <code>medium</code>, <code>low
-   * </code>, then other values), then <code>first_seen_at</code> descending with missing timestamps
-   * last, then issue ID ascending. Use <code>page[size]</code> and the zero-based <code>
-   * page[number]</code> to paginate. Invalid page values return a <code>400</code> JSON:API error
-   * response. <code>meta.page.total_filtered_count</code> is the number of issues matching the
-   * filters, and <code>meta.page.total_count</code> the number of open issues in the organization.
+   * <p>Each item in <code>data</code> is a JSON:API resource object whose <code>attributes</code>
+   * hold the issue fields, including its <code>issue_type</code>. Issues use a stable order:
+   * severity rank (<code>high</code>, <code>medium</code>, <code>low</code>, then other values),
+   * then <code>first_seen_at</code> descending with missing timestamps last, then issue ID
+   * ascending.
+   *
+   * <p>Set <code>count_by=issue_type</code> to include <code>meta.page</code>, where <code>
+   * total_count</code> is the number of open issues matching the filters and <code>
+   * counts_by_issue_type</code> holds the per-type counts. <code>meta</code> is omitted when <code>
+   * count_by</code> is not requested.
    *
    * <p>Each filter accepts up to 50 comma-separated exact values of at most 256 characters each,
    * combined with OR within a filter and AND across filters. Blank entries are ignored; an
@@ -629,8 +622,7 @@ public class AgentHealthApi {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
+    AgentHealthIssuesCountBy countBy = parameters.countBy;
     String filterSeverity = parameters.filterSeverity;
     String filterCategory = parameters.filterCategory;
     String filterIssueType = parameters.filterIssueType;
@@ -642,8 +634,7 @@ public class AgentHealthApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count_by", countBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[severity]", filterSeverity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[category]", filterCategory));
     localVarQueryParams.addAll(
@@ -694,8 +685,7 @@ public class AgentHealthApi {
       return result;
     }
     Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
+    AgentHealthIssuesCountBy countBy = parameters.countBy;
     String filterSeverity = parameters.filterSeverity;
     String filterCategory = parameters.filterCategory;
     String filterIssueType = parameters.filterIssueType;
@@ -707,8 +697,7 @@ public class AgentHealthApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count_by", countBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[severity]", filterSeverity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[category]", filterCategory));
     localVarQueryParams.addAll(

@@ -24,18 +24,18 @@ import java.util.Objects;
 public class AgentHealthIssueResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private AgentHealthIssueDetailData data;
+  private AgentHealthIssueData data;
 
   public AgentHealthIssueResponse() {}
 
   @JsonCreator
   public AgentHealthIssueResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) AgentHealthIssueDetailData data) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) AgentHealthIssueData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public AgentHealthIssueResponse data(AgentHealthIssueDetailData data) {
+  public AgentHealthIssueResponse data(AgentHealthIssueData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
@@ -48,11 +48,11 @@ public class AgentHealthIssueResponse {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AgentHealthIssueDetailData getData() {
+  public AgentHealthIssueData getData() {
     return data;
   }
 
-  public void setData(AgentHealthIssueDetailData data) {
+  public void setData(AgentHealthIssueData data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;

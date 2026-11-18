@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Pagination metadata for the matching Agent Health issues. */
+/**
+ * Aggregate counts for the matching Agent Health issues. Present only when <code>
+ * count_by=issue_type</code> is requested.
+ */
 @JsonPropertyOrder({AgentHealthIssuesResponseMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +46,7 @@ public class AgentHealthIssuesResponseMeta {
   }
 
   /**
-   * Pagination counts for the Agent Health issues.
+   * Counts for the matching Agent Health issues.
    *
    * @return page
    */

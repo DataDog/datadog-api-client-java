@@ -17,30 +17,56 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Pagination counts for the Agent Health issues. */
+/** Counts for the matching Agent Health issues. */
 @JsonPropertyOrder({
-  AgentHealthIssuesResponsePage.JSON_PROPERTY_TOTAL_COUNT,
-  AgentHealthIssuesResponsePage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
+  AgentHealthIssuesResponsePage.JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE,
+  AgentHealthIssuesResponsePage.JSON_PROPERTY_TOTAL_COUNT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AgentHealthIssuesResponsePage {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE = "counts_by_issue_type";
+  private Map<String, Long> countsByIssueType = new HashMap<String, Long>();
+
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
   private Long totalCount;
-
-  public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
-  private Long totalFilteredCount;
 
   public AgentHealthIssuesResponsePage() {}
 
   @JsonCreator
   public AgentHealthIssuesResponsePage(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Long totalCount,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_FILTERED_COUNT)
-          Long totalFilteredCount) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE)
+          Map<String, Long> countsByIssueType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Long totalCount) {
+    this.countsByIssueType = countsByIssueType;
     this.totalCount = totalCount;
-    this.totalFilteredCount = totalFilteredCount;
+  }
+
+  public AgentHealthIssuesResponsePage countsByIssueType(Map<String, Long> countsByIssueType) {
+    this.countsByIssueType = countsByIssueType;
+    return this;
+  }
+
+  public AgentHealthIssuesResponsePage putCountsByIssueTypeItem(
+      String key, Long countsByIssueTypeItem) {
+    this.countsByIssueType.put(key, countsByIssueTypeItem);
+    return this;
+  }
+
+  /**
+   * The number of open issues matching the filters in each issue-type group.
+   *
+   * @return countsByIssueType
+   */
+  @JsonProperty(JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Long> getCountsByIssueType() {
+    return countsByIssueType;
+  }
+
+  public void setCountsByIssueType(Map<String, Long> countsByIssueType) {
+    this.countsByIssueType = countsByIssueType;
   }
 
   public AgentHealthIssuesResponsePage totalCount(Long totalCount) {
@@ -49,7 +75,7 @@ public class AgentHealthIssuesResponsePage {
   }
 
   /**
-   * The total number of open issues in the organization, ignoring filters.
+   * The total number of open issues matching the filters.
    *
    * @return totalCount
    */
@@ -61,26 +87,6 @@ public class AgentHealthIssuesResponsePage {
 
   public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
-  }
-
-  public AgentHealthIssuesResponsePage totalFilteredCount(Long totalFilteredCount) {
-    this.totalFilteredCount = totalFilteredCount;
-    return this;
-  }
-
-  /**
-   * The total number of open issues matching the filters, across all pages.
-   *
-   * @return totalFilteredCount
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTotalFilteredCount() {
-    return totalFilteredCount;
-  }
-
-  public void setTotalFilteredCount(Long totalFilteredCount) {
-    this.totalFilteredCount = totalFilteredCount;
   }
 
   /**
@@ -139,23 +145,23 @@ public class AgentHealthIssuesResponsePage {
       return false;
     }
     AgentHealthIssuesResponsePage agentHealthIssuesResponsePage = (AgentHealthIssuesResponsePage) o;
-    return Objects.equals(this.totalCount, agentHealthIssuesResponsePage.totalCount)
-        && Objects.equals(this.totalFilteredCount, agentHealthIssuesResponsePage.totalFilteredCount)
+    return Objects.equals(this.countsByIssueType, agentHealthIssuesResponsePage.countsByIssueType)
+        && Objects.equals(this.totalCount, agentHealthIssuesResponsePage.totalCount)
         && Objects.equals(
             this.additionalProperties, agentHealthIssuesResponsePage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, totalFilteredCount, additionalProperties);
+    return Objects.hash(countsByIssueType, totalCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AgentHealthIssuesResponsePage {\n");
+    sb.append("    countsByIssueType: ").append(toIndentedString(countsByIssueType)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
-    sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A paginated response containing open Agent Health issues. */
+/** A response containing open Agent Health issues. */
 @JsonPropertyOrder({
   AgentHealthIssuesResponse.JSON_PROPERTY_DATA,
   AgentHealthIssuesResponse.JSON_PROPERTY_META
@@ -38,15 +38,11 @@ public class AgentHealthIssuesResponse {
 
   @JsonCreator
   public AgentHealthIssuesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AgentHealthIssueData> data,
-      @JsonProperty(required = true, value = JSON_PROPERTY_META)
-          AgentHealthIssuesResponseMeta meta) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AgentHealthIssueData> data) {
     this.data = data;
     for (AgentHealthIssueData item : data) {
       this.unparsed |= item.unparsed;
     }
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
   }
 
   public AgentHealthIssuesResponse data(List<AgentHealthIssueData> data) {
@@ -64,7 +60,7 @@ public class AgentHealthIssuesResponse {
   }
 
   /**
-   * The open Agent Health issues on this page.
+   * The open Agent Health issues matching the request.
    *
    * @return data
    */
@@ -90,12 +86,14 @@ public class AgentHealthIssuesResponse {
   }
 
   /**
-   * Pagination metadata for the matching Agent Health issues.
+   * Aggregate counts for the matching Agent Health issues. Present only when <code>
+   * count_by=issue_type</code> is requested.
    *
    * @return meta
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AgentHealthIssuesResponseMeta getMeta() {
     return meta;
   }
