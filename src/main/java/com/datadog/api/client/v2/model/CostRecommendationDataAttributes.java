@@ -23,6 +23,7 @@ import java.util.Objects;
   CostRecommendationDataAttributes.JSON_PROPERTY_DD_RESOURCE_KEY,
   CostRecommendationDataAttributes.JSON_PROPERTY_POTENTIAL_DAILY_SAVINGS,
   CostRecommendationDataAttributes.JSON_PROPERTY_RECOMMENDATION_TYPE,
+  CostRecommendationDataAttributes.JSON_PROPERTY_RECOMMENDER_ID,
   CostRecommendationDataAttributes.JSON_PROPERTY_RESOURCE_ID,
   CostRecommendationDataAttributes.JSON_PROPERTY_RESOURCE_TYPE,
   CostRecommendationDataAttributes.JSON_PROPERTY_TAGS
@@ -39,6 +40,9 @@ public class CostRecommendationDataAttributes {
 
   public static final String JSON_PROPERTY_RECOMMENDATION_TYPE = "recommendation_type";
   private String recommendationType;
+
+  public static final String JSON_PROPERTY_RECOMMENDER_ID = "recommender_id";
+  private String recommenderId;
 
   public static final String JSON_PROPERTY_RESOURCE_ID = "resource_id";
   private String resourceId;
@@ -116,6 +120,28 @@ public class CostRecommendationDataAttributes {
 
   public void setRecommendationType(String recommendationType) {
     this.recommendationType = recommendationType;
+  }
+
+  public CostRecommendationDataAttributes recommenderId(String recommenderId) {
+    this.recommenderId = recommenderId;
+    return this;
+  }
+
+  /**
+   * ID of the recommender that produced the recommendation (for example, <code>
+   * aws_ec2_instance_downsize</code>).
+   *
+   * @return recommenderId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RECOMMENDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRecommenderId() {
+    return recommenderId;
+  }
+
+  public void setRecommenderId(String recommenderId) {
+    this.recommenderId = recommenderId;
   }
 
   public CostRecommendationDataAttributes resourceId(String resourceId) {
@@ -251,6 +277,7 @@ public class CostRecommendationDataAttributes {
             this.potentialDailySavings, costRecommendationDataAttributes.potentialDailySavings)
         && Objects.equals(
             this.recommendationType, costRecommendationDataAttributes.recommendationType)
+        && Objects.equals(this.recommenderId, costRecommendationDataAttributes.recommenderId)
         && Objects.equals(this.resourceId, costRecommendationDataAttributes.resourceId)
         && Objects.equals(this.resourceType, costRecommendationDataAttributes.resourceType)
         && Objects.equals(this.tags, costRecommendationDataAttributes.tags)
@@ -264,6 +291,7 @@ public class CostRecommendationDataAttributes {
         ddResourceKey,
         potentialDailySavings,
         recommendationType,
+        recommenderId,
         resourceId,
         resourceType,
         tags,
@@ -279,6 +307,7 @@ public class CostRecommendationDataAttributes {
         .append(toIndentedString(potentialDailySavings))
         .append("\n");
     sb.append("    recommendationType: ").append(toIndentedString(recommendationType)).append("\n");
+    sb.append("    recommenderId: ").append(toIndentedString(recommenderId)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
