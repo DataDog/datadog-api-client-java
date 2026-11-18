@@ -19,14 +19,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of an environment. */
 @JsonPropertyOrder({
   EnvironmentAttributes.JSON_PROPERTY_CREATED_AT,
-  EnvironmentAttributes.JSON_PROPERTY_DESCRIPTION,
   EnvironmentAttributes.JSON_PROPERTY_IS_PRODUCTION,
-  EnvironmentAttributes.JSON_PROPERTY_KEY,
   EnvironmentAttributes.JSON_PROPERTY_NAME,
   EnvironmentAttributes.JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA,
   EnvironmentAttributes.JSON_PROPERTY_QUERIES,
@@ -40,14 +37,8 @@ public class EnvironmentAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
-
   public static final String JSON_PROPERTY_IS_PRODUCTION = "is_production";
   private Boolean isProduction;
-
-  public static final String JSON_PROPERTY_KEY = "key";
-  private String key;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -95,37 +86,6 @@ public class EnvironmentAttributes {
     this.createdAt = createdAt;
   }
 
-  public EnvironmentAttributes description(String description) {
-    this.description = JsonNullable.<String>of(description);
-    return this;
-  }
-
-  /**
-   * The description of the environment.
-   *
-   * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDescription() {
-    return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getDescription_JsonNullable() {
-    return description;
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
-
-  public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
-  }
-
   public EnvironmentAttributes isProduction(Boolean isProduction) {
     this.isProduction = isProduction;
     return this;
@@ -145,27 +105,6 @@ public class EnvironmentAttributes {
 
   public void setIsProduction(Boolean isProduction) {
     this.isProduction = isProduction;
-  }
-
-  public EnvironmentAttributes key(String key) {
-    this.key = key;
-    return this;
-  }
-
-  /**
-   * The unique key of the environment.
-   *
-   * @return key
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKey() {
-    return key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
   }
 
   public EnvironmentAttributes name(String name) {
@@ -338,9 +277,7 @@ public class EnvironmentAttributes {
     }
     EnvironmentAttributes environmentAttributes = (EnvironmentAttributes) o;
     return Objects.equals(this.createdAt, environmentAttributes.createdAt)
-        && Objects.equals(this.description, environmentAttributes.description)
         && Objects.equals(this.isProduction, environmentAttributes.isProduction)
-        && Objects.equals(this.key, environmentAttributes.key)
         && Objects.equals(this.name, environmentAttributes.name)
         && Objects.equals(
             this.observeFullEvaluationData, environmentAttributes.observeFullEvaluationData)
@@ -355,9 +292,7 @@ public class EnvironmentAttributes {
   public int hashCode() {
     return Objects.hash(
         createdAt,
-        description,
         isProduction,
-        key,
         name,
         observeFullEvaluationData,
         queries,
@@ -371,9 +306,7 @@ public class EnvironmentAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnvironmentAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isProduction: ").append(toIndentedString(isProduction)).append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    observeFullEvaluationData: ")
         .append(toIndentedString(observeFullEvaluationData))
