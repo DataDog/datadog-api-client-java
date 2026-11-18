@@ -12,12 +12,23 @@ import com.datadog.api.client.v2.model.ListConnectionsResponse;
 import com.datadog.api.client.v2.model.QueryAccountRequest;
 import com.datadog.api.client.v2.model.QueryEventFilteredUsersRequest;
 import com.datadog.api.client.v2.model.QueryResponse;
+import com.datadog.api.client.v2.model.QuerySortOrder;
 import com.datadog.api.client.v2.model.QueryUsersRequest;
+import com.datadog.api.client.v2.model.SegmentCreateRequest;
+import com.datadog.api.client.v2.model.SegmentDeleteResponse;
+import com.datadog.api.client.v2.model.SegmentEntity;
+import com.datadog.api.client.v2.model.SegmentPreviewRequest;
+import com.datadog.api.client.v2.model.SegmentPreviewResponse;
+import com.datadog.api.client.v2.model.SegmentResponse;
+import com.datadog.api.client.v2.model.SegmentSortColumn;
+import com.datadog.api.client.v2.model.SegmentUpdateRequest;
+import com.datadog.api.client.v2.model.SegmentsResponse;
 import com.datadog.api.client.v2.model.UpdateConnectionRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -222,6 +233,159 @@ public class RumAudienceManagementApi {
   }
 
   /**
+   * Create a segment.
+   *
+   * <p>See {@link #createProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SegmentResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SegmentResponse createProductAnalyticsSegment(SegmentCreateRequest body)
+      throws ApiException {
+    return createProductAnalyticsSegmentWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a segment.
+   *
+   * <p>See {@link #createProductAnalyticsSegmentWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SegmentResponse&gt;
+   */
+  public CompletableFuture<SegmentResponse> createProductAnalyticsSegmentAsync(
+      SegmentCreateRequest body) {
+    return createProductAnalyticsSegmentWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a user or account segment. The <code>data_query</code> defines who belongs to the
+   * segment. Segment names must be unique in the organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SegmentResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SegmentResponse> createProductAnalyticsSegmentWithHttpInfo(
+      SegmentCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createProductAnalyticsSegment");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/segment";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumAudienceManagementApi.createProductAnalyticsSegment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentResponse>() {});
+  }
+
+  /**
+   * Create a segment.
+   *
+   * <p>See {@link #createProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SegmentResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SegmentResponse>>
+      createProductAnalyticsSegmentWithHttpInfoAsync(SegmentCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SegmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SegmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createProductAnalyticsSegment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/segment";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumAudienceManagementApi.createProductAnalyticsSegment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SegmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentResponse>() {});
+  }
+
+  /**
    * Delete connection.
    *
    * <p>See {@link #deleteConnectionWithHttpInfo}.
@@ -389,6 +553,160 @@ public class RumAudienceManagementApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Delete a segment.
+   *
+   * <p>See {@link #deleteProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param id ID of the segment. (required)
+   * @return SegmentDeleteResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SegmentDeleteResponse deleteProductAnalyticsSegment(String id) throws ApiException {
+    return deleteProductAnalyticsSegmentWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Delete a segment.
+   *
+   * <p>See {@link #deleteProductAnalyticsSegmentWithHttpInfoAsync}.
+   *
+   * @param id ID of the segment. (required)
+   * @return CompletableFuture&lt;SegmentDeleteResponse&gt;
+   */
+  public CompletableFuture<SegmentDeleteResponse> deleteProductAnalyticsSegmentAsync(String id) {
+    return deleteProductAnalyticsSegmentWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a segment. Segments created by users are deleted permanently. Segments created by
+   * Datadog, and segments based on an uploaded list, are disabled instead.
+   *
+   * @param id ID of the segment. (required)
+   * @return ApiResponse&lt;SegmentDeleteResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SegmentDeleteResponse> deleteProductAnalyticsSegmentWithHttpInfo(String id)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deleteProductAnalyticsSegment");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/segment/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumAudienceManagementApi.deleteProductAnalyticsSegment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentDeleteResponse>() {});
+  }
+
+  /**
+   * Delete a segment.
+   *
+   * <p>See {@link #deleteProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param id ID of the segment. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SegmentDeleteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SegmentDeleteResponse>>
+      deleteProductAnalyticsSegmentWithHttpInfoAsync(String id) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SegmentDeleteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<SegmentDeleteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling deleteProductAnalyticsSegment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/segment/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumAudienceManagementApi.deleteProductAnalyticsSegment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SegmentDeleteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentDeleteResponse>() {});
   }
 
   /**
@@ -841,6 +1159,159 @@ public class RumAudienceManagementApi {
   }
 
   /**
+   * Get a segment.
+   *
+   * <p>See {@link #getProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param id ID of the segment. (required)
+   * @return SegmentResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SegmentResponse getProductAnalyticsSegment(String id) throws ApiException {
+    return getProductAnalyticsSegmentWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get a segment.
+   *
+   * <p>See {@link #getProductAnalyticsSegmentWithHttpInfoAsync}.
+   *
+   * @param id ID of the segment. (required)
+   * @return CompletableFuture&lt;SegmentResponse&gt;
+   */
+  public CompletableFuture<SegmentResponse> getProductAnalyticsSegmentAsync(String id) {
+    return getProductAnalyticsSegmentWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a segment by ID, including its definition.
+   *
+   * @param id ID of the segment. (required)
+   * @return ApiResponse&lt;SegmentResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SegmentResponse> getProductAnalyticsSegmentWithHttpInfo(String id)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getProductAnalyticsSegment");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/segment/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumAudienceManagementApi.getProductAnalyticsSegment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentResponse>() {});
+  }
+
+  /**
+   * Get a segment.
+   *
+   * <p>See {@link #getProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param id ID of the segment. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SegmentResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SegmentResponse>>
+      getProductAnalyticsSegmentWithHttpInfoAsync(String id) {
+    // Check if unstable operation is enabled
+    String operationId = "getProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SegmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<SegmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getProductAnalyticsSegment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/segment/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumAudienceManagementApi.getProductAnalyticsSegment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SegmentResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentResponse>() {});
+  }
+
+  /**
    * Get user facet info.
    *
    * <p>See {@link #getUserFacetInfoWithHttpInfo}.
@@ -1134,6 +1605,453 @@ public class RumAudienceManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListConnectionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listProductAnalyticsSegments. */
+  public static class ListProductAnalyticsSegmentsOptionalParameters {
+    private SegmentEntity filterEntity;
+    private String filterType;
+    private String filterIds;
+    private Boolean filterDisabled;
+    private SegmentSortColumn sortColumn;
+    private QuerySortOrder sortOrder;
+    private Long limit;
+
+    /**
+     * Set filterEntity.
+     *
+     * @param filterEntity Return only segments of this entity kind. Other values are ignored.
+     *     (optional)
+     * @return ListProductAnalyticsSegmentsOptionalParameters
+     */
+    public ListProductAnalyticsSegmentsOptionalParameters filterEntity(SegmentEntity filterEntity) {
+      this.filterEntity = filterEntity;
+      return this;
+    }
+
+    /**
+     * Set filterType.
+     *
+     * @param filterType Comma-separated segment kinds to return: <code>event_platform</code>,
+     *     <code>user_store</code>, <code>account_store</code>, <code>reference_table</code>, <code>
+     *     static</code>, <code>template</code>, <code>combination</code>, <code>journey</code>, or
+     *     <code>retention</code>. (optional)
+     * @return ListProductAnalyticsSegmentsOptionalParameters
+     */
+    public ListProductAnalyticsSegmentsOptionalParameters filterType(String filterType) {
+      this.filterType = filterType;
+      return this;
+    }
+
+    /**
+     * Set filterIds.
+     *
+     * @param filterIds Comma-separated segment IDs to return, up to 1000. (optional)
+     * @return ListProductAnalyticsSegmentsOptionalParameters
+     */
+    public ListProductAnalyticsSegmentsOptionalParameters filterIds(String filterIds) {
+      this.filterIds = filterIds;
+      return this;
+    }
+
+    /**
+     * Set filterDisabled.
+     *
+     * @param filterDisabled Set to <code>false</code> to include disabled segments. (optional,
+     *     default to true)
+     * @return ListProductAnalyticsSegmentsOptionalParameters
+     */
+    public ListProductAnalyticsSegmentsOptionalParameters filterDisabled(Boolean filterDisabled) {
+      this.filterDisabled = filterDisabled;
+      return this;
+    }
+
+    /**
+     * Set sortColumn.
+     *
+     * @param sortColumn Column to sort by. Other values are ignored. (optional)
+     * @return ListProductAnalyticsSegmentsOptionalParameters
+     */
+    public ListProductAnalyticsSegmentsOptionalParameters sortColumn(SegmentSortColumn sortColumn) {
+      this.sortColumn = sortColumn;
+      return this;
+    }
+
+    /**
+     * Set sortOrder.
+     *
+     * @param sortOrder Sort order. Only used with <code>sort[column]</code>. (optional, default to
+     *     "desc")
+     * @return ListProductAnalyticsSegmentsOptionalParameters
+     */
+    public ListProductAnalyticsSegmentsOptionalParameters sortOrder(QuerySortOrder sortOrder) {
+      this.sortOrder = sortOrder;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit Maximum number of segments to return. Returns all segments when not set.
+     *     (optional)
+     * @return ListProductAnalyticsSegmentsOptionalParameters
+     */
+    public ListProductAnalyticsSegmentsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+  }
+
+  /**
+   * List segments.
+   *
+   * <p>See {@link #listProductAnalyticsSegmentsWithHttpInfo}.
+   *
+   * @return SegmentsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SegmentsResponse listProductAnalyticsSegments() throws ApiException {
+    return listProductAnalyticsSegmentsWithHttpInfo(
+            new ListProductAnalyticsSegmentsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List segments.
+   *
+   * <p>See {@link #listProductAnalyticsSegmentsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SegmentsResponse&gt;
+   */
+  public CompletableFuture<SegmentsResponse> listProductAnalyticsSegmentsAsync() {
+    return listProductAnalyticsSegmentsWithHttpInfoAsync(
+            new ListProductAnalyticsSegmentsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List segments.
+   *
+   * <p>See {@link #listProductAnalyticsSegmentsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SegmentsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SegmentsResponse listProductAnalyticsSegments(
+      ListProductAnalyticsSegmentsOptionalParameters parameters) throws ApiException {
+    return listProductAnalyticsSegmentsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List segments.
+   *
+   * <p>See {@link #listProductAnalyticsSegmentsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SegmentsResponse&gt;
+   */
+  public CompletableFuture<SegmentsResponse> listProductAnalyticsSegmentsAsync(
+      ListProductAnalyticsSegmentsOptionalParameters parameters) {
+    return listProductAnalyticsSegmentsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the user and account segments of your organization. Disabled segments are left out unless
+   * <code>filter[disabled]</code> is <code>false</code>. The list does not include segment
+   * definitions; get a segment by ID to see its <code>data_query</code>.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SegmentsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SegmentsResponse> listProductAnalyticsSegmentsWithHttpInfo(
+      ListProductAnalyticsSegmentsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listProductAnalyticsSegments";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    SegmentEntity filterEntity = parameters.filterEntity;
+    String filterType = parameters.filterType;
+    String filterIds = parameters.filterIds;
+    Boolean filterDisabled = parameters.filterDisabled;
+    SegmentSortColumn sortColumn = parameters.sortColumn;
+    QuerySortOrder sortOrder = parameters.sortOrder;
+    Long limit = parameters.limit;
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/segment";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[entity]", filterEntity));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[ids]", filterIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[disabled]", filterDisabled));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[column]", sortColumn));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[order]", sortOrder));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumAudienceManagementApi.listProductAnalyticsSegments",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentsResponse>() {});
+  }
+
+  /**
+   * List segments.
+   *
+   * <p>See {@link #listProductAnalyticsSegmentsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SegmentsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SegmentsResponse>>
+      listProductAnalyticsSegmentsWithHttpInfoAsync(
+          ListProductAnalyticsSegmentsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listProductAnalyticsSegments";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SegmentsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    SegmentEntity filterEntity = parameters.filterEntity;
+    String filterType = parameters.filterType;
+    String filterIds = parameters.filterIds;
+    Boolean filterDisabled = parameters.filterDisabled;
+    SegmentSortColumn sortColumn = parameters.sortColumn;
+    QuerySortOrder sortOrder = parameters.sortOrder;
+    Long limit = parameters.limit;
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/segment";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[entity]", filterEntity));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[ids]", filterIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[disabled]", filterDisabled));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[column]", sortColumn));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[order]", sortOrder));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumAudienceManagementApi.listProductAnalyticsSegments",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SegmentsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentsResponse>() {});
+  }
+
+  /**
+   * Preview a segment.
+   *
+   * <p>See {@link #previewProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SegmentPreviewResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SegmentPreviewResponse previewProductAnalyticsSegment(SegmentPreviewRequest body)
+      throws ApiException {
+    return previewProductAnalyticsSegmentWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Preview a segment.
+   *
+   * <p>See {@link #previewProductAnalyticsSegmentWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SegmentPreviewResponse&gt;
+   */
+  public CompletableFuture<SegmentPreviewResponse> previewProductAnalyticsSegmentAsync(
+      SegmentPreviewRequest body) {
+    return previewProductAnalyticsSegmentWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Preview the users or accounts that match a segment definition, without saving it. Returns up to
+   * 1000 rows and the total number of matching entities.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SegmentPreviewResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SegmentPreviewResponse> previewProductAnalyticsSegmentWithHttpInfo(
+      SegmentPreviewRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "previewProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling previewProductAnalyticsSegment");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/segments/preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumAudienceManagementApi.previewProductAnalyticsSegment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentPreviewResponse>() {});
+  }
+
+  /**
+   * Preview a segment.
+   *
+   * <p>See {@link #previewProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SegmentPreviewResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SegmentPreviewResponse>>
+      previewProductAnalyticsSegmentWithHttpInfoAsync(SegmentPreviewRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "previewProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SegmentPreviewResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SegmentPreviewResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling previewProductAnalyticsSegment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/segments/preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumAudienceManagementApi.previewProductAnalyticsSegment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SegmentPreviewResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SegmentPreviewResponse>() {});
   }
 
   /**
@@ -1721,6 +2639,183 @@ public class RumAudienceManagementApi {
       builder =
           apiClient.createBuilder(
               "v2.RumAudienceManagementApi.updateConnection",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a segment.
+   *
+   * <p>See {@link #updateProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param id ID of the segment. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateProductAnalyticsSegment(String id, SegmentUpdateRequest body)
+      throws ApiException {
+    updateProductAnalyticsSegmentWithHttpInfo(id, body);
+  }
+
+  /**
+   * Update a segment.
+   *
+   * <p>See {@link #updateProductAnalyticsSegmentWithHttpInfoAsync}.
+   *
+   * @param id ID of the segment. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateProductAnalyticsSegmentAsync(
+      String id, SegmentUpdateRequest body) {
+    return updateProductAnalyticsSegmentWithHttpInfoAsync(id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a segment. Fields that are not set are left unchanged. The <code>id</code> in the body
+   * must match the one in the path. The response has no body; get the segment to see the result.
+   *
+   * @param id ID of the segment. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateProductAnalyticsSegmentWithHttpInfo(
+      String id, SegmentUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling updateProductAnalyticsSegment");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateProductAnalyticsSegment");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/segment/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumAudienceManagementApi.updateProductAnalyticsSegment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a segment.
+   *
+   * <p>See {@link #updateProductAnalyticsSegmentWithHttpInfo}.
+   *
+   * @param id ID of the segment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateProductAnalyticsSegmentWithHttpInfoAsync(
+      String id, SegmentUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateProductAnalyticsSegment";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling updateProductAnalyticsSegment"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateProductAnalyticsSegment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/product-analytics/segment/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumAudienceManagementApi.updateProductAnalyticsSegment",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
