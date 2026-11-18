@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An open Agent Health issue. */
+/** An open Agent Health issue with available remediation. */
 @JsonPropertyOrder({
   AgentHealthIssueData.JSON_PROPERTY_ATTRIBUTES,
   AgentHealthIssueData.JSON_PROPERTY_ID,
@@ -59,7 +59,7 @@ public class AgentHealthIssueData {
   }
 
   /**
-   * Attributes of an open Agent Health issue.
+   * Attributes of an open Agent Health issue, including available remediation.
    *
    * @return attributes
    */

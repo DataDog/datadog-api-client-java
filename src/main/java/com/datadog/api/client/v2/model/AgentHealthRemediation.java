@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Remediation for the issue. Omitted when no remediation is available. */
 @JsonPropertyOrder({
+  AgentHealthRemediation.JSON_PROPERTY_AI_PROMPT,
   AgentHealthRemediation.JSON_PROPERTY_SCRIPT,
   AgentHealthRemediation.JSON_PROPERTY_STEPS,
   AgentHealthRemediation.JSON_PROPERTY_SUMMARY
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AgentHealthRemediation {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AI_PROMPT = "ai_prompt";
+  private String aiPrompt;
+
   public static final String JSON_PROPERTY_SCRIPT = "script";
   private AgentHealthRemediationScript script;
 
@@ -36,6 +40,27 @@ public class AgentHealthRemediation {
 
   public static final String JSON_PROPERTY_SUMMARY = "summary";
   private String summary;
+
+  public AgentHealthRemediation aiPrompt(String aiPrompt) {
+    this.aiPrompt = aiPrompt;
+    return this;
+  }
+
+  /**
+   * A suggested prompt for an AI assistant to help remediate the issue.
+   *
+   * @return aiPrompt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_PROMPT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAiPrompt() {
+    return aiPrompt;
+  }
+
+  public void setAiPrompt(String aiPrompt) {
+    this.aiPrompt = aiPrompt;
+  }
 
   public AgentHealthRemediation script(AgentHealthRemediationScript script) {
     this.script = script;
@@ -179,7 +204,8 @@ public class AgentHealthRemediation {
       return false;
     }
     AgentHealthRemediation agentHealthRemediation = (AgentHealthRemediation) o;
-    return Objects.equals(this.script, agentHealthRemediation.script)
+    return Objects.equals(this.aiPrompt, agentHealthRemediation.aiPrompt)
+        && Objects.equals(this.script, agentHealthRemediation.script)
         && Objects.equals(this.steps, agentHealthRemediation.steps)
         && Objects.equals(this.summary, agentHealthRemediation.summary)
         && Objects.equals(this.additionalProperties, agentHealthRemediation.additionalProperties);
@@ -187,13 +213,14 @@ public class AgentHealthRemediation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(script, steps, summary, additionalProperties);
+    return Objects.hash(aiPrompt, script, steps, summary, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AgentHealthRemediation {\n");
+    sb.append("    aiPrompt: ").append(toIndentedString(aiPrompt)).append("\n");
     sb.append("    script: ").append(toIndentedString(script)).append("\n");
     sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
