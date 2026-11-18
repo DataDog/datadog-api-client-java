@@ -9,6 +9,12 @@ import com.datadog.api.client.v2.model.ProductAnalyticsAnalyticsListResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsAnalyticsRequest;
 import com.datadog.api.client.v2.model.ProductAnalyticsFormulaJourneyRequest;
 import com.datadog.api.client.v2.model.ProductAnalyticsFormulaRetentionRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsFunnelStepSuggestionsRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsFunnelStepSuggestionsResponse;
+import com.datadog.api.client.v2.model.ProductAnalyticsFunnelSuggestionsRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsFunnelSuggestionsResponse;
+import com.datadog.api.client.v2.model.ProductAnalyticsJourneyDropOffRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsJourneyDropOffResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsJourneyFunnelRequest;
 import com.datadog.api.client.v2.model.ProductAnalyticsJourneyFunnelResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsJourneyListRequest;
@@ -61,6 +67,492 @@ public class ProductAnalyticsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Get funnel step suggestions.
+   *
+   * <p>See {@link #queryProductAnalyticsFunnelStepSuggestionsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsFunnelStepSuggestionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsFunnelStepSuggestionsResponse queryProductAnalyticsFunnelStepSuggestions(
+      ProductAnalyticsFunnelStepSuggestionsRequest body) throws ApiException {
+    return queryProductAnalyticsFunnelStepSuggestionsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Get funnel step suggestions.
+   *
+   * <p>See {@link #queryProductAnalyticsFunnelStepSuggestionsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsFunnelStepSuggestionsResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsFunnelStepSuggestionsResponse>
+      queryProductAnalyticsFunnelStepSuggestionsAsync(
+          ProductAnalyticsFunnelStepSuggestionsRequest body) {
+    return queryProductAnalyticsFunnelStepSuggestionsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the steps that users most often take after the existing steps of a funnel. Suggestions come
+   * from the same precomputed journeys as feature suggestions. Returns an empty list when no
+   * journey starts with the given steps.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsFunnelStepSuggestionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsFunnelStepSuggestionsResponse>
+      queryProductAnalyticsFunnelStepSuggestionsWithHttpInfo(
+          ProductAnalyticsFunnelStepSuggestionsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "queryProductAnalyticsFunnelStepSuggestions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " queryProductAnalyticsFunnelStepSuggestions");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/suggestions/features/steps";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.queryProductAnalyticsFunnelStepSuggestions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsFunnelStepSuggestionsResponse>() {});
+  }
+
+  /**
+   * Get funnel step suggestions.
+   *
+   * <p>See {@link #queryProductAnalyticsFunnelStepSuggestionsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsFunnelStepSuggestionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsFunnelStepSuggestionsResponse>>
+      queryProductAnalyticsFunnelStepSuggestionsWithHttpInfoAsync(
+          ProductAnalyticsFunnelStepSuggestionsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "queryProductAnalyticsFunnelStepSuggestions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsFunnelStepSuggestionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsFunnelStepSuggestionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " queryProductAnalyticsFunnelStepSuggestions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/suggestions/features/steps";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.queryProductAnalyticsFunnelStepSuggestions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsFunnelStepSuggestionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsFunnelStepSuggestionsResponse>() {});
+  }
+
+  /**
+   * Get feature suggestions.
+   *
+   * <p>See {@link #queryProductAnalyticsFunnelSuggestionsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsFunnelSuggestionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsFunnelSuggestionsResponse queryProductAnalyticsFunnelSuggestions(
+      ProductAnalyticsFunnelSuggestionsRequest body) throws ApiException {
+    return queryProductAnalyticsFunnelSuggestionsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Get feature suggestions.
+   *
+   * <p>See {@link #queryProductAnalyticsFunnelSuggestionsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsFunnelSuggestionsResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsFunnelSuggestionsResponse>
+      queryProductAnalyticsFunnelSuggestionsAsync(ProductAnalyticsFunnelSuggestionsRequest body) {
+    return queryProductAnalyticsFunnelSuggestionsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the features that Product Analytics detected in your applications, grouped by application
+   * and feature area. Each feature comes with a suggested journey that users follow to use it,
+   * which you can use as funnel steps.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsFunnelSuggestionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsFunnelSuggestionsResponse>
+      queryProductAnalyticsFunnelSuggestionsWithHttpInfo(
+          ProductAnalyticsFunnelSuggestionsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "queryProductAnalyticsFunnelSuggestions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " queryProductAnalyticsFunnelSuggestions");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/suggestions/features";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.queryProductAnalyticsFunnelSuggestions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsFunnelSuggestionsResponse>() {});
+  }
+
+  /**
+   * Get feature suggestions.
+   *
+   * <p>See {@link #queryProductAnalyticsFunnelSuggestionsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsFunnelSuggestionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsFunnelSuggestionsResponse>>
+      queryProductAnalyticsFunnelSuggestionsWithHttpInfoAsync(
+          ProductAnalyticsFunnelSuggestionsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "queryProductAnalyticsFunnelSuggestions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsFunnelSuggestionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsFunnelSuggestionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " queryProductAnalyticsFunnelSuggestions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/suggestions/features";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.queryProductAnalyticsFunnelSuggestions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsFunnelSuggestionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsFunnelSuggestionsResponse>() {});
+  }
+
+  /**
+   * Analyze journey drop-off.
+   *
+   * <p>See {@link #queryProductAnalyticsJourneyDropOffWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsJourneyDropOffResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsJourneyDropOffResponse queryProductAnalyticsJourneyDropOff(
+      ProductAnalyticsJourneyDropOffRequest body) throws ApiException {
+    return queryProductAnalyticsJourneyDropOffWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Analyze journey drop-off.
+   *
+   * <p>See {@link #queryProductAnalyticsJourneyDropOffWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsJourneyDropOffResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsJourneyDropOffResponse>
+      queryProductAnalyticsJourneyDropOffAsync(ProductAnalyticsJourneyDropOffRequest body) {
+    return queryProductAnalyticsJourneyDropOffWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Analyze the drop-off at a given step of the journey. The journey must have at least two steps,
+   * and only the <code>@session.id</code> join key is supported. Set <code>target</code> to the
+   * node to analyze. It can't be the first step. When <code>target</code> is omitted, the last step
+   * is used. Returns the number of sessions that reached the step before the target but not the
+   * target, together with the issues and frustration signals most associated with the drop-off.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsJourneyDropOffResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsJourneyDropOffResponse>
+      queryProductAnalyticsJourneyDropOffWithHttpInfo(ProductAnalyticsJourneyDropOffRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "queryProductAnalyticsJourneyDropOff";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling queryProductAnalyticsJourneyDropOff");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/journey/drop_off_analysis";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.queryProductAnalyticsJourneyDropOff",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsJourneyDropOffResponse>() {});
+  }
+
+  /**
+   * Analyze journey drop-off.
+   *
+   * <p>See {@link #queryProductAnalyticsJourneyDropOffWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsJourneyDropOffResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsJourneyDropOffResponse>>
+      queryProductAnalyticsJourneyDropOffWithHttpInfoAsync(
+          ProductAnalyticsJourneyDropOffRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "queryProductAnalyticsJourneyDropOff";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProductAnalyticsJourneyDropOffResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsJourneyDropOffResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " queryProductAnalyticsJourneyDropOff"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/journey/drop_off_analysis";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.queryProductAnalyticsJourneyDropOff",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsJourneyDropOffResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsJourneyDropOffResponse>() {});
   }
 
   /**

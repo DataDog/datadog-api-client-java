@@ -1669,6 +1669,9 @@ public class ApiClient {
           put("v2.updateOrgGroupPolicy", false);
           put("v2.updateOrgGroupPolicyOverride", false);
           put("v2.listRoleTemplates", false);
+          put("v2.queryProductAnalyticsFunnelStepSuggestions", false);
+          put("v2.queryProductAnalyticsFunnelSuggestions", false);
+          put("v2.queryProductAnalyticsJourneyDropOff", false);
           put("v2.queryProductAnalyticsJourneyFunnel", false);
           put("v2.queryProductAnalyticsJourneyList", false);
           put("v2.queryProductAnalyticsJourneyScalar", false);
