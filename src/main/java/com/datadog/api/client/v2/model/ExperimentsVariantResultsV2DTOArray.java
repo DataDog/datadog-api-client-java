@@ -88,7 +88,7 @@ public class ExperimentsVariantResultsV2DTOArray {
   }
 
   /**
-   * Information about when experiment results were updated and whether they are stale.
+   * Selected experiment result run, its recorded EVSI forecast, and results freshness.
    *
    * @return meta
    */

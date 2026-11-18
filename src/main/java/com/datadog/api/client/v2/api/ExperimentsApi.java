@@ -4356,7 +4356,9 @@ public class ExperimentsApi {
    * successful run. A historical run cannot be selected. Unavailable analysis statistics, including
    * <code>p_value</code> and <code>confidence_interval</code>, are omitted. The <code>numerator
    * </code>, <code>denominator</code>, and <code>variant_metric_value</code> fields can be null
-   * when their values are unavailable. Do not treat an omitted or null value as zero.
+   * when their values are unavailable. Do not treat an omitted or null value as zero. The response
+   * includes the selected run ID and, when recorded, EVSI forecast context and unavailable reasons
+   * for Bayesian analyses.
    *
    * @param experimentId The UUID of the experiment. (required)
    * @return ApiResponse&lt;ExperimentsVariantResultsV2DTOArray&gt;
