@@ -1630,6 +1630,7 @@ public class ApiClient {
           put("v2.getTagIndexingRuleExemption", false);
           put("v2.listTagIndexingRuleExemptions", false);
           put("v2.updateTagIndexingRuleExemption", false);
+          put("v2.addModelLabProjectOwner", false);
           put("v2.deleteModelLabRun", false);
           put("v2.getModelLabArtifactContent", false);
           put("v2.getModelLabProject", false);
@@ -1643,6 +1644,7 @@ public class ApiClient {
           put("v2.listModelLabRunFacetValues", false);
           put("v2.listModelLabRuns", false);
           put("v2.pinModelLabRun", false);
+          put("v2.removeModelLabProjectOwner", false);
           put("v2.starModelLabProject", false);
           put("v2.unpinModelLabRun", false);
           put("v2.unstarModelLabProject", false);

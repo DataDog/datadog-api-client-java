@@ -57,6 +57,183 @@ public class ModelLabApiApi {
   }
 
   /**
+   * Add an owner to a Model Lab project.
+   *
+   * <p>See {@link #addModelLabProjectOwnerWithHttpInfo}.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void addModelLabProjectOwner(Long projectId, UUID userId) throws ApiException {
+    addModelLabProjectOwnerWithHttpInfo(projectId, userId);
+  }
+
+  /**
+   * Add an owner to a Model Lab project.
+   *
+   * <p>See {@link #addModelLabProjectOwnerWithHttpInfoAsync}.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> addModelLabProjectOwnerAsync(Long projectId, UUID userId) {
+    return addModelLabProjectOwnerWithHttpInfoAsync(projectId, userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add a user as an owner of a Model Lab project. The user must belong to the project's
+   * organization. The project's creator is always an owner, so adding the creator, or a user who is
+   * already an owner, has no effect. A project can have at most 50 owners besides its creator.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> addModelLabProjectOwnerWithHttpInfo(Long projectId, UUID userId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "addModelLabProjectOwner";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling addModelLabProjectOwner");
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling addModelLabProjectOwner");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ModelLabApiApi.addModelLabProjectOwner",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Add an owner to a Model Lab project.
+   *
+   * <p>See {@link #addModelLabProjectOwnerWithHttpInfo}.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> addModelLabProjectOwnerWithHttpInfoAsync(
+      Long projectId, UUID userId) {
+    // Check if unstable operation is enabled
+    String operationId = "addModelLabProjectOwner";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling addModelLabProjectOwner"));
+      return result;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userId' when calling addModelLabProjectOwner"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ModelLabApiApi.addModelLabProjectOwner",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete a Model Lab run.
    *
    * <p>See {@link #deleteModelLabRunWithHttpInfo}.
@@ -1194,7 +1371,8 @@ public class ModelLabApiApi {
     /**
      * Set filterOwnerId.
      *
-     * @param filterOwnerId Filter by owner UUID. (optional)
+     * @param filterOwnerId Filter by owner UUID. Matches projects the user created and projects the
+     *     user was added to as an owner. (optional)
      * @return ListModelLabProjectsOptionalParameters
      */
     public ListModelLabProjectsOptionalParameters filterOwnerId(UUID filterOwnerId) {
@@ -2586,6 +2764,185 @@ public class ModelLabApiApi {
     }
     return apiClient.invokeAPIAsync(
         "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove an owner from a Model Lab project.
+   *
+   * <p>See {@link #removeModelLabProjectOwnerWithHttpInfo}.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void removeModelLabProjectOwner(Long projectId, UUID userId) throws ApiException {
+    removeModelLabProjectOwnerWithHttpInfo(projectId, userId);
+  }
+
+  /**
+   * Remove an owner from a Model Lab project.
+   *
+   * <p>See {@link #removeModelLabProjectOwnerWithHttpInfoAsync}.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> removeModelLabProjectOwnerAsync(Long projectId, UUID userId) {
+    return removeModelLabProjectOwnerWithHttpInfoAsync(projectId, userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a user from the owners of a Model Lab project. Removing a user who isn't an owner has no
+   * effect. The project's creator is always an owner and can't be removed.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> removeModelLabProjectOwnerWithHttpInfo(Long projectId, UUID userId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "removeModelLabProjectOwner";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling removeModelLabProjectOwner");
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling removeModelLabProjectOwner");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ModelLabApiApi.removeModelLabProjectOwner",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove an owner from a Model Lab project.
+   *
+   * <p>See {@link #removeModelLabProjectOwnerWithHttpInfo}.
+   *
+   * @param projectId The ID of the Model Lab project. (required)
+   * @param userId The UUID of the user. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> removeModelLabProjectOwnerWithHttpInfoAsync(
+      Long projectId, UUID userId) {
+    // Check if unstable operation is enabled
+    String operationId = "removeModelLabProjectOwner";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " removeModelLabProjectOwner"));
+      return result;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling removeModelLabProjectOwner"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/model-lab-api/projects/{project_id}/owners/{user_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ModelLabApiApi.removeModelLabProjectOwner",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
         builder,
         localVarHeaderParams,
         new String[] {},
