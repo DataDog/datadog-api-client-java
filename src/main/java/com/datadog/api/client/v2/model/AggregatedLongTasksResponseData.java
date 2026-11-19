@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Data envelope for an aggregated long tasks response. */
 @JsonPropertyOrder({
@@ -31,7 +32,7 @@ public class AggregatedLongTasksResponseData {
   private AggregatedLongTasksResponseAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private AggregatedLongTasksRequestType type;
@@ -42,7 +43,7 @@ public class AggregatedLongTasksResponseData {
   public AggregatedLongTasksResponseData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           AggregatedLongTasksResponseAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           AggregatedLongTasksRequestType type) {
     this.attributes = attributes;
@@ -77,23 +78,23 @@ public class AggregatedLongTasksResponseData {
     }
   }
 
-  public AggregatedLongTasksResponseData id(String id) {
+  public AggregatedLongTasksResponseData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Hash-based unique identifier for this aggregation.
+   * Unique UUID identifying this response.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

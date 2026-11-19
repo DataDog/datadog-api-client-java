@@ -56,7 +56,7 @@ public class AggregatedWaterfallPerformanceCriteria {
   }
 
   /**
-   * Maximum threshold in seconds (inclusive).
+   * Maximum threshold in seconds (inclusive). maximum: 3600
    *
    * @return max
    */
@@ -102,7 +102,7 @@ public class AggregatedWaterfallPerformanceCriteria {
   }
 
   /**
-   * Minimum threshold in seconds (inclusive).
+   * Minimum threshold in seconds (inclusive). maximum: 3600
    *
    * @return min
    */
