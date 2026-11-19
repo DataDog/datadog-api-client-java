@@ -10,6 +10,7 @@ import com.datadog.api.client.v2.model.AggregatedWaterfallRequestAttributes;
 import com.datadog.api.client.v2.model.AggregatedWaterfallRequestData;
 import com.datadog.api.client.v2.model.AggregatedWaterfallRequestType;
 import com.datadog.api.client.v2.model.AggregatedWaterfallResponse;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class Example {
                 new AggregatedWaterfallRequestData()
                     .attributes(
                         new AggregatedWaterfallRequestAttributes()
-                            .applicationId("ccbc53b1-74f2-496b-bdd7-9a8fa7b7376b")
+                            .applicationId(UUID.fromString("ccbc53b1-74f2-496b-bdd7-9a8fa7b7376b"))
                             .criteria(
                                 new AggregatedWaterfallPerformanceCriteria()
                                     .max(5.0)
