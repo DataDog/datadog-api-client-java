@@ -28,6 +28,7 @@ import java.util.Objects;
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_GROUP_BY_COLUMNS,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_CONFIGURATION,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_TYPE_OVERRIDE,
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_PLATFORM_SETTINGS,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_SENSITIVITY,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_SOURCE_TO_TARGET_CONFIG
 })
@@ -58,6 +59,9 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
 
   public static final String JSON_PROPERTY_MODEL_TYPE_OVERRIDE = "model_type_override";
   private MonitorFormulaAndFunctionDataQualityModelTypeOverride modelTypeOverride;
+
+  public static final String JSON_PROPERTY_PLATFORM_SETTINGS = "platform_settings";
+  private MonitorFormulaAndFunctionDataQualityPlatformSettings platformSettings;
 
   public static final String JSON_PROPERTY_SENSITIVITY = "sensitivity";
   private Double sensitivity;
@@ -263,6 +267,33 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     this.modelTypeOverride = modelTypeOverride;
   }
 
+  public MonitorFormulaAndFunctionDataQualityMonitorOptions platformSettings(
+      MonitorFormulaAndFunctionDataQualityPlatformSettings platformSettings) {
+    this.platformSettings = platformSettings;
+    this.unparsed |= platformSettings.unparsed;
+    return this;
+  }
+
+  /**
+   * Platform-specific settings for a data quality monitor.
+   *
+   * @return platformSettings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PLATFORM_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorFormulaAndFunctionDataQualityPlatformSettings getPlatformSettings() {
+    return platformSettings;
+  }
+
+  public void setPlatformSettings(
+      MonitorFormulaAndFunctionDataQualityPlatformSettings platformSettings) {
+    this.platformSettings = platformSettings;
+    if (platformSettings != null) {
+      this.unparsed |= platformSettings.unparsed;
+    }
+  }
+
   public MonitorFormulaAndFunctionDataQualityMonitorOptions sensitivity(Double sensitivity) {
     this.sensitivity = sensitivity;
     return this;
@@ -396,6 +427,9 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
             this.modelTypeOverride,
             monitorFormulaAndFunctionDataQualityMonitorOptions.modelTypeOverride)
         && Objects.equals(
+            this.platformSettings,
+            monitorFormulaAndFunctionDataQualityMonitorOptions.platformSettings)
+        && Objects.equals(
             this.sensitivity, monitorFormulaAndFunctionDataQualityMonitorOptions.sensitivity)
         && Objects.equals(
             this.sourceToTargetConfig,
@@ -416,6 +450,7 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
         groupByColumns,
         modelConfiguration,
         modelTypeOverride,
+        platformSettings,
         sensitivity,
         sourceToTargetConfig,
         additionalProperties);
@@ -433,6 +468,7 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     sb.append("    groupByColumns: ").append(toIndentedString(groupByColumns)).append("\n");
     sb.append("    modelConfiguration: ").append(toIndentedString(modelConfiguration)).append("\n");
     sb.append("    modelTypeOverride: ").append(toIndentedString(modelTypeOverride)).append("\n");
+    sb.append("    platformSettings: ").append(toIndentedString(platformSettings)).append("\n");
     sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
     sb.append("    sourceToTargetConfig: ")
         .append(toIndentedString(sourceToTargetConfig))
