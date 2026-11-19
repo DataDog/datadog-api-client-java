@@ -19,7 +19,8 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+ * The caller lacks edit permission on one or more feature flags that reference this saved filter,
+ * or on one or more of their environments.
  */
 @JsonPropertyOrder({
   SavedFilterPermissionDeniedData.JSON_PROPERTY_ATTRIBUTES,
@@ -63,7 +64,8 @@ public class SavedFilterPermissionDeniedData {
   }
 
   /**
-   * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+   * The caller lacks edit permission on one or more feature flags that reference this saved filter,
+   * or on one or more of their environments.
    *
    * @return attributes
    */
