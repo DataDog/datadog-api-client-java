@@ -27,7 +27,9 @@ import java.util.UUID;
   ExperimentsBanditPolicyV2.JSON_PROPERTY_CONFIG_VERSION,
   ExperimentsBanditPolicyV2.JSON_PROPERTY_ID,
   ExperimentsBanditPolicyV2.JSON_PROPERTY_KIND,
+  ExperimentsBanditPolicyV2.JSON_PROPERTY_POLICY_NUMBER,
   ExperimentsBanditPolicyV2.JSON_PROPERTY_REASON,
+  ExperimentsBanditPolicyV2.JSON_PROPERTY_REFRESH_ID,
   ExperimentsBanditPolicyV2.JSON_PROPERTY_VARIANTS
 })
 @jakarta.annotation.Generated(
@@ -46,8 +48,14 @@ public class ExperimentsBanditPolicyV2 {
   public static final String JSON_PROPERTY_KIND = "kind";
   private ExperimentsBanditPolicyKind kind;
 
+  public static final String JSON_PROPERTY_POLICY_NUMBER = "policy_number";
+  private Long policyNumber;
+
   public static final String JSON_PROPERTY_REASON = "reason";
   private ExperimentsBanditPolicyReason reason;
+
+  public static final String JSON_PROPERTY_REFRESH_ID = "refresh_id";
+  private UUID refreshId;
 
   public static final String JSON_PROPERTY_VARIANTS = "variants";
   private List<ExperimentsBanditPolicyVariantV2> variants = new ArrayList<>();
@@ -60,8 +68,10 @@ public class ExperimentsBanditPolicyV2 {
       @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG_VERSION) Long configVersion,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
       @JsonProperty(required = true, value = JSON_PROPERTY_KIND) ExperimentsBanditPolicyKind kind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY_NUMBER) Long policyNumber,
       @JsonProperty(required = true, value = JSON_PROPERTY_REASON)
           ExperimentsBanditPolicyReason reason,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REFRESH_ID) UUID refreshId,
       @JsonProperty(required = true, value = JSON_PROPERTY_VARIANTS)
           List<ExperimentsBanditPolicyVariantV2> variants) {
     this.appliedAt = appliedAt;
@@ -69,8 +79,11 @@ public class ExperimentsBanditPolicyV2 {
     this.id = id;
     this.kind = kind;
     this.unparsed |= !kind.isValid();
+    this.policyNumber = policyNumber;
     this.reason = reason;
     this.unparsed |= !reason.isValid();
+    this.refreshId = refreshId;
+    if (refreshId != null) {}
     this.variants = variants;
     for (ExperimentsBanditPolicyVariantV2 item : variants) {
       this.unparsed |= item.unparsed;
@@ -162,6 +175,27 @@ public class ExperimentsBanditPolicyV2 {
     this.kind = kind;
   }
 
+  public ExperimentsBanditPolicyV2 policyNumber(Long policyNumber) {
+    this.policyNumber = policyNumber;
+    return this;
+  }
+
+  /**
+   * The policy's place in the bandit's policy history. It follows <code>applied_at</code> and
+   * orders policies saved at the same time.
+   *
+   * @return policyNumber
+   */
+  @JsonProperty(JSON_PROPERTY_POLICY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getPolicyNumber() {
+    return policyNumber;
+  }
+
+  public void setPolicyNumber(Long policyNumber) {
+    this.policyNumber = policyNumber;
+  }
+
   public ExperimentsBanditPolicyV2 reason(ExperimentsBanditPolicyReason reason) {
     this.reason = reason;
     this.unparsed |= !reason.isValid();
@@ -184,6 +218,29 @@ public class ExperimentsBanditPolicyV2 {
       this.unparsed = true;
     }
     this.reason = reason;
+  }
+
+  public ExperimentsBanditPolicyV2 refreshId(UUID refreshId) {
+    this.refreshId = refreshId;
+    if (refreshId != null) {}
+    return this;
+  }
+
+  /**
+   * The refresh that proposed the policy. <code>null</code> for policies no refresh proposed, such
+   * as the first split and the policy served after the bandit ends.
+   *
+   * @return refreshId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REFRESH_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getRefreshId() {
+    return refreshId;
+  }
+
+  public void setRefreshId(UUID refreshId) {
+    this.refreshId = refreshId;
   }
 
   public ExperimentsBanditPolicyV2 variants(List<ExperimentsBanditPolicyVariantV2> variants) {
@@ -280,7 +337,9 @@ public class ExperimentsBanditPolicyV2 {
         && Objects.equals(this.configVersion, experimentsBanditPolicyV2.configVersion)
         && Objects.equals(this.id, experimentsBanditPolicyV2.id)
         && Objects.equals(this.kind, experimentsBanditPolicyV2.kind)
+        && Objects.equals(this.policyNumber, experimentsBanditPolicyV2.policyNumber)
         && Objects.equals(this.reason, experimentsBanditPolicyV2.reason)
+        && Objects.equals(this.refreshId, experimentsBanditPolicyV2.refreshId)
         && Objects.equals(this.variants, experimentsBanditPolicyV2.variants)
         && Objects.equals(
             this.additionalProperties, experimentsBanditPolicyV2.additionalProperties);
@@ -288,7 +347,16 @@ public class ExperimentsBanditPolicyV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedAt, configVersion, id, kind, reason, variants, additionalProperties);
+    return Objects.hash(
+        appliedAt,
+        configVersion,
+        id,
+        kind,
+        policyNumber,
+        reason,
+        refreshId,
+        variants,
+        additionalProperties);
   }
 
   @Override
@@ -299,7 +367,9 @@ public class ExperimentsBanditPolicyV2 {
     sb.append("    configVersion: ").append(toIndentedString(configVersion)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+    sb.append("    policyNumber: ").append(toIndentedString(policyNumber)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    refreshId: ").append(toIndentedString(refreshId)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

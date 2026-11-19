@@ -7,12 +7,15 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ExperimentsAnalysisPlanV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsAnalysisPlanV2MutationResponse;
 import com.datadog.api.client.v2.model.ExperimentsAnalysisPlanWriteV2Request;
+import com.datadog.api.client.v2.model.ExperimentsBanditPolicyHistoryV2DTOArray;
+import com.datadog.api.client.v2.model.ExperimentsBanditRefreshV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsBanditResultsV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsBanditTrafficSummaryV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsBanditV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsBanditV2ListDTOArray;
 import com.datadog.api.client.v2.model.ExperimentsCancelExperimentV2Request;
 import com.datadog.api.client.v2.model.ExperimentsConcludeExperimentV2Request;
+import com.datadog.api.client.v2.model.ExperimentsCreateBanditV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCreateExperimentMetricGroupV2Request;
 import com.datadog.api.client.v2.model.ExperimentsCreateExperimentProtocolRequest;
 import com.datadog.api.client.v2.model.ExperimentsCreateExperimentV2Request;
@@ -35,6 +38,7 @@ import com.datadog.api.client.v2.model.ExperimentsMetricSQLModelV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsMetricSQLModelV2DTOArray;
 import com.datadog.api.client.v2.model.ExperimentsMetricV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsMetricV2DTOArray;
+import com.datadog.api.client.v2.model.ExperimentsPatchBanditV2Request;
 import com.datadog.api.client.v2.model.ExperimentsPatchExperimentMetricGroupV2Request;
 import com.datadog.api.client.v2.model.ExperimentsPatchExperimentProtocolRequest;
 import com.datadog.api.client.v2.model.ExperimentsPatchExperimentV2Request;
@@ -48,6 +52,7 @@ import com.datadog.api.client.v2.model.ExperimentsRefreshExperimentResultsV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsRefreshExperimentResultsV2DTOArray;
 import com.datadog.api.client.v2.model.ExperimentsReplaceExperimentProtocolRequest;
 import com.datadog.api.client.v2.model.ExperimentsStartExperimentV2Request;
+import com.datadog.api.client.v2.model.ExperimentsStopBanditV2Request;
 import com.datadog.api.client.v2.model.ExperimentsSubjectTypeV2DTO;
 import com.datadog.api.client.v2.model.ExperimentsSubjectTypeV2DTOArray;
 import com.datadog.api.client.v2.model.ExperimentsTrafficSummaryV2DTO;
@@ -791,6 +796,168 @@ public class ExperimentsApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Create bandit.
+   *
+   * <p>See {@link #createBanditWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ExperimentsBanditV2DTO
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsBanditV2DTO createBandit(ExperimentsCreateBanditV2Request body)
+      throws ApiException {
+    return createBanditWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create bandit.
+   *
+   * <p>See {@link #createBanditWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ExperimentsBanditV2DTO&gt;
+   */
+  public CompletableFuture<ExperimentsBanditV2DTO> createBanditAsync(
+      ExperimentsCreateBanditV2Request body) {
+    return createBanditWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a draft bandit. <code>name</code> is required; you can set everything else now, or later
+   * with PATCH <code>/api/v2/experiments/bandits/{bandit_id}</code>. A draft on a flag holds a
+   * targeting rule that doesn't serve traffic until the bandit starts. <code>variants</code> lists
+   * the flag variants the bandit uses by <code>feature_flag_variant_id</code>: <code>is_active
+   * </code> makes a variant an arm (the default), and <code>is_fallback</code> marks the variant
+   * served after a scheduled end. The server fills in each variant's <code>key</code> and <code>
+   * name</code> from the flag. A scheduled end needs a fallback. Setting <code>
+   * datadog_flag_configuration</code> or <code>variants</code> needs feature flag and environment
+   * read permissions and edit access to the flag. Whether the draft is ready to run is checked when
+   * it starts. Validation can return several field errors at once. This endpoint is not idempotent.
+   * Bandits must be enabled for the organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ExperimentsBanditV2DTO&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request body: a missing name, a malformed or unknown attribute, a read-only attribute, invalid variants or prior, or a referenced flag, variant, environment, metric, subject type, exposure SQL model, or schedule that doesn&#39;t exist for the organization. May return several errors. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the request sets &#x60;datadog_flag_configuration&#x60; or &#x60;variants&#x60; without feature flag and environment read permissions or edit access to the flag and environment. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The request conflicts with the flag&#39;s current state; for example, a pending change request touches its targeting rules. </td><td>  -  </td></tr>
+   *       <tr><td> 415 </td><td> Request body sent with a media type other than application/json or application/vnd.api+json. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsBanditV2DTO> createBanditWithHttpInfo(
+      ExperimentsCreateBanditV2Request body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createBandit");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/experiments/bandits";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.createBandit",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditV2DTO>() {});
+  }
+
+  /**
+   * Create bandit.
+   *
+   * <p>See {@link #createBanditWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsBanditV2DTO&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> createBanditWithHttpInfoAsync(
+      ExperimentsCreateBanditV2Request body) {
+    // Check if unstable operation is enabled
+    String operationId = "createBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createBandit"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/experiments/bandits";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.createBandit",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditV2DTO>() {});
   }
 
   /**
@@ -2146,6 +2313,162 @@ public class ExperimentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ExperimentsSubjectTypeV2DTO>() {});
+  }
+
+  /**
+   * Delete bandit.
+   *
+   * <p>See {@link #deleteBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteBandit(UUID banditId) throws ApiException {
+    deleteBanditWithHttpInfo(banditId);
+  }
+
+  /**
+   * Delete bandit.
+   *
+   * <p>See {@link #deleteBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteBanditAsync(UUID banditId) {
+    return deleteBanditWithHttpInfoAsync(banditId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a bandit in any status, with its targeting rule, in one transaction. As with deleting an
+   * experiment, a running bandit's rule stops serving and traffic falls through to the flag's other
+   * rules; the flag can then be used by another bandit or experiment. After deletion the API no
+   * longer returns the bandit. Deleting a bandit cannot be undone. Bandits must be enabled for the
+   * organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> The bandit was deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID (not a valid UUID). </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the caller lacks edit access to the bandit&#39;s flag or environment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The bandit&#39;s rule is live on a flag environment that requires approvals, a pending change request touches the flag&#39;s targeting rules, the flag is archived, or the bandit moved to another flag during the delete. Nothing was deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteBanditWithHttpInfo(UUID banditId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling deleteBandit");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.deleteBandit",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete bandit.
+   *
+   * <p>See {@link #deleteBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteBanditWithHttpInfoAsync(UUID banditId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling deleteBandit"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.deleteBandit",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -5596,6 +5919,302 @@ public class ExperimentsApi {
         new GenericType<ExperimentsSubjectTypeV2DTO>() {});
   }
 
+  /** Manage optional parameters to listBanditPolicies. */
+  public static class ListBanditPoliciesOptionalParameters {
+    private OffsetDateTime filterFrom;
+    private OffsetDateTime filterTo;
+    private Long pageOffset;
+    private Long pageLimit;
+    private String sort;
+
+    /**
+     * Set filterFrom.
+     *
+     * @param filterFrom Return only the policies in effect at or after this RFC 3339 time
+     *     (inclusive), including the one already in effect at it. (optional)
+     * @return ListBanditPoliciesOptionalParameters
+     */
+    public ListBanditPoliciesOptionalParameters filterFrom(OffsetDateTime filterFrom) {
+      this.filterFrom = filterFrom;
+      return this;
+    }
+
+    /**
+     * Set filterTo.
+     *
+     * @param filterTo Return only the policies applied before this RFC 3339 time (exclusive).
+     *     (optional)
+     * @return ListBanditPoliciesOptionalParameters
+     */
+    public ListBanditPoliciesOptionalParameters filterTo(OffsetDateTime filterTo) {
+      this.filterTo = filterTo;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Number of results to skip for pagination. Defaults to 0 when omitted.
+     *     (optional)
+     * @return ListBanditPoliciesOptionalParameters
+     */
+    public ListBanditPoliciesOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of results to return. Defaults to 25 when omitted, and is
+     *     capped at 50 (larger values are clamped to 50). The response includes meta.page (with
+     *     total) and pagination links. (optional)
+     * @return ListBanditPoliciesOptionalParameters
+     */
+    public ListBanditPoliciesOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort <code>applied_at</code> for oldest first, or <code>-applied_at</code> for newest
+     *     first. Defaults to <code>-applied_at</code>. (optional)
+     * @return ListBanditPoliciesOptionalParameters
+     */
+    public ListBanditPoliciesOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * List bandit policies.
+   *
+   * <p>See {@link #listBanditPoliciesWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return ExperimentsBanditPolicyHistoryV2DTOArray
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsBanditPolicyHistoryV2DTOArray listBanditPolicies(UUID banditId)
+      throws ApiException {
+    return listBanditPoliciesWithHttpInfo(banditId, new ListBanditPoliciesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List bandit policies.
+   *
+   * <p>See {@link #listBanditPoliciesWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture&lt;ExperimentsBanditPolicyHistoryV2DTOArray&gt;
+   */
+  public CompletableFuture<ExperimentsBanditPolicyHistoryV2DTOArray> listBanditPoliciesAsync(
+      UUID banditId) {
+    return listBanditPoliciesWithHttpInfoAsync(banditId, new ListBanditPoliciesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List bandit policies.
+   *
+   * <p>See {@link #listBanditPoliciesWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ExperimentsBanditPolicyHistoryV2DTOArray
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsBanditPolicyHistoryV2DTOArray listBanditPolicies(
+      UUID banditId, ListBanditPoliciesOptionalParameters parameters) throws ApiException {
+    return listBanditPoliciesWithHttpInfo(banditId, parameters).getData();
+  }
+
+  /**
+   * List bandit policies.
+   *
+   * <p>See {@link #listBanditPoliciesWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ExperimentsBanditPolicyHistoryV2DTOArray&gt;
+   */
+  public CompletableFuture<ExperimentsBanditPolicyHistoryV2DTOArray> listBanditPoliciesAsync(
+      UUID banditId, ListBanditPoliciesOptionalParameters parameters) {
+    return listBanditPoliciesWithHttpInfoAsync(banditId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the policies a bandit has served, newest first by default, including the policy it serves
+   * after it ends. Each policy is the traffic split SDKs served from when it was applied until the
+   * next one. Exposures log the policy's ID as <code>bandit.policy_id</code>, so the history tells
+   * you the split behind each exposure. Exposures logged after the bandit ends have no policy ID.
+   * <code>filter[from]</code> and <code>filter[to]</code> keep the policies in effect during the
+   * range, including the one already in effect at <code>filter[from]</code>. Bandits must be
+   * enabled for the organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ExperimentsBanditPolicyHistoryV2DTOArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID (not a valid UUID), a sort other than &#x60;applied_at&#x60; or &#x60;-applied_at&#x60;, a malformed page parameter, &#x60;filter[from]&#x60; or &#x60;filter[to]&#x60; isn&#39;t an RFC 3339 time, or &#x60;filter[from]&#x60; isn&#39;t before &#x60;filter[to]&#x60;. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, or the caller lacks the product_analytics_experiments_read permission. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsBanditPolicyHistoryV2DTOArray> listBanditPoliciesWithHttpInfo(
+      UUID banditId, ListBanditPoliciesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listBanditPolicies";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling listBanditPolicies");
+    }
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/policies"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.listBanditPolicies",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditPolicyHistoryV2DTOArray>() {});
+  }
+
+  /**
+   * List bandit policies.
+   *
+   * <p>See {@link #listBanditPoliciesWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsBanditPolicyHistoryV2DTOArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsBanditPolicyHistoryV2DTOArray>>
+      listBanditPoliciesWithHttpInfoAsync(
+          UUID banditId, ListBanditPoliciesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listBanditPolicies";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ExperimentsBanditPolicyHistoryV2DTOArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<ExperimentsBanditPolicyHistoryV2DTOArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling listBanditPolicies"));
+      return result;
+    }
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/policies"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.listBanditPolicies",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsBanditPolicyHistoryV2DTOArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditPolicyHistoryV2DTOArray>() {});
+  }
+
   /** Manage optional parameters to listBandits. */
   public static class ListBanditsOptionalParameters {
     private Long pageOffset;
@@ -8064,6 +8683,193 @@ public class ExperimentsApi {
   }
 
   /**
+   * Update bandit.
+   *
+   * <p>See {@link #patchBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @return ExperimentsBanditV2DTO
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsBanditV2DTO patchBandit(UUID banditId, ExperimentsPatchBanditV2Request body)
+      throws ApiException {
+    return patchBanditWithHttpInfo(banditId, body).getData();
+  }
+
+  /**
+   * Update bandit.
+   *
+   * <p>See {@link #patchBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ExperimentsBanditV2DTO&gt;
+   */
+  public CompletableFuture<ExperimentsBanditV2DTO> patchBanditAsync(
+      UUID banditId, ExperimentsPatchBanditV2Request body) {
+    return patchBanditWithHttpInfoAsync(banditId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a bandit. Omitted attributes, including omitted fields of <code>
+   * datadog_flag_configuration</code> and <code>bayesian_prior</code>, are unchanged. <code>
+   * variants</code>, <code>tags</code>, and <code>teams</code> replace the stored lists. Setting a
+   * nullable attribute to <code>null</code> clears it; <code>datadog_flag_configuration: null
+   * </code> takes a draft off its flag. What can change depends on the status. A draft can change
+   * anything. A running or paused bandit can change its name, description, refresh schedule,
+   * scheduled end, prior, fallback (send the current arms in <code>variants</code> with a different
+   * <code>is_fallback</code>), tags, and teams. A stopped or completed bandit can change only its
+   * tags and teams. Values that don't change can be sent again in any status. Setting <code>
+   * datadog_flag_configuration</code> or <code>variants</code> needs feature flag and environment
+   * read permissions and edit access to the flag. Validation can return several field errors at
+   * once: HTTP 400 if any is about invalid input, or 409 if all are status conflicts. Bandits must
+   * be enabled for the organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ExperimentsBanditV2DTO&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID, or an invalid request body: a malformed, unknown, read-only, or wrongly &#x60;null&#x60; attribute, invalid variants or prior, &#x60;data.id&#x60; not matching the path, or a referenced record that doesn&#39;t exist for the organization. May return several errors. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the request changes &#x60;datadog_flag_configuration&#x60; or &#x60;variants&#x60; without feature flag and environment read permissions or edit access to the flag and environment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The bandit&#39;s status doesn&#39;t let a requested attribute change (one error per attribute), the bandit moved to another flag during the edit, or a pending change request touches the flag&#39;s targeting rules. </td><td>  -  </td></tr>
+   *       <tr><td> 415 </td><td> Request body sent with a media type other than application/json or application/vnd.api+json. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsBanditV2DTO> patchBanditWithHttpInfo(
+      UUID banditId, ExperimentsPatchBanditV2Request body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "patchBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling patchBandit");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling patchBandit");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.patchBandit",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditV2DTO>() {});
+  }
+
+  /**
+   * Update bandit.
+   *
+   * <p>See {@link #patchBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsBanditV2DTO&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> patchBanditWithHttpInfoAsync(
+      UUID banditId, ExperimentsPatchBanditV2Request body) {
+    // Check if unstable operation is enabled
+    String operationId = "patchBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling patchBandit"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling patchBandit"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.patchBandit",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsBanditV2DTO>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditV2DTO>() {});
+  }
+
+  /**
    * Patch experiment.
    *
    * <p>See {@link #patchExperimentWithHttpInfo}.
@@ -8647,6 +9453,160 @@ public class ExperimentsApi {
   }
 
   /**
+   * Pause bandit.
+   *
+   * <p>See {@link #pauseBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void pauseBandit(UUID banditId) throws ApiException {
+    pauseBanditWithHttpInfo(banditId);
+  }
+
+  /**
+   * Pause bandit.
+   *
+   * <p>See {@link #pauseBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> pauseBanditAsync(UUID banditId) {
+    return pauseBanditWithHttpInfoAsync(banditId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Pause a running bandit. Its targeting rule keeps serving the current traffic split, and
+   * refreshes stop changing the split until the bandit is resumed. Pausing a bandit that isn't
+   * running returns 409. Bandits must be enabled for the organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> The bandit is paused. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID (not a valid UUID). </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the caller lacks edit access to the bandit&#39;s flag or environment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The bandit isn&#39;t running, or another change to it happened at the same time. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> pauseBanditWithHttpInfo(UUID banditId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "pauseBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling pauseBandit");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/pause"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.pauseBandit",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Pause bandit.
+   *
+   * <p>See {@link #pauseBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> pauseBanditWithHttpInfoAsync(UUID banditId) {
+    // Check if unstable operation is enabled
+    String operationId = "pauseBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling pauseBandit"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/pause"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.pauseBandit",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Publish experiment protocol.
    *
    * <p>See {@link #publishExperimentProtocolWithHttpInfo}.
@@ -8799,6 +9759,229 @@ public class ExperimentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ExperimentsPublicProtocolResponse>() {});
+  }
+
+  /** Manage optional parameters to refreshBandit. */
+  public static class RefreshBanditOptionalParameters {
+    private Boolean fullRefresh;
+
+    /**
+     * Set fullRefresh.
+     *
+     * @param fullRefresh Recompute the bandit's whole history instead of updating its latest
+     *     refresh; for example, after its exposure or metric data was backfilled. Defaults to
+     *     <code>false</code>. (optional)
+     * @return RefreshBanditOptionalParameters
+     */
+    public RefreshBanditOptionalParameters fullRefresh(Boolean fullRefresh) {
+      this.fullRefresh = fullRefresh;
+      return this;
+    }
+  }
+
+  /**
+   * Refresh bandit.
+   *
+   * <p>See {@link #refreshBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return ExperimentsBanditRefreshV2DTO
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsBanditRefreshV2DTO refreshBandit(UUID banditId) throws ApiException {
+    return refreshBanditWithHttpInfo(banditId, new RefreshBanditOptionalParameters()).getData();
+  }
+
+  /**
+   * Refresh bandit.
+   *
+   * <p>See {@link #refreshBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture&lt;ExperimentsBanditRefreshV2DTO&gt;
+   */
+  public CompletableFuture<ExperimentsBanditRefreshV2DTO> refreshBanditAsync(UUID banditId) {
+    return refreshBanditWithHttpInfoAsync(banditId, new RefreshBanditOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Refresh bandit.
+   *
+   * <p>See {@link #refreshBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ExperimentsBanditRefreshV2DTO
+   * @throws ApiException if fails to make API call
+   */
+  public ExperimentsBanditRefreshV2DTO refreshBandit(
+      UUID banditId, RefreshBanditOptionalParameters parameters) throws ApiException {
+    return refreshBanditWithHttpInfo(banditId, parameters).getData();
+  }
+
+  /**
+   * Refresh bandit.
+   *
+   * <p>See {@link #refreshBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ExperimentsBanditRefreshV2DTO&gt;
+   */
+  public CompletableFuture<ExperimentsBanditRefreshV2DTO> refreshBanditAsync(
+      UUID banditId, RefreshBanditOptionalParameters parameters) {
+    return refreshBanditWithHttpInfoAsync(banditId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Start a refresh of a running bandit now, instead of waiting for its schedule. The refresh reads
+   * the bandit's latest data and saves new results. Outside warmup it also serves the traffic split
+   * it proposes, so it can change traffic. HTTP 202 confirms the refresh started, not that it
+   * finished. The response returns the refresh ID, which the bandit then reports as <code>
+   * latest_refresh</code>. Bandits must be enabled for the organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ExperimentsBanditRefreshV2DTO&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID (not a valid UUID), or &#x60;full_refresh&#x60; is not a valid boolean. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the caller lacks edit access to the bandit&#39;s flag or environment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The bandit isn&#39;t running, or a refresh of it is already running. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExperimentsBanditRefreshV2DTO> refreshBanditWithHttpInfo(
+      UUID banditId, RefreshBanditOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "refreshBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling refreshBandit");
+    }
+    Boolean fullRefresh = parameters.fullRefresh;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/refresh"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "full_refresh", fullRefresh));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.refreshBandit",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditRefreshV2DTO>() {});
+  }
+
+  /**
+   * Refresh bandit.
+   *
+   * <p>See {@link #refreshBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ExperimentsBanditRefreshV2DTO&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExperimentsBanditRefreshV2DTO>>
+      refreshBanditWithHttpInfoAsync(UUID banditId, RefreshBanditOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "refreshBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ExperimentsBanditRefreshV2DTO>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<ExperimentsBanditRefreshV2DTO>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling refreshBandit"));
+      return result;
+    }
+    Boolean fullRefresh = parameters.fullRefresh;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/refresh"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "full_refresh", fullRefresh));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.refreshBandit",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExperimentsBanditRefreshV2DTO>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExperimentsBanditRefreshV2DTO>() {});
   }
 
   /** Manage optional parameters to refreshExperimentResults. */
@@ -9459,6 +10642,159 @@ public class ExperimentsApi {
   }
 
   /**
+   * Resume bandit.
+   *
+   * <p>See {@link #resumeBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void resumeBandit(UUID banditId) throws ApiException {
+    resumeBanditWithHttpInfo(banditId);
+  }
+
+  /**
+   * Resume bandit.
+   *
+   * <p>See {@link #resumeBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> resumeBanditAsync(UUID banditId) {
+    return resumeBanditWithHttpInfoAsync(banditId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Resume a paused bandit, so refreshes change its traffic split again. Resuming a bandit that
+   * isn't paused returns 409. Bandits must be enabled for the organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> The bandit is running. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID (not a valid UUID). </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the caller lacks edit access to the bandit&#39;s flag or environment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The bandit isn&#39;t paused, or another change to it happened at the same time. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> resumeBanditWithHttpInfo(UUID banditId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "resumeBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling resumeBandit");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/resume"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.resumeBandit",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Resume bandit.
+   *
+   * <p>See {@link #resumeBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> resumeBanditWithHttpInfoAsync(UUID banditId) {
+    // Check if unstable operation is enabled
+    String operationId = "resumeBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling resumeBandit"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/resume"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.resumeBandit",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Set default subject type.
    *
    * <p>See {@link #setDefaultSubjectTypeWithHttpInfo}.
@@ -9581,6 +10917,165 @@ public class ExperimentsApi {
       builder =
           apiClient.createBuilder(
               "v2.ExperimentsApi.setDefaultSubjectType",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Start bandit.
+   *
+   * <p>See {@link #startBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void startBandit(UUID banditId) throws ApiException {
+    startBanditWithHttpInfo(banditId);
+  }
+
+  /**
+   * Start bandit.
+   *
+   * <p>See {@link #startBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> startBanditAsync(UUID banditId) {
+    return startBanditWithHttpInfoAsync(banditId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Start a draft bandit. Its targeting rule is published serving every arm equally, and each
+   * refresh then shifts traffic toward the arms that do best. The bandit starts exactly as it is
+   * configured; set it up with PATCH <code>/api/v2/experiments/bandits/{bandit_id}</code> first. It
+   * needs a flag, at least two arms, a subject type, a metric, and an exposure SQL model. The
+   * request is idempotent: a bandit that is already running still returns 204, so a retry after a
+   * timeout is safe. Stop is not idempotent. A start is blocked when the flag environment requires
+   * an approval or a pending change request touches the flag's targeting rules; retrying alone does
+   * not resolve an approval requirement. Bandits must be enabled for the organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> The bandit is running. Get the bandit to read its status and active policy. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID (not a valid UUID). </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits or bandit starts are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the caller lacks edit access to the bandit&#39;s flag or environment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The bandit is paused or has ended, its setup is incomplete, or an approval or a pending change request blocks the start. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> startBanditWithHttpInfo(UUID banditId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "startBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling startBandit");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/start"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.startBandit",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Start bandit.
+   *
+   * <p>See {@link #startBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> startBanditWithHttpInfoAsync(UUID banditId) {
+    // Check if unstable operation is enabled
+    String operationId = "startBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling startBandit"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/start"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.startBandit",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -9782,6 +11277,183 @@ public class ExperimentsApi {
       builder =
           apiClient.createBuilder(
               "v2.ExperimentsApi.startExperiment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Stop bandit.
+   *
+   * <p>See {@link #stopBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void stopBandit(UUID banditId, ExperimentsStopBanditV2Request body) throws ApiException {
+    stopBanditWithHttpInfo(banditId, body);
+  }
+
+  /**
+   * Stop bandit.
+   *
+   * <p>See {@link #stopBanditWithHttpInfoAsync}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> stopBanditAsync(
+      UUID banditId, ExperimentsStopBanditV2Request body) {
+    return stopBanditWithHttpInfoAsync(banditId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Stop a running or paused bandit. From then on its targeting rule serves <code>
+   * served_variant_key</code> to everyone, overriding any configured fallback, and the bandit stops
+   * refreshing. <code>served_variant_key</code> can be any of the flag's variants. Stopping can't
+   * be reversed and is not idempotent: stopping a bandit that has already stopped or completed
+   * returns 409. Bandits must be enabled for the organization.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> The bandit is stopped and serves the chosen variant. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Malformed bandit ID, a malformed request body, a missing &#x60;served_variant_key&#x60;, or a &#x60;served_variant_key&#x60; that isn&#39;t a variant of the bandit&#39;s flag. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Missing or invalid authentication (dd-api-key + dd-application-key headers, or a valid user session). </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Bandits are not enabled for the organization, the caller lacks the product_analytics_experiments_write permission, or the caller lacks edit access to the bandit&#39;s flag or environment. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No bandit with this ID exists for the organization. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> The bandit isn&#39;t running or paused, its flag environment requires an approval, or a pending change request touches the flag&#39;s targeting rules. Retrying alone does not resolve an approval requirement. </td><td>  -  </td></tr>
+   *       <tr><td> 415 </td><td> Request body sent with a media type other than application/json or application/vnd.api+json. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> stopBanditWithHttpInfo(
+      UUID banditId, ExperimentsStopBanditV2Request body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "stopBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'banditId' when calling stopBandit");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling stopBandit");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/stop"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ExperimentsApi.stopBandit",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Stop bandit.
+   *
+   * <p>See {@link #stopBanditWithHttpInfo}.
+   *
+   * @param banditId The UUID of the bandit. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> stopBanditWithHttpInfoAsync(
+      UUID banditId, ExperimentsStopBanditV2Request body) {
+    // Check if unstable operation is enabled
+    String operationId = "stopBandit";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'banditId' is set
+    if (banditId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'banditId' when calling stopBandit"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling stopBandit"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/experiments/bandits/{bandit_id}/stop"
+            .replaceAll("\\{" + "bandit_id" + "\\}", apiClient.escapeString(banditId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ExperimentsApi.stopBandit",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
