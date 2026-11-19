@@ -41,8 +41,8 @@ public class EventsQueryFilter {
   }
 
   /**
-   * The minimum time for the requested events. Supports date math and regular timestamps in
-   * milliseconds.
+   * The minimum time for the requested events. Supports date math, ISO 8601 and timestamps in
+   * milliseconds. Widen it from the default to search beyond the last 15 minutes.
    *
    * @return from
    */
@@ -63,7 +63,8 @@ public class EventsQueryFilter {
   }
 
   /**
-   * The search query following the event search syntax.
+   * The search query following the event search syntax. Attributes take <code>@</code> (<code>
+   * @evt.category:alert</code>); tags and reserved fields don't (<code>service:web</code>).
    *
    * @return query
    */
@@ -84,7 +85,7 @@ public class EventsQueryFilter {
   }
 
   /**
-   * The maximum time for the requested events. Supports date math and regular timestamps in
+   * The maximum time for the requested events. Supports date math, ISO 8601 and timestamps in
    * milliseconds.
    *
    * @return to
