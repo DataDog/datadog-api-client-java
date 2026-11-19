@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Attributes of an aggregated waterfall response. */
 @JsonPropertyOrder({
@@ -36,7 +37,7 @@ import java.util.Objects;
 public class AggregatedWaterfallResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
-  private String applicationId;
+  private UUID applicationId;
 
   public static final String JSON_PROPERTY_CRITERIA = "criteria";
   private AggregatedWaterfallResponseAttributesCriteria criteria;
@@ -66,7 +67,7 @@ public class AggregatedWaterfallResponseAttributes {
 
   @JsonCreator
   public AggregatedWaterfallResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) UUID applicationId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CRITERIA)
           AggregatedWaterfallResponseAttributesCriteria criteria,
       @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
@@ -96,7 +97,7 @@ public class AggregatedWaterfallResponseAttributes {
     this.viewName = viewName;
   }
 
-  public AggregatedWaterfallResponseAttributes applicationId(String applicationId) {
+  public AggregatedWaterfallResponseAttributes applicationId(UUID applicationId) {
     this.applicationId = applicationId;
     return this;
   }
@@ -108,11 +109,11 @@ public class AggregatedWaterfallResponseAttributes {
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApplicationId() {
+  public UUID getApplicationId() {
     return applicationId;
   }
 
-  public void setApplicationId(String applicationId) {
+  public void setApplicationId(UUID applicationId) {
     this.applicationId = applicationId;
   }
 

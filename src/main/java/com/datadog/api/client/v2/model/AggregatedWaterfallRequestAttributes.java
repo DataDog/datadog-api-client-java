@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Attributes for an aggregated waterfall query. */
 @JsonPropertyOrder({
@@ -33,7 +34,7 @@ import java.util.Objects;
 public class AggregatedWaterfallRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
-  private String applicationId;
+  private UUID applicationId;
 
   public static final String JSON_PROPERTY_CRITERIA = "criteria";
   private AggregatedWaterfallPerformanceCriteria criteria;
@@ -60,7 +61,7 @@ public class AggregatedWaterfallRequestAttributes {
 
   @JsonCreator
   public AggregatedWaterfallRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) UUID applicationId,
       @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
       @JsonProperty(required = true, value = JSON_PROPERTY_SAMPLE_SIZE) Integer sampleSize,
       @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to,
@@ -72,7 +73,7 @@ public class AggregatedWaterfallRequestAttributes {
     this.viewName = viewName;
   }
 
-  public AggregatedWaterfallRequestAttributes applicationId(String applicationId) {
+  public AggregatedWaterfallRequestAttributes applicationId(UUID applicationId) {
     this.applicationId = applicationId;
     return this;
   }
@@ -84,11 +85,11 @@ public class AggregatedWaterfallRequestAttributes {
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApplicationId() {
+  public UUID getApplicationId() {
     return applicationId;
   }
 
-  public void setApplicationId(String applicationId) {
+  public void setApplicationId(UUID applicationId) {
     this.applicationId = applicationId;
   }
 
@@ -147,7 +148,8 @@ public class AggregatedWaterfallRequestAttributes {
   }
 
   /**
-   * Start of the time range as a Unix timestamp in seconds.
+   * Start of the time range as a Unix timestamp in seconds. Must be less than <code>to</code>; the
+   * range cannot exceed 7 days. maximum: 4102444800
    *
    * @return from
    */
@@ -209,7 +211,8 @@ public class AggregatedWaterfallRequestAttributes {
   }
 
   /**
-   * End of the time range as a Unix timestamp in seconds.
+   * End of the time range as a Unix timestamp in seconds. Must be greater than <code>from</code>.
+   * maximum: 4102444800
    *
    * @return to
    */
