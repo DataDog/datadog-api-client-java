@@ -36,6 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IoCIndicatorDetailed.JSON_PROPERTY_ID,
   IoCIndicatorDetailed.JSON_PROPERTY_INDICATOR,
   IoCIndicatorDetailed.JSON_PROPERTY_INDICATOR_TYPE,
+  IoCIndicatorDetailed.JSON_PROPERTY_IS_MUTED,
   IoCIndicatorDetailed.JSON_PROPERTY_LAST_SEEN,
   IoCIndicatorDetailed.JSON_PROPERTY_LOG_MATCHES,
   IoCIndicatorDetailed.JSON_PROPERTY_LOG_SOURCES,
@@ -44,7 +45,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IoCIndicatorDetailed.JSON_PROPERTY_M_SIGNAL,
   IoCIndicatorDetailed.JSON_PROPERTY_M_SOURCES,
   IoCIndicatorDetailed.JSON_PROPERTY_MALICIOUS_SOURCES,
+  IoCIndicatorDetailed.JSON_PROPERTY_MATCHED_OCSF_FIELDS,
   IoCIndicatorDetailed.JSON_PROPERTY_MAX_TRUST_SCORE,
+  IoCIndicatorDetailed.JSON_PROPERTY_MUTE_REASON,
+  IoCIndicatorDetailed.JSON_PROPERTY_MUTE_SCOPE,
   IoCIndicatorDetailed.JSON_PROPERTY_SCORE,
   IoCIndicatorDetailed.JSON_PROPERTY_SERVICES,
   IoCIndicatorDetailed.JSON_PROPERTY_SIGNAL_MATCHES,
@@ -104,6 +108,9 @@ public class IoCIndicatorDetailed {
   public static final String JSON_PROPERTY_INDICATOR_TYPE = "indicator_type";
   private String indicatorType;
 
+  public static final String JSON_PROPERTY_IS_MUTED = "is_muted";
+  private Boolean isMuted;
+
   public static final String JSON_PROPERTY_LAST_SEEN = "last_seen";
   private OffsetDateTime lastSeen;
 
@@ -129,8 +136,17 @@ public class IoCIndicatorDetailed {
   private JsonNullable<List<IoCSource>> maliciousSources =
       JsonNullable.<List<IoCSource>>undefined();
 
+  public static final String JSON_PROPERTY_MATCHED_OCSF_FIELDS = "matched_ocsf_fields";
+  private List<String> matchedOcsfFields = null;
+
   public static final String JSON_PROPERTY_MAX_TRUST_SCORE = "max_trust_score";
   private IoCScoreEffect maxTrustScore;
+
+  public static final String JSON_PROPERTY_MUTE_REASON = "mute_reason";
+  private String muteReason;
+
+  public static final String JSON_PROPERTY_MUTE_SCOPE = "mute_scope";
+  private String muteScope;
 
   public static final String JSON_PROPERTY_SCORE = "score";
   private Double score;
@@ -521,6 +537,27 @@ public class IoCIndicatorDetailed {
     this.indicatorType = indicatorType;
   }
 
+  public IoCIndicatorDetailed isMuted(Boolean isMuted) {
+    this.isMuted = isMuted;
+    return this;
+  }
+
+  /**
+   * Whether the indicator is muted for your organization.
+   *
+   * @return isMuted
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_MUTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsMuted() {
+    return isMuted;
+  }
+
+  public void setIsMuted(Boolean isMuted) {
+    this.isMuted = isMuted;
+  }
+
   public IoCIndicatorDetailed lastSeen(OffsetDateTime lastSeen) {
     this.lastSeen = lastSeen;
     return this;
@@ -735,6 +772,35 @@ public class IoCIndicatorDetailed {
     this.maliciousSources = JsonNullable.<List<IoCSource>>of(maliciousSources);
   }
 
+  public IoCIndicatorDetailed matchedOcsfFields(List<String> matchedOcsfFields) {
+    this.matchedOcsfFields = matchedOcsfFields;
+    return this;
+  }
+
+  public IoCIndicatorDetailed addMatchedOcsfFieldsItem(String matchedOcsfFieldsItem) {
+    if (this.matchedOcsfFields == null) {
+      this.matchedOcsfFields = new ArrayList<>();
+    }
+    this.matchedOcsfFields.add(matchedOcsfFieldsItem);
+    return this;
+  }
+
+  /**
+   * OCSF fields in which the indicator was matched. Returned only when <code>ocsf</code> is true.
+   *
+   * @return matchedOcsfFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MATCHED_OCSF_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMatchedOcsfFields() {
+    return matchedOcsfFields;
+  }
+
+  public void setMatchedOcsfFields(List<String> matchedOcsfFields) {
+    this.matchedOcsfFields = matchedOcsfFields;
+  }
+
   public IoCIndicatorDetailed maxTrustScore(IoCScoreEffect maxTrustScore) {
     this.maxTrustScore = maxTrustScore;
     this.unparsed |= !maxTrustScore.isValid();
@@ -758,6 +824,49 @@ public class IoCIndicatorDetailed {
       this.unparsed = true;
     }
     this.maxTrustScore = maxTrustScore;
+  }
+
+  public IoCIndicatorDetailed muteReason(String muteReason) {
+    this.muteReason = muteReason;
+    return this;
+  }
+
+  /**
+   * Reason provided when the indicator was muted. Returned only when the indicator is muted.
+   *
+   * @return muteReason
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MUTE_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMuteReason() {
+    return muteReason;
+  }
+
+  public void setMuteReason(String muteReason) {
+    this.muteReason = muteReason;
+  }
+
+  public IoCIndicatorDetailed muteScope(String muteScope) {
+    this.muteScope = muteScope;
+    return this;
+  }
+
+  /**
+   * Scope of the mute applied to the indicator (for example, <code>org</code>). Returned only when
+   * the indicator is muted.
+   *
+   * @return muteScope
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MUTE_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMuteScope() {
+    return muteScope;
+  }
+
+  public void setMuteScope(String muteScope) {
+    this.muteScope = muteScope;
   }
 
   public IoCIndicatorDetailed score(Double score) {
@@ -1170,6 +1279,7 @@ public class IoCIndicatorDetailed {
         && Objects.equals(this.id, ioCIndicatorDetailed.id)
         && Objects.equals(this.indicator, ioCIndicatorDetailed.indicator)
         && Objects.equals(this.indicatorType, ioCIndicatorDetailed.indicatorType)
+        && Objects.equals(this.isMuted, ioCIndicatorDetailed.isMuted)
         && Objects.equals(this.lastSeen, ioCIndicatorDetailed.lastSeen)
         && Objects.equals(this.logMatches, ioCIndicatorDetailed.logMatches)
         && Objects.equals(this.logSources, ioCIndicatorDetailed.logSources)
@@ -1178,7 +1288,10 @@ public class IoCIndicatorDetailed {
         && Objects.equals(this.mSignal, ioCIndicatorDetailed.mSignal)
         && Objects.equals(this.mSources, ioCIndicatorDetailed.mSources)
         && Objects.equals(this.maliciousSources, ioCIndicatorDetailed.maliciousSources)
+        && Objects.equals(this.matchedOcsfFields, ioCIndicatorDetailed.matchedOcsfFields)
         && Objects.equals(this.maxTrustScore, ioCIndicatorDetailed.maxTrustScore)
+        && Objects.equals(this.muteReason, ioCIndicatorDetailed.muteReason)
+        && Objects.equals(this.muteScope, ioCIndicatorDetailed.muteScope)
         && Objects.equals(this.score, ioCIndicatorDetailed.score)
         && Objects.equals(this.services, ioCIndicatorDetailed.services)
         && Objects.equals(this.signalMatches, ioCIndicatorDetailed.signalMatches)
@@ -1211,6 +1324,7 @@ public class IoCIndicatorDetailed {
         id,
         indicator,
         indicatorType,
+        isMuted,
         lastSeen,
         logMatches,
         logSources,
@@ -1219,7 +1333,10 @@ public class IoCIndicatorDetailed {
         mSignal,
         mSources,
         maliciousSources,
+        matchedOcsfFields,
         maxTrustScore,
+        muteReason,
+        muteScope,
         score,
         services,
         signalMatches,
@@ -1253,6 +1370,7 @@ public class IoCIndicatorDetailed {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    indicator: ").append(toIndentedString(indicator)).append("\n");
     sb.append("    indicatorType: ").append(toIndentedString(indicatorType)).append("\n");
+    sb.append("    isMuted: ").append(toIndentedString(isMuted)).append("\n");
     sb.append("    lastSeen: ").append(toIndentedString(lastSeen)).append("\n");
     sb.append("    logMatches: ").append(toIndentedString(logMatches)).append("\n");
     sb.append("    logSources: ").append(toIndentedString(logSources)).append("\n");
@@ -1261,7 +1379,10 @@ public class IoCIndicatorDetailed {
     sb.append("    mSignal: ").append(toIndentedString(mSignal)).append("\n");
     sb.append("    mSources: ").append(toIndentedString(mSources)).append("\n");
     sb.append("    maliciousSources: ").append(toIndentedString(maliciousSources)).append("\n");
+    sb.append("    matchedOcsfFields: ").append(toIndentedString(matchedOcsfFields)).append("\n");
     sb.append("    maxTrustScore: ").append(toIndentedString(maxTrustScore)).append("\n");
+    sb.append("    muteReason: ").append(toIndentedString(muteReason)).append("\n");
+    sb.append("    muteScope: ").append(toIndentedString(muteScope)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("    signalMatches: ").append(toIndentedString(signalMatches)).append("\n");

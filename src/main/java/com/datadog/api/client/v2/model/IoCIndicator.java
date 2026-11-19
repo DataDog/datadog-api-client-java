@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IoCIndicator.JSON_PROPERTY_ID,
   IoCIndicator.JSON_PROPERTY_INDICATOR,
   IoCIndicator.JSON_PROPERTY_INDICATOR_TYPE,
+  IoCIndicator.JSON_PROPERTY_IS_MUTED,
   IoCIndicator.JSON_PROPERTY_LAST_SEEN,
   IoCIndicator.JSON_PROPERTY_LOG_MATCHES,
   IoCIndicator.JSON_PROPERTY_M_AS_TYPE,
@@ -38,6 +39,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IoCIndicator.JSON_PROPERTY_M_SOURCES,
   IoCIndicator.JSON_PROPERTY_MALICIOUS_SOURCES,
   IoCIndicator.JSON_PROPERTY_MAX_TRUST_SCORE,
+  IoCIndicator.JSON_PROPERTY_MUTE_REASON,
+  IoCIndicator.JSON_PROPERTY_MUTE_SCOPE,
   IoCIndicator.JSON_PROPERTY_SCORE,
   IoCIndicator.JSON_PROPERTY_SIGNAL_MATCHES,
   IoCIndicator.JSON_PROPERTY_SIGNAL_TIER,
@@ -75,6 +78,9 @@ public class IoCIndicator {
   public static final String JSON_PROPERTY_INDICATOR_TYPE = "indicator_type";
   private String indicatorType;
 
+  public static final String JSON_PROPERTY_IS_MUTED = "is_muted";
+  private Boolean isMuted;
+
   public static final String JSON_PROPERTY_LAST_SEEN = "last_seen";
   private OffsetDateTime lastSeen;
 
@@ -99,6 +105,12 @@ public class IoCIndicator {
 
   public static final String JSON_PROPERTY_MAX_TRUST_SCORE = "max_trust_score";
   private IoCScoreEffect maxTrustScore;
+
+  public static final String JSON_PROPERTY_MUTE_REASON = "mute_reason";
+  private String muteReason;
+
+  public static final String JSON_PROPERTY_MUTE_SCOPE = "mute_scope";
+  private String muteScope;
 
   public static final String JSON_PROPERTY_SCORE = "score";
   private Double score;
@@ -327,6 +339,27 @@ public class IoCIndicator {
     this.indicatorType = indicatorType;
   }
 
+  public IoCIndicator isMuted(Boolean isMuted) {
+    this.isMuted = isMuted;
+    return this;
+  }
+
+  /**
+   * Whether the indicator is muted for your organization.
+   *
+   * @return isMuted
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_MUTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsMuted() {
+    return isMuted;
+  }
+
+  public void setIsMuted(Boolean isMuted) {
+    this.isMuted = isMuted;
+  }
+
   public IoCIndicator lastSeen(OffsetDateTime lastSeen) {
     this.lastSeen = lastSeen;
     return this;
@@ -535,6 +568,48 @@ public class IoCIndicator {
       this.unparsed = true;
     }
     this.maxTrustScore = maxTrustScore;
+  }
+
+  public IoCIndicator muteReason(String muteReason) {
+    this.muteReason = muteReason;
+    return this;
+  }
+
+  /**
+   * Reason provided when the indicator was muted. Returned only when the indicator is muted.
+   *
+   * @return muteReason
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MUTE_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMuteReason() {
+    return muteReason;
+  }
+
+  public void setMuteReason(String muteReason) {
+    this.muteReason = muteReason;
+  }
+
+  public IoCIndicator muteScope(String muteScope) {
+    this.muteScope = muteScope;
+    return this;
+  }
+
+  /**
+   * Scope of the mute applied to the indicator. Returned only when the indicator is muted.
+   *
+   * @return muteScope
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MUTE_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMuteScope() {
+    return muteScope;
+  }
+
+  public void setMuteScope(String muteScope) {
+    this.muteScope = muteScope;
   }
 
   public IoCIndicator score(Double score) {
@@ -803,6 +878,7 @@ public class IoCIndicator {
         && Objects.equals(this.id, ioCIndicator.id)
         && Objects.equals(this.indicator, ioCIndicator.indicator)
         && Objects.equals(this.indicatorType, ioCIndicator.indicatorType)
+        && Objects.equals(this.isMuted, ioCIndicator.isMuted)
         && Objects.equals(this.lastSeen, ioCIndicator.lastSeen)
         && Objects.equals(this.logMatches, ioCIndicator.logMatches)
         && Objects.equals(this.mAsType, ioCIndicator.mAsType)
@@ -811,6 +887,8 @@ public class IoCIndicator {
         && Objects.equals(this.mSources, ioCIndicator.mSources)
         && Objects.equals(this.maliciousSources, ioCIndicator.maliciousSources)
         && Objects.equals(this.maxTrustScore, ioCIndicator.maxTrustScore)
+        && Objects.equals(this.muteReason, ioCIndicator.muteReason)
+        && Objects.equals(this.muteScope, ioCIndicator.muteScope)
         && Objects.equals(this.score, ioCIndicator.score)
         && Objects.equals(this.signalMatches, ioCIndicator.signalMatches)
         && Objects.equals(this.signalTier, ioCIndicator.signalTier)
@@ -833,6 +911,7 @@ public class IoCIndicator {
         id,
         indicator,
         indicatorType,
+        isMuted,
         lastSeen,
         logMatches,
         mAsType,
@@ -841,6 +920,8 @@ public class IoCIndicator {
         mSources,
         maliciousSources,
         maxTrustScore,
+        muteReason,
+        muteScope,
         score,
         signalMatches,
         signalTier,
@@ -864,6 +945,7 @@ public class IoCIndicator {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    indicator: ").append(toIndentedString(indicator)).append("\n");
     sb.append("    indicatorType: ").append(toIndentedString(indicatorType)).append("\n");
+    sb.append("    isMuted: ").append(toIndentedString(isMuted)).append("\n");
     sb.append("    lastSeen: ").append(toIndentedString(lastSeen)).append("\n");
     sb.append("    logMatches: ").append(toIndentedString(logMatches)).append("\n");
     sb.append("    mAsType: ").append(toIndentedString(mAsType)).append("\n");
@@ -872,6 +954,8 @@ public class IoCIndicator {
     sb.append("    mSources: ").append(toIndentedString(mSources)).append("\n");
     sb.append("    maliciousSources: ").append(toIndentedString(maliciousSources)).append("\n");
     sb.append("    maxTrustScore: ").append(toIndentedString(maxTrustScore)).append("\n");
+    sb.append("    muteReason: ").append(toIndentedString(muteReason)).append("\n");
+    sb.append("    muteScope: ").append(toIndentedString(muteScope)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    signalMatches: ").append(toIndentedString(signalMatches)).append("\n");
     sb.append("    signalTier: ").append(toIndentedString(signalTier)).append("\n");
