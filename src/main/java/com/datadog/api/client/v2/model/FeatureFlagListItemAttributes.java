@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Attributes of a feature flag in list responses. */
 @JsonPropertyOrder({
   FeatureFlagListItemAttributes.JSON_PROPERTY_ARCHIVED_AT,
+  FeatureFlagListItemAttributes.JSON_PROPERTY_BUCKETING_MODE,
   FeatureFlagListItemAttributes.JSON_PROPERTY_CREATED_AT,
   FeatureFlagListItemAttributes.JSON_PROPERTY_CREATED_BY,
   FeatureFlagListItemAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -50,6 +51,9 @@ public class FeatureFlagListItemAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVED_AT = "archived_at";
   private JsonNullable<OffsetDateTime> archivedAt = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_BUCKETING_MODE = "bucketing_mode";
+  private FeatureFlagBucketingMode bucketingMode;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -154,6 +158,33 @@ public class FeatureFlagListItemAttributes {
 
   public void setArchivedAt(OffsetDateTime archivedAt) {
     this.archivedAt = JsonNullable.<OffsetDateTime>of(archivedAt);
+  }
+
+  public FeatureFlagListItemAttributes bucketingMode(FeatureFlagBucketingMode bucketingMode) {
+    this.bucketingMode = bucketingMode;
+    this.unparsed |= !bucketingMode.isValid();
+    return this;
+  }
+
+  /**
+   * How subjects are assigned to variants. <code>DATADOG</code> is the native scheme. <code>EPPO
+   * </code> reproduces the assignments that Eppo made for a flag migrated from Eppo, so its
+   * subjects keep their variants. Set when the flag is created and never changed.
+   *
+   * @return bucketingMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUCKETING_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FeatureFlagBucketingMode getBucketingMode() {
+    return bucketingMode;
+  }
+
+  public void setBucketingMode(FeatureFlagBucketingMode bucketingMode) {
+    if (!bucketingMode.isValid()) {
+      this.unparsed = true;
+    }
+    this.bucketingMode = bucketingMode;
   }
 
   public FeatureFlagListItemAttributes createdAt(OffsetDateTime createdAt) {
@@ -659,6 +690,7 @@ public class FeatureFlagListItemAttributes {
     }
     FeatureFlagListItemAttributes featureFlagListItemAttributes = (FeatureFlagListItemAttributes) o;
     return Objects.equals(this.archivedAt, featureFlagListItemAttributes.archivedAt)
+        && Objects.equals(this.bucketingMode, featureFlagListItemAttributes.bucketingMode)
         && Objects.equals(this.createdAt, featureFlagListItemAttributes.createdAt)
         && Objects.equals(this.createdBy, featureFlagListItemAttributes.createdBy)
         && Objects.equals(this.description, featureFlagListItemAttributes.description)
@@ -688,6 +720,7 @@ public class FeatureFlagListItemAttributes {
   public int hashCode() {
     return Objects.hash(
         archivedAt,
+        bucketingMode,
         createdAt,
         createdBy,
         description,
@@ -714,6 +747,7 @@ public class FeatureFlagListItemAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class FeatureFlagListItemAttributes {\n");
     sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
+    sb.append("    bucketingMode: ").append(toIndentedString(bucketingMode)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
