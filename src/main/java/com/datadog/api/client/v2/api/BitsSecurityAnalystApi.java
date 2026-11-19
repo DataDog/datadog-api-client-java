@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationCountField;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationCountsResponse;
+import com.datadog.api.client.v2.model.SecurityAgentInvestigationCreateRequest;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationField;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationResponse;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationsListResponse;
@@ -445,6 +446,186 @@ public class BitsSecurityAnalystApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityAgentInvestigationCountsResponse>() {});
+  }
+
+  /**
+   * Create a Bits Security Analyst investigation.
+   *
+   * <p>See {@link #createSecurityAgentInvestigationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityAgentInvestigationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityAgentInvestigationResponse createSecurityAgentInvestigation(
+      SecurityAgentInvestigationCreateRequest body) throws ApiException {
+    return createSecurityAgentInvestigationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a Bits Security Analyst investigation.
+   *
+   * <p>See {@link #createSecurityAgentInvestigationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityAgentInvestigationResponse&gt;
+   */
+  public CompletableFuture<SecurityAgentInvestigationResponse>
+      createSecurityAgentInvestigationAsync(SecurityAgentInvestigationCreateRequest body) {
+    return createSecurityAgentInvestigationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Start a Bits Security Analyst investigation of a signal, or get its investigation if it already
+   * has one.
+   *
+   * <p>If the signal already has an investigation, in any state, the response has its latest
+   * investigation. Otherwise, an investigation starts, and the response has the new investigation
+   * in the <code>investigating</code> state. Set <code>rerun</code> to <code>true</code> to start a
+   * new investigation of a signal that already has one. If the signal's investigation is still
+   * running, the response has that investigation, and no new one starts. While the investigation is
+   * <code>investigating</code>, the response has a <code>Retry-After</code> header. <code>
+   * GET /api/v2/security_monitoring/security_agent/investigations/{investigation_id}</code> reads
+   * it right away.
+   *
+   * <p>The response doesn't have the investigation's content: <code>conclusion</code>, <code>signal
+   * </code>, <code>key_entities</code>, <code>key_evidence</code>, <code>steps</code>, and <code>
+   * response_suggestions</code>. Get the investigation for its content.
+   *
+   * <p>This endpoint is rate limited to <code>30</code> requests per minute per organization. Every
+   * investigation it starts, including a rerun, counts toward the organization's monthly
+   * investigation limit. Starting an investigation returns <code>429</code> with the code <code>
+   * monthly_limit_reached</code> once the organization has reached that limit.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityAgentInvestigationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request  &#x60;signal_id&#x60; is missing or empty (&#x60;invalid_parameter&#x60;, with &#x60;source.pointer&#x60; set to &#x60;/data/attributes/signal_id&#x60;), or the body isn&#39;t a valid request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden  - &#x60;org_not_activated&#x60;: the organization hasn&#39;t activated Bits Security Analyst, or is a demo organization,   where investigations can&#39;t be started. - &#x60;preview_not_enabled&#x60;: the organization doesn&#39;t have access to this API in preview. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found  The ID isn&#39;t a signal ID, or no signal with this ID exists in the organization (&#x60;signal_not_found&#x60;). </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict  The signal already has an investigation that this endpoint can&#39;t return, or another investigation of the signal is still starting (&#x60;already_investigated&#x60;). </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity  Bits Security Analyst doesn&#39;t investigate signals from this source (&#x60;signal_not_supported&#x60;). </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityAgentInvestigationResponse>
+      createSecurityAgentInvestigationWithHttpInfo(SecurityAgentInvestigationCreateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityAgentInvestigation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createSecurityAgentInvestigation");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/investigations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsSecurityAnalystApi.createSecurityAgentInvestigation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentInvestigationResponse>() {});
+  }
+
+  /**
+   * Create a Bits Security Analyst investigation.
+   *
+   * <p>See {@link #createSecurityAgentInvestigationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityAgentInvestigationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityAgentInvestigationResponse>>
+      createSecurityAgentInvestigationWithHttpInfoAsync(
+          SecurityAgentInvestigationCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityAgentInvestigation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityAgentInvestigationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityAgentInvestigationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityAgentInvestigation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/investigations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsSecurityAnalystApi.createSecurityAgentInvestigation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityAgentInvestigationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentInvestigationResponse>() {});
   }
 
   /** Manage optional parameters to getSecurityAgentInvestigation. */
