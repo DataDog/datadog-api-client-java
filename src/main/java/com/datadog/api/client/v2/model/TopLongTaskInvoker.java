@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A top long task invoker within an invoker type. */
 @JsonPropertyOrder({
@@ -35,7 +34,7 @@ public class TopLongTaskInvoker {
   private Integer criteriaViewOccurrences;
 
   public static final String JSON_PROPERTY_FILE = "file";
-  private JsonNullable<String> file = JsonNullable.<String>undefined();
+  private String file;
 
   public static final String JSON_PROPERTY_IMPACT_SCORE = "impact_score";
   private Double impactScore;
@@ -53,11 +52,14 @@ public class TopLongTaskInvoker {
 
   @JsonCreator
   public TopLongTaskInvoker(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILE) String file,
       @JsonProperty(required = true, value = JSON_PROPERTY_INVOKER) String invoker,
       @JsonProperty(required = true, value = JSON_PROPERTY_STATS_PER_VIEW)
           LongTaskStatsPerView statsPerView,
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_OCCURRENCES)
           Integer viewOccurrences) {
+    this.file = file;
+    if (file != null) {}
     this.invoker = invoker;
     this.statsPerView = statsPerView;
     this.unparsed |= statsPerView.unparsed;
@@ -87,7 +89,8 @@ public class TopLongTaskInvoker {
   }
 
   public TopLongTaskInvoker file(String file) {
-    this.file = JsonNullable.<String>of(file);
+    this.file = file;
+    if (file != null) {}
     return this;
   }
 
@@ -97,24 +100,14 @@ public class TopLongTaskInvoker {
    * @return file
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getFile() {
-    return file.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FILE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getFile_JsonNullable() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getFile() {
     return file;
   }
 
-  @JsonProperty(JSON_PROPERTY_FILE)
-  public void setFile_JsonNullable(JsonNullable<String> file) {
-    this.file = file;
-  }
-
   public void setFile(String file) {
-    this.file = JsonNullable.<String>of(file);
+    this.file = file;
   }
 
   public TopLongTaskInvoker impactScore(Double impactScore) {

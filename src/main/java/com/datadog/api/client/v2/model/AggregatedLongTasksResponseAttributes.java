@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Attributes of an aggregated long tasks response. */
 @JsonPropertyOrder({
@@ -35,7 +36,7 @@ import java.util.Objects;
 public class AggregatedLongTasksResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
-  private String applicationId;
+  private UUID applicationId;
 
   public static final String JSON_PROPERTY_CRITERIA = "criteria";
   private AggregatedLongTasksResponseAttributesCriteria criteria;
@@ -63,7 +64,7 @@ public class AggregatedLongTasksResponseAttributes {
 
   @JsonCreator
   public AggregatedLongTasksResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) UUID applicationId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CRITERIA)
           AggregatedLongTasksResponseAttributesCriteria criteria,
       @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
@@ -90,7 +91,7 @@ public class AggregatedLongTasksResponseAttributes {
     this.viewName = viewName;
   }
 
-  public AggregatedLongTasksResponseAttributes applicationId(String applicationId) {
+  public AggregatedLongTasksResponseAttributes applicationId(UUID applicationId) {
     this.applicationId = applicationId;
     return this;
   }
@@ -102,11 +103,11 @@ public class AggregatedLongTasksResponseAttributes {
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApplicationId() {
+  public UUID getApplicationId() {
     return applicationId;
   }
 
-  public void setApplicationId(String applicationId) {
+  public void setApplicationId(UUID applicationId) {
     this.applicationId = applicationId;
   }
 
@@ -207,7 +208,7 @@ public class AggregatedLongTasksResponseAttributes {
   }
 
   /**
-   * List of RUM view IDs sampled for this aggregation, capped at 50.
+   * IDs of sampled views that contain at least one long task. At most 50 IDs are returned.
    *
    * @return sampledViewIds
    */
@@ -247,7 +248,7 @@ public class AggregatedLongTasksResponseAttributes {
   }
 
   /**
-   * Number of view instances included in the analysis. maximum: 2147483647
+   * Number of sampled views that contain at least one long task. maximum: 2147483647
    *
    * @return viewCount
    */
