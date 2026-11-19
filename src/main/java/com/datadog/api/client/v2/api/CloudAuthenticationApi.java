@@ -22,6 +22,9 @@ import com.datadog.api.client.v2.model.OIDCCloudAuthPersonaMappingsResponse;
 import com.datadog.api.client.v2.model.OIDCCloudAuthProviderCreateRequest;
 import com.datadog.api.client.v2.model.OIDCCloudAuthProviderResponse;
 import com.datadog.api.client.v2.model.OIDCCloudAuthProvidersResponse;
+import com.datadog.api.client.v2.model.TerraformCloudAuthPersonaMappingCreateRequest;
+import com.datadog.api.client.v2.model.TerraformCloudAuthPersonaMappingResponse;
+import com.datadog.api.client.v2.model.TerraformCloudAuthPersonaMappingsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -1019,6 +1022,174 @@ public class CloudAuthenticationApi {
   }
 
   /**
+   * Create an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #createTerraformCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TerraformCloudAuthPersonaMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TerraformCloudAuthPersonaMappingResponse createTerraformCloudAuthPersonaMapping(
+      TerraformCloudAuthPersonaMappingCreateRequest body) throws ApiException {
+    return createTerraformCloudAuthPersonaMappingWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #createTerraformCloudAuthPersonaMappingWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TerraformCloudAuthPersonaMappingResponse&gt;
+   */
+  public CompletableFuture<TerraformCloudAuthPersonaMappingResponse>
+      createTerraformCloudAuthPersonaMappingAsync(
+          TerraformCloudAuthPersonaMappingCreateRequest body) {
+    return createTerraformCloudAuthPersonaMappingWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an HCP Terraform persona mapping. The mapping associates a Datadog user or service
+   * account with workload identity tokens from an HCP Terraform issuer whose <code>sub</code> claim
+   * matches <code>sub_pattern</code>.
+   *
+   * <p>The response includes the <code>audience</code> value to set as the <code>
+   * TFC_WORKLOAD_IDENTITY_AUDIENCE_DATADOG</code> environment variable in HCP Terraform. The API
+   * returns a 409 error if the pattern duplicates an existing mapping, or if it can match the same
+   * token as an existing mapping for a different account.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TerraformCloudAuthPersonaMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TerraformCloudAuthPersonaMappingResponse>
+      createTerraformCloudAuthPersonaMappingWithHttpInfo(
+          TerraformCloudAuthPersonaMappingCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createTerraformCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createTerraformCloudAuthPersonaMapping");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/terraform/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.createTerraformCloudAuthPersonaMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TerraformCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
+   * Create an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #createTerraformCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TerraformCloudAuthPersonaMappingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>>
+      createTerraformCloudAuthPersonaMappingWithHttpInfoAsync(
+          TerraformCloudAuthPersonaMappingCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createTerraformCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createTerraformCloudAuthPersonaMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/terraform/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.createTerraformCloudAuthPersonaMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TerraformCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
    * Delete an AWS cloud authentication intake mapping.
    *
    * <p>See {@link #deleteAWSCloudAuthIntakeMappingWithHttpInfo}.
@@ -1954,6 +2125,168 @@ public class CloudAuthenticationApi {
       builder =
           apiClient.createBuilder(
               "v2.CloudAuthenticationApi.deleteOIDCCloudAuthProvider",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #deleteTerraformCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteTerraformCloudAuthPersonaMapping(String personaMappingId) throws ApiException {
+    deleteTerraformCloudAuthPersonaMappingWithHttpInfo(personaMappingId);
+  }
+
+  /**
+   * Delete an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #deleteTerraformCloudAuthPersonaMappingWithHttpInfoAsync}.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteTerraformCloudAuthPersonaMappingAsync(
+      String personaMappingId) {
+    return deleteTerraformCloudAuthPersonaMappingWithHttpInfoAsync(personaMappingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an HCP Terraform persona mapping by ID. Workload identity tokens that matched only this
+   * mapping can no longer be exchanged.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteTerraformCloudAuthPersonaMappingWithHttpInfo(
+      String personaMappingId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTerraformCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'personaMappingId' when calling"
+              + " deleteTerraformCloudAuthPersonaMapping");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.deleteTerraformCloudAuthPersonaMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #deleteTerraformCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteTerraformCloudAuthPersonaMappingWithHttpInfoAsync(String personaMappingId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTerraformCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'personaMappingId' when calling"
+                  + " deleteTerraformCloudAuthPersonaMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.deleteTerraformCloudAuthPersonaMapping",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2969,6 +3302,172 @@ public class CloudAuthenticationApi {
   }
 
   /**
+   * Get an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #getTerraformCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @return TerraformCloudAuthPersonaMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TerraformCloudAuthPersonaMappingResponse getTerraformCloudAuthPersonaMapping(
+      String personaMappingId) throws ApiException {
+    return getTerraformCloudAuthPersonaMappingWithHttpInfo(personaMappingId).getData();
+  }
+
+  /**
+   * Get an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #getTerraformCloudAuthPersonaMappingWithHttpInfoAsync}.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @return CompletableFuture&lt;TerraformCloudAuthPersonaMappingResponse&gt;
+   */
+  public CompletableFuture<TerraformCloudAuthPersonaMappingResponse>
+      getTerraformCloudAuthPersonaMappingAsync(String personaMappingId) {
+    return getTerraformCloudAuthPersonaMappingWithHttpInfoAsync(personaMappingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an HCP Terraform persona mapping by ID.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @return ApiResponse&lt;TerraformCloudAuthPersonaMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TerraformCloudAuthPersonaMappingResponse>
+      getTerraformCloudAuthPersonaMappingWithHttpInfo(String personaMappingId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getTerraformCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'personaMappingId' when calling"
+              + " getTerraformCloudAuthPersonaMapping");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.getTerraformCloudAuthPersonaMapping",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TerraformCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
+   * Get an HCP Terraform persona mapping.
+   *
+   * <p>See {@link #getTerraformCloudAuthPersonaMappingWithHttpInfo}.
+   *
+   * @param personaMappingId The ID of the persona mapping (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TerraformCloudAuthPersonaMappingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>>
+      getTerraformCloudAuthPersonaMappingWithHttpInfoAsync(String personaMappingId) {
+    // Check if unstable operation is enabled
+    String operationId = "getTerraformCloudAuthPersonaMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'personaMappingId' is set
+    if (personaMappingId == null) {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'personaMappingId' when calling"
+                  + " getTerraformCloudAuthPersonaMapping"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/wif/terraform/persona_mapping/{persona_mapping_id}"
+            .replaceAll(
+                "\\{" + "persona_mapping_id" + "\\}",
+                apiClient.escapeString(personaMappingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.getTerraformCloudAuthPersonaMapping",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TerraformCloudAuthPersonaMappingResponse>() {});
+  }
+
+  /**
    * List AWS cloud authentication intake mappings.
    *
    * <p>See {@link #listAWSCloudAuthIntakeMappingsWithHttpInfo}.
@@ -3765,5 +4264,140 @@ public class CloudAuthenticationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OIDCCloudAuthProvidersResponse>() {});
+  }
+
+  /**
+   * List HCP Terraform persona mappings.
+   *
+   * <p>See {@link #listTerraformCloudAuthPersonaMappingsWithHttpInfo}.
+   *
+   * @return TerraformCloudAuthPersonaMappingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TerraformCloudAuthPersonaMappingsResponse listTerraformCloudAuthPersonaMappings()
+      throws ApiException {
+    return listTerraformCloudAuthPersonaMappingsWithHttpInfo().getData();
+  }
+
+  /**
+   * List HCP Terraform persona mappings.
+   *
+   * <p>See {@link #listTerraformCloudAuthPersonaMappingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TerraformCloudAuthPersonaMappingsResponse&gt;
+   */
+  public CompletableFuture<TerraformCloudAuthPersonaMappingsResponse>
+      listTerraformCloudAuthPersonaMappingsAsync() {
+    return listTerraformCloudAuthPersonaMappingsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all HCP Terraform persona mappings in the organization. Each mapping associates an HCP
+   * Terraform workload identity token issuer and <code>sub</code> claim pattern with a Datadog user
+   * or service account.
+   *
+   * @return ApiResponse&lt;TerraformCloudAuthPersonaMappingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TerraformCloudAuthPersonaMappingsResponse>
+      listTerraformCloudAuthPersonaMappingsWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listTerraformCloudAuthPersonaMappings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/terraform/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudAuthenticationApi.listTerraformCloudAuthPersonaMappings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TerraformCloudAuthPersonaMappingsResponse>() {});
+  }
+
+  /**
+   * List HCP Terraform persona mappings.
+   *
+   * <p>See {@link #listTerraformCloudAuthPersonaMappingsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;TerraformCloudAuthPersonaMappingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingsResponse>>
+      listTerraformCloudAuthPersonaMappingsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listTerraformCloudAuthPersonaMappings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/wif/terraform/persona_mapping";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudAuthenticationApi.listTerraformCloudAuthPersonaMappings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TerraformCloudAuthPersonaMappingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TerraformCloudAuthPersonaMappingsResponse>() {});
   }
 }
