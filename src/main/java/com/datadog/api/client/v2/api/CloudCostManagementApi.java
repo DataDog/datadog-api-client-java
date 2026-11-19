@@ -39,6 +39,14 @@ import com.datadog.api.client.v2.model.CostCurrencyResponse;
 import com.datadog.api.client.v2.model.CostMetricsResponse;
 import com.datadog.api.client.v2.model.CostOrchestratorsResponse;
 import com.datadog.api.client.v2.model.CostRecommendationArray;
+import com.datadog.api.client.v2.model.CostRecommendationCustomRuleCreateRequest;
+import com.datadog.api.client.v2.model.CostRecommendationCustomRuleResponse;
+import com.datadog.api.client.v2.model.CostRecommendationCustomRuleUpdateRequest;
+import com.datadog.api.client.v2.model.CostRecommendationCustomRulesResponse;
+import com.datadog.api.client.v2.model.CostRecommendationNotificationRuleCreateRequest;
+import com.datadog.api.client.v2.model.CostRecommendationNotificationRuleResponse;
+import com.datadog.api.client.v2.model.CostRecommendationNotificationRuleUpdateRequest;
+import com.datadog.api.client.v2.model.CostRecommendationNotificationRulesResponse;
 import com.datadog.api.client.v2.model.CostTagDescriptionResponse;
 import com.datadog.api.client.v2.model.CostTagDescriptionUpsertRequest;
 import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
@@ -517,6 +525,328 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GCPUsageCostConfigResponse>() {});
+  }
+
+  /**
+   * Create a cost recommendation custom rule.
+   *
+   * <p>See {@link #createCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CostRecommendationCustomRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationCustomRuleResponse createCostRecommendationCustomRule(
+      CostRecommendationCustomRuleCreateRequest body) throws ApiException {
+    return createCostRecommendationCustomRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a cost recommendation custom rule.
+   *
+   * <p>See {@link #createCostRecommendationCustomRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;CostRecommendationCustomRuleResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationCustomRuleResponse>
+      createCostRecommendationCustomRuleAsync(CostRecommendationCustomRuleCreateRequest body) {
+    return createCostRecommendationCustomRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a custom recommendation rule. The rule overrides the settings it lists for the resources
+   * its tag filters match; every other setting keeps the recommender default. Only the settings in
+   * the request are stored.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;CostRecommendationCustomRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationCustomRuleResponse>
+      createCostRecommendationCustomRuleWithHttpInfo(CostRecommendationCustomRuleCreateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createCostRecommendationCustomRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/custom_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.createCostRecommendationCustomRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRuleResponse>() {});
+  }
+
+  /**
+   * Create a cost recommendation custom rule.
+   *
+   * <p>See {@link #createCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationCustomRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>>
+      createCostRecommendationCustomRuleWithHttpInfoAsync(
+          CostRecommendationCustomRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createCostRecommendationCustomRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/custom_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.createCostRecommendationCustomRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRuleResponse>() {});
+  }
+
+  /**
+   * Create a cost recommendation notification rule.
+   *
+   * <p>See {@link #createCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CostRecommendationNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationNotificationRuleResponse createCostRecommendationNotificationRule(
+      CostRecommendationNotificationRuleCreateRequest body) throws ApiException {
+    return createCostRecommendationNotificationRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a cost recommendation notification rule.
+   *
+   * <p>See {@link #createCostRecommendationNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;CostRecommendationNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationNotificationRuleResponse>
+      createCostRecommendationNotificationRuleAsync(
+          CostRecommendationNotificationRuleCreateRequest body) {
+    return createCostRecommendationNotificationRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a rule that sends a digest of the cost recommendations matching <code>scope_query</code>
+   * to Slack or Microsoft Teams on a schedule.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;CostRecommendationNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationNotificationRuleResponse>
+      createCostRecommendationNotificationRuleWithHttpInfo(
+          CostRecommendationNotificationRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createCostRecommendationNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.createCostRecommendationNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Create a cost recommendation notification rule.
+   *
+   * <p>See {@link #createCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>>
+      createCostRecommendationNotificationRuleWithHttpInfoAsync(
+          CostRecommendationNotificationRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createCostRecommendationNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.createCostRecommendationNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRuleResponse>() {});
   }
 
   /**
@@ -1476,6 +1806,326 @@ public class CloudCostManagementApi {
       builder =
           apiClient.createBuilder(
               "v2.CloudCostManagementApi.deleteCostGCPUsageCostConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a cost recommendation custom rule.
+   *
+   * <p>See {@link #deleteCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCostRecommendationCustomRule(String customRuleId) throws ApiException {
+    deleteCostRecommendationCustomRuleWithHttpInfo(customRuleId);
+  }
+
+  /**
+   * Delete a cost recommendation custom rule.
+   *
+   * <p>See {@link #deleteCostRecommendationCustomRuleWithHttpInfoAsync}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteCostRecommendationCustomRuleAsync(String customRuleId) {
+    return deleteCostRecommendationCustomRuleWithHttpInfoAsync(customRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a custom recommendation rule.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteCostRecommendationCustomRuleWithHttpInfo(String customRuleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'customRuleId' is set
+    if (customRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'customRuleId' when calling"
+              + " deleteCostRecommendationCustomRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}"
+            .replaceAll(
+                "\\{" + "custom_rule_id" + "\\}", apiClient.escapeString(customRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteCostRecommendationCustomRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a cost recommendation custom rule.
+   *
+   * <p>See {@link #deleteCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteCostRecommendationCustomRuleWithHttpInfoAsync(
+      String customRuleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'customRuleId' is set
+    if (customRuleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'customRuleId' when calling"
+                  + " deleteCostRecommendationCustomRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}"
+            .replaceAll(
+                "\\{" + "custom_rule_id" + "\\}", apiClient.escapeString(customRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteCostRecommendationCustomRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a cost recommendation notification rule.
+   *
+   * <p>See {@link #deleteCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCostRecommendationNotificationRule(String notificationRuleId)
+      throws ApiException {
+    deleteCostRecommendationNotificationRuleWithHttpInfo(notificationRuleId);
+  }
+
+  /**
+   * Delete a cost recommendation notification rule.
+   *
+   * <p>See {@link #deleteCostRecommendationNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteCostRecommendationNotificationRuleAsync(
+      String notificationRuleId) {
+    return deleteCostRecommendationNotificationRuleWithHttpInfoAsync(notificationRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a recommendation notification rule.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteCostRecommendationNotificationRuleWithHttpInfo(
+      String notificationRuleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " deleteCostRecommendationNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteCostRecommendationNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a cost recommendation notification rule.
+   *
+   * <p>See {@link #deleteCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteCostRecommendationNotificationRuleWithHttpInfoAsync(String notificationRuleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " deleteCostRecommendationNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteCostRecommendationNotificationRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -6135,6 +6785,337 @@ public class CloudCostManagementApi {
         new GenericType<GcpUcConfigResponse>() {});
   }
 
+  /**
+   * Get a cost recommendation custom rule.
+   *
+   * <p>See {@link #getCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @return CostRecommendationCustomRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationCustomRuleResponse getCostRecommendationCustomRule(String customRuleId)
+      throws ApiException {
+    return getCostRecommendationCustomRuleWithHttpInfo(customRuleId).getData();
+  }
+
+  /**
+   * Get a cost recommendation custom rule.
+   *
+   * <p>See {@link #getCostRecommendationCustomRuleWithHttpInfoAsync}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @return CompletableFuture&lt;CostRecommendationCustomRuleResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationCustomRuleResponse>
+      getCostRecommendationCustomRuleAsync(String customRuleId) {
+    return getCostRecommendationCustomRuleWithHttpInfoAsync(customRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a custom recommendation rule.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @return ApiResponse&lt;CostRecommendationCustomRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationCustomRuleResponse>
+      getCostRecommendationCustomRuleWithHttpInfo(String customRuleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'customRuleId' is set
+    if (customRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'customRuleId' when calling"
+              + " getCostRecommendationCustomRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}"
+            .replaceAll(
+                "\\{" + "custom_rule_id" + "\\}", apiClient.escapeString(customRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostRecommendationCustomRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRuleResponse>() {});
+  }
+
+  /**
+   * Get a cost recommendation custom rule.
+   *
+   * <p>See {@link #getCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationCustomRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>>
+      getCostRecommendationCustomRuleWithHttpInfoAsync(String customRuleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'customRuleId' is set
+    if (customRuleId == null) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'customRuleId' when calling"
+                  + " getCostRecommendationCustomRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}"
+            .replaceAll(
+                "\\{" + "custom_rule_id" + "\\}", apiClient.escapeString(customRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostRecommendationCustomRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRuleResponse>() {});
+  }
+
+  /**
+   * Get a cost recommendation notification rule.
+   *
+   * <p>See {@link #getCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CostRecommendationNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationNotificationRuleResponse getCostRecommendationNotificationRule(
+      String notificationRuleId) throws ApiException {
+    return getCostRecommendationNotificationRuleWithHttpInfo(notificationRuleId).getData();
+  }
+
+  /**
+   * Get a cost recommendation notification rule.
+   *
+   * <p>See {@link #getCostRecommendationNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture&lt;CostRecommendationNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationNotificationRuleResponse>
+      getCostRecommendationNotificationRuleAsync(String notificationRuleId) {
+    return getCostRecommendationNotificationRuleWithHttpInfoAsync(notificationRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a recommendation notification rule.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return ApiResponse&lt;CostRecommendationNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationNotificationRuleResponse>
+      getCostRecommendationNotificationRuleWithHttpInfo(String notificationRuleId)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " getCostRecommendationNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostRecommendationNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get a cost recommendation notification rule.
+   *
+   * <p>See {@link #getCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>>
+      getCostRecommendationNotificationRuleWithHttpInfoAsync(String notificationRuleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " getCostRecommendationNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostRecommendationNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRuleResponse>() {});
+  }
+
   /** Manage optional parameters to getCostTagDescriptionByKey. */
   public static class GetCostTagDescriptionByKeyOptionalParameters {
     private String filterCloud;
@@ -8588,6 +9569,273 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OCIConfigsResponse>() {});
+  }
+
+  /**
+   * List cost recommendation custom rules.
+   *
+   * <p>See {@link #listCostRecommendationCustomRulesWithHttpInfo}.
+   *
+   * @return CostRecommendationCustomRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationCustomRulesResponse listCostRecommendationCustomRules()
+      throws ApiException {
+    return listCostRecommendationCustomRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * List cost recommendation custom rules.
+   *
+   * <p>See {@link #listCostRecommendationCustomRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostRecommendationCustomRulesResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationCustomRulesResponse>
+      listCostRecommendationCustomRulesAsync() {
+    return listCostRecommendationCustomRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the custom recommendation rules of the organization. A custom rule overrides recommender
+   * settings for the resources its tag filters match.
+   *
+   * @return ApiResponse&lt;CostRecommendationCustomRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationCustomRulesResponse>
+      listCostRecommendationCustomRulesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostRecommendationCustomRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/custom_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostRecommendationCustomRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRulesResponse>() {});
+  }
+
+  /**
+   * List cost recommendation custom rules.
+   *
+   * <p>See {@link #listCostRecommendationCustomRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationCustomRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationCustomRulesResponse>>
+      listCostRecommendationCustomRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listCostRecommendationCustomRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/custom_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostRecommendationCustomRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRulesResponse>() {});
+  }
+
+  /**
+   * List cost recommendation notification rules.
+   *
+   * <p>See {@link #listCostRecommendationNotificationRulesWithHttpInfo}.
+   *
+   * @return CostRecommendationNotificationRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationNotificationRulesResponse listCostRecommendationNotificationRules()
+      throws ApiException {
+    return listCostRecommendationNotificationRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * List cost recommendation notification rules.
+   *
+   * <p>See {@link #listCostRecommendationNotificationRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostRecommendationNotificationRulesResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationNotificationRulesResponse>
+      listCostRecommendationNotificationRulesAsync() {
+    return listCostRecommendationNotificationRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the recommendation notification rules of the organization. A notification rule sends a
+   * digest of the cost recommendations that match its query to Slack or Microsoft Teams on a
+   * schedule.
+   *
+   * @return ApiResponse&lt;CostRecommendationNotificationRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationNotificationRulesResponse>
+      listCostRecommendationNotificationRulesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostRecommendationNotificationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostRecommendationNotificationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRulesResponse>() {});
+  }
+
+  /**
+   * List cost recommendation notification rules.
+   *
+   * <p>See {@link #listCostRecommendationNotificationRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationNotificationRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationNotificationRulesResponse>>
+      listCostRecommendationNotificationRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listCostRecommendationNotificationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostRecommendationNotificationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRulesResponse>() {});
   }
 
   /** Manage optional parameters to listCostTagDescriptions. */
@@ -12317,6 +13565,394 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GCPUsageCostConfigResponse>() {});
+  }
+
+  /**
+   * Update a cost recommendation custom rule.
+   *
+   * <p>See {@link #updateCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @param body (required)
+   * @return CostRecommendationCustomRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationCustomRuleResponse updateCostRecommendationCustomRule(
+      String customRuleId, CostRecommendationCustomRuleUpdateRequest body) throws ApiException {
+    return updateCostRecommendationCustomRuleWithHttpInfo(customRuleId, body).getData();
+  }
+
+  /**
+   * Update a cost recommendation custom rule.
+   *
+   * <p>See {@link #updateCostRecommendationCustomRuleWithHttpInfoAsync}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;CostRecommendationCustomRuleResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationCustomRuleResponse>
+      updateCostRecommendationCustomRuleAsync(
+          String customRuleId, CostRecommendationCustomRuleUpdateRequest body) {
+    return updateCostRecommendationCustomRuleWithHttpInfoAsync(customRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a custom recommendation rule. Attributes left out keep their value; <code>filters</code>
+   * and <code>settings</code> replace the stored list and map when sent. The recommender of a rule
+   * cannot change.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;CostRecommendationCustomRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationCustomRuleResponse>
+      updateCostRecommendationCustomRuleWithHttpInfo(
+          String customRuleId, CostRecommendationCustomRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'customRuleId' is set
+    if (customRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'customRuleId' when calling"
+              + " updateCostRecommendationCustomRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateCostRecommendationCustomRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}"
+            .replaceAll(
+                "\\{" + "custom_rule_id" + "\\}", apiClient.escapeString(customRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.updateCostRecommendationCustomRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRuleResponse>() {});
+  }
+
+  /**
+   * Update a cost recommendation custom rule.
+   *
+   * <p>See {@link #updateCostRecommendationCustomRuleWithHttpInfo}.
+   *
+   * @param customRuleId The ID of the custom rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationCustomRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>>
+      updateCostRecommendationCustomRuleWithHttpInfoAsync(
+          String customRuleId, CostRecommendationCustomRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateCostRecommendationCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'customRuleId' is set
+    if (customRuleId == null) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'customRuleId' when calling"
+                  + " updateCostRecommendationCustomRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateCostRecommendationCustomRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/custom_rules/{custom_rule_id}"
+            .replaceAll(
+                "\\{" + "custom_rule_id" + "\\}", apiClient.escapeString(customRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.updateCostRecommendationCustomRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationCustomRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationCustomRuleResponse>() {});
+  }
+
+  /**
+   * Update a cost recommendation notification rule.
+   *
+   * <p>See {@link #updateCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body (required)
+   * @return CostRecommendationNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationNotificationRuleResponse updateCostRecommendationNotificationRule(
+      String notificationRuleId, CostRecommendationNotificationRuleUpdateRequest body)
+      throws ApiException {
+    return updateCostRecommendationNotificationRuleWithHttpInfo(notificationRuleId, body).getData();
+  }
+
+  /**
+   * Update a cost recommendation notification rule.
+   *
+   * <p>See {@link #updateCostRecommendationNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;CostRecommendationNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<CostRecommendationNotificationRuleResponse>
+      updateCostRecommendationNotificationRuleAsync(
+          String notificationRuleId, CostRecommendationNotificationRuleUpdateRequest body) {
+    return updateCostRecommendationNotificationRuleWithHttpInfoAsync(notificationRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a recommendation notification rule. Attributes left out keep their value.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;CostRecommendationNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationNotificationRuleResponse>
+      updateCostRecommendationNotificationRuleWithHttpInfo(
+          String notificationRuleId, CostRecommendationNotificationRuleUpdateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " updateCostRecommendationNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateCostRecommendationNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.updateCostRecommendationNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Update a cost recommendation notification rule.
+   *
+   * <p>See {@link #updateCostRecommendationNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>>
+      updateCostRecommendationNotificationRuleWithHttpInfoAsync(
+          String notificationRuleId, CostRecommendationNotificationRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateCostRecommendationNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " updateCostRecommendationNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateCostRecommendationNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/recommendations/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.updateCostRecommendationNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationNotificationRuleResponse>() {});
   }
 
   /**
