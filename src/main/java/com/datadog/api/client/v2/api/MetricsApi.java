@@ -248,9 +248,9 @@ public class MetricsApi {
   }
 
   /**
-   * Enable historical metrics ingestion (late data ingestion) for a metric. Idempotent: enabling an
-   * already-enabled metric returns 200 instead of 201. Not supported for distribution metrics,
-   * metrics with an existing tag configuration, or most standard (non-custom) metrics.
+   * Enable historical metrics ingestion for a metric. Idempotent: enabling an already-enabled
+   * metric returns 200 instead of 201. Not supported for distribution metrics, metrics with an
+   * existing tag configuration, or most standard (non-custom) metrics.
    *
    * @param body (required)
    * @return ApiResponse&lt;HistoricalMetricsConfigurationResponse&gt;
@@ -270,13 +270,6 @@ public class MetricsApi {
   public ApiResponse<HistoricalMetricsConfigurationResponse>
       createHistoricalMetricsConfigurationWithHttpInfo(
           HistoricalMetricsConfigurationCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createHistoricalMetricsConfiguration";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -322,17 +315,6 @@ public class MetricsApi {
   public CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>>
       createHistoricalMetricsConfigurationWithHttpInfoAsync(
           HistoricalMetricsConfigurationCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createHistoricalMetricsConfiguration";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1061,13 +1043,6 @@ public class MetricsApi {
    */
   public ApiResponse<Void> deleteHistoricalMetricsConfigurationWithHttpInfo(String metricName)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteHistoricalMetricsConfiguration";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -1115,16 +1090,6 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteHistoricalMetricsConfigurationWithHttpInfoAsync(
       String metricName) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteHistoricalMetricsConfiguration";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -2103,13 +2068,6 @@ public class MetricsApi {
    */
   public ApiResponse<HistoricalMetricsConfigurationResponse>
       getHistoricalMetricsConfigurationWithHttpInfo(String metricName) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getHistoricalMetricsConfiguration";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -2157,17 +2115,6 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>>
       getHistoricalMetricsConfigurationWithHttpInfoAsync(String metricName) {
-    // Check if unstable operation is enabled
-    String operationId = "getHistoricalMetricsConfiguration";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
