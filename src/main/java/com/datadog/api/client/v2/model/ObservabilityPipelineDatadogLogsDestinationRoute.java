@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineDatadogLogsDestinationRoute.JSON_PROPERTY_API_KEY_KEY,
   ObservabilityPipelineDatadogLogsDestinationRoute.JSON_PROPERTY_INCLUDE,
+  ObservabilityPipelineDatadogLogsDestinationRoute.JSON_PROPERTY_NAME,
   ObservabilityPipelineDatadogLogsDestinationRoute.JSON_PROPERTY_ROUTE_ID,
   ObservabilityPipelineDatadogLogsDestinationRoute.JSON_PROPERTY_SITE
 })
@@ -35,6 +36,9 @@ public class ObservabilityPipelineDatadogLogsDestinationRoute {
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_ROUTE_ID = "route_id";
   private String routeId;
@@ -82,6 +86,27 @@ public class ObservabilityPipelineDatadogLogsDestinationRoute {
 
   public void setInclude(String include) {
     this.include = include;
+  }
+
+  public ObservabilityPipelineDatadogLogsDestinationRoute name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * A human-readable name for this route.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public ObservabilityPipelineDatadogLogsDestinationRoute routeId(String routeId) {
@@ -188,6 +213,7 @@ public class ObservabilityPipelineDatadogLogsDestinationRoute {
     return Objects.equals(
             this.apiKeyKey, observabilityPipelineDatadogLogsDestinationRoute.apiKeyKey)
         && Objects.equals(this.include, observabilityPipelineDatadogLogsDestinationRoute.include)
+        && Objects.equals(this.name, observabilityPipelineDatadogLogsDestinationRoute.name)
         && Objects.equals(this.routeId, observabilityPipelineDatadogLogsDestinationRoute.routeId)
         && Objects.equals(this.site, observabilityPipelineDatadogLogsDestinationRoute.site)
         && Objects.equals(
@@ -197,7 +223,7 @@ public class ObservabilityPipelineDatadogLogsDestinationRoute {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKeyKey, include, routeId, site, additionalProperties);
+    return Objects.hash(apiKeyKey, include, name, routeId, site, additionalProperties);
   }
 
   @Override
@@ -206,6 +232,7 @@ public class ObservabilityPipelineDatadogLogsDestinationRoute {
     sb.append("class ObservabilityPipelineDatadogLogsDestinationRoute {\n");
     sb.append("    apiKeyKey: ").append(toIndentedString(apiKeyKey)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    routeId: ").append(toIndentedString(routeId)).append("\n");
     sb.append("    site: ").append(toIndentedString(site)).append("\n");
     sb.append("    additionalProperties: ")

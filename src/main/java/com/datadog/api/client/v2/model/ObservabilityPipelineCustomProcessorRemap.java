@@ -23,6 +23,7 @@ import java.util.Objects;
   ObservabilityPipelineCustomProcessorRemap.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineCustomProcessorRemap.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineCustomProcessorRemap.JSON_PROPERTY_NAME,
+  ObservabilityPipelineCustomProcessorRemap.JSON_PROPERTY_SAMPLE,
   ObservabilityPipelineCustomProcessorRemap.JSON_PROPERTY_SOURCE
 })
 @jakarta.annotation.Generated(
@@ -40,6 +41,9 @@ public class ObservabilityPipelineCustomProcessorRemap {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SAMPLE = "sample";
+  private String sample;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private String source;
@@ -139,6 +143,27 @@ public class ObservabilityPipelineCustomProcessorRemap {
     this.name = name;
   }
 
+  public ObservabilityPipelineCustomProcessorRemap sample(String sample) {
+    this.sample = sample;
+    return this;
+  }
+
+  /**
+   * A sample event used to test the VRL script in the pipeline editor.
+   *
+   * @return sample
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SAMPLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSample() {
+    return sample;
+  }
+
+  public void setSample(String sample) {
+    this.sample = sample;
+  }
+
   public ObservabilityPipelineCustomProcessorRemap source(String source) {
     this.source = source;
     return this;
@@ -220,6 +245,7 @@ public class ObservabilityPipelineCustomProcessorRemap {
         && Objects.equals(this.enabled, observabilityPipelineCustomProcessorRemap.enabled)
         && Objects.equals(this.include, observabilityPipelineCustomProcessorRemap.include)
         && Objects.equals(this.name, observabilityPipelineCustomProcessorRemap.name)
+        && Objects.equals(this.sample, observabilityPipelineCustomProcessorRemap.sample)
         && Objects.equals(this.source, observabilityPipelineCustomProcessorRemap.source)
         && Objects.equals(
             this.additionalProperties,
@@ -228,7 +254,7 @@ public class ObservabilityPipelineCustomProcessorRemap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dropOnError, enabled, include, name, source, additionalProperties);
+    return Objects.hash(dropOnError, enabled, include, name, sample, source, additionalProperties);
   }
 
   @Override
@@ -239,6 +265,7 @@ public class ObservabilityPipelineCustomProcessorRemap {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sample: ").append(toIndentedString(sample)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
