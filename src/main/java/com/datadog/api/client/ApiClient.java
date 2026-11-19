@@ -1625,11 +1625,8 @@ public class ApiClient {
           put("v2.removeRoleFromRestrictionQuery", false);
           put("v2.replaceRestrictionQuery", false);
           put("v2.updateRestrictionQuery", false);
-          put("v2.createHistoricalMetricsConfiguration", false);
           put("v2.createTagIndexingRuleExemption", false);
-          put("v2.deleteHistoricalMetricsConfiguration", false);
           put("v2.deleteTagIndexingRuleExemption", false);
-          put("v2.getHistoricalMetricsConfiguration", false);
           put("v2.getTagIndexingRuleExemption", false);
           put("v2.listTagIndexingRuleExemptions", false);
           put("v2.updateTagIndexingRuleExemption", false);
