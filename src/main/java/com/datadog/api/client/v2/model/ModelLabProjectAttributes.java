@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a Model Lab project. */
@@ -31,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ModelLabProjectAttributes.JSON_PROPERTY_IS_STARRED,
   ModelLabProjectAttributes.JSON_PROPERTY_NAME,
   ModelLabProjectAttributes.JSON_PROPERTY_OWNER_ID,
+  ModelLabProjectAttributes.JSON_PROPERTY_OWNER_IDS,
   ModelLabProjectAttributes.JSON_PROPERTY_TAGS,
   ModelLabProjectAttributes.JSON_PROPERTY_UPDATED_AT
 })
@@ -61,6 +63,9 @@ public class ModelLabProjectAttributes {
 
   public static final String JSON_PROPERTY_OWNER_ID = "owner_id";
   private JsonNullable<String> ownerId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_OWNER_IDS = "owner_ids";
+  private List<UUID> ownerIds = null;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<ModelLabTag> tags = new ArrayList<>();
@@ -260,7 +265,7 @@ public class ModelLabProjectAttributes {
   }
 
   /**
-   * The UUID of the project owner.
+   * The UUID of the user that created the project. The creator is always an owner of the project.
    *
    * @return ownerId
    */
@@ -283,6 +288,35 @@ public class ModelLabProjectAttributes {
 
   public void setOwnerId(String ownerId) {
     this.ownerId = JsonNullable.<String>of(ownerId);
+  }
+
+  public ModelLabProjectAttributes ownerIds(List<UUID> ownerIds) {
+    this.ownerIds = ownerIds;
+    return this;
+  }
+
+  public ModelLabProjectAttributes addOwnerIdsItem(UUID ownerIdsItem) {
+    if (this.ownerIds == null) {
+      this.ownerIds = new ArrayList<>();
+    }
+    this.ownerIds.add(ownerIdsItem);
+    return this;
+  }
+
+  /**
+   * The UUIDs of the project's owners besides its creator, in the order they became owners.
+   *
+   * @return ownerIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OWNER_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UUID> getOwnerIds() {
+    return ownerIds;
+  }
+
+  public void setOwnerIds(List<UUID> ownerIds) {
+    this.ownerIds = ownerIds;
   }
 
   public ModelLabProjectAttributes tags(List<ModelLabTag> tags) {
@@ -404,6 +438,7 @@ public class ModelLabProjectAttributes {
         && Objects.equals(this.isStarred, modelLabProjectAttributes.isStarred)
         && Objects.equals(this.name, modelLabProjectAttributes.name)
         && Objects.equals(this.ownerId, modelLabProjectAttributes.ownerId)
+        && Objects.equals(this.ownerIds, modelLabProjectAttributes.ownerIds)
         && Objects.equals(this.tags, modelLabProjectAttributes.tags)
         && Objects.equals(this.updatedAt, modelLabProjectAttributes.updatedAt)
         && Objects.equals(
@@ -421,6 +456,7 @@ public class ModelLabProjectAttributes {
         isStarred,
         name,
         ownerId,
+        ownerIds,
         tags,
         updatedAt,
         additionalProperties);
@@ -440,6 +476,7 @@ public class ModelLabProjectAttributes {
     sb.append("    isStarred: ").append(toIndentedString(isStarred)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
+    sb.append("    ownerIds: ").append(toIndentedString(ownerIds)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ")

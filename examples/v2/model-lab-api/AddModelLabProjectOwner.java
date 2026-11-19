@@ -1,0 +1,26 @@
+// Add an owner to a Model Lab project returns "No Content" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.ModelLabApiApi;
+import java.util.UUID;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    defaultClient.setUnstableOperationEnabled("v2.addModelLabProjectOwner", true);
+    ModelLabApiApi apiInstance = new ModelLabApiApi(defaultClient);
+
+    try {
+      apiInstance.addModelLabProjectOwner(
+          1L, UUID.fromString("00000000-0000-0000-0000-000000000001"));
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ModelLabApiApi#addModelLabProjectOwner");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
