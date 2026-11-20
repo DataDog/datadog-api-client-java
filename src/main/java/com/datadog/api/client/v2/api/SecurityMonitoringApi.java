@@ -88,6 +88,9 @@ import com.datadog.api.client.v2.model.NotificationRuleResponse;
 import com.datadog.api.client.v2.model.NotificationRulesListResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RecentlyUpdatedEntitiesResponse;
+import com.datadog.api.client.v2.model.RemediationGroupData;
+import com.datadog.api.client.v2.model.RemediationGroupFindingType;
+import com.datadog.api.client.v2.model.RemediationGroupInclude;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
 import com.datadog.api.client.v2.model.SBOMFormat;
@@ -100,6 +103,7 @@ import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionsStatusFil
 import com.datadog.api.client.v2.model.SastRulesetResponse;
 import com.datadog.api.client.v2.model.SastRulesetsResponse;
 import com.datadog.api.client.v2.model.ScannedAssetsMetadata;
+import com.datadog.api.client.v2.model.SearchRemediationGroupsResponse;
 import com.datadog.api.client.v2.model.SecretRuleArray;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
@@ -29738,6 +29742,369 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<JobCreateResponse>() {});
+  }
+
+  /** Manage optional parameters to searchRemediationGroups. */
+  public static class SearchRemediationGroupsOptionalParameters {
+    private List<RemediationGroupFindingType> filterFindingType;
+    private String filterQuery;
+    private String sort;
+    private Long pageSize;
+    private Long pageNumber;
+    private RemediationGroupInclude include;
+
+    /**
+     * Set filterFindingType.
+     *
+     * @param filterFindingType Returns only groups whose grouping definition covers this <code>
+     *     @finding_type</code> value. To match more than one finding type, repeat the parameter.
+     *     (optional)
+     * @return SearchRemediationGroupsOptionalParameters
+     */
+    public SearchRemediationGroupsOptionalParameters filterFindingType(
+        List<RemediationGroupFindingType> filterFindingType) {
+      this.filterFindingType = filterFindingType;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery Returns only groups with at least one open finding that matches the query.
+     *     Use the security findings search syntax with attributes from the <a
+     *     href="https://docs.datadoghq.com/security/guide/findings-schema/">security findings
+     *     schema</a>, prefixed by <code>@</code>. For example, <code>@severity:(critical OR high)
+     *     </code> returns groups with at least one critical or high finding. The group's counts
+     *     still include every finding in the group. The query can be at most 2048 bytes after JSON
+     *     encoding, and the parameter can appear only once. (optional)
+     * @return SearchRemediationGroupsOptionalParameters
+     */
+    public SearchRemediationGroupsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Comma-separated list of sort fields. Prefix a field with <code>-</code> to sort
+     *     in descending order. <code>findings.by_severity</code> sorts by the critical count, then
+     *     high, medium, low, info, none, and unknown. <code>findings.total</code> sorts by the
+     *     total finding count. By default, groups are sorted by critical count, then high count,
+     *     then total finding count, all in descending order. (optional)
+     * @return SearchRemediationGroupsOptionalParameters
+     */
+    public SearchRemediationGroupsOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of groups in a page. (optional, default to 50)
+     * @return SearchRemediationGroupsOptionalParameters
+     */
+    public SearchRemediationGroupsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page to return, starting at 1. (optional, default to 1)
+     * @return SearchRemediationGroupsOptionalParameters
+     */
+    public SearchRemediationGroupsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Adds each group's case to <code>included</code>. <code>case</code> is the only
+     *     supported value. (optional)
+     * @return SearchRemediationGroupsOptionalParameters
+     */
+    public SearchRemediationGroupsOptionalParameters include(RemediationGroupInclude include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Search remediation groups.
+   *
+   * <p>See {@link #searchRemediationGroupsWithHttpInfo}.
+   *
+   * @return SearchRemediationGroupsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SearchRemediationGroupsResponse searchRemediationGroups() throws ApiException {
+    return searchRemediationGroupsWithHttpInfo(new SearchRemediationGroupsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Search remediation groups.
+   *
+   * <p>See {@link #searchRemediationGroupsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SearchRemediationGroupsResponse&gt;
+   */
+  public CompletableFuture<SearchRemediationGroupsResponse> searchRemediationGroupsAsync() {
+    return searchRemediationGroupsWithHttpInfoAsync(new SearchRemediationGroupsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search remediation groups.
+   *
+   * <p>See {@link #searchRemediationGroupsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SearchRemediationGroupsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SearchRemediationGroupsResponse searchRemediationGroups(
+      SearchRemediationGroupsOptionalParameters parameters) throws ApiException {
+    return searchRemediationGroupsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Search remediation groups.
+   *
+   * <p>See {@link #searchRemediationGroupsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SearchRemediationGroupsResponse&gt;
+   */
+  public CompletableFuture<SearchRemediationGroupsResponse> searchRemediationGroupsAsync(
+      SearchRemediationGroupsOptionalParameters parameters) {
+    return searchRemediationGroupsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search remediation groups.
+   *
+   * <p>See {@link #searchRemediationGroupsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;RemediationGroupData&gt;
+   */
+  public PaginationIterable<RemediationGroupData> searchRemediationGroupsWithPagination() {
+    SearchRemediationGroupsOptionalParameters parameters =
+        new SearchRemediationGroupsOptionalParameters();
+    return searchRemediationGroupsWithPagination(parameters);
+  }
+
+  /**
+   * Search remediation groups.
+   *
+   * <p>See {@link #searchRemediationGroupsWithHttpInfo}.
+   *
+   * @return SearchRemediationGroupsResponse
+   */
+  public PaginationIterable<RemediationGroupData> searchRemediationGroupsWithPagination(
+      SearchRemediationGroupsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(1l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 50l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchRemediationGroups",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            1);
+
+    return iterator;
+  }
+
+  /**
+   * Search the remediation groups of your organization. A remediation group gathers the open
+   * security findings that one change fixes, such as updating a package in a repository or
+   * upgrading an image.
+   *
+   * <p>Each group comes from a grouping definition, which sets the finding type it covers and the
+   * kind object the group returns:
+   *
+   * <p>| Grouping definition | Finding type | Kind object | | ---------------------- |
+   * ---------------------------------- | ---------------- | | <code>sca.package_update</code> |
+   * <code>library_vulnerability</code> | <code>package_update</code> | | <code>cloudvm.image_update
+   * </code> | <code>host_and_container_vulnerability</code> | <code>image_update</code> |
+   *
+   * <p>Groups are computed from the attributes of security findings, described in the <a
+   * href="https://docs.datadoghq.com/security/guide/findings-schema/">security findings schema</a>.
+   * The description of each kind object lists the findings its grouping definition reads and the
+   * attribute each field comes from.
+   *
+   * <p>The search includes all open findings, regardless of when they were first detected.
+   *
+   * <p>This endpoint requires the <code>cases_read</code> permission and either the <code>
+   * security_monitoring_findings_read</code> or <code>appsec_vm_read</code> permission.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SearchRemediationGroupsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SearchRemediationGroupsResponse> searchRemediationGroupsWithHttpInfo(
+      SearchRemediationGroupsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchRemediationGroups";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    List<RemediationGroupFindingType> filterFindingType = parameters.filterFindingType;
+    String filterQuery = parameters.filterQuery;
+    String sort = parameters.sort;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    RemediationGroupInclude include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/remediation_groups";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[finding_type]", filterFindingType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.searchRemediationGroups",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SearchRemediationGroupsResponse>() {});
+  }
+
+  /**
+   * Search remediation groups.
+   *
+   * <p>See {@link #searchRemediationGroupsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SearchRemediationGroupsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SearchRemediationGroupsResponse>>
+      searchRemediationGroupsWithHttpInfoAsync(
+          SearchRemediationGroupsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "searchRemediationGroups";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SearchRemediationGroupsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    List<RemediationGroupFindingType> filterFindingType = parameters.filterFindingType;
+    String filterQuery = parameters.filterQuery;
+    String sort = parameters.sort;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    RemediationGroupInclude include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/remediation_groups";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[finding_type]", filterFindingType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.searchRemediationGroups",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SearchRemediationGroupsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SearchRemediationGroupsResponse>() {});
   }
 
   /**
