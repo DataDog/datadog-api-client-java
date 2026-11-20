@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeCreateRequestAttributes.JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION,
   DowntimeCreateRequestAttributes.JSON_PROPERTY_NOTIFY_END_STATES,
   DowntimeCreateRequestAttributes.JSON_PROPERTY_NOTIFY_END_TYPES,
+  DowntimeCreateRequestAttributes.JSON_PROPERTY_RUN_AS,
   DowntimeCreateRequestAttributes.JSON_PROPERTY_SCHEDULE,
   DowntimeCreateRequestAttributes.JSON_PROPERTY_SCOPE
 })
@@ -53,6 +54,9 @@ public class DowntimeCreateRequestAttributes {
 
   public static final String JSON_PROPERTY_NOTIFY_END_TYPES = "notify_end_types";
   private List<DowntimeNotifyEndStateActions> notifyEndTypes = null;
+
+  public static final String JSON_PROPERTY_RUN_AS = "run_as";
+  private List<DowntimeRunAsItem> runAs = null;
 
   public static final String JSON_PROPERTY_SCHEDULE = "schedule";
   private DowntimeScheduleCreateRequest schedule;
@@ -249,6 +253,49 @@ public class DowntimeCreateRequestAttributes {
     this.notifyEndTypes = notifyEndTypes;
   }
 
+  public DowntimeCreateRequestAttributes runAs(List<DowntimeRunAsItem> runAs) {
+    this.runAs = runAs;
+    if (runAs != null) {
+      for (DowntimeRunAsItem item : runAs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public DowntimeCreateRequestAttributes addRunAsItem(DowntimeRunAsItem runAsItem) {
+    if (this.runAs == null) {
+      this.runAs = new ArrayList<>();
+    }
+    this.runAs.add(runAsItem);
+    this.unparsed |= runAsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The user the downtime runs as. The downtime only silences monitors this user can mute.
+   *
+   * <p><strong>Note</strong>: This feature is currently in Preview and may not be available for all
+   * organizations.
+   *
+   * @return runAs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DowntimeRunAsItem> getRunAs() {
+    return runAs;
+  }
+
+  public void setRunAs(List<DowntimeRunAsItem> runAs) {
+    this.runAs = runAs;
+    if (runAs != null) {
+      for (DowntimeRunAsItem item : runAs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
   public DowntimeCreateRequestAttributes schedule(DowntimeScheduleCreateRequest schedule) {
     this.schedule = schedule;
     this.unparsed |= schedule.unparsed;
@@ -360,6 +407,7 @@ public class DowntimeCreateRequestAttributes {
             downtimeCreateRequestAttributes.muteFirstRecoveryNotification)
         && Objects.equals(this.notifyEndStates, downtimeCreateRequestAttributes.notifyEndStates)
         && Objects.equals(this.notifyEndTypes, downtimeCreateRequestAttributes.notifyEndTypes)
+        && Objects.equals(this.runAs, downtimeCreateRequestAttributes.runAs)
         && Objects.equals(this.schedule, downtimeCreateRequestAttributes.schedule)
         && Objects.equals(this.scope, downtimeCreateRequestAttributes.scope)
         && Objects.equals(
@@ -375,6 +423,7 @@ public class DowntimeCreateRequestAttributes {
         muteFirstRecoveryNotification,
         notifyEndStates,
         notifyEndTypes,
+        runAs,
         schedule,
         scope,
         additionalProperties);
@@ -392,6 +441,7 @@ public class DowntimeCreateRequestAttributes {
         .append("\n");
     sb.append("    notifyEndStates: ").append(toIndentedString(notifyEndStates)).append("\n");
     sb.append("    notifyEndTypes: ").append(toIndentedString(notifyEndTypes)).append("\n");
+    sb.append("    runAs: ").append(toIndentedString(runAs)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    additionalProperties: ")

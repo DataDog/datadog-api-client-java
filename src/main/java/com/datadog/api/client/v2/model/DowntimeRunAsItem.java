@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,53 +19,46 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A set of principals allowed to act on behalf of the downtime. */
+/** A set of principals the downtime runs as. */
 @JsonPropertyOrder({DowntimeRunAsItem.JSON_PROPERTY_PRINCIPALS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimeRunAsItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PRINCIPALS = "principals";
-  private List<DowntimeRunAsPrincipal> principals = null;
+  private List<String> principals = new ArrayList<>();
 
-  public DowntimeRunAsItem principals(List<DowntimeRunAsPrincipal> principals) {
+  public DowntimeRunAsItem() {}
+
+  @JsonCreator
+  public DowntimeRunAsItem(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PRINCIPALS) List<String> principals) {
     this.principals = principals;
-    if (principals != null) {
-      for (DowntimeRunAsPrincipal item : principals) {
-        this.unparsed |= item.unparsed;
-      }
-    }
+  }
+
+  public DowntimeRunAsItem principals(List<String> principals) {
+    this.principals = principals;
     return this;
   }
 
-  public DowntimeRunAsItem addPrincipalsItem(DowntimeRunAsPrincipal principalsItem) {
-    if (this.principals == null) {
-      this.principals = new ArrayList<>();
-    }
+  public DowntimeRunAsItem addPrincipalsItem(String principalsItem) {
     this.principals.add(principalsItem);
-    this.unparsed |= principalsItem.unparsed;
     return this;
   }
 
   /**
-   * List of principals allowed to act on behalf of the downtime.
+   * The principal the downtime runs as. Only one user is supported.
    *
    * @return principals
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRINCIPALS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DowntimeRunAsPrincipal> getPrincipals() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getPrincipals() {
     return principals;
   }
 
-  public void setPrincipals(List<DowntimeRunAsPrincipal> principals) {
+  public void setPrincipals(List<String> principals) {
     this.principals = principals;
-    if (principals != null) {
-      for (DowntimeRunAsPrincipal item : principals) {
-        this.unparsed |= item.unparsed;
-      }
-    }
   }
 
   /**
