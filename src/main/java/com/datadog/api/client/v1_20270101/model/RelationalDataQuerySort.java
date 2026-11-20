@@ -1,0 +1,108 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v1_20270101.model;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+/** Test-only generated schema for the dashboard versioning proof of concept. */
+@JsonPropertyOrder({RelationalDataQuerySort.JSON_PROPERTY_FIELDS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class RelationalDataQuerySort {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FIELDS = "fields";
+  private List<DatasetSortField> fields = new ArrayList<>();
+
+  public RelationalDataQuerySort() {}
+
+  @JsonCreator
+  public RelationalDataQuerySort(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FIELDS) List<DatasetSortField> fields) {
+    this.fields = fields;
+    for (DatasetSortField item : fields) {
+      this.unparsed |= item.unparsed;
+    }
+  }
+
+  public RelationalDataQuerySort fields(List<DatasetSortField> fields) {
+    this.fields = fields;
+    for (DatasetSortField item : fields) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public RelationalDataQuerySort addFieldsItem(DatasetSortField fieldsItem) {
+    this.fields.add(fieldsItem);
+    this.unparsed |= fieldsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Test-only generated schema for the dashboard versioning proof of concept.
+   *
+   * @return fields
+   */
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<DatasetSortField> getFields() {
+    return fields;
+  }
+
+  public void setFields(List<DatasetSortField> fields) {
+    this.fields = fields;
+    if (fields != null) {
+      for (DatasetSortField item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
+  /** Return true if this RelationalDataQuerySort object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    RelationalDataQuerySort relationalDataQuerySort = (RelationalDataQuerySort) o;
+    return Objects.equals(this.fields, relationalDataQuerySort.fields);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(fields);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RelationalDataQuerySort {\n");
+    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append('}');
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
