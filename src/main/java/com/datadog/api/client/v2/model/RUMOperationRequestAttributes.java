@@ -52,7 +52,7 @@ public class RUMOperationRequestAttributes {
   private List<String> featureIds = null;
 
   public static final String JSON_PROPERTY_JOURNEY_RUM = "journey_rum";
-  private RUMOperationJourneyRum journeyRum;
+  private RUMOperationJourneyRUM journeyRum;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -65,7 +65,7 @@ public class RUMOperationRequestAttributes {
   @JsonCreator
   public RUMOperationRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_JOURNEY_RUM)
-          RUMOperationJourneyRum journeyRum,
+          RUMOperationJourneyRUM journeyRum,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
     this.journeyRum = journeyRum;
@@ -207,7 +207,7 @@ public class RUMOperationRequestAttributes {
     this.featureIds = featureIds;
   }
 
-  public RUMOperationRequestAttributes journeyRum(RUMOperationJourneyRum journeyRum) {
+  public RUMOperationRequestAttributes journeyRum(RUMOperationJourneyRUM journeyRum) {
     this.journeyRum = journeyRum;
     this.unparsed |= journeyRum.unparsed;
     return this;
@@ -220,11 +220,11 @@ public class RUMOperationRequestAttributes {
    */
   @JsonProperty(JSON_PROPERTY_JOURNEY_RUM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RUMOperationJourneyRum getJourneyRum() {
+  public RUMOperationJourneyRUM getJourneyRum() {
     return journeyRum;
   }
 
-  public void setJourneyRum(RUMOperationJourneyRum journeyRum) {
+  public void setJourneyRum(RUMOperationJourneyRUM journeyRum) {
     this.journeyRum = journeyRum;
     if (journeyRum != null) {
       this.unparsed |= journeyRum.unparsed;

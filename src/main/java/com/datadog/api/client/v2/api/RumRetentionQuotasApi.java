@@ -4,9 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.RumRetentionQuotaConfigResponse;
-import com.datadog.api.client.v2.model.RumRetentionQuotaConfigUpdateRequest;
-import com.datadog.api.client.v2.model.RumRetentionQuotaScopeType;
+import com.datadog.api.client.v2.model.RUMRetentionQuotaConfigResponse;
+import com.datadog.api.client.v2.model.RUMRetentionQuotaConfigUpdateRequest;
+import com.datadog.api.client.v2.model.RUMRetentionQuotaScopeType;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class RumRetentionQuotasApi {
   /**
    * Delete a RUM retention quota configuration.
    *
-   * <p>See {@link #deleteRumQuotaConfigWithHttpInfo}.
+   * <p>See {@link #deleteRUMQuotaConfigWithHttpInfo}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required, default to "application")
@@ -56,15 +56,15 @@ public class RumRetentionQuotasApi {
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteRumQuotaConfig(RumRetentionQuotaScopeType scopeType, String scopeId)
+  public void deleteRUMQuotaConfig(RUMRetentionQuotaScopeType scopeType, String scopeId)
       throws ApiException {
-    deleteRumQuotaConfigWithHttpInfo(scopeType, scopeId);
+    deleteRUMQuotaConfigWithHttpInfo(scopeType, scopeId);
   }
 
   /**
    * Delete a RUM retention quota configuration.
    *
-   * <p>See {@link #deleteRumQuotaConfigWithHttpInfoAsync}.
+   * <p>See {@link #deleteRUMQuotaConfigWithHttpInfoAsync}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required, default to "application")
@@ -72,9 +72,9 @@ public class RumRetentionQuotasApi {
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteRumQuotaConfigAsync(
-      RumRetentionQuotaScopeType scopeType, String scopeId) {
-    return deleteRumQuotaConfigWithHttpInfoAsync(scopeType, scopeId)
+  public CompletableFuture<Void> deleteRUMQuotaConfigAsync(
+      RUMRetentionQuotaScopeType scopeType, String scopeId) {
+    return deleteRUMQuotaConfigWithHttpInfoAsync(scopeType, scopeId)
         .thenApply(
             response -> {
               return response.getData();
@@ -102,20 +102,20 @@ public class RumRetentionQuotasApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteRumQuotaConfigWithHttpInfo(
-      RumRetentionQuotaScopeType scopeType, String scopeId) throws ApiException {
+  public ApiResponse<Void> deleteRUMQuotaConfigWithHttpInfo(
+      RUMRetentionQuotaScopeType scopeType, String scopeId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'scopeType' is set
     if (scopeType == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'scopeType' when calling deleteRumQuotaConfig");
+          400, "Missing the required parameter 'scopeType' when calling deleteRUMQuotaConfig");
     }
 
     // verify the required parameter 'scopeId' is set
     if (scopeId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'scopeId' when calling deleteRumQuotaConfig");
+          400, "Missing the required parameter 'scopeId' when calling deleteRUMQuotaConfig");
     }
     // create path and map variables
     String localVarPath =
@@ -127,7 +127,7 @@ public class RumRetentionQuotasApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRetentionQuotasApi.deleteRumQuotaConfig",
+            "v2.RumRetentionQuotasApi.deleteRUMQuotaConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -148,7 +148,7 @@ public class RumRetentionQuotasApi {
   /**
    * Delete a RUM retention quota configuration.
    *
-   * <p>See {@link #deleteRumQuotaConfigWithHttpInfo}.
+   * <p>See {@link #deleteRUMQuotaConfigWithHttpInfo}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required)
@@ -156,8 +156,8 @@ public class RumRetentionQuotasApi {
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteRumQuotaConfigWithHttpInfoAsync(
-      RumRetentionQuotaScopeType scopeType, String scopeId) {
+  public CompletableFuture<ApiResponse<Void>> deleteRUMQuotaConfigWithHttpInfoAsync(
+      RUMRetentionQuotaScopeType scopeType, String scopeId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'scopeType' is set
@@ -165,7 +165,7 @@ public class RumRetentionQuotasApi {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'scopeType' when calling deleteRumQuotaConfig"));
+              400, "Missing the required parameter 'scopeType' when calling deleteRUMQuotaConfig"));
       return result;
     }
 
@@ -174,7 +174,7 @@ public class RumRetentionQuotasApi {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'scopeId' when calling deleteRumQuotaConfig"));
+              400, "Missing the required parameter 'scopeId' when calling deleteRUMQuotaConfig"));
       return result;
     }
     // create path and map variables
@@ -189,7 +189,7 @@ public class RumRetentionQuotasApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRetentionQuotasApi.deleteRumQuotaConfig",
+              "v2.RumRetentionQuotasApi.deleteRUMQuotaConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -215,34 +215,34 @@ public class RumRetentionQuotasApi {
   /**
    * Get a RUM retention quota configuration.
    *
-   * <p>See {@link #getRumQuotaConfigWithHttpInfo}.
+   * <p>See {@link #getRUMQuotaConfigWithHttpInfo}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
-   * @return RumRetentionQuotaConfigResponse
+   * @return RUMRetentionQuotaConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRetentionQuotaConfigResponse getRumQuotaConfig(
-      RumRetentionQuotaScopeType scopeType, String scopeId) throws ApiException {
-    return getRumQuotaConfigWithHttpInfo(scopeType, scopeId).getData();
+  public RUMRetentionQuotaConfigResponse getRUMQuotaConfig(
+      RUMRetentionQuotaScopeType scopeType, String scopeId) throws ApiException {
+    return getRUMQuotaConfigWithHttpInfo(scopeType, scopeId).getData();
   }
 
   /**
    * Get a RUM retention quota configuration.
    *
-   * <p>See {@link #getRumQuotaConfigWithHttpInfoAsync}.
+   * <p>See {@link #getRUMQuotaConfigWithHttpInfoAsync}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
-   * @return CompletableFuture&lt;RumRetentionQuotaConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMRetentionQuotaConfigResponse&gt;
    */
-  public CompletableFuture<RumRetentionQuotaConfigResponse> getRumQuotaConfigAsync(
-      RumRetentionQuotaScopeType scopeType, String scopeId) {
-    return getRumQuotaConfigWithHttpInfoAsync(scopeType, scopeId)
+  public CompletableFuture<RUMRetentionQuotaConfigResponse> getRUMQuotaConfigAsync(
+      RUMRetentionQuotaScopeType scopeType, String scopeId) {
+    return getRUMQuotaConfigWithHttpInfoAsync(scopeType, scopeId)
         .thenApply(
             response -> {
               return response.getData();
@@ -256,7 +256,7 @@ public class RumRetentionQuotasApi {
    *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
-   * @return ApiResponse&lt;RumRetentionQuotaConfigResponse&gt;
+   * @return ApiResponse&lt;RUMRetentionQuotaConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -270,20 +270,20 @@ public class RumRetentionQuotasApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRetentionQuotaConfigResponse> getRumQuotaConfigWithHttpInfo(
-      RumRetentionQuotaScopeType scopeType, String scopeId) throws ApiException {
+  public ApiResponse<RUMRetentionQuotaConfigResponse> getRUMQuotaConfigWithHttpInfo(
+      RUMRetentionQuotaScopeType scopeType, String scopeId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'scopeType' is set
     if (scopeType == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'scopeType' when calling getRumQuotaConfig");
+          400, "Missing the required parameter 'scopeType' when calling getRUMQuotaConfig");
     }
 
     // verify the required parameter 'scopeId' is set
     if (scopeId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'scopeId' when calling getRumQuotaConfig");
+          400, "Missing the required parameter 'scopeId' when calling getRUMQuotaConfig");
     }
     // create path and map variables
     String localVarPath =
@@ -295,7 +295,7 @@ public class RumRetentionQuotasApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRetentionQuotasApi.getRumQuotaConfig",
+            "v2.RumRetentionQuotasApi.getRUMQuotaConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -310,41 +310,41 @@ public class RumRetentionQuotasApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRetentionQuotaConfigResponse>() {});
+        new GenericType<RUMRetentionQuotaConfigResponse>() {});
   }
 
   /**
    * Get a RUM retention quota configuration.
    *
-   * <p>See {@link #getRumQuotaConfigWithHttpInfo}.
+   * <p>See {@link #getRUMQuotaConfigWithHttpInfo}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionQuotaConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMRetentionQuotaConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>>
-      getRumQuotaConfigWithHttpInfoAsync(RumRetentionQuotaScopeType scopeType, String scopeId) {
+  public CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>>
+      getRUMQuotaConfigWithHttpInfoAsync(RUMRetentionQuotaScopeType scopeType, String scopeId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'scopeType' is set
     if (scopeType == null) {
-      CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>> result =
+      CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'scopeType' when calling getRumQuotaConfig"));
+              400, "Missing the required parameter 'scopeType' when calling getRUMQuotaConfig"));
       return result;
     }
 
     // verify the required parameter 'scopeId' is set
     if (scopeId == null) {
-      CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>> result =
+      CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'scopeId' when calling getRumQuotaConfig"));
+              400, "Missing the required parameter 'scopeId' when calling getRUMQuotaConfig"));
       return result;
     }
     // create path and map variables
@@ -359,7 +359,7 @@ public class RumRetentionQuotasApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRetentionQuotasApi.getRumQuotaConfig",
+              "v2.RumRetentionQuotasApi.getRUMQuotaConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -367,7 +367,7 @@ public class RumRetentionQuotasApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>> result =
+      CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -380,13 +380,13 @@ public class RumRetentionQuotasApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRetentionQuotaConfigResponse>() {});
+        new GenericType<RUMRetentionQuotaConfigResponse>() {});
   }
 
   /**
    * Create or update a RUM retention quota config.
    *
-   * <p>See {@link #upsertRumQuotaConfigWithHttpInfo}.
+   * <p>See {@link #upsertRUMQuotaConfigWithHttpInfo}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required, default to "application")
@@ -394,21 +394,21 @@ public class RumRetentionQuotasApi {
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
    *     (required)
-   * @return RumRetentionQuotaConfigResponse
+   * @return RUMRetentionQuotaConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRetentionQuotaConfigResponse upsertRumQuotaConfig(
-      RumRetentionQuotaScopeType scopeType,
+  public RUMRetentionQuotaConfigResponse upsertRUMQuotaConfig(
+      RUMRetentionQuotaScopeType scopeType,
       String scopeId,
-      RumRetentionQuotaConfigUpdateRequest body)
+      RUMRetentionQuotaConfigUpdateRequest body)
       throws ApiException {
-    return upsertRumQuotaConfigWithHttpInfo(scopeType, scopeId, body).getData();
+    return upsertRUMQuotaConfigWithHttpInfo(scopeType, scopeId, body).getData();
   }
 
   /**
    * Create or update a RUM retention quota config.
    *
-   * <p>See {@link #upsertRumQuotaConfigWithHttpInfoAsync}.
+   * <p>See {@link #upsertRUMQuotaConfigWithHttpInfoAsync}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required, default to "application")
@@ -416,13 +416,13 @@ public class RumRetentionQuotasApi {
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
    *     (required)
-   * @return CompletableFuture&lt;RumRetentionQuotaConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMRetentionQuotaConfigResponse&gt;
    */
-  public CompletableFuture<RumRetentionQuotaConfigResponse> upsertRumQuotaConfigAsync(
-      RumRetentionQuotaScopeType scopeType,
+  public CompletableFuture<RUMRetentionQuotaConfigResponse> upsertRUMQuotaConfigAsync(
+      RUMRetentionQuotaScopeType scopeType,
       String scopeId,
-      RumRetentionQuotaConfigUpdateRequest body) {
-    return upsertRumQuotaConfigWithHttpInfoAsync(scopeType, scopeId, body)
+      RUMRetentionQuotaConfigUpdateRequest body) {
+    return upsertRUMQuotaConfigWithHttpInfoAsync(scopeType, scopeId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -439,7 +439,7 @@ public class RumRetentionQuotasApi {
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
    *     (required)
-   * @return ApiResponse&lt;RumRetentionQuotaConfigResponse&gt;
+   * @return ApiResponse&lt;RUMRetentionQuotaConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -453,29 +453,29 @@ public class RumRetentionQuotasApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRetentionQuotaConfigResponse> upsertRumQuotaConfigWithHttpInfo(
-      RumRetentionQuotaScopeType scopeType,
+  public ApiResponse<RUMRetentionQuotaConfigResponse> upsertRUMQuotaConfigWithHttpInfo(
+      RUMRetentionQuotaScopeType scopeType,
       String scopeId,
-      RumRetentionQuotaConfigUpdateRequest body)
+      RUMRetentionQuotaConfigUpdateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'scopeType' is set
     if (scopeType == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'scopeType' when calling upsertRumQuotaConfig");
+          400, "Missing the required parameter 'scopeType' when calling upsertRUMQuotaConfig");
     }
 
     // verify the required parameter 'scopeId' is set
     if (scopeId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'scopeId' when calling upsertRumQuotaConfig");
+          400, "Missing the required parameter 'scopeId' when calling upsertRUMQuotaConfig");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling upsertRumQuotaConfig");
+          400, "Missing the required parameter 'body' when calling upsertRUMQuotaConfig");
     }
     // create path and map variables
     String localVarPath =
@@ -487,7 +487,7 @@ public class RumRetentionQuotasApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRetentionQuotasApi.upsertRumQuotaConfig",
+            "v2.RumRetentionQuotasApi.upsertRUMQuotaConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -502,13 +502,13 @@ public class RumRetentionQuotasApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRetentionQuotaConfigResponse>() {});
+        new GenericType<RUMRetentionQuotaConfigResponse>() {});
   }
 
   /**
    * Create or update a RUM retention quota config.
    *
-   * <p>See {@link #upsertRumQuotaConfigWithHttpInfo}.
+   * <p>See {@link #upsertRUMQuotaConfigWithHttpInfo}.
    *
    * @param scopeType The type of scope the retention quota configuration applies to. <code>
    *     application</code> is the only supported scope type. (required)
@@ -516,42 +516,42 @@ public class RumRetentionQuotasApi {
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
    *     (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionQuotaConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMRetentionQuotaConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>>
-      upsertRumQuotaConfigWithHttpInfoAsync(
-          RumRetentionQuotaScopeType scopeType,
+  public CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>>
+      upsertRUMQuotaConfigWithHttpInfoAsync(
+          RUMRetentionQuotaScopeType scopeType,
           String scopeId,
-          RumRetentionQuotaConfigUpdateRequest body) {
+          RUMRetentionQuotaConfigUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'scopeType' is set
     if (scopeType == null) {
-      CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>> result =
+      CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'scopeType' when calling upsertRumQuotaConfig"));
+              400, "Missing the required parameter 'scopeType' when calling upsertRUMQuotaConfig"));
       return result;
     }
 
     // verify the required parameter 'scopeId' is set
     if (scopeId == null) {
-      CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>> result =
+      CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'scopeId' when calling upsertRumQuotaConfig"));
+              400, "Missing the required parameter 'scopeId' when calling upsertRUMQuotaConfig"));
       return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>> result =
+      CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling upsertRumQuotaConfig"));
+              400, "Missing the required parameter 'body' when calling upsertRUMQuotaConfig"));
       return result;
     }
     // create path and map variables
@@ -566,7 +566,7 @@ public class RumRetentionQuotasApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRetentionQuotasApi.upsertRumQuotaConfig",
+              "v2.RumRetentionQuotasApi.upsertRUMQuotaConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -574,7 +574,7 @@ public class RumRetentionQuotasApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRetentionQuotaConfigResponse>> result =
+      CompletableFuture<ApiResponse<RUMRetentionQuotaConfigResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -587,6 +587,6 @@ public class RumRetentionQuotasApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRetentionQuotaConfigResponse>() {});
+        new GenericType<RUMRetentionQuotaConfigResponse>() {});
   }
 }

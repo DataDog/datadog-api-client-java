@@ -4,10 +4,10 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.RumMetricCreateRequest;
-import com.datadog.api.client.v2.model.RumMetricResponse;
-import com.datadog.api.client.v2.model.RumMetricUpdateRequest;
-import com.datadog.api.client.v2.model.RumMetricsResponse;
+import com.datadog.api.client.v2.model.RUMMetricCreateRequest;
+import com.datadog.api.client.v2.model.RUMMetricResponse;
+import com.datadog.api.client.v2.model.RUMMetricUpdateRequest;
+import com.datadog.api.client.v2.model.RUMMetricsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -49,26 +49,26 @@ public class RumMetricsApi {
   /**
    * Create a RUM-based metric.
    *
-   * <p>See {@link #createRumMetricWithHttpInfo}.
+   * <p>See {@link #createRUMMetricWithHttpInfo}.
    *
    * @param body The definition of the new RUM-based metric. (required)
-   * @return RumMetricResponse
+   * @return RUMMetricResponse
    * @throws ApiException if fails to make API call
    */
-  public RumMetricResponse createRumMetric(RumMetricCreateRequest body) throws ApiException {
-    return createRumMetricWithHttpInfo(body).getData();
+  public RUMMetricResponse createRUMMetric(RUMMetricCreateRequest body) throws ApiException {
+    return createRUMMetricWithHttpInfo(body).getData();
   }
 
   /**
    * Create a RUM-based metric.
    *
-   * <p>See {@link #createRumMetricWithHttpInfoAsync}.
+   * <p>See {@link #createRUMMetricWithHttpInfoAsync}.
    *
    * @param body The definition of the new RUM-based metric. (required)
-   * @return CompletableFuture&lt;RumMetricResponse&gt;
+   * @return CompletableFuture&lt;RUMMetricResponse&gt;
    */
-  public CompletableFuture<RumMetricResponse> createRumMetricAsync(RumMetricCreateRequest body) {
-    return createRumMetricWithHttpInfoAsync(body)
+  public CompletableFuture<RUMMetricResponse> createRUMMetricAsync(RUMMetricCreateRequest body) {
+    return createRUMMetricWithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -80,7 +80,7 @@ public class RumMetricsApi {
    * </code>, is unique within your organization, and cannot be changed after creation. The <code>
    * event_type</code>, <code>compute</code>, and <code>uniqueness</code> settings cannot be changed
    * after creation either. Only <code>filter</code>, <code>group_by</code>, and <code>
-   * compute.include_percentiles</code> can be changed with <code>UpdateRumMetric</code>. <code>
+   * compute.include_percentiles</code> can be changed with <code>UpdateRUMMetric</code>. <code>
    * uniqueness</code> is required when <code>event_type</code> is <code>session</code> or <code>
    * view</code>, and must be omitted for any other event type. When <code>aggregation_type</code>
    * is <code>distribution</code>, <code>include_percentiles</code> is required. When it is <code>
@@ -89,7 +89,7 @@ public class RumMetricsApi {
    * 409 Conflict</code> error if a metric with the same name already exists.
    *
    * @param body The definition of the new RUM-based metric. (required)
-   * @return ApiResponse&lt;RumMetricResponse&gt;
+   * @return ApiResponse&lt;RUMMetricResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -102,14 +102,14 @@ public class RumMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumMetricResponse> createRumMetricWithHttpInfo(RumMetricCreateRequest body)
+  public ApiResponse<RUMMetricResponse> createRUMMetricWithHttpInfo(RUMMetricCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createRumMetric");
+          400, "Missing the required parameter 'body' when calling createRUMMetric");
     }
     // create path and map variables
     String localVarPath = "/api/v2/rum/config/metrics";
@@ -118,7 +118,7 @@ public class RumMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumMetricsApi.createRumMetric",
+            "v2.RumMetricsApi.createRUMMetric",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -133,27 +133,27 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricResponse>() {});
+        new GenericType<RUMMetricResponse>() {});
   }
 
   /**
    * Create a RUM-based metric.
    *
-   * <p>See {@link #createRumMetricWithHttpInfo}.
+   * <p>See {@link #createRUMMetricWithHttpInfo}.
    *
    * @param body The definition of the new RUM-based metric. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMMetricResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumMetricResponse>> createRumMetricWithHttpInfoAsync(
-      RumMetricCreateRequest body) {
+  public CompletableFuture<ApiResponse<RUMMetricResponse>> createRUMMetricWithHttpInfoAsync(
+      RUMMetricCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumMetricResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling createRumMetric"));
+              400, "Missing the required parameter 'body' when calling createRUMMetric"));
       return result;
     }
     // create path and map variables
@@ -165,7 +165,7 @@ public class RumMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumMetricsApi.createRumMetric",
+              "v2.RumMetricsApi.createRUMMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -173,7 +173,7 @@ public class RumMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumMetricResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -185,33 +185,33 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricResponse>() {});
+        new GenericType<RUMMetricResponse>() {});
   }
 
   /**
    * Delete a RUM-based metric.
    *
-   * <p>See {@link #deleteRumMetricWithHttpInfo}.
+   * <p>See {@link #deleteRUMMetricWithHttpInfo}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteRumMetric(String metricId) throws ApiException {
-    deleteRumMetricWithHttpInfo(metricId);
+  public void deleteRUMMetric(String metricId) throws ApiException {
+    deleteRUMMetricWithHttpInfo(metricId);
   }
 
   /**
    * Delete a RUM-based metric.
    *
-   * <p>See {@link #deleteRumMetricWithHttpInfoAsync}.
+   * <p>See {@link #deleteRUMMetricWithHttpInfoAsync}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteRumMetricAsync(String metricId) {
-    return deleteRumMetricWithHttpInfoAsync(metricId)
+  public CompletableFuture<Void> deleteRUMMetricAsync(String metricId) {
+    return deleteRUMMetricWithHttpInfoAsync(metricId)
         .thenApply(
             response -> {
               return response.getData();
@@ -223,7 +223,7 @@ public class RumMetricsApi {
    * generated is not deleted. Deleting a metric cannot be undone.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -236,13 +236,13 @@ public class RumMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteRumMetricWithHttpInfo(String metricId) throws ApiException {
+  public ApiResponse<Void> deleteRUMMetricWithHttpInfo(String metricId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricId' is set
     if (metricId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'metricId' when calling deleteRumMetric");
+          400, "Missing the required parameter 'metricId' when calling deleteRUMMetric");
     }
     // create path and map variables
     String localVarPath =
@@ -253,7 +253,7 @@ public class RumMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumMetricsApi.deleteRumMetric",
+            "v2.RumMetricsApi.deleteRUMMetric",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -274,13 +274,13 @@ public class RumMetricsApi {
   /**
    * Delete a RUM-based metric.
    *
-   * <p>See {@link #deleteRumMetricWithHttpInfo}.
+   * <p>See {@link #deleteRUMMetricWithHttpInfo}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteRumMetricWithHttpInfoAsync(String metricId) {
+  public CompletableFuture<ApiResponse<Void>> deleteRUMMetricWithHttpInfoAsync(String metricId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricId' is set
@@ -288,7 +288,7 @@ public class RumMetricsApi {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'metricId' when calling deleteRumMetric"));
+              400, "Missing the required parameter 'metricId' when calling deleteRUMMetric"));
       return result;
     }
     // create path and map variables
@@ -302,7 +302,7 @@ public class RumMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumMetricsApi.deleteRumMetric",
+              "v2.RumMetricsApi.deleteRUMMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -328,28 +328,28 @@ public class RumMetricsApi {
   /**
    * Get a RUM-based metric.
    *
-   * <p>See {@link #getRumMetricWithHttpInfo}.
+   * <p>See {@link #getRUMMetricWithHttpInfo}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
-   * @return RumMetricResponse
+   *     ListRUMMetrics</code>. (required)
+   * @return RUMMetricResponse
    * @throws ApiException if fails to make API call
    */
-  public RumMetricResponse getRumMetric(String metricId) throws ApiException {
-    return getRumMetricWithHttpInfo(metricId).getData();
+  public RUMMetricResponse getRUMMetric(String metricId) throws ApiException {
+    return getRUMMetricWithHttpInfo(metricId).getData();
   }
 
   /**
    * Get a RUM-based metric.
    *
-   * <p>See {@link #getRumMetricWithHttpInfoAsync}.
+   * <p>See {@link #getRUMMetricWithHttpInfoAsync}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
-   * @return CompletableFuture&lt;RumMetricResponse&gt;
+   *     ListRUMMetrics</code>. (required)
+   * @return CompletableFuture&lt;RUMMetricResponse&gt;
    */
-  public CompletableFuture<RumMetricResponse> getRumMetricAsync(String metricId) {
-    return getRumMetricWithHttpInfoAsync(metricId)
+  public CompletableFuture<RUMMetricResponse> getRUMMetricAsync(String metricId) {
+    return getRUMMetricWithHttpInfoAsync(metricId)
         .thenApply(
             response -> {
               return response.getData();
@@ -358,12 +358,12 @@ public class RumMetricsApi {
 
   /**
    * Get a specific RUM-based metric from your organization. The <code>metric_id</code> is the
-   * metric name returned in <code>data.id</code> by <code>ListRumMetrics</code> and <code>
-   * CreateRumMetric</code>.
+   * metric name returned in <code>data.id</code> by <code>ListRUMMetrics</code> and <code>
+   * CreateRUMMetric</code>.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
-   * @return ApiResponse&lt;RumMetricResponse&gt;
+   *     ListRUMMetrics</code>. (required)
+   * @return ApiResponse&lt;RUMMetricResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -375,14 +375,14 @@ public class RumMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumMetricResponse> getRumMetricWithHttpInfo(String metricId)
+  public ApiResponse<RUMMetricResponse> getRUMMetricWithHttpInfo(String metricId)
       throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricId' is set
     if (metricId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'metricId' when calling getRumMetric");
+          400, "Missing the required parameter 'metricId' when calling getRUMMetric");
     }
     // create path and map variables
     String localVarPath =
@@ -393,7 +393,7 @@ public class RumMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumMetricsApi.getRumMetric",
+            "v2.RumMetricsApi.getRUMMetric",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -408,28 +408,28 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricResponse>() {});
+        new GenericType<RUMMetricResponse>() {});
   }
 
   /**
    * Get a RUM-based metric.
    *
-   * <p>See {@link #getRumMetricWithHttpInfo}.
+   * <p>See {@link #getRUMMetricWithHttpInfo}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
+   *     ListRUMMetrics</code>. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMMetricResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumMetricResponse>> getRumMetricWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<RUMMetricResponse>> getRUMMetricWithHttpInfoAsync(
       String metricId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricId' is set
     if (metricId == null) {
-      CompletableFuture<ApiResponse<RumMetricResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'metricId' when calling getRumMetric"));
+              400, "Missing the required parameter 'metricId' when calling getRUMMetric"));
       return result;
     }
     // create path and map variables
@@ -443,7 +443,7 @@ public class RumMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumMetricsApi.getRumMetric",
+              "v2.RumMetricsApi.getRUMMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -451,7 +451,7 @@ public class RumMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumMetricResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -463,30 +463,30 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricResponse>() {});
+        new GenericType<RUMMetricResponse>() {});
   }
 
   /**
    * Get all RUM-based metrics.
    *
-   * <p>See {@link #listRumMetricsWithHttpInfo}.
+   * <p>See {@link #listRUMMetricsWithHttpInfo}.
    *
-   * @return RumMetricsResponse
+   * @return RUMMetricsResponse
    * @throws ApiException if fails to make API call
    */
-  public RumMetricsResponse listRumMetrics() throws ApiException {
-    return listRumMetricsWithHttpInfo().getData();
+  public RUMMetricsResponse listRUMMetrics() throws ApiException {
+    return listRUMMetricsWithHttpInfo().getData();
   }
 
   /**
    * Get all RUM-based metrics.
    *
-   * <p>See {@link #listRumMetricsWithHttpInfoAsync}.
+   * <p>See {@link #listRUMMetricsWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;RumMetricsResponse&gt;
+   * @return CompletableFuture&lt;RUMMetricsResponse&gt;
    */
-  public CompletableFuture<RumMetricsResponse> listRumMetricsAsync() {
-    return listRumMetricsWithHttpInfoAsync()
+  public CompletableFuture<RUMMetricsResponse> listRUMMetricsAsync() {
+    return listRUMMetricsWithHttpInfoAsync()
         .thenApply(
             response -> {
               return response.getData();
@@ -496,9 +496,9 @@ public class RumMetricsApi {
   /**
    * Get the list of all RUM-based metrics configured for your organization, with their definitions.
    * The list is not paginated. Metrics whose stored definition cannot be converted to the RUM
-   * format are omitted from the list. To retrieve a single metric, use <code>GetRumMetric</code>.
+   * format are omitted from the list. To retrieve a single metric, use <code>GetRUMMetric</code>.
    *
-   * @return ApiResponse&lt;RumMetricsResponse&gt;
+   * @return ApiResponse&lt;RUMMetricsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -509,7 +509,7 @@ public class RumMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumMetricsResponse> listRumMetricsWithHttpInfo() throws ApiException {
+  public ApiResponse<RUMMetricsResponse> listRUMMetricsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/rum/config/metrics";
@@ -518,7 +518,7 @@ public class RumMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumMetricsApi.listRumMetrics",
+            "v2.RumMetricsApi.listRUMMetrics",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -533,17 +533,17 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricsResponse>() {});
+        new GenericType<RUMMetricsResponse>() {});
   }
 
   /**
    * Get all RUM-based metrics.
    *
-   * <p>See {@link #listRumMetricsWithHttpInfo}.
+   * <p>See {@link #listRUMMetricsWithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;RumMetricsResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMMetricsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumMetricsResponse>> listRumMetricsWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<RUMMetricsResponse>> listRUMMetricsWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/rum/config/metrics";
@@ -554,7 +554,7 @@ public class RumMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumMetricsApi.listRumMetrics",
+              "v2.RumMetricsApi.listRUMMetrics",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -562,7 +562,7 @@ public class RumMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumMetricsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -574,38 +574,38 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricsResponse>() {});
+        new GenericType<RUMMetricsResponse>() {});
   }
 
   /**
    * Update a RUM-based metric.
    *
-   * <p>See {@link #updateRumMetricWithHttpInfo}.
+   * <p>See {@link #updateRUMMetricWithHttpInfo}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
-   * @return RumMetricResponse
+   * @return RUMMetricResponse
    * @throws ApiException if fails to make API call
    */
-  public RumMetricResponse updateRumMetric(String metricId, RumMetricUpdateRequest body)
+  public RUMMetricResponse updateRUMMetric(String metricId, RUMMetricUpdateRequest body)
       throws ApiException {
-    return updateRumMetricWithHttpInfo(metricId, body).getData();
+    return updateRUMMetricWithHttpInfo(metricId, body).getData();
   }
 
   /**
    * Update a RUM-based metric.
    *
-   * <p>See {@link #updateRumMetricWithHttpInfoAsync}.
+   * <p>See {@link #updateRUMMetricWithHttpInfoAsync}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
-   * @return CompletableFuture&lt;RumMetricResponse&gt;
+   * @return CompletableFuture&lt;RUMMetricResponse&gt;
    */
-  public CompletableFuture<RumMetricResponse> updateRumMetricAsync(
-      String metricId, RumMetricUpdateRequest body) {
-    return updateRumMetricWithHttpInfoAsync(metricId, body)
+  public CompletableFuture<RUMMetricResponse> updateRUMMetricAsync(
+      String metricId, RUMMetricUpdateRequest body) {
+    return updateRUMMetricWithHttpInfoAsync(metricId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -627,9 +627,9 @@ public class RumMetricsApi {
    * successful.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
-   * @return ApiResponse&lt;RumMetricResponse&gt;
+   * @return ApiResponse&lt;RUMMetricResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -643,20 +643,20 @@ public class RumMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumMetricResponse> updateRumMetricWithHttpInfo(
-      String metricId, RumMetricUpdateRequest body) throws ApiException {
+  public ApiResponse<RUMMetricResponse> updateRUMMetricWithHttpInfo(
+      String metricId, RUMMetricUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricId' is set
     if (metricId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'metricId' when calling updateRumMetric");
+          400, "Missing the required parameter 'metricId' when calling updateRUMMetric");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateRumMetric");
+          400, "Missing the required parameter 'body' when calling updateRUMMetric");
     }
     // create path and map variables
     String localVarPath =
@@ -667,7 +667,7 @@ public class RumMetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumMetricsApi.updateRumMetric",
+            "v2.RumMetricsApi.updateRUMMetric",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -682,38 +682,38 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricResponse>() {});
+        new GenericType<RUMMetricResponse>() {});
   }
 
   /**
    * Update a RUM-based metric.
    *
-   * <p>See {@link #updateRumMetricWithHttpInfo}.
+   * <p>See {@link #updateRUMMetricWithHttpInfo}.
    *
    * @param metricId The name of the RUM-based metric, as returned in <code>data.id</code> by <code>
-   *     ListRumMetrics</code>. (required)
+   *     ListRUMMetrics</code>. (required)
    * @param body New definition of the RUM-based metric. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMMetricResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumMetricResponse>> updateRumMetricWithHttpInfoAsync(
-      String metricId, RumMetricUpdateRequest body) {
+  public CompletableFuture<ApiResponse<RUMMetricResponse>> updateRUMMetricWithHttpInfoAsync(
+      String metricId, RUMMetricUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricId' is set
     if (metricId == null) {
-      CompletableFuture<ApiResponse<RumMetricResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'metricId' when calling updateRumMetric"));
+              400, "Missing the required parameter 'metricId' when calling updateRUMMetric"));
       return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumMetricResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling updateRumMetric"));
+              400, "Missing the required parameter 'body' when calling updateRUMMetric"));
       return result;
     }
     // create path and map variables
@@ -727,7 +727,7 @@ public class RumMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumMetricsApi.updateRumMetric",
+              "v2.RumMetricsApi.updateRUMMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -735,7 +735,7 @@ public class RumMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumMetricResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMMetricResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -747,6 +747,6 @@ public class RumMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumMetricResponse>() {});
+        new GenericType<RUMMetricResponse>() {});
   }
 }

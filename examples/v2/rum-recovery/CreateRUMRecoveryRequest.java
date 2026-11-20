@@ -3,13 +3,13 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRecoveryApi;
-import com.datadog.api.client.v2.model.RumRecoveryCreateAttributes;
-import com.datadog.api.client.v2.model.RumRecoveryCreateData;
-import com.datadog.api.client.v2.model.RumRecoveryCreateRequest;
-import com.datadog.api.client.v2.model.RumRecoveryCreateResponse;
-import com.datadog.api.client.v2.model.RumRecoverySessionInput;
-import com.datadog.api.client.v2.model.RumRecoverySessionsCreateAttributes;
-import com.datadog.api.client.v2.model.RumRecoverySessionsRequestType;
+import com.datadog.api.client.v2.model.RUMRecoveryCreateAttributes;
+import com.datadog.api.client.v2.model.RUMRecoveryCreateData;
+import com.datadog.api.client.v2.model.RUMRecoveryCreateRequest;
+import com.datadog.api.client.v2.model.RUMRecoveryCreateResponse;
+import com.datadog.api.client.v2.model.RUMRecoverySessionInput;
+import com.datadog.api.client.v2.model.RUMRecoverySessionsCreateAttributes;
+import com.datadog.api.client.v2.model.RUMRecoverySessionsRequestType;
 import java.util.Collections;
 import java.util.UUID;
 
@@ -18,17 +18,17 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumRecoveryApi apiInstance = new RumRecoveryApi(defaultClient);
 
-    RumRecoveryCreateRequest body =
-        new RumRecoveryCreateRequest()
+    RUMRecoveryCreateRequest body =
+        new RUMRecoveryCreateRequest()
             .data(
-                new RumRecoveryCreateData()
+                new RUMRecoveryCreateData()
                     .attributes(
-                        new RumRecoveryCreateAttributes(
-                            new RumRecoverySessionsCreateAttributes()
-                                .requestType(RumRecoverySessionsRequestType.SESSIONS)
+                        new RUMRecoveryCreateAttributes(
+                            new RUMRecoverySessionsCreateAttributes()
+                                .requestType(RUMRecoverySessionsRequestType.SESSIONS)
                                 .sessions(
                                     Collections.singletonList(
-                                        new RumRecoverySessionInput()
+                                        new RUMRecoverySessionInput()
                                             .applicationId(
                                                 UUID.fromString(
                                                     "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690"))
@@ -38,7 +38,7 @@ public class Example {
                     .type("rum_recovery_request"));
 
     try {
-      RumRecoveryCreateResponse result = apiInstance.createRUMRecoveryRequest(body);
+      RUMRecoveryCreateResponse result = apiInstance.createRUMRecoveryRequest(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRecoveryApi#createRUMRecoveryRequest");

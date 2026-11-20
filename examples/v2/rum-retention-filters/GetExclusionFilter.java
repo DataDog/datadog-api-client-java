@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRetentionFiltersApi;
-import com.datadog.api.client.v2.model.RumExclusionFilterResponse;
+import com.datadog.api.client.v2.model.RUMExclusionFilterResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class Example {
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
     try {
-      RumExclusionFilterResponse result = apiInstance.getExclusionFilter("app_id", "ef_id");
+      RUMExclusionFilterResponse result = apiInstance.getExclusionFilter("app_id", "ef_id");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRetentionFiltersApi#getExclusionFilter");

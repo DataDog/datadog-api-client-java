@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Rum replay session resource type. */
+/** RUM replay session resource type. */
 @JsonSerialize(
     using = ViewershipHistorySessionDataType.ViewershipHistorySessionDataTypeSerializer.class)
 public class ViewershipHistorySessionDataType extends ModelEnum<String> {

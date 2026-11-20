@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Rum replay watcher resource type. */
+/** RUM replay watcher resource type. */
 @JsonSerialize(using = WatcherDataType.WatcherDataTypeSerializer.class)
 public class WatcherDataType extends ModelEnum<String> {
 

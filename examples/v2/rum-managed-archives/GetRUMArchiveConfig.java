@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumManagedArchivesApi;
-import com.datadog.api.client.v2.model.RumArchiveConfigResponse;
+import com.datadog.api.client.v2.model.RUMArchiveConfigResponse;
 import java.util.UUID;
 
 public class Example {
@@ -12,7 +12,7 @@ public class Example {
     RumManagedArchivesApi apiInstance = new RumManagedArchivesApi(defaultClient);
 
     try {
-      RumArchiveConfigResponse result =
+      RUMArchiveConfigResponse result =
           apiInstance.getRUMArchiveConfig(UUID.fromString("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690"));
       System.out.println(result);
     } catch (ApiException e) {

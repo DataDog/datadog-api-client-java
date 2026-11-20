@@ -101,7 +101,7 @@ public class PlaylistData {
   }
 
   /**
-   * Rum replay playlist resource type.
+   * RUM replay playlist resource type.
    *
    * @return type
    */

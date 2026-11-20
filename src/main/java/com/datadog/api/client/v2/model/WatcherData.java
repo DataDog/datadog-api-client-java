@@ -99,7 +99,7 @@ public class WatcherData {
   }
 
   /**
-   * Rum replay watcher resource type.
+   * RUM replay watcher resource type.
    *
    * @return type
    */

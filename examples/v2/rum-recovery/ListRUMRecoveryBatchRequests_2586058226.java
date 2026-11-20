@@ -4,8 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRecoveryApi;
 import com.datadog.api.client.v2.api.RumRecoveryApi.ListRUMRecoveryBatchRequestsOptionalParameters;
-import com.datadog.api.client.v2.model.RumRecoveryBatchListResponse;
-import com.datadog.api.client.v2.model.RumRecoveryBatchRequestType;
+import com.datadog.api.client.v2.model.RUMRecoveryBatchListResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryBatchRequestType;
 
 public class Example {
   public static void main(String[] args) {
@@ -13,9 +13,9 @@ public class Example {
     RumRecoveryApi apiInstance = new RumRecoveryApi(defaultClient);
 
     try {
-      RumRecoveryBatchListResponse result =
+      RUMRecoveryBatchListResponse result =
           apiInstance.listRUMRecoveryBatchRequests(
-              RumRecoveryBatchRequestType.BATCH,
+              RUMRecoveryBatchRequestType.BATCH,
               new ListRUMRecoveryBatchRequestsOptionalParameters()
                   .from(1L)
                   .to(2L)
