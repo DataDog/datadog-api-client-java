@@ -22,7 +22,10 @@ import java.util.Objects;
 /** The object description of an event response attribute. */
 @JsonPropertyOrder({
   EventResponseAttributes.JSON_PROPERTY_ATTRIBUTES,
+  EventResponseAttributes.JSON_PROPERTY_HOST,
   EventResponseAttributes.JSON_PROPERTY_MESSAGE,
+  EventResponseAttributes.JSON_PROPERTY_SERVICE,
+  EventResponseAttributes.JSON_PROPERTY_STATUS,
   EventResponseAttributes.JSON_PROPERTY_TAGS,
   EventResponseAttributes.JSON_PROPERTY_TIMESTAMP
 })
@@ -33,8 +36,17 @@ public class EventResponseAttributes {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private EventAttributes attributes;
 
+  public static final String JSON_PROPERTY_HOST = "host";
+  private String host;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  public static final String JSON_PROPERTY_SERVICE = "service";
+  private String service;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private EventStatusType status;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -67,6 +79,27 @@ public class EventResponseAttributes {
     }
   }
 
+  public EventResponseAttributes host(String host) {
+    this.host = host;
+    return this;
+  }
+
+  /**
+   * The host associated with the event.
+   *
+   * @return host
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
   public EventResponseAttributes message(String message) {
     this.message = message;
     return this;
@@ -86,6 +119,55 @@ public class EventResponseAttributes {
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  public EventResponseAttributes service(String service) {
+    this.service = service;
+    return this;
+  }
+
+  /**
+   * The service associated with the event.
+   *
+   * @return service
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getService() {
+    return service;
+  }
+
+  public void setService(String service) {
+    this.service = service;
+  }
+
+  public EventResponseAttributes status(EventStatusType status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
+    return this;
+  }
+
+  /**
+   * The event status. Legacy events can use <code>failure</code>, <code>error</code>, <code>warning
+   * </code>, <code>info</code>, <code>success</code>, <code>user_update</code>, <code>
+   * recommendation</code>, or <code>snapshot</code>. Alert events can use <code>error</code>,
+   * <code>warn</code>, or <code>ok</code>.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventStatusType getStatus() {
+    return status;
+  }
+
+  public void setStatus(EventStatusType status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
+    this.status = status;
   }
 
   public EventResponseAttributes tags(List<String> tags) {
@@ -195,7 +277,10 @@ public class EventResponseAttributes {
     }
     EventResponseAttributes eventResponseAttributes = (EventResponseAttributes) o;
     return Objects.equals(this.attributes, eventResponseAttributes.attributes)
+        && Objects.equals(this.host, eventResponseAttributes.host)
         && Objects.equals(this.message, eventResponseAttributes.message)
+        && Objects.equals(this.service, eventResponseAttributes.service)
+        && Objects.equals(this.status, eventResponseAttributes.status)
         && Objects.equals(this.tags, eventResponseAttributes.tags)
         && Objects.equals(this.timestamp, eventResponseAttributes.timestamp)
         && Objects.equals(this.additionalProperties, eventResponseAttributes.additionalProperties);
@@ -203,7 +288,8 @@ public class EventResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, message, tags, timestamp, additionalProperties);
+    return Objects.hash(
+        attributes, host, message, service, status, tags, timestamp, additionalProperties);
   }
 
   @Override
@@ -211,7 +297,10 @@ public class EventResponseAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventResponseAttributes {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    service: ").append(toIndentedString(service)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    additionalProperties: ")
