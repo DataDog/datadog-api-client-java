@@ -122,7 +122,9 @@ public class EventsListRequest {
   }
 
   /**
-   * The sort parameters when querying events.
+   * The sort order of events. <code>-timestamp</code> returns the newest events first, which is the
+   * default, and <code>timestamp</code> the oldest first. The client libraries reject any other
+   * value.
    *
    * @return sort
    */

@@ -202,7 +202,9 @@ public class EventsApi {
    *
    * <p>See {@link #getEventWithHttpInfo}.
    *
-   * @param eventId The UID of the event. (required)
+   * @param eventId The event's <code>evt.id</code> or <code>evt.uid</code>, read from <code>
+   *     data[].attributes.attributes.evt</code> in List or Search results. The top-level <code>
+   *     data[].id</code> is not accepted. (required)
    * @return V2EventResponse
    * @throws ApiException if fails to make API call
    */
@@ -215,7 +217,9 @@ public class EventsApi {
    *
    * <p>See {@link #getEventWithHttpInfoAsync}.
    *
-   * @param eventId The UID of the event. (required)
+   * @param eventId The event's <code>evt.id</code> or <code>evt.uid</code>, read from <code>
+   *     data[].attributes.attributes.evt</code> in List or Search results. The top-level <code>
+   *     data[].id</code> is not accepted. (required)
    * @return CompletableFuture&lt;V2EventResponse&gt;
    */
   public CompletableFuture<V2EventResponse> getEventAsync(String eventId) {
@@ -229,7 +233,9 @@ public class EventsApi {
   /**
    * Get the details of an event by <code>event_id</code>.
    *
-   * @param eventId The UID of the event. (required)
+   * @param eventId The event's <code>evt.id</code> or <code>evt.uid</code>, read from <code>
+   *     data[].attributes.attributes.evt</code> in List or Search results. The top-level <code>
+   *     data[].id</code> is not accepted. (required)
    * @return ApiResponse&lt;V2EventResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -283,7 +289,9 @@ public class EventsApi {
    *
    * <p>See {@link #getEventWithHttpInfo}.
    *
-   * @param eventId The UID of the event. (required)
+   * @param eventId The event's <code>evt.id</code> or <code>evt.uid</code>, read from <code>
+   *     data[].attributes.attributes.evt</code> in List or Search results. The top-level <code>
+   *     data[].id</code> is not accepted. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;V2EventResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<V2EventResponse>> getEventWithHttpInfoAsync(String eventId) {
@@ -342,7 +350,9 @@ public class EventsApi {
     /**
      * Set filterQuery.
      *
-     * @param filterQuery Search query following events syntax. (optional)
+     * @param filterQuery Search query following events syntax. Attributes take <code>@</code> (
+     *     <code>@evt.category:alert</code>); tags and reserved fields don't (<code>service:web
+     *     </code>). (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters filterQuery(String filterQuery) {
@@ -353,7 +363,8 @@ public class EventsApi {
     /**
      * Set filterFrom.
      *
-     * @param filterFrom Minimum timestamp for requested events, in milliseconds. (optional)
+     * @param filterFrom Minimum time for requested events, as date math (<code>now-1h</code>), ISO
+     *     8601 or a timestamp in milliseconds. Defaults to <code>now-15m</code>. (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters filterFrom(String filterFrom) {
@@ -364,7 +375,8 @@ public class EventsApi {
     /**
      * Set filterTo.
      *
-     * @param filterTo Maximum timestamp for requested events, in milliseconds. (optional)
+     * @param filterTo Maximum time for requested events, as date math, ISO 8601 or a timestamp in
+     *     milliseconds. Defaults to <code>now</code>. (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters filterTo(String filterTo) {
@@ -525,6 +537,22 @@ public class EventsApi {
    * paginated similarly to logs</a>.
    *
    * <p>Use this endpoint to see your latest events.
+   *
+   * <p>Query syntax: attributes take <code>@</code> (<code>@evt.integration_id:kubernetes</code>,
+   * <code>@evt.category:alert</code>), while tags and reserved fields don't (<code>
+   * kube_cluster_name:gizmo</code>, <code>service:web</code>, <code>source:oom_kill</code>). A name
+   * that needs <code>@</code> matches nothing without it. To filter by integration, prefer <code>
+   * @evt.integration_id</code>, whose values use hyphens (<code>oom-kill</code>), over <code>source
+   * </code>, whose values use underscores (<code>oom_kill</code>). Bare words search the event
+   * text, and quoted phrases, <code>OR</code>, <code>-</code> negation and value wildcards work;
+   * wildcards in attribute names, such as <code>@*.name</code>, don't.
+   *
+   * <p>Without <code>from</code>, only the last 15 minutes are searched, so widen the window before
+   * concluding that no event exists. Each event's own fields are under <code>
+   * data[].attributes.attributes</code>, for example <code>evt.integration_id</code>, <code>
+   * evt.category</code>, <code>title</code> and <code>service</code>. To fetch one event with
+   * <code>GetEvent</code>, use its <code>evt.id</code> or <code>evt.uid</code>, not the top-level
+   * <code>id</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;EventsListResponse&gt;
@@ -780,6 +808,22 @@ public class EventsApi {
    * paginated similarly to logs</a>.
    *
    * <p>Use this endpoint to build complex events filtering and search.
+   *
+   * <p>Query syntax: attributes take <code>@</code> (<code>@evt.integration_id:kubernetes</code>,
+   * <code>@evt.category:alert</code>), while tags and reserved fields don't (<code>
+   * kube_cluster_name:gizmo</code>, <code>service:web</code>, <code>source:oom_kill</code>). A name
+   * that needs <code>@</code> matches nothing without it. To filter by integration, prefer <code>
+   * @evt.integration_id</code>, whose values use hyphens (<code>oom-kill</code>), over <code>source
+   * </code>, whose values use underscores (<code>oom_kill</code>). Bare words search the event
+   * text, and quoted phrases, <code>OR</code>, <code>-</code> negation and value wildcards work;
+   * wildcards in attribute names, such as <code>@*.name</code>, don't.
+   *
+   * <p>Without <code>from</code>, only the last 15 minutes are searched, so widen the window before
+   * concluding that no event exists. Each event's own fields are under <code>
+   * data[].attributes.attributes</code>, for example <code>evt.integration_id</code>, <code>
+   * evt.category</code>, <code>title</code> and <code>service</code>. To fetch one event with
+   * <code>GetEvent</code>, use its <code>evt.id</code> or <code>evt.uid</code>, not the top-level
+   * <code>id</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;EventsListResponse&gt;

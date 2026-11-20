@@ -18,7 +18,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The sort parameters when querying events. */
+/**
+ * The sort order of events. <code>-timestamp</code> returns the newest events first, which is the
+ * default, and <code>timestamp</code> the oldest first. The client libraries reject any other
+ * value.
+ */
 @JsonSerialize(using = EventsSort.EventsSortSerializer.class)
 public class EventsSort extends ModelEnum<String> {
 
