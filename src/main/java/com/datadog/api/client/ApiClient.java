@@ -1555,6 +1555,11 @@ public class ApiClient {
           put("v2.getChatGPTEnterpriseIntegrationAccount", false);
           put("v2.listChatGPTEnterpriseIntegrationAccounts", false);
           put("v2.updateChatGPTEnterpriseIntegrationAccount", false);
+          put("v2.createClaudeComplianceIntegrationAccount", false);
+          put("v2.deleteClaudeComplianceIntegrationAccount", false);
+          put("v2.getClaudeComplianceIntegrationAccount", false);
+          put("v2.listClaudeComplianceIntegrationAccounts", false);
+          put("v2.updateClaudeComplianceIntegrationAccount", false);
           put("v2.createCoreWeaveCloudIntegrationAccount", false);
           put("v2.deleteCoreWeaveCloudIntegrationAccount", false);
           put("v2.getCoreWeaveCloudIntegrationAccount", false);
