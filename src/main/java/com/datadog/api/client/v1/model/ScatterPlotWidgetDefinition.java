@@ -27,6 +27,7 @@ import java.util.Objects;
   ScatterPlotWidgetDefinition.JSON_PROPERTY_COLOR_BY_GROUPS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
+  ScatterPlotWidgetDefinition.JSON_PROPERTY_PALETTE,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_TIME,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -48,6 +49,9 @@ public class ScatterPlotWidgetDefinition {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_PALETTE = "palette";
+  private String palette;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private ScatterPlotWidgetDefinitionRequests requests;
@@ -175,6 +179,30 @@ public class ScatterPlotWidgetDefinition {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ScatterPlotWidgetDefinition palette(String palette) {
+    this.palette = palette;
+    return this;
+  }
+
+  /**
+   * Color palette to apply to the widget. Supported values include <code>datadog16</code>, <code>
+   * datadog32</code>, <code>semantic</code>, <code>classic</code>, and <code>dog_classic</code>. A
+   * guide to the available color palettes can be found at
+   * https://docs.datadoghq.com/dashboards/guide/widget_colors
+   *
+   * @return palette
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PALETTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPalette() {
+    return palette;
+  }
+
+  public void setPalette(String palette) {
+    this.palette = palette;
   }
 
   public ScatterPlotWidgetDefinition requests(ScatterPlotWidgetDefinitionRequests requests) {
@@ -426,6 +454,7 @@ public class ScatterPlotWidgetDefinition {
     return Objects.equals(this.colorByGroups, scatterPlotWidgetDefinition.colorByGroups)
         && Objects.equals(this.customLinks, scatterPlotWidgetDefinition.customLinks)
         && Objects.equals(this.description, scatterPlotWidgetDefinition.description)
+        && Objects.equals(this.palette, scatterPlotWidgetDefinition.palette)
         && Objects.equals(this.requests, scatterPlotWidgetDefinition.requests)
         && Objects.equals(this.time, scatterPlotWidgetDefinition.time)
         && Objects.equals(this.title, scatterPlotWidgetDefinition.title)
@@ -444,6 +473,7 @@ public class ScatterPlotWidgetDefinition {
         colorByGroups,
         customLinks,
         description,
+        palette,
         requests,
         time,
         title,
@@ -462,6 +492,7 @@ public class ScatterPlotWidgetDefinition {
     sb.append("    colorByGroups: ").append(toIndentedString(colorByGroups)).append("\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
