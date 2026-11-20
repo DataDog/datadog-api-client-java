@@ -232,7 +232,23 @@ public class HostsApi {
     /**
      * Set filter.
      *
-     * @param filter String to filter search results. (optional)
+     * @param filter String to filter search results. A filter is one or more terms separated by
+     *     spaces or commas. A host must match every term. Prefix a term with <code>!</code> to
+     *     exclude matching hosts. Term types: - <code>&lt;text&gt;</code>: Partial,
+     *     case-insensitive match against host name, alias, AWS ID and name, tags, apps, and agent
+     *     metadata. Text of fewer than 3 characters only matches a field whose value is exactly
+     *     that text. - <code>tag:&lt;key&gt;:&lt;value&gt;</code>: Exact match on a tag, for
+     *     example <code>tag:env:prod</code>. - <code>field:apps:&lt;app&gt;</code>: Exact match on
+     *     an app name, for example <code>field:apps:nginx</code>. - <code>
+     *     field:metadata_agent_version:&lt;value&gt;</code>, <code>
+     *     field:metadata_machine:&lt;value&gt;</code>, <code>field:metadata_platform:&lt;value&gt;
+     *     </code>, <code>field:metadata_processor:&lt;value&gt;</code>: Exact match on that
+     *     metadata field. - <code>exists:tag:&lt;key&gt;</code> or <code>exists:field:&lt;field&gt;
+     *     </code>: Match hosts that have the tag key or a non-empty value for the field, for
+     *     example <code>exists:tag:env</code> or <code>exists:field:metadata_platform</code>. -
+     *     <code>exact:&lt;value&gt;</code>: Whole-value, case-sensitive match. Boolean operators (
+     *     <code>AND</code>, <code>OR</code>, <code>NOT</code>) and <code>*</code> wildcards are not
+     *     supported. (optional)
      * @return ListHostsOptionalParameters
      */
     public ListHostsOptionalParameters filter(String filter) {
@@ -243,7 +259,10 @@ public class HostsApi {
     /**
      * Set sortField.
      *
-     * @param sortField Sort hosts by this field. (optional)
+     * @param sortField Sort hosts by this field. Options include <code>name</code>, <code>aws_id
+     *     </code>, <code>aws_name</code>, <code>up</code>, <code>apps</code>, <code>cpu</code>,
+     *     <code>iowait</code>, and <code>load</code>. Unrecognized values default to <code>cpu
+     *     </code>.. (optional)
      * @return ListHostsOptionalParameters
      */
     public ListHostsOptionalParameters sortField(String sortField) {
