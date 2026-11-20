@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object containing the definition of a metric's distinct volume. */
 @JsonPropertyOrder({MetricDistinctVolumeAttributes.JSON_PROPERTY_DISTINCT_VOLUME})
@@ -23,27 +24,38 @@ import java.util.Objects;
 public class MetricDistinctVolumeAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISTINCT_VOLUME = "distinct_volume";
-  private Long distinctVolume;
+  private JsonNullable<Long> distinctVolume = JsonNullable.<Long>undefined();
 
   public MetricDistinctVolumeAttributes distinctVolume(Long distinctVolume) {
-    this.distinctVolume = distinctVolume;
+    this.distinctVolume = JsonNullable.<Long>of(distinctVolume);
     return this;
   }
 
   /**
-   * Distinct volume for the given metric.
+   * Distinct volume for the given metric. This value is <code>null</code> for standard metrics in
+   * organizations on Metric Name Pricing.
    *
    * @return distinctVolume
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getDistinctVolume() {
+    return distinctVolume.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DISTINCT_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDistinctVolume() {
+  public JsonNullable<Long> getDistinctVolume_JsonNullable() {
     return distinctVolume;
   }
 
-  public void setDistinctVolume(Long distinctVolume) {
+  @JsonProperty(JSON_PROPERTY_DISTINCT_VOLUME)
+  public void setDistinctVolume_JsonNullable(JsonNullable<Long> distinctVolume) {
     this.distinctVolume = distinctVolume;
+  }
+
+  public void setDistinctVolume(Long distinctVolume) {
+    this.distinctVolume = JsonNullable.<Long>of(distinctVolume);
   }
 
   /**

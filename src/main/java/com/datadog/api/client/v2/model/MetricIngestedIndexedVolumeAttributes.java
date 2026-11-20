@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object containing the definition of a metric's ingested and indexed volume. */
 @JsonPropertyOrder({
@@ -28,38 +29,49 @@ import java.util.Objects;
 public class MetricIngestedIndexedVolumeAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEXED_VOLUME = "indexed_volume";
-  private Long indexedVolume;
+  private JsonNullable<Long> indexedVolume = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_INDEXED_VOLUME_DELTA = "indexed_volume_delta";
   private Long indexedVolumeDelta;
 
   public static final String JSON_PROPERTY_INGESTED_VOLUME = "ingested_volume";
-  private Long ingestedVolume;
+  private JsonNullable<Long> ingestedVolume = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_INGESTED_VOLUME_DELTA = "ingested_volume_delta";
   private Long ingestedVolumeDelta;
 
   public MetricIngestedIndexedVolumeAttributes indexedVolume(Long indexedVolume) {
-    this.indexedVolume = indexedVolume;
+    this.indexedVolume = JsonNullable.<Long>of(indexedVolume);
     return this;
   }
 
   /**
    * Estimated average hourly number of indexed time series for the given metric over the last hour.
    * For organizations on Metric Name Pricing, this represents the estimated sum of indexed data
-   * points over the last hour.
+   * points over the last hour. This value is <code>null</code> when no estimated usage data is
+   * available for the metric.
    *
    * @return indexedVolume
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getIndexedVolume() {
+    return indexedVolume.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedVolume() {
+  public JsonNullable<Long> getIndexedVolume_JsonNullable() {
     return indexedVolume;
   }
 
-  public void setIndexedVolume(Long indexedVolume) {
+  @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
+  public void setIndexedVolume_JsonNullable(JsonNullable<Long> indexedVolume) {
     this.indexedVolume = indexedVolume;
+  }
+
+  public void setIndexedVolume(Long indexedVolume) {
+    this.indexedVolume = JsonNullable.<Long>of(indexedVolume);
   }
 
   public MetricIngestedIndexedVolumeAttributes indexedVolumeDelta(Long indexedVolumeDelta) {
@@ -85,7 +97,7 @@ public class MetricIngestedIndexedVolumeAttributes {
   }
 
   public MetricIngestedIndexedVolumeAttributes ingestedVolume(Long ingestedVolume) {
-    this.ingestedVolume = ingestedVolume;
+    this.ingestedVolume = JsonNullable.<Long>of(ingestedVolume);
     return this;
   }
 
@@ -93,19 +105,30 @@ public class MetricIngestedIndexedVolumeAttributes {
    * Estimated average hourly number of ingested time series for the given metric over the last
    * hour. This value is <code>0</code> for metrics not configured with Metrics Without Limits. For
    * organizations on Metric Name Pricing, this represents the estimated sum of ingested data points
-   * over the last hour.
+   * over the last hour. This value can be <code>null</code> when ingested volume is not available
+   * for the metric.
    *
    * @return ingestedVolume
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getIngestedVolume() {
+    return ingestedVolume.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestedVolume() {
+  public JsonNullable<Long> getIngestedVolume_JsonNullable() {
     return ingestedVolume;
   }
 
-  public void setIngestedVolume(Long ingestedVolume) {
+  @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
+  public void setIngestedVolume_JsonNullable(JsonNullable<Long> ingestedVolume) {
     this.ingestedVolume = ingestedVolume;
+  }
+
+  public void setIngestedVolume(Long ingestedVolume) {
+    this.ingestedVolume = JsonNullable.<Long>of(ingestedVolume);
   }
 
   public MetricIngestedIndexedVolumeAttributes ingestedVolumeDelta(Long ingestedVolumeDelta) {
