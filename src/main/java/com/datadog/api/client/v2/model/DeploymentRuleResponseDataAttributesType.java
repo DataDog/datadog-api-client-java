@@ -26,12 +26,15 @@ import java.util.Set;
 public class DeploymentRuleResponseDataAttributesType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("faulty_deployment_detection", "monitor"));
+      new HashSet<String>(
+          Arrays.asList("faulty_deployment_detection", "monitor", "bits_deployment_analysis"));
 
   public static final DeploymentRuleResponseDataAttributesType FAULTY_DEPLOYMENT_DETECTION =
       new DeploymentRuleResponseDataAttributesType("faulty_deployment_detection");
   public static final DeploymentRuleResponseDataAttributesType MONITOR =
       new DeploymentRuleResponseDataAttributesType("monitor");
+  public static final DeploymentRuleResponseDataAttributesType BITS_DEPLOYMENT_ANALYSIS =
+      new DeploymentRuleResponseDataAttributesType("bits_deployment_analysis");
 
   DeploymentRuleResponseDataAttributesType(String value) {
     super(value, allowedValues);
