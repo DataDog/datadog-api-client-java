@@ -1315,6 +1315,7 @@ public class ApiClient {
           put("v2.reorderSecurityFindingsAutomationSeverityModifierRules", false);
           put("v2.reorderSecurityFindingsAutomationTicketCreationRules", false);
           put("v2.runHistoricalJob", false);
+          put("v2.searchRemediationGroups", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.startSecurityMonitoringBatchMigration", false);
           put("v2.startSecurityMonitoringRuleProposal", false);
