@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Attributes describing a single cost recommendation. */
 @JsonPropertyOrder({
   CostRecommendationDataAttributes.JSON_PROPERTY_DD_RESOURCE_KEY,
+  CostRecommendationDataAttributes.JSON_PROPERTY_EXTRA_FIELDS,
   CostRecommendationDataAttributes.JSON_PROPERTY_POTENTIAL_DAILY_SAVINGS,
   CostRecommendationDataAttributes.JSON_PROPERTY_RECOMMENDATION_TYPE,
   CostRecommendationDataAttributes.JSON_PROPERTY_RECOMMENDER_ID,
@@ -34,6 +35,9 @@ public class CostRecommendationDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DD_RESOURCE_KEY = "dd_resource_key";
   private String ddResourceKey;
+
+  public static final String JSON_PROPERTY_EXTRA_FIELDS = "extra_fields";
+  private List<CostRecommendationExtraField> extraFields = null;
 
   public static final String JSON_PROPERTY_POTENTIAL_DAILY_SAVINGS = "potential_daily_savings";
   private CostRecommendationDataAttributesPotentialDailySavings potentialDailySavings;
@@ -72,6 +76,48 @@ public class CostRecommendationDataAttributes {
 
   public void setDdResourceKey(String ddResourceKey) {
     this.ddResourceKey = ddResourceKey;
+  }
+
+  public CostRecommendationDataAttributes extraFields(
+      List<CostRecommendationExtraField> extraFields) {
+    this.extraFields = extraFields;
+    if (extraFields != null) {
+      for (CostRecommendationExtraField item : extraFields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public CostRecommendationDataAttributes addExtraFieldsItem(
+      CostRecommendationExtraField extraFieldsItem) {
+    if (this.extraFields == null) {
+      this.extraFields = new ArrayList<>();
+    }
+    this.extraFields.add(extraFieldsItem);
+    this.unparsed |= extraFieldsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Selected recommendation fields. Omitted when no requested fields match.
+   *
+   * @return extraFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTRA_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CostRecommendationExtraField> getExtraFields() {
+    return extraFields;
+  }
+
+  public void setExtraFields(List<CostRecommendationExtraField> extraFields) {
+    this.extraFields = extraFields;
+    if (extraFields != null) {
+      for (CostRecommendationExtraField item : extraFields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CostRecommendationDataAttributes potentialDailySavings(
@@ -273,6 +319,7 @@ public class CostRecommendationDataAttributes {
     CostRecommendationDataAttributes costRecommendationDataAttributes =
         (CostRecommendationDataAttributes) o;
     return Objects.equals(this.ddResourceKey, costRecommendationDataAttributes.ddResourceKey)
+        && Objects.equals(this.extraFields, costRecommendationDataAttributes.extraFields)
         && Objects.equals(
             this.potentialDailySavings, costRecommendationDataAttributes.potentialDailySavings)
         && Objects.equals(
@@ -289,6 +336,7 @@ public class CostRecommendationDataAttributes {
   public int hashCode() {
     return Objects.hash(
         ddResourceKey,
+        extraFields,
         potentialDailySavings,
         recommendationType,
         recommenderId,
@@ -303,6 +351,7 @@ public class CostRecommendationDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CostRecommendationDataAttributes {\n");
     sb.append("    ddResourceKey: ").append(toIndentedString(ddResourceKey)).append("\n");
+    sb.append("    extraFields: ").append(toIndentedString(extraFields)).append("\n");
     sb.append("    potentialDailySavings: ")
         .append(toIndentedString(potentialDailySavings))
         .append("\n");

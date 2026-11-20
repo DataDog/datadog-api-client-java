@@ -25,6 +25,7 @@ public class Example {
                 new RecommendationsFilterRequestData()
                     .attributes(
                         new RecommendationsFilterRequestDataAttributes()
+                            .extraFields(Collections.singletonList("tags.env"))
                             .scope(RecommendationsFilterRequestScope.CCM)
                             .sort(
                                 Collections.singletonList(
