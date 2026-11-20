@@ -235,20 +235,28 @@ public class HostsApi {
      * @param filter String to filter search results. A filter is one or more terms separated by
      *     spaces or commas. A host must match every term. Prefix a term with <code>!</code> to
      *     exclude matching hosts. Term types: - <code>&lt;text&gt;</code>: Partial,
-     *     case-insensitive match against host name, alias, AWS ID and name, tags, apps, and agent
-     *     metadata. Text of fewer than 3 characters only matches a field whose value is exactly
-     *     that text. - <code>tag:&lt;key&gt;:&lt;value&gt;</code>: Exact match on a tag, for
-     *     example <code>tag:env:prod</code>. - <code>field:apps:&lt;app&gt;</code>: Exact match on
-     *     an app name, for example <code>field:apps:nginx</code>. - <code>
+     *     case-insensitive match against hostname, alias, AWS ID, AWS name, tags, apps, and Agent
+     *     metadata. Text of fewer than 3 characters only matches only a field whose value is
+     *     exactly that text. - <code>tag:&lt;key&gt;:&lt;value&gt;</code>: Exact match on a tag,
+     *     for example <code>tag:env:prod</code>. - <code>field:apps:&lt;app&gt;</code>: Exact match
+     *     on an app name, for example <code>field:apps:nginx</code>. - <code>
      *     field:metadata_agent_version:&lt;value&gt;</code>, <code>
      *     field:metadata_machine:&lt;value&gt;</code>, <code>field:metadata_platform:&lt;value&gt;
      *     </code>, <code>field:metadata_processor:&lt;value&gt;</code>: Exact match on that
      *     metadata field. - <code>exists:tag:&lt;key&gt;</code> or <code>exists:field:&lt;field&gt;
      *     </code>: Match hosts that have the tag key or a non-empty value for the field, for
      *     example <code>exists:tag:env</code> or <code>exists:field:metadata_platform</code>. -
-     *     <code>exact:&lt;value&gt;</code>: Whole-value, case-sensitive match. Boolean operators (
-     *     <code>AND</code>, <code>OR</code>, <code>NOT</code>) and <code>*</code> wildcards are not
-     *     supported. (optional)
+     *     <code>exact:&lt;value&gt;</code>: Whole-value, case-sensitive match. The entire value of
+     *     at least one of these fields must equal <code>&lt;value&gt;</code>: host name (<code>
+     *     host_name</code>, <code>name</code>), <code>aliases</code>, <code>aws_id</code>, <code>
+     *     aws_name</code>, <code>apps</code>, <code>tags</code>, and the agent metadata fields (
+     *     <code>agent_version</code>, <code>machine</code>, <code>platform</code>, <code>processor
+     *     </code>). Use it instead of plain text when you need a full name rather than a partial
+     *     match, for example <code>exact:web-01</code> matches <code>web-01</code> but not <code>
+     *     web-010</code> or <code>web-01-canary</code>. If <code>&lt;value&gt;</code> contains a
+     *     colon, such as <code>exact:env:prod</code>, it is matched against tags only. Boolean
+     *     operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>) and <code>*</code>
+     *     wildcards are not supported. (optional)
      * @return ListHostsOptionalParameters
      */
     public ListHostsOptionalParameters filter(String filter) {
@@ -262,7 +270,7 @@ public class HostsApi {
      * @param sortField Sort hosts by this field. Options include <code>name</code>, <code>aws_id
      *     </code>, <code>aws_name</code>, <code>up</code>, <code>apps</code>, <code>cpu</code>,
      *     <code>iowait</code>, and <code>load</code>. Unrecognized values default to <code>cpu
-     *     </code>.. (optional)
+     *     </code>. (optional)
      * @return ListHostsOptionalParameters
      */
     public ListHostsOptionalParameters sortField(String sortField) {
