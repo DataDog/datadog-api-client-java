@@ -20,9 +20,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+ * The caller lacks edit permission on one or more feature flags that reference this saved filter,
+ * or on one or more of their environments.
  */
 @JsonPropertyOrder({
+  SavedFilterPermissionDeniedAttributes.JSON_PROPERTY_DENIED_ENVIRONMENTS,
   SavedFilterPermissionDeniedAttributes.JSON_PROPERTY_DENIED_FLAGS,
   SavedFilterPermissionDeniedAttributes.JSON_PROPERTY_MESSAGE
 })
@@ -30,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SavedFilterPermissionDeniedAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DENIED_ENVIRONMENTS = "denied_environments";
+  private List<SavedFilterEnvironmentReference> deniedEnvironments = null;
+
   public static final String JSON_PROPERTY_DENIED_FLAGS = "denied_flags";
   private List<SavedFilterFlagReference> deniedFlags = new ArrayList<>();
 
@@ -48,6 +53,48 @@ public class SavedFilterPermissionDeniedAttributes {
       this.unparsed |= item.unparsed;
     }
     this.message = message;
+  }
+
+  public SavedFilterPermissionDeniedAttributes deniedEnvironments(
+      List<SavedFilterEnvironmentReference> deniedEnvironments) {
+    this.deniedEnvironments = deniedEnvironments;
+    if (deniedEnvironments != null) {
+      for (SavedFilterEnvironmentReference item : deniedEnvironments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public SavedFilterPermissionDeniedAttributes addDeniedEnvironmentsItem(
+      SavedFilterEnvironmentReference deniedEnvironmentsItem) {
+    if (this.deniedEnvironments == null) {
+      this.deniedEnvironments = new ArrayList<>();
+    }
+    this.deniedEnvironments.add(deniedEnvironmentsItem);
+    this.unparsed |= deniedEnvironmentsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Environments preventing this update.
+   *
+   * @return deniedEnvironments
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DENIED_ENVIRONMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SavedFilterEnvironmentReference> getDeniedEnvironments() {
+    return deniedEnvironments;
+  }
+
+  public void setDeniedEnvironments(List<SavedFilterEnvironmentReference> deniedEnvironments) {
+    this.deniedEnvironments = deniedEnvironments;
+    if (deniedEnvironments != null) {
+      for (SavedFilterEnvironmentReference item : deniedEnvironments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SavedFilterPermissionDeniedAttributes deniedFlags(
@@ -163,7 +210,9 @@ public class SavedFilterPermissionDeniedAttributes {
     }
     SavedFilterPermissionDeniedAttributes savedFilterPermissionDeniedAttributes =
         (SavedFilterPermissionDeniedAttributes) o;
-    return Objects.equals(this.deniedFlags, savedFilterPermissionDeniedAttributes.deniedFlags)
+    return Objects.equals(
+            this.deniedEnvironments, savedFilterPermissionDeniedAttributes.deniedEnvironments)
+        && Objects.equals(this.deniedFlags, savedFilterPermissionDeniedAttributes.deniedFlags)
         && Objects.equals(this.message, savedFilterPermissionDeniedAttributes.message)
         && Objects.equals(
             this.additionalProperties, savedFilterPermissionDeniedAttributes.additionalProperties);
@@ -171,13 +220,14 @@ public class SavedFilterPermissionDeniedAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deniedFlags, message, additionalProperties);
+    return Objects.hash(deniedEnvironments, deniedFlags, message, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SavedFilterPermissionDeniedAttributes {\n");
+    sb.append("    deniedEnvironments: ").append(toIndentedString(deniedEnvironments)).append("\n");
     sb.append("    deniedFlags: ").append(toIndentedString(deniedFlags)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    additionalProperties: ")
