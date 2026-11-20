@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Your Google Cloud Platform Account. */
 @JsonPropertyOrder({
@@ -29,6 +30,7 @@ import java.util.Objects;
   GCPAccount.JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS,
   GCPAccount.JSON_PROPERTY_ERRORS,
   GCPAccount.JSON_PROPERTY_HOST_FILTERS,
+  GCPAccount.JSON_PROPERTY_ID,
   GCPAccount.JSON_PROPERTY_IS_CSPM_ENABLED,
   GCPAccount.JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED,
   GCPAccount.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
@@ -72,6 +74,9 @@ public class GCPAccount {
 
   public static final String JSON_PROPERTY_HOST_FILTERS = "host_filters";
   private String hostFilters;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
   private Boolean isCspmEnabled;
@@ -323,6 +328,18 @@ public class GCPAccount {
   @Deprecated
   public void setHostFilters(String hostFilters) {
     this.hostFilters = hostFilters;
+  }
+
+  /**
+   * The Datadog-assigned ID of the GCP integration account.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getId() {
+    return id;
   }
 
   public GCPAccount isCspmEnabled(Boolean isCspmEnabled) {
@@ -624,6 +641,7 @@ public class GCPAccount {
         && Objects.equals(this.cloudRunRevisionFilters, gcpAccount.cloudRunRevisionFilters)
         && Objects.equals(this.errors, gcpAccount.errors)
         && Objects.equals(this.hostFilters, gcpAccount.hostFilters)
+        && Objects.equals(this.id, gcpAccount.id)
         && Objects.equals(this.isCspmEnabled, gcpAccount.isCspmEnabled)
         && Objects.equals(
             this.isResourceChangeCollectionEnabled, gcpAccount.isResourceChangeCollectionEnabled)
@@ -651,6 +669,7 @@ public class GCPAccount {
         cloudRunRevisionFilters,
         errors,
         hostFilters,
+        id,
         isCspmEnabled,
         isResourceChangeCollectionEnabled,
         isSecurityCommandCenterEnabled,
@@ -681,6 +700,7 @@ public class GCPAccount {
         .append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
     sb.append("    isResourceChangeCollectionEnabled: ")
         .append(toIndentedString(isResourceChangeCollectionEnabled))
