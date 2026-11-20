@@ -1580,6 +1580,11 @@ public class ApiClient {
           put("v2.getOpenAICodexIntegrationAccount", false);
           put("v2.listOpenAICodexIntegrationAccounts", false);
           put("v2.updateOpenAICodexIntegrationAccount", false);
+          put("v2.createOpenAILLMEvaluationsIntegrationAccount", false);
+          put("v2.deleteOpenAILLMEvaluationsIntegrationAccount", false);
+          put("v2.getOpenAILLMEvaluationsIntegrationAccount", false);
+          put("v2.listOpenAILLMEvaluationsIntegrationAccounts", false);
+          put("v2.updateOpenAILLMEvaluationsIntegrationAccount", false);
           put("v2.createSnowflakeIntegrationAccount", false);
           put("v2.deleteSnowflakeIntegrationAccount", false);
           put("v2.getSnowflakeIntegrationAccount", false);
