@@ -1,0 +1,228 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+/** Metadata about the retention filter. */
+@JsonPropertyOrder({
+  RUMRetentionFilterMeta.JSON_PROPERTY_EDITION_MODE,
+  RUMRetentionFilterMeta.JSON_PROPERTY_SOURCE,
+  RUMRetentionFilterMeta.JSON_PROPERTY_UPDATED_AT,
+  RUMRetentionFilterMeta.JSON_PROPERTY_UPDATED_BY_HANDLE
+})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class RUMRetentionFilterMeta {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EDITION_MODE = "edition_mode";
+  private RUMRetentionFilterEditionMode editionMode;
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private RUMRetentionFilterMetaSource source;
+
+  public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
+  private Long updatedAt;
+
+  public static final String JSON_PROPERTY_UPDATED_BY_HANDLE = "updated_by_handle";
+  private String updatedByHandle;
+
+  public RUMRetentionFilterMeta editionMode(RUMRetentionFilterEditionMode editionMode) {
+    this.editionMode = editionMode;
+    this.unparsed |= !editionMode.isValid();
+    return this;
+  }
+
+  /**
+   * The types of changes the retention filter accepts. <code>complete</code> filters can be updated
+   * and deleted. <code>limited</code> filters are default retention filters that can't be deleted.
+   *
+   * @return editionMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EDITION_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMRetentionFilterEditionMode getEditionMode() {
+    return editionMode;
+  }
+
+  public void setEditionMode(RUMRetentionFilterEditionMode editionMode) {
+    if (!editionMode.isValid()) {
+      this.unparsed = true;
+    }
+    this.editionMode = editionMode;
+  }
+
+  public RUMRetentionFilterMeta source(RUMRetentionFilterMetaSource source) {
+    this.source = source;
+    this.unparsed |= !source.isValid();
+    return this;
+  }
+
+  /**
+   * The source of the last update to the retention filter. The value is <code>unknown</code> if the
+   * request doesn't specify a source.
+   *
+   * @return source
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMRetentionFilterMetaSource getSource() {
+    return source;
+  }
+
+  public void setSource(RUMRetentionFilterMetaSource source) {
+    if (!source.isValid()) {
+      this.unparsed = true;
+    }
+    this.source = source;
+  }
+
+  public RUMRetentionFilterMeta updatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * The time of the last update, as a Unix timestamp in milliseconds.
+   *
+   * @return updatedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public RUMRetentionFilterMeta updatedByHandle(String updatedByHandle) {
+    this.updatedByHandle = updatedByHandle;
+    return this;
+  }
+
+  /**
+   * The handle of the user who last updated the retention filter.
+   *
+   * @return updatedByHandle
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_BY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUpdatedByHandle() {
+    return updatedByHandle;
+  }
+
+  public void setUpdatedByHandle(String updatedByHandle) {
+    this.updatedByHandle = updatedByHandle;
+  }
+
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return RUMRetentionFilterMeta
+   */
+  @JsonAnySetter
+  public RUMRetentionFilterMeta putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+  /** Return true if this RUMRetentionFilterMeta object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    RUMRetentionFilterMeta rumRetentionFilterMeta = (RUMRetentionFilterMeta) o;
+    return Objects.equals(this.editionMode, rumRetentionFilterMeta.editionMode)
+        && Objects.equals(this.source, rumRetentionFilterMeta.source)
+        && Objects.equals(this.updatedAt, rumRetentionFilterMeta.updatedAt)
+        && Objects.equals(this.updatedByHandle, rumRetentionFilterMeta.updatedByHandle)
+        && Objects.equals(this.additionalProperties, rumRetentionFilterMeta.additionalProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(editionMode, source, updatedAt, updatedByHandle, additionalProperties);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RUMRetentionFilterMeta {\n");
+    sb.append("    editionMode: ").append(toIndentedString(editionMode)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    updatedByHandle: ").append(toIndentedString(updatedByHandle)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
+    sb.append('}');
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}

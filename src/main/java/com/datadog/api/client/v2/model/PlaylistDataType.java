@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Rum replay playlist resource type. */
+/** RUM replay playlist resource type. */
 @JsonSerialize(using = PlaylistDataType.PlaylistDataTypeSerializer.class)
 public class PlaylistDataType extends ModelEnum<String> {
 

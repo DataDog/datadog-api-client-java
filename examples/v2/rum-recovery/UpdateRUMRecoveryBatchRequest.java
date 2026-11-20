@@ -3,11 +3,11 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRecoveryApi;
-import com.datadog.api.client.v2.model.RumRecoveryCancelAttributes;
-import com.datadog.api.client.v2.model.RumRecoveryCancelData;
-import com.datadog.api.client.v2.model.RumRecoveryCancelRequest;
-import com.datadog.api.client.v2.model.RumRecoveryCancelResponse;
-import com.datadog.api.client.v2.model.RumRecoveryCancelStatus;
+import com.datadog.api.client.v2.model.RUMRecoveryCancelAttributes;
+import com.datadog.api.client.v2.model.RUMRecoveryCancelData;
+import com.datadog.api.client.v2.model.RUMRecoveryCancelRequest;
+import com.datadog.api.client.v2.model.RUMRecoveryCancelResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryCancelStatus;
 import java.util.UUID;
 
 public class Example {
@@ -15,17 +15,17 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumRecoveryApi apiInstance = new RumRecoveryApi(defaultClient);
 
-    RumRecoveryCancelRequest body =
-        new RumRecoveryCancelRequest()
+    RUMRecoveryCancelRequest body =
+        new RUMRecoveryCancelRequest()
             .data(
-                new RumRecoveryCancelData()
+                new RUMRecoveryCancelData()
                     .attributes(
-                        new RumRecoveryCancelAttributes().status(RumRecoveryCancelStatus.CANCELLED))
+                        new RUMRecoveryCancelAttributes().status(RUMRecoveryCancelStatus.CANCELLED))
                     .id("11111111-1111-4111-8111-111111111111")
                     .type("rum_recovery_request"));
 
     try {
-      RumRecoveryCancelResponse result =
+      RUMRecoveryCancelResponse result =
           apiInstance.updateRUMRecoveryBatchRequest(
               UUID.fromString("11111111-1111-4111-8111-111111111111"), body);
       System.out.println(result);

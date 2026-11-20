@@ -3,12 +3,12 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRetentionFiltersApi;
-import com.datadog.api.client.v2.model.RumExclusionFilterCreateAttributes;
-import com.datadog.api.client.v2.model.RumExclusionFilterCreateData;
-import com.datadog.api.client.v2.model.RumExclusionFilterCreateRequest;
-import com.datadog.api.client.v2.model.RumExclusionFilterEventType;
-import com.datadog.api.client.v2.model.RumExclusionFilterResponse;
-import com.datadog.api.client.v2.model.RumExclusionFilterType;
+import com.datadog.api.client.v2.model.RUMExclusionFilterCreateAttributes;
+import com.datadog.api.client.v2.model.RUMExclusionFilterCreateData;
+import com.datadog.api.client.v2.model.RUMExclusionFilterCreateRequest;
+import com.datadog.api.client.v2.model.RUMExclusionFilterEventType;
+import com.datadog.api.client.v2.model.RUMExclusionFilterResponse;
+import com.datadog.api.client.v2.model.RUMExclusionFilterType;
 
 public class Example {
   public static void main(String[] args) {
@@ -16,20 +16,20 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
-    RumExclusionFilterCreateRequest body =
-        new RumExclusionFilterCreateRequest()
+    RUMExclusionFilterCreateRequest body =
+        new RUMExclusionFilterCreateRequest()
             .data(
-                new RumExclusionFilterCreateData()
+                new RUMExclusionFilterCreateData()
                     .attributes(
-                        new RumExclusionFilterCreateAttributes()
+                        new RUMExclusionFilterCreateAttributes()
                             .enabled(true)
-                            .eventType(RumExclusionFilterEventType.ERROR)
+                            .eventType(RUMExclusionFilterEventType.ERROR)
                             .name("Exclude noisy browser extension errors")
                             .query("@error.message:*extension*"))
-                    .type(RumExclusionFilterType.EXCLUSION_FILTERS));
+                    .type(RUMExclusionFilterType.EXCLUSION_FILTERS));
 
     try {
-      RumExclusionFilterResponse result = apiInstance.createExclusionFilter("app_id", body);
+      RUMExclusionFilterResponse result = apiInstance.createExclusionFilter("app_id", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRetentionFiltersApi#createExclusionFilter");

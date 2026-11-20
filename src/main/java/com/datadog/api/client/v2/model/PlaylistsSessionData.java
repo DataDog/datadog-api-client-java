@@ -104,7 +104,7 @@ public class PlaylistsSessionData {
   }
 
   /**
-   * Rum replay session resource type.
+   * RUM replay session resource type.
    *
    * @return type
    */
