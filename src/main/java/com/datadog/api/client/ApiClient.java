@@ -1551,6 +1551,11 @@ public class ApiClient {
           put("v2.updateIncidentUserDefinedField", false);
           put("v2.updateIncidentUserDefinedRole", false);
           put("v2.updateTimestampOverride", false);
+          put("v2.createAnthropicUsageAndCostsIntegrationAccount", false);
+          put("v2.deleteAnthropicUsageAndCostsIntegrationAccount", false);
+          put("v2.getAnthropicUsageAndCostsIntegrationAccount", false);
+          put("v2.listAnthropicUsageAndCostsIntegrationAccounts", false);
+          put("v2.updateAnthropicUsageAndCostsIntegrationAccount", false);
           put("v2.createChatGPTEnterpriseIntegrationAccount", false);
           put("v2.deleteChatGPTEnterpriseIntegrationAccount", false);
           put("v2.getChatGPTEnterpriseIntegrationAccount", false);
