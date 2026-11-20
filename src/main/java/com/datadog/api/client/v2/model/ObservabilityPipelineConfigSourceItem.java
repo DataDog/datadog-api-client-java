@@ -291,6 +291,57 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
             e);
       }
 
+      // deserialize ObservabilityPipelineCrowdStrikeFdrSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Integer.class)
+            || ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Long.class)
+            || ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Float.class)
+            || ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Double.class)
+            || ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Boolean.class)
+            || ObservabilityPipelineCrowdStrikeFdrSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Integer.class)
+                        || ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Float.class)
+                        || ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineCrowdStrikeFdrSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineCrowdStrikeFdrSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineCrowdStrikeFdrSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineCrowdStrikeFdrSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineCrowdStrikeFdrSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineCrowdStrikeFdrSource'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineFluentBitSource
       try {
         boolean attemptParsing = true;
@@ -1073,6 +1124,11 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineCrowdStrikeFdrSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineFluentBitSource o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1162,6 +1218,9 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
         "ObservabilityPipelineAmazonS3Source",
         new GenericType<ObservabilityPipelineAmazonS3Source>() {});
     schemas.put(
+        "ObservabilityPipelineCrowdStrikeFdrSource",
+        new GenericType<ObservabilityPipelineCrowdStrikeFdrSource>() {});
+    schemas.put(
         "ObservabilityPipelineFluentBitSource",
         new GenericType<ObservabilityPipelineFluentBitSource>() {});
     schemas.put(
@@ -1218,14 +1277,15 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: ObservabilityPipelineDatadogAgentSource,
    * ObservabilityPipelineOpentelemetrySource, ObservabilityPipelineAmazonDataFirehoseSource,
-   * ObservabilityPipelineAmazonS3Source, ObservabilityPipelineFluentBitSource,
-   * ObservabilityPipelineFluentdSource, ObservabilityPipelineGooglePubSubSource,
-   * ObservabilityPipelineHttpClientSource, ObservabilityPipelineHttpServerSource,
-   * ObservabilityPipelineKafkaSource, ObservabilityPipelineLogstashSource,
-   * ObservabilityPipelineRsyslogSource, ObservabilityPipelineSocketSource,
-   * ObservabilityPipelineSplunkHecSource, ObservabilityPipelineSplunkTcpSource,
-   * ObservabilityPipelineSumoLogicSource, ObservabilityPipelineSyslogNgSource,
-   * ObservabilityPipelineWebsocketSource, ObservabilityPipelinePrometheusRemoteWriteSource
+   * ObservabilityPipelineAmazonS3Source, ObservabilityPipelineCrowdStrikeFdrSource,
+   * ObservabilityPipelineFluentBitSource, ObservabilityPipelineFluentdSource,
+   * ObservabilityPipelineGooglePubSubSource, ObservabilityPipelineHttpClientSource,
+   * ObservabilityPipelineHttpServerSource, ObservabilityPipelineKafkaSource,
+   * ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,
+   * ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,
+   * ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,
+   * ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,
+   * ObservabilityPipelinePrometheusRemoteWriteSource
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1249,6 +1309,11 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     }
     if (JSON.isInstanceOf(
         ObservabilityPipelineAmazonS3Source.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineCrowdStrikeFdrSource.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1338,38 +1403,41 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
         "Invalid instance type. Must be ObservabilityPipelineDatadogAgentSource,"
             + " ObservabilityPipelineOpentelemetrySource,"
             + " ObservabilityPipelineAmazonDataFirehoseSource, ObservabilityPipelineAmazonS3Source,"
-            + " ObservabilityPipelineFluentBitSource, ObservabilityPipelineFluentdSource,"
-            + " ObservabilityPipelineGooglePubSubSource, ObservabilityPipelineHttpClientSource,"
-            + " ObservabilityPipelineHttpServerSource, ObservabilityPipelineKafkaSource,"
-            + " ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,"
-            + " ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,"
-            + " ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,"
-            + " ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,"
+            + " ObservabilityPipelineCrowdStrikeFdrSource, ObservabilityPipelineFluentBitSource,"
+            + " ObservabilityPipelineFluentdSource, ObservabilityPipelineGooglePubSubSource,"
+            + " ObservabilityPipelineHttpClientSource, ObservabilityPipelineHttpServerSource,"
+            + " ObservabilityPipelineKafkaSource, ObservabilityPipelineLogstashSource,"
+            + " ObservabilityPipelineRsyslogSource, ObservabilityPipelineSocketSource,"
+            + " ObservabilityPipelineSplunkHecSource, ObservabilityPipelineSplunkTcpSource,"
+            + " ObservabilityPipelineSumoLogicSource, ObservabilityPipelineSyslogNgSource,"
+            + " ObservabilityPipelineWebsocketSource,"
             + " ObservabilityPipelinePrometheusRemoteWriteSource");
   }
 
   /**
    * Get the actual instance, which can be the following: ObservabilityPipelineDatadogAgentSource,
    * ObservabilityPipelineOpentelemetrySource, ObservabilityPipelineAmazonDataFirehoseSource,
-   * ObservabilityPipelineAmazonS3Source, ObservabilityPipelineFluentBitSource,
-   * ObservabilityPipelineFluentdSource, ObservabilityPipelineGooglePubSubSource,
-   * ObservabilityPipelineHttpClientSource, ObservabilityPipelineHttpServerSource,
-   * ObservabilityPipelineKafkaSource, ObservabilityPipelineLogstashSource,
-   * ObservabilityPipelineRsyslogSource, ObservabilityPipelineSocketSource,
-   * ObservabilityPipelineSplunkHecSource, ObservabilityPipelineSplunkTcpSource,
-   * ObservabilityPipelineSumoLogicSource, ObservabilityPipelineSyslogNgSource,
-   * ObservabilityPipelineWebsocketSource, ObservabilityPipelinePrometheusRemoteWriteSource
+   * ObservabilityPipelineAmazonS3Source, ObservabilityPipelineCrowdStrikeFdrSource,
+   * ObservabilityPipelineFluentBitSource, ObservabilityPipelineFluentdSource,
+   * ObservabilityPipelineGooglePubSubSource, ObservabilityPipelineHttpClientSource,
+   * ObservabilityPipelineHttpServerSource, ObservabilityPipelineKafkaSource,
+   * ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,
+   * ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,
+   * ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,
+   * ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,
+   * ObservabilityPipelinePrometheusRemoteWriteSource
    *
    * @return The actual instance (ObservabilityPipelineDatadogAgentSource,
    *     ObservabilityPipelineOpentelemetrySource, ObservabilityPipelineAmazonDataFirehoseSource,
-   *     ObservabilityPipelineAmazonS3Source, ObservabilityPipelineFluentBitSource,
-   *     ObservabilityPipelineFluentdSource, ObservabilityPipelineGooglePubSubSource,
-   *     ObservabilityPipelineHttpClientSource, ObservabilityPipelineHttpServerSource,
-   *     ObservabilityPipelineKafkaSource, ObservabilityPipelineLogstashSource,
-   *     ObservabilityPipelineRsyslogSource, ObservabilityPipelineSocketSource,
-   *     ObservabilityPipelineSplunkHecSource, ObservabilityPipelineSplunkTcpSource,
-   *     ObservabilityPipelineSumoLogicSource, ObservabilityPipelineSyslogNgSource,
-   *     ObservabilityPipelineWebsocketSource, ObservabilityPipelinePrometheusRemoteWriteSource)
+   *     ObservabilityPipelineAmazonS3Source, ObservabilityPipelineCrowdStrikeFdrSource,
+   *     ObservabilityPipelineFluentBitSource, ObservabilityPipelineFluentdSource,
+   *     ObservabilityPipelineGooglePubSubSource, ObservabilityPipelineHttpClientSource,
+   *     ObservabilityPipelineHttpServerSource, ObservabilityPipelineKafkaSource,
+   *     ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,
+   *     ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,
+   *     ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,
+   *     ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,
+   *     ObservabilityPipelinePrometheusRemoteWriteSource)
    */
   @Override
   public Object getActualInstance() {
@@ -1424,6 +1492,18 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   public ObservabilityPipelineAmazonS3Source getObservabilityPipelineAmazonS3Source()
       throws ClassCastException {
     return (ObservabilityPipelineAmazonS3Source) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineCrowdStrikeFdrSource`. If the actual instance
+   * is not `ObservabilityPipelineCrowdStrikeFdrSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineCrowdStrikeFdrSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineCrowdStrikeFdrSource`
+   */
+  public ObservabilityPipelineCrowdStrikeFdrSource getObservabilityPipelineCrowdStrikeFdrSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineCrowdStrikeFdrSource) super.getActualInstance();
   }
 
   /**
