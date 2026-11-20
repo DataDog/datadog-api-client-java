@@ -4,8 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.RumSdkConfigResponse;
-import com.datadog.api.client.v2.model.RumSdkConfigUpdateRequest;
+import com.datadog.api.client.v2.model.RUMSdkConfigResponse;
+import com.datadog.api.client.v2.model.RUMSdkConfigUpdateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -47,26 +47,26 @@ public class RumRemoteConfigApi {
   /**
    * Get a RUM SDK configuration.
    *
-   * <p>See {@link #getRumSdkConfigWithHttpInfo}.
+   * <p>See {@link #getRUMSdkConfigWithHttpInfo}.
    *
    * @param configId The ID of the RUM SDK configuration. (required)
-   * @return RumSdkConfigResponse
+   * @return RUMSdkConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumSdkConfigResponse getRumSdkConfig(String configId) throws ApiException {
-    return getRumSdkConfigWithHttpInfo(configId).getData();
+  public RUMSdkConfigResponse getRUMSdkConfig(String configId) throws ApiException {
+    return getRUMSdkConfigWithHttpInfo(configId).getData();
   }
 
   /**
    * Get a RUM SDK configuration.
    *
-   * <p>See {@link #getRumSdkConfigWithHttpInfoAsync}.
+   * <p>See {@link #getRUMSdkConfigWithHttpInfoAsync}.
    *
    * @param configId The ID of the RUM SDK configuration. (required)
-   * @return CompletableFuture&lt;RumSdkConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMSdkConfigResponse&gt;
    */
-  public CompletableFuture<RumSdkConfigResponse> getRumSdkConfigAsync(String configId) {
-    return getRumSdkConfigWithHttpInfoAsync(configId)
+  public CompletableFuture<RUMSdkConfigResponse> getRUMSdkConfigAsync(String configId) {
+    return getRUMSdkConfigWithHttpInfoAsync(configId)
         .thenApply(
             response -> {
               return response.getData();
@@ -77,7 +77,7 @@ public class RumRemoteConfigApi {
    * Retrieve a RUM SDK configuration by its identifier.
    *
    * @param configId The ID of the RUM SDK configuration. (required)
-   * @return ApiResponse&lt;RumSdkConfigResponse&gt;
+   * @return ApiResponse&lt;RUMSdkConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -89,10 +89,10 @@ public class RumRemoteConfigApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumSdkConfigResponse> getRumSdkConfigWithHttpInfo(String configId)
+  public ApiResponse<RUMSdkConfigResponse> getRUMSdkConfigWithHttpInfo(String configId)
       throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "getRumSdkConfig";
+    String operationId = "getRUMSdkConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -103,7 +103,7 @@ public class RumRemoteConfigApi {
     // verify the required parameter 'configId' is set
     if (configId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'configId' when calling getRumSdkConfig");
+          400, "Missing the required parameter 'configId' when calling getRUMSdkConfig");
     }
     // create path and map variables
     String localVarPath =
@@ -114,7 +114,7 @@ public class RumRemoteConfigApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRemoteConfigApi.getRumSdkConfig",
+            "v2.RumRemoteConfigApi.getRUMSdkConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -129,25 +129,25 @@ public class RumRemoteConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumSdkConfigResponse>() {});
+        new GenericType<RUMSdkConfigResponse>() {});
   }
 
   /**
    * Get a RUM SDK configuration.
    *
-   * <p>See {@link #getRumSdkConfigWithHttpInfo}.
+   * <p>See {@link #getRUMSdkConfigWithHttpInfo}.
    *
    * @param configId The ID of the RUM SDK configuration. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumSdkConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMSdkConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumSdkConfigResponse>> getRumSdkConfigWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<RUMSdkConfigResponse>> getRUMSdkConfigWithHttpInfoAsync(
       String configId) {
     // Check if unstable operation is enabled
-    String operationId = "getRumSdkConfig";
+    String operationId = "getRUMSdkConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<RumSdkConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMSdkConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -156,10 +156,10 @@ public class RumRemoteConfigApi {
 
     // verify the required parameter 'configId' is set
     if (configId == null) {
-      CompletableFuture<ApiResponse<RumSdkConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMSdkConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'configId' when calling getRumSdkConfig"));
+              400, "Missing the required parameter 'configId' when calling getRUMSdkConfig"));
       return result;
     }
     // create path and map variables
@@ -173,7 +173,7 @@ public class RumRemoteConfigApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRemoteConfigApi.getRumSdkConfig",
+              "v2.RumRemoteConfigApi.getRUMSdkConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -181,7 +181,7 @@ public class RumRemoteConfigApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumSdkConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMSdkConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -193,36 +193,36 @@ public class RumRemoteConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumSdkConfigResponse>() {});
+        new GenericType<RUMSdkConfigResponse>() {});
   }
 
   /**
    * Update a RUM SDK configuration.
    *
-   * <p>See {@link #updateRumSdkConfigWithHttpInfo}.
+   * <p>See {@link #updateRUMSdkConfigWithHttpInfo}.
    *
    * @param configId The ID of the RUM SDK configuration. (required)
    * @param body The RUM SDK configuration update. (required)
-   * @return RumSdkConfigResponse
+   * @return RUMSdkConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumSdkConfigResponse updateRumSdkConfig(String configId, RumSdkConfigUpdateRequest body)
+  public RUMSdkConfigResponse updateRUMSdkConfig(String configId, RUMSdkConfigUpdateRequest body)
       throws ApiException {
-    return updateRumSdkConfigWithHttpInfo(configId, body).getData();
+    return updateRUMSdkConfigWithHttpInfo(configId, body).getData();
   }
 
   /**
    * Update a RUM SDK configuration.
    *
-   * <p>See {@link #updateRumSdkConfigWithHttpInfoAsync}.
+   * <p>See {@link #updateRUMSdkConfigWithHttpInfoAsync}.
    *
    * @param configId The ID of the RUM SDK configuration. (required)
    * @param body The RUM SDK configuration update. (required)
-   * @return CompletableFuture&lt;RumSdkConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMSdkConfigResponse&gt;
    */
-  public CompletableFuture<RumSdkConfigResponse> updateRumSdkConfigAsync(
-      String configId, RumSdkConfigUpdateRequest body) {
-    return updateRumSdkConfigWithHttpInfoAsync(configId, body)
+  public CompletableFuture<RUMSdkConfigResponse> updateRUMSdkConfigAsync(
+      String configId, RUMSdkConfigUpdateRequest body) {
+    return updateRUMSdkConfigWithHttpInfoAsync(configId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -235,7 +235,7 @@ public class RumRemoteConfigApi {
    *
    * @param configId The ID of the RUM SDK configuration. (required)
    * @param body The RUM SDK configuration update. (required)
-   * @return ApiResponse&lt;RumSdkConfigResponse&gt;
+   * @return ApiResponse&lt;RUMSdkConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -248,10 +248,10 @@ public class RumRemoteConfigApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumSdkConfigResponse> updateRumSdkConfigWithHttpInfo(
-      String configId, RumSdkConfigUpdateRequest body) throws ApiException {
+  public ApiResponse<RUMSdkConfigResponse> updateRUMSdkConfigWithHttpInfo(
+      String configId, RUMSdkConfigUpdateRequest body) throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "updateRumSdkConfig";
+    String operationId = "updateRUMSdkConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -262,13 +262,13 @@ public class RumRemoteConfigApi {
     // verify the required parameter 'configId' is set
     if (configId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'configId' when calling updateRumSdkConfig");
+          400, "Missing the required parameter 'configId' when calling updateRUMSdkConfig");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateRumSdkConfig");
+          400, "Missing the required parameter 'body' when calling updateRUMSdkConfig");
     }
     // create path and map variables
     String localVarPath =
@@ -279,7 +279,7 @@ public class RumRemoteConfigApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRemoteConfigApi.updateRumSdkConfig",
+            "v2.RumRemoteConfigApi.updateRUMSdkConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -294,26 +294,26 @@ public class RumRemoteConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumSdkConfigResponse>() {});
+        new GenericType<RUMSdkConfigResponse>() {});
   }
 
   /**
    * Update a RUM SDK configuration.
    *
-   * <p>See {@link #updateRumSdkConfigWithHttpInfo}.
+   * <p>See {@link #updateRUMSdkConfigWithHttpInfo}.
    *
    * @param configId The ID of the RUM SDK configuration. (required)
    * @param body The RUM SDK configuration update. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumSdkConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMSdkConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumSdkConfigResponse>> updateRumSdkConfigWithHttpInfoAsync(
-      String configId, RumSdkConfigUpdateRequest body) {
+  public CompletableFuture<ApiResponse<RUMSdkConfigResponse>> updateRUMSdkConfigWithHttpInfoAsync(
+      String configId, RUMSdkConfigUpdateRequest body) {
     // Check if unstable operation is enabled
-    String operationId = "updateRumSdkConfig";
+    String operationId = "updateRUMSdkConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<RumSdkConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMSdkConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -322,19 +322,19 @@ public class RumRemoteConfigApi {
 
     // verify the required parameter 'configId' is set
     if (configId == null) {
-      CompletableFuture<ApiResponse<RumSdkConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMSdkConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'configId' when calling updateRumSdkConfig"));
+              400, "Missing the required parameter 'configId' when calling updateRUMSdkConfig"));
       return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumSdkConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMSdkConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling updateRumSdkConfig"));
+              400, "Missing the required parameter 'body' when calling updateRUMSdkConfig"));
       return result;
     }
     // create path and map variables
@@ -348,7 +348,7 @@ public class RumRemoteConfigApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRemoteConfigApi.updateRumSdkConfig",
+              "v2.RumRemoteConfigApi.updateRUMSdkConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -356,7 +356,7 @@ public class RumRemoteConfigApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumSdkConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMSdkConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -368,6 +368,6 @@ public class RumRemoteConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumSdkConfigResponse>() {});
+        new GenericType<RUMSdkConfigResponse>() {});
   }
 }

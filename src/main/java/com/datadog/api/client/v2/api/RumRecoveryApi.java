@@ -4,17 +4,17 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.RumArchiveSessionsResponse;
-import com.datadog.api.client.v2.model.RumArchiveSessionsSearchRequest;
-import com.datadog.api.client.v2.model.RumRecoveryBatchListResponse;
-import com.datadog.api.client.v2.model.RumRecoveryBatchRequestType;
-import com.datadog.api.client.v2.model.RumRecoveryCancelRequest;
-import com.datadog.api.client.v2.model.RumRecoveryCancelResponse;
-import com.datadog.api.client.v2.model.RumRecoveryCountRequest;
-import com.datadog.api.client.v2.model.RumRecoveryCountResponse;
-import com.datadog.api.client.v2.model.RumRecoveryCreateRequest;
-import com.datadog.api.client.v2.model.RumRecoveryCreateResponse;
-import com.datadog.api.client.v2.model.RumRecoveryRequestResponse;
+import com.datadog.api.client.v2.model.RUMArchiveSessionsResponse;
+import com.datadog.api.client.v2.model.RUMArchiveSessionsSearchRequest;
+import com.datadog.api.client.v2.model.RUMRecoveryBatchListResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryBatchRequestType;
+import com.datadog.api.client.v2.model.RUMRecoveryCancelRequest;
+import com.datadog.api.client.v2.model.RUMRecoveryCancelResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryCountRequest;
+import com.datadog.api.client.v2.model.RUMRecoveryCountResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryCreateRequest;
+import com.datadog.api.client.v2.model.RUMRecoveryCreateResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryRequestResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -61,10 +61,10 @@ public class RumRecoveryApi {
    * <p>See {@link #createRUMRecoveryRequestWithHttpInfo}.
    *
    * @param body JSON:API request body. (required)
-   * @return RumRecoveryCreateResponse
+   * @return RUMRecoveryCreateResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRecoveryCreateResponse createRUMRecoveryRequest(RumRecoveryCreateRequest body)
+  public RUMRecoveryCreateResponse createRUMRecoveryRequest(RUMRecoveryCreateRequest body)
       throws ApiException {
     return createRUMRecoveryRequestWithHttpInfo(body).getData();
   }
@@ -75,10 +75,10 @@ public class RumRecoveryApi {
    * <p>See {@link #createRUMRecoveryRequestWithHttpInfoAsync}.
    *
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;RumRecoveryCreateResponse&gt;
+   * @return CompletableFuture&lt;RUMRecoveryCreateResponse&gt;
    */
-  public CompletableFuture<RumRecoveryCreateResponse> createRUMRecoveryRequestAsync(
-      RumRecoveryCreateRequest body) {
+  public CompletableFuture<RUMRecoveryCreateResponse> createRUMRecoveryRequestAsync(
+      RUMRecoveryCreateRequest body) {
     return createRUMRecoveryRequestWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -97,7 +97,7 @@ public class RumRecoveryApi {
    * listing before retrying.
    *
    * @param body JSON:API request body. (required)
-   * @return ApiResponse&lt;RumRecoveryCreateResponse&gt;
+   * @return ApiResponse&lt;RUMRecoveryCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -112,8 +112,8 @@ public class RumRecoveryApi {
    *       <tr><td> 429 </td><td> Too many requests, or the batch recovery queue is full. </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRecoveryCreateResponse> createRUMRecoveryRequestWithHttpInfo(
-      RumRecoveryCreateRequest body) throws ApiException {
+  public ApiResponse<RUMRecoveryCreateResponse> createRUMRecoveryRequestWithHttpInfo(
+      RUMRecoveryCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -143,7 +143,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryCreateResponse>() {});
+        new GenericType<RUMRecoveryCreateResponse>() {});
   }
 
   /**
@@ -152,15 +152,15 @@ public class RumRecoveryApi {
    * <p>See {@link #createRUMRecoveryRequestWithHttpInfo}.
    *
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRecoveryCreateResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMRecoveryCreateResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRecoveryCreateResponse>>
-      createRUMRecoveryRequestWithHttpInfoAsync(RumRecoveryCreateRequest body) {
+  public CompletableFuture<ApiResponse<RUMRecoveryCreateResponse>>
+      createRUMRecoveryRequestWithHttpInfoAsync(RUMRecoveryCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumRecoveryCreateResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryCreateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling createRUMRecoveryRequest"));
@@ -183,7 +183,7 @@ public class RumRecoveryApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRecoveryCreateResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryCreateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -195,7 +195,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryCreateResponse>() {});
+        new GenericType<RUMRecoveryCreateResponse>() {});
   }
 
   /**
@@ -204,10 +204,10 @@ public class RumRecoveryApi {
    * <p>See {@link #getRUMRecoveryRequestWithHttpInfo}.
    *
    * @param requestId Recovery request UUID. (required)
-   * @return RumRecoveryRequestResponse
+   * @return RUMRecoveryRequestResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRecoveryRequestResponse getRUMRecoveryRequest(UUID requestId) throws ApiException {
+  public RUMRecoveryRequestResponse getRUMRecoveryRequest(UUID requestId) throws ApiException {
     return getRUMRecoveryRequestWithHttpInfo(requestId).getData();
   }
 
@@ -217,9 +217,9 @@ public class RumRecoveryApi {
    * <p>See {@link #getRUMRecoveryRequestWithHttpInfoAsync}.
    *
    * @param requestId Recovery request UUID. (required)
-   * @return CompletableFuture&lt;RumRecoveryRequestResponse&gt;
+   * @return CompletableFuture&lt;RUMRecoveryRequestResponse&gt;
    */
-  public CompletableFuture<RumRecoveryRequestResponse> getRUMRecoveryRequestAsync(UUID requestId) {
+  public CompletableFuture<RUMRecoveryRequestResponse> getRUMRecoveryRequestAsync(UUID requestId) {
     return getRUMRecoveryRequestWithHttpInfoAsync(requestId)
         .thenApply(
             response -> {
@@ -232,7 +232,7 @@ public class RumRecoveryApi {
    * include failed sessions; check individual session statuses for targeted recovery.
    *
    * @param requestId Recovery request UUID. (required)
-   * @return ApiResponse&lt;RumRecoveryRequestResponse&gt;
+   * @return ApiResponse&lt;RUMRecoveryRequestResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -246,7 +246,7 @@ public class RumRecoveryApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRecoveryRequestResponse> getRUMRecoveryRequestWithHttpInfo(UUID requestId)
+  public ApiResponse<RUMRecoveryRequestResponse> getRUMRecoveryRequestWithHttpInfo(UUID requestId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -279,7 +279,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryRequestResponse>() {});
+        new GenericType<RUMRecoveryRequestResponse>() {});
   }
 
   /**
@@ -288,15 +288,15 @@ public class RumRecoveryApi {
    * <p>See {@link #getRUMRecoveryRequestWithHttpInfo}.
    *
    * @param requestId Recovery request UUID. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRecoveryRequestResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMRecoveryRequestResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRecoveryRequestResponse>>
+  public CompletableFuture<ApiResponse<RUMRecoveryRequestResponse>>
       getRUMRecoveryRequestWithHttpInfoAsync(UUID requestId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
-      CompletableFuture<ApiResponse<RumRecoveryRequestResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryRequestResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -322,7 +322,7 @@ public class RumRecoveryApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRecoveryRequestResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryRequestResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -334,7 +334,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryRequestResponse>() {});
+        new GenericType<RUMRecoveryRequestResponse>() {});
   }
 
   /**
@@ -343,10 +343,10 @@ public class RumRecoveryApi {
    * <p>See {@link #getRUMRecoverySessionCountWithHttpInfo}.
    *
    * @param body JSON:API request body. (required)
-   * @return RumRecoveryCountResponse
+   * @return RUMRecoveryCountResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRecoveryCountResponse getRUMRecoverySessionCount(RumRecoveryCountRequest body)
+  public RUMRecoveryCountResponse getRUMRecoverySessionCount(RUMRecoveryCountRequest body)
       throws ApiException {
     return getRUMRecoverySessionCountWithHttpInfo(body).getData();
   }
@@ -357,10 +357,10 @@ public class RumRecoveryApi {
    * <p>See {@link #getRUMRecoverySessionCountWithHttpInfoAsync}.
    *
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;RumRecoveryCountResponse&gt;
+   * @return CompletableFuture&lt;RUMRecoveryCountResponse&gt;
    */
-  public CompletableFuture<RumRecoveryCountResponse> getRUMRecoverySessionCountAsync(
-      RumRecoveryCountRequest body) {
+  public CompletableFuture<RUMRecoveryCountResponse> getRUMRecoverySessionCountAsync(
+      RUMRecoveryCountRequest body) {
     return getRUMRecoverySessionCountWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -375,7 +375,7 @@ public class RumRecoveryApi {
    * checks a fresh estimate and returns 400 if it exceeds the configured maximum.
    *
    * @param body JSON:API request body. (required)
-   * @return ApiResponse&lt;RumRecoveryCountResponse&gt;
+   * @return ApiResponse&lt;RUMRecoveryCountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -389,8 +389,8 @@ public class RumRecoveryApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRecoveryCountResponse> getRUMRecoverySessionCountWithHttpInfo(
-      RumRecoveryCountRequest body) throws ApiException {
+  public ApiResponse<RUMRecoveryCountResponse> getRUMRecoverySessionCountWithHttpInfo(
+      RUMRecoveryCountRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -420,7 +420,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryCountResponse>() {});
+        new GenericType<RUMRecoveryCountResponse>() {});
   }
 
   /**
@@ -429,15 +429,15 @@ public class RumRecoveryApi {
    * <p>See {@link #getRUMRecoverySessionCountWithHttpInfo}.
    *
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRecoveryCountResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMRecoveryCountResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRecoveryCountResponse>>
-      getRUMRecoverySessionCountWithHttpInfoAsync(RumRecoveryCountRequest body) {
+  public CompletableFuture<ApiResponse<RUMRecoveryCountResponse>>
+      getRUMRecoverySessionCountWithHttpInfoAsync(RUMRecoveryCountRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumRecoveryCountResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryCountResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -461,7 +461,7 @@ public class RumRecoveryApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRecoveryCountResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryCountResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -473,7 +473,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryCountResponse>() {});
+        new GenericType<RUMRecoveryCountResponse>() {});
   }
 
   /** Manage optional parameters to listRUMRecoveryBatchRequests. */
@@ -557,10 +557,10 @@ public class RumRecoveryApi {
    * <p>See {@link #listRUMRecoveryBatchRequestsWithHttpInfo}.
    *
    * @param type Must equal batch. (required)
-   * @return RumRecoveryBatchListResponse
+   * @return RUMRecoveryBatchListResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRecoveryBatchListResponse listRUMRecoveryBatchRequests(RumRecoveryBatchRequestType type)
+  public RUMRecoveryBatchListResponse listRUMRecoveryBatchRequests(RUMRecoveryBatchRequestType type)
       throws ApiException {
     return listRUMRecoveryBatchRequestsWithHttpInfo(
             type, new ListRUMRecoveryBatchRequestsOptionalParameters())
@@ -573,10 +573,10 @@ public class RumRecoveryApi {
    * <p>See {@link #listRUMRecoveryBatchRequestsWithHttpInfoAsync}.
    *
    * @param type Must equal batch. (required)
-   * @return CompletableFuture&lt;RumRecoveryBatchListResponse&gt;
+   * @return CompletableFuture&lt;RUMRecoveryBatchListResponse&gt;
    */
-  public CompletableFuture<RumRecoveryBatchListResponse> listRUMRecoveryBatchRequestsAsync(
-      RumRecoveryBatchRequestType type) {
+  public CompletableFuture<RUMRecoveryBatchListResponse> listRUMRecoveryBatchRequestsAsync(
+      RUMRecoveryBatchRequestType type) {
     return listRUMRecoveryBatchRequestsWithHttpInfoAsync(
             type, new ListRUMRecoveryBatchRequestsOptionalParameters())
         .thenApply(
@@ -592,11 +592,11 @@ public class RumRecoveryApi {
    *
    * @param type Must equal batch. (required)
    * @param parameters Optional parameters for the request.
-   * @return RumRecoveryBatchListResponse
+   * @return RUMRecoveryBatchListResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRecoveryBatchListResponse listRUMRecoveryBatchRequests(
-      RumRecoveryBatchRequestType type, ListRUMRecoveryBatchRequestsOptionalParameters parameters)
+  public RUMRecoveryBatchListResponse listRUMRecoveryBatchRequests(
+      RUMRecoveryBatchRequestType type, ListRUMRecoveryBatchRequestsOptionalParameters parameters)
       throws ApiException {
     return listRUMRecoveryBatchRequestsWithHttpInfo(type, parameters).getData();
   }
@@ -608,10 +608,10 @@ public class RumRecoveryApi {
    *
    * @param type Must equal batch. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;RumRecoveryBatchListResponse&gt;
+   * @return CompletableFuture&lt;RUMRecoveryBatchListResponse&gt;
    */
-  public CompletableFuture<RumRecoveryBatchListResponse> listRUMRecoveryBatchRequestsAsync(
-      RumRecoveryBatchRequestType type, ListRUMRecoveryBatchRequestsOptionalParameters parameters) {
+  public CompletableFuture<RUMRecoveryBatchListResponse> listRUMRecoveryBatchRequestsAsync(
+      RUMRecoveryBatchRequestType type, ListRUMRecoveryBatchRequestsOptionalParameters parameters) {
     return listRUMRecoveryBatchRequestsWithHttpInfoAsync(type, parameters)
         .thenApply(
             response -> {
@@ -628,7 +628,7 @@ public class RumRecoveryApi {
    *
    * @param type Must equal batch. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;RumRecoveryBatchListResponse&gt;
+   * @return ApiResponse&lt;RUMRecoveryBatchListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -642,8 +642,8 @@ public class RumRecoveryApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRecoveryBatchListResponse> listRUMRecoveryBatchRequestsWithHttpInfo(
-      RumRecoveryBatchRequestType type, ListRUMRecoveryBatchRequestsOptionalParameters parameters)
+  public ApiResponse<RUMRecoveryBatchListResponse> listRUMRecoveryBatchRequestsWithHttpInfo(
+      RUMRecoveryBatchRequestType type, ListRUMRecoveryBatchRequestsOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -687,7 +687,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryBatchListResponse>() {});
+        new GenericType<RUMRecoveryBatchListResponse>() {});
   }
 
   /**
@@ -697,17 +697,17 @@ public class RumRecoveryApi {
    *
    * @param type Must equal batch. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRecoveryBatchListResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMRecoveryBatchListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRecoveryBatchListResponse>>
+  public CompletableFuture<ApiResponse<RUMRecoveryBatchListResponse>>
       listRUMRecoveryBatchRequestsWithHttpInfoAsync(
-          RumRecoveryBatchRequestType type,
+          RUMRecoveryBatchRequestType type,
           ListRUMRecoveryBatchRequestsOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'type' is set
     if (type == null) {
-      CompletableFuture<ApiResponse<RumRecoveryBatchListResponse>> result =
+      CompletableFuture<ApiResponse<RUMRecoveryBatchListResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
@@ -745,7 +745,7 @@ public class RumRecoveryApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRecoveryBatchListResponse>> result =
+      CompletableFuture<ApiResponse<RUMRecoveryBatchListResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -758,7 +758,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryBatchListResponse>() {});
+        new GenericType<RUMRecoveryBatchListResponse>() {});
   }
 
   /**
@@ -767,10 +767,10 @@ public class RumRecoveryApi {
    * <p>See {@link #searchRUMArchiveSessionsWithHttpInfo}.
    *
    * @param body JSON:API request body. (required)
-   * @return RumArchiveSessionsResponse
+   * @return RUMArchiveSessionsResponse
    * @throws ApiException if fails to make API call
    */
-  public RumArchiveSessionsResponse searchRUMArchiveSessions(RumArchiveSessionsSearchRequest body)
+  public RUMArchiveSessionsResponse searchRUMArchiveSessions(RUMArchiveSessionsSearchRequest body)
       throws ApiException {
     return searchRUMArchiveSessionsWithHttpInfo(body).getData();
   }
@@ -781,10 +781,10 @@ public class RumRecoveryApi {
    * <p>See {@link #searchRUMArchiveSessionsWithHttpInfoAsync}.
    *
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;RumArchiveSessionsResponse&gt;
+   * @return CompletableFuture&lt;RUMArchiveSessionsResponse&gt;
    */
-  public CompletableFuture<RumArchiveSessionsResponse> searchRUMArchiveSessionsAsync(
-      RumArchiveSessionsSearchRequest body) {
+  public CompletableFuture<RUMArchiveSessionsResponse> searchRUMArchiveSessionsAsync(
+      RUMArchiveSessionsSearchRequest body) {
     return searchRUMArchiveSessionsWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -796,7 +796,7 @@ public class RumRecoveryApi {
    * Search archived RUM sessions. Use <code>meta.page.next_cursor</code> to retrieve the next page.
    *
    * @param body JSON:API request body. (required)
-   * @return ApiResponse&lt;RumArchiveSessionsResponse&gt;
+   * @return ApiResponse&lt;RUMArchiveSessionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -809,8 +809,8 @@ public class RumRecoveryApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumArchiveSessionsResponse> searchRUMArchiveSessionsWithHttpInfo(
-      RumArchiveSessionsSearchRequest body) throws ApiException {
+  public ApiResponse<RUMArchiveSessionsResponse> searchRUMArchiveSessionsWithHttpInfo(
+      RUMArchiveSessionsSearchRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -840,7 +840,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveSessionsResponse>() {});
+        new GenericType<RUMArchiveSessionsResponse>() {});
   }
 
   /**
@@ -849,15 +849,15 @@ public class RumRecoveryApi {
    * <p>See {@link #searchRUMArchiveSessionsWithHttpInfo}.
    *
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumArchiveSessionsResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMArchiveSessionsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumArchiveSessionsResponse>>
-      searchRUMArchiveSessionsWithHttpInfoAsync(RumArchiveSessionsSearchRequest body) {
+  public CompletableFuture<ApiResponse<RUMArchiveSessionsResponse>>
+      searchRUMArchiveSessionsWithHttpInfoAsync(RUMArchiveSessionsSearchRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumArchiveSessionsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMArchiveSessionsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling searchRUMArchiveSessions"));
@@ -880,7 +880,7 @@ public class RumRecoveryApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumArchiveSessionsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMArchiveSessionsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -892,7 +892,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveSessionsResponse>() {});
+        new GenericType<RUMArchiveSessionsResponse>() {});
   }
 
   /**
@@ -902,11 +902,11 @@ public class RumRecoveryApi {
    *
    * @param requestId Recovery request UUID. (required)
    * @param body JSON:API request body. (required)
-   * @return RumRecoveryCancelResponse
+   * @return RUMRecoveryCancelResponse
    * @throws ApiException if fails to make API call
    */
-  public RumRecoveryCancelResponse updateRUMRecoveryBatchRequest(
-      UUID requestId, RumRecoveryCancelRequest body) throws ApiException {
+  public RUMRecoveryCancelResponse updateRUMRecoveryBatchRequest(
+      UUID requestId, RUMRecoveryCancelRequest body) throws ApiException {
     return updateRUMRecoveryBatchRequestWithHttpInfo(requestId, body).getData();
   }
 
@@ -917,10 +917,10 @@ public class RumRecoveryApi {
    *
    * @param requestId Recovery request UUID. (required)
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;RumRecoveryCancelResponse&gt;
+   * @return CompletableFuture&lt;RUMRecoveryCancelResponse&gt;
    */
-  public CompletableFuture<RumRecoveryCancelResponse> updateRUMRecoveryBatchRequestAsync(
-      UUID requestId, RumRecoveryCancelRequest body) {
+  public CompletableFuture<RUMRecoveryCancelResponse> updateRUMRecoveryBatchRequestAsync(
+      UUID requestId, RUMRecoveryCancelRequest body) {
     return updateRUMRecoveryBatchRequestWithHttpInfoAsync(requestId, body)
         .thenApply(
             response -> {
@@ -934,7 +934,7 @@ public class RumRecoveryApi {
    *
    * @param requestId Recovery request UUID. (required)
    * @param body JSON:API request body. (required)
-   * @return ApiResponse&lt;RumRecoveryCancelResponse&gt;
+   * @return ApiResponse&lt;RUMRecoveryCancelResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -949,8 +949,8 @@ public class RumRecoveryApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumRecoveryCancelResponse> updateRUMRecoveryBatchRequestWithHttpInfo(
-      UUID requestId, RumRecoveryCancelRequest body) throws ApiException {
+  public ApiResponse<RUMRecoveryCancelResponse> updateRUMRecoveryBatchRequestWithHttpInfo(
+      UUID requestId, RUMRecoveryCancelRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'requestId' is set
@@ -989,7 +989,7 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryCancelResponse>() {});
+        new GenericType<RUMRecoveryCancelResponse>() {});
   }
 
   /**
@@ -999,16 +999,16 @@ public class RumRecoveryApi {
    *
    * @param requestId Recovery request UUID. (required)
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumRecoveryCancelResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMRecoveryCancelResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumRecoveryCancelResponse>>
+  public CompletableFuture<ApiResponse<RUMRecoveryCancelResponse>>
       updateRUMRecoveryBatchRequestWithHttpInfoAsync(
-          UUID requestId, RumRecoveryCancelRequest body) {
+          UUID requestId, RUMRecoveryCancelRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
-      CompletableFuture<ApiResponse<RumRecoveryCancelResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryCancelResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -1019,7 +1019,7 @@ public class RumRecoveryApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumRecoveryCancelResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryCancelResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -1045,7 +1045,7 @@ public class RumRecoveryApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumRecoveryCancelResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMRecoveryCancelResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1057,6 +1057,6 @@ public class RumRecoveryApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumRecoveryCancelResponse>() {});
+        new GenericType<RUMRecoveryCancelResponse>() {});
   }
 }

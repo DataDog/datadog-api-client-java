@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRecoveryApi;
-import com.datadog.api.client.v2.model.RumRecoveryRequestResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryRequestResponse;
 import java.util.UUID;
 
 public class Example {
@@ -12,7 +12,7 @@ public class Example {
     RumRecoveryApi apiInstance = new RumRecoveryApi(defaultClient);
 
     try {
-      RumRecoveryRequestResponse result =
+      RUMRecoveryRequestResponse result =
           apiInstance.getRUMRecoveryRequest(
               UUID.fromString("11111111-1111-4111-8111-111111111111"));
       System.out.println(result);

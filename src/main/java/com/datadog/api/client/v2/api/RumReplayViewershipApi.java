@@ -49,28 +49,28 @@ public class RumReplayViewershipApi {
   /**
    * Create RUM replay session watch.
    *
-   * <p>See {@link #createRumReplaySessionWatchWithHttpInfo}.
+   * <p>See {@link #createRUMReplaySessionWatchWithHttpInfo}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @param body (required)
    * @return Watch
    * @throws ApiException if fails to make API call
    */
-  public Watch createRumReplaySessionWatch(String sessionId, Watch body) throws ApiException {
-    return createRumReplaySessionWatchWithHttpInfo(sessionId, body).getData();
+  public Watch createRUMReplaySessionWatch(String sessionId, Watch body) throws ApiException {
+    return createRUMReplaySessionWatchWithHttpInfo(sessionId, body).getData();
   }
 
   /**
    * Create RUM replay session watch.
    *
-   * <p>See {@link #createRumReplaySessionWatchWithHttpInfoAsync}.
+   * <p>See {@link #createRUMReplaySessionWatchWithHttpInfoAsync}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @param body (required)
    * @return CompletableFuture&lt;Watch&gt;
    */
-  public CompletableFuture<Watch> createRumReplaySessionWatchAsync(String sessionId, Watch body) {
-    return createRumReplaySessionWatchWithHttpInfoAsync(sessionId, body)
+  public CompletableFuture<Watch> createRUMReplaySessionWatchAsync(String sessionId, Watch body) {
+    return createRUMReplaySessionWatchWithHttpInfoAsync(sessionId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -92,7 +92,7 @@ public class RumReplayViewershipApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Watch> createRumReplaySessionWatchWithHttpInfo(String sessionId, Watch body)
+  public ApiResponse<Watch> createRUMReplaySessionWatchWithHttpInfo(String sessionId, Watch body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -100,13 +100,13 @@ public class RumReplayViewershipApi {
     if (sessionId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'sessionId' when calling createRumReplaySessionWatch");
+          "Missing the required parameter 'sessionId' when calling createRUMReplaySessionWatch");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createRumReplaySessionWatch");
+          400, "Missing the required parameter 'body' when calling createRUMReplaySessionWatch");
     }
     // create path and map variables
     String localVarPath =
@@ -117,7 +117,7 @@ public class RumReplayViewershipApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayViewershipApi.createRumReplaySessionWatch",
+            "v2.RumReplayViewershipApi.createRUMReplaySessionWatch",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -138,13 +138,13 @@ public class RumReplayViewershipApi {
   /**
    * Create RUM replay session watch.
    *
-   * <p>See {@link #createRumReplaySessionWatchWithHttpInfo}.
+   * <p>See {@link #createRUMReplaySessionWatchWithHttpInfo}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Watch&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Watch>> createRumReplaySessionWatchWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Watch>> createRUMReplaySessionWatchWithHttpInfoAsync(
       String sessionId, Watch body) {
     Object localVarPostBody = body;
 
@@ -155,7 +155,7 @@ public class RumReplayViewershipApi {
           new ApiException(
               400,
               "Missing the required parameter 'sessionId' when calling"
-                  + " createRumReplaySessionWatch"));
+                  + " createRUMReplaySessionWatch"));
       return result;
     }
 
@@ -165,7 +165,7 @@ public class RumReplayViewershipApi {
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'body' when calling createRumReplaySessionWatch"));
+              "Missing the required parameter 'body' when calling createRUMReplaySessionWatch"));
       return result;
     }
     // create path and map variables
@@ -179,7 +179,7 @@ public class RumReplayViewershipApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayViewershipApi.createRumReplaySessionWatch",
+              "v2.RumReplayViewershipApi.createRUMReplaySessionWatch",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -205,25 +205,25 @@ public class RumReplayViewershipApi {
   /**
    * Delete RUM replay session watch.
    *
-   * <p>See {@link #deleteRumReplaySessionWatchWithHttpInfo}.
+   * <p>See {@link #deleteRUMReplaySessionWatchWithHttpInfo}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteRumReplaySessionWatch(String sessionId) throws ApiException {
-    deleteRumReplaySessionWatchWithHttpInfo(sessionId);
+  public void deleteRUMReplaySessionWatch(String sessionId) throws ApiException {
+    deleteRUMReplaySessionWatchWithHttpInfo(sessionId);
   }
 
   /**
    * Delete RUM replay session watch.
    *
-   * <p>See {@link #deleteRumReplaySessionWatchWithHttpInfoAsync}.
+   * <p>See {@link #deleteRUMReplaySessionWatchWithHttpInfoAsync}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteRumReplaySessionWatchAsync(String sessionId) {
-    return deleteRumReplaySessionWatchWithHttpInfoAsync(sessionId)
+  public CompletableFuture<Void> deleteRUMReplaySessionWatchAsync(String sessionId) {
+    return deleteRUMReplaySessionWatchWithHttpInfoAsync(sessionId)
         .thenApply(
             response -> {
               return response.getData();
@@ -244,7 +244,7 @@ public class RumReplayViewershipApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteRumReplaySessionWatchWithHttpInfo(String sessionId)
+  public ApiResponse<Void> deleteRUMReplaySessionWatchWithHttpInfo(String sessionId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -252,7 +252,7 @@ public class RumReplayViewershipApi {
     if (sessionId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'sessionId' when calling deleteRumReplaySessionWatch");
+          "Missing the required parameter 'sessionId' when calling deleteRUMReplaySessionWatch");
     }
     // create path and map variables
     String localVarPath =
@@ -263,7 +263,7 @@ public class RumReplayViewershipApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayViewershipApi.deleteRumReplaySessionWatch",
+            "v2.RumReplayViewershipApi.deleteRUMReplaySessionWatch",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -284,12 +284,12 @@ public class RumReplayViewershipApi {
   /**
    * Delete RUM replay session watch.
    *
-   * <p>See {@link #deleteRumReplaySessionWatchWithHttpInfo}.
+   * <p>See {@link #deleteRUMReplaySessionWatchWithHttpInfo}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteRumReplaySessionWatchWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Void>> deleteRUMReplaySessionWatchWithHttpInfoAsync(
       String sessionId) {
     Object localVarPostBody = null;
 
@@ -300,7 +300,7 @@ public class RumReplayViewershipApi {
           new ApiException(
               400,
               "Missing the required parameter 'sessionId' when calling"
-                  + " deleteRumReplaySessionWatch"));
+                  + " deleteRUMReplaySessionWatch"));
       return result;
     }
     // create path and map variables
@@ -314,7 +314,7 @@ public class RumReplayViewershipApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayViewershipApi.deleteRumReplaySessionWatch",
+              "v2.RumReplayViewershipApi.deleteRUMReplaySessionWatch",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -337,8 +337,8 @@ public class RumReplayViewershipApi {
         null);
   }
 
-  /** Manage optional parameters to listRumReplaySessionWatchers. */
-  public static class ListRumReplaySessionWatchersOptionalParameters {
+  /** Manage optional parameters to listRUMReplaySessionWatchers. */
+  public static class ListRUMReplaySessionWatchersOptionalParameters {
     private Long pageSize;
     private Long pageNumber;
 
@@ -346,9 +346,9 @@ public class RumReplayViewershipApi {
      * Set pageSize.
      *
      * @param pageSize Number of items per page. (optional)
-     * @return ListRumReplaySessionWatchersOptionalParameters
+     * @return ListRUMReplaySessionWatchersOptionalParameters
      */
-    public ListRumReplaySessionWatchersOptionalParameters pageSize(Long pageSize) {
+    public ListRUMReplaySessionWatchersOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -357,9 +357,9 @@ public class RumReplayViewershipApi {
      * Set pageNumber.
      *
      * @param pageNumber Page number for pagination (0-indexed). (optional)
-     * @return ListRumReplaySessionWatchersOptionalParameters
+     * @return ListRUMReplaySessionWatchersOptionalParameters
      */
-    public ListRumReplaySessionWatchersOptionalParameters pageNumber(Long pageNumber) {
+    public ListRUMReplaySessionWatchersOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -368,29 +368,29 @@ public class RumReplayViewershipApi {
   /**
    * List RUM replay session watchers.
    *
-   * <p>See {@link #listRumReplaySessionWatchersWithHttpInfo}.
+   * <p>See {@link #listRUMReplaySessionWatchersWithHttpInfo}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @return WatcherArray
    * @throws ApiException if fails to make API call
    */
-  public WatcherArray listRumReplaySessionWatchers(String sessionId) throws ApiException {
-    return listRumReplaySessionWatchersWithHttpInfo(
-            sessionId, new ListRumReplaySessionWatchersOptionalParameters())
+  public WatcherArray listRUMReplaySessionWatchers(String sessionId) throws ApiException {
+    return listRUMReplaySessionWatchersWithHttpInfo(
+            sessionId, new ListRUMReplaySessionWatchersOptionalParameters())
         .getData();
   }
 
   /**
    * List RUM replay session watchers.
    *
-   * <p>See {@link #listRumReplaySessionWatchersWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplaySessionWatchersWithHttpInfoAsync}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @return CompletableFuture&lt;WatcherArray&gt;
    */
-  public CompletableFuture<WatcherArray> listRumReplaySessionWatchersAsync(String sessionId) {
-    return listRumReplaySessionWatchersWithHttpInfoAsync(
-            sessionId, new ListRumReplaySessionWatchersOptionalParameters())
+  public CompletableFuture<WatcherArray> listRUMReplaySessionWatchersAsync(String sessionId) {
+    return listRUMReplaySessionWatchersWithHttpInfoAsync(
+            sessionId, new ListRUMReplaySessionWatchersOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -400,31 +400,31 @@ public class RumReplayViewershipApi {
   /**
    * List RUM replay session watchers.
    *
-   * <p>See {@link #listRumReplaySessionWatchersWithHttpInfo}.
+   * <p>See {@link #listRUMReplaySessionWatchersWithHttpInfo}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @param parameters Optional parameters for the request.
    * @return WatcherArray
    * @throws ApiException if fails to make API call
    */
-  public WatcherArray listRumReplaySessionWatchers(
-      String sessionId, ListRumReplaySessionWatchersOptionalParameters parameters)
+  public WatcherArray listRUMReplaySessionWatchers(
+      String sessionId, ListRUMReplaySessionWatchersOptionalParameters parameters)
       throws ApiException {
-    return listRumReplaySessionWatchersWithHttpInfo(sessionId, parameters).getData();
+    return listRUMReplaySessionWatchersWithHttpInfo(sessionId, parameters).getData();
   }
 
   /**
    * List RUM replay session watchers.
    *
-   * <p>See {@link #listRumReplaySessionWatchersWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplaySessionWatchersWithHttpInfoAsync}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;WatcherArray&gt;
    */
-  public CompletableFuture<WatcherArray> listRumReplaySessionWatchersAsync(
-      String sessionId, ListRumReplaySessionWatchersOptionalParameters parameters) {
-    return listRumReplaySessionWatchersWithHttpInfoAsync(sessionId, parameters)
+  public CompletableFuture<WatcherArray> listRUMReplaySessionWatchersAsync(
+      String sessionId, ListRUMReplaySessionWatchersOptionalParameters parameters) {
+    return listRUMReplaySessionWatchersWithHttpInfoAsync(sessionId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -446,8 +446,8 @@ public class RumReplayViewershipApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<WatcherArray> listRumReplaySessionWatchersWithHttpInfo(
-      String sessionId, ListRumReplaySessionWatchersOptionalParameters parameters)
+  public ApiResponse<WatcherArray> listRUMReplaySessionWatchersWithHttpInfo(
+      String sessionId, ListRUMReplaySessionWatchersOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -455,7 +455,7 @@ public class RumReplayViewershipApi {
     if (sessionId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'sessionId' when calling listRumReplaySessionWatchers");
+          "Missing the required parameter 'sessionId' when calling listRUMReplaySessionWatchers");
     }
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -472,7 +472,7 @@ public class RumReplayViewershipApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayViewershipApi.listRumReplaySessionWatchers",
+            "v2.RumReplayViewershipApi.listRUMReplaySessionWatchers",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -493,14 +493,14 @@ public class RumReplayViewershipApi {
   /**
    * List RUM replay session watchers.
    *
-   * <p>See {@link #listRumReplaySessionWatchersWithHttpInfo}.
+   * <p>See {@link #listRUMReplaySessionWatchersWithHttpInfo}.
    *
    * @param sessionId Unique identifier of the session. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;WatcherArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<WatcherArray>> listRumReplaySessionWatchersWithHttpInfoAsync(
-      String sessionId, ListRumReplaySessionWatchersOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<WatcherArray>> listRUMReplaySessionWatchersWithHttpInfoAsync(
+      String sessionId, ListRUMReplaySessionWatchersOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'sessionId' is set
@@ -510,7 +510,7 @@ public class RumReplayViewershipApi {
           new ApiException(
               400,
               "Missing the required parameter 'sessionId' when calling"
-                  + " listRumReplaySessionWatchers"));
+                  + " listRUMReplaySessionWatchers"));
       return result;
     }
     Long pageSize = parameters.pageSize;
@@ -530,7 +530,7 @@ public class RumReplayViewershipApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayViewershipApi.listRumReplaySessionWatchers",
+              "v2.RumReplayViewershipApi.listRUMReplaySessionWatchers",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -553,8 +553,8 @@ public class RumReplayViewershipApi {
         new GenericType<WatcherArray>() {});
   }
 
-  /** Manage optional parameters to listRumReplayViewershipHistorySessions. */
-  public static class ListRumReplayViewershipHistorySessionsOptionalParameters {
+  /** Manage optional parameters to listRUMReplayViewershipHistorySessions. */
+  public static class ListRUMReplayViewershipHistorySessionsOptionalParameters {
     private Long filterWatchedAtStart;
     private Long pageNumber;
     private String filterCreatedBy;
@@ -567,9 +567,9 @@ public class RumReplayViewershipApi {
      * Set filterWatchedAtStart.
      *
      * @param filterWatchedAtStart Start timestamp in milliseconds for watched_at filter. (optional)
-     * @return ListRumReplayViewershipHistorySessionsOptionalParameters
+     * @return ListRUMReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters filterWatchedAtStart(
+    public ListRUMReplayViewershipHistorySessionsOptionalParameters filterWatchedAtStart(
         Long filterWatchedAtStart) {
       this.filterWatchedAtStart = filterWatchedAtStart;
       return this;
@@ -579,9 +579,9 @@ public class RumReplayViewershipApi {
      * Set pageNumber.
      *
      * @param pageNumber Page number for pagination (0-indexed). (optional)
-     * @return ListRumReplayViewershipHistorySessionsOptionalParameters
+     * @return ListRUMReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters pageNumber(Long pageNumber) {
+    public ListRUMReplayViewershipHistorySessionsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -591,9 +591,9 @@ public class RumReplayViewershipApi {
      *
      * @param filterCreatedBy Filter by user UUID. Defaults to current user if not specified.
      *     (optional)
-     * @return ListRumReplayViewershipHistorySessionsOptionalParameters
+     * @return ListRUMReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters filterCreatedBy(
+    public ListRUMReplayViewershipHistorySessionsOptionalParameters filterCreatedBy(
         String filterCreatedBy) {
       this.filterCreatedBy = filterCreatedBy;
       return this;
@@ -603,9 +603,9 @@ public class RumReplayViewershipApi {
      * Set filterWatchedAtEnd.
      *
      * @param filterWatchedAtEnd End timestamp in milliseconds for watched_at filter. (optional)
-     * @return ListRumReplayViewershipHistorySessionsOptionalParameters
+     * @return ListRUMReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters filterWatchedAtEnd(
+    public ListRUMReplayViewershipHistorySessionsOptionalParameters filterWatchedAtEnd(
         Long filterWatchedAtEnd) {
       this.filterWatchedAtEnd = filterWatchedAtEnd;
       return this;
@@ -615,9 +615,9 @@ public class RumReplayViewershipApi {
      * Set filterSessionIds.
      *
      * @param filterSessionIds Comma-separated list of session IDs to filter by. (optional)
-     * @return ListRumReplayViewershipHistorySessionsOptionalParameters
+     * @return ListRUMReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters filterSessionIds(
+    public ListRUMReplayViewershipHistorySessionsOptionalParameters filterSessionIds(
         String filterSessionIds) {
       this.filterSessionIds = filterSessionIds;
       return this;
@@ -627,9 +627,9 @@ public class RumReplayViewershipApi {
      * Set pageSize.
      *
      * @param pageSize Number of items per page. (optional)
-     * @return ListRumReplayViewershipHistorySessionsOptionalParameters
+     * @return ListRUMReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters pageSize(Long pageSize) {
+    public ListRUMReplayViewershipHistorySessionsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -638,9 +638,9 @@ public class RumReplayViewershipApi {
      * Set filterApplicationId.
      *
      * @param filterApplicationId Filter by application ID. (optional)
-     * @return ListRumReplayViewershipHistorySessionsOptionalParameters
+     * @return ListRUMReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters filterApplicationId(
+    public ListRUMReplayViewershipHistorySessionsOptionalParameters filterApplicationId(
         String filterApplicationId) {
       this.filterApplicationId = filterApplicationId;
       return this;
@@ -650,29 +650,29 @@ public class RumReplayViewershipApi {
   /**
    * List RUM replay viewership history sessions.
    *
-   * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayViewershipHistorySessionsWithHttpInfo}.
    *
    * @return ViewershipHistorySessionArray
    * @throws ApiException if fails to make API call
    */
-  public ViewershipHistorySessionArray listRumReplayViewershipHistorySessions()
+  public ViewershipHistorySessionArray listRUMReplayViewershipHistorySessions()
       throws ApiException {
-    return listRumReplayViewershipHistorySessionsWithHttpInfo(
-            new ListRumReplayViewershipHistorySessionsOptionalParameters())
+    return listRUMReplayViewershipHistorySessionsWithHttpInfo(
+            new ListRUMReplayViewershipHistorySessionsOptionalParameters())
         .getData();
   }
 
   /**
    * List RUM replay viewership history sessions.
    *
-   * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplayViewershipHistorySessionsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ViewershipHistorySessionArray&gt;
    */
   public CompletableFuture<ViewershipHistorySessionArray>
-      listRumReplayViewershipHistorySessionsAsync() {
-    return listRumReplayViewershipHistorySessionsWithHttpInfoAsync(
-            new ListRumReplayViewershipHistorySessionsOptionalParameters())
+      listRUMReplayViewershipHistorySessionsAsync() {
+    return listRUMReplayViewershipHistorySessionsWithHttpInfoAsync(
+            new ListRUMReplayViewershipHistorySessionsOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -682,29 +682,29 @@ public class RumReplayViewershipApi {
   /**
    * List RUM replay viewership history sessions.
    *
-   * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayViewershipHistorySessionsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return ViewershipHistorySessionArray
    * @throws ApiException if fails to make API call
    */
-  public ViewershipHistorySessionArray listRumReplayViewershipHistorySessions(
-      ListRumReplayViewershipHistorySessionsOptionalParameters parameters) throws ApiException {
-    return listRumReplayViewershipHistorySessionsWithHttpInfo(parameters).getData();
+  public ViewershipHistorySessionArray listRUMReplayViewershipHistorySessions(
+      ListRUMReplayViewershipHistorySessionsOptionalParameters parameters) throws ApiException {
+    return listRUMReplayViewershipHistorySessionsWithHttpInfo(parameters).getData();
   }
 
   /**
    * List RUM replay viewership history sessions.
    *
-   * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplayViewershipHistorySessionsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ViewershipHistorySessionArray&gt;
    */
   public CompletableFuture<ViewershipHistorySessionArray>
-      listRumReplayViewershipHistorySessionsAsync(
-          ListRumReplayViewershipHistorySessionsOptionalParameters parameters) {
-    return listRumReplayViewershipHistorySessionsWithHttpInfoAsync(parameters)
+      listRUMReplayViewershipHistorySessionsAsync(
+          ListRUMReplayViewershipHistorySessionsOptionalParameters parameters) {
+    return listRUMReplayViewershipHistorySessionsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -726,8 +726,8 @@ public class RumReplayViewershipApi {
    *     </table>
    */
   public ApiResponse<ViewershipHistorySessionArray>
-      listRumReplayViewershipHistorySessionsWithHttpInfo(
-          ListRumReplayViewershipHistorySessionsOptionalParameters parameters) throws ApiException {
+      listRUMReplayViewershipHistorySessionsWithHttpInfo(
+          ListRUMReplayViewershipHistorySessionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long filterWatchedAtStart = parameters.filterWatchedAtStart;
     Long pageNumber = parameters.pageNumber;
@@ -757,7 +757,7 @@ public class RumReplayViewershipApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayViewershipApi.listRumReplayViewershipHistorySessions",
+            "v2.RumReplayViewershipApi.listRUMReplayViewershipHistorySessions",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -778,14 +778,14 @@ public class RumReplayViewershipApi {
   /**
    * List RUM replay viewership history sessions.
    *
-   * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayViewershipHistorySessionsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ViewershipHistorySessionArray&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ViewershipHistorySessionArray>>
-      listRumReplayViewershipHistorySessionsWithHttpInfoAsync(
-          ListRumReplayViewershipHistorySessionsOptionalParameters parameters) {
+      listRUMReplayViewershipHistorySessionsWithHttpInfoAsync(
+          ListRUMReplayViewershipHistorySessionsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Long filterWatchedAtStart = parameters.filterWatchedAtStart;
     Long pageNumber = parameters.pageNumber;
@@ -817,7 +817,7 @@ public class RumReplayViewershipApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayViewershipApi.listRumReplayViewershipHistorySessions",
+              "v2.RumReplayViewershipApi.listRUMReplayViewershipHistorySessions",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

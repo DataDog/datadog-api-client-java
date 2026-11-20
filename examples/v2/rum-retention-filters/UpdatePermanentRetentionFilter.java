@@ -3,13 +3,13 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRetentionFiltersApi;
-import com.datadog.api.client.v2.model.RumCrossProductSamplingUpdate;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterID;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterResponse;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterType;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterUpdateAttributes;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterUpdateData;
-import com.datadog.api.client.v2.model.RumPermanentRetentionFilterUpdateRequest;
+import com.datadog.api.client.v2.model.RUMCrossProductSamplingUpdate;
+import com.datadog.api.client.v2.model.RUMPermanentRetentionFilterID;
+import com.datadog.api.client.v2.model.RUMPermanentRetentionFilterResponse;
+import com.datadog.api.client.v2.model.RUMPermanentRetentionFilterType;
+import com.datadog.api.client.v2.model.RUMPermanentRetentionFilterUpdateAttributes;
+import com.datadog.api.client.v2.model.RUMPermanentRetentionFilterUpdateData;
+import com.datadog.api.client.v2.model.RUMPermanentRetentionFilterUpdateRequest;
 
 public class Example {
   public static void main(String[] args) {
@@ -17,23 +17,23 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
-    RumPermanentRetentionFilterUpdateRequest body =
-        new RumPermanentRetentionFilterUpdateRequest()
+    RUMPermanentRetentionFilterUpdateRequest body =
+        new RUMPermanentRetentionFilterUpdateRequest()
             .data(
-                new RumPermanentRetentionFilterUpdateData()
+                new RUMPermanentRetentionFilterUpdateData()
                     .attributes(
-                        new RumPermanentRetentionFilterUpdateAttributes()
+                        new RUMPermanentRetentionFilterUpdateAttributes()
                             .crossProductSampling(
-                                new RumCrossProductSamplingUpdate()
+                                new RUMCrossProductSamplingUpdate()
                                     .traceEnabled(true)
                                     .traceSampleRate(25.0)))
-                    .id(RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS)
-                    .type(RumPermanentRetentionFilterType.PERMANENT_RETENTION_FILTERS));
+                    .id(RUMPermanentRetentionFilterID.SYNTHETICS_SESSIONS)
+                    .type(RUMPermanentRetentionFilterType.PERMANENT_RETENTION_FILTERS));
 
     try {
-      RumPermanentRetentionFilterResponse result =
+      RUMPermanentRetentionFilterResponse result =
           apiInstance.updatePermanentRetentionFilter(
-              "app_id", RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS, body);
+              "app_id", RUMPermanentRetentionFilterID.SYNTHETICS_SESSIONS, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
