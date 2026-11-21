@@ -1469,7 +1469,8 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the detailed configuration associated with a Synthetic API test.
+   * Get the detailed configuration of one Synthetic API test. For bulk configuration reads, prefer
+   * paginated <code>SearchTests</code> requests with <code>include_full_config=true</code>.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsAPITest&gt;
@@ -1682,7 +1683,9 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 150 test results summaries for a given Synthetic API test.
+   * Get the last 150 test results summaries for a given Synthetic API test. To filter tests across
+   * your organization by monitor status, state, or tags, use the Search Synthetic tests with
+   * filters endpoint.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -2215,7 +2218,9 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 150 test results summaries for a given Synthetic browser test.
+   * Get the last 150 test results summaries for a given Synthetic browser test. To filter tests
+   * across your organization by monitor status, state, or tags, use the Search Synthetic tests with
+   * filters endpoint.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -3663,7 +3668,8 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the list of all Synthetic tests.
+   * Get the list of all Synthetic tests. To use query filters or get monitor-health metadata, use
+   * the Search Synthetic tests with filters endpoint.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
@@ -3933,7 +3939,16 @@ public class SyntheticsApi {
     /**
      * Set text.
      *
-     * @param text The search query. (optional)
+     * @param text Search query. Space-separated terms are combined with AND. - <code>status:Alert
+     *     </code> or <code>status:OK</code>: monitor health. - <code>state:live</code> or <code>
+     *     state:paused</code>: whether a test runs. - <code>type:api</code>, <code>type:browser
+     *     </code>, or <code>type:mobile</code>: test type. - <code>team:&lt;name&gt;</code>, <code>
+     *     &lt;key&gt;:&lt;value&gt;</code>, or <code>tag:&lt;key&gt;:&lt;value&gt;</code>: tags,
+     *     for example <code>team:dashboards env:prod</code>. - <code>
+     *     test_criticality:(high OR very_high)</code>: tests with high or very high criticality. -
+     *     Free text, for example <code>checkout</code>: test names. <code>status:Alert state:live
+     *     </code> matches running tests with alerting monitors. Paused tests can remain alerting.
+     *     (optional)
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters text(String text) {
@@ -3944,8 +3959,10 @@ public class SyntheticsApi {
     /**
      * Set includeFullConfig.
      *
-     * @param includeFullConfig If true, include the full configuration for each test in the
-     *     response. (optional)
+     * @param includeFullConfig If true, include the full configuration, including assertions and
+     *     multistep API steps. If false or omitted, <code>config</code> contains only a reduced
+     *     request summary. In TypeScript, multistep steps are in <code>
+     *     test.config?.additionalProperties?.steps</code>. (optional)
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters includeFullConfig(Boolean includeFullConfig) {
@@ -3956,7 +3973,8 @@ public class SyntheticsApi {
     /**
      * Set facetsOnly.
      *
-     * @param facetsOnly If true, return only facets instead of full test details. (optional)
+     * @param facetsOnly If true, return facet counts with an empty <code>tests</code> array and
+     *     <code>total</code> set to 0. (optional)
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters facetsOnly(Boolean facetsOnly) {
@@ -3967,7 +3985,8 @@ public class SyntheticsApi {
     /**
      * Set start.
      *
-     * @param start The offset from which to start returning results. (optional, default to 0)
+     * @param start Zero-based result offset. Increase by <code>count</code> for each page, even if
+     *     fewer tests are returned. (optional, default to 0)
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters start(Long start) {
@@ -3978,7 +3997,8 @@ public class SyntheticsApi {
     /**
      * Set count.
      *
-     * @param count The maximum number of results to return. (optional, default to 50)
+     * @param count Maximum number of tests per page. Access restrictions can return fewer tests or
+     *     none, even when more tests match. (optional, default to 50)
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters count(Long count) {
@@ -3989,8 +4009,14 @@ public class SyntheticsApi {
     /**
      * Set sort.
      *
-     * @param sort The sort order for the results (e.g., <code>name,asc</code> or <code>name,desc
-     *     </code>). (optional, default to "name,asc")
+     * @param sort Sort by <code>&lt;field&gt;,&lt;direction&gt;</code>, where direction is <code>
+     *     asc</code> or <code>desc</code> (for example, <code>name,asc</code>). Supported fields
+     *     include <code>name</code>, <code>status</code>, <code>tags</code>, <code>triggered</code>
+     *     , <code>created</code>, <code>modified</code>, <code>priority</code>, <code>muted_elapsed
+     *     </code>, <code>muted_left</code>, <code>creator</code>, <code>type</code>, <code>domain
+     *     </code>, and <code>triage_score</code>. <code>test_criticality</code> is an alias for
+     *     <code>triage_score</code>. <code>triggered,desc</code> sorts by the most recent monitor
+     *     trigger time (<code>last_triggered_ts</code>). (optional, default to "name,asc")
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters sort(String sort) {
@@ -4000,7 +4026,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetic tests.
+   * Search Synthetic tests with filters.
    *
    * <p>See {@link #searchTestsWithHttpInfo}.
    *
@@ -4012,7 +4038,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetic tests.
+   * Search Synthetic tests with filters.
    *
    * <p>See {@link #searchTestsWithHttpInfoAsync}.
    *
@@ -4027,7 +4053,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetic tests.
+   * Search Synthetic tests with filters.
    *
    * <p>See {@link #searchTestsWithHttpInfo}.
    *
@@ -4041,7 +4067,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetic tests.
+   * Search Synthetic tests with filters.
    *
    * <p>See {@link #searchTestsWithHttpInfoAsync}.
    *
@@ -4058,7 +4084,13 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search for Synthetic tests.
+   * Search for Synthetic tests that match the <code>text</code> query. The response includes
+   * monitor health, facet counts, and pagination metadata. <code>total</code> can report 10,000
+   * even when more tests match. Do not treat that value as an exact total. Access restrictions can
+   * return fewer tests than <code>count</code>, or none. Increase <code>start</code> by <code>count
+   * </code> for each page. In TypeScript, response-level <code>total</code> and <code>facets</code>
+   * , and test-level <code>monitor_status</code> (known values: <code>OK</code>, <code>Alert</code>
+   * , <code>No Data</code>), are available through <code>additionalProperties</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
@@ -4117,7 +4149,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetic tests.
+   * Search Synthetic tests with filters.
    *
    * <p>See {@link #searchTestsWithHttpInfo}.
    *

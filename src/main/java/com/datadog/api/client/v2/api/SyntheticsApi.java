@@ -3848,7 +3848,9 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the latest result summaries for a given Synthetic browser test.
+   * Get the latest result summaries for a given Synthetic browser test. To filter tests across your
+   * organization by monitor status, state, or tags, use the Search Synthetic tests with filters
+   * endpoint.
    *
    * @param publicId The public ID of the Synthetic browser test for which to search results.
    *     (required)
@@ -4332,7 +4334,9 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the latest result summaries for a given Synthetic test.
+   * Get the latest result summaries for a given Synthetic test. To filter tests across your
+   * organization by monitor status, state, or tags, use the Search Synthetic tests with filters
+   * endpoint.
    *
    * @param publicId The public ID of the Synthetic test for which to search results. (required)
    * @param parameters Optional parameters for the request.

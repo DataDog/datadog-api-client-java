@@ -18,7 +18,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing details about your Synthetic test, without test steps. */
+/**
+ * Synthetic test details, without steps. Search results can also include <code>created_by</code>,
+ * <code>location_names</code>, <code>monitor_status</code>, <code>last_triggered_ts</code>, <code>
+ * triage_score</code>, and <code>test_criticality</code>. In TypeScript, these retain their
+ * snake_case names under <code>test.additionalProperties</code>. <code>monitor_status</code>
+ * describes monitor health, with known values <code>OK</code>, <code>Alert</code>, and <code>
+ * No Data</code>. <code>last_triggered_ts</code> is the monitor's last trigger time in Unix
+ * seconds. <code>triage_score</code> ranges from 0 to 1. Higher values mean higher priority. <code>
+ * test_criticality</code> groups scores into <code>low</code>, <code>medium</code>, <code>high
+ * </code>, or <code>very_high</code>.
+ */
 @JsonPropertyOrder({
   SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_CONFIG,
   SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_CREATOR,
