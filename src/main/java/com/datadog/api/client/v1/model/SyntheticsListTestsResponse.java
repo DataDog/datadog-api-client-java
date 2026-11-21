@@ -18,7 +18,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing an array of Synthetic tests configuration. */
+/**
+ * Synthetic test configurations. Search responses also include <code>total</code> (matches before
+ * per-test access filtering) and <code>facets</code> (value counts). <code>total</code> can report
+ * 10,000 even when more tests match. Do not treat that value as an exact total. In TypeScript,
+ * these are available as <code>response.additionalProperties?.total</code> and <code>
+ * response.additionalProperties?.facets</code>.
+ */
 @JsonPropertyOrder({SyntheticsListTestsResponse.JSON_PROPERTY_TESTS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
