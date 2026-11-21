@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Attributes used to filter and sort cost recommendations. */
 @JsonPropertyOrder({
+  RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_EXTRA_FIELDS,
   RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_FILTER,
   RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_SCOPE,
   RecommendationsFilterRequestDataAttributes.JSON_PROPERTY_SORT,
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RecommendationsFilterRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXTRA_FIELDS = "extra_fields";
+  private List<String> extraFields = null;
+
   public static final String JSON_PROPERTY_FILTER = "filter";
   private String filter;
 
@@ -40,6 +44,38 @@ public class RecommendationsFilterRequestDataAttributes {
 
   public static final String JSON_PROPERTY_VIEW = "view";
   private String view;
+
+  public RecommendationsFilterRequestDataAttributes extraFields(List<String> extraFields) {
+    this.extraFields = extraFields;
+    return this;
+  }
+
+  public RecommendationsFilterRequestDataAttributes addExtraFieldsItem(String extraFieldsItem) {
+    if (this.extraFields == null) {
+      this.extraFields = new ArrayList<>();
+    }
+    this.extraFields.add(extraFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional fields to return from the recommendation event's custom attributes, selected by
+   * dotted paths such as <code>tags.env</code> or wildcard patterns such as <code>*target*</code>.
+   * Arrays are traversed without indexes. Matched objects and arrays are returned whole. A maximum
+   * of 256 selectors can be requested. Selectors that match nothing return no field.
+   *
+   * @return extraFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTRA_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getExtraFields() {
+    return extraFields;
+  }
+
+  public void setExtraFields(List<String> extraFields) {
+    this.extraFields = extraFields;
+  }
 
   public RecommendationsFilterRequestDataAttributes filter(String filter) {
     this.filter = filter;
@@ -215,7 +251,8 @@ public class RecommendationsFilterRequestDataAttributes {
     }
     RecommendationsFilterRequestDataAttributes recommendationsFilterRequestDataAttributes =
         (RecommendationsFilterRequestDataAttributes) o;
-    return Objects.equals(this.filter, recommendationsFilterRequestDataAttributes.filter)
+    return Objects.equals(this.extraFields, recommendationsFilterRequestDataAttributes.extraFields)
+        && Objects.equals(this.filter, recommendationsFilterRequestDataAttributes.filter)
         && Objects.equals(this.scope, recommendationsFilterRequestDataAttributes.scope)
         && Objects.equals(this.sort, recommendationsFilterRequestDataAttributes.sort)
         && Objects.equals(this.view, recommendationsFilterRequestDataAttributes.view)
@@ -226,13 +263,14 @@ public class RecommendationsFilterRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, scope, sort, view, additionalProperties);
+    return Objects.hash(extraFields, filter, scope, sort, view, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecommendationsFilterRequestDataAttributes {\n");
+    sb.append("    extraFields: ").append(toIndentedString(extraFields)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
