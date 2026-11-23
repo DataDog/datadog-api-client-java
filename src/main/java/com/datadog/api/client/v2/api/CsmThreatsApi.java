@@ -228,6 +228,19 @@ public class CsmThreatsApi {
   /**
    * Create a new Workload Protection agent rule with the given parameters.
    *
+   * <p>The <code>expression</code> attribute is written in the Security Agent Expression Language
+   * (SECL), for example <code>exec.file.name == "sh"</code>. See <a
+   * href="https://docs.datadoghq.com/security/workload_protection/agent_expressions/">Agent
+   * expressions</a> for the syntax and the list of available event types and fields.
+   *
+   * <p>If <code>policy_id</code> is not set, the rule is added to the <code>CWS_CUSTOM-canary
+   * </code> policy. This policy is created if it does not exist yet. To add the rule to another
+   * policy, set <code>policy_id</code> to the ID of that policy, as returned by <code>
+   * ListCSMThreatsAgentPolicies</code>.
+   *
+   * <p>This endpoint does not accept <code>kill</code> or <code>network_filter</code> actions, or
+   * <code>blocking</code> policies. A request that contains them returns a <code>400</code> error.
+   *
    * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
    * Please reference the (US1-FED) specific resource below.
    *
@@ -363,6 +376,8 @@ public class CsmThreatsApi {
 
   /**
    * Delete a specific Workload Protection policy.
+   *
+   * <p>Datadog-managed policies cannot be deleted. This action cannot be undone.
    *
    * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
    * Please reference the (US1-FED) specific resource below.
@@ -555,6 +570,9 @@ public class CsmThreatsApi {
 
   /**
    * Delete a specific Workload Protection agent rule.
+   *
+   * <p>The rule is removed from every policy that contains it. Datadog-managed rules cannot be
+   * deleted. This action cannot be undone.
    *
    * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
    * Please reference the (US1-FED) specific resource below.
@@ -1605,6 +1623,9 @@ public class CsmThreatsApi {
   /**
    * Get the list of Workload Protection agent rules.
    *
+   * <p>Set <code>policy_id</code> to only return the rules of one policy. Without it, the rules of
+   * all policies are returned.
+   *
    * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
    * Please reference the (US1-FED) specific resource below.
    *
@@ -1969,6 +1990,14 @@ public class CsmThreatsApi {
   /**
    * Update a specific Workload Protection Agent rule. Returns the agent rule object when the
    * request is successful.
+   *
+   * <p>The <code>expression</code> attribute is written in the Security Agent Expression Language
+   * (SECL). See <a
+   * href="https://docs.datadoghq.com/security/workload_protection/agent_expressions/">Agent
+   * expressions</a> for the syntax.
+   *
+   * <p>This endpoint does not accept <code>kill</code> or <code>network_filter</code> actions, or
+   * <code>blocking</code> policies. A request that contains them returns a <code>400</code> error.
    *
    * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
    * Please reference the (US1-FED) specific resource below.

@@ -263,7 +263,9 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
   }
 
   /**
-   * The SECL expression of the Agent rule.
+   * The SECL expression of the Agent rule. See <a
+   * href="https://docs.datadoghq.com/security/workload_protection/agent_expressions/">Agent
+   * expressions</a>.
    *
    * @return expression
    */
