@@ -26,6 +26,8 @@ import java.util.Objects;
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_ARCHIVE_COMMENT_USER,
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_ARCHIVE_REASON,
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_ASSIGNEE,
+  SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_CASES,
+  SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_HAS_CASE,
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_INCIDENT_IDS,
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_STATE,
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_STATE_UPDATE_TIMESTAMP,
@@ -49,6 +51,12 @@ public class SecurityMonitoringSignalTriageAttributes {
 
   public static final String JSON_PROPERTY_ASSIGNEE = "assignee";
   private SecurityMonitoringTriageUser assignee;
+
+  public static final String JSON_PROPERTY_CASES = "cases";
+  private List<SecurityMonitoringSignalCase> cases = null;
+
+  public static final String JSON_PROPERTY_HAS_CASE = "hasCase";
+  private Boolean hasCase;
 
   public static final String JSON_PROPERTY_INCIDENT_IDS = "incident_ids";
   private List<Long> incidentIds = new ArrayList<>();
@@ -195,6 +203,68 @@ public class SecurityMonitoringSignalTriageAttributes {
     if (assignee != null) {
       this.unparsed |= assignee.unparsed;
     }
+  }
+
+  public SecurityMonitoringSignalTriageAttributes cases(List<SecurityMonitoringSignalCase> cases) {
+    this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringSignalCase item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public SecurityMonitoringSignalTriageAttributes addCasesItem(
+      SecurityMonitoringSignalCase casesItem) {
+    if (this.cases == null) {
+      this.cases = new ArrayList<>();
+    }
+    this.cases.add(casesItem);
+    this.unparsed |= casesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Cases linked to the security signal.
+   *
+   * @return cases
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CASES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringSignalCase> getCases() {
+    return cases;
+  }
+
+  public void setCases(List<SecurityMonitoringSignalCase> cases) {
+    this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringSignalCase item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
+  public SecurityMonitoringSignalTriageAttributes hasCase(Boolean hasCase) {
+    this.hasCase = hasCase;
+    return this;
+  }
+
+  /**
+   * Whether the signal is linked to at least one case.
+   *
+   * @return hasCase
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_CASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasCase() {
+    return hasCase;
+  }
+
+  public void setHasCase(Boolean hasCase) {
+    this.hasCase = hasCase;
   }
 
   public SecurityMonitoringSignalTriageAttributes incidentIds(List<Long> incidentIds) {
@@ -360,6 +430,8 @@ public class SecurityMonitoringSignalTriageAttributes {
         && Objects.equals(
             this.archiveReason, securityMonitoringSignalTriageAttributes.archiveReason)
         && Objects.equals(this.assignee, securityMonitoringSignalTriageAttributes.assignee)
+        && Objects.equals(this.cases, securityMonitoringSignalTriageAttributes.cases)
+        && Objects.equals(this.hasCase, securityMonitoringSignalTriageAttributes.hasCase)
         && Objects.equals(this.incidentIds, securityMonitoringSignalTriageAttributes.incidentIds)
         && Objects.equals(this.state, securityMonitoringSignalTriageAttributes.state)
         && Objects.equals(
@@ -380,6 +452,8 @@ public class SecurityMonitoringSignalTriageAttributes {
         archiveCommentUser,
         archiveReason,
         assignee,
+        cases,
+        hasCase,
         incidentIds,
         state,
         stateUpdateTimestamp,
@@ -398,6 +472,8 @@ public class SecurityMonitoringSignalTriageAttributes {
     sb.append("    archiveCommentUser: ").append(toIndentedString(archiveCommentUser)).append("\n");
     sb.append("    archiveReason: ").append(toIndentedString(archiveReason)).append("\n");
     sb.append("    assignee: ").append(toIndentedString(assignee)).append("\n");
+    sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
+    sb.append("    hasCase: ").append(toIndentedString(hasCase)).append("\n");
     sb.append("    incidentIds: ").append(toIndentedString(incidentIds)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    stateUpdateTimestamp: ")
