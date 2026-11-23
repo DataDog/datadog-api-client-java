@@ -30,6 +30,8 @@ public class Example {
                 new AiGatewayRoutingRuleReplaceData()
                     .attributes(
                         new AiGatewayRoutingRuleReplaceAttributes()
+                            .description("Routes coding traffic to the fastest available model.")
+                            .displayName("Coding fallback")
                             .expectedUpdatedAt(OffsetDateTime.parse("2026-08-24T12:00:00Z"))
                             .removedTargetIds(Collections.singletonList(901L))
                             .tiers(

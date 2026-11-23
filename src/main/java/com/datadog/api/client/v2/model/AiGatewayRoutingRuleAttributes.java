@@ -23,6 +23,8 @@ import java.util.Objects;
 /** Routing rule configuration and metadata. */
 @JsonPropertyOrder({
   AiGatewayRoutingRuleAttributes.JSON_PROPERTY_CREATED_AT,
+  AiGatewayRoutingRuleAttributes.JSON_PROPERTY_DESCRIPTION,
+  AiGatewayRoutingRuleAttributes.JSON_PROPERTY_DISPLAY_NAME,
   AiGatewayRoutingRuleAttributes.JSON_PROPERTY_ROUTE_ID,
   AiGatewayRoutingRuleAttributes.JSON_PROPERTY_TIERS,
   AiGatewayRoutingRuleAttributes.JSON_PROPERTY_UPDATED_AT
@@ -33,6 +35,12 @@ public class AiGatewayRoutingRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
 
   public static final String JSON_PROPERTY_ROUTE_ID = "route_id";
   private Long routeId;
@@ -79,6 +87,48 @@ public class AiGatewayRoutingRuleAttributes {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public AiGatewayRoutingRuleAttributes description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Description of the routing rule. Absent when unset.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public AiGatewayRoutingRuleAttributes displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * Human-readable name of the routing rule. Absent when unset; show the slug instead.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public AiGatewayRoutingRuleAttributes routeId(Long routeId) {
@@ -214,6 +264,8 @@ public class AiGatewayRoutingRuleAttributes {
     AiGatewayRoutingRuleAttributes aiGatewayRoutingRuleAttributes =
         (AiGatewayRoutingRuleAttributes) o;
     return Objects.equals(this.createdAt, aiGatewayRoutingRuleAttributes.createdAt)
+        && Objects.equals(this.description, aiGatewayRoutingRuleAttributes.description)
+        && Objects.equals(this.displayName, aiGatewayRoutingRuleAttributes.displayName)
         && Objects.equals(this.routeId, aiGatewayRoutingRuleAttributes.routeId)
         && Objects.equals(this.tiers, aiGatewayRoutingRuleAttributes.tiers)
         && Objects.equals(this.updatedAt, aiGatewayRoutingRuleAttributes.updatedAt)
@@ -223,7 +275,8 @@ public class AiGatewayRoutingRuleAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, routeId, tiers, updatedAt, additionalProperties);
+    return Objects.hash(
+        createdAt, description, displayName, routeId, tiers, updatedAt, additionalProperties);
   }
 
   @Override
@@ -231,6 +284,8 @@ public class AiGatewayRoutingRuleAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    routeId: ").append(toIndentedString(routeId)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

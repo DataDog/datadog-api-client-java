@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Partial route update. Omit tiers to preserve the entire graph, including hidden selections. Saved
@@ -25,6 +26,8 @@ import java.util.Objects;
  * occurrence.
  */
 @JsonPropertyOrder({
+  AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_DESCRIPTION,
+  AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_DISPLAY_NAME,
   AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_EXPECTED_UPDATED_AT,
   AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_REMOVED_TARGET_IDS,
   AiGatewayRoutingRuleReplaceAttributes.JSON_PROPERTY_TIERS
@@ -33,6 +36,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleReplaceAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_EXPECTED_UPDATED_AT = "expected_updated_at";
   private OffsetDateTime expectedUpdatedAt;
 
@@ -41,6 +50,70 @@ public class AiGatewayRoutingRuleReplaceAttributes {
 
   public static final String JSON_PROPERTY_TIERS = "tiers";
   private List<AiGatewayRoutingRuleTierRequest> tiers = null;
+
+  public AiGatewayRoutingRuleReplaceAttributes description(String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
+
+  /**
+   * Optional description of what the routing rule is for. Up to 500 characters. Omit it or send
+   * null to keep the saved description. Send an empty string to clear it.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDescription() {
+    return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+  public AiGatewayRoutingRuleReplaceAttributes displayName(String displayName) {
+    this.displayName = JsonNullable.<String>of(displayName);
+    return this;
+  }
+
+  /**
+   * Optional human-readable name shown in place of the slug. Up to 100 characters on one line. Omit
+   * it or send null to keep the saved display name. Send an empty string to clear it.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDisplayName() {
+    return displayName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDisplayName_JsonNullable() {
+    return displayName;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  public void setDisplayName_JsonNullable(JsonNullable<String> displayName) {
+    this.displayName = displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = JsonNullable.<String>of(displayName);
+  }
 
   public AiGatewayRoutingRuleReplaceAttributes expectedUpdatedAt(OffsetDateTime expectedUpdatedAt) {
     this.expectedUpdatedAt = expectedUpdatedAt;
@@ -191,7 +264,9 @@ public class AiGatewayRoutingRuleReplaceAttributes {
     }
     AiGatewayRoutingRuleReplaceAttributes aiGatewayRoutingRuleReplaceAttributes =
         (AiGatewayRoutingRuleReplaceAttributes) o;
-    return Objects.equals(
+    return Objects.equals(this.description, aiGatewayRoutingRuleReplaceAttributes.description)
+        && Objects.equals(this.displayName, aiGatewayRoutingRuleReplaceAttributes.displayName)
+        && Objects.equals(
             this.expectedUpdatedAt, aiGatewayRoutingRuleReplaceAttributes.expectedUpdatedAt)
         && Objects.equals(
             this.removedTargetIds, aiGatewayRoutingRuleReplaceAttributes.removedTargetIds)
@@ -202,13 +277,16 @@ public class AiGatewayRoutingRuleReplaceAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expectedUpdatedAt, removedTargetIds, tiers, additionalProperties);
+    return Objects.hash(
+        description, displayName, expectedUpdatedAt, removedTargetIds, tiers, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleReplaceAttributes {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    expectedUpdatedAt: ").append(toIndentedString(expectedUpdatedAt)).append("\n");
     sb.append("    removedTargetIds: ").append(toIndentedString(removedTargetIds)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");

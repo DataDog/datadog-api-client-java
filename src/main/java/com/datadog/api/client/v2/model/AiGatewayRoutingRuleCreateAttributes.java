@@ -18,9 +18,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes used to create an AI Gateway routing rule. */
 @JsonPropertyOrder({
+  AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_DESCRIPTION,
+  AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_DISPLAY_NAME,
   AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_INITIAL_BINDINGS,
   AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_SLUG,
   AiGatewayRoutingRuleCreateAttributes.JSON_PROPERTY_TIERS
@@ -29,6 +32,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AiGatewayRoutingRuleCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private JsonNullable<String> displayName = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_INITIAL_BINDINGS = "initial_bindings";
   private List<AiGatewayProviderInitialBinding> initialBindings = null;
 
@@ -50,6 +59,70 @@ public class AiGatewayRoutingRuleCreateAttributes {
     for (AiGatewayRoutingRuleTierRequest item : tiers) {
       this.unparsed |= item.unparsed;
     }
+  }
+
+  public AiGatewayRoutingRuleCreateAttributes description(String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
+
+  /**
+   * Optional description of what the routing rule is for. Up to 500 characters. Line breaks are
+   * allowed. Leading and trailing spaces are trimmed, and a blank value is the same as none.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDescription() {
+    return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+  public AiGatewayRoutingRuleCreateAttributes displayName(String displayName) {
+    this.displayName = JsonNullable.<String>of(displayName);
+    return this;
+  }
+
+  /**
+   * Optional human-readable name shown in place of the slug. Up to 100 characters on one line. Need
+   * not be unique. Leading and trailing spaces are trimmed, and a blank value is the same as none.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDisplayName() {
+    return displayName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDisplayName_JsonNullable() {
+    return displayName;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  public void setDisplayName_JsonNullable(JsonNullable<String> displayName) {
+    this.displayName = displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = JsonNullable.<String>of(displayName);
   }
 
   public AiGatewayRoutingRuleCreateAttributes initialBindings(
@@ -208,7 +281,9 @@ public class AiGatewayRoutingRuleCreateAttributes {
     }
     AiGatewayRoutingRuleCreateAttributes aiGatewayRoutingRuleCreateAttributes =
         (AiGatewayRoutingRuleCreateAttributes) o;
-    return Objects.equals(
+    return Objects.equals(this.description, aiGatewayRoutingRuleCreateAttributes.description)
+        && Objects.equals(this.displayName, aiGatewayRoutingRuleCreateAttributes.displayName)
+        && Objects.equals(
             this.initialBindings, aiGatewayRoutingRuleCreateAttributes.initialBindings)
         && Objects.equals(this.slug, aiGatewayRoutingRuleCreateAttributes.slug)
         && Objects.equals(this.tiers, aiGatewayRoutingRuleCreateAttributes.tiers)
@@ -218,13 +293,16 @@ public class AiGatewayRoutingRuleCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(initialBindings, slug, tiers, additionalProperties);
+    return Objects.hash(
+        description, displayName, initialBindings, slug, tiers, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AiGatewayRoutingRuleCreateAttributes {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    initialBindings: ").append(toIndentedString(initialBindings)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");

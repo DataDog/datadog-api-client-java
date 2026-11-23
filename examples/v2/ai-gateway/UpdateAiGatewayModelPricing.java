@@ -6,13 +6,16 @@ import com.datadog.api.client.v2.api.AiGatewayApi;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingCustomRequestConfig;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingCustomRequestSource;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingCustomRequestSourceType;
+import com.datadog.api.client.v2.model.AiGatewayModelPricingRates;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingRequest;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingRequestAttributes;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingRequestConfig;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingRequestData;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingRequiredRates;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingResponse;
+import com.datadog.api.client.v2.model.AiGatewayModelPricingTier;
 import com.datadog.api.client.v2.model.AiGatewayModelPricingType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -36,6 +39,17 @@ public class Example {
                                                 .type(
                                                     AiGatewayModelPricingCustomRequestSourceType
                                                         .CUSTOM))
+                                        .tiers(
+                                            Collections.singletonList(
+                                                new AiGatewayModelPricingTier()
+                                                    .contextMinTokens(200000L)
+                                                    .rates(
+                                                        new AiGatewayModelPricingRates()
+                                                            .cacheReadCostPerMtok(0.6)
+                                                            .cacheWriteCostPerMtok(7.5)
+                                                            .nonCachedInputCostPerMtok(6.0)
+                                                            .outputCostPerMtok(22.5))
+                                                    .serviceTier("priority")))
                                         .version(1L))))
                     .id("gpt-4o")
                     .type(AiGatewayModelPricingType.MODEL_PRICING));

@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,6 +24,7 @@ import java.util.Objects;
   AiGatewayModelPricingConfig.JSON_PROPERTY_OVERRIDES,
   AiGatewayModelPricingConfig.JSON_PROPERTY_RATES,
   AiGatewayModelPricingConfig.JSON_PROPERTY_SOURCE,
+  AiGatewayModelPricingConfig.JSON_PROPERTY_TIERS,
   AiGatewayModelPricingConfig.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -36,6 +39,9 @@ public class AiGatewayModelPricingConfig {
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private AiGatewayModelPricingSource source;
+
+  public static final String JSON_PROPERTY_TIERS = "tiers";
+  private List<AiGatewayModelPricingTier> tiers = null;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
@@ -126,6 +132,48 @@ public class AiGatewayModelPricingConfig {
     }
   }
 
+  public AiGatewayModelPricingConfig tiers(List<AiGatewayModelPricingTier> tiers) {
+    this.tiers = tiers;
+    if (tiers != null) {
+      for (AiGatewayModelPricingTier item : tiers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public AiGatewayModelPricingConfig addTiersItem(AiGatewayModelPricingTier tiersItem) {
+    if (this.tiers == null) {
+      this.tiers = new ArrayList<>();
+    }
+    this.tiers.add(tiersItem);
+    this.unparsed |= tiersItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Custom prices that replace the base rates for the requests they select. Only valid for custom
+   * pricing. At most 16 tiers, and no two may share the same <code>service_tier</code> and <code>
+   * context_min_tokens</code>.
+   *
+   * @return tiers
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AiGatewayModelPricingTier> getTiers() {
+    return tiers;
+  }
+
+  public void setTiers(List<AiGatewayModelPricingTier> tiers) {
+    this.tiers = tiers;
+    if (tiers != null) {
+      for (AiGatewayModelPricingTier item : tiers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
   public AiGatewayModelPricingConfig version(Long version) {
     this.version = version;
     return this;
@@ -206,6 +254,7 @@ public class AiGatewayModelPricingConfig {
     return Objects.equals(this.overrides, aiGatewayModelPricingConfig.overrides)
         && Objects.equals(this.rates, aiGatewayModelPricingConfig.rates)
         && Objects.equals(this.source, aiGatewayModelPricingConfig.source)
+        && Objects.equals(this.tiers, aiGatewayModelPricingConfig.tiers)
         && Objects.equals(this.version, aiGatewayModelPricingConfig.version)
         && Objects.equals(
             this.additionalProperties, aiGatewayModelPricingConfig.additionalProperties);
@@ -213,7 +262,7 @@ public class AiGatewayModelPricingConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(overrides, rates, source, version, additionalProperties);
+    return Objects.hash(overrides, rates, source, tiers, version, additionalProperties);
   }
 
   @Override
@@ -223,6 +272,7 @@ public class AiGatewayModelPricingConfig {
     sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("    rates: ").append(toIndentedString(rates)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -71,8 +71,12 @@ public class AiGatewayProviderCreateAttributes {
 
   @JsonCreator
   public AiGatewayProviderCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_KNOWN_PROVIDER)
+          AiGatewayKnownProvider knownProvider,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_SLUG) String slug) {
+    this.knownProvider = knownProvider;
+    this.unparsed |= !knownProvider.isValid();
     this.name = name;
     this.slug = slug;
   }
@@ -232,9 +236,8 @@ public class AiGatewayProviderCreateAttributes {
    *
    * @return knownProvider
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KNOWN_PROVIDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public AiGatewayKnownProvider getKnownProvider() {
     return knownProvider;
   }
