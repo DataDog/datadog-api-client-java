@@ -96,7 +96,9 @@ public class DeploymentGatesApi {
   }
 
   /**
-   * Endpoint to create a deployment gate.
+   * Create a deployment gate for a specific environment or for all environments using <code>*
+   * </code>. A gate for all environments and a gate for a specific environment cannot coexist for
+   * the same organization, service, and identifier. A conflicting creation returns 400 Bad Request.
    *
    * @param body (required)
    * @return ApiResponse&lt;DeploymentGateResponse&gt;
