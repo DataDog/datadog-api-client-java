@@ -13,141 +13,51 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Response containing scalar on-demand hot-spots data for cloud commitment programs. */
-@JsonPropertyOrder({
-  CommitmentsOnDemandHotspotsScalarResponse.JSON_PROPERTY_COLUMNS,
-  CommitmentsOnDemandHotspotsScalarResponse.JSON_PROPERTY_META,
-  CommitmentsOnDemandHotspotsScalarResponse.JSON_PROPERTY_TOTAL
-})
+@JsonPropertyOrder({CommitmentsOnDemandHotspotsScalarResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsOnDemandHotspotsScalarResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COLUMNS = "columns";
-  private List<CommitmentsScalarColumn> columns = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private CommitmentsOnDemandHotspotsScalarMeta meta;
-
-  public static final String JSON_PROPERTY_TOTAL = "total";
-  private List<CommitmentsScalarColumn> total = new ArrayList<>();
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CommitmentsOnDemandHotspotsScalarResponseData data;
 
   public CommitmentsOnDemandHotspotsScalarResponse() {}
 
   @JsonCreator
   public CommitmentsOnDemandHotspotsScalarResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COLUMNS)
-          List<CommitmentsScalarColumn> columns,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL)
-          List<CommitmentsScalarColumn> total) {
-    this.columns = columns;
-    for (CommitmentsScalarColumn item : columns) {
-      this.unparsed |= item.unparsed;
-    }
-    this.total = total;
-    for (CommitmentsScalarColumn item : total) {
-      this.unparsed |= item.unparsed;
-    }
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CommitmentsOnDemandHotspotsScalarResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public CommitmentsOnDemandHotspotsScalarResponse columns(List<CommitmentsScalarColumn> columns) {
-    this.columns = columns;
-    for (CommitmentsScalarColumn item : columns) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public CommitmentsOnDemandHotspotsScalarResponse addColumnsItem(
-      CommitmentsScalarColumn columnsItem) {
-    this.columns.add(columnsItem);
-    this.unparsed |= columnsItem.unparsed;
+  public CommitmentsOnDemandHotspotsScalarResponse data(
+      CommitmentsOnDemandHotspotsScalarResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Array of scalar columns in the response.
+   * The scalar on-demand hot-spots resource.
    *
-   * @return columns
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_COLUMNS)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CommitmentsScalarColumn> getColumns() {
-    return columns;
+  public CommitmentsOnDemandHotspotsScalarResponseData getData() {
+    return data;
   }
 
-  public void setColumns(List<CommitmentsScalarColumn> columns) {
-    this.columns = columns;
-    if (columns != null) {
-      for (CommitmentsScalarColumn item : columns) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-  }
-
-  public CommitmentsOnDemandHotspotsScalarResponse meta(
-      CommitmentsOnDemandHotspotsScalarMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Metadata for the on-demand hot-spots scalar response.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CommitmentsOnDemandHotspotsScalarMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(CommitmentsOnDemandHotspotsScalarMeta meta) {
-    this.meta = meta;
-    if (meta != null) {
-      this.unparsed |= meta.unparsed;
-    }
-  }
-
-  public CommitmentsOnDemandHotspotsScalarResponse total(List<CommitmentsScalarColumn> total) {
-    this.total = total;
-    for (CommitmentsScalarColumn item : total) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public CommitmentsOnDemandHotspotsScalarResponse addTotalItem(CommitmentsScalarColumn totalItem) {
-    this.total.add(totalItem);
-    this.unparsed |= totalItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Array of scalar columns in the response.
-   *
-   * @return total
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CommitmentsScalarColumn> getTotal() {
-    return total;
-  }
-
-  public void setTotal(List<CommitmentsScalarColumn> total) {
-    this.total = total;
-    if (total != null) {
-      for (CommitmentsScalarColumn item : total) {
-        this.unparsed |= item.unparsed;
-      }
+  public void setData(CommitmentsOnDemandHotspotsScalarResponseData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
   }
 
@@ -208,9 +118,7 @@ public class CommitmentsOnDemandHotspotsScalarResponse {
     }
     CommitmentsOnDemandHotspotsScalarResponse commitmentsOnDemandHotspotsScalarResponse =
         (CommitmentsOnDemandHotspotsScalarResponse) o;
-    return Objects.equals(this.columns, commitmentsOnDemandHotspotsScalarResponse.columns)
-        && Objects.equals(this.meta, commitmentsOnDemandHotspotsScalarResponse.meta)
-        && Objects.equals(this.total, commitmentsOnDemandHotspotsScalarResponse.total)
+    return Objects.equals(this.data, commitmentsOnDemandHotspotsScalarResponse.data)
         && Objects.equals(
             this.additionalProperties,
             commitmentsOnDemandHotspotsScalarResponse.additionalProperties);
@@ -218,16 +126,14 @@ public class CommitmentsOnDemandHotspotsScalarResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, meta, total, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommitmentsOnDemandHotspotsScalarResponse {\n");
-    sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

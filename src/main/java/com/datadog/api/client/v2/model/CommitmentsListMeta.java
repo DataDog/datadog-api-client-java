@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Metadata for a commitments list response. */
 @JsonPropertyOrder({
@@ -26,34 +27,42 @@ import java.util.Objects;
 public class CommitmentsListMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMITTED_SPEND_UNIT = "committed_spend_unit";
-  private CommitmentsUnit committedSpendUnit;
+  private JsonNullable<CommitmentsUnit> committedSpendUnit =
+      JsonNullable.<CommitmentsUnit>undefined();
 
   public static final String JSON_PROPERTY_UNUSED_COST_UNAVAILABLE = "unused_cost_unavailable";
   private Boolean unusedCostUnavailable;
 
   public CommitmentsListMeta committedSpendUnit(CommitmentsUnit committedSpendUnit) {
-    this.committedSpendUnit = committedSpendUnit;
-    this.unparsed |= committedSpendUnit.unparsed;
+    this.committedSpendUnit = JsonNullable.<CommitmentsUnit>of(committedSpendUnit);
     return this;
   }
 
   /**
-   * Unit metadata for a numeric metric.
+   * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is <code>null</code>
+   * when it is unknown.
    *
    * @return committedSpendUnit
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public CommitmentsUnit getCommittedSpendUnit() {
+    return committedSpendUnit.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_COMMITTED_SPEND_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CommitmentsUnit getCommittedSpendUnit() {
+  public JsonNullable<CommitmentsUnit> getCommittedSpendUnit_JsonNullable() {
     return committedSpendUnit;
   }
 
-  public void setCommittedSpendUnit(CommitmentsUnit committedSpendUnit) {
+  @JsonProperty(JSON_PROPERTY_COMMITTED_SPEND_UNIT)
+  public void setCommittedSpendUnit_JsonNullable(JsonNullable<CommitmentsUnit> committedSpendUnit) {
     this.committedSpendUnit = committedSpendUnit;
-    if (committedSpendUnit != null) {
-      this.unparsed |= committedSpendUnit.unparsed;
-    }
+  }
+
+  public void setCommittedSpendUnit(CommitmentsUnit committedSpendUnit) {
+    this.committedSpendUnit = JsonNullable.<CommitmentsUnit>of(committedSpendUnit);
   }
 
   public CommitmentsListMeta unusedCostUnavailable(Boolean unusedCostUnavailable) {

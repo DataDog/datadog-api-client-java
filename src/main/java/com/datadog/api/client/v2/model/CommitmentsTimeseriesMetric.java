@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A timeseries metric containing timestamps, series values, and optional unit metadata. */
 @JsonPropertyOrder({
@@ -36,7 +37,7 @@ public class CommitmentsTimeseriesMetric {
   private List<Long> times = new ArrayList<>();
 
   public static final String JSON_PROPERTY_UNIT = "unit";
-  private CommitmentsUnit unit;
+  private JsonNullable<CommitmentsUnit> unit = JsonNullable.<CommitmentsUnit>undefined();
 
   public CommitmentsTimeseriesMetric() {}
 
@@ -99,28 +100,35 @@ public class CommitmentsTimeseriesMetric {
   }
 
   public CommitmentsTimeseriesMetric unit(CommitmentsUnit unit) {
-    this.unit = unit;
-    this.unparsed |= unit.unparsed;
+    this.unit = JsonNullable.<CommitmentsUnit>of(unit);
     return this;
   }
 
   /**
-   * Unit metadata for a numeric metric.
+   * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is <code>null</code>
+   * when it is unknown.
    *
    * @return unit
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public CommitmentsUnit getUnit() {
+    return unit.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CommitmentsUnit getUnit() {
+  public JsonNullable<CommitmentsUnit> getUnit_JsonNullable() {
     return unit;
   }
 
-  public void setUnit(CommitmentsUnit unit) {
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  public void setUnit_JsonNullable(JsonNullable<CommitmentsUnit> unit) {
     this.unit = unit;
-    if (unit != null) {
-      this.unparsed |= unit.unparsed;
-    }
+  }
+
+  public void setUnit(CommitmentsUnit unit) {
+    this.unit = JsonNullable.<CommitmentsUnit>of(unit);
   }
 
   /**

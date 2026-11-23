@@ -32,20 +32,26 @@ public class CommitmentsScalarColumnMeta {
   public CommitmentsScalarColumnMeta(
       @JsonProperty(required = true, value = JSON_PROPERTY_UNIT) CommitmentsUnit unit) {
     this.unit = unit;
-    this.unparsed |= unit.unparsed;
+    if (unit != null) {
+      this.unparsed |= unit.unparsed;
+    }
   }
 
   public CommitmentsScalarColumnMeta unit(CommitmentsUnit unit) {
     this.unit = unit;
-    this.unparsed |= unit.unparsed;
+    if (unit != null) {
+      this.unparsed |= unit.unparsed;
+    }
     return this;
   }
 
   /**
-   * Unit metadata for a numeric metric.
+   * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is <code>null</code>
+   * when it is unknown.
    *
    * @return unit
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CommitmentsUnit getUnit() {

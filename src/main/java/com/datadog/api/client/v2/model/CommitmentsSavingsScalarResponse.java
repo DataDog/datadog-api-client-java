@@ -13,64 +13,50 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Response containing scalar savings metrics for cloud commitment programs. */
-@JsonPropertyOrder({CommitmentsSavingsScalarResponse.JSON_PROPERTY_COLUMNS})
+@JsonPropertyOrder({CommitmentsSavingsScalarResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsSavingsScalarResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COLUMNS = "columns";
-  private List<CommitmentsScalarColumn> columns = new ArrayList<>();
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CommitmentsSavingsScalarResponseData data;
 
   public CommitmentsSavingsScalarResponse() {}
 
   @JsonCreator
   public CommitmentsSavingsScalarResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COLUMNS)
-          List<CommitmentsScalarColumn> columns) {
-    this.columns = columns;
-    for (CommitmentsScalarColumn item : columns) {
-      this.unparsed |= item.unparsed;
-    }
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CommitmentsSavingsScalarResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public CommitmentsSavingsScalarResponse columns(List<CommitmentsScalarColumn> columns) {
-    this.columns = columns;
-    for (CommitmentsScalarColumn item : columns) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public CommitmentsSavingsScalarResponse addColumnsItem(CommitmentsScalarColumn columnsItem) {
-    this.columns.add(columnsItem);
-    this.unparsed |= columnsItem.unparsed;
+  public CommitmentsSavingsScalarResponse data(CommitmentsSavingsScalarResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Array of scalar columns in the response.
+   * The scalar savings resource.
    *
-   * @return columns
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_COLUMNS)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CommitmentsScalarColumn> getColumns() {
-    return columns;
+  public CommitmentsSavingsScalarResponseData getData() {
+    return data;
   }
 
-  public void setColumns(List<CommitmentsScalarColumn> columns) {
-    this.columns = columns;
-    if (columns != null) {
-      for (CommitmentsScalarColumn item : columns) {
-        this.unparsed |= item.unparsed;
-      }
+  public void setData(CommitmentsSavingsScalarResponseData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
   }
 
@@ -131,21 +117,21 @@ public class CommitmentsSavingsScalarResponse {
     }
     CommitmentsSavingsScalarResponse commitmentsSavingsScalarResponse =
         (CommitmentsSavingsScalarResponse) o;
-    return Objects.equals(this.columns, commitmentsSavingsScalarResponse.columns)
+    return Objects.equals(this.data, commitmentsSavingsScalarResponse.data)
         && Objects.equals(
             this.additionalProperties, commitmentsSavingsScalarResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommitmentsSavingsScalarResponse {\n");
-    sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
