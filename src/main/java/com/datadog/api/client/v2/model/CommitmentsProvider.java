@@ -23,10 +23,11 @@ import java.util.Set;
 public class CommitmentsProvider extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("aws", "azure"));
+      new HashSet<String>(Arrays.asList("aws", "azure", "gcp"));
 
   public static final CommitmentsProvider AWS = new CommitmentsProvider("aws");
   public static final CommitmentsProvider AZURE = new CommitmentsProvider("azure");
+  public static final CommitmentsProvider GCP = new CommitmentsProvider("gcp");
 
   CommitmentsProvider(String value) {
     super(value, allowedValues);

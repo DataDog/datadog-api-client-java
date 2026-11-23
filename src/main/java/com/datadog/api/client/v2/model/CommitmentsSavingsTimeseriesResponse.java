@@ -18,146 +18,45 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Response containing timeseries savings metrics for cloud commitment programs. */
-@JsonPropertyOrder({
-  CommitmentsSavingsTimeseriesResponse.JSON_PROPERTY_ACTUAL_COST,
-  CommitmentsSavingsTimeseriesResponse.JSON_PROPERTY_EFFECTIVE_SAVINGS_RATE,
-  CommitmentsSavingsTimeseriesResponse.JSON_PROPERTY_ON_DEMAND_EQUIVALENT_COST,
-  CommitmentsSavingsTimeseriesResponse.JSON_PROPERTY_REALIZED_SAVINGS
-})
+@JsonPropertyOrder({CommitmentsSavingsTimeseriesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsSavingsTimeseriesResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ACTUAL_COST = "actual_cost";
-  private CommitmentsTimeseriesMetric actualCost;
-
-  public static final String JSON_PROPERTY_EFFECTIVE_SAVINGS_RATE = "effective_savings_rate";
-  private CommitmentsTimeseriesMetric effectiveSavingsRate;
-
-  public static final String JSON_PROPERTY_ON_DEMAND_EQUIVALENT_COST = "on_demand_equivalent_cost";
-  private CommitmentsTimeseriesMetric onDemandEquivalentCost;
-
-  public static final String JSON_PROPERTY_REALIZED_SAVINGS = "realized_savings";
-  private CommitmentsTimeseriesMetric realizedSavings;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CommitmentsSavingsTimeseriesResponseData data;
 
   public CommitmentsSavingsTimeseriesResponse() {}
 
   @JsonCreator
   public CommitmentsSavingsTimeseriesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACTUAL_COST)
-          CommitmentsTimeseriesMetric actualCost,
-      @JsonProperty(required = true, value = JSON_PROPERTY_EFFECTIVE_SAVINGS_RATE)
-          CommitmentsTimeseriesMetric effectiveSavingsRate,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ON_DEMAND_EQUIVALENT_COST)
-          CommitmentsTimeseriesMetric onDemandEquivalentCost,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REALIZED_SAVINGS)
-          CommitmentsTimeseriesMetric realizedSavings) {
-    this.actualCost = actualCost;
-    this.unparsed |= actualCost.unparsed;
-    this.effectiveSavingsRate = effectiveSavingsRate;
-    this.unparsed |= effectiveSavingsRate.unparsed;
-    this.onDemandEquivalentCost = onDemandEquivalentCost;
-    this.unparsed |= onDemandEquivalentCost.unparsed;
-    this.realizedSavings = realizedSavings;
-    this.unparsed |= realizedSavings.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CommitmentsSavingsTimeseriesResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public CommitmentsSavingsTimeseriesResponse actualCost(CommitmentsTimeseriesMetric actualCost) {
-    this.actualCost = actualCost;
-    this.unparsed |= actualCost.unparsed;
+  public CommitmentsSavingsTimeseriesResponse data(CommitmentsSavingsTimeseriesResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
+   * The timeseries savings resource.
    *
-   * @return actualCost
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_ACTUAL_COST)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CommitmentsTimeseriesMetric getActualCost() {
-    return actualCost;
+  public CommitmentsSavingsTimeseriesResponseData getData() {
+    return data;
   }
 
-  public void setActualCost(CommitmentsTimeseriesMetric actualCost) {
-    this.actualCost = actualCost;
-    if (actualCost != null) {
-      this.unparsed |= actualCost.unparsed;
-    }
-  }
-
-  public CommitmentsSavingsTimeseriesResponse effectiveSavingsRate(
-      CommitmentsTimeseriesMetric effectiveSavingsRate) {
-    this.effectiveSavingsRate = effectiveSavingsRate;
-    this.unparsed |= effectiveSavingsRate.unparsed;
-    return this;
-  }
-
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   *
-   * @return effectiveSavingsRate
-   */
-  @JsonProperty(JSON_PROPERTY_EFFECTIVE_SAVINGS_RATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CommitmentsTimeseriesMetric getEffectiveSavingsRate() {
-    return effectiveSavingsRate;
-  }
-
-  public void setEffectiveSavingsRate(CommitmentsTimeseriesMetric effectiveSavingsRate) {
-    this.effectiveSavingsRate = effectiveSavingsRate;
-    if (effectiveSavingsRate != null) {
-      this.unparsed |= effectiveSavingsRate.unparsed;
-    }
-  }
-
-  public CommitmentsSavingsTimeseriesResponse onDemandEquivalentCost(
-      CommitmentsTimeseriesMetric onDemandEquivalentCost) {
-    this.onDemandEquivalentCost = onDemandEquivalentCost;
-    this.unparsed |= onDemandEquivalentCost.unparsed;
-    return this;
-  }
-
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   *
-   * @return onDemandEquivalentCost
-   */
-  @JsonProperty(JSON_PROPERTY_ON_DEMAND_EQUIVALENT_COST)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CommitmentsTimeseriesMetric getOnDemandEquivalentCost() {
-    return onDemandEquivalentCost;
-  }
-
-  public void setOnDemandEquivalentCost(CommitmentsTimeseriesMetric onDemandEquivalentCost) {
-    this.onDemandEquivalentCost = onDemandEquivalentCost;
-    if (onDemandEquivalentCost != null) {
-      this.unparsed |= onDemandEquivalentCost.unparsed;
-    }
-  }
-
-  public CommitmentsSavingsTimeseriesResponse realizedSavings(
-      CommitmentsTimeseriesMetric realizedSavings) {
-    this.realizedSavings = realizedSavings;
-    this.unparsed |= realizedSavings.unparsed;
-    return this;
-  }
-
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   *
-   * @return realizedSavings
-   */
-  @JsonProperty(JSON_PROPERTY_REALIZED_SAVINGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CommitmentsTimeseriesMetric getRealizedSavings() {
-    return realizedSavings;
-  }
-
-  public void setRealizedSavings(CommitmentsTimeseriesMetric realizedSavings) {
-    this.realizedSavings = realizedSavings;
-    if (realizedSavings != null) {
-      this.unparsed |= realizedSavings.unparsed;
+  public void setData(CommitmentsSavingsTimeseriesResponseData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
   }
 
@@ -218,40 +117,21 @@ public class CommitmentsSavingsTimeseriesResponse {
     }
     CommitmentsSavingsTimeseriesResponse commitmentsSavingsTimeseriesResponse =
         (CommitmentsSavingsTimeseriesResponse) o;
-    return Objects.equals(this.actualCost, commitmentsSavingsTimeseriesResponse.actualCost)
-        && Objects.equals(
-            this.effectiveSavingsRate, commitmentsSavingsTimeseriesResponse.effectiveSavingsRate)
-        && Objects.equals(
-            this.onDemandEquivalentCost,
-            commitmentsSavingsTimeseriesResponse.onDemandEquivalentCost)
-        && Objects.equals(
-            this.realizedSavings, commitmentsSavingsTimeseriesResponse.realizedSavings)
+    return Objects.equals(this.data, commitmentsSavingsTimeseriesResponse.data)
         && Objects.equals(
             this.additionalProperties, commitmentsSavingsTimeseriesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        actualCost,
-        effectiveSavingsRate,
-        onDemandEquivalentCost,
-        realizedSavings,
-        additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommitmentsSavingsTimeseriesResponse {\n");
-    sb.append("    actualCost: ").append(toIndentedString(actualCost)).append("\n");
-    sb.append("    effectiveSavingsRate: ")
-        .append(toIndentedString(effectiveSavingsRate))
-        .append("\n");
-    sb.append("    onDemandEquivalentCost: ")
-        .append(toIndentedString(onDemandEquivalentCost))
-        .append("\n");
-    sb.append("    realizedSavings: ").append(toIndentedString(realizedSavings)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

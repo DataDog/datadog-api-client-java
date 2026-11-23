@@ -18,78 +18,46 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Response containing timeseries coverage metrics for cloud commitment programs. */
-@JsonPropertyOrder({
-  CommitmentsCoverageTimeseriesResponse.JSON_PROPERTY_COST,
-  CommitmentsCoverageTimeseriesResponse.JSON_PROPERTY_HOURS
-})
+@JsonPropertyOrder({CommitmentsCoverageTimeseriesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsCoverageTimeseriesResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COST = "cost";
-  private CommitmentsTimeseriesMetric cost;
-
-  public static final String JSON_PROPERTY_HOURS = "hours";
-  private CommitmentsTimeseriesMetric hours;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CommitmentsCoverageTimeseriesResponseData data;
 
   public CommitmentsCoverageTimeseriesResponse() {}
 
   @JsonCreator
   public CommitmentsCoverageTimeseriesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COST) CommitmentsTimeseriesMetric cost,
-      @JsonProperty(required = true, value = JSON_PROPERTY_HOURS)
-          CommitmentsTimeseriesMetric hours) {
-    this.cost = cost;
-    this.unparsed |= cost.unparsed;
-    this.hours = hours;
-    this.unparsed |= hours.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CommitmentsCoverageTimeseriesResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public CommitmentsCoverageTimeseriesResponse cost(CommitmentsTimeseriesMetric cost) {
-    this.cost = cost;
-    this.unparsed |= cost.unparsed;
+  public CommitmentsCoverageTimeseriesResponse data(
+      CommitmentsCoverageTimeseriesResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
+   * The timeseries coverage resource.
    *
-   * @return cost
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_COST)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CommitmentsTimeseriesMetric getCost() {
-    return cost;
+  public CommitmentsCoverageTimeseriesResponseData getData() {
+    return data;
   }
 
-  public void setCost(CommitmentsTimeseriesMetric cost) {
-    this.cost = cost;
-    if (cost != null) {
-      this.unparsed |= cost.unparsed;
-    }
-  }
-
-  public CommitmentsCoverageTimeseriesResponse hours(CommitmentsTimeseriesMetric hours) {
-    this.hours = hours;
-    this.unparsed |= hours.unparsed;
-    return this;
-  }
-
-  /**
-   * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   *
-   * @return hours
-   */
-  @JsonProperty(JSON_PROPERTY_HOURS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CommitmentsTimeseriesMetric getHours() {
-    return hours;
-  }
-
-  public void setHours(CommitmentsTimeseriesMetric hours) {
-    this.hours = hours;
-    if (hours != null) {
-      this.unparsed |= hours.unparsed;
+  public void setData(CommitmentsCoverageTimeseriesResponseData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
   }
 
@@ -150,23 +118,21 @@ public class CommitmentsCoverageTimeseriesResponse {
     }
     CommitmentsCoverageTimeseriesResponse commitmentsCoverageTimeseriesResponse =
         (CommitmentsCoverageTimeseriesResponse) o;
-    return Objects.equals(this.cost, commitmentsCoverageTimeseriesResponse.cost)
-        && Objects.equals(this.hours, commitmentsCoverageTimeseriesResponse.hours)
+    return Objects.equals(this.data, commitmentsCoverageTimeseriesResponse.data)
         && Objects.equals(
             this.additionalProperties, commitmentsCoverageTimeseriesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cost, hours, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommitmentsCoverageTimeseriesResponse {\n");
-    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
-    sb.append("    hours: ").append(toIndentedString(hours)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

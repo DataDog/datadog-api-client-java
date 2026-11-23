@@ -13,114 +13,51 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Response containing timeseries utilization metrics for cloud commitment programs. */
-@JsonPropertyOrder({
-  CommitmentsUtilizationTimeseriesResponse.JSON_PROPERTY_SERIES,
-  CommitmentsUtilizationTimeseriesResponse.JSON_PROPERTY_TIMES,
-  CommitmentsUtilizationTimeseriesResponse.JSON_PROPERTY_UNIT
-})
+@JsonPropertyOrder({CommitmentsUtilizationTimeseriesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CommitmentsUtilizationTimeseriesResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_SERIES = "series";
-  private Map<String, List<Double>> series = new HashMap<String, List<Double>>();
-
-  public static final String JSON_PROPERTY_TIMES = "times";
-  private List<Long> times = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_UNIT = "unit";
-  private CommitmentsUnit unit;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CommitmentsUtilizationTimeseriesResponseData data;
 
   public CommitmentsUtilizationTimeseriesResponse() {}
 
   @JsonCreator
   public CommitmentsUtilizationTimeseriesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERIES) Map<String, List<Double>> series,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMES) List<Long> times) {
-    this.series = series;
-    this.times = times;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CommitmentsUtilizationTimeseriesResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public CommitmentsUtilizationTimeseriesResponse series(Map<String, List<Double>> series) {
-    this.series = series;
-    return this;
-  }
-
-  public CommitmentsUtilizationTimeseriesResponse putSeriesItem(
-      String key, List<Double> seriesItem) {
-    this.series.put(key, seriesItem);
+  public CommitmentsUtilizationTimeseriesResponse data(
+      CommitmentsUtilizationTimeseriesResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Timeseries data as a map of series names to their corresponding value arrays.
+   * The timeseries utilization resource.
    *
-   * @return series
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_SERIES)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Map<String, List<Double>> getSeries() {
-    return series;
+  public CommitmentsUtilizationTimeseriesResponseData getData() {
+    return data;
   }
 
-  public void setSeries(Map<String, List<Double>> series) {
-    this.series = series;
-  }
-
-  public CommitmentsUtilizationTimeseriesResponse times(List<Long> times) {
-    this.times = times;
-    return this;
-  }
-
-  public CommitmentsUtilizationTimeseriesResponse addTimesItem(Long timesItem) {
-    this.times.add(timesItem);
-    return this;
-  }
-
-  /**
-   * Unix timestamps in seconds for the timeseries data points.
-   *
-   * @return times
-   */
-  @JsonProperty(JSON_PROPERTY_TIMES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Long> getTimes() {
-    return times;
-  }
-
-  public void setTimes(List<Long> times) {
-    this.times = times;
-  }
-
-  public CommitmentsUtilizationTimeseriesResponse unit(CommitmentsUnit unit) {
-    this.unit = unit;
-    this.unparsed |= unit.unparsed;
-    return this;
-  }
-
-  /**
-   * Unit metadata for a numeric metric.
-   *
-   * @return unit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CommitmentsUnit getUnit() {
-    return unit;
-  }
-
-  public void setUnit(CommitmentsUnit unit) {
-    this.unit = unit;
-    if (unit != null) {
-      this.unparsed |= unit.unparsed;
+  public void setData(CommitmentsUtilizationTimeseriesResponseData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
   }
 
@@ -181,9 +118,7 @@ public class CommitmentsUtilizationTimeseriesResponse {
     }
     CommitmentsUtilizationTimeseriesResponse commitmentsUtilizationTimeseriesResponse =
         (CommitmentsUtilizationTimeseriesResponse) o;
-    return Objects.equals(this.series, commitmentsUtilizationTimeseriesResponse.series)
-        && Objects.equals(this.times, commitmentsUtilizationTimeseriesResponse.times)
-        && Objects.equals(this.unit, commitmentsUtilizationTimeseriesResponse.unit)
+    return Objects.equals(this.data, commitmentsUtilizationTimeseriesResponse.data)
         && Objects.equals(
             this.additionalProperties,
             commitmentsUtilizationTimeseriesResponse.additionalProperties);
@@ -191,16 +126,14 @@ public class CommitmentsUtilizationTimeseriesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(series, times, unit, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommitmentsUtilizationTimeseriesResponse {\n");
-    sb.append("    series: ").append(toIndentedString(series)).append("\n");
-    sb.append("    times: ").append(toIndentedString(times)).append("\n");
-    sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

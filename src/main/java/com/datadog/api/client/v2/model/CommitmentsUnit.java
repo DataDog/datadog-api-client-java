@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Unit metadata for a numeric metric. */
+/**
+ * Unit metadata for a numeric metric. Unset fields are omitted, and the unit is <code>null</code>
+ * when it is unknown.
+ */
 @JsonPropertyOrder({
   CommitmentsUnit.JSON_PROPERTY_FAMILY,
   CommitmentsUnit.JSON_PROPERTY_ID,
@@ -48,24 +50,6 @@ public class CommitmentsUnit {
   public static final String JSON_PROPERTY_SHORT_NAME = "short_name";
   private String shortName;
 
-  public CommitmentsUnit() {}
-
-  @JsonCreator
-  public CommitmentsUnit(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FAMILY) String family,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) Long id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PLURAL) String plural,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SCALE_FACTOR) Double scaleFactor,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SHORT_NAME) String shortName) {
-    this.family = family;
-    this.id = id;
-    this.name = name;
-    this.plural = plural;
-    this.scaleFactor = scaleFactor;
-    this.shortName = shortName;
-  }
-
   public CommitmentsUnit family(String family) {
     this.family = family;
     return this;
@@ -76,8 +60,9 @@ public class CommitmentsUnit {
    *
    * @return family
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFamily() {
     return family;
   }
@@ -96,8 +81,9 @@ public class CommitmentsUnit {
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
     return id;
   }
@@ -116,8 +102,9 @@ public class CommitmentsUnit {
    *
    * @return name
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
@@ -136,8 +123,9 @@ public class CommitmentsUnit {
    *
    * @return plural
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLURAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPlural() {
     return plural;
   }
@@ -156,8 +144,9 @@ public class CommitmentsUnit {
    *
    * @return scaleFactor
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getScaleFactor() {
     return scaleFactor;
   }
@@ -176,8 +165,9 @@ public class CommitmentsUnit {
    *
    * @return shortName
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShortName() {
     return shortName;
   }

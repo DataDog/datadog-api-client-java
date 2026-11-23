@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,42 +16,38 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata for the on-demand hot-spots scalar response. */
-@JsonPropertyOrder({CommitmentsOnDemandHotspotsScalarMeta.JSON_PROPERTY_ON_DEMAND_FILTERS})
+/**
+ * Metadata reporting that the cost data lacks the unused costs of some commitments, as with Azure
+ * exports scoped below the billing profile. Utilization is then overstated, and realized savings
+ * and effective savings rate are upper bounds. Omitted when the unused costs are available.
+ */
+@JsonPropertyOrder({CommitmentsUnusedCostMeta.JSON_PROPERTY_UNUSED_COST_UNAVAILABLE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CommitmentsOnDemandHotspotsScalarMeta {
+public class CommitmentsUnusedCostMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ON_DEMAND_FILTERS = "on_demand_filters";
-  private String onDemandFilters;
+  public static final String JSON_PROPERTY_UNUSED_COST_UNAVAILABLE = "unused_cost_unavailable";
+  private Boolean unusedCostUnavailable;
 
-  public CommitmentsOnDemandHotspotsScalarMeta() {}
-
-  @JsonCreator
-  public CommitmentsOnDemandHotspotsScalarMeta(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ON_DEMAND_FILTERS)
-          String onDemandFilters) {
-    this.onDemandFilters = onDemandFilters;
-  }
-
-  public CommitmentsOnDemandHotspotsScalarMeta onDemandFilters(String onDemandFilters) {
-    this.onDemandFilters = onDemandFilters;
+  public CommitmentsUnusedCostMeta unusedCostUnavailable(Boolean unusedCostUnavailable) {
+    this.unusedCostUnavailable = unusedCostUnavailable;
     return this;
   }
 
   /**
-   * Active on-demand filters applied to the response.
+   * Whether the cost data lacks the unused costs of some commitments.
    *
-   * @return onDemandFilters
+   * @return unusedCostUnavailable
    */
-  @JsonProperty(JSON_PROPERTY_ON_DEMAND_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getOnDemandFilters() {
-    return onDemandFilters;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNUSED_COST_UNAVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getUnusedCostUnavailable() {
+    return unusedCostUnavailable;
   }
 
-  public void setOnDemandFilters(String onDemandFilters) {
-    this.onDemandFilters = onDemandFilters;
+  public void setUnusedCostUnavailable(Boolean unusedCostUnavailable) {
+    this.unusedCostUnavailable = unusedCostUnavailable;
   }
 
   /**
@@ -67,10 +62,10 @@ public class CommitmentsOnDemandHotspotsScalarMeta {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CommitmentsOnDemandHotspotsScalarMeta
+   * @return CommitmentsUnusedCostMeta
    */
   @JsonAnySetter
-  public CommitmentsOnDemandHotspotsScalarMeta putAdditionalProperty(String key, Object value) {
+  public CommitmentsUnusedCostMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -101,7 +96,7 @@ public class CommitmentsOnDemandHotspotsScalarMeta {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CommitmentsOnDemandHotspotsScalarMeta object is equal to o. */
+  /** Return true if this CommitmentsUnusedCostMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,24 +105,25 @@ public class CommitmentsOnDemandHotspotsScalarMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CommitmentsOnDemandHotspotsScalarMeta commitmentsOnDemandHotspotsScalarMeta =
-        (CommitmentsOnDemandHotspotsScalarMeta) o;
+    CommitmentsUnusedCostMeta commitmentsUnusedCostMeta = (CommitmentsUnusedCostMeta) o;
     return Objects.equals(
-            this.onDemandFilters, commitmentsOnDemandHotspotsScalarMeta.onDemandFilters)
+            this.unusedCostUnavailable, commitmentsUnusedCostMeta.unusedCostUnavailable)
         && Objects.equals(
-            this.additionalProperties, commitmentsOnDemandHotspotsScalarMeta.additionalProperties);
+            this.additionalProperties, commitmentsUnusedCostMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(onDemandFilters, additionalProperties);
+    return Objects.hash(unusedCostUnavailable, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CommitmentsOnDemandHotspotsScalarMeta {\n");
-    sb.append("    onDemandFilters: ").append(toIndentedString(onDemandFilters)).append("\n");
+    sb.append("class CommitmentsUnusedCostMeta {\n");
+    sb.append("    unusedCostUnavailable: ")
+        .append(toIndentedString(unusedCostUnavailable))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

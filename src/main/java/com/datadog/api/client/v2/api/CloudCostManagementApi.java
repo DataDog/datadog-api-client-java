@@ -2813,7 +2813,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCommitmentListWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -2832,7 +2832,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCommitmentListWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -2853,7 +2853,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCommitmentListWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -2877,7 +2877,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCommitmentListWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -2902,7 +2902,7 @@ public class CloudCostManagementApi {
    * utilization details. The response schema varies based on the provider, product, and commitment
    * type.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -2999,7 +2999,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCommitmentListWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3129,7 +3129,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3148,7 +3148,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3169,7 +3169,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3193,7 +3193,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3217,7 +3217,7 @@ public class CloudCostManagementApi {
    * Get scalar coverage metrics for cloud commitment programs, including hours and cost coverage
    * percentages.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3312,7 +3312,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3446,7 +3446,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3465,7 +3465,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3487,7 +3487,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3511,7 +3511,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3534,10 +3534,11 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type
-   * (Reserved Instances, Savings Plans, On-Demand, and Spot) for both hours and cost.
+   * Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type for
+   * both hours and cost. AWS and Azure report Reserved Instances, Savings Plans, On-Demand, and
+   * Spot. GCP reports Flex Committed Use Discounts and On-Demand.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3636,7 +3637,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3772,7 +3773,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3795,7 +3796,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3821,7 +3822,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3846,7 +3847,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3872,7 +3873,7 @@ public class CloudCostManagementApi {
    * Get scalar on-demand hot-spots data for cloud commitment programs, showing per-dimension
    * breakdowns of on-demand spending with coverage metrics and potential savings.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -3973,7 +3974,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4109,7 +4110,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4128,7 +4129,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4149,7 +4150,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4173,7 +4174,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4197,7 +4198,7 @@ public class CloudCostManagementApi {
    * Get scalar savings metrics for cloud commitment programs, including realized savings and
    * effective savings rate.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4291,7 +4292,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4424,7 +4425,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4443,7 +4444,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4465,7 +4466,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4489,7 +4490,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4515,7 +4516,7 @@ public class CloudCostManagementApi {
    * Get timeseries savings metrics for cloud commitment programs, including actual cost, on-demand
    * equivalent cost, realized savings, and effective savings rate over time.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4612,7 +4613,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4761,7 +4762,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4780,7 +4781,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4802,7 +4803,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4826,7 +4827,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4852,7 +4853,7 @@ public class CloudCostManagementApi {
    * Get scalar utilization metrics for cloud commitment programs, including utilization percentage
    * and unused cost.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -4951,7 +4952,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -5102,7 +5103,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -5125,7 +5126,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -5151,7 +5152,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -5176,7 +5177,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfoAsync}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -5202,7 +5203,7 @@ public class CloudCostManagementApi {
    * Get timeseries utilization metrics for cloud commitment programs, including used and unused
    * cost series over time.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
@@ -5305,7 +5306,7 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfo}.
    *
-   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param provider Cloud provider for commitment programs (aws, azure, or gcp). (required)
    * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
    * @param start Start of the query time range in Unix milliseconds. (required)
    * @param end End of the query time range in Unix milliseconds. (required)
