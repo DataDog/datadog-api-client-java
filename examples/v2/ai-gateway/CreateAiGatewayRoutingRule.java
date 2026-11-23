@@ -31,6 +31,8 @@ public class Example {
                 new AiGatewayRoutingRuleCreateData()
                     .attributes(
                         new AiGatewayRoutingRuleCreateAttributes()
+                            .description("Routes coding traffic to the fastest available model.")
+                            .displayName("Coding fallback")
                             .initialBindings(
                                 Collections.singletonList(
                                     new AiGatewayProviderInitialBinding()
