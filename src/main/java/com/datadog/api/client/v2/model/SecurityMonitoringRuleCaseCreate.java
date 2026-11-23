@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_ACTIONS,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_CONDITION,
+  SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_CUSTOM_STATUS,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NOTIFICATIONS,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_STATUS
@@ -36,6 +37,9 @@ public class SecurityMonitoringRuleCaseCreate {
 
   public static final String JSON_PROPERTY_CONDITION = "condition";
   private String condition;
+
+  public static final String JSON_PROPERTY_CUSTOM_STATUS = "customStatus";
+  private SecurityMonitoringRuleSeverity customStatus;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -118,6 +122,32 @@ public class SecurityMonitoringRuleCaseCreate {
 
   public void setCondition(String condition) {
     this.condition = condition;
+  }
+
+  public SecurityMonitoringRuleCaseCreate customStatus(
+      SecurityMonitoringRuleSeverity customStatus) {
+    this.customStatus = customStatus;
+    this.unparsed |= !customStatus.isValid();
+    return this;
+  }
+
+  /**
+   * Severity of the Security Signal.
+   *
+   * @return customStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleSeverity getCustomStatus() {
+    return customStatus;
+  }
+
+  public void setCustomStatus(SecurityMonitoringRuleSeverity customStatus) {
+    if (!customStatus.isValid()) {
+      this.unparsed = true;
+    }
+    this.customStatus = customStatus;
   }
 
   public SecurityMonitoringRuleCaseCreate name(String name) {
@@ -253,6 +283,7 @@ public class SecurityMonitoringRuleCaseCreate {
         (SecurityMonitoringRuleCaseCreate) o;
     return Objects.equals(this.actions, securityMonitoringRuleCaseCreate.actions)
         && Objects.equals(this.condition, securityMonitoringRuleCaseCreate.condition)
+        && Objects.equals(this.customStatus, securityMonitoringRuleCaseCreate.customStatus)
         && Objects.equals(this.name, securityMonitoringRuleCaseCreate.name)
         && Objects.equals(this.notifications, securityMonitoringRuleCaseCreate.notifications)
         && Objects.equals(this.status, securityMonitoringRuleCaseCreate.status)
@@ -262,7 +293,8 @@ public class SecurityMonitoringRuleCaseCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actions, condition, name, notifications, status, additionalProperties);
+    return Objects.hash(
+        actions, condition, customStatus, name, notifications, status, additionalProperties);
   }
 
   @Override
@@ -271,6 +303,7 @@ public class SecurityMonitoringRuleCaseCreate {
     sb.append("class SecurityMonitoringRuleCaseCreate {\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
+    sb.append("    customStatus: ").append(toIndentedString(customStatus)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

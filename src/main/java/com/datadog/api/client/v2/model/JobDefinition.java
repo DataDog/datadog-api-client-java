@@ -26,9 +26,12 @@ import java.util.Objects;
   JobDefinition.JSON_PROPERTY_FROM,
   JobDefinition.JSON_PROPERTY_GROUP_SIGNALS_BY,
   JobDefinition.JSON_PROPERTY_INDEX,
+  JobDefinition.JSON_PROPERTY_IS_BACKFILL_JOB,
+  JobDefinition.JSON_PROPERTY_IS_SHADOW_DEPLOYED,
   JobDefinition.JSON_PROPERTY_MESSAGE,
   JobDefinition.JSON_PROPERTY_NAME,
   JobDefinition.JSON_PROPERTY_OPTIONS,
+  JobDefinition.JSON_PROPERTY_PROJECTED_PER_QUERY,
   JobDefinition.JSON_PROPERTY_QUERIES,
   JobDefinition.JSON_PROPERTY_REFERENCE_TABLES,
   JobDefinition.JSON_PROPERTY_TAGS,
@@ -55,6 +58,12 @@ public class JobDefinition {
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
 
+  public static final String JSON_PROPERTY_IS_BACKFILL_JOB = "isBackfillJob";
+  private Boolean isBackfillJob;
+
+  public static final String JSON_PROPERTY_IS_SHADOW_DEPLOYED = "isShadowDeployed";
+  private Boolean isShadowDeployed;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
@@ -63,6 +72,9 @@ public class JobDefinition {
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
   private HistoricalJobOptions options;
+
+  public static final String JSON_PROPERTY_PROJECTED_PER_QUERY = "projectedPerQuery";
+  private List<String> projectedPerQuery = null;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
   private List<HistoricalJobQuery> queries = new ArrayList<>();
@@ -254,6 +266,30 @@ public class JobDefinition {
     this.index = index;
   }
 
+  /**
+   * Whether the job was run by Datadog to reprocess past data.
+   *
+   * @return isBackfillJob
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_BACKFILL_JOB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsBackfillJob() {
+    return isBackfillJob;
+  }
+
+  /**
+   * Whether the job is a shadow deployment run by Datadog.
+   *
+   * @return isShadowDeployed
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_SHADOW_DEPLOYED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsShadowDeployed() {
+    return isShadowDeployed;
+  }
+
   public JobDefinition message(String message) {
     this.message = message;
     return this;
@@ -317,6 +353,18 @@ public class JobDefinition {
     if (options != null) {
       this.unparsed |= options.unparsed;
     }
+  }
+
+  /**
+   * Fields projected for each query, copied from the rule the job was created from.
+   *
+   * @return projectedPerQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROJECTED_PER_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getProjectedPerQuery() {
+    return projectedPerQuery;
   }
 
   public JobDefinition queries(List<HistoricalJobQuery> queries) {
@@ -568,9 +616,12 @@ public class JobDefinition {
         && Objects.equals(this.from, jobDefinition.from)
         && Objects.equals(this.groupSignalsBy, jobDefinition.groupSignalsBy)
         && Objects.equals(this.index, jobDefinition.index)
+        && Objects.equals(this.isBackfillJob, jobDefinition.isBackfillJob)
+        && Objects.equals(this.isShadowDeployed, jobDefinition.isShadowDeployed)
         && Objects.equals(this.message, jobDefinition.message)
         && Objects.equals(this.name, jobDefinition.name)
         && Objects.equals(this.options, jobDefinition.options)
+        && Objects.equals(this.projectedPerQuery, jobDefinition.projectedPerQuery)
         && Objects.equals(this.queries, jobDefinition.queries)
         && Objects.equals(this.referenceTables, jobDefinition.referenceTables)
         && Objects.equals(this.tags, jobDefinition.tags)
@@ -588,9 +639,12 @@ public class JobDefinition {
         from,
         groupSignalsBy,
         index,
+        isBackfillJob,
+        isShadowDeployed,
         message,
         name,
         options,
+        projectedPerQuery,
         queries,
         referenceTables,
         tags,
@@ -609,9 +663,12 @@ public class JobDefinition {
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    groupSignalsBy: ").append(toIndentedString(groupSignalsBy)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    isBackfillJob: ").append(toIndentedString(isBackfillJob)).append("\n");
+    sb.append("    isShadowDeployed: ").append(toIndentedString(isShadowDeployed)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    projectedPerQuery: ").append(toIndentedString(projectedPerQuery)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    referenceTables: ").append(toIndentedString(referenceTables)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

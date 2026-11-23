@@ -19,8 +19,11 @@ import java.util.Objects;
 /** Job options. */
 @JsonPropertyOrder({
   HistoricalJobOptions.JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS,
+  HistoricalJobOptions.JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS,
+  HistoricalJobOptions.JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV,
   HistoricalJobOptions.JSON_PROPERTY_DETECTION_METHOD,
   HistoricalJobOptions.JSON_PROPERTY_EVALUATION_WINDOW,
+  HistoricalJobOptions.JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE,
   HistoricalJobOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
   HistoricalJobOptions.JSON_PROPERTY_KEEP_ALIVE,
   HistoricalJobOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
@@ -35,11 +38,21 @@ public class HistoricalJobOptions {
   public static final String JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS = "anomalyDetectionOptions";
   private SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions;
 
+  public static final String JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS = "complianceRuleOptions";
+  private CloudConfigurationComplianceRuleOptions complianceRuleOptions;
+
+  public static final String JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV =
+      "decreaseCriticalityBasedOnEnv";
+  private Boolean decreaseCriticalityBasedOnEnv;
+
   public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
   private SecurityMonitoringRuleDetectionMethod detectionMethod;
 
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
   private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
+
+  public static final String JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE = "hardcodedEvaluatorType";
+  private SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType;
 
   public static final String JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS = "impossibleTravelOptions";
   private SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions;
@@ -84,6 +97,60 @@ public class HistoricalJobOptions {
     if (anomalyDetectionOptions != null) {
       this.unparsed |= anomalyDetectionOptions.unparsed;
     }
+  }
+
+  public HistoricalJobOptions complianceRuleOptions(
+      CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
+    this.complianceRuleOptions = complianceRuleOptions;
+    this.unparsed |= complianceRuleOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Options for cloud_configuration rules. Fields <code>resourceType</code> and <code>regoRule
+   * </code> are mandatory when managing custom <code>cloud_configuration</code> rules.
+   *
+   * @return complianceRuleOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudConfigurationComplianceRuleOptions getComplianceRuleOptions() {
+    return complianceRuleOptions;
+  }
+
+  public void setComplianceRuleOptions(
+      CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
+    this.complianceRuleOptions = complianceRuleOptions;
+    if (complianceRuleOptions != null) {
+      this.unparsed |= complianceRuleOptions.unparsed;
+    }
+  }
+
+  public HistoricalJobOptions decreaseCriticalityBasedOnEnv(Boolean decreaseCriticalityBasedOnEnv) {
+    this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
+    return this;
+  }
+
+  /**
+   * If true, signals in non-production environments have a lower severity than what is defined by
+   * the rule case, which can reduce signal noise. The severity is decreased by one level: <code>
+   * CRITICAL</code> in production becomes <code>HIGH</code> in non-production, <code>HIGH</code>
+   * becomes <code>MEDIUM</code> and so on. <code>INFO</code> remains <code>INFO</code>. The
+   * decrement is applied when the environment tag of the signal starts with <code>staging</code>,
+   * <code>test</code> or <code>dev</code>.
+   *
+   * @return decreaseCriticalityBasedOnEnv
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDecreaseCriticalityBasedOnEnv() {
+    return decreaseCriticalityBasedOnEnv;
+  }
+
+  public void setDecreaseCriticalityBasedOnEnv(Boolean decreaseCriticalityBasedOnEnv) {
+    this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
   }
 
   public HistoricalJobOptions detectionMethod(
@@ -138,6 +205,33 @@ public class HistoricalJobOptions {
       this.unparsed = true;
     }
     this.evaluationWindow = evaluationWindow;
+  }
+
+  public HistoricalJobOptions hardcodedEvaluatorType(
+      SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType) {
+    this.hardcodedEvaluatorType = hardcodedEvaluatorType;
+    this.unparsed |= !hardcodedEvaluatorType.isValid();
+    return this;
+  }
+
+  /**
+   * Hardcoded evaluator type.
+   *
+   * @return hardcodedEvaluatorType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleHardcodedEvaluatorType getHardcodedEvaluatorType() {
+    return hardcodedEvaluatorType;
+  }
+
+  public void setHardcodedEvaluatorType(
+      SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType) {
+    if (!hardcodedEvaluatorType.isValid()) {
+      this.unparsed = true;
+    }
+    this.hardcodedEvaluatorType = hardcodedEvaluatorType;
   }
 
   public HistoricalJobOptions impossibleTravelOptions(
@@ -358,8 +452,12 @@ public class HistoricalJobOptions {
     HistoricalJobOptions historicalJobOptions = (HistoricalJobOptions) o;
     return Objects.equals(
             this.anomalyDetectionOptions, historicalJobOptions.anomalyDetectionOptions)
+        && Objects.equals(this.complianceRuleOptions, historicalJobOptions.complianceRuleOptions)
+        && Objects.equals(
+            this.decreaseCriticalityBasedOnEnv, historicalJobOptions.decreaseCriticalityBasedOnEnv)
         && Objects.equals(this.detectionMethod, historicalJobOptions.detectionMethod)
         && Objects.equals(this.evaluationWindow, historicalJobOptions.evaluationWindow)
+        && Objects.equals(this.hardcodedEvaluatorType, historicalJobOptions.hardcodedEvaluatorType)
         && Objects.equals(
             this.impossibleTravelOptions, historicalJobOptions.impossibleTravelOptions)
         && Objects.equals(this.keepAlive, historicalJobOptions.keepAlive)
@@ -375,8 +473,11 @@ public class HistoricalJobOptions {
   public int hashCode() {
     return Objects.hash(
         anomalyDetectionOptions,
+        complianceRuleOptions,
+        decreaseCriticalityBasedOnEnv,
         detectionMethod,
         evaluationWindow,
+        hardcodedEvaluatorType,
         impossibleTravelOptions,
         keepAlive,
         maxSignalDuration,
@@ -393,8 +494,17 @@ public class HistoricalJobOptions {
     sb.append("    anomalyDetectionOptions: ")
         .append(toIndentedString(anomalyDetectionOptions))
         .append("\n");
+    sb.append("    complianceRuleOptions: ")
+        .append(toIndentedString(complianceRuleOptions))
+        .append("\n");
+    sb.append("    decreaseCriticalityBasedOnEnv: ")
+        .append(toIndentedString(decreaseCriticalityBasedOnEnv))
+        .append("\n");
     sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
+    sb.append("    hardcodedEvaluatorType: ")
+        .append(toIndentedString(hardcodedEvaluatorType))
+        .append("\n");
     sb.append("    impossibleTravelOptions: ")
         .append(toIndentedString(impossibleTravelOptions))
         .append("\n");
