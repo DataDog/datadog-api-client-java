@@ -58,7 +58,8 @@ public class DeploymentGateResponseData {
   }
 
   /**
-   * Basic information about a deployment gate.
+   * Basic information about a deployment gate. The environment is <code>*</code> for a gate that
+   * applies to all environments.
    *
    * @return attributes
    */

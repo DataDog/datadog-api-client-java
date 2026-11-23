@@ -18,7 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Basic information about a deployment gate. */
+/**
+ * Basic information about a deployment gate. The environment is <code>*</code> for a gate that
+ * applies to all environments.
+ */
 @JsonPropertyOrder({
   DeploymentGateResponseDataAttributes.JSON_PROPERTY_CREATED_AT,
   DeploymentGateResponseDataAttributes.JSON_PROPERTY_CREATED_BY,
@@ -148,7 +151,7 @@ public class DeploymentGateResponseDataAttributes {
   }
 
   /**
-   * The environment of the deployment gate.
+   * The environment of the deployment gate. <code>*</code> means all environments.
    *
    * @return env
    */
