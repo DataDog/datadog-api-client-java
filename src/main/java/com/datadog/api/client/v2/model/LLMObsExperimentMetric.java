@@ -25,6 +25,7 @@ import java.util.Objects;
   LLMObsExperimentMetric.JSON_PROPERTY_BOOLEAN_VALUE,
   LLMObsExperimentMetric.JSON_PROPERTY_CATEGORICAL_VALUE,
   LLMObsExperimentMetric.JSON_PROPERTY_ERROR,
+  LLMObsExperimentMetric.JSON_PROPERTY_HIGHER_IS_BETTER,
   LLMObsExperimentMetric.JSON_PROPERTY_JSON_VALUE,
   LLMObsExperimentMetric.JSON_PROPERTY_LABEL,
   LLMObsExperimentMetric.JSON_PROPERTY_METADATA,
@@ -50,6 +51,9 @@ public class LLMObsExperimentMetric {
 
   public static final String JSON_PROPERTY_ERROR = "error";
   private LLMObsExperimentMetricError error;
+
+  public static final String JSON_PROPERTY_HIGHER_IS_BETTER = "higher_is_better";
+  private Boolean higherIsBetter;
 
   public static final String JSON_PROPERTY_JSON_VALUE = "json_value";
   private Map<String, Object> jsonValue = null;
@@ -186,6 +190,29 @@ public class LLMObsExperimentMetric {
     }
   }
 
+  public LLMObsExperimentMetric higherIsBetter(Boolean higherIsBetter) {
+    this.higherIsBetter = higherIsBetter;
+    return this;
+  }
+
+  /**
+   * Whether a higher numeric score is better. Set to <code>false</code> when a lower score is
+   * better. If omitted, the comparison uses the boolean value of <code>metadata.higher_is_better
+   * </code> when present, or the default direction otherwise.
+   *
+   * @return higherIsBetter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HIGHER_IS_BETTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHigherIsBetter() {
+    return higherIsBetter;
+  }
+
+  public void setHigherIsBetter(Boolean higherIsBetter) {
+    this.higherIsBetter = higherIsBetter;
+  }
+
   public LLMObsExperimentMetric jsonValue(Map<String, Object> jsonValue) {
     this.jsonValue = jsonValue;
     return this;
@@ -249,7 +276,8 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Arbitrary metadata associated with the metric.
+   * Arbitrary metadata associated with the metric. For a numeric score, clients can set <code>
+   * higher_is_better</code> here when they cannot send the top-level field.
    *
    * @return metadata
    */
@@ -459,6 +487,7 @@ public class LLMObsExperimentMetric {
         && Objects.equals(this.booleanValue, llmObsExperimentMetric.booleanValue)
         && Objects.equals(this.categoricalValue, llmObsExperimentMetric.categoricalValue)
         && Objects.equals(this.error, llmObsExperimentMetric.error)
+        && Objects.equals(this.higherIsBetter, llmObsExperimentMetric.higherIsBetter)
         && Objects.equals(this.jsonValue, llmObsExperimentMetric.jsonValue)
         && Objects.equals(this.label, llmObsExperimentMetric.label)
         && Objects.equals(this.metadata, llmObsExperimentMetric.metadata)
@@ -478,6 +507,7 @@ public class LLMObsExperimentMetric {
         booleanValue,
         categoricalValue,
         error,
+        higherIsBetter,
         jsonValue,
         label,
         metadata,
@@ -498,6 +528,7 @@ public class LLMObsExperimentMetric {
     sb.append("    booleanValue: ").append(toIndentedString(booleanValue)).append("\n");
     sb.append("    categoricalValue: ").append(toIndentedString(categoricalValue)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    higherIsBetter: ").append(toIndentedString(higherIsBetter)).append("\n");
     sb.append("    jsonValue: ").append(toIndentedString(jsonValue)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
