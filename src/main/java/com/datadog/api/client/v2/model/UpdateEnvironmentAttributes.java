@@ -17,6 +17,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes for updating an environment. */
 @JsonPropertyOrder({
@@ -24,7 +26,9 @@ import java.util.Objects;
   UpdateEnvironmentAttributes.JSON_PROPERTY_NAME,
   UpdateEnvironmentAttributes.JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA,
   UpdateEnvironmentAttributes.JSON_PROPERTY_QUERIES,
-  UpdateEnvironmentAttributes.JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL
+  UpdateEnvironmentAttributes.JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL,
+  UpdateEnvironmentAttributes.JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID,
+  UpdateEnvironmentAttributes.JSON_PROPERTY_SUBJECT_AUTHORIZATION_STATE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -46,6 +50,14 @@ public class UpdateEnvironmentAttributes {
   public static final String JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL =
       "require_feature_flag_approval";
   private Boolean requireFeatureFlagApproval;
+
+  public static final String JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID =
+      "subject_authorization_oidc_provider_id";
+  private JsonNullable<UUID> subjectAuthorizationOidcProviderId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_SUBJECT_AUTHORIZATION_STATE =
+      "subject_authorization_state";
+  private EnvironmentSubjectAuthorizationState subjectAuthorizationState;
 
   public UpdateEnvironmentAttributes isProduction(Boolean isProduction) {
     this.isProduction = isProduction;
@@ -169,6 +181,83 @@ public class UpdateEnvironmentAttributes {
     this.requireFeatureFlagApproval = requireFeatureFlagApproval;
   }
 
+  public UpdateEnvironmentAttributes subjectAuthorizationOidcProviderId(
+      UUID subjectAuthorizationOidcProviderId) {
+    this.subjectAuthorizationOidcProviderId =
+        JsonNullable.<UUID>of(subjectAuthorizationOidcProviderId);
+    return this;
+  }
+
+  /**
+   * The ID of a Custom OIDC provider, formatted as a nonzero UUID. If omitted, the stored
+   * association is preserved. Set to <code>null</code> to clear the association, which is allowed
+   * only when the resulting <code>subject_authorization_state</code> is <code>disabled</code>. A
+   * new non-null ID must be registered in the current organization and site, even when subject
+   * authorization is disabled. An unregistered ID returns <code>400 Bad Request</code>, and an
+   * unavailable registry returns <code>503 Service Unavailable</code>. Omitted, cleared, and
+   * unchanged IDs skip this check, including when you enable a retained provider. An ID that
+   * matches the stored ID in a different format, such as different letter case, is treated as
+   * unchanged. Saving does not verify provider eligibility or key publication.
+   *
+   * @return subjectAuthorizationOidcProviderId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public UUID getSubjectAuthorizationOidcProviderId() {
+    return subjectAuthorizationOidcProviderId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<UUID> getSubjectAuthorizationOidcProviderId_JsonNullable() {
+    return subjectAuthorizationOidcProviderId;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID)
+  public void setSubjectAuthorizationOidcProviderId_JsonNullable(
+      JsonNullable<UUID> subjectAuthorizationOidcProviderId) {
+    this.subjectAuthorizationOidcProviderId = subjectAuthorizationOidcProviderId;
+  }
+
+  public void setSubjectAuthorizationOidcProviderId(UUID subjectAuthorizationOidcProviderId) {
+    this.subjectAuthorizationOidcProviderId =
+        JsonNullable.<UUID>of(subjectAuthorizationOidcProviderId);
+  }
+
+  public UpdateEnvironmentAttributes subjectAuthorizationState(
+      EnvironmentSubjectAuthorizationState subjectAuthorizationState) {
+    this.subjectAuthorizationState = subjectAuthorizationState;
+    this.unparsed |= !subjectAuthorizationState.isValid();
+    return this;
+  }
+
+  /**
+   * Whether assignment requests for this environment require subject authorization. Allowed values
+   * are <code>disabled</code> and <code>enabled</code>. Enabling requires a provider ID formatted
+   * as a nonzero UUID. If omitted on create, defaults to <code>disabled</code>. If omitted on
+   * update, the stored state is preserved. <code>null</code> is not accepted. This setting applies
+   * only to the current Datadog site and is not copied to other sites. Before you enable it,
+   * configure an eligible Custom OIDC provider in the same organization and site, and verify that
+   * the provider's keys are published. Assignment requests fail when the required verification
+   * configuration is unavailable.
+   *
+   * @return subjectAuthorizationState
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBJECT_AUTHORIZATION_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnvironmentSubjectAuthorizationState getSubjectAuthorizationState() {
+    return subjectAuthorizationState;
+  }
+
+  public void setSubjectAuthorizationState(
+      EnvironmentSubjectAuthorizationState subjectAuthorizationState) {
+    if (!subjectAuthorizationState.isValid()) {
+      this.unparsed = true;
+    }
+    this.subjectAuthorizationState = subjectAuthorizationState;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -233,6 +322,11 @@ public class UpdateEnvironmentAttributes {
         && Objects.equals(
             this.requireFeatureFlagApproval, updateEnvironmentAttributes.requireFeatureFlagApproval)
         && Objects.equals(
+            this.subjectAuthorizationOidcProviderId,
+            updateEnvironmentAttributes.subjectAuthorizationOidcProviderId)
+        && Objects.equals(
+            this.subjectAuthorizationState, updateEnvironmentAttributes.subjectAuthorizationState)
+        && Objects.equals(
             this.additionalProperties, updateEnvironmentAttributes.additionalProperties);
   }
 
@@ -244,6 +338,8 @@ public class UpdateEnvironmentAttributes {
         observeFullEvaluationData,
         queries,
         requireFeatureFlagApproval,
+        subjectAuthorizationOidcProviderId,
+        subjectAuthorizationState,
         additionalProperties);
   }
 
@@ -259,6 +355,12 @@ public class UpdateEnvironmentAttributes {
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    requireFeatureFlagApproval: ")
         .append(toIndentedString(requireFeatureFlagApproval))
+        .append("\n");
+    sb.append("    subjectAuthorizationOidcProviderId: ")
+        .append(toIndentedString(subjectAuthorizationOidcProviderId))
+        .append("\n");
+    sb.append("    subjectAuthorizationState: ")
+        .append(toIndentedString(subjectAuthorizationState))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
