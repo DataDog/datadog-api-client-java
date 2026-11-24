@@ -14,6 +14,7 @@ import com.datadog.api.client.v2.model.MetricAllTagsResponse;
 import com.datadog.api.client.v2.model.MetricAssetsResponse;
 import com.datadog.api.client.v2.model.MetricContentEncoding;
 import com.datadog.api.client.v2.model.MetricEstimateResponse;
+import com.datadog.api.client.v2.model.MetricMetadataListResponse;
 import com.datadog.api.client.v2.model.MetricPayload;
 import com.datadog.api.client.v2.model.MetricSuggestedTagsAndAggregationsResponse;
 import com.datadog.api.client.v2.model.MetricTagCardinalitiesResponse;
@@ -2968,6 +2969,186 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricAssetsResponse>() {});
+  }
+
+  /**
+   * List metadata for multiple metrics.
+   *
+   * <p>See {@link #listMetricMetadataWithHttpInfo}.
+   *
+   * @param filterMetricName Comma-separated list of metric names, at most 50 distinct names of up
+   *     to 350 characters each, and at most 17,549 characters in total. Duplicate names are removed
+   *     before counting, and results keep the order of each name's first occurrence. A name that
+   *     isn't a valid metric name is treated like any other metric that doesn't exist: it's left
+   *     out of <code>data</code> rather than failing the request. (required)
+   * @return MetricMetadataListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricMetadataListResponse listMetricMetadata(String filterMetricName)
+      throws ApiException {
+    return listMetricMetadataWithHttpInfo(filterMetricName).getData();
+  }
+
+  /**
+   * List metadata for multiple metrics.
+   *
+   * <p>See {@link #listMetricMetadataWithHttpInfoAsync}.
+   *
+   * @param filterMetricName Comma-separated list of metric names, at most 50 distinct names of up
+   *     to 350 characters each, and at most 17,549 characters in total. Duplicate names are removed
+   *     before counting, and results keep the order of each name's first occurrence. A name that
+   *     isn't a valid metric name is treated like any other metric that doesn't exist: it's left
+   *     out of <code>data</code> rather than failing the request. (required)
+   * @return CompletableFuture&lt;MetricMetadataListResponse&gt;
+   */
+  public CompletableFuture<MetricMetadataListResponse> listMetricMetadataAsync(
+      String filterMetricName) {
+    return listMetricMetadataWithHttpInfoAsync(filterMetricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get metadata for up to 50 metrics in one request: type, description, units, StatsD interval,
+   * percentile and historical metrics settings, how the metric is ingested, and the product that
+   * reports it. Results are returned in the order the metrics were requested. Metrics that don't
+   * exist are left out of <code>data</code>. The request doesn't fail, and no not-found entry is
+   * returned. To find missing metrics, compare the returned <code>id</code> values with the names
+   * you requested.
+   *
+   * @param filterMetricName Comma-separated list of metric names, at most 50 distinct names of up
+   *     to 350 characters each, and at most 17,549 characters in total. Duplicate names are removed
+   *     before counting, and results keep the order of each name's first occurrence. A name that
+   *     isn't a valid metric name is treated like any other metric that doesn't exist: it's left
+   *     out of <code>data</code> rather than failing the request. (required)
+   * @return ApiResponse&lt;MetricMetadataListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricMetadataListResponse> listMetricMetadataWithHttpInfo(
+      String filterMetricName) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listMetricMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMetricName' is set
+    if (filterMetricName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterMetricName' when calling listMetricMetadata");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[metric_name]", filterMetricName));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.listMetricMetadata",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricMetadataListResponse>() {});
+  }
+
+  /**
+   * List metadata for multiple metrics.
+   *
+   * <p>See {@link #listMetricMetadataWithHttpInfo}.
+   *
+   * @param filterMetricName Comma-separated list of metric names, at most 50 distinct names of up
+   *     to 350 characters each, and at most 17,549 characters in total. Duplicate names are removed
+   *     before counting, and results keep the order of each name's first occurrence. A name that
+   *     isn't a valid metric name is treated like any other metric that doesn't exist: it's left
+   *     out of <code>data</code> rather than failing the request. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricMetadataListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MetricMetadataListResponse>>
+      listMetricMetadataWithHttpInfoAsync(String filterMetricName) {
+    // Check if unstable operation is enabled
+    String operationId = "listMetricMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MetricMetadataListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMetricName' is set
+    if (filterMetricName == null) {
+      CompletableFuture<ApiResponse<MetricMetadataListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterMetricName' when calling listMetricMetadata"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[metric_name]", filterMetricName));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.listMetricMetadata",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MetricMetadataListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricMetadataListResponse>() {});
   }
 
   /**
