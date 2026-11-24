@@ -576,7 +576,10 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Creates a new environment for organizing feature flags.
+   * Creates an environment for organizing feature flags. A non-null subject authorization provider
+   * ID must be registered in the current organization and site, even when authorization is
+   * disabled. An unknown ID returns <code>400 Bad Request</code>; an unavailable registry returns
+   * <code>503 Service Unavailable</code>.
    *
    * @param body (required)
    * @return ApiResponse&lt;EnvironmentResponse&gt;
@@ -4428,12 +4431,23 @@ public class FeatureFlagsApi {
    * Updates an environment's name, DD_ENV values, and settings.
    *
    * <p>Every request must include <code>name</code> and <code>queries</code>, even when changing
-   * only <code>observe_full_evaluation_data</code>. To preserve the current name and DD_ENV values,
-   * get the environment first and include those values in the request.
+   * only subject authorization or evaluation data settings. To preserve the current name and DD_ENV
+   * values, get the environment first and include those values in the request.
    *
    * <p>Omitting <code>is_production</code> or <code>require_feature_flag_approval</code> resets
    * that setting to <code>false</code>. Include their current values to preserve them. Omitting
-   * <code>observe_full_evaluation_data</code> preserves its current value.
+   * <code>observe_full_evaluation_data</code> preserves its current value. Omitting either subject
+   * authorization field preserves its stored value. Set <code>
+   * subject_authorization_oidc_provider_id</code> to <code>null</code> to clear the association
+   * while subject authorization is disabled. The following requests return <code>400 Bad Request
+   * </code>: enabling subject authorization without a provider, an unrecognized <code>
+   * subject_authorization_state</code> value, a malformed or zero UUID provider ID, or an
+   * unregistered provider ID. If the provider registry is unavailable, a new provider ID returns
+   * <code>503 Service Unavailable</code>. Omitted, cleared, or unchanged provider IDs skip the
+   * registry check, including when enabling a retained provider. Saving does not verify provider
+   * eligibility or key publication, so a successful save does not mean the environment is ready for
+   * assignment requests. Concurrent policy changes return <code>409 Conflict</code>; reload the
+   * environment and retry.
    *
    * @param environmentId The ID of the environment. (required)
    * @param body (required)
@@ -4447,6 +4461,7 @@ public class FeatureFlagsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */

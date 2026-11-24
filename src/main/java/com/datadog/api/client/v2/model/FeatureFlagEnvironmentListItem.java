@@ -34,7 +34,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagEnvironmentListItem.JSON_PROPERTY_OVERRIDE_VARIANT_ID,
   FeatureFlagEnvironmentListItem.JSON_PROPERTY_PENDING_SUGGESTION_ID,
   FeatureFlagEnvironmentListItem.JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL,
-  FeatureFlagEnvironmentListItem.JSON_PROPERTY_STATUS
+  FeatureFlagEnvironmentListItem.JSON_PROPERTY_STATUS,
+  FeatureFlagEnvironmentListItem.JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID,
+  FeatureFlagEnvironmentListItem.JSON_PROPERTY_SUBJECT_AUTHORIZATION_STATE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -77,6 +79,14 @@ public class FeatureFlagEnvironmentListItem {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private FeatureFlagStatus status;
+
+  public static final String JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID =
+      "subject_authorization_oidc_provider_id";
+  private JsonNullable<UUID> subjectAuthorizationOidcProviderId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_SUBJECT_AUTHORIZATION_STATE =
+      "subject_authorization_state";
+  private EnvironmentSubjectAuthorizationState subjectAuthorizationState;
 
   public FeatureFlagEnvironmentListItem() {}
 
@@ -390,6 +400,76 @@ public class FeatureFlagEnvironmentListItem {
     this.status = status;
   }
 
+  public FeatureFlagEnvironmentListItem subjectAuthorizationOidcProviderId(
+      UUID subjectAuthorizationOidcProviderId) {
+    this.subjectAuthorizationOidcProviderId =
+        JsonNullable.<UUID>of(subjectAuthorizationOidcProviderId);
+    return this;
+  }
+
+  /**
+   * The environment's associated Custom OIDC provider ID, or <code>null</code> when no provider is
+   * associated.
+   *
+   * @return subjectAuthorizationOidcProviderId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public UUID getSubjectAuthorizationOidcProviderId() {
+    return subjectAuthorizationOidcProviderId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<UUID> getSubjectAuthorizationOidcProviderId_JsonNullable() {
+    return subjectAuthorizationOidcProviderId;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUBJECT_AUTHORIZATION_OIDC_PROVIDER_ID)
+  public void setSubjectAuthorizationOidcProviderId_JsonNullable(
+      JsonNullable<UUID> subjectAuthorizationOidcProviderId) {
+    this.subjectAuthorizationOidcProviderId = subjectAuthorizationOidcProviderId;
+  }
+
+  public void setSubjectAuthorizationOidcProviderId(UUID subjectAuthorizationOidcProviderId) {
+    this.subjectAuthorizationOidcProviderId =
+        JsonNullable.<UUID>of(subjectAuthorizationOidcProviderId);
+  }
+
+  public FeatureFlagEnvironmentListItem subjectAuthorizationState(
+      EnvironmentSubjectAuthorizationState subjectAuthorizationState) {
+    this.subjectAuthorizationState = subjectAuthorizationState;
+    this.unparsed |= !subjectAuthorizationState.isValid();
+    return this;
+  }
+
+  /**
+   * Whether assignment requests for this environment require subject authorization. Allowed values
+   * are <code>disabled</code> and <code>enabled</code>. Enabling requires a provider ID formatted
+   * as a nonzero UUID. If omitted on create, defaults to <code>disabled</code>. If omitted on
+   * update, the stored state is preserved. <code>null</code> is not accepted. This setting applies
+   * only to the current Datadog site and is not copied to other sites. Before you enable it,
+   * configure an eligible Custom OIDC provider in the same organization and site, and verify that
+   * the provider's keys are published. Assignment requests fail when the required verification
+   * configuration is unavailable.
+   *
+   * @return subjectAuthorizationState
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBJECT_AUTHORIZATION_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnvironmentSubjectAuthorizationState getSubjectAuthorizationState() {
+    return subjectAuthorizationState;
+  }
+
+  public void setSubjectAuthorizationState(
+      EnvironmentSubjectAuthorizationState subjectAuthorizationState) {
+    if (!subjectAuthorizationState.isValid()) {
+      this.unparsed = true;
+    }
+    this.subjectAuthorizationState = subjectAuthorizationState;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -468,6 +548,12 @@ public class FeatureFlagEnvironmentListItem {
             featureFlagEnvironmentListItem.requireFeatureFlagApproval)
         && Objects.equals(this.status, featureFlagEnvironmentListItem.status)
         && Objects.equals(
+            this.subjectAuthorizationOidcProviderId,
+            featureFlagEnvironmentListItem.subjectAuthorizationOidcProviderId)
+        && Objects.equals(
+            this.subjectAuthorizationState,
+            featureFlagEnvironmentListItem.subjectAuthorizationState)
+        && Objects.equals(
             this.additionalProperties, featureFlagEnvironmentListItem.additionalProperties);
   }
 
@@ -486,6 +572,8 @@ public class FeatureFlagEnvironmentListItem {
         pendingSuggestionId,
         requireFeatureFlagApproval,
         status,
+        subjectAuthorizationOidcProviderId,
+        subjectAuthorizationState,
         additionalProperties);
   }
 
@@ -515,6 +603,12 @@ public class FeatureFlagEnvironmentListItem {
         .append(toIndentedString(requireFeatureFlagApproval))
         .append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subjectAuthorizationOidcProviderId: ")
+        .append(toIndentedString(subjectAuthorizationOidcProviderId))
+        .append("\n");
+    sb.append("    subjectAuthorizationState: ")
+        .append(toIndentedString(subjectAuthorizationState))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
