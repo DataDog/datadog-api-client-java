@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,29 +27,38 @@ import java.util.Objects;
 public class AgentHealthRemediationStep {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORDER = "order";
-  private Long order;
+  private Integer order;
 
   public static final String JSON_PROPERTY_TEXT = "text";
   private String text;
 
-  public AgentHealthRemediationStep order(Long order) {
+  public AgentHealthRemediationStep() {}
+
+  @JsonCreator
+  public AgentHealthRemediationStep(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ORDER) Integer order,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TEXT) String text) {
+    this.order = order;
+    this.text = text;
+  }
+
+  public AgentHealthRemediationStep order(Integer order) {
     this.order = order;
     return this;
   }
 
   /**
-   * The order in which to perform the step.
+   * The order in which to perform the step. maximum: 2147483647
    *
    * @return order
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOrder() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Integer getOrder() {
     return order;
   }
 
-  public void setOrder(Long order) {
+  public void setOrder(Integer order) {
     this.order = order;
   }
 
@@ -62,9 +72,8 @@ public class AgentHealthRemediationStep {
    *
    * @return text
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getText() {
     return text;
   }

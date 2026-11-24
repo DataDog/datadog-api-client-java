@@ -17,9 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Counts for the matching Agent Health issues. */
+/** Pagination details and counts for the matching Agent Health issues. */
 @JsonPropertyOrder({
   AgentHealthIssuesResponsePage.JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE,
+  AgentHealthIssuesResponsePage.JSON_PROPERTY_LIMIT,
+  AgentHealthIssuesResponsePage.JSON_PROPERTY_OFFSET,
   AgentHealthIssuesResponsePage.JSON_PROPERTY_TOTAL_COUNT
 })
 @jakarta.annotation.Generated(
@@ -27,7 +29,13 @@ import java.util.Objects;
 public class AgentHealthIssuesResponsePage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE = "counts_by_issue_type";
-  private Map<String, Long> countsByIssueType = new HashMap<String, Long>();
+  private Map<String, Long> countsByIssueType = null;
+
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
+
+  public static final String JSON_PROPERTY_OFFSET = "offset";
+  private Long offset;
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
   private Long totalCount;
@@ -36,10 +44,11 @@ public class AgentHealthIssuesResponsePage {
 
   @JsonCreator
   public AgentHealthIssuesResponsePage(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE)
-          Map<String, Long> countsByIssueType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT) Long limit,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OFFSET) Long offset,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Long totalCount) {
-    this.countsByIssueType = countsByIssueType;
+    this.limit = limit;
+    this.offset = offset;
     this.totalCount = totalCount;
   }
 
@@ -50,6 +59,9 @@ public class AgentHealthIssuesResponsePage {
 
   public AgentHealthIssuesResponsePage putCountsByIssueTypeItem(
       String key, Long countsByIssueTypeItem) {
+    if (this.countsByIssueType == null) {
+      this.countsByIssueType = new HashMap<>();
+    }
     this.countsByIssueType.put(key, countsByIssueTypeItem);
     return this;
   }
@@ -59,14 +71,55 @@ public class AgentHealthIssuesResponsePage {
    *
    * @return countsByIssueType
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTS_BY_ISSUE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Long> getCountsByIssueType() {
     return countsByIssueType;
   }
 
   public void setCountsByIssueType(Map<String, Long> countsByIssueType) {
     this.countsByIssueType = countsByIssueType;
+  }
+
+  public AgentHealthIssuesResponsePage limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * The maximum number of issues returned, echoing the requested <code>page[limit]</code>.
+   *
+   * @return limit
+   */
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
+
+  public AgentHealthIssuesResponsePage offset(Long offset) {
+    this.offset = offset;
+    return this;
+  }
+
+  /**
+   * The number of issues skipped, echoing the requested <code>page[offset]</code>.
+   *
+   * @return offset
+   */
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Long offset) {
+    this.offset = offset;
   }
 
   public AgentHealthIssuesResponsePage totalCount(Long totalCount) {
@@ -146,6 +199,8 @@ public class AgentHealthIssuesResponsePage {
     }
     AgentHealthIssuesResponsePage agentHealthIssuesResponsePage = (AgentHealthIssuesResponsePage) o;
     return Objects.equals(this.countsByIssueType, agentHealthIssuesResponsePage.countsByIssueType)
+        && Objects.equals(this.limit, agentHealthIssuesResponsePage.limit)
+        && Objects.equals(this.offset, agentHealthIssuesResponsePage.offset)
         && Objects.equals(this.totalCount, agentHealthIssuesResponsePage.totalCount)
         && Objects.equals(
             this.additionalProperties, agentHealthIssuesResponsePage.additionalProperties);
@@ -153,7 +208,7 @@ public class AgentHealthIssuesResponsePage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countsByIssueType, totalCount, additionalProperties);
+    return Objects.hash(countsByIssueType, limit, offset, totalCount, additionalProperties);
   }
 
   @Override
@@ -161,6 +216,8 @@ public class AgentHealthIssuesResponsePage {
     StringBuilder sb = new StringBuilder();
     sb.append("class AgentHealthIssuesResponsePage {\n");
     sb.append("    countsByIssueType: ").append(toIndentedString(countsByIssueType)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -3,9 +3,11 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AgentHealthAgentType;
 import com.datadog.api.client.v2.model.AgentHealthHostIssuesResponse;
+import com.datadog.api.client.v2.model.AgentHealthIssueData;
 import com.datadog.api.client.v2.model.AgentHealthIssueResponse;
 import com.datadog.api.client.v2.model.AgentHealthIssuesCountBy;
 import com.datadog.api.client.v2.model.AgentHealthIssuesResponse;
@@ -13,6 +15,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -80,13 +83,12 @@ public class AgentHealthApi {
   }
 
   /**
-   * Get an Agent Health issue and its available remediation in your organization. Only open issues
-   * are returned. The <code>remediation</code> attribute is omitted when the issue has no
-   * remediation.
+   * Get an Agent Health issue and its available remediation in your organization. The <code>
+   * remediation</code> attribute is omitted when the issue has no remediation.
    *
-   * <p>Returns <code>404</code> if the issue does not exist, is not open, belongs to another
-   * organization, or you do not have access to its data. This response does not reveal whether the
-   * issue exists. Returns <code>403</code> if you lack the <code>hosts_read</code> permission.
+   * <p>Returns <code>404</code> if the issue does not exist, belongs to another organization, or
+   * you do not have access to its data. This response does not reveal whether the issue exists.
+   * Returns <code>403</code> if you lack the <code>hosts_read</code> permission.
    *
    * @param issueId The unique identifier of the issue. It can contain <code>:</code> and must be
    *     percent-encoded by clients when included in the path. (required)
@@ -97,6 +99,7 @@ public class AgentHealthApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -105,13 +108,6 @@ public class AgentHealthApi {
    */
   public ApiResponse<AgentHealthIssueResponse> getAgentHealthIssueWithHttpInfo(String issueId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getAgentHealthIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'issueId' is set
@@ -157,16 +153,6 @@ public class AgentHealthApi {
    */
   public CompletableFuture<ApiResponse<AgentHealthIssueResponse>>
       getAgentHealthIssueWithHttpInfoAsync(String issueId) {
-    // Check if unstable operation is enabled
-    String operationId = "getAgentHealthIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AgentHealthIssueResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'issueId' is set
@@ -430,6 +416,8 @@ public class AgentHealthApi {
   /** Manage optional parameters to listAgentHealthIssues. */
   public static class ListAgentHealthIssuesOptionalParameters {
     private AgentHealthIssuesCountBy countBy;
+    private Long pageLimit;
+    private Long pageOffset;
     private String filterSeverity;
     private String filterCategory;
     private String filterIssueType;
@@ -439,13 +427,37 @@ public class AgentHealthApi {
     /**
      * Set countBy.
      *
-     * @param countBy Set to <code>issue_type</code> to include <code>meta.page</code> with <code>
-     *     total_count</code> and per-issue-type counts. If you don't set this parameter, the
-     *     response omits <code>meta</code>. Only <code>issue_type</code> is supported. (optional)
+     * @param countBy Set to <code>issue_type</code> to also include <code>counts_by_issue_type
+     *     </code> in <code>meta.page</code> with per-issue-type counts. Pagination metadata is
+     *     always included. Only <code>issue_type</code> is supported. (optional)
      * @return ListAgentHealthIssuesOptionalParameters
      */
     public ListAgentHealthIssuesOptionalParameters countBy(AgentHealthIssuesCountBy countBy) {
       this.countBy = countBy;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The maximum number of issues to return. Defaults to 100, with a minimum of 1
+     *     and a maximum of 1000. (optional, default to 100)
+     * @return ListAgentHealthIssuesOptionalParameters
+     */
+    public ListAgentHealthIssuesOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset The number of issues to skip before returning results. Defaults to 0, with
+     *     a minimum of 0. (optional, default to 0)
+     * @return ListAgentHealthIssuesOptionalParameters
+     */
+    public ListAgentHealthIssuesOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
       return this;
     }
 
@@ -580,6 +592,61 @@ public class AgentHealthApi {
   }
 
   /**
+   * List Agent Health issues.
+   *
+   * <p>See {@link #listAgentHealthIssuesWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;AgentHealthIssueData&gt;
+   */
+  public PaginationIterable<AgentHealthIssueData> listAgentHealthIssuesWithPagination() {
+    ListAgentHealthIssuesOptionalParameters parameters =
+        new ListAgentHealthIssuesOptionalParameters();
+    return listAgentHealthIssuesWithPagination(parameters);
+  }
+
+  /**
+   * List Agent Health issues.
+   *
+   * <p>See {@link #listAgentHealthIssuesWithHttpInfo}.
+   *
+   * @return AgentHealthIssuesResponse
+   */
+  public PaginationIterable<AgentHealthIssueData> listAgentHealthIssuesWithPagination(
+      ListAgentHealthIssuesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 100l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listAgentHealthIssues",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
    * List open Agent Health issues across your organization. Returns <code>403</code> if you lack
    * the <code>hosts_read</code> permission.
    *
@@ -589,10 +656,10 @@ public class AgentHealthApi {
    * then <code>first_seen_at</code> descending with missing timestamps last, then issue ID
    * ascending.
    *
-   * <p>Set <code>count_by=issue_type</code> to include <code>meta.page</code>, where <code>
-   * total_count</code> is the number of open issues matching the filters and <code>
-   * counts_by_issue_type</code> holds the per-type counts. <code>meta</code> is omitted when <code>
-   * count_by</code> is not requested.
+   * <p>The response always includes <code>meta.page</code> with the applied <code>limit</code>,
+   * <code>offset</code>, and <code>total_count</code> (the number of open issues matching the
+   * filters). Set <code>count_by=issue_type</code> to also include <code>counts_by_issue_type
+   * </code> with per-issue-type counts.
    *
    * <p>Each filter accepts up to 50 comma-separated exact values of at most 256 characters each,
    * combined with OR within a filter and AND across filters. Blank entries are ignored; an
@@ -614,15 +681,10 @@ public class AgentHealthApi {
    */
   public ApiResponse<AgentHealthIssuesResponse> listAgentHealthIssuesWithHttpInfo(
       ListAgentHealthIssuesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listAgentHealthIssues";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     AgentHealthIssuesCountBy countBy = parameters.countBy;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     String filterSeverity = parameters.filterSeverity;
     String filterCategory = parameters.filterCategory;
     String filterIssueType = parameters.filterIssueType;
@@ -635,6 +697,8 @@ public class AgentHealthApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count_by", countBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[severity]", filterSeverity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[category]", filterCategory));
     localVarQueryParams.addAll(
@@ -674,18 +738,10 @@ public class AgentHealthApi {
    */
   public CompletableFuture<ApiResponse<AgentHealthIssuesResponse>>
       listAgentHealthIssuesWithHttpInfoAsync(ListAgentHealthIssuesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listAgentHealthIssues";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AgentHealthIssuesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     AgentHealthIssuesCountBy countBy = parameters.countBy;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     String filterSeverity = parameters.filterSeverity;
     String filterCategory = parameters.filterCategory;
     String filterIssueType = parameters.filterIssueType;
@@ -698,6 +754,8 @@ public class AgentHealthApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count_by", countBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[severity]", filterSeverity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[category]", filterCategory));
     localVarQueryParams.addAll(
