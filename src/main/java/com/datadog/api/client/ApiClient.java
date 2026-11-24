@@ -1171,6 +1171,7 @@ public class ApiClient {
           put("v2.deleteAiGatewayModel", false);
           put("v2.deleteAiGatewayModelGroup", false);
           put("v2.deleteAiGatewayModelPricing", false);
+          put("v2.deleteAIGatewayModelPricingByCanonical", false);
           put("v2.deleteAiGatewayPolicy", false);
           put("v2.deleteAiGatewayProvider", false);
           put("v2.deleteAiGatewayRateLimit", false);
@@ -1182,6 +1183,7 @@ public class ApiClient {
           put("v2.getAiGatewayGovernance", false);
           put("v2.getAiGatewayModelGroup", false);
           put("v2.getAiGatewayModelPricing", false);
+          put("v2.getAIGatewayModelPricingByCanonical", false);
           put("v2.getAiGatewayPolicy", false);
           put("v2.getAiGatewayProvider", false);
           put("v2.getAiGatewayRateLimit", false);
@@ -1209,6 +1211,7 @@ public class ApiClient {
           put("v2.updateAiGatewayModel", false);
           put("v2.updateAiGatewayModelGroup", false);
           put("v2.updateAiGatewayModelPricing", false);
+          put("v2.updateAIGatewayModelPricingByCanonical", false);
           put("v2.updateAiGatewayProvider", false);
           put("v2.updateAiGatewayRateLimit", false);
           put("v2.updateAiGatewayRoutingRule", false);
