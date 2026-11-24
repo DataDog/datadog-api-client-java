@@ -27,7 +27,8 @@ public class AiGatewayCustomProviderSupportedOperation extends ModelEnum<String>
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("OPENAI_CHAT_COMPLETIONS", "OPENAI_RESPONSES", "ANTHROPIC_MESSAGES"));
+          Arrays.asList(
+              "OPENAI_CHAT_COMPLETIONS", "OPENAI_RESPONSES", "ANTHROPIC_MESSAGES", "SYSTEM_ONE"));
 
   public static final AiGatewayCustomProviderSupportedOperation OPENAI_CHAT_COMPLETIONS =
       new AiGatewayCustomProviderSupportedOperation("OPENAI_CHAT_COMPLETIONS");
@@ -35,6 +36,8 @@ public class AiGatewayCustomProviderSupportedOperation extends ModelEnum<String>
       new AiGatewayCustomProviderSupportedOperation("OPENAI_RESPONSES");
   public static final AiGatewayCustomProviderSupportedOperation ANTHROPIC_MESSAGES =
       new AiGatewayCustomProviderSupportedOperation("ANTHROPIC_MESSAGES");
+  public static final AiGatewayCustomProviderSupportedOperation SYSTEM_ONE =
+      new AiGatewayCustomProviderSupportedOperation("SYSTEM_ONE");
 
   AiGatewayCustomProviderSupportedOperation(String value) {
     super(value, allowedValues);
