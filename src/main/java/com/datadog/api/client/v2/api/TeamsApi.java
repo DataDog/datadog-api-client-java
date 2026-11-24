@@ -6,6 +6,10 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AddMemberTeamRequest;
+import com.datadog.api.client.v2.model.ExternalTeamPermissionSettingDefaultResponse;
+import com.datadog.api.client.v2.model.ExternalTeamPermissionSettingDefaultUpdateRequest;
+import com.datadog.api.client.v2.model.ExternalTeamPermissionSettingDefaultsListResponse;
+import com.datadog.api.client.v2.model.ExternalTeamPermissionSettingDefaultsSource;
 import com.datadog.api.client.v2.model.GetTeamMembershipsSort;
 import com.datadog.api.client.v2.model.ListTeamsInclude;
 import com.datadog.api.client.v2.model.ListTeamsSort;
@@ -1142,6 +1146,176 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TeamNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Delete an external team permission default.
+   *
+   * <p>See {@link #deleteExternalTeamPermissionSettingDefaultWithHttpInfo}.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to delete the default for. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteExternalTeamPermissionSettingDefault(
+      ExternalTeamPermissionSettingDefaultsSource source, String action) throws ApiException {
+    deleteExternalTeamPermissionSettingDefaultWithHttpInfo(source, action);
+  }
+
+  /**
+   * Delete an external team permission default.
+   *
+   * <p>See {@link #deleteExternalTeamPermissionSettingDefaultWithHttpInfoAsync}.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to delete the default for. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteExternalTeamPermissionSettingDefaultAsync(
+      ExternalTeamPermissionSettingDefaultsSource source, String action) {
+    return deleteExternalTeamPermissionSettingDefaultWithHttpInfoAsync(source, action)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete the organization-level permission default for a specific (source, action) pair,
+   * reverting that action to its built-in default for all synced teams. The operation is
+   * idempotent. Deleting an absent default returns 204. On success, triggers a sync of all existing
+   * synced teams so they re-derive their permissions without the override.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to delete the default for. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteExternalTeamPermissionSettingDefaultWithHttpInfo(
+      ExternalTeamPermissionSettingDefaultsSource source, String action) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'source' is set
+    if (source == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'source' when calling"
+              + " deleteExternalTeamPermissionSettingDefault");
+    }
+
+    // verify the required parameter 'action' is set
+    if (action == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'action' when calling"
+              + " deleteExternalTeamPermissionSettingDefault");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/settings/external-permissions/{source}/{action}"
+            .replaceAll("\\{" + "source" + "\\}", apiClient.escapeString(source.toString()))
+            .replaceAll("\\{" + "action" + "\\}", apiClient.escapeString(action.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.deleteExternalTeamPermissionSettingDefault",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an external team permission default.
+   *
+   * <p>See {@link #deleteExternalTeamPermissionSettingDefaultWithHttpInfo}.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to delete the default for. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteExternalTeamPermissionSettingDefaultWithHttpInfoAsync(
+          ExternalTeamPermissionSettingDefaultsSource source, String action) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'source' is set
+    if (source == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'source' when calling"
+                  + " deleteExternalTeamPermissionSettingDefault"));
+      return result;
+    }
+
+    // verify the required parameter 'action' is set
+    if (action == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'action' when calling"
+                  + " deleteExternalTeamPermissionSettingDefault"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/settings/external-permissions/{source}/{action}"
+            .replaceAll("\\{" + "source" + "\\}", apiClient.escapeString(source.toString()))
+            .replaceAll("\\{" + "action" + "\\}", apiClient.escapeString(action.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.deleteExternalTeamPermissionSettingDefault",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -3444,6 +3618,276 @@ public class TeamsApi {
         new GenericType<UserTeamsResponse>() {});
   }
 
+  /**
+   * List external team permission defaults.
+   *
+   * <p>See {@link #listExternalTeamPermissionSettingDefaultsWithHttpInfo}.
+   *
+   * @return ExternalTeamPermissionSettingDefaultsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalTeamPermissionSettingDefaultsListResponse
+      listExternalTeamPermissionSettingDefaults() throws ApiException {
+    return listExternalTeamPermissionSettingDefaultsWithHttpInfo().getData();
+  }
+
+  /**
+   * List external team permission defaults.
+   *
+   * <p>See {@link #listExternalTeamPermissionSettingDefaultsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ExternalTeamPermissionSettingDefaultsListResponse&gt;
+   */
+  public CompletableFuture<ExternalTeamPermissionSettingDefaultsListResponse>
+      listExternalTeamPermissionSettingDefaultsAsync() {
+    return listExternalTeamPermissionSettingDefaultsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the organization-level permission defaults for externally synced teams. Each default maps
+   * a (source, action) pair to the Datadog permission required to perform that action on teams
+   * managed by that source. For example, a default can set which permission level can add or remove
+   * subteams on SCIM-managed teams. Returns configured defaults for all sources.
+   *
+   * @return ApiResponse&lt;ExternalTeamPermissionSettingDefaultsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExternalTeamPermissionSettingDefaultsListResponse>
+      listExternalTeamPermissionSettingDefaultsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/team/settings/external-permissions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.listExternalTeamPermissionSettingDefaults",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExternalTeamPermissionSettingDefaultsListResponse>() {});
+  }
+
+  /**
+   * List external team permission defaults.
+   *
+   * <p>See {@link #listExternalTeamPermissionSettingDefaultsWithHttpInfo}.
+   *
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;ExternalTeamPermissionSettingDefaultsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultsListResponse>>
+      listExternalTeamPermissionSettingDefaultsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/team/settings/external-permissions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.listExternalTeamPermissionSettingDefaults",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExternalTeamPermissionSettingDefaultsListResponse>() {});
+  }
+
+  /**
+   * List a source&#39;s external team permission defaults.
+   *
+   * <p>See {@link #listExternalTeamPermissionSettingDefaultsBySourceWithHttpInfo}.
+   *
+   * @param source The external team integration source. (required)
+   * @return ExternalTeamPermissionSettingDefaultsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalTeamPermissionSettingDefaultsListResponse
+      listExternalTeamPermissionSettingDefaultsBySource(
+          ExternalTeamPermissionSettingDefaultsSource source) throws ApiException {
+    return listExternalTeamPermissionSettingDefaultsBySourceWithHttpInfo(source).getData();
+  }
+
+  /**
+   * List a source&#39;s external team permission defaults.
+   *
+   * <p>See {@link #listExternalTeamPermissionSettingDefaultsBySourceWithHttpInfoAsync}.
+   *
+   * @param source The external team integration source. (required)
+   * @return CompletableFuture&lt;ExternalTeamPermissionSettingDefaultsListResponse&gt;
+   */
+  public CompletableFuture<ExternalTeamPermissionSettingDefaultsListResponse>
+      listExternalTeamPermissionSettingDefaultsBySourceAsync(
+          ExternalTeamPermissionSettingDefaultsSource source) {
+    return listExternalTeamPermissionSettingDefaultsBySourceWithHttpInfoAsync(source)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the organization-level permission defaults for a specific external team integration
+   * source. Each default maps a permission action to the Datadog permission required to perform it
+   * on teams synced from that source.
+   *
+   * @param source The external team integration source. (required)
+   * @return ApiResponse&lt;ExternalTeamPermissionSettingDefaultsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExternalTeamPermissionSettingDefaultsListResponse>
+      listExternalTeamPermissionSettingDefaultsBySourceWithHttpInfo(
+          ExternalTeamPermissionSettingDefaultsSource source) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'source' is set
+    if (source == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'source' when calling"
+              + " listExternalTeamPermissionSettingDefaultsBySource");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/settings/external-permissions/{source}"
+            .replaceAll("\\{" + "source" + "\\}", apiClient.escapeString(source.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.listExternalTeamPermissionSettingDefaultsBySource",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExternalTeamPermissionSettingDefaultsListResponse>() {});
+  }
+
+  /**
+   * List a source&#39;s external team permission defaults.
+   *
+   * <p>See {@link #listExternalTeamPermissionSettingDefaultsBySourceWithHttpInfo}.
+   *
+   * @param source The external team integration source. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;ExternalTeamPermissionSettingDefaultsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultsListResponse>>
+      listExternalTeamPermissionSettingDefaultsBySourceWithHttpInfoAsync(
+          ExternalTeamPermissionSettingDefaultsSource source) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'source' is set
+    if (source == null) {
+      CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'source' when calling"
+                  + " listExternalTeamPermissionSettingDefaultsBySource"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/settings/external-permissions/{source}"
+            .replaceAll("\\{" + "source" + "\\}", apiClient.escapeString(source.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.listExternalTeamPermissionSettingDefaultsBySource",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExternalTeamPermissionSettingDefaultsListResponse>() {});
+  }
+
   /** Manage optional parameters to listMemberTeams. */
   public static class ListMemberTeamsOptionalParameters {
     private Long pageSize;
@@ -5552,6 +5996,219 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Update an external team permission default.
+   *
+   * <p>See {@link #updateExternalTeamPermissionSettingDefaultWithHttpInfo}.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to configure a default for. (required)
+   * @param body (required)
+   * @return ExternalTeamPermissionSettingDefaultResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ExternalTeamPermissionSettingDefaultResponse updateExternalTeamPermissionSettingDefault(
+      ExternalTeamPermissionSettingDefaultsSource source,
+      String action,
+      ExternalTeamPermissionSettingDefaultUpdateRequest body)
+      throws ApiException {
+    return updateExternalTeamPermissionSettingDefaultWithHttpInfo(source, action, body).getData();
+  }
+
+  /**
+   * Update an external team permission default.
+   *
+   * <p>See {@link #updateExternalTeamPermissionSettingDefaultWithHttpInfoAsync}.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to configure a default for. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ExternalTeamPermissionSettingDefaultResponse&gt;
+   */
+  public CompletableFuture<ExternalTeamPermissionSettingDefaultResponse>
+      updateExternalTeamPermissionSettingDefaultAsync(
+          ExternalTeamPermissionSettingDefaultsSource source,
+          String action,
+          ExternalTeamPermissionSettingDefaultUpdateRequest body) {
+    return updateExternalTeamPermissionSettingDefaultWithHttpInfoAsync(source, action, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create or update the organization-level permission default for a specific (source, action)
+   * pair. This controls which Datadog permission is required to perform that action on teams synced
+   * from that source. For example, a default can require <code>user_access_manage</code> to add or
+   * remove SCIM-managed subteams. On success, triggers a sync of all existing synced teams so they
+   * re-derive the updated permission. Returns 400 if the (source, action, value) combination is not
+   * supported.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to configure a default for. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ExternalTeamPermissionSettingDefaultResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ExternalTeamPermissionSettingDefaultResponse>
+      updateExternalTeamPermissionSettingDefaultWithHttpInfo(
+          ExternalTeamPermissionSettingDefaultsSource source,
+          String action,
+          ExternalTeamPermissionSettingDefaultUpdateRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'source' is set
+    if (source == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'source' when calling"
+              + " updateExternalTeamPermissionSettingDefault");
+    }
+
+    // verify the required parameter 'action' is set
+    if (action == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'action' when calling"
+              + " updateExternalTeamPermissionSettingDefault");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateExternalTeamPermissionSettingDefault");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/settings/external-permissions/{source}/{action}"
+            .replaceAll("\\{" + "source" + "\\}", apiClient.escapeString(source.toString()))
+            .replaceAll("\\{" + "action" + "\\}", apiClient.escapeString(action.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.updateExternalTeamPermissionSettingDefault",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExternalTeamPermissionSettingDefaultResponse>() {});
+  }
+
+  /**
+   * Update an external team permission default.
+   *
+   * <p>See {@link #updateExternalTeamPermissionSettingDefaultWithHttpInfo}.
+   *
+   * @param source The external team integration source. (required)
+   * @param action The permission action to configure a default for. (required)
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;ExternalTeamPermissionSettingDefaultResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultResponse>>
+      updateExternalTeamPermissionSettingDefaultWithHttpInfoAsync(
+          ExternalTeamPermissionSettingDefaultsSource source,
+          String action,
+          ExternalTeamPermissionSettingDefaultUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'source' is set
+    if (source == null) {
+      CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'source' when calling"
+                  + " updateExternalTeamPermissionSettingDefault"));
+      return result;
+    }
+
+    // verify the required parameter 'action' is set
+    if (action == null) {
+      CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'action' when calling"
+                  + " updateExternalTeamPermissionSettingDefault"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateExternalTeamPermissionSettingDefault"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/settings/external-permissions/{source}/{action}"
+            .replaceAll("\\{" + "source" + "\\}", apiClient.escapeString(source.toString()))
+            .replaceAll("\\{" + "action" + "\\}", apiClient.escapeString(action.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.updateExternalTeamPermissionSettingDefault",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ExternalTeamPermissionSettingDefaultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ExternalTeamPermissionSettingDefaultResponse>() {});
   }
 
   /**
