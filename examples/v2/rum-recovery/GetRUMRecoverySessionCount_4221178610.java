@@ -3,29 +3,29 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRecoveryApi;
-import com.datadog.api.client.v2.model.RumRecoveryCountAttributes;
-import com.datadog.api.client.v2.model.RumRecoveryCountRequest;
-import com.datadog.api.client.v2.model.RumRecoveryCountRequestData;
-import com.datadog.api.client.v2.model.RumRecoveryCountResponse;
+import com.datadog.api.client.v2.model.RUMRecoveryCountAttributes;
+import com.datadog.api.client.v2.model.RUMRecoveryCountRequest;
+import com.datadog.api.client.v2.model.RUMRecoveryCountRequestData;
+import com.datadog.api.client.v2.model.RUMRecoveryCountResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumRecoveryApi apiInstance = new RumRecoveryApi(defaultClient);
 
-    RumRecoveryCountRequest body =
-        new RumRecoveryCountRequest()
+    RUMRecoveryCountRequest body =
+        new RUMRecoveryCountRequest()
             .data(
-                new RumRecoveryCountRequestData()
+                new RUMRecoveryCountRequestData()
                     .type("rum_recovery_count")
                     .attributes(
-                        new RumRecoveryCountAttributes()
+                        new RUMRecoveryCountAttributes()
                             .query("service:rum18600-fixture")
                             .from(1621077071000L)
                             .to(1636629071000L)));
 
     try {
-      RumRecoveryCountResponse result = apiInstance.getRUMRecoverySessionCount(body);
+      RUMRecoveryCountResponse result = apiInstance.getRUMRecoverySessionCount(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRecoveryApi#getRUMRecoverySessionCount");

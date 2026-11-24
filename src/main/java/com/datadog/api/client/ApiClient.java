@@ -1729,8 +1729,8 @@ public class ApiClient {
           put("v2.getPrunedTraceByID", false);
           put("v2.getTraceByID", false);
           put("v2.getAsmServiceByName", false);
-          put("v2.getRumSdkConfig", false);
-          put("v2.updateRumSdkConfig", false);
+          put("v2.getRUMSdkConfig", false);
+          put("v2.updateRUMSdkConfig", false);
           put("v2.createReportSchedule", false);
           put("v2.patchReportSchedule", false);
           put("v2.deleteSourcemaps", false);
@@ -1738,9 +1738,9 @@ public class ApiClient {
           put("v2.getSourcemaps", false);
           put("v2.listSourcemaps", false);
           put("v2.restoreSourcemaps", false);
-          put("v2.createRumConfig", false);
-          put("v2.getRumConfig", false);
-          put("v2.updateRumConfig", false);
+          put("v2.createRUMConfig", false);
+          put("v2.getRUMConfig", false);
+          put("v2.updateRUMConfig", false);
           put("v2.createTeamsOwnershipMapping", false);
           put("v2.createTeamsOwnershipMappingsBatch", false);
           put("v2.deleteTeamsOwnershipMapping", false);

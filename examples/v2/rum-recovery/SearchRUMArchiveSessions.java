@@ -3,22 +3,22 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRecoveryApi;
-import com.datadog.api.client.v2.model.RumArchiveSessionsResponse;
-import com.datadog.api.client.v2.model.RumArchiveSessionsSearchAttributes;
-import com.datadog.api.client.v2.model.RumArchiveSessionsSearchData;
-import com.datadog.api.client.v2.model.RumArchiveSessionsSearchRequest;
+import com.datadog.api.client.v2.model.RUMArchiveSessionsResponse;
+import com.datadog.api.client.v2.model.RUMArchiveSessionsSearchAttributes;
+import com.datadog.api.client.v2.model.RUMArchiveSessionsSearchData;
+import com.datadog.api.client.v2.model.RUMArchiveSessionsSearchRequest;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumRecoveryApi apiInstance = new RumRecoveryApi(defaultClient);
 
-    RumArchiveSessionsSearchRequest body =
-        new RumArchiveSessionsSearchRequest()
+    RUMArchiveSessionsSearchRequest body =
+        new RUMArchiveSessionsSearchRequest()
             .data(
-                new RumArchiveSessionsSearchData()
+                new RUMArchiveSessionsSearchData()
                     .attributes(
-                        new RumArchiveSessionsSearchAttributes()
+                        new RUMArchiveSessionsSearchAttributes()
                             .cursor("example")
                             .from(1789905600000L)
                             .hideRetained(false)
@@ -29,7 +29,7 @@ public class Example {
                     .type("rum_archive_sessions_request"));
 
     try {
-      RumArchiveSessionsResponse result = apiInstance.searchRUMArchiveSessions(body);
+      RUMArchiveSessionsResponse result = apiInstance.searchRUMArchiveSessions(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRecoveryApi#searchRUMArchiveSessions");

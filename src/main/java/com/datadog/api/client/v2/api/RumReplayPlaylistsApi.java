@@ -48,8 +48,8 @@ public class RumReplayPlaylistsApi {
     this.apiClient = apiClient;
   }
 
-  /** Manage optional parameters to addRumReplaySessionToPlaylist. */
-  public static class AddRumReplaySessionToPlaylistOptionalParameters {
+  /** Manage optional parameters to addRUMReplaySessionToPlaylist. */
+  public static class AddRUMReplaySessionToPlaylistOptionalParameters {
     private String dataSource;
 
     /**
@@ -57,9 +57,9 @@ public class RumReplayPlaylistsApi {
      *
      * @param dataSource Data source type. Valid values: 'rum' or 'product_analytics'. Defaults to
      *     'rum'. (optional)
-     * @return AddRumReplaySessionToPlaylistOptionalParameters
+     * @return AddRUMReplaySessionToPlaylistOptionalParameters
      */
-    public AddRumReplaySessionToPlaylistOptionalParameters dataSource(String dataSource) {
+    public AddRUMReplaySessionToPlaylistOptionalParameters dataSource(String dataSource) {
       this.dataSource = dataSource;
       return this;
     }
@@ -68,7 +68,7 @@ public class RumReplayPlaylistsApi {
   /**
    * Add RUM replay session to playlist.
    *
-   * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfo}.
+   * <p>See {@link #addRUMReplaySessionToPlaylistWithHttpInfo}.
    *
    * @param ts Server-side timestamp in milliseconds. (required)
    * @param playlistId Unique identifier of the playlist. (required)
@@ -76,27 +76,27 @@ public class RumReplayPlaylistsApi {
    * @return PlaylistsSession
    * @throws ApiException if fails to make API call
    */
-  public PlaylistsSession addRumReplaySessionToPlaylist(Long ts, Long playlistId, String sessionId)
+  public PlaylistsSession addRUMReplaySessionToPlaylist(Long ts, Long playlistId, String sessionId)
       throws ApiException {
-    return addRumReplaySessionToPlaylistWithHttpInfo(
-            ts, playlistId, sessionId, new AddRumReplaySessionToPlaylistOptionalParameters())
+    return addRUMReplaySessionToPlaylistWithHttpInfo(
+            ts, playlistId, sessionId, new AddRUMReplaySessionToPlaylistOptionalParameters())
         .getData();
   }
 
   /**
    * Add RUM replay session to playlist.
    *
-   * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfoAsync}.
+   * <p>See {@link #addRUMReplaySessionToPlaylistWithHttpInfoAsync}.
    *
    * @param ts Server-side timestamp in milliseconds. (required)
    * @param playlistId Unique identifier of the playlist. (required)
    * @param sessionId Unique identifier of the session. (required)
    * @return CompletableFuture&lt;PlaylistsSession&gt;
    */
-  public CompletableFuture<PlaylistsSession> addRumReplaySessionToPlaylistAsync(
+  public CompletableFuture<PlaylistsSession> addRUMReplaySessionToPlaylistAsync(
       Long ts, Long playlistId, String sessionId) {
-    return addRumReplaySessionToPlaylistWithHttpInfoAsync(
-            ts, playlistId, sessionId, new AddRumReplaySessionToPlaylistOptionalParameters())
+    return addRUMReplaySessionToPlaylistWithHttpInfoAsync(
+            ts, playlistId, sessionId, new AddRUMReplaySessionToPlaylistOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -106,7 +106,7 @@ public class RumReplayPlaylistsApi {
   /**
    * Add RUM replay session to playlist.
    *
-   * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfo}.
+   * <p>See {@link #addRUMReplaySessionToPlaylistWithHttpInfo}.
    *
    * @param ts Server-side timestamp in milliseconds. (required)
    * @param playlistId Unique identifier of the playlist. (required)
@@ -115,20 +115,20 @@ public class RumReplayPlaylistsApi {
    * @return PlaylistsSession
    * @throws ApiException if fails to make API call
    */
-  public PlaylistsSession addRumReplaySessionToPlaylist(
+  public PlaylistsSession addRUMReplaySessionToPlaylist(
       Long ts,
       Long playlistId,
       String sessionId,
-      AddRumReplaySessionToPlaylistOptionalParameters parameters)
+      AddRUMReplaySessionToPlaylistOptionalParameters parameters)
       throws ApiException {
-    return addRumReplaySessionToPlaylistWithHttpInfo(ts, playlistId, sessionId, parameters)
+    return addRUMReplaySessionToPlaylistWithHttpInfo(ts, playlistId, sessionId, parameters)
         .getData();
   }
 
   /**
    * Add RUM replay session to playlist.
    *
-   * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfoAsync}.
+   * <p>See {@link #addRUMReplaySessionToPlaylistWithHttpInfoAsync}.
    *
    * @param ts Server-side timestamp in milliseconds. (required)
    * @param playlistId Unique identifier of the playlist. (required)
@@ -136,12 +136,12 @@ public class RumReplayPlaylistsApi {
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;PlaylistsSession&gt;
    */
-  public CompletableFuture<PlaylistsSession> addRumReplaySessionToPlaylistAsync(
+  public CompletableFuture<PlaylistsSession> addRUMReplaySessionToPlaylistAsync(
       Long ts,
       Long playlistId,
       String sessionId,
-      AddRumReplaySessionToPlaylistOptionalParameters parameters) {
-    return addRumReplaySessionToPlaylistWithHttpInfoAsync(ts, playlistId, sessionId, parameters)
+      AddRUMReplaySessionToPlaylistOptionalParameters parameters) {
+    return addRUMReplaySessionToPlaylistWithHttpInfoAsync(ts, playlistId, sessionId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -166,32 +166,32 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PlaylistsSession> addRumReplaySessionToPlaylistWithHttpInfo(
+  public ApiResponse<PlaylistsSession> addRUMReplaySessionToPlaylistWithHttpInfo(
       Long ts,
       Long playlistId,
       String sessionId,
-      AddRumReplaySessionToPlaylistOptionalParameters parameters)
+      AddRUMReplaySessionToPlaylistOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'ts' is set
     if (ts == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'ts' when calling addRumReplaySessionToPlaylist");
+          400, "Missing the required parameter 'ts' when calling addRUMReplaySessionToPlaylist");
     }
 
     // verify the required parameter 'playlistId' is set
     if (playlistId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'playlistId' when calling addRumReplaySessionToPlaylist");
+          "Missing the required parameter 'playlistId' when calling addRUMReplaySessionToPlaylist");
     }
 
     // verify the required parameter 'sessionId' is set
     if (sessionId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'sessionId' when calling addRumReplaySessionToPlaylist");
+          "Missing the required parameter 'sessionId' when calling addRUMReplaySessionToPlaylist");
     }
     String dataSource = parameters.dataSource;
     // create path and map variables
@@ -209,7 +209,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.addRumReplaySessionToPlaylist",
+            "v2.RumReplayPlaylistsApi.addRUMReplaySessionToPlaylist",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -230,7 +230,7 @@ public class RumReplayPlaylistsApi {
   /**
    * Add RUM replay session to playlist.
    *
-   * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfo}.
+   * <p>See {@link #addRUMReplaySessionToPlaylistWithHttpInfo}.
    *
    * @param ts Server-side timestamp in milliseconds. (required)
    * @param playlistId Unique identifier of the playlist. (required)
@@ -239,11 +239,11 @@ public class RumReplayPlaylistsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;PlaylistsSession&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PlaylistsSession>>
-      addRumReplaySessionToPlaylistWithHttpInfoAsync(
+      addRUMReplaySessionToPlaylistWithHttpInfoAsync(
           Long ts,
           Long playlistId,
           String sessionId,
-          AddRumReplaySessionToPlaylistOptionalParameters parameters) {
+          AddRUMReplaySessionToPlaylistOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'ts' is set
@@ -252,7 +252,7 @@ public class RumReplayPlaylistsApi {
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'ts' when calling addRumReplaySessionToPlaylist"));
+              "Missing the required parameter 'ts' when calling addRUMReplaySessionToPlaylist"));
       return result;
     }
 
@@ -263,7 +263,7 @@ public class RumReplayPlaylistsApi {
           new ApiException(
               400,
               "Missing the required parameter 'playlistId' when calling"
-                  + " addRumReplaySessionToPlaylist"));
+                  + " addRUMReplaySessionToPlaylist"));
       return result;
     }
 
@@ -274,7 +274,7 @@ public class RumReplayPlaylistsApi {
           new ApiException(
               400,
               "Missing the required parameter 'sessionId' when calling"
-                  + " addRumReplaySessionToPlaylist"));
+                  + " addRUMReplaySessionToPlaylist"));
       return result;
     }
     String dataSource = parameters.dataSource;
@@ -295,7 +295,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.addRumReplaySessionToPlaylist",
+              "v2.RumReplayPlaylistsApi.addRUMReplaySessionToPlaylist",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -321,29 +321,29 @@ public class RumReplayPlaylistsApi {
   /**
    * Bulk remove RUM replay playlist sessions.
    *
-   * <p>See {@link #bulkRemoveRumReplayPlaylistSessionsWithHttpInfo}.
+   * <p>See {@link #bulkRemoveRUMReplayPlaylistSessionsWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param body (required)
    * @throws ApiException if fails to make API call
    */
-  public void bulkRemoveRumReplayPlaylistSessions(Long playlistId, SessionIdArray body)
+  public void bulkRemoveRUMReplayPlaylistSessions(Long playlistId, SessionIdArray body)
       throws ApiException {
-    bulkRemoveRumReplayPlaylistSessionsWithHttpInfo(playlistId, body);
+    bulkRemoveRUMReplayPlaylistSessionsWithHttpInfo(playlistId, body);
   }
 
   /**
    * Bulk remove RUM replay playlist sessions.
    *
-   * <p>See {@link #bulkRemoveRumReplayPlaylistSessionsWithHttpInfoAsync}.
+   * <p>See {@link #bulkRemoveRUMReplayPlaylistSessionsWithHttpInfoAsync}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param body (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> bulkRemoveRumReplayPlaylistSessionsAsync(
+  public CompletableFuture<Void> bulkRemoveRUMReplayPlaylistSessionsAsync(
       Long playlistId, SessionIdArray body) {
-    return bulkRemoveRumReplayPlaylistSessionsWithHttpInfoAsync(playlistId, body)
+    return bulkRemoveRUMReplayPlaylistSessionsWithHttpInfoAsync(playlistId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -365,7 +365,7 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> bulkRemoveRumReplayPlaylistSessionsWithHttpInfo(
+  public ApiResponse<Void> bulkRemoveRUMReplayPlaylistSessionsWithHttpInfo(
       Long playlistId, SessionIdArray body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -374,14 +374,14 @@ public class RumReplayPlaylistsApi {
       throw new ApiException(
           400,
           "Missing the required parameter 'playlistId' when calling"
-              + " bulkRemoveRumReplayPlaylistSessions");
+              + " bulkRemoveRUMReplayPlaylistSessions");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'body' when calling bulkRemoveRumReplayPlaylistSessions");
+          "Missing the required parameter 'body' when calling bulkRemoveRUMReplayPlaylistSessions");
     }
     // create path and map variables
     String localVarPath =
@@ -393,7 +393,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.bulkRemoveRumReplayPlaylistSessions",
+            "v2.RumReplayPlaylistsApi.bulkRemoveRUMReplayPlaylistSessions",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -414,13 +414,13 @@ public class RumReplayPlaylistsApi {
   /**
    * Bulk remove RUM replay playlist sessions.
    *
-   * <p>See {@link #bulkRemoveRumReplayPlaylistSessionsWithHttpInfo}.
+   * <p>See {@link #bulkRemoveRUMReplayPlaylistSessionsWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> bulkRemoveRumReplayPlaylistSessionsWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Void>> bulkRemoveRUMReplayPlaylistSessionsWithHttpInfoAsync(
       Long playlistId, SessionIdArray body) {
     Object localVarPostBody = body;
 
@@ -431,7 +431,7 @@ public class RumReplayPlaylistsApi {
           new ApiException(
               400,
               "Missing the required parameter 'playlistId' when calling"
-                  + " bulkRemoveRumReplayPlaylistSessions"));
+                  + " bulkRemoveRUMReplayPlaylistSessions"));
       return result;
     }
 
@@ -442,7 +442,7 @@ public class RumReplayPlaylistsApi {
           new ApiException(
               400,
               "Missing the required parameter 'body' when calling"
-                  + " bulkRemoveRumReplayPlaylistSessions"));
+                  + " bulkRemoveRUMReplayPlaylistSessions"));
       return result;
     }
     // create path and map variables
@@ -457,7 +457,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.bulkRemoveRumReplayPlaylistSessions",
+              "v2.RumReplayPlaylistsApi.bulkRemoveRUMReplayPlaylistSessions",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -483,26 +483,26 @@ public class RumReplayPlaylistsApi {
   /**
    * Create RUM replay playlist.
    *
-   * <p>See {@link #createRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #createRUMReplayPlaylistWithHttpInfo}.
    *
    * @param body (required)
    * @return Playlist
    * @throws ApiException if fails to make API call
    */
-  public Playlist createRumReplayPlaylist(Playlist body) throws ApiException {
-    return createRumReplayPlaylistWithHttpInfo(body).getData();
+  public Playlist createRUMReplayPlaylist(Playlist body) throws ApiException {
+    return createRUMReplayPlaylistWithHttpInfo(body).getData();
   }
 
   /**
    * Create RUM replay playlist.
    *
-   * <p>See {@link #createRumReplayPlaylistWithHttpInfoAsync}.
+   * <p>See {@link #createRUMReplayPlaylistWithHttpInfoAsync}.
    *
    * @param body (required)
    * @return CompletableFuture&lt;Playlist&gt;
    */
-  public CompletableFuture<Playlist> createRumReplayPlaylistAsync(Playlist body) {
-    return createRumReplayPlaylistWithHttpInfoAsync(body)
+  public CompletableFuture<Playlist> createRUMReplayPlaylistAsync(Playlist body) {
+    return createRUMReplayPlaylistWithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -523,14 +523,14 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Playlist> createRumReplayPlaylistWithHttpInfo(Playlist body)
+  public ApiResponse<Playlist> createRUMReplayPlaylistWithHttpInfo(Playlist body)
       throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createRumReplayPlaylist");
+          400, "Missing the required parameter 'body' when calling createRUMReplayPlaylist");
     }
     // create path and map variables
     String localVarPath = "/api/v2/rum/replay/playlists";
@@ -539,7 +539,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.createRumReplayPlaylist",
+            "v2.RumReplayPlaylistsApi.createRUMReplayPlaylist",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -560,12 +560,12 @@ public class RumReplayPlaylistsApi {
   /**
    * Create RUM replay playlist.
    *
-   * <p>See {@link #createRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #createRUMReplayPlaylistWithHttpInfo}.
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Playlist&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Playlist>> createRumReplayPlaylistWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Playlist>> createRUMReplayPlaylistWithHttpInfoAsync(
       Playlist body) {
     Object localVarPostBody = body;
 
@@ -574,7 +574,7 @@ public class RumReplayPlaylistsApi {
       CompletableFuture<ApiResponse<Playlist>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling createRumReplayPlaylist"));
+              400, "Missing the required parameter 'body' when calling createRUMReplayPlaylist"));
       return result;
     }
     // create path and map variables
@@ -586,7 +586,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.createRumReplayPlaylist",
+              "v2.RumReplayPlaylistsApi.createRUMReplayPlaylist",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -612,25 +612,25 @@ public class RumReplayPlaylistsApi {
   /**
    * Delete RUM replay playlist.
    *
-   * <p>See {@link #deleteRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #deleteRUMReplayPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteRumReplayPlaylist(Long playlistId) throws ApiException {
-    deleteRumReplayPlaylistWithHttpInfo(playlistId);
+  public void deleteRUMReplayPlaylist(Long playlistId) throws ApiException {
+    deleteRUMReplayPlaylistWithHttpInfo(playlistId);
   }
 
   /**
    * Delete RUM replay playlist.
    *
-   * <p>See {@link #deleteRumReplayPlaylistWithHttpInfoAsync}.
+   * <p>See {@link #deleteRUMReplayPlaylistWithHttpInfoAsync}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteRumReplayPlaylistAsync(Long playlistId) {
-    return deleteRumReplayPlaylistWithHttpInfoAsync(playlistId)
+  public CompletableFuture<Void> deleteRUMReplayPlaylistAsync(Long playlistId) {
+    return deleteRUMReplayPlaylistWithHttpInfoAsync(playlistId)
         .thenApply(
             response -> {
               return response.getData();
@@ -651,14 +651,14 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteRumReplayPlaylistWithHttpInfo(Long playlistId)
+  public ApiResponse<Void> deleteRUMReplayPlaylistWithHttpInfo(Long playlistId)
       throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'playlistId' is set
     if (playlistId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'playlistId' when calling deleteRumReplayPlaylist");
+          400, "Missing the required parameter 'playlistId' when calling deleteRUMReplayPlaylist");
     }
     // create path and map variables
     String localVarPath =
@@ -670,7 +670,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.deleteRumReplayPlaylist",
+            "v2.RumReplayPlaylistsApi.deleteRUMReplayPlaylist",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -691,12 +691,12 @@ public class RumReplayPlaylistsApi {
   /**
    * Delete RUM replay playlist.
    *
-   * <p>See {@link #deleteRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #deleteRUMReplayPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteRumReplayPlaylistWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Void>> deleteRUMReplayPlaylistWithHttpInfoAsync(
       Long playlistId) {
     Object localVarPostBody = null;
 
@@ -706,7 +706,7 @@ public class RumReplayPlaylistsApi {
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'playlistId' when calling deleteRumReplayPlaylist"));
+              "Missing the required parameter 'playlistId' when calling deleteRUMReplayPlaylist"));
       return result;
     }
     // create path and map variables
@@ -721,7 +721,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.deleteRumReplayPlaylist",
+              "v2.RumReplayPlaylistsApi.deleteRUMReplayPlaylist",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -747,26 +747,26 @@ public class RumReplayPlaylistsApi {
   /**
    * Get RUM replay playlist.
    *
-   * <p>See {@link #getRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #getRUMReplayPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @return Playlist
    * @throws ApiException if fails to make API call
    */
-  public Playlist getRumReplayPlaylist(Long playlistId) throws ApiException {
-    return getRumReplayPlaylistWithHttpInfo(playlistId).getData();
+  public Playlist getRUMReplayPlaylist(Long playlistId) throws ApiException {
+    return getRUMReplayPlaylistWithHttpInfo(playlistId).getData();
   }
 
   /**
    * Get RUM replay playlist.
    *
-   * <p>See {@link #getRumReplayPlaylistWithHttpInfoAsync}.
+   * <p>See {@link #getRUMReplayPlaylistWithHttpInfoAsync}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @return CompletableFuture&lt;Playlist&gt;
    */
-  public CompletableFuture<Playlist> getRumReplayPlaylistAsync(Long playlistId) {
-    return getRumReplayPlaylistWithHttpInfoAsync(playlistId)
+  public CompletableFuture<Playlist> getRUMReplayPlaylistAsync(Long playlistId) {
+    return getRUMReplayPlaylistWithHttpInfoAsync(playlistId)
         .thenApply(
             response -> {
               return response.getData();
@@ -787,14 +787,14 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Playlist> getRumReplayPlaylistWithHttpInfo(Long playlistId)
+  public ApiResponse<Playlist> getRUMReplayPlaylistWithHttpInfo(Long playlistId)
       throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'playlistId' is set
     if (playlistId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'playlistId' when calling getRumReplayPlaylist");
+          400, "Missing the required parameter 'playlistId' when calling getRUMReplayPlaylist");
     }
     // create path and map variables
     String localVarPath =
@@ -806,7 +806,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.getRumReplayPlaylist",
+            "v2.RumReplayPlaylistsApi.getRUMReplayPlaylist",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -827,12 +827,12 @@ public class RumReplayPlaylistsApi {
   /**
    * Get RUM replay playlist.
    *
-   * <p>See {@link #getRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #getRUMReplayPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Playlist&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Playlist>> getRumReplayPlaylistWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Playlist>> getRUMReplayPlaylistWithHttpInfoAsync(
       Long playlistId) {
     Object localVarPostBody = null;
 
@@ -842,7 +842,7 @@ public class RumReplayPlaylistsApi {
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'playlistId' when calling getRumReplayPlaylist"));
+              "Missing the required parameter 'playlistId' when calling getRUMReplayPlaylist"));
       return result;
     }
     // create path and map variables
@@ -857,7 +857,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.getRumReplayPlaylist",
+              "v2.RumReplayPlaylistsApi.getRUMReplayPlaylist",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -880,8 +880,8 @@ public class RumReplayPlaylistsApi {
         new GenericType<Playlist>() {});
   }
 
-  /** Manage optional parameters to listRumReplayPlaylists. */
-  public static class ListRumReplayPlaylistsOptionalParameters {
+  /** Manage optional parameters to listRUMReplayPlaylists. */
+  public static class ListRUMReplayPlaylistsOptionalParameters {
     private String filterCreatedByUuid;
     private String filterQuery;
     private Long pageNumber;
@@ -892,9 +892,9 @@ public class RumReplayPlaylistsApi {
      *
      * @param filterCreatedByUuid Filter playlists by the UUID of the user who created them.
      *     (optional)
-     * @return ListRumReplayPlaylistsOptionalParameters
+     * @return ListRUMReplayPlaylistsOptionalParameters
      */
-    public ListRumReplayPlaylistsOptionalParameters filterCreatedByUuid(
+    public ListRUMReplayPlaylistsOptionalParameters filterCreatedByUuid(
         String filterCreatedByUuid) {
       this.filterCreatedByUuid = filterCreatedByUuid;
       return this;
@@ -904,9 +904,9 @@ public class RumReplayPlaylistsApi {
      * Set filterQuery.
      *
      * @param filterQuery Search query to filter playlists by name. (optional)
-     * @return ListRumReplayPlaylistsOptionalParameters
+     * @return ListRUMReplayPlaylistsOptionalParameters
      */
-    public ListRumReplayPlaylistsOptionalParameters filterQuery(String filterQuery) {
+    public ListRUMReplayPlaylistsOptionalParameters filterQuery(String filterQuery) {
       this.filterQuery = filterQuery;
       return this;
     }
@@ -915,9 +915,9 @@ public class RumReplayPlaylistsApi {
      * Set pageNumber.
      *
      * @param pageNumber Page number for pagination (0-indexed). (optional)
-     * @return ListRumReplayPlaylistsOptionalParameters
+     * @return ListRUMReplayPlaylistsOptionalParameters
      */
-    public ListRumReplayPlaylistsOptionalParameters pageNumber(Long pageNumber) {
+    public ListRUMReplayPlaylistsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -926,9 +926,9 @@ public class RumReplayPlaylistsApi {
      * Set pageSize.
      *
      * @param pageSize Number of items per page. (optional)
-     * @return ListRumReplayPlaylistsOptionalParameters
+     * @return ListRUMReplayPlaylistsOptionalParameters
      */
-    public ListRumReplayPlaylistsOptionalParameters pageSize(Long pageSize) {
+    public ListRUMReplayPlaylistsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -937,25 +937,25 @@ public class RumReplayPlaylistsApi {
   /**
    * List RUM replay playlists.
    *
-   * <p>See {@link #listRumReplayPlaylistsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayPlaylistsWithHttpInfo}.
    *
    * @return PlaylistArray
    * @throws ApiException if fails to make API call
    */
-  public PlaylistArray listRumReplayPlaylists() throws ApiException {
-    return listRumReplayPlaylistsWithHttpInfo(new ListRumReplayPlaylistsOptionalParameters())
+  public PlaylistArray listRUMReplayPlaylists() throws ApiException {
+    return listRUMReplayPlaylistsWithHttpInfo(new ListRUMReplayPlaylistsOptionalParameters())
         .getData();
   }
 
   /**
    * List RUM replay playlists.
    *
-   * <p>See {@link #listRumReplayPlaylistsWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplayPlaylistsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;PlaylistArray&gt;
    */
-  public CompletableFuture<PlaylistArray> listRumReplayPlaylistsAsync() {
-    return listRumReplayPlaylistsWithHttpInfoAsync(new ListRumReplayPlaylistsOptionalParameters())
+  public CompletableFuture<PlaylistArray> listRUMReplayPlaylistsAsync() {
+    return listRUMReplayPlaylistsWithHttpInfoAsync(new ListRUMReplayPlaylistsOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -965,28 +965,28 @@ public class RumReplayPlaylistsApi {
   /**
    * List RUM replay playlists.
    *
-   * <p>See {@link #listRumReplayPlaylistsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayPlaylistsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return PlaylistArray
    * @throws ApiException if fails to make API call
    */
-  public PlaylistArray listRumReplayPlaylists(ListRumReplayPlaylistsOptionalParameters parameters)
+  public PlaylistArray listRUMReplayPlaylists(ListRUMReplayPlaylistsOptionalParameters parameters)
       throws ApiException {
-    return listRumReplayPlaylistsWithHttpInfo(parameters).getData();
+    return listRUMReplayPlaylistsWithHttpInfo(parameters).getData();
   }
 
   /**
    * List RUM replay playlists.
    *
-   * <p>See {@link #listRumReplayPlaylistsWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplayPlaylistsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;PlaylistArray&gt;
    */
-  public CompletableFuture<PlaylistArray> listRumReplayPlaylistsAsync(
-      ListRumReplayPlaylistsOptionalParameters parameters) {
-    return listRumReplayPlaylistsWithHttpInfoAsync(parameters)
+  public CompletableFuture<PlaylistArray> listRUMReplayPlaylistsAsync(
+      ListRUMReplayPlaylistsOptionalParameters parameters) {
+    return listRUMReplayPlaylistsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1007,8 +1007,8 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PlaylistArray> listRumReplayPlaylistsWithHttpInfo(
-      ListRumReplayPlaylistsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<PlaylistArray> listRUMReplayPlaylistsWithHttpInfo(
+      ListRUMReplayPlaylistsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterCreatedByUuid = parameters.filterCreatedByUuid;
     String filterQuery = parameters.filterQuery;
@@ -1028,7 +1028,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.listRumReplayPlaylists",
+            "v2.RumReplayPlaylistsApi.listRUMReplayPlaylists",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1049,13 +1049,13 @@ public class RumReplayPlaylistsApi {
   /**
    * List RUM replay playlists.
    *
-   * <p>See {@link #listRumReplayPlaylistsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayPlaylistsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;PlaylistArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<PlaylistArray>> listRumReplayPlaylistsWithHttpInfoAsync(
-      ListRumReplayPlaylistsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<PlaylistArray>> listRUMReplayPlaylistsWithHttpInfoAsync(
+      ListRUMReplayPlaylistsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterCreatedByUuid = parameters.filterCreatedByUuid;
     String filterQuery = parameters.filterQuery;
@@ -1077,7 +1077,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.listRumReplayPlaylists",
+              "v2.RumReplayPlaylistsApi.listRUMReplayPlaylists",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1100,8 +1100,8 @@ public class RumReplayPlaylistsApi {
         new GenericType<PlaylistArray>() {});
   }
 
-  /** Manage optional parameters to listRumReplayPlaylistSessions. */
-  public static class ListRumReplayPlaylistSessionsOptionalParameters {
+  /** Manage optional parameters to listRUMReplayPlaylistSessions. */
+  public static class ListRUMReplayPlaylistSessionsOptionalParameters {
     private Long pageNumber;
     private Long pageSize;
 
@@ -1109,9 +1109,9 @@ public class RumReplayPlaylistsApi {
      * Set pageNumber.
      *
      * @param pageNumber Page number for pagination (0-indexed). (optional)
-     * @return ListRumReplayPlaylistSessionsOptionalParameters
+     * @return ListRUMReplayPlaylistSessionsOptionalParameters
      */
-    public ListRumReplayPlaylistSessionsOptionalParameters pageNumber(Long pageNumber) {
+    public ListRUMReplayPlaylistSessionsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -1120,9 +1120,9 @@ public class RumReplayPlaylistsApi {
      * Set pageSize.
      *
      * @param pageSize Number of items per page. (optional)
-     * @return ListRumReplayPlaylistSessionsOptionalParameters
+     * @return ListRUMReplayPlaylistSessionsOptionalParameters
      */
-    public ListRumReplayPlaylistSessionsOptionalParameters pageSize(Long pageSize) {
+    public ListRUMReplayPlaylistSessionsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -1131,30 +1131,30 @@ public class RumReplayPlaylistsApi {
   /**
    * List RUM replay playlist sessions.
    *
-   * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayPlaylistSessionsWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @return PlaylistsSessionArray
    * @throws ApiException if fails to make API call
    */
-  public PlaylistsSessionArray listRumReplayPlaylistSessions(Long playlistId) throws ApiException {
-    return listRumReplayPlaylistSessionsWithHttpInfo(
-            playlistId, new ListRumReplayPlaylistSessionsOptionalParameters())
+  public PlaylistsSessionArray listRUMReplayPlaylistSessions(Long playlistId) throws ApiException {
+    return listRUMReplayPlaylistSessionsWithHttpInfo(
+            playlistId, new ListRUMReplayPlaylistSessionsOptionalParameters())
         .getData();
   }
 
   /**
    * List RUM replay playlist sessions.
    *
-   * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplayPlaylistSessionsWithHttpInfoAsync}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @return CompletableFuture&lt;PlaylistsSessionArray&gt;
    */
-  public CompletableFuture<PlaylistsSessionArray> listRumReplayPlaylistSessionsAsync(
+  public CompletableFuture<PlaylistsSessionArray> listRUMReplayPlaylistSessionsAsync(
       Long playlistId) {
-    return listRumReplayPlaylistSessionsWithHttpInfoAsync(
-            playlistId, new ListRumReplayPlaylistSessionsOptionalParameters())
+    return listRUMReplayPlaylistSessionsWithHttpInfoAsync(
+            playlistId, new ListRUMReplayPlaylistSessionsOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -1164,31 +1164,31 @@ public class RumReplayPlaylistsApi {
   /**
    * List RUM replay playlist sessions.
    *
-   * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayPlaylistSessionsWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param parameters Optional parameters for the request.
    * @return PlaylistsSessionArray
    * @throws ApiException if fails to make API call
    */
-  public PlaylistsSessionArray listRumReplayPlaylistSessions(
-      Long playlistId, ListRumReplayPlaylistSessionsOptionalParameters parameters)
+  public PlaylistsSessionArray listRUMReplayPlaylistSessions(
+      Long playlistId, ListRUMReplayPlaylistSessionsOptionalParameters parameters)
       throws ApiException {
-    return listRumReplayPlaylistSessionsWithHttpInfo(playlistId, parameters).getData();
+    return listRUMReplayPlaylistSessionsWithHttpInfo(playlistId, parameters).getData();
   }
 
   /**
    * List RUM replay playlist sessions.
    *
-   * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfoAsync}.
+   * <p>See {@link #listRUMReplayPlaylistSessionsWithHttpInfoAsync}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;PlaylistsSessionArray&gt;
    */
-  public CompletableFuture<PlaylistsSessionArray> listRumReplayPlaylistSessionsAsync(
-      Long playlistId, ListRumReplayPlaylistSessionsOptionalParameters parameters) {
-    return listRumReplayPlaylistSessionsWithHttpInfoAsync(playlistId, parameters)
+  public CompletableFuture<PlaylistsSessionArray> listRUMReplayPlaylistSessionsAsync(
+      Long playlistId, ListRUMReplayPlaylistSessionsOptionalParameters parameters) {
+    return listRUMReplayPlaylistSessionsWithHttpInfoAsync(playlistId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1210,8 +1210,8 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PlaylistsSessionArray> listRumReplayPlaylistSessionsWithHttpInfo(
-      Long playlistId, ListRumReplayPlaylistSessionsOptionalParameters parameters)
+  public ApiResponse<PlaylistsSessionArray> listRUMReplayPlaylistSessionsWithHttpInfo(
+      Long playlistId, ListRUMReplayPlaylistSessionsOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -1219,7 +1219,7 @@ public class RumReplayPlaylistsApi {
     if (playlistId == null) {
       throw new ApiException(
           400,
-          "Missing the required parameter 'playlistId' when calling listRumReplayPlaylistSessions");
+          "Missing the required parameter 'playlistId' when calling listRUMReplayPlaylistSessions");
     }
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
@@ -1237,7 +1237,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.listRumReplayPlaylistSessions",
+            "v2.RumReplayPlaylistsApi.listRUMReplayPlaylistSessions",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1258,15 +1258,15 @@ public class RumReplayPlaylistsApi {
   /**
    * List RUM replay playlist sessions.
    *
-   * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfo}.
+   * <p>See {@link #listRUMReplayPlaylistSessionsWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;PlaylistsSessionArray&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PlaylistsSessionArray>>
-      listRumReplayPlaylistSessionsWithHttpInfoAsync(
-          Long playlistId, ListRumReplayPlaylistSessionsOptionalParameters parameters) {
+      listRUMReplayPlaylistSessionsWithHttpInfoAsync(
+          Long playlistId, ListRUMReplayPlaylistSessionsOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'playlistId' is set
@@ -1276,7 +1276,7 @@ public class RumReplayPlaylistsApi {
           new ApiException(
               400,
               "Missing the required parameter 'playlistId' when calling"
-                  + " listRumReplayPlaylistSessions"));
+                  + " listRUMReplayPlaylistSessions"));
       return result;
     }
     Long pageNumber = parameters.pageNumber;
@@ -1297,7 +1297,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.listRumReplayPlaylistSessions",
+              "v2.RumReplayPlaylistsApi.listRUMReplayPlaylistSessions",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1323,29 +1323,29 @@ public class RumReplayPlaylistsApi {
   /**
    * Remove RUM replay session from playlist.
    *
-   * <p>See {@link #removeRumReplaySessionFromPlaylistWithHttpInfo}.
+   * <p>See {@link #removeRUMReplaySessionFromPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param sessionId Unique identifier of the session. (required)
    * @throws ApiException if fails to make API call
    */
-  public void removeRumReplaySessionFromPlaylist(Long playlistId, String sessionId)
+  public void removeRUMReplaySessionFromPlaylist(Long playlistId, String sessionId)
       throws ApiException {
-    removeRumReplaySessionFromPlaylistWithHttpInfo(playlistId, sessionId);
+    removeRUMReplaySessionFromPlaylistWithHttpInfo(playlistId, sessionId);
   }
 
   /**
    * Remove RUM replay session from playlist.
    *
-   * <p>See {@link #removeRumReplaySessionFromPlaylistWithHttpInfoAsync}.
+   * <p>See {@link #removeRUMReplaySessionFromPlaylistWithHttpInfoAsync}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param sessionId Unique identifier of the session. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> removeRumReplaySessionFromPlaylistAsync(
+  public CompletableFuture<Void> removeRUMReplaySessionFromPlaylistAsync(
       Long playlistId, String sessionId) {
-    return removeRumReplaySessionFromPlaylistWithHttpInfoAsync(playlistId, sessionId)
+    return removeRUMReplaySessionFromPlaylistWithHttpInfoAsync(playlistId, sessionId)
         .thenApply(
             response -> {
               return response.getData();
@@ -1367,7 +1367,7 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> removeRumReplaySessionFromPlaylistWithHttpInfo(
+  public ApiResponse<Void> removeRUMReplaySessionFromPlaylistWithHttpInfo(
       Long playlistId, String sessionId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -1376,7 +1376,7 @@ public class RumReplayPlaylistsApi {
       throw new ApiException(
           400,
           "Missing the required parameter 'playlistId' when calling"
-              + " removeRumReplaySessionFromPlaylist");
+              + " removeRUMReplaySessionFromPlaylist");
     }
 
     // verify the required parameter 'sessionId' is set
@@ -1384,7 +1384,7 @@ public class RumReplayPlaylistsApi {
       throw new ApiException(
           400,
           "Missing the required parameter 'sessionId' when calling"
-              + " removeRumReplaySessionFromPlaylist");
+              + " removeRUMReplaySessionFromPlaylist");
     }
     // create path and map variables
     String localVarPath =
@@ -1397,7 +1397,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.removeRumReplaySessionFromPlaylist",
+            "v2.RumReplayPlaylistsApi.removeRUMReplaySessionFromPlaylist",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1418,13 +1418,13 @@ public class RumReplayPlaylistsApi {
   /**
    * Remove RUM replay session from playlist.
    *
-   * <p>See {@link #removeRumReplaySessionFromPlaylistWithHttpInfo}.
+   * <p>See {@link #removeRUMReplaySessionFromPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param sessionId Unique identifier of the session. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> removeRumReplaySessionFromPlaylistWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Void>> removeRUMReplaySessionFromPlaylistWithHttpInfoAsync(
       Long playlistId, String sessionId) {
     Object localVarPostBody = null;
 
@@ -1435,7 +1435,7 @@ public class RumReplayPlaylistsApi {
           new ApiException(
               400,
               "Missing the required parameter 'playlistId' when calling"
-                  + " removeRumReplaySessionFromPlaylist"));
+                  + " removeRUMReplaySessionFromPlaylist"));
       return result;
     }
 
@@ -1446,7 +1446,7 @@ public class RumReplayPlaylistsApi {
           new ApiException(
               400,
               "Missing the required parameter 'sessionId' when calling"
-                  + " removeRumReplaySessionFromPlaylist"));
+                  + " removeRUMReplaySessionFromPlaylist"));
       return result;
     }
     // create path and map variables
@@ -1462,7 +1462,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.removeRumReplaySessionFromPlaylist",
+              "v2.RumReplayPlaylistsApi.removeRUMReplaySessionFromPlaylist",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1488,28 +1488,28 @@ public class RumReplayPlaylistsApi {
   /**
    * Update RUM replay playlist.
    *
-   * <p>See {@link #updateRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #updateRUMReplayPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param body (required)
    * @return Playlist
    * @throws ApiException if fails to make API call
    */
-  public Playlist updateRumReplayPlaylist(Long playlistId, Playlist body) throws ApiException {
-    return updateRumReplayPlaylistWithHttpInfo(playlistId, body).getData();
+  public Playlist updateRUMReplayPlaylist(Long playlistId, Playlist body) throws ApiException {
+    return updateRUMReplayPlaylistWithHttpInfo(playlistId, body).getData();
   }
 
   /**
    * Update RUM replay playlist.
    *
-   * <p>See {@link #updateRumReplayPlaylistWithHttpInfoAsync}.
+   * <p>See {@link #updateRUMReplayPlaylistWithHttpInfoAsync}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param body (required)
    * @return CompletableFuture&lt;Playlist&gt;
    */
-  public CompletableFuture<Playlist> updateRumReplayPlaylistAsync(Long playlistId, Playlist body) {
-    return updateRumReplayPlaylistWithHttpInfoAsync(playlistId, body)
+  public CompletableFuture<Playlist> updateRUMReplayPlaylistAsync(Long playlistId, Playlist body) {
+    return updateRUMReplayPlaylistWithHttpInfoAsync(playlistId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -1531,20 +1531,20 @@ public class RumReplayPlaylistsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Playlist> updateRumReplayPlaylistWithHttpInfo(Long playlistId, Playlist body)
+  public ApiResponse<Playlist> updateRUMReplayPlaylistWithHttpInfo(Long playlistId, Playlist body)
       throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'playlistId' is set
     if (playlistId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'playlistId' when calling updateRumReplayPlaylist");
+          400, "Missing the required parameter 'playlistId' when calling updateRUMReplayPlaylist");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateRumReplayPlaylist");
+          400, "Missing the required parameter 'body' when calling updateRUMReplayPlaylist");
     }
     // create path and map variables
     String localVarPath =
@@ -1556,7 +1556,7 @@ public class RumReplayPlaylistsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumReplayPlaylistsApi.updateRumReplayPlaylist",
+            "v2.RumReplayPlaylistsApi.updateRUMReplayPlaylist",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1577,13 +1577,13 @@ public class RumReplayPlaylistsApi {
   /**
    * Update RUM replay playlist.
    *
-   * <p>See {@link #updateRumReplayPlaylistWithHttpInfo}.
+   * <p>See {@link #updateRUMReplayPlaylistWithHttpInfo}.
    *
    * @param playlistId Unique identifier of the playlist. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Playlist&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Playlist>> updateRumReplayPlaylistWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<Playlist>> updateRUMReplayPlaylistWithHttpInfoAsync(
       Long playlistId, Playlist body) {
     Object localVarPostBody = body;
 
@@ -1593,7 +1593,7 @@ public class RumReplayPlaylistsApi {
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'playlistId' when calling updateRumReplayPlaylist"));
+              "Missing the required parameter 'playlistId' when calling updateRUMReplayPlaylist"));
       return result;
     }
 
@@ -1602,7 +1602,7 @@ public class RumReplayPlaylistsApi {
       CompletableFuture<ApiResponse<Playlist>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling updateRumReplayPlaylist"));
+              400, "Missing the required parameter 'body' when calling updateRUMReplayPlaylist"));
       return result;
     }
     // create path and map variables
@@ -1617,7 +1617,7 @@ public class RumReplayPlaylistsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumReplayPlaylistsApi.updateRumReplayPlaylist",
+              "v2.RumReplayPlaylistsApi.updateRUMReplayPlaylist",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

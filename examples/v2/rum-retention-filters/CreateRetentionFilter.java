@@ -3,12 +3,12 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumRetentionFiltersApi;
-import com.datadog.api.client.v2.model.RumRetentionFilterCreateAttributes;
-import com.datadog.api.client.v2.model.RumRetentionFilterCreateData;
-import com.datadog.api.client.v2.model.RumRetentionFilterCreateRequest;
-import com.datadog.api.client.v2.model.RumRetentionFilterEventType;
-import com.datadog.api.client.v2.model.RumRetentionFilterResponse;
-import com.datadog.api.client.v2.model.RumRetentionFilterType;
+import com.datadog.api.client.v2.model.RUMRetentionFilterCreateAttributes;
+import com.datadog.api.client.v2.model.RUMRetentionFilterCreateData;
+import com.datadog.api.client.v2.model.RUMRetentionFilterCreateRequest;
+import com.datadog.api.client.v2.model.RUMRetentionFilterEventType;
+import com.datadog.api.client.v2.model.RUMRetentionFilterResponse;
+import com.datadog.api.client.v2.model.RUMRetentionFilterType;
 
 public class Example {
   public static void main(String[] args) {
@@ -16,21 +16,21 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
-    RumRetentionFilterCreateRequest body =
-        new RumRetentionFilterCreateRequest()
+    RUMRetentionFilterCreateRequest body =
+        new RUMRetentionFilterCreateRequest()
             .data(
-                new RumRetentionFilterCreateData()
-                    .type(RumRetentionFilterType.RETENTION_FILTERS)
+                new RUMRetentionFilterCreateData()
+                    .type(RUMRetentionFilterType.RETENTION_FILTERS)
                     .attributes(
-                        new RumRetentionFilterCreateAttributes()
+                        new RUMRetentionFilterCreateAttributes()
                             .name("Test creating retention filter")
-                            .eventType(RumRetentionFilterEventType.SESSION)
+                            .eventType(RUMRetentionFilterEventType.SESSION)
                             .query("custom_query")
                             .sampleRate(50.0)
                             .enabled(true)));
 
     try {
-      RumRetentionFilterResponse result =
+      RUMRetentionFilterResponse result =
           apiInstance.createRetentionFilter("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690", body);
       System.out.println(result);
     } catch (ApiException e) {

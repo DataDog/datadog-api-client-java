@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.model.RUMOperationJourneyCompositeRule;
 import com.datadog.api.client.v2.model.RUMOperationJourneyCompositeRuleKind;
 import com.datadog.api.client.v2.model.RUMOperationJourneyNode;
 import com.datadog.api.client.v2.model.RUMOperationJourneyPredicate;
-import com.datadog.api.client.v2.model.RUMOperationJourneyRum;
+import com.datadog.api.client.v2.model.RUMOperationJourneyRUM;
 import com.datadog.api.client.v2.model.RUMOperationJourneyStep;
 import com.datadog.api.client.v2.model.RUMOperationJourneyStepType;
 import com.datadog.api.client.v2.model.RUMOperationRequestAttributes;
@@ -35,7 +35,7 @@ public class Example {
                             .description(null)
                             .displayName("Checkout completed")
                             .journeyRum(
-                                new RUMOperationJourneyRum()
+                                new RUMOperationJourneyRUM()
                                     .rumSteps(
                                         Collections.singletonList(
                                             new RUMOperationJourneyStep()
