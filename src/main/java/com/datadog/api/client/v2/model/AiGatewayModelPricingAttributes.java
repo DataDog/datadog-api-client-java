@@ -69,7 +69,7 @@ public class AiGatewayModelPricingAttributes {
   }
 
   /**
-   * True when models.dev pricing is authoritative for this organization and provider.
+   * True when automatic pricing is authoritative for this organization and provider.
    *
    * @return authoritative
    */
@@ -92,7 +92,7 @@ public class AiGatewayModelPricingAttributes {
   }
 
   /**
-   * The published models.dev price. Present only when it is the effective price.
+   * The automatically synced published price. Present only when it is the effective price.
    *
    * @return automaticPricing
    */

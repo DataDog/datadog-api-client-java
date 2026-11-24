@@ -22,7 +22,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   AiGatewayModelMetadataSource.JSON_PROPERTY_MATCHED_BY,
   AiGatewayModelMetadataSource.JSON_PROPERTY_MODEL_ID,
-  AiGatewayModelMetadataSource.JSON_PROPERTY_NAME,
   AiGatewayModelMetadataSource.JSON_PROPERTY_OBSERVED_AT,
   AiGatewayModelMetadataSource.JSON_PROPERTY_PROVIDER,
   AiGatewayModelMetadataSource.JSON_PROPERTY_REVISION
@@ -36,9 +35,6 @@ public class AiGatewayModelMetadataSource {
 
   public static final String JSON_PROPERTY_MODEL_ID = "model_id";
   private String modelId;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
 
   public static final String JSON_PROPERTY_OBSERVED_AT = "observed_at";
   private OffsetDateTime observedAt;
@@ -56,12 +52,10 @@ public class AiGatewayModelMetadataSource {
       @JsonProperty(required = true, value = JSON_PROPERTY_MATCHED_BY)
           AiGatewayModelMetadataSourceMatchedBy matchedBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODEL_ID) String modelId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_PROVIDER) String provider) {
     this.matchedBy = matchedBy;
     this.unparsed |= !matchedBy.isValid();
     this.modelId = modelId;
-    this.name = name;
     this.provider = provider;
   }
 
@@ -108,26 +102,6 @@ public class AiGatewayModelMetadataSource {
 
   public void setModelId(String modelId) {
     this.modelId = modelId;
-  }
-
-  public AiGatewayModelMetadataSource name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Metadata source name.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public AiGatewayModelMetadataSource observedAt(OffsetDateTime observedAt) {
@@ -251,7 +225,6 @@ public class AiGatewayModelMetadataSource {
     AiGatewayModelMetadataSource aiGatewayModelMetadataSource = (AiGatewayModelMetadataSource) o;
     return Objects.equals(this.matchedBy, aiGatewayModelMetadataSource.matchedBy)
         && Objects.equals(this.modelId, aiGatewayModelMetadataSource.modelId)
-        && Objects.equals(this.name, aiGatewayModelMetadataSource.name)
         && Objects.equals(this.observedAt, aiGatewayModelMetadataSource.observedAt)
         && Objects.equals(this.provider, aiGatewayModelMetadataSource.provider)
         && Objects.equals(this.revision, aiGatewayModelMetadataSource.revision)
@@ -261,8 +234,7 @@ public class AiGatewayModelMetadataSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        matchedBy, modelId, name, observedAt, provider, revision, additionalProperties);
+    return Objects.hash(matchedBy, modelId, observedAt, provider, revision, additionalProperties);
   }
 
   @Override
@@ -271,7 +243,6 @@ public class AiGatewayModelMetadataSource {
     sb.append("class AiGatewayModelMetadataSource {\n");
     sb.append("    matchedBy: ").append(toIndentedString(matchedBy)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    observedAt: ").append(toIndentedString(observedAt)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
