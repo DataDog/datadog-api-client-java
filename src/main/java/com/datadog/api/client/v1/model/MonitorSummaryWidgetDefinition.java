@@ -30,6 +30,7 @@ import java.util.Objects;
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_QUERY,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SHOW_LAST_TRIGGERED,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SHOW_PRIORITY,
+  MonitorSummaryWidgetDefinition.JSON_PROPERTY_SHOW_SUB_GROUPS,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SORT,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_START,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SUMMARY_TYPE,
@@ -65,6 +66,9 @@ public class MonitorSummaryWidgetDefinition {
 
   public static final String JSON_PROPERTY_SHOW_PRIORITY = "show_priority";
   private Boolean showPriority = false;
+
+  public static final String JSON_PROPERTY_SHOW_SUB_GROUPS = "show_sub_groups";
+  private Boolean showSubGroups = false;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetMonitorSummarySort sort;
@@ -277,6 +281,29 @@ public class MonitorSummaryWidgetDefinition {
 
   public void setShowPriority(Boolean showPriority) {
     this.showPriority = showPriority;
+  }
+
+  public MonitorSummaryWidgetDefinition showSubGroups(Boolean showSubGroups) {
+    this.showSubGroups = showSubGroups;
+    return this;
+  }
+
+  /**
+   * Whether to count and list each monitor's subgroups instead of its notification groups. Only
+   * changes monitors that use <code>notify_by</code>, and only for the <code>groups</code> and
+   * <code>combined</code> summary types.
+   *
+   * @return showSubGroups
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_SUB_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowSubGroups() {
+    return showSubGroups;
+  }
+
+  public void setShowSubGroups(Boolean showSubGroups) {
+    this.showSubGroups = showSubGroups;
   }
 
   public MonitorSummaryWidgetDefinition sort(WidgetMonitorSummarySort sort) {
@@ -509,6 +536,7 @@ public class MonitorSummaryWidgetDefinition {
         && Objects.equals(this.query, monitorSummaryWidgetDefinition.query)
         && Objects.equals(this.showLastTriggered, monitorSummaryWidgetDefinition.showLastTriggered)
         && Objects.equals(this.showPriority, monitorSummaryWidgetDefinition.showPriority)
+        && Objects.equals(this.showSubGroups, monitorSummaryWidgetDefinition.showSubGroups)
         && Objects.equals(this.sort, monitorSummaryWidgetDefinition.sort)
         && Objects.equals(this.start, monitorSummaryWidgetDefinition.start)
         && Objects.equals(this.summaryType, monitorSummaryWidgetDefinition.summaryType)
@@ -531,6 +559,7 @@ public class MonitorSummaryWidgetDefinition {
         query,
         showLastTriggered,
         showPriority,
+        showSubGroups,
         sort,
         start,
         summaryType,
@@ -553,6 +582,7 @@ public class MonitorSummaryWidgetDefinition {
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    showLastTriggered: ").append(toIndentedString(showLastTriggered)).append("\n");
     sb.append("    showPriority: ").append(toIndentedString(showPriority)).append("\n");
+    sb.append("    showSubGroups: ").append(toIndentedString(showSubGroups)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    summaryType: ").append(toIndentedString(summaryType)).append("\n");
