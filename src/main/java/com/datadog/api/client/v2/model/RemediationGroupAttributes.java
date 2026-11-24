@@ -18,13 +18,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes of a remediation group. Each group includes one kind object, <code>package_update
- * </code> or <code>image_update</code>, depending on its grouping definition.
+ * Attributes of a remediation group. Each group includes one kind object, depending on its grouping
+ * definition.
  */
 @JsonPropertyOrder({
   RemediationGroupAttributes.JSON_PROPERTY_FINDINGS,
   RemediationGroupAttributes.JSON_PROPERTY_GROUPING_DEFINITION_ID,
-  RemediationGroupAttributes.JSON_PROPERTY_IMAGE_UPDATE,
+  RemediationGroupAttributes.JSON_PROPERTY_OWNERS,
   RemediationGroupAttributes.JSON_PROPERTY_PACKAGE_UPDATE,
   RemediationGroupAttributes.JSON_PROPERTY_TITLE
 })
@@ -38,8 +38,8 @@ public class RemediationGroupAttributes {
   public static final String JSON_PROPERTY_GROUPING_DEFINITION_ID = "grouping_definition_id";
   private String groupingDefinitionId;
 
-  public static final String JSON_PROPERTY_IMAGE_UPDATE = "image_update";
-  private RemediationGroupImageUpdate imageUpdate;
+  public static final String JSON_PROPERTY_OWNERS = "owners";
+  private RemediationGroupOwners owners;
 
   public static final String JSON_PROPERTY_PACKAGE_UPDATE = "package_update";
   private RemediationGroupPackageUpdate packageUpdate;
@@ -55,10 +55,13 @@ public class RemediationGroupAttributes {
           RemediationGroupFindings findings,
       @JsonProperty(required = true, value = JSON_PROPERTY_GROUPING_DEFINITION_ID)
           String groupingDefinitionId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OWNERS) RemediationGroupOwners owners,
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
     this.findings = findings;
     this.unparsed |= findings.unparsed;
     this.groupingDefinitionId = groupingDefinitionId;
+    this.owners = owners;
+    this.unparsed |= owners.unparsed;
     this.title = title;
   }
 
@@ -93,8 +96,7 @@ public class RemediationGroupAttributes {
   }
 
   /**
-   * Grouping definition that formed the group: <code>sca.package_update</code> or <code>
-   * cloudvm.image_update</code>.
+   * Grouping definition that formed the group, such as <code>sca.package_update</code>.
    *
    * @return groupingDefinitionId
    */
@@ -108,31 +110,29 @@ public class RemediationGroupAttributes {
     this.groupingDefinitionId = groupingDefinitionId;
   }
 
-  public RemediationGroupAttributes imageUpdate(RemediationGroupImageUpdate imageUpdate) {
-    this.imageUpdate = imageUpdate;
-    this.unparsed |= imageUpdate.unparsed;
+  public RemediationGroupAttributes owners(RemediationGroupOwners owners) {
+    this.owners = owners;
+    this.unparsed |= owners.unparsed;
     return this;
   }
 
   /**
-   * An image or package to upgrade, for a group of host and container vulnerabilities (<code>
-   * cloudvm.image_update</code>). The group gathers the open vulnerabilities of running production
-   * images that have a fix available, and groups them by <code>grouping_location</code>, <code>
-   * remediation_kind</code>, and <code>action</code>.
+   * Who should fix the group: the code owners of the group's findings, from their <code>
+   * @git.codeowners</code> attribute, and their Datadog teams, from their <code>team</code> tag. A
+   * group with no owners has empty <code>items</code> and a <code>total</code> of 0.
    *
-   * @return imageUpdate
+   * @return owners
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMAGE_UPDATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RemediationGroupImageUpdate getImageUpdate() {
-    return imageUpdate;
+  @JsonProperty(JSON_PROPERTY_OWNERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RemediationGroupOwners getOwners() {
+    return owners;
   }
 
-  public void setImageUpdate(RemediationGroupImageUpdate imageUpdate) {
-    this.imageUpdate = imageUpdate;
-    if (imageUpdate != null) {
-      this.unparsed |= imageUpdate.unparsed;
+  public void setOwners(RemediationGroupOwners owners) {
+    this.owners = owners;
+    if (owners != null) {
+      this.unparsed |= owners.unparsed;
     }
   }
 
@@ -243,7 +243,7 @@ public class RemediationGroupAttributes {
     return Objects.equals(this.findings, remediationGroupAttributes.findings)
         && Objects.equals(
             this.groupingDefinitionId, remediationGroupAttributes.groupingDefinitionId)
-        && Objects.equals(this.imageUpdate, remediationGroupAttributes.imageUpdate)
+        && Objects.equals(this.owners, remediationGroupAttributes.owners)
         && Objects.equals(this.packageUpdate, remediationGroupAttributes.packageUpdate)
         && Objects.equals(this.title, remediationGroupAttributes.title)
         && Objects.equals(
@@ -253,7 +253,7 @@ public class RemediationGroupAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        findings, groupingDefinitionId, imageUpdate, packageUpdate, title, additionalProperties);
+        findings, groupingDefinitionId, owners, packageUpdate, title, additionalProperties);
   }
 
   @Override
@@ -264,7 +264,7 @@ public class RemediationGroupAttributes {
     sb.append("    groupingDefinitionId: ")
         .append(toIndentedString(groupingDefinitionId))
         .append("\n");
-    sb.append("    imageUpdate: ").append(toIndentedString(imageUpdate)).append("\n");
+    sb.append("    owners: ").append(toIndentedString(owners)).append("\n");
     sb.append("    packageUpdate: ").append(toIndentedString(packageUpdate)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    additionalProperties: ")

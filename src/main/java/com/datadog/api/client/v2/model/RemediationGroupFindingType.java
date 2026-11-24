@@ -25,13 +25,10 @@ import java.util.Set;
 public class RemediationGroupFindingType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("library_vulnerability", "host_and_container_vulnerability"));
+      new HashSet<String>(Arrays.asList("library_vulnerability"));
 
   public static final RemediationGroupFindingType LIBRARY_VULNERABILITY =
       new RemediationGroupFindingType("library_vulnerability");
-  public static final RemediationGroupFindingType HOST_AND_CONTAINER_VULNERABILITY =
-      new RemediationGroupFindingType("host_and_container_vulnerability");
 
   RemediationGroupFindingType(String value) {
     super(value, allowedValues);

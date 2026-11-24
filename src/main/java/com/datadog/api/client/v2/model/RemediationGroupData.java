@@ -66,8 +66,8 @@ public class RemediationGroupData {
   }
 
   /**
-   * Attributes of a remediation group. Each group includes one kind object, <code>package_update
-   * </code> or <code>image_update</code>, depending on its grouping definition.
+   * Attributes of a remediation group. Each group includes one kind object, depending on its
+   * grouping definition.
    *
    * @return attributes
    */
