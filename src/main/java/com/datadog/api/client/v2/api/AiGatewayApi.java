@@ -2115,8 +2115,10 @@ public class AiGatewayApi {
   }
 
   /**
-   * Clear a custom provider model's pricing override. Requires <code>ai_gateway_config_write</code>
-   * and provider Edit. Models and pricing inherit provider access.
+   * Clear a custom provider model's pricing override. A canonical ID that contains <code>/</code>
+   * can't be sent in the path; use the <code>/api/v2/providers/{provider_id}/model-pricing</code>
+   * endpoint with the <code>canonical</code> query parameter instead. Requires <code>
+   * ai_gateway_config_write</code> and provider Edit. Models and pricing inherit provider access.
    *
    * @param providerId Provider ID. (required)
    * @param canonical Canonical model identifier. (required)
@@ -2246,6 +2248,202 @@ public class AiGatewayApi {
               "v2.AiGatewayApi.deleteAiGatewayModelPricing",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a model pricing override by canonical ID.
+   *
+   * <p>See {@link #deleteAIGatewayModelPricingByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAIGatewayModelPricingByCanonical(Long providerId, String canonical)
+      throws ApiException {
+    deleteAIGatewayModelPricingByCanonicalWithHttpInfo(providerId, canonical);
+  }
+
+  /**
+   * Delete a model pricing override by canonical ID.
+   *
+   * <p>See {@link #deleteAIGatewayModelPricingByCanonicalWithHttpInfoAsync}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteAIGatewayModelPricingByCanonicalAsync(
+      Long providerId, String canonical) {
+    return deleteAIGatewayModelPricingByCanonicalWithHttpInfoAsync(providerId, canonical)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Clear a provider model's pricing override, naming the model in the <code>canonical</code> query
+   * parameter. Unlike the endpoint that takes the canonical ID in the path, this one accepts
+   * canonical IDs that contain <code>/</code>. Requires <code>ai_gateway_config_write</code> and
+   * provider Edit. Models and pricing inherit provider access.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteAIGatewayModelPricingByCanonicalWithHttpInfo(
+      Long providerId, String canonical) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAIGatewayModelPricingByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'providerId' when calling"
+              + " deleteAIGatewayModelPricingByCanonical");
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'canonical' when calling"
+              + " deleteAIGatewayModelPricingByCanonical");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model-pricing"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.deleteAIGatewayModelPricingByCanonical",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a model pricing override by canonical ID.
+   *
+   * <p>See {@link #deleteAIGatewayModelPricingByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteAIGatewayModelPricingByCanonicalWithHttpInfoAsync(Long providerId, String canonical) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAIGatewayModelPricingByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'providerId' when calling"
+                  + " deleteAIGatewayModelPricingByCanonical"));
+      return result;
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'canonical' when calling"
+                  + " deleteAIGatewayModelPricingByCanonical"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model-pricing"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.deleteAIGatewayModelPricingByCanonical",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
@@ -4101,9 +4299,12 @@ public class AiGatewayApi {
   }
 
   /**
-   * Get a custom provider model's pricing override and effective pricing source. Requires <code>
-   * ai_gateway_config_read</code> and provider View. Catalog and pricing metadata inherit provider
-   * access. Lists omit hidden entries; direct reads of hidden resources return 404.
+   * Get a custom provider model's pricing override and effective pricing source. A canonical ID
+   * that contains <code>/</code> can't be sent in the path; use the <code>
+   * /api/v2/providers/{provider_id}/model-pricing</code> endpoint with the <code>canonical</code>
+   * query parameter instead. Requires <code>ai_gateway_config_read</code> and provider View.
+   * Catalog and pricing metadata inherit provider access. Lists omit hidden entries; direct reads
+   * of hidden resources return 404.
    *
    * @param providerId Provider ID. (required)
    * @param canonical Canonical model identifier. (required)
@@ -4231,6 +4432,207 @@ public class AiGatewayApi {
               "v2.AiGatewayApi.getAiGatewayModelPricing",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayModelPricingResponse>() {});
+  }
+
+  /**
+   * Get a model pricing override by canonical ID.
+   *
+   * <p>See {@link #getAIGatewayModelPricingByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return AiGatewayModelPricingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayModelPricingResponse getAIGatewayModelPricingByCanonical(
+      Long providerId, String canonical) throws ApiException {
+    return getAIGatewayModelPricingByCanonicalWithHttpInfo(providerId, canonical).getData();
+  }
+
+  /**
+   * Get a model pricing override by canonical ID.
+   *
+   * <p>See {@link #getAIGatewayModelPricingByCanonicalWithHttpInfoAsync}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return CompletableFuture&lt;AiGatewayModelPricingResponse&gt;
+   */
+  public CompletableFuture<AiGatewayModelPricingResponse> getAIGatewayModelPricingByCanonicalAsync(
+      Long providerId, String canonical) {
+    return getAIGatewayModelPricingByCanonicalWithHttpInfoAsync(providerId, canonical)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a provider model's pricing override and effective pricing source, naming the model in the
+   * <code>canonical</code> query parameter. Unlike the endpoint that takes the canonical ID in the
+   * path, this one accepts canonical IDs that contain <code>/</code>. Requires <code>
+   * ai_gateway_config_read</code> and provider View. Catalog and pricing metadata inherit provider
+   * access. Direct reads of hidden resources return 404.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return ApiResponse&lt;AiGatewayModelPricingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiGatewayModelPricingResponse> getAIGatewayModelPricingByCanonicalWithHttpInfo(
+      Long providerId, String canonical) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAIGatewayModelPricingByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'providerId' when calling"
+              + " getAIGatewayModelPricingByCanonical");
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'canonical' when calling"
+              + " getAIGatewayModelPricingByCanonical");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model-pricing"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.getAIGatewayModelPricingByCanonical",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayModelPricingResponse>() {});
+  }
+
+  /**
+   * Get a model pricing override by canonical ID.
+   *
+   * <p>See {@link #getAIGatewayModelPricingByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiGatewayModelPricingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>>
+      getAIGatewayModelPricingByCanonicalWithHttpInfoAsync(Long providerId, String canonical) {
+    // Check if unstable operation is enabled
+    String operationId = "getAIGatewayModelPricingByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'providerId' when calling"
+                  + " getAIGatewayModelPricingByCanonical"));
+      return result;
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'canonical' when calling"
+                  + " getAIGatewayModelPricingByCanonical"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model-pricing"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.getAIGatewayModelPricingByCanonical",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -9128,8 +9530,10 @@ public class AiGatewayApi {
   }
 
   /**
-   * Set a custom provider model's pricing override. Requires <code>ai_gateway_config_write</code>
-   * and provider Edit. Models and pricing inherit provider access.
+   * Set a custom provider model's pricing override. A canonical ID that contains <code>/</code>
+   * can't be sent in the path; use the <code>/api/v2/providers/{provider_id}/model-pricing</code>
+   * endpoint with the <code>canonical</code> query parameter instead. Requires <code>
+   * ai_gateway_config_write</code> and provider Edit. Models and pricing inherit provider access.
    *
    * @param providerId Provider ID. (required)
    * @param canonical Canonical model identifier. (required)
@@ -9282,6 +9686,236 @@ public class AiGatewayApi {
               "v2.AiGatewayApi.updateAiGatewayModelPricing",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayModelPricingResponse>() {});
+  }
+
+  /**
+   * Set a model pricing override by canonical ID.
+   *
+   * <p>See {@link #updateAIGatewayModelPricingByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return AiGatewayModelPricingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayModelPricingResponse updateAIGatewayModelPricingByCanonical(
+      Long providerId, String canonical, AiGatewayModelPricingRequest body) throws ApiException {
+    return updateAIGatewayModelPricingByCanonicalWithHttpInfo(providerId, canonical, body)
+        .getData();
+  }
+
+  /**
+   * Set a model pricing override by canonical ID.
+   *
+   * <p>See {@link #updateAIGatewayModelPricingByCanonicalWithHttpInfoAsync}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;AiGatewayModelPricingResponse&gt;
+   */
+  public CompletableFuture<AiGatewayModelPricingResponse>
+      updateAIGatewayModelPricingByCanonicalAsync(
+          Long providerId, String canonical, AiGatewayModelPricingRequest body) {
+    return updateAIGatewayModelPricingByCanonicalWithHttpInfoAsync(providerId, canonical, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Set a provider model's pricing override, naming the model in the <code>canonical</code> query
+   * parameter. Unlike the endpoint that takes the canonical ID in the path, this one accepts
+   * canonical IDs that contain <code>/</code>. Requires <code>ai_gateway_config_write</code> and
+   * provider Edit. Models and pricing inherit provider access.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;AiGatewayModelPricingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiGatewayModelPricingResponse>
+      updateAIGatewayModelPricingByCanonicalWithHttpInfo(
+          Long providerId, String canonical, AiGatewayModelPricingRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateAIGatewayModelPricingByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'providerId' when calling"
+              + " updateAIGatewayModelPricingByCanonical");
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'canonical' when calling"
+              + " updateAIGatewayModelPricingByCanonical");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateAIGatewayModelPricingByCanonical");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model-pricing"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.updateAIGatewayModelPricingByCanonical",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayModelPricingResponse>() {});
+  }
+
+  /**
+   * Set a model pricing override by canonical ID.
+   *
+   * <p>See {@link #updateAIGatewayModelPricingByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiGatewayModelPricingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>>
+      updateAIGatewayModelPricingByCanonicalWithHttpInfoAsync(
+          Long providerId, String canonical, AiGatewayModelPricingRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateAIGatewayModelPricingByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'providerId' when calling"
+                  + " updateAIGatewayModelPricingByCanonical"));
+      return result;
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'canonical' when calling"
+                  + " updateAIGatewayModelPricingByCanonical"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelPricingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateAIGatewayModelPricingByCanonical"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model-pricing"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.updateAIGatewayModelPricingByCanonical",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
