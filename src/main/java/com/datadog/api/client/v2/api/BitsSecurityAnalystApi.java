@@ -9,6 +9,11 @@ import com.datadog.api.client.v2.model.SecurityAgentInvestigationCountsResponse;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationField;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationResponse;
 import com.datadog.api.client.v2.model.SecurityAgentInvestigationsListResponse;
+import com.datadog.api.client.v2.model.SecurityAgentOutreachDomainAddRequest;
+import com.datadog.api.client.v2.model.SecurityAgentOutreachModeResponse;
+import com.datadog.api.client.v2.model.SecurityAgentOutreachModeUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityAgentOutreachPolicyResponse;
+import com.datadog.api.client.v2.model.SecurityAgentOutreachRulesUpdateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -46,6 +51,171 @@ public class BitsSecurityAnalystApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Add an allowed outreach domain.
+   *
+   * <p>See {@link #addSecurityAgentOutreachPolicyDomainWithHttpInfo}.
+   *
+   * @param body The email domain to allow. (required)
+   * @return SecurityAgentOutreachPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityAgentOutreachPolicyResponse addSecurityAgentOutreachPolicyDomain(
+      SecurityAgentOutreachDomainAddRequest body) throws ApiException {
+    return addSecurityAgentOutreachPolicyDomainWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Add an allowed outreach domain.
+   *
+   * <p>See {@link #addSecurityAgentOutreachPolicyDomainWithHttpInfoAsync}.
+   *
+   * @param body The email domain to allow. (required)
+   * @return CompletableFuture&lt;SecurityAgentOutreachPolicyResponse&gt;
+   */
+  public CompletableFuture<SecurityAgentOutreachPolicyResponse>
+      addSecurityAgentOutreachPolicyDomainAsync(SecurityAgentOutreachDomainAddRequest body) {
+    return addSecurityAgentOutreachPolicyDomainWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add one allowed email domain. User outreach is only sent to users whose email domain is
+   * allowed. The domain must be a fully qualified domain name, like <code>example.com</code>; it is
+   * lowercased before being stored. An organization can allow at most 20 domains.
+   *
+   * @param body The email domain to allow. (required)
+   * @return ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityAgentOutreachPolicyResponse>
+      addSecurityAgentOutreachPolicyDomainWithHttpInfo(SecurityAgentOutreachDomainAddRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "addSecurityAgentOutreachPolicyDomain";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " addSecurityAgentOutreachPolicyDomain");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsSecurityAnalystApi.addSecurityAgentOutreachPolicyDomain",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
+  }
+
+  /**
+   * Add an allowed outreach domain.
+   *
+   * <p>See {@link #addSecurityAgentOutreachPolicyDomainWithHttpInfo}.
+   *
+   * @param body The email domain to allow. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>>
+      addSecurityAgentOutreachPolicyDomainWithHttpInfoAsync(
+          SecurityAgentOutreachDomainAddRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "addSecurityAgentOutreachPolicyDomain";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " addSecurityAgentOutreachPolicyDomain"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsSecurityAnalystApi.addSecurityAgentOutreachPolicyDomain",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
   }
 
   /** Manage optional parameters to countSecurityAgentInvestigations. */
@@ -684,6 +854,140 @@ public class BitsSecurityAnalystApi {
         new GenericType<SecurityAgentInvestigationResponse>() {});
   }
 
+  /**
+   * Get the user outreach policy.
+   *
+   * <p>See {@link #getSecurityAgentOutreachPolicyWithHttpInfo}.
+   *
+   * @return SecurityAgentOutreachPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityAgentOutreachPolicyResponse getSecurityAgentOutreachPolicy() throws ApiException {
+    return getSecurityAgentOutreachPolicyWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the user outreach policy.
+   *
+   * <p>See {@link #getSecurityAgentOutreachPolicyWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityAgentOutreachPolicyResponse&gt;
+   */
+  public CompletableFuture<SecurityAgentOutreachPolicyResponse>
+      getSecurityAgentOutreachPolicyAsync() {
+    return getSecurityAgentOutreachPolicyWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the organization's user outreach policy for Bits Security Analyst: the outreach mode, the
+   * per-rule automation state, the allowed email domains that user outreach can be sent to, and,
+   * for the caller, domains that could be allowed next.
+   *
+   * @return ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityAgentOutreachPolicyResponse>
+      getSecurityAgentOutreachPolicyWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityAgentOutreachPolicy";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/outreach_policy";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsSecurityAnalystApi.getSecurityAgentOutreachPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
+  }
+
+  /**
+   * Get the user outreach policy.
+   *
+   * <p>See {@link #getSecurityAgentOutreachPolicyWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>>
+      getSecurityAgentOutreachPolicyWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityAgentOutreachPolicy";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/outreach_policy";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsSecurityAnalystApi.getSecurityAgentOutreachPolicy",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
+  }
+
   /** Manage optional parameters to listSecurityAgentInvestigations. */
   public static class ListSecurityAgentInvestigationsOptionalParameters {
     private String filterSignalId;
@@ -1141,5 +1445,495 @@ public class BitsSecurityAnalystApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityAgentInvestigationsListResponse>() {});
+  }
+
+  /**
+   * Remove an allowed outreach domain.
+   *
+   * <p>See {@link #removeSecurityAgentOutreachPolicyDomainWithHttpInfo}.
+   *
+   * @param domain The allowed email domain to remove, for example <code>example.com</code>.
+   *     Case-insensitive. (required)
+   * @return SecurityAgentOutreachPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityAgentOutreachPolicyResponse removeSecurityAgentOutreachPolicyDomain(String domain)
+      throws ApiException {
+    return removeSecurityAgentOutreachPolicyDomainWithHttpInfo(domain).getData();
+  }
+
+  /**
+   * Remove an allowed outreach domain.
+   *
+   * <p>See {@link #removeSecurityAgentOutreachPolicyDomainWithHttpInfoAsync}.
+   *
+   * @param domain The allowed email domain to remove, for example <code>example.com</code>.
+   *     Case-insensitive. (required)
+   * @return CompletableFuture&lt;SecurityAgentOutreachPolicyResponse&gt;
+   */
+  public CompletableFuture<SecurityAgentOutreachPolicyResponse>
+      removeSecurityAgentOutreachPolicyDomainAsync(String domain) {
+    return removeSecurityAgentOutreachPolicyDomainWithHttpInfoAsync(domain)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove one allowed email domain, by its name.
+   *
+   * @param domain The allowed email domain to remove, for example <code>example.com</code>.
+   *     Case-insensitive. (required)
+   * @return ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityAgentOutreachPolicyResponse>
+      removeSecurityAgentOutreachPolicyDomainWithHttpInfo(String domain) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "removeSecurityAgentOutreachPolicyDomain";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'domain' is set
+    if (domain == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'domain' when calling"
+              + " removeSecurityAgentOutreachPolicyDomain");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains/{domain}"
+            .replaceAll("\\{" + "domain" + "\\}", apiClient.escapeString(domain.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsSecurityAnalystApi.removeSecurityAgentOutreachPolicyDomain",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
+  }
+
+  /**
+   * Remove an allowed outreach domain.
+   *
+   * <p>See {@link #removeSecurityAgentOutreachPolicyDomainWithHttpInfo}.
+   *
+   * @param domain The allowed email domain to remove, for example <code>example.com</code>.
+   *     Case-insensitive. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>>
+      removeSecurityAgentOutreachPolicyDomainWithHttpInfoAsync(String domain) {
+    // Check if unstable operation is enabled
+    String operationId = "removeSecurityAgentOutreachPolicyDomain";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'domain' is set
+    if (domain == null) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'domain' when calling"
+                  + " removeSecurityAgentOutreachPolicyDomain"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/security_agent/outreach_policy/allowed_domains/{domain}"
+            .replaceAll("\\{" + "domain" + "\\}", apiClient.escapeString(domain.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsSecurityAnalystApi.removeSecurityAgentOutreachPolicyDomain",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
+  }
+
+  /**
+   * Update the outreach mode.
+   *
+   * <p>See {@link #updateSecurityAgentOutreachModeWithHttpInfo}.
+   *
+   * @param body The new outreach mode. (required)
+   * @return SecurityAgentOutreachModeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityAgentOutreachModeResponse updateSecurityAgentOutreachMode(
+      SecurityAgentOutreachModeUpdateRequest body) throws ApiException {
+    return updateSecurityAgentOutreachModeWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update the outreach mode.
+   *
+   * <p>See {@link #updateSecurityAgentOutreachModeWithHttpInfoAsync}.
+   *
+   * @param body The new outreach mode. (required)
+   * @return CompletableFuture&lt;SecurityAgentOutreachModeResponse&gt;
+   */
+  public CompletableFuture<SecurityAgentOutreachModeResponse> updateSecurityAgentOutreachModeAsync(
+      SecurityAgentOutreachModeUpdateRequest body) {
+    return updateSecurityAgentOutreachModeWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Set the organization's outreach mode: <code>off</code> (no user outreach), <code>manual</code>
+   * (outreach is only sent when an analyst triggers it), or <code>automated</code> (rules with
+   * outreach enabled auto-send automated interviews to users whose email domain is allowed).
+   *
+   * @param body The new outreach mode. (required)
+   * @return ApiResponse&lt;SecurityAgentOutreachModeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityAgentOutreachModeResponse> updateSecurityAgentOutreachModeWithHttpInfo(
+      SecurityAgentOutreachModeUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityAgentOutreachMode";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateSecurityAgentOutreachMode");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/outreach_policy";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsSecurityAnalystApi.updateSecurityAgentOutreachMode",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachModeResponse>() {});
+  }
+
+  /**
+   * Update the outreach mode.
+   *
+   * <p>See {@link #updateSecurityAgentOutreachModeWithHttpInfo}.
+   *
+   * @param body The new outreach mode. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityAgentOutreachModeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityAgentOutreachModeResponse>>
+      updateSecurityAgentOutreachModeWithHttpInfoAsync(
+          SecurityAgentOutreachModeUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityAgentOutreachMode";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachModeResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachModeResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityAgentOutreachMode"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/outreach_policy";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsSecurityAnalystApi.updateSecurityAgentOutreachMode",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachModeResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachModeResponse>() {});
+  }
+
+  /**
+   * Update outreach policy rules.
+   *
+   * <p>See {@link #updateSecurityAgentOutreachPolicyRulesWithHttpInfo}.
+   *
+   * @param body The rules to upsert. (required)
+   * @return SecurityAgentOutreachPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityAgentOutreachPolicyResponse updateSecurityAgentOutreachPolicyRules(
+      SecurityAgentOutreachRulesUpdateRequest body) throws ApiException {
+    return updateSecurityAgentOutreachPolicyRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update outreach policy rules.
+   *
+   * <p>See {@link #updateSecurityAgentOutreachPolicyRulesWithHttpInfoAsync}.
+   *
+   * @param body The rules to upsert. (required)
+   * @return CompletableFuture&lt;SecurityAgentOutreachPolicyResponse&gt;
+   */
+  public CompletableFuture<SecurityAgentOutreachPolicyResponse>
+      updateSecurityAgentOutreachPolicyRulesAsync(SecurityAgentOutreachRulesUpdateRequest body) {
+    return updateSecurityAgentOutreachPolicyRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Upsert the outreach automation state of detection rules. Each rule in the request gets the
+   * given state; rules not in the request keep their state. A rule with <code>is_enabled: true
+   * </code> auto-sends automated interviews in <code>automated</code> mode.
+   *
+   * @param body The rules to upsert. (required)
+   * @return ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityAgentOutreachPolicyResponse>
+      updateSecurityAgentOutreachPolicyRulesWithHttpInfo(
+          SecurityAgentOutreachRulesUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityAgentOutreachPolicyRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityAgentOutreachPolicyRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/outreach_policy/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.BitsSecurityAnalystApi.updateSecurityAgentOutreachPolicyRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
+  }
+
+  /**
+   * Update outreach policy rules.
+   *
+   * <p>See {@link #updateSecurityAgentOutreachPolicyRulesWithHttpInfo}.
+   *
+   * @param body The rules to upsert. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityAgentOutreachPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>>
+      updateSecurityAgentOutreachPolicyRulesWithHttpInfoAsync(
+          SecurityAgentOutreachRulesUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityAgentOutreachPolicyRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityAgentOutreachPolicyRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/security_agent/outreach_policy/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.BitsSecurityAnalystApi.updateSecurityAgentOutreachPolicyRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityAgentOutreachPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityAgentOutreachPolicyResponse>() {});
   }
 }
