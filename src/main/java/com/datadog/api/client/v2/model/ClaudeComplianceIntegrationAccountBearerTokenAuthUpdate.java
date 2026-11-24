@@ -74,7 +74,10 @@ public class ClaudeComplianceIntegrationAccountBearerTokenAuthUpdate {
   }
 
   /**
-   * Secret token used to authenticate with Claude Compliance.
+   * Anthropic Admin API key (prefix <code>sk-ant-admin01-</code>) with the <code>
+   * read:compliance_activities</code> scope, or a dedicated Compliance Access key (prefix <code>
+   * sk-ant-api01-</code>). Generate an Admin API key in the Anthropic Console under
+   * <strong>Organization settings &gt; API keys</strong>.
    *
    * @return token
    */

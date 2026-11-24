@@ -74,7 +74,9 @@ public class OpenAICodexIntegrationAccountBearerTokenAuthUpdate {
   }
 
   /**
-   * Secret token used to authenticate with OpenAI Codex.
+   * Workspace-scoped OpenAI Admin key with the <code>codex.enterprise.analytics.read</code> scope.
+   * To collect turn metrics, also grant <code>
+   * chatgpt.enterprise.compliance_logs_platform.workspace_analytics.read</code> to the same key.
    *
    * @return token
    */

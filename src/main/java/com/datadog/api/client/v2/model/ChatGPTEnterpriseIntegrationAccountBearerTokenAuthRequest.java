@@ -76,7 +76,10 @@ public class ChatGPTEnterpriseIntegrationAccountBearerTokenAuthRequest {
   }
 
   /**
-   * Secret token used to authenticate with ChatGPT Enterprise.
+   * ChatGPT Enterprise admin API key with the <strong>Costs</strong> permission set to
+   * <strong>Read</strong> and every other permission category set to <strong>None</strong>. Create
+   * it in the <a href="https://admin.openai.com/credentials?tab=admin-keys">OpenAI Admin
+   * Console</a> of your ChatGPT Enterprise workspace, not in the API Platform admin-key console.
    *
    * @return token
    */
