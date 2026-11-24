@@ -1783,7 +1783,9 @@ public class AiGatewayApi {
   /**
    * Requires <code>ai_gateway_config_write</code> and provider Edit. Models and pricing inherit
    * provider access. Delete a manually managed model catalog entry by its canonical model ID.
-   * Discovered entries are read-only.
+   * Discovered entries are read-only. A canonical ID that contains <code>/</code> can't be sent in
+   * the path; use the <code>/api/v2/providers/{provider_id}/model</code> endpoint with the <code>
+   * canonical</code> query parameter instead.
    *
    * @param providerId Provider ID. (required)
    * @param canonical Canonical model identifier. (required)
@@ -1907,6 +1909,202 @@ public class AiGatewayApi {
               "v2.AiGatewayApi.deleteAiGatewayModel",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a provider model by canonical ID.
+   *
+   * <p>See {@link #deleteAIGatewayModelByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAIGatewayModelByCanonical(Long providerId, String canonical)
+      throws ApiException {
+    deleteAIGatewayModelByCanonicalWithHttpInfo(providerId, canonical);
+  }
+
+  /**
+   * Delete a provider model by canonical ID.
+   *
+   * <p>See {@link #deleteAIGatewayModelByCanonicalWithHttpInfoAsync}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteAIGatewayModelByCanonicalAsync(
+      Long providerId, String canonical) {
+    return deleteAIGatewayModelByCanonicalWithHttpInfoAsync(providerId, canonical)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a manually managed model catalog entry, naming the model in the <code>canonical</code>
+   * query parameter. Discovered entries are read-only. Unlike the endpoint that takes the canonical
+   * ID in the path, this one accepts canonical IDs that contain <code>/</code>. Requires <code>
+   * ai_gateway_config_write</code> and provider Edit. Models and pricing inherit provider access.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteAIGatewayModelByCanonicalWithHttpInfo(
+      Long providerId, String canonical) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAIGatewayModelByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'providerId' when calling"
+              + " deleteAIGatewayModelByCanonical");
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'canonical' when calling"
+              + " deleteAIGatewayModelByCanonical");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.deleteAIGatewayModelByCanonical",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a provider model by canonical ID.
+   *
+   * <p>See {@link #deleteAIGatewayModelByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteAIGatewayModelByCanonicalWithHttpInfoAsync(
+      Long providerId, String canonical) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAIGatewayModelByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'providerId' when calling"
+                  + " deleteAIGatewayModelByCanonical"));
+      return result;
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'canonical' when calling"
+                  + " deleteAIGatewayModelByCanonical"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.deleteAIGatewayModelByCanonical",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
@@ -9135,9 +9333,11 @@ public class AiGatewayApi {
   }
 
   /**
-   * Update a manually managed model catalog entry. Discovered entries are read-only. Requires
-   * <code>ai_gateway_config_write</code> and provider Edit. Models and pricing inherit provider
-   * access.
+   * Update a manually managed model catalog entry. Discovered entries are read-only. A canonical ID
+   * that contains <code>/</code> can't be sent in the path; use the <code>
+   * /api/v2/providers/{provider_id}/model</code> endpoint with the <code>canonical</code> query
+   * parameter instead. Requires <code>ai_gateway_config_write</code> and provider Edit. Models and
+   * pricing inherit provider access.
    *
    * @param providerId Provider ID. (required)
    * @param canonical Canonical model identifier. (required)
@@ -9284,6 +9484,232 @@ public class AiGatewayApi {
               "v2.AiGatewayApi.updateAiGatewayModel",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiGatewayModelCatalogEntryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayModelCatalogEntryResponse>() {});
+  }
+
+  /**
+   * Update a provider model by canonical ID.
+   *
+   * <p>See {@link #updateAIGatewayModelByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return AiGatewayModelCatalogEntryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiGatewayModelCatalogEntryResponse updateAIGatewayModelByCanonical(
+      Long providerId, String canonical, AiGatewayModelUpdateRequest body) throws ApiException {
+    return updateAIGatewayModelByCanonicalWithHttpInfo(providerId, canonical, body).getData();
+  }
+
+  /**
+   * Update a provider model by canonical ID.
+   *
+   * <p>See {@link #updateAIGatewayModelByCanonicalWithHttpInfoAsync}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;AiGatewayModelCatalogEntryResponse&gt;
+   */
+  public CompletableFuture<AiGatewayModelCatalogEntryResponse> updateAIGatewayModelByCanonicalAsync(
+      Long providerId, String canonical, AiGatewayModelUpdateRequest body) {
+    return updateAIGatewayModelByCanonicalWithHttpInfoAsync(providerId, canonical, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a manually managed model catalog entry, naming the model in the <code>canonical</code>
+   * query parameter. Discovered entries are read-only. Unlike the endpoint that takes the canonical
+   * ID in the path, this one accepts canonical IDs that contain <code>/</code>. Requires <code>
+   * ai_gateway_config_write</code> and provider Edit. Models and pricing inherit provider access.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;AiGatewayModelCatalogEntryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiGatewayModelCatalogEntryResponse>
+      updateAIGatewayModelByCanonicalWithHttpInfo(
+          Long providerId, String canonical, AiGatewayModelUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateAIGatewayModelByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'providerId' when calling"
+              + " updateAIGatewayModelByCanonical");
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'canonical' when calling"
+              + " updateAIGatewayModelByCanonical");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateAIGatewayModelByCanonical");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AiGatewayApi.updateAIGatewayModelByCanonical",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiGatewayModelCatalogEntryResponse>() {});
+  }
+
+  /**
+   * Update a provider model by canonical ID.
+   *
+   * <p>See {@link #updateAIGatewayModelByCanonicalWithHttpInfo}.
+   *
+   * @param providerId Provider ID. (required)
+   * @param canonical Canonical model identifier. It can contain <code>/</code>, such as <code>
+   *     openai/gpt-4o</code>. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiGatewayModelCatalogEntryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiGatewayModelCatalogEntryResponse>>
+      updateAIGatewayModelByCanonicalWithHttpInfoAsync(
+          Long providerId, String canonical, AiGatewayModelUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateAIGatewayModelByCanonical";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiGatewayModelCatalogEntryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'providerId' is set
+    if (providerId == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelCatalogEntryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'providerId' when calling"
+                  + " updateAIGatewayModelByCanonical"));
+      return result;
+    }
+
+    // verify the required parameter 'canonical' is set
+    if (canonical == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelCatalogEntryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'canonical' when calling"
+                  + " updateAIGatewayModelByCanonical"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AiGatewayModelCatalogEntryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateAIGatewayModelByCanonical"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/providers/{provider_id}/model"
+            .replaceAll(
+                "\\{" + "provider_id" + "\\}", apiClient.escapeString(providerId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "canonical", canonical));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AiGatewayApi.updateAIGatewayModelByCanonical",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},

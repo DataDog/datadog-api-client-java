@@ -1169,6 +1169,7 @@ public class ApiClient {
           put("v2.deleteAiGatewayBudget", false);
           put("v2.deleteAiGatewayDataCaptureOverride", false);
           put("v2.deleteAiGatewayModel", false);
+          put("v2.deleteAIGatewayModelByCanonical", false);
           put("v2.deleteAiGatewayModelGroup", false);
           put("v2.deleteAiGatewayModelPricing", false);
           put("v2.deleteAIGatewayModelPricingByCanonical", false);
@@ -1209,6 +1210,7 @@ public class ApiClient {
           put("v2.updateAiGatewayDataCaptureOverride", false);
           put("v2.updateAiGatewayGovernance", false);
           put("v2.updateAiGatewayModel", false);
+          put("v2.updateAIGatewayModelByCanonical", false);
           put("v2.updateAiGatewayModelGroup", false);
           put("v2.updateAiGatewayModelPricing", false);
           put("v2.updateAIGatewayModelPricingByCanonical", false);
