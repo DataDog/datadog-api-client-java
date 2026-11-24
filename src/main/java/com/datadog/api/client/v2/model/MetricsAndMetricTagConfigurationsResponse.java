@@ -63,7 +63,7 @@ public class MetricsAndMetricTagConfigurationsResponse {
   }
 
   /**
-   * Array of metrics and metric tag configurations.
+   * Array of metrics, metric tag configurations, and generated metrics.
    *
    * @return data
    */
