@@ -31,6 +31,8 @@ public class AiGatewaySupportedOperation extends ModelEnum<String> {
               "OPENAI_RESPONSES",
               "OPENAI_WEB_SEARCH",
               "OPENAI_EMBEDDINGS",
+              "OPENAI_DECISIONS",
+              "SYSTEM_ONE",
               "GEMINI_GENERATE_CONTENT",
               "GEMINI_RAW_PREDICTIONS"));
 
@@ -46,6 +48,10 @@ public class AiGatewaySupportedOperation extends ModelEnum<String> {
       new AiGatewaySupportedOperation("OPENAI_WEB_SEARCH");
   public static final AiGatewaySupportedOperation OPENAI_EMBEDDINGS =
       new AiGatewaySupportedOperation("OPENAI_EMBEDDINGS");
+  public static final AiGatewaySupportedOperation OPENAI_DECISIONS =
+      new AiGatewaySupportedOperation("OPENAI_DECISIONS");
+  public static final AiGatewaySupportedOperation SYSTEM_ONE =
+      new AiGatewaySupportedOperation("SYSTEM_ONE");
   public static final AiGatewaySupportedOperation GEMINI_GENERATE_CONTENT =
       new AiGatewaySupportedOperation("GEMINI_GENERATE_CONTENT");
   public static final AiGatewaySupportedOperation GEMINI_RAW_PREDICTIONS =
