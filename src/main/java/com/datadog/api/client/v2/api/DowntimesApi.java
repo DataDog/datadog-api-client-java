@@ -343,9 +343,9 @@ public class DowntimesApi {
      * Set withRunAs.
      *
      * @param withRunAs If <code>true</code>, include the <code>run_as</code> attribute in the
-     *     response, which lists the principals allowed to act on behalf of the downtime.
-     *     <strong>Note</strong>: This feature is currently in Preview and may not be available for
-     *     all organizations. (optional, default to false)
+     *     response, which lists the user the downtime runs as. <strong>Note</strong>: This feature
+     *     is currently in Preview and may not be available for all organizations. (optional,
+     *     default to false)
      * @return GetDowntimeOptionalParameters
      */
     public GetDowntimeOptionalParameters withRunAs(Boolean withRunAs) {
