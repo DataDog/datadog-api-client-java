@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Aggregate counts for the matching Agent Health issues. Present only when <code>
- * count_by=issue_type</code> is requested.
+ * Pagination metadata for the matching Agent Health issues. Always present. Includes per-issue-type
+ * counts only when <code>count_by=issue_type</code> is requested.
  */
 @JsonPropertyOrder({AgentHealthIssuesResponseMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
@@ -46,7 +46,7 @@ public class AgentHealthIssuesResponseMeta {
   }
 
   /**
-   * Counts for the matching Agent Health issues.
+   * Pagination details and counts for the matching Agent Health issues.
    *
    * @return page
    */

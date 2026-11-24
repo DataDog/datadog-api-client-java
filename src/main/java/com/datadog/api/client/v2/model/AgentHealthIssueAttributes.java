@@ -67,13 +67,13 @@ public class AgentHealthIssueAttributes {
   private String resourceId;
 
   public static final String JSON_PROPERTY_RESOURCE_KIND = "resource_kind";
-  private String resourceKind;
+  private AgentHealthIssueResourceKind resourceKind;
 
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resource_type";
   private String resourceType;
 
   public static final String JSON_PROPERTY_SEVERITY = "severity";
-  private String severity;
+  private AgentHealthIssueSeverity severity;
 
   public static final String JSON_PROPERTY_STATE = "state";
   private String state;
@@ -94,14 +94,18 @@ public class AgentHealthIssueAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_ISSUE_NAME) String issueName,
       @JsonProperty(required = true, value = JSON_PROPERTY_ISSUE_TYPE) String issueType,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_ID) String resourceId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_KIND) String resourceKind,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEVERITY) String severity,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_KIND)
+          AgentHealthIssueResourceKind resourceKind,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SEVERITY)
+          AgentHealthIssueSeverity severity,
       @JsonProperty(required = true, value = JSON_PROPERTY_STATE) String state) {
     this.issueName = issueName;
     this.issueType = issueType;
     this.resourceId = resourceId;
     this.resourceKind = resourceKind;
+    this.unparsed |= !resourceKind.isValid();
     this.severity = severity;
+    this.unparsed |= !severity.isValid();
     this.state = state;
   }
 
@@ -286,24 +290,30 @@ public class AgentHealthIssueAttributes {
     this.resourceId = resourceId;
   }
 
-  public AgentHealthIssueAttributes resourceKind(String resourceKind) {
+  public AgentHealthIssueAttributes resourceKind(AgentHealthIssueResourceKind resourceKind) {
     this.resourceKind = resourceKind;
+    this.unparsed |= !resourceKind.isValid();
     return this;
   }
 
   /**
-   * The kind of affected resource. Known values are <code>host</code>, <code>deployment</code>,
-   * <code>cluster</code>, <code>cluster_agent</code>, and <code>otel</code>.
+   * The kind of affected resource. The meaning of <code>resource_id</code> depends on this:
+   * hostname for <code>host</code>, DaemonSet UID for <code>deployment</code> (node Agent), cluster
+   * UUID for <code>cluster</code>, hostname of the host running the Cluster Agent for <code>
+   * cluster_agent</code>, or OpenTelemetry collector ID for <code>otel</code>.
    *
    * @return resourceKind
    */
   @JsonProperty(JSON_PROPERTY_RESOURCE_KIND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getResourceKind() {
+  public AgentHealthIssueResourceKind getResourceKind() {
     return resourceKind;
   }
 
-  public void setResourceKind(String resourceKind) {
+  public void setResourceKind(AgentHealthIssueResourceKind resourceKind) {
+    if (!resourceKind.isValid()) {
+      this.unparsed = true;
+    }
     this.resourceKind = resourceKind;
   }
 
@@ -328,24 +338,27 @@ public class AgentHealthIssueAttributes {
     this.resourceType = resourceType;
   }
 
-  public AgentHealthIssueAttributes severity(String severity) {
+  public AgentHealthIssueAttributes severity(AgentHealthIssueSeverity severity) {
     this.severity = severity;
+    this.unparsed |= !severity.isValid();
     return this;
   }
 
   /**
-   * The severity of the issue. Known values are <code>low</code>, <code>medium</code>, <code>high
-   * </code>, and <code>unknown</code>.
+   * The severity of the issue.
    *
    * @return severity
    */
   @JsonProperty(JSON_PROPERTY_SEVERITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSeverity() {
+  public AgentHealthIssueSeverity getSeverity() {
     return severity;
   }
 
-  public void setSeverity(String severity) {
+  public void setSeverity(AgentHealthIssueSeverity severity) {
+    if (!severity.isValid()) {
+      this.unparsed = true;
+    }
     this.severity = severity;
   }
 
@@ -355,7 +368,7 @@ public class AgentHealthIssueAttributes {
   }
 
   /**
-   * The state of the issue. Only issues with state <code>open</code> are returned.
+   * The state of the issue, such as <code>open</code>.
    *
    * @return state
    */

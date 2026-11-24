@@ -38,11 +38,15 @@ public class AgentHealthIssuesResponse {
 
   @JsonCreator
   public AgentHealthIssuesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AgentHealthIssueData> data) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AgentHealthIssueData> data,
+      @JsonProperty(required = true, value = JSON_PROPERTY_META)
+          AgentHealthIssuesResponseMeta meta) {
     this.data = data;
     for (AgentHealthIssueData item : data) {
       this.unparsed |= item.unparsed;
     }
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
   }
 
   public AgentHealthIssuesResponse data(List<AgentHealthIssueData> data) {
@@ -86,14 +90,13 @@ public class AgentHealthIssuesResponse {
   }
 
   /**
-   * Aggregate counts for the matching Agent Health issues. Present only when <code>
-   * count_by=issue_type</code> is requested.
+   * Pagination metadata for the matching Agent Health issues. Always present. Includes
+   * per-issue-type counts only when <code>count_by=issue_type</code> is requested.
    *
    * @return meta
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public AgentHealthIssuesResponseMeta getMeta() {
     return meta;
   }
