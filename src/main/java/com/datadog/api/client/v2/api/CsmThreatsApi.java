@@ -86,9 +86,6 @@ public class CsmThreatsApi {
   /**
    * Create a new Workload Protection policy with the given parameters.
    *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
-   *
    * @param body The definition of the new Agent policy (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentPolicyResponse&gt;
    * @throws ApiException if fails to make API call
@@ -241,9 +238,6 @@ public class CsmThreatsApi {
    * <p>This endpoint does not accept <code>kill</code> or <code>network_filter</code> actions, or
    * <code>blocking</code> policies. A request that contains them returns a <code>400</code> error.
    *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
-   *
    * @param body The definition of the new agent rule (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -378,9 +372,6 @@ public class CsmThreatsApi {
    * Delete a specific Workload Protection policy.
    *
    * <p>Datadog-managed policies cannot be deleted. This action cannot be undone.
-   *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
    *
    * @param policyId The ID of the Agent policy (required)
    * @return ApiResponse&lt;Void&gt;
@@ -574,9 +565,6 @@ public class CsmThreatsApi {
    * <p>The rule is removed from every policy that contains it. Datadog-managed rules cannot be
    * deleted. This action cannot be undone.
    *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
-   *
    * @param agentRuleId The ID of the Agent rule (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Void&gt;
@@ -728,9 +716,6 @@ public class CsmThreatsApi {
    * Workload Protection agent rules, and downloads them as a <code>.policy</code> file. This file
    * can then be deployed to your agents to update the policy running in your environment.
    *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
-   *
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -818,7 +803,9 @@ public class CsmThreatsApi {
    * @param agentRuleId The ID of the Agent rule (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CloudWorkloadSecurityAgentRuleResponse getCloudWorkloadSecurityAgentRule(
       String agentRuleId) throws ApiException {
     return getCloudWorkloadSecurityAgentRuleWithHttpInfo(agentRuleId).getData();
@@ -831,7 +818,9 @@ public class CsmThreatsApi {
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse>
       getCloudWorkloadSecurityAgentRuleAsync(String agentRuleId) {
     return getCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(agentRuleId)
@@ -842,9 +831,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the details of a specific agent rule.
+   * <strong>Note</strong>: This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/csm-threats/#get-a-workload-protection-agent-rule">Get
+   * a Workload Protection agent rule</a> instead, on all sites including US1-FED.
    *
-   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
+   * <p>Get the details of a specific agent rule.
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
@@ -858,7 +849,10 @@ public class CsmThreatsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CloudWorkloadSecurityAgentRuleResponse>
       getCloudWorkloadSecurityAgentRuleWithHttpInfo(String agentRuleId) throws ApiException {
     Object localVarPostBody = null;
@@ -905,7 +899,9 @@ public class CsmThreatsApi {
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
       getCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(String agentRuleId) {
     Object localVarPostBody = null;
@@ -990,9 +986,6 @@ public class CsmThreatsApi {
 
   /**
    * Get the details of a specific Workload Protection policy.
-   *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
    *
    * @param policyId The ID of the Agent policy (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentPolicyResponse&gt;
@@ -1186,9 +1179,6 @@ public class CsmThreatsApi {
   /**
    * Get the details of a specific Workload Protection agent rule.
    *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
-   *
    * @param agentRuleId The ID of the Agent rule (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
@@ -1315,7 +1305,9 @@ public class CsmThreatsApi {
    *
    * @return CloudWorkloadSecurityAgentRulesListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CloudWorkloadSecurityAgentRulesListResponse listCloudWorkloadSecurityAgentRules()
       throws ApiException {
     return listCloudWorkloadSecurityAgentRulesWithHttpInfo().getData();
@@ -1327,7 +1319,9 @@ public class CsmThreatsApi {
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CloudWorkloadSecurityAgentRulesListResponse>
       listCloudWorkloadSecurityAgentRulesAsync() {
     return listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync()
@@ -1338,9 +1332,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the list of agent rules.
+   * <strong>Note</strong>: This endpoint is deprecated. Use <a
+   * href="https://docs.datadoghq.com/api/latest/csm-threats/#get-all-workload-protection-agent-rules">Get
+   * all Workload Protection agent rules</a> instead, on all sites including US1-FED.
    *
-   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
+   * <p>Get the list of agent rules.
    *
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1352,7 +1348,10 @@ public class CsmThreatsApi {
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CloudWorkloadSecurityAgentRulesListResponse>
       listCloudWorkloadSecurityAgentRulesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
@@ -1387,7 +1386,9 @@ public class CsmThreatsApi {
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRulesListResponse>>
       listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -1455,9 +1456,6 @@ public class CsmThreatsApi {
 
   /**
    * Get the list of Workload Protection policies.
-   *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
    *
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentPoliciesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1626,9 +1624,6 @@ public class CsmThreatsApi {
    * <p>Set <code>policy_id</code> to only return the rules of one policy. Without it, the rules of
    * all policies are returned.
    *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
-   *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1760,9 +1755,6 @@ public class CsmThreatsApi {
   /**
    * Update a specific Workload Protection policy. Returns the policy object when the request is
    * successful.
-   *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
    *
    * @param policyId The ID of the Agent policy (required)
    * @param body New definition of the Agent policy (required)
@@ -1998,9 +1990,6 @@ public class CsmThreatsApi {
    *
    * <p>This endpoint does not accept <code>kill</code> or <code>network_filter</code> actions, or
    * <code>blocking</code> policies. A request that contains them returns a <code>400</code> error.
-   *
-   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
-   * Please reference the (US1-FED) specific resource below.
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @param body New definition of the agent rule (required)
