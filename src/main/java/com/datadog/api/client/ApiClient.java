@@ -1581,6 +1581,11 @@ public class ApiClient {
           put("v2.getElasticCloudIntegrationAccount", false);
           put("v2.listElasticCloudIntegrationAccounts", false);
           put("v2.updateElasticCloudIntegrationAccount", false);
+          put("v2.createGitHubCostsIntegrationAccount", false);
+          put("v2.deleteGitHubCostsIntegrationAccount", false);
+          put("v2.getGitHubCostsIntegrationAccount", false);
+          put("v2.listGitHubCostsIntegrationAccounts", false);
+          put("v2.updateGitHubCostsIntegrationAccount", false);
           put("v2.createNebiusCloudIntegrationAccount", false);
           put("v2.deleteNebiusCloudIntegrationAccount", false);
           put("v2.getNebiusCloudIntegrationAccount", false);
