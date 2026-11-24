@@ -27,11 +27,13 @@ import java.util.Objects;
   HistoricalJobQuery.JSON_PROPERTY_CUSTOM_QUERY_EXTENSION,
   HistoricalJobQuery.JSON_PROPERTY_DATA_SOURCE,
   HistoricalJobQuery.JSON_PROPERTY_DATASET_IDS,
+  HistoricalJobQuery.JSON_PROPERTY_DATASET_VERSIONS,
   HistoricalJobQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   HistoricalJobQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   HistoricalJobQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
   HistoricalJobQuery.JSON_PROPERTY_INDEX,
   HistoricalJobQuery.JSON_PROPERTY_INDEXES,
+  HistoricalJobQuery.JSON_PROPERTY_METRIC,
   HistoricalJobQuery.JSON_PROPERTY_METRICS,
   HistoricalJobQuery.JSON_PROPERTY_NAME,
   HistoricalJobQuery.JSON_PROPERTY_QUERY,
@@ -63,6 +65,9 @@ public class HistoricalJobQuery {
   public static final String JSON_PROPERTY_DATASET_IDS = "datasetIds";
   private List<String> datasetIds = null;
 
+  public static final String JSON_PROPERTY_DATASET_VERSIONS = "datasetVersions";
+  private Map<String, Long> datasetVersions = null;
+
   public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
   private List<String> distinctFields = null;
 
@@ -78,6 +83,9 @@ public class HistoricalJobQuery {
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
+
+  public static final String JSON_PROPERTY_METRIC = "metric";
+  private String metric;
 
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private List<String> metrics = null;
@@ -264,6 +272,18 @@ public class HistoricalJobQuery {
     this.datasetIds = datasetIds;
   }
 
+  /**
+   * Version of each dataset used by the job, keyed by dataset ID. Pinned when the job is created.
+   *
+   * @return datasetVersions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATASET_VERSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Long> getDatasetVersions() {
+    return datasetVersions;
+  }
+
   public HistoricalJobQuery distinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
     return this;
@@ -392,6 +412,31 @@ public class HistoricalJobQuery {
 
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
+  }
+
+  public HistoricalJobQuery metric(String metric) {
+    this.metric = metric;
+    return this;
+  }
+
+  /**
+   * (Deprecated) The target field to aggregate over when using the sum or max aggregations. Use the
+   * <code>metrics</code> field instead.
+   *
+   * @return metric
+   * @deprecated
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
+
+  @Deprecated
+  public void setMetric(String metric) {
+    this.metric = metric;
   }
 
   public HistoricalJobQuery metrics(List<String> metrics) {
@@ -551,12 +596,14 @@ public class HistoricalJobQuery {
         && Objects.equals(this.customQueryExtension, historicalJobQuery.customQueryExtension)
         && Objects.equals(this.dataSource, historicalJobQuery.dataSource)
         && Objects.equals(this.datasetIds, historicalJobQuery.datasetIds)
+        && Objects.equals(this.datasetVersions, historicalJobQuery.datasetVersions)
         && Objects.equals(this.distinctFields, historicalJobQuery.distinctFields)
         && Objects.equals(this.groupByFields, historicalJobQuery.groupByFields)
         && Objects.equals(
             this.hasOptionalGroupByFields, historicalJobQuery.hasOptionalGroupByFields)
         && Objects.equals(this.index, historicalJobQuery.index)
         && Objects.equals(this.indexes, historicalJobQuery.indexes)
+        && Objects.equals(this.metric, historicalJobQuery.metric)
         && Objects.equals(this.metrics, historicalJobQuery.metrics)
         && Objects.equals(this.name, historicalJobQuery.name)
         && Objects.equals(this.query, historicalJobQuery.query)
@@ -574,11 +621,13 @@ public class HistoricalJobQuery {
         customQueryExtension,
         dataSource,
         datasetIds,
+        datasetVersions,
         distinctFields,
         groupByFields,
         hasOptionalGroupByFields,
         index,
         indexes,
+        metric,
         metrics,
         name,
         query,
@@ -601,6 +650,7 @@ public class HistoricalJobQuery {
         .append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    datasetIds: ").append(toIndentedString(datasetIds)).append("\n");
+    sb.append("    datasetVersions: ").append(toIndentedString(datasetVersions)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    hasOptionalGroupByFields: ")
@@ -608,6 +658,7 @@ public class HistoricalJobQuery {
         .append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
+    sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

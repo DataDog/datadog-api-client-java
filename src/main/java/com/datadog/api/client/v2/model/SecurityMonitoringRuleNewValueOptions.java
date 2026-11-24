@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_FORGET_AFTER,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_INSTANTANEOUS_BASELINE,
+  SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_INSTANTANEOUS_BASELINE_TIMEOUT_MINUTES,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_DURATION,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_METHOD,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_THRESHOLD
@@ -33,6 +34,10 @@ public class SecurityMonitoringRuleNewValueOptions {
 
   public static final String JSON_PROPERTY_INSTANTANEOUS_BASELINE = "instantaneousBaseline";
   private Boolean instantaneousBaseline;
+
+  public static final String JSON_PROPERTY_INSTANTANEOUS_BASELINE_TIMEOUT_MINUTES =
+      "instantaneousBaselineTimeoutMinutes";
+  private Integer instantaneousBaselineTimeoutMinutes;
 
   public static final String JSON_PROPERTY_LEARNING_DURATION = "learningDuration";
   private Integer learningDuration = 0;
@@ -88,6 +93,29 @@ public class SecurityMonitoringRuleNewValueOptions {
 
   public void setInstantaneousBaseline(Boolean instantaneousBaseline) {
     this.instantaneousBaseline = instantaneousBaseline;
+  }
+
+  public SecurityMonitoringRuleNewValueOptions instantaneousBaselineTimeoutMinutes(
+      Integer instantaneousBaselineTimeoutMinutes) {
+    this.instantaneousBaselineTimeoutMinutes = instantaneousBaselineTimeoutMinutes;
+    return this;
+  }
+
+  /**
+   * Maximum time in minutes to build the instantaneous baseline. Only used when <code>
+   * instantaneousBaseline</code> is true. minimum: 0 maximum: 360
+   *
+   * @return instantaneousBaselineTimeoutMinutes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INSTANTANEOUS_BASELINE_TIMEOUT_MINUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getInstantaneousBaselineTimeoutMinutes() {
+    return instantaneousBaselineTimeoutMinutes;
+  }
+
+  public void setInstantaneousBaselineTimeoutMinutes(Integer instantaneousBaselineTimeoutMinutes) {
+    this.instantaneousBaselineTimeoutMinutes = instantaneousBaselineTimeoutMinutes;
   }
 
   public SecurityMonitoringRuleNewValueOptions learningDuration(Integer learningDuration) {
@@ -229,6 +257,9 @@ public class SecurityMonitoringRuleNewValueOptions {
         && Objects.equals(
             this.instantaneousBaseline, securityMonitoringRuleNewValueOptions.instantaneousBaseline)
         && Objects.equals(
+            this.instantaneousBaselineTimeoutMinutes,
+            securityMonitoringRuleNewValueOptions.instantaneousBaselineTimeoutMinutes)
+        && Objects.equals(
             this.learningDuration, securityMonitoringRuleNewValueOptions.learningDuration)
         && Objects.equals(this.learningMethod, securityMonitoringRuleNewValueOptions.learningMethod)
         && Objects.equals(
@@ -242,6 +273,7 @@ public class SecurityMonitoringRuleNewValueOptions {
     return Objects.hash(
         forgetAfter,
         instantaneousBaseline,
+        instantaneousBaselineTimeoutMinutes,
         learningDuration,
         learningMethod,
         learningThreshold,
@@ -255,6 +287,9 @@ public class SecurityMonitoringRuleNewValueOptions {
     sb.append("    forgetAfter: ").append(toIndentedString(forgetAfter)).append("\n");
     sb.append("    instantaneousBaseline: ")
         .append(toIndentedString(instantaneousBaseline))
+        .append("\n");
+    sb.append("    instantaneousBaselineTimeoutMinutes: ")
+        .append(toIndentedString(instantaneousBaselineTimeoutMinutes))
         .append("\n");
     sb.append("    learningDuration: ").append(toIndentedString(learningDuration)).append("\n");
     sb.append("    learningMethod: ").append(toIndentedString(learningMethod)).append("\n");
