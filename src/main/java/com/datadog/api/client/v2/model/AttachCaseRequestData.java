@@ -53,7 +53,8 @@ public class AttachCaseRequestData {
   }
 
   /**
-   * Unique identifier of the case.
+   * Unique identifier of the case. This field is required but not used: the API attaches security
+   * findings to the case in the <code>case_id</code> path parameter.
    *
    * @return id
    */

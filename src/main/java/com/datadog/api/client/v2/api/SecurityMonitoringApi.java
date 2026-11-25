@@ -656,7 +656,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #attachCaseWithHttpInfo}.
    *
-   * @param caseId Unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier (UUID) or key (for example, <code>PROJ-123</code>) of the case
+   *     to attach security findings to. (required)
    * @param body (required)
    * @return FindingCaseResponse
    * @throws ApiException if fails to make API call
@@ -670,7 +671,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #attachCaseWithHttpInfoAsync}.
    *
-   * @param caseId Unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier (UUID) or key (for example, <code>PROJ-123</code>) of the case
+   *     to attach security findings to. (required)
    * @param body (required)
    * @return CompletableFuture&lt;FindingCaseResponse&gt;
    */
@@ -684,11 +686,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Attach security findings to a case. You can attach up to 50 security findings per case.
-   * Security findings that are already attached to another case will be detached from their
+   * Attach security findings to a case. Identify the existing Case Management case with the <code>
+   * case_id</code> path parameter, using the case <code>id</code> or <code>key</code> that <code>
+   * SearchCases</code> or <code>CreateCases</code> returns. To open a new case for security
+   * findings, use <code>CreateCases</code> instead. You can attach up to 50 security findings per
+   * case. Security findings that are already attached to another case will be detached from their
    * previous case and attached to the specified case.
    *
-   * @param caseId Unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier (UUID) or key (for example, <code>PROJ-123</code>) of the case
+   *     to attach security findings to. (required)
    * @param body (required)
    * @return ApiResponse&lt;FindingCaseResponse&gt;
    * @throws ApiException if fails to make API call
@@ -748,7 +754,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #attachCaseWithHttpInfo}.
    *
-   * @param caseId Unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier (UUID) or key (for example, <code>PROJ-123</code>) of the case
+   *     to attach security findings to. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponse&gt;&gt;
    */
@@ -3593,9 +3600,10 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create cases for security findings. You can create up to 50 cases per request and associate up
-   * to 50 security findings per case. Security findings that are already attached to another case
-   * will be detached from their previous case and attached to the newly created case.
+   * Create cases for security findings. To add security findings to a case that already exists, use
+   * <code>AttachCase</code> instead. You can create up to 50 cases per request and associate up to
+   * 50 security findings per case. Security findings that are already attached to another case will
+   * be detached from their previous case and attached to the newly created case.
    *
    * @param body (required)
    * @return ApiResponse&lt;FindingCaseResponseArray&gt;
@@ -10308,9 +10316,11 @@ public class SecurityMonitoringApi {
 
   /**
    * Detach security findings from their case. This operation dissociates security findings from
-   * their associated cases without deleting the cases themselves. You can detach security findings
-   * from multiple different cases in a single request, with a limit of 50 security findings per
-   * request. Security findings that are not currently attached to any case will be ignored.
+   * their associated cases without deleting the cases themselves. List the security findings to
+   * detach in <code>data.relationships.findings</code>. The API detaches each one from its current
+   * case, so you don't need to pass a case ID. You can detach security findings from multiple
+   * different cases in a single request, with a limit of 50 security findings per request. Security
+   * findings that are not currently attached to any case will be ignored.
    *
    * @param body (required)
    * @return ApiResponse&lt;Void&gt;
@@ -28141,13 +28151,17 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Mute or unmute security findings. You can mute or unmute up to 100 security findings per
-   * request. The request body must include <code>is_muted</code> and <code>reason</code>
-   * attributes. The allowed reasons depend on whether the finding is being muted or unmuted: - To
-   * mute a finding: <code>PENDING_FIX</code>, <code>FALSE_POSITIVE</code>, <code>OTHER</code>,
-   * <code>NO_FIX</code>, <code>DUPLICATE</code>, <code>RISK_ACCEPTED</code>. - To unmute a finding:
-   * <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>NO_LONGER_ACCEPTED_RISK</code>,
-   * <code>OTHER</code>.
+   * Mute or unmute security findings. Mute security findings that you want to ignore, such as false
+   * positives, accepted risks, or findings with a pending fix. Datadog issue explorers hide muted
+   * findings by default, and muted misconfigurations no longer count toward the posture score.
+   * Datadog automatically unmutes findings when their <code>expire_at</code> date passes. To unmute
+   * them earlier, set <code>is_muted</code> to <code>false</code>. You can mute or unmute up to 100
+   * security findings per request. The request body must include <code>is_muted</code> and <code>
+   * reason</code> attributes. The allowed reasons depend on whether the finding is being muted or
+   * unmuted: - To mute a finding: <code>PENDING_FIX</code>, <code>FALSE_POSITIVE</code>, <code>
+   * OTHER</code>, <code>NO_FIX</code>, <code>DUPLICATE</code>, <code>RISK_ACCEPTED</code>. - To
+   * unmute a finding: <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
+   * NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>.
    *
    * @param body (required)
    * @return ApiResponse&lt;MuteFindingsResponse&gt;
@@ -32041,12 +32055,13 @@ public class SecurityMonitoringApi {
    * Set or clear the manual severity override of security findings.
    *
    * <p>You can update up to 100 security findings per request. Use the <code>set</code> action with
-   * a <code>value</code> to apply a manual severity override. <code>value</code> is required for
-   * <code>set</code> and must be omitted for <code>clear</code>. The <code>info</code> value sets
-   * the lowest severity the finding type allows. Use the <code>clear</code> action to remove a
-   * manual severity override. <code>clear</code> does not remove a severity set by an automation
-   * rule. The optional <code>description</code> is accepted with both actions and has a limit of
-   * 280 characters.
+   * a <code>value</code> to apply a manual severity override. The allowed values are <code>critical
+   * </code>, <code>high</code>, <code>medium</code>, <code>low</code>, and <code>info</code>.
+   * <code>value</code> is required for <code>set</code> and must be omitted for <code>clear</code>.
+   * The <code>info</code> value sets the lowest severity the finding type allows. Use the <code>
+   * clear</code> action to remove a manual severity override. <code>clear</code> does not remove a
+   * severity set by an automation rule. The optional <code>description</code> is accepted with both
+   * actions and has a limit of 280 characters.
    *
    * <p>Auto-closed findings are excluded. Findings whose severity was set by an automation rule are
    * skipped and listed in the response <code>meta.warnings</code>. If every finding is skipped this
