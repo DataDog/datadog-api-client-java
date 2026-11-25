@@ -1,0 +1,28 @@
+// Add RUM replay session to playlist returns "OK" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.RumReplayPlaylistsApi;
+import com.datadog.api.client.v2.model.PlaylistsSession;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    RumReplayPlaylistsApi apiInstance = new RumReplayPlaylistsApi(defaultClient);
+
+    try {
+      PlaylistsSession result =
+          apiInstance.addRUMReplaySessionToPlaylist(
+              1704067200000L, 1234567L, "00000000-0000-0000-0000-000000000001");
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+          "Exception when calling RumReplayPlaylistsApi#addRUMReplaySessionToPlaylist");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}

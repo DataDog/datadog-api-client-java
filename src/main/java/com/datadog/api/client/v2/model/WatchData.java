@@ -100,7 +100,7 @@ public class WatchData {
   }
 
   /**
-   * Rum replay watch resource type.
+   * RUM replay watch resource type.
    *
    * @return type
    */

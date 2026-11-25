@@ -3,11 +3,11 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumManagedArchivesApi;
-import com.datadog.api.client.v2.model.RumArchiveConfigResponse;
-import com.datadog.api.client.v2.model.RumArchiveConfigType;
-import com.datadog.api.client.v2.model.RumArchiveConfigUpsertAttributes;
-import com.datadog.api.client.v2.model.RumArchiveConfigUpsertData;
-import com.datadog.api.client.v2.model.RumArchiveConfigUpsertRequest;
+import com.datadog.api.client.v2.model.RUMArchiveConfigResponse;
+import com.datadog.api.client.v2.model.RUMArchiveConfigType;
+import com.datadog.api.client.v2.model.RUMArchiveConfigUpsertAttributes;
+import com.datadog.api.client.v2.model.RUMArchiveConfigUpsertData;
+import com.datadog.api.client.v2.model.RUMArchiveConfigUpsertRequest;
 import java.util.UUID;
 
 public class Example {
@@ -15,17 +15,17 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumManagedArchivesApi apiInstance = new RumManagedArchivesApi(defaultClient);
 
-    RumArchiveConfigUpsertRequest body =
-        new RumArchiveConfigUpsertRequest()
+    RUMArchiveConfigUpsertRequest body =
+        new RUMArchiveConfigUpsertRequest()
             .data(
-                new RumArchiveConfigUpsertData()
+                new RUMArchiveConfigUpsertData()
                     .attributes(
-                        new RumArchiveConfigUpsertAttributes().enabled(true).retentionDays(90))
+                        new RUMArchiveConfigUpsertAttributes().enabled(true).retentionDays(90))
                     .id("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690")
-                    .type(RumArchiveConfigType.RUM_ARCHIVE_CONFIG));
+                    .type(RUMArchiveConfigType.RUM_ARCHIVE_CONFIG));
 
     try {
-      RumArchiveConfigResponse result =
+      RUMArchiveConfigResponse result =
           apiInstance.updateRUMArchiveConfig(
               UUID.fromString("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690"), body);
       System.out.println(result);

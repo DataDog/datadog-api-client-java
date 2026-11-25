@@ -4,7 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumManagedArchivesApi;
 import com.datadog.api.client.v2.api.RumManagedArchivesApi.ListRUMArchiveConfigsOptionalParameters;
-import com.datadog.api.client.v2.model.RumArchiveConfigListResponse;
+import com.datadog.api.client.v2.model.RUMArchiveConfigListResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class Example {
     RumManagedArchivesApi apiInstance = new RumManagedArchivesApi(defaultClient);
 
     try {
-      RumArchiveConfigListResponse result =
+      RUMArchiveConfigListResponse result =
           apiInstance.listRUMArchiveConfigs(
               new ListRUMArchiveConfigsOptionalParameters().pageNumber(0).pageSize(1));
       System.out.println(result);

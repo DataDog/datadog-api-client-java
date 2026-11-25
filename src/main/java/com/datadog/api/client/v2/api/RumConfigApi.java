@@ -4,9 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.RumConfigCreateRequest;
-import com.datadog.api.client.v2.model.RumConfigResponse;
-import com.datadog.api.client.v2.model.RumConfigUpdateRequest;
+import com.datadog.api.client.v2.model.RUMConfigCreateRequest;
+import com.datadog.api.client.v2.model.RUMConfigResponse;
+import com.datadog.api.client.v2.model.RUMConfigUpdateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -48,26 +48,26 @@ public class RumConfigApi {
   /**
    * Create the RUM configuration.
    *
-   * <p>See {@link #createRumConfigWithHttpInfo}.
+   * <p>See {@link #createRUMConfigWithHttpInfo}.
    *
    * @param body The definition of the RUM configuration to create. (required)
-   * @return RumConfigResponse
+   * @return RUMConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumConfigResponse createRumConfig(RumConfigCreateRequest body) throws ApiException {
-    return createRumConfigWithHttpInfo(body).getData();
+  public RUMConfigResponse createRUMConfig(RUMConfigCreateRequest body) throws ApiException {
+    return createRUMConfigWithHttpInfo(body).getData();
   }
 
   /**
    * Create the RUM configuration.
    *
-   * <p>See {@link #createRumConfigWithHttpInfoAsync}.
+   * <p>See {@link #createRUMConfigWithHttpInfoAsync}.
    *
    * @param body The definition of the RUM configuration to create. (required)
-   * @return CompletableFuture&lt;RumConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMConfigResponse&gt;
    */
-  public CompletableFuture<RumConfigResponse> createRumConfigAsync(RumConfigCreateRequest body) {
-    return createRumConfigWithHttpInfoAsync(body)
+  public CompletableFuture<RUMConfigResponse> createRUMConfigAsync(RUMConfigCreateRequest body) {
+    return createRUMConfigWithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -79,7 +79,7 @@ public class RumConfigApi {
    * the request body when the request is successful.
    *
    * @param body The definition of the RUM configuration to create. (required)
-   * @return ApiResponse&lt;RumConfigResponse&gt;
+   * @return ApiResponse&lt;RUMConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -91,10 +91,10 @@ public class RumConfigApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumConfigResponse> createRumConfigWithHttpInfo(RumConfigCreateRequest body)
+  public ApiResponse<RUMConfigResponse> createRUMConfigWithHttpInfo(RUMConfigCreateRequest body)
       throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "createRumConfig";
+    String operationId = "createRUMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -105,7 +105,7 @@ public class RumConfigApi {
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createRumConfig");
+          400, "Missing the required parameter 'body' when calling createRUMConfig");
     }
     // create path and map variables
     String localVarPath = "/api/v2/rum/config";
@@ -114,7 +114,7 @@ public class RumConfigApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumConfigApi.createRumConfig",
+            "v2.RumConfigApi.createRUMConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -129,25 +129,25 @@ public class RumConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumConfigResponse>() {});
+        new GenericType<RUMConfigResponse>() {});
   }
 
   /**
    * Create the RUM configuration.
    *
-   * <p>See {@link #createRumConfigWithHttpInfo}.
+   * <p>See {@link #createRUMConfigWithHttpInfo}.
    *
    * @param body The definition of the RUM configuration to create. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumConfigResponse>> createRumConfigWithHttpInfoAsync(
-      RumConfigCreateRequest body) {
+  public CompletableFuture<ApiResponse<RUMConfigResponse>> createRUMConfigWithHttpInfoAsync(
+      RUMConfigCreateRequest body) {
     // Check if unstable operation is enabled
-    String operationId = "createRumConfig";
+    String operationId = "createRUMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -156,10 +156,10 @@ public class RumConfigApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling createRumConfig"));
+              400, "Missing the required parameter 'body' when calling createRUMConfig"));
       return result;
     }
     // create path and map variables
@@ -171,7 +171,7 @@ public class RumConfigApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumConfigApi.createRumConfig",
+              "v2.RumConfigApi.createRUMConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -179,7 +179,7 @@ public class RumConfigApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -191,30 +191,30 @@ public class RumConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumConfigResponse>() {});
+        new GenericType<RUMConfigResponse>() {});
   }
 
   /**
    * Get the RUM configuration.
    *
-   * <p>See {@link #getRumConfigWithHttpInfo}.
+   * <p>See {@link #getRUMConfigWithHttpInfo}.
    *
-   * @return RumConfigResponse
+   * @return RUMConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumConfigResponse getRumConfig() throws ApiException {
-    return getRumConfigWithHttpInfo().getData();
+  public RUMConfigResponse getRUMConfig() throws ApiException {
+    return getRUMConfigWithHttpInfo().getData();
   }
 
   /**
    * Get the RUM configuration.
    *
-   * <p>See {@link #getRumConfigWithHttpInfoAsync}.
+   * <p>See {@link #getRUMConfigWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;RumConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMConfigResponse&gt;
    */
-  public CompletableFuture<RumConfigResponse> getRumConfigAsync() {
-    return getRumConfigWithHttpInfoAsync()
+  public CompletableFuture<RUMConfigResponse> getRUMConfigAsync() {
+    return getRUMConfigWithHttpInfoAsync()
         .thenApply(
             response -> {
               return response.getData();
@@ -224,7 +224,7 @@ public class RumConfigApi {
   /**
    * Get the RUM configuration for your organization.
    *
-   * @return ApiResponse&lt;RumConfigResponse&gt;
+   * @return ApiResponse&lt;RUMConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -235,9 +235,9 @@ public class RumConfigApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumConfigResponse> getRumConfigWithHttpInfo() throws ApiException {
+  public ApiResponse<RUMConfigResponse> getRUMConfigWithHttpInfo() throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "getRumConfig";
+    String operationId = "getRUMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -251,7 +251,7 @@ public class RumConfigApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumConfigApi.getRumConfig",
+            "v2.RumConfigApi.getRUMConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -266,23 +266,23 @@ public class RumConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumConfigResponse>() {});
+        new GenericType<RUMConfigResponse>() {});
   }
 
   /**
    * Get the RUM configuration.
    *
-   * <p>See {@link #getRumConfigWithHttpInfo}.
+   * <p>See {@link #getRUMConfigWithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;RumConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumConfigResponse>> getRumConfigWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<RUMConfigResponse>> getRUMConfigWithHttpInfoAsync() {
     // Check if unstable operation is enabled
-    String operationId = "getRumConfig";
+    String operationId = "getRUMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -297,7 +297,7 @@ public class RumConfigApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumConfigApi.getRumConfig",
+              "v2.RumConfigApi.getRUMConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -305,7 +305,7 @@ public class RumConfigApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -317,32 +317,32 @@ public class RumConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumConfigResponse>() {});
+        new GenericType<RUMConfigResponse>() {});
   }
 
   /**
    * Update the RUM configuration.
    *
-   * <p>See {@link #updateRumConfigWithHttpInfo}.
+   * <p>See {@link #updateRUMConfigWithHttpInfo}.
    *
    * @param body New definition of the RUM configuration. (required)
-   * @return RumConfigResponse
+   * @return RUMConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumConfigResponse updateRumConfig(RumConfigUpdateRequest body) throws ApiException {
-    return updateRumConfigWithHttpInfo(body).getData();
+  public RUMConfigResponse updateRUMConfig(RUMConfigUpdateRequest body) throws ApiException {
+    return updateRUMConfigWithHttpInfo(body).getData();
   }
 
   /**
    * Update the RUM configuration.
    *
-   * <p>See {@link #updateRumConfigWithHttpInfoAsync}.
+   * <p>See {@link #updateRUMConfigWithHttpInfoAsync}.
    *
    * @param body New definition of the RUM configuration. (required)
-   * @return CompletableFuture&lt;RumConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMConfigResponse&gt;
    */
-  public CompletableFuture<RumConfigResponse> updateRumConfigAsync(RumConfigUpdateRequest body) {
-    return updateRumConfigWithHttpInfoAsync(body)
+  public CompletableFuture<RUMConfigResponse> updateRUMConfigAsync(RUMConfigUpdateRequest body) {
+    return updateRUMConfigWithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -354,7 +354,7 @@ public class RumConfigApi {
    * the request body when the request is successful.
    *
    * @param body New definition of the RUM configuration. (required)
-   * @return ApiResponse&lt;RumConfigResponse&gt;
+   * @return ApiResponse&lt;RUMConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -366,10 +366,10 @@ public class RumConfigApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumConfigResponse> updateRumConfigWithHttpInfo(RumConfigUpdateRequest body)
+  public ApiResponse<RUMConfigResponse> updateRUMConfigWithHttpInfo(RUMConfigUpdateRequest body)
       throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "updateRumConfig";
+    String operationId = "updateRUMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -380,7 +380,7 @@ public class RumConfigApi {
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateRumConfig");
+          400, "Missing the required parameter 'body' when calling updateRUMConfig");
     }
     // create path and map variables
     String localVarPath = "/api/v2/rum/config";
@@ -389,7 +389,7 @@ public class RumConfigApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumConfigApi.updateRumConfig",
+            "v2.RumConfigApi.updateRUMConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -404,25 +404,25 @@ public class RumConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumConfigResponse>() {});
+        new GenericType<RUMConfigResponse>() {});
   }
 
   /**
    * Update the RUM configuration.
    *
-   * <p>See {@link #updateRumConfigWithHttpInfo}.
+   * <p>See {@link #updateRUMConfigWithHttpInfo}.
    *
    * @param body New definition of the RUM configuration. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumConfigResponse>> updateRumConfigWithHttpInfoAsync(
-      RumConfigUpdateRequest body) {
+  public CompletableFuture<ApiResponse<RUMConfigResponse>> updateRUMConfigWithHttpInfoAsync(
+      RUMConfigUpdateRequest body) {
     // Check if unstable operation is enabled
-    String operationId = "updateRumConfig";
+    String operationId = "updateRUMConfig";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -431,10 +431,10 @@ public class RumConfigApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling updateRumConfig"));
+              400, "Missing the required parameter 'body' when calling updateRUMConfig"));
       return result;
     }
     // create path and map variables
@@ -446,7 +446,7 @@ public class RumConfigApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumConfigApi.updateRumConfig",
+              "v2.RumConfigApi.updateRUMConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -454,7 +454,7 @@ public class RumConfigApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -466,6 +466,6 @@ public class RumConfigApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumConfigResponse>() {});
+        new GenericType<RUMConfigResponse>() {});
   }
 }

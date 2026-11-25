@@ -4,9 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.RumArchiveConfigListResponse;
-import com.datadog.api.client.v2.model.RumArchiveConfigResponse;
-import com.datadog.api.client.v2.model.RumArchiveConfigUpsertRequest;
+import com.datadog.api.client.v2.model.RUMArchiveConfigListResponse;
+import com.datadog.api.client.v2.model.RUMArchiveConfigResponse;
+import com.datadog.api.client.v2.model.RUMArchiveConfigUpsertRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -188,10 +188,10 @@ public class RumManagedArchivesApi {
    * <p>See {@link #getRUMArchiveConfigWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
-   * @return RumArchiveConfigResponse
+   * @return RUMArchiveConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumArchiveConfigResponse getRUMArchiveConfig(UUID appId) throws ApiException {
+  public RUMArchiveConfigResponse getRUMArchiveConfig(UUID appId) throws ApiException {
     return getRUMArchiveConfigWithHttpInfo(appId).getData();
   }
 
@@ -201,9 +201,9 @@ public class RumManagedArchivesApi {
    * <p>See {@link #getRUMArchiveConfigWithHttpInfoAsync}.
    *
    * @param appId RUM application ID. (required)
-   * @return CompletableFuture&lt;RumArchiveConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMArchiveConfigResponse&gt;
    */
-  public CompletableFuture<RumArchiveConfigResponse> getRUMArchiveConfigAsync(UUID appId) {
+  public CompletableFuture<RUMArchiveConfigResponse> getRUMArchiveConfigAsync(UUID appId) {
     return getRUMArchiveConfigWithHttpInfoAsync(appId)
         .thenApply(
             response -> {
@@ -215,7 +215,7 @@ public class RumManagedArchivesApi {
    * Get the archive configuration for a RUM application.
    *
    * @param appId RUM application ID. (required)
-   * @return ApiResponse&lt;RumArchiveConfigResponse&gt;
+   * @return ApiResponse&lt;RUMArchiveConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -229,7 +229,7 @@ public class RumManagedArchivesApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumArchiveConfigResponse> getRUMArchiveConfigWithHttpInfo(UUID appId)
+  public ApiResponse<RUMArchiveConfigResponse> getRUMArchiveConfigWithHttpInfo(UUID appId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -262,7 +262,7 @@ public class RumManagedArchivesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveConfigResponse>() {});
+        new GenericType<RUMArchiveConfigResponse>() {});
   }
 
   /**
@@ -271,15 +271,15 @@ public class RumManagedArchivesApi {
    * <p>See {@link #getRUMArchiveConfigWithHttpInfo}.
    *
    * @param appId RUM application ID. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumArchiveConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMArchiveConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumArchiveConfigResponse>>
+  public CompletableFuture<ApiResponse<RUMArchiveConfigResponse>>
       getRUMArchiveConfigWithHttpInfoAsync(UUID appId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      CompletableFuture<ApiResponse<RumArchiveConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMArchiveConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'appId' when calling getRUMArchiveConfig"));
@@ -304,7 +304,7 @@ public class RumManagedArchivesApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumArchiveConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMArchiveConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -316,7 +316,7 @@ public class RumManagedArchivesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveConfigResponse>() {});
+        new GenericType<RUMArchiveConfigResponse>() {});
   }
 
   /** Manage optional parameters to listRUMArchiveConfigs. */
@@ -352,10 +352,10 @@ public class RumManagedArchivesApi {
    *
    * <p>See {@link #listRUMArchiveConfigsWithHttpInfo}.
    *
-   * @return RumArchiveConfigListResponse
+   * @return RUMArchiveConfigListResponse
    * @throws ApiException if fails to make API call
    */
-  public RumArchiveConfigListResponse listRUMArchiveConfigs() throws ApiException {
+  public RUMArchiveConfigListResponse listRUMArchiveConfigs() throws ApiException {
     return listRUMArchiveConfigsWithHttpInfo(new ListRUMArchiveConfigsOptionalParameters())
         .getData();
   }
@@ -365,9 +365,9 @@ public class RumManagedArchivesApi {
    *
    * <p>See {@link #listRUMArchiveConfigsWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;RumArchiveConfigListResponse&gt;
+   * @return CompletableFuture&lt;RUMArchiveConfigListResponse&gt;
    */
-  public CompletableFuture<RumArchiveConfigListResponse> listRUMArchiveConfigsAsync() {
+  public CompletableFuture<RUMArchiveConfigListResponse> listRUMArchiveConfigsAsync() {
     return listRUMArchiveConfigsWithHttpInfoAsync(new ListRUMArchiveConfigsOptionalParameters())
         .thenApply(
             response -> {
@@ -381,10 +381,10 @@ public class RumManagedArchivesApi {
    * <p>See {@link #listRUMArchiveConfigsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return RumArchiveConfigListResponse
+   * @return RUMArchiveConfigListResponse
    * @throws ApiException if fails to make API call
    */
-  public RumArchiveConfigListResponse listRUMArchiveConfigs(
+  public RUMArchiveConfigListResponse listRUMArchiveConfigs(
       ListRUMArchiveConfigsOptionalParameters parameters) throws ApiException {
     return listRUMArchiveConfigsWithHttpInfo(parameters).getData();
   }
@@ -395,9 +395,9 @@ public class RumManagedArchivesApi {
    * <p>See {@link #listRUMArchiveConfigsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;RumArchiveConfigListResponse&gt;
+   * @return CompletableFuture&lt;RUMArchiveConfigListResponse&gt;
    */
-  public CompletableFuture<RumArchiveConfigListResponse> listRUMArchiveConfigsAsync(
+  public CompletableFuture<RUMArchiveConfigListResponse> listRUMArchiveConfigsAsync(
       ListRUMArchiveConfigsOptionalParameters parameters) {
     return listRUMArchiveConfigsWithHttpInfoAsync(parameters)
         .thenApply(
@@ -410,7 +410,7 @@ public class RumManagedArchivesApi {
    * Get the list of archive configurations for your organization.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;RumArchiveConfigListResponse&gt;
+   * @return ApiResponse&lt;RUMArchiveConfigListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -423,7 +423,7 @@ public class RumManagedArchivesApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumArchiveConfigListResponse> listRUMArchiveConfigsWithHttpInfo(
+  public ApiResponse<RUMArchiveConfigListResponse> listRUMArchiveConfigsWithHttpInfo(
       ListRUMArchiveConfigsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Integer pageNumber = parameters.pageNumber;
@@ -454,7 +454,7 @@ public class RumManagedArchivesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveConfigListResponse>() {});
+        new GenericType<RUMArchiveConfigListResponse>() {});
   }
 
   /**
@@ -463,9 +463,9 @@ public class RumManagedArchivesApi {
    * <p>See {@link #listRUMArchiveConfigsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;RumArchiveConfigListResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMArchiveConfigListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumArchiveConfigListResponse>>
+  public CompletableFuture<ApiResponse<RUMArchiveConfigListResponse>>
       listRUMArchiveConfigsWithHttpInfoAsync(ListRUMArchiveConfigsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Integer pageNumber = parameters.pageNumber;
@@ -491,7 +491,7 @@ public class RumManagedArchivesApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumArchiveConfigListResponse>> result =
+      CompletableFuture<ApiResponse<RUMArchiveConfigListResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -504,7 +504,7 @@ public class RumManagedArchivesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveConfigListResponse>() {});
+        new GenericType<RUMArchiveConfigListResponse>() {});
   }
 
   /**
@@ -514,11 +514,11 @@ public class RumManagedArchivesApi {
    *
    * @param appId RUM application ID. Must match data.id for PUT. (required)
    * @param body JSON:API request body. (required)
-   * @return RumArchiveConfigResponse
+   * @return RUMArchiveConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public RumArchiveConfigResponse updateRUMArchiveConfig(
-      UUID appId, RumArchiveConfigUpsertRequest body) throws ApiException {
+  public RUMArchiveConfigResponse updateRUMArchiveConfig(
+      UUID appId, RUMArchiveConfigUpsertRequest body) throws ApiException {
     return updateRUMArchiveConfigWithHttpInfo(appId, body).getData();
   }
 
@@ -529,10 +529,10 @@ public class RumManagedArchivesApi {
    *
    * @param appId RUM application ID. Must match data.id for PUT. (required)
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;RumArchiveConfigResponse&gt;
+   * @return CompletableFuture&lt;RUMArchiveConfigResponse&gt;
    */
-  public CompletableFuture<RumArchiveConfigResponse> updateRUMArchiveConfigAsync(
-      UUID appId, RumArchiveConfigUpsertRequest body) {
+  public CompletableFuture<RUMArchiveConfigResponse> updateRUMArchiveConfigAsync(
+      UUID appId, RUMArchiveConfigUpsertRequest body) {
     return updateRUMArchiveConfigWithHttpInfoAsync(appId, body)
         .thenApply(
             response -> {
@@ -546,7 +546,7 @@ public class RumManagedArchivesApi {
    *
    * @param appId RUM application ID. Must match data.id for PUT. (required)
    * @param body JSON:API request body. (required)
-   * @return ApiResponse&lt;RumArchiveConfigResponse&gt;
+   * @return ApiResponse&lt;RUMArchiveConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -560,8 +560,8 @@ public class RumManagedArchivesApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RumArchiveConfigResponse> updateRUMArchiveConfigWithHttpInfo(
-      UUID appId, RumArchiveConfigUpsertRequest body) throws ApiException {
+  public ApiResponse<RUMArchiveConfigResponse> updateRUMArchiveConfigWithHttpInfo(
+      UUID appId, RUMArchiveConfigUpsertRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
@@ -599,7 +599,7 @@ public class RumManagedArchivesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveConfigResponse>() {});
+        new GenericType<RUMArchiveConfigResponse>() {});
   }
 
   /**
@@ -609,15 +609,15 @@ public class RumManagedArchivesApi {
    *
    * @param appId RUM application ID. Must match data.id for PUT. (required)
    * @param body JSON:API request body. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RumArchiveConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RUMArchiveConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RumArchiveConfigResponse>>
-      updateRUMArchiveConfigWithHttpInfoAsync(UUID appId, RumArchiveConfigUpsertRequest body) {
+  public CompletableFuture<ApiResponse<RUMArchiveConfigResponse>>
+      updateRUMArchiveConfigWithHttpInfoAsync(UUID appId, RUMArchiveConfigUpsertRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
     if (appId == null) {
-      CompletableFuture<ApiResponse<RumArchiveConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMArchiveConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'appId' when calling updateRUMArchiveConfig"));
@@ -626,7 +626,7 @@ public class RumManagedArchivesApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RumArchiveConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMArchiveConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling updateRUMArchiveConfig"));
@@ -651,7 +651,7 @@ public class RumManagedArchivesApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RumArchiveConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RUMArchiveConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -663,6 +663,6 @@ public class RumManagedArchivesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RumArchiveConfigResponse>() {});
+        new GenericType<RUMArchiveConfigResponse>() {});
   }
 }
