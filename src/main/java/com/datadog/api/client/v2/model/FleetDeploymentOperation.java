@@ -80,7 +80,9 @@ public class FleetDeploymentOperation {
   }
 
   /**
-   * Absolute path to the target configuration file on the host.
+   * Path to the target configuration file, relative to the Agent's configuration directory. For
+   * example, <code>/datadog.yaml</code> or <code>/conf.d/postgres.d/conf.yaml</code>. Absolute host
+   * paths, such as <code>/etc/datadog-agent/datadog.yaml</code>, are rejected.
    *
    * @return filePath
    */
