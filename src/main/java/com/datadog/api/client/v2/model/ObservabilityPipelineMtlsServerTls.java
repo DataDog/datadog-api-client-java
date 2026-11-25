@@ -83,8 +83,8 @@ public class ObservabilityPipelineMtlsServerTls {
   }
 
   /**
-   * Path to the TLS server certificate file used to used to identify the pipeline component to
-   * connecting clients.
+   * Path to the TLS server certificate file used to identify the pipeline component to connecting
+   * clients.
    *
    * @return crtFile
    */

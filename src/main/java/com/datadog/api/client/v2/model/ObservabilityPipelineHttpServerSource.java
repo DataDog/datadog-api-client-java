@@ -59,7 +59,7 @@ public class ObservabilityPipelineHttpServerSource {
   private String passwordKey;
 
   public static final String JSON_PROPERTY_TLS = "tls";
-  private ObservabilityPipelineMtlsServerTls tls;
+  private ObservabilityPipelineMtlsServerTlsWithClientIdentity tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineHttpServerSourceType type =
@@ -225,7 +225,8 @@ public class ObservabilityPipelineHttpServerSource {
     this.passwordKey = passwordKey;
   }
 
-  public ObservabilityPipelineHttpServerSource tls(ObservabilityPipelineMtlsServerTls tls) {
+  public ObservabilityPipelineHttpServerSource tls(
+      ObservabilityPipelineMtlsServerTlsWithClientIdentity tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
@@ -233,18 +234,19 @@ public class ObservabilityPipelineHttpServerSource {
 
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external
-   * connecting clients.
+   * connecting clients, or mutual TLS when <code>verify_certificate</code> is <code>true</code>.
+   * Mutual TLS also enables an optional allowlist of client certificate identities.
    *
    * @return tls
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineMtlsServerTls getTls() {
+  public ObservabilityPipelineMtlsServerTlsWithClientIdentity getTls() {
     return tls;
   }
 
-  public void setTls(ObservabilityPipelineMtlsServerTls tls) {
+  public void setTls(ObservabilityPipelineMtlsServerTlsWithClientIdentity tls) {
     this.tls = tls;
     if (tls != null) {
       this.unparsed |= tls.unparsed;
