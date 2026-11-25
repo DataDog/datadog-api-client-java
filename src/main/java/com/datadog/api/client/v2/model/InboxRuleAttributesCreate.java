@@ -84,7 +84,8 @@ public class InboxRuleAttributesCreate {
   }
 
   /**
-   * Whether the inbox rule is enabled.
+   * Whether the inbox rule is enabled. If it is omitted, the API saves it as <code>false</code> and
+   * the rule doesn't apply.
    *
    * @return enabled
    */

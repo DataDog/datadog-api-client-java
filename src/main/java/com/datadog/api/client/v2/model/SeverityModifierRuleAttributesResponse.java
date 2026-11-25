@@ -96,6 +96,13 @@ public class SeverityModifierRuleAttributesResponse {
    * union on <code>type</code>: <code>set</code> assigns a fixed severity, while <code>shift</code>
    * moves the severity up or down by one rank.
    *
+   * <p>With <code>type: set</code>, send <code>severity</code> (<code>info_none</code>, <code>low
+   * </code>, <code>medium</code>, <code>high</code>, or <code>critical</code>) and no <code>
+   * severity_delta</code>. With <code>type: shift</code>, send <code>severity_delta</code> (<code>
+   * up_one</code> or <code>down_one</code>) and no <code>severity</code>. Both accept an optional
+   * <code>description</code>. A <code>shift</code> rule doesn't match findings with an unknown
+   * severity.
+   *
    * <p>A severity modifier rule's <code>rule.query</code> must not filter on <code>@severity</code>
    * or on the <code>@severity_details.user_adjusted.*</code> namespace.
    *

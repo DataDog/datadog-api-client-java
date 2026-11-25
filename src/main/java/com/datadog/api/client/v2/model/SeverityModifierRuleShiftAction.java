@@ -17,7 +17,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Shifts matched findings up or down by one severity rank. */
+/**
+ * Shifts matched findings up or down by one severity rank. Shifting down stops at the lowest
+ * severity available for the finding type, for example <code>low</code> for <code>
+ * iac_misconfiguration</code>, <code>runtime_code_vulnerability</code>, <code>secret</code>, and
+ * <code>static_code_vulnerability</code> findings. A rule that wouldn't change a finding's severity
+ * doesn't match it, so Datadog checks the next rule.
+ */
 @JsonPropertyOrder({
   SeverityModifierRuleShiftAction.JSON_PROPERTY_DESCRIPTION,
   SeverityModifierRuleShiftAction.JSON_PROPERTY_SEVERITY_DELTA,
@@ -79,7 +85,8 @@ public class SeverityModifierRuleShiftAction {
   }
 
   /**
-   * The direction in which to shift the severity of matched findings by one rank.
+   * The direction in which to shift the severity of matched findings by one rank. Shifting down
+   * stops at the lowest severity available for the finding type.
    *
    * @return severityDelta
    */

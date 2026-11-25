@@ -51,8 +51,8 @@ public class MuteRuleAction {
   }
 
   /**
-   * The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not
-   * expire.
+   * The Unix timestamp in milliseconds at which the mute expires. It must be in the future. If the
+   * timestamp is omitted, the mute does not expire.
    *
    * @return expireAt
    */

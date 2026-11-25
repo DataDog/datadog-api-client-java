@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The direction in which to shift the severity of matched findings by one rank. */
+/**
+ * The direction in which to shift the severity of matched findings by one rank. Shifting down stops
+ * at the lowest severity available for the finding type.
+ */
 @JsonSerialize(using = SeverityModifierSeverityDelta.SeverityModifierSeverityDeltaSerializer.class)
 public class SeverityModifierSeverityDelta extends ModelEnum<String> {
 

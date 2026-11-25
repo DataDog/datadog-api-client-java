@@ -69,7 +69,8 @@ public class DueDateRuleAction {
   }
 
   /**
-   * A list of severity-to-due-date mappings. Each severity may appear at most once.
+   * A list of severity-to-due-date mappings. Each severity may appear at most once. The rule only
+   * matches findings whose severity is listed here.
    *
    * @return dueDaysPerSeverity
    */

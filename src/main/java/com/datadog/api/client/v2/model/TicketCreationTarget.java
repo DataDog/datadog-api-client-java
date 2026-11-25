@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The ticketing system to create tickets in. */
+/**
+ * The ticketing system to create tickets in. <code>case_management</code> is Datadog Work
+ * Management, formerly called Case Management.
+ */
 @JsonSerialize(using = TicketCreationTarget.TicketCreationTargetSerializer.class)
 public class TicketCreationTarget extends ModelEnum<String> {
 

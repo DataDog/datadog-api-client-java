@@ -55,7 +55,12 @@ public class AutomationRuleScope {
   }
 
   /**
-   * The list of security finding types that the automation rule applies to.
+   * The security finding types that the automation rule applies to. At least one is required, and
+   * each type may appear only once. Allowed values: <code>api_security</code>, <code>attack_path
+   * </code>, <code>host_and_container_vulnerability</code>, <code>iac_misconfiguration</code>,
+   * <code>identity_risk</code>, <code>library_vulnerability</code>, <code>misconfiguration</code>,
+   * <code>runtime_code_vulnerability</code>, <code>secret</code>, <code>static_code_vulnerability
+   * </code>, and <code>workload_activity</code>.
    *
    * @return findingTypes
    */
