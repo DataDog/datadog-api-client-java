@@ -31292,6 +31292,50 @@ public class SecurityMonitoringApi {
 
   /**
    * Send a notification preview to test that a notification rule's targets are properly configured.
+   * The request body has the same shape as the body of <code>CreateSignalNotificationRule</code>
+   * and <code>CreateVulnerabilityNotificationRule</code>. The preview sends test notifications to
+   * the targets but doesn't save a notification rule. To save the rule, use <code>
+   * CreateSignalNotificationRule</code> or <code>CreateVulnerabilityNotificationRule</code>.
+   *
+   * <p>Fields to set in <code>data.attributes</code>: - <code>selectors.trigger_source</code>:
+   * <code>security_signals</code> for a signal-based rule, or <code>security_findings</code> for a
+   * rule on security findings and vulnerabilities. - <code>selectors.rule_types</code>: with <code>
+   * security_signals</code>, any of <code>application_security</code>, <code>log_detection</code>,
+   * <code>workload_security</code> and <code>signal_correlation</code>. With <code>
+   * security_findings</code>, any of <code>application_code_vulnerability</code>, <code>
+   * application_library_vulnerability</code>, <code>attack_path</code>, <code>
+   * container_image_vulnerability</code>, <code>identity_risk</code>, <code>misconfiguration</code>
+   * , <code>api_security</code>, <code>host_vulnerability</code>, <code>iac_misconfiguration</code>
+   * , <code>sast_vulnerability</code>, <code>secret_vulnerability</code>, <code>workload_activity
+   * </code>, <code>sensitive_data</code> and <code>serverless_function_code_vulnerability</code>.
+   * Set at least one rule type. An empty list, or a rule type that doesn't match <code>
+   * selectors.trigger_source</code>, is rejected with HTTP 400. The preview runs once for each rule
+   * type in this list. - <code>selectors.severities</code>: any of <code>critical</code>, <code>
+   * high</code>, <code>medium</code>, <code>low</code> and <code>info</code>. The value <code>
+   * unknown</code> is rejected with HTTP 400. - <code>selectors.query</code>: one or several <code>
+   * key:value</code> pairs on tags and attributes, for example <code>env:prod</code>, up to 6,000
+   * characters. - <code>targets</code>: a list of 1 to 20 notification handles, each starting with
+   * <code>@</code> and up to 500 characters. Use <code>@&lt;EMAIL&gt;</code> for an email address,
+   * <code>@slack-&lt;CHANNEL&gt;</code> or <code>@slack-&lt;ACCOUNT&gt;-&lt;CHANNEL&gt;</code> for
+   * a Slack channel, <code>@pagerduty-&lt;SERVICE_NAME&gt;</code> for a PagerDuty service, and
+   * <code>@webhook-&lt;WEBHOOK_NAME&gt;</code> for a webhook. Other integrations use <code>
+   * @&lt;INTEGRATION_NAME&gt;-&lt;VALUES&gt;</code>, such as <code>@teams-</code> or <code>@jira-
+   * </code>. Handles that contain parentheses <code>()</code> are not supported. In HIPAA-compliant
+   * organizations, webhook targets are rejected with a 403. With <code>security_findings</code>,
+   * <code>@case-</code>, <code>@incident-</code>, <code>@jira-</code> and <code>@linear-</code>
+   * targets are rejected with HTTP 400. - <code>time_aggregation</code>: with <code>
+   * security_signals</code>, leave it out or set it to <code>0</code>. With <code>security_findings
+   * </code>, leave it out, set it to <code>0</code>, or set it between 1,800 and 2,592,000 seconds
+   * (30 minutes to 30 days). <code>@workflow-</code> targets are rejected when it's greater than
+   * <code>0</code>.
+   *
+   * <p>The integration behind each target (Slack, PagerDuty, and so on) must already be configured
+   * in Datadog. The response has one result per rule type. <code>SUCCESS</code> means a matching
+   * event was found and the test notification was queued. <code>DEFAULT</code> means no matching
+   * event was found and a placeholder test notification was queued instead. <code>ERROR</code>
+   * means the test notification couldn't be built or queued. A queued notification can still fail
+   * to reach its target later, for example when the target's integration isn't configured or a
+   * target team doesn't exist, and the response doesn't report it.
    *
    * @param body (required)
    * @return ApiResponse&lt;NotificationRulePreviewResponse&gt;
