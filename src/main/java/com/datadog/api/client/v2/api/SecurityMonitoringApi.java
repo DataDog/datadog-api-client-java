@@ -22913,6 +22913,17 @@ public class SecurityMonitoringApi {
    * href="https://docs.datadoghq.com/security/guide/findings-schema/">See the schema for security
    * findings</a>.
    *
+   * <p>This endpoint takes the query, sort, and pagination as URL query parameters. <code>
+   * SearchSecurityFindings</code> (<code>POST /api/v2/security/findings/search</code>) accepts the
+   * same parameters in a JSON request body and returns the same results, so pick by how you want to
+   * send them. Use this endpoint when the query fits easily in a URL. To send the query in a JSON
+   * body without URL encoding, use <code>SearchSecurityFindings</code> instead. A <code>
+   * meta.page.after</code> cursor from either endpoint works on the other.
+   *
+   * <p>Use this endpoint rather than <code>ListFindings</code> (<code>
+   * GET /api/v2/posture_management/findings</code>), which uses the legacy security findings data
+   * model and is planned for deprecation.
+   *
    * <h3>Query Syntax</h3>
    *
    * <p>This endpoint uses the logs query syntax. Findings attributes (living in the
@@ -30335,6 +30346,18 @@ public class SecurityMonitoringApi {
    * Get a list of security findings that match a search query. <a
    * href="https://docs.datadoghq.com/security/guide/findings-schema/">See the schema for security
    * findings</a>.
+   *
+   * <p>This endpoint takes the query, sort, and pagination in a JSON request body. <code>
+   * ListSecurityFindings</code> (<code>GET /api/v2/security/findings</code>) accepts the same
+   * parameters as URL query parameters and returns the same results, so pick by how you want to
+   * send them. Use this endpoint to send the query without URL encoding, for example when it has
+   * many quotes, parentheses, or spaces. To get the next page, send <code>meta.page.after</code> as
+   * <code>data.attributes.page.cursor</code> in the request body. The <code>links.next</code> URL
+   * always points to <code>ListSecurityFindings</code>, with the query in the URL.
+   *
+   * <p>Use this endpoint rather than <code>ListFindings</code> (<code>
+   * GET /api/v2/posture_management/findings</code>), which uses the legacy security findings data
+   * model and is planned for deprecation.
    *
    * <h3>Query Syntax</h3>
    *
