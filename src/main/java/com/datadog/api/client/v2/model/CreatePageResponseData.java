@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The information returned after successfully creating a page. */
+/** The information returned after successfully creating a Page. */
 @JsonPropertyOrder({
   CreatePageResponseData.JSON_PROPERTY_ID,
   CreatePageResponseData.JSON_PROPERTY_TYPE
@@ -47,7 +47,7 @@ public class CreatePageResponseData {
   }
 
   /**
-   * The unique ID of the created page.
+   * The unique ID of the created Page.
    *
    * @return id
    */
