@@ -138,7 +138,7 @@ public class TicketCreationRuleAction {
   }
 
   /**
-   * The UUID of the case management project.
+   * The UUID of the Datadog Work Management (formerly Case Management) project.
    *
    * @return projectId
    */
@@ -159,7 +159,8 @@ public class TicketCreationRuleAction {
   }
 
   /**
-   * The ticketing system to create tickets in.
+   * The ticketing system to create tickets in. <code>case_management</code> is Datadog Work
+   * Management, formerly called Case Management.
    *
    * @return target
    */

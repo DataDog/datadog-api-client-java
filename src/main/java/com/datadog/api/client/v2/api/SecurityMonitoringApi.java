@@ -4607,7 +4607,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a due date rule for the current organization.
+   * Create a due date rule for the current organization. The rule sets a due date on every finding
+   * that matches <code>rule.finding_types</code>, <code>rule.query</code>, and a severity listed in
+   * <code>action.due_days_per_severity</code>. It applies immediately to new findings; Existing
+   * findings can take up to two hours to update. Datadog adds the new rule to the end of the
+   * evaluation order. To move it, use <code>ReorderSecurityFindingsAutomationDueDateRules</code>.
+   * An organization can have at most 1,000 due date rules; creating more fails with a <code>422
+   * </code> error.
    *
    * @param body (required)
    * @return ApiResponse&lt;DueDateRuleResponse&gt;
@@ -4762,7 +4768,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create an inbox rule for the current organization.
+   * Create an inbox rule for the current organization. The rule adds every finding that matches
+   * <code>rule.finding_types</code> and <code>rule.query</code> to the Security Inbox. It applies
+   * immediately to new findings; existing findings can take up to two hours to update. Use inbox
+   * rules to surface findings that the Datadog default inbox rules (<code>
+   * ListSecurityFindingsAutomationDefaultInboxRules</code>) don't cover. Datadog adds the new rule
+   * to the end of the evaluation order. To move it, use <code>
+   * ReorderSecurityFindingsAutomationInboxRules</code>. An organization can have at most 1,000
+   * inbox rules; creating more fails with a <code>422</code> error.
    *
    * @param body (required)
    * @return ApiResponse&lt;InboxRuleResponse&gt;
@@ -4917,7 +4930,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a mute rule for the current organization.
+   * Create a mute rule for the current organization. The rule mutes every finding that matches
+   * <code>rule.finding_types</code> and <code>rule.query</code>, with the reason in <code>
+   * action.reason</code>, until <code>action.expire_at</code> if set. It applies immediately to new
+   * findings; existing findings can take up to two hours to update. Use a rule to keep muting a
+   * class of findings, including ones detected later. To mute or unmute specific findings by ID as
+   * a one-time action, use <code>MuteSecurityFindings</code> instead. Mute rules don't change
+   * manually muted findings. Datadog adds the new rule to the end of the evaluation order. To move
+   * it, use <code>ReorderSecurityFindingsAutomationMuteRules</code>. An organization can have at
+   * most 1,000 mute rules; creating more fails with a <code>422</code> error.
    *
    * @param body (required)
    * @return ApiResponse&lt;MuteRuleResponse&gt;
@@ -5073,7 +5094,16 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a severity modifier rule for the current organization.
+   * Create a severity modifier rule for the current organization. The rule changes the severity of
+   * every finding that matches <code>rule.finding_types</code> and <code>rule.query</code>. It
+   * applies immediately to new findings; existing findings can take up to two hours to update. Use
+   * a rule to continuously adjust the severity of a class of findings, such as all findings in a
+   * development environment. To override the severity of specific findings by ID as a one-time
+   * action, use <code>UpdateFindingsSeverity</code> instead. <code>UpdateFindingsSeverity</code>
+   * can't override or clear a severity set by a rule. Datadog adds the new rule to the end of the
+   * evaluation order. To move it, use <code>ReorderSecurityFindingsAutomationSeverityModifierRules
+   * </code>. An organization can have at most 1,000 severity modifier rules; creating more fails
+   * with a <code>422</code> error.
    *
    * @param body (required)
    * @return ApiResponse&lt;SeverityModifierRuleResponse&gt;
@@ -5234,7 +5264,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a ticket creation rule for the current organization.
+   * Create a ticket creation rule for the current organization. The rule automatically creates
+   * tickets for new findings that match <code>rule.finding_types</code> and <code>rule.query</code>
+   * , in the project set by <code>action.target</code> and <code>action.project_id</code>. It
+   * doesn't create tickets for findings that existed before the rule. Use a rule to create tickets
+   * for findings continuously as Datadog detects them. To create tickets for specific existing
+   * findings, use <code>CreateJiraIssues</code> or <code>CreateCases</code> instead. Datadog adds
+   * the new rule to the end of the evaluation order. To move it, use <code>
+   * ReorderSecurityFindingsAutomationTicketCreationRules</code>. An organization can have at most
+   * 1,000 ticket creation rules; creating more fails with a <code>422</code> error.
    *
    * @param body (required)
    * @return ApiResponse&lt;TicketCreationRuleResponse&gt;
@@ -8153,7 +8191,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteSecurityFindingsAutomationDueDateRule(UUID ruleId) throws ApiException {
@@ -8165,7 +8205,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSecurityFindingsAutomationDueDateRuleAsync(UUID ruleId) {
@@ -8177,9 +8219,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a due date rule by ID.
+   * Delete a due date rule by ID. Deleting the rule removes the due dates it set on findings,
+   * unless another due date rule matches them. Existing findings can take up to two hours to
+   * update. You can't restore a deleted rule. To stop a rule temporarily, update it with <code>
+   * enabled: false</code> instead.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8242,7 +8289,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>>
@@ -8308,7 +8357,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationInboxRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteSecurityFindingsAutomationInboxRule(UUID ruleId) throws ApiException {
@@ -8320,7 +8371,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationInboxRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSecurityFindingsAutomationInboxRuleAsync(UUID ruleId) {
@@ -8332,9 +8385,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an inbox rule by ID.
+   * Delete an inbox rule by ID. Datadog removes findings that the rule added from the Security
+   * Inbox, unless another inbox rule matches them. Existing findings can take up to two hours to
+   * update. You can't restore a deleted rule. To stop a rule temporarily, update it with <code>
+   * enabled: false</code> instead.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8397,7 +8455,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationInboxRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>>
@@ -8463,7 +8523,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationMuteRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteSecurityFindingsAutomationMuteRule(UUID ruleId) throws ApiException {
@@ -8475,7 +8537,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationMuteRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSecurityFindingsAutomationMuteRuleAsync(UUID ruleId) {
@@ -8487,9 +8551,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a mute rule by ID.
+   * Delete a mute rule by ID. Datadog unmutes findings that the rule muted, unless another mute
+   * rule matches them. Manually muted findings stay muted. Existing findings can take up to two
+   * hours to update. You can't restore a deleted rule. To stop a rule temporarily, update it with
+   * <code>enabled: false</code> instead. Disabling a rule has the same effect on findings as
+   * deleting it.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8552,7 +8622,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationMuteRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>>
@@ -8618,7 +8690,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteSecurityFindingsAutomationSeverityModifierRule(UUID ruleId)
@@ -8631,7 +8705,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSecurityFindingsAutomationSeverityModifierRuleAsync(
@@ -8644,9 +8720,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a severity modifier rule by ID.
+   * Delete a severity modifier rule by ID. Unresolved findings whose severity the rule changed go
+   * back to their Datadog severity, unless another severity modifier rule matches them. Resolved
+   * findings keep the severity they had. Existing findings can take up to two hours to update. You
+   * can't restore a deleted rule. To stop a rule temporarily, update it with <code>enabled: false
+   * </code> instead.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8710,7 +8792,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>>
@@ -8776,7 +8860,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteSecurityFindingsAutomationTicketCreationRule(UUID ruleId) throws ApiException {
@@ -8788,7 +8874,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSecurityFindingsAutomationTicketCreationRuleAsync(
@@ -8801,9 +8889,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a ticket creation rule by ID.
+   * Delete a ticket creation rule by ID. Tickets that the rule already created stay attached to
+   * their findings and aren't deleted. You can't restore a deleted rule. To stop a rule
+   * temporarily, update it with <code>enabled: false</code> instead.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8866,7 +8958,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>>
@@ -10461,7 +10555,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Disable a default inbox rule for the current organization.
+   * Disable a default inbox rule for the current organization. A disabled default rule stops adding
+   * the findings that match its <code>rule</code> to the Security Inbox, and Datadog removes
+   * findings it added from the inbox unless another inbox rule matches them. Disable a default rule
+   * when it doesn't fit how your organization reviews findings. To add your own rules, use <code>
+   * CreateSecurityFindingsAutomationInboxRule</code>. Only <code>enabled</code> changes. Existing
+   * findings can take up to two hours to update. To turn it back on, use <code>
+   * EnableSecurityFindingsAutomationDefaultInboxRule</code>.
    *
    * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
    *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
@@ -11328,7 +11428,12 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Enable a default inbox rule for the current organization.
+   * Enable a default inbox rule for the current organization. An enabled default rule adds the
+   * findings that match its <code>rule</code> to the Security Inbox. Default rules are enabled
+   * unless the organization disabled them. Only <code>enabled</code> changes; the rule's <code>name
+   * </code>, <code>rule</code>, and <code>action</code> stay managed by Datadog. Existing findings
+   * can take up to two hours to update. To turn it off again, use <code>
+   * DisableSecurityFindingsAutomationDefaultInboxRule</code>.
    *
    * @param ruleId The ID of the default inbox rule. Known default rule IDs include: <code>
    *     identity_risk_default_rule</code>, <code>secret_default_rule</code>, <code>
@@ -15059,7 +15164,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @return DueDateRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -15073,7 +15180,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @return CompletableFuture&lt;DueDateRuleResponse&gt;
    */
   public CompletableFuture<DueDateRuleResponse> getSecurityFindingsAutomationDueDateRuleAsync(
@@ -15088,7 +15197,9 @@ public class SecurityMonitoringApi {
   /**
    * Get the details of a due date rule by ID.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @return ApiResponse&lt;DueDateRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -15151,7 +15262,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DueDateRuleResponse>>
@@ -15217,7 +15330,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationInboxRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @return InboxRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -15230,7 +15345,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationInboxRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @return CompletableFuture&lt;InboxRuleResponse&gt;
    */
   public CompletableFuture<InboxRuleResponse> getSecurityFindingsAutomationInboxRuleAsync(
@@ -15245,7 +15362,9 @@ public class SecurityMonitoringApi {
   /**
    * Get the details of an inbox rule by ID.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @return ApiResponse&lt;InboxRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -15308,7 +15427,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationInboxRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<InboxRuleResponse>>
@@ -15374,7 +15495,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationMuteRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @return MuteRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -15387,7 +15510,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationMuteRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @return CompletableFuture&lt;MuteRuleResponse&gt;
    */
   public CompletableFuture<MuteRuleResponse> getSecurityFindingsAutomationMuteRuleAsync(
@@ -15402,7 +15527,9 @@ public class SecurityMonitoringApi {
   /**
    * Get the details of a mute rule by ID.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @return ApiResponse&lt;MuteRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -15465,7 +15592,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationMuteRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MuteRuleResponse>>
@@ -15531,7 +15660,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @return SeverityModifierRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -15545,7 +15676,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @return CompletableFuture&lt;SeverityModifierRuleResponse&gt;
    */
   public CompletableFuture<SeverityModifierRuleResponse>
@@ -15560,7 +15693,9 @@ public class SecurityMonitoringApi {
   /**
    * Get the details of a severity modifier rule by ID.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @return ApiResponse&lt;SeverityModifierRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -15625,7 +15760,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SeverityModifierRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SeverityModifierRuleResponse>>
@@ -15694,7 +15831,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @return TicketCreationRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -15708,7 +15847,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @return CompletableFuture&lt;TicketCreationRuleResponse&gt;
    */
   public CompletableFuture<TicketCreationRuleResponse>
@@ -15723,7 +15864,9 @@ public class SecurityMonitoringApi {
   /**
    * Get the details of a ticket creation rule by ID.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @return ApiResponse&lt;TicketCreationRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -15786,7 +15929,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<TicketCreationRuleResponse>>
@@ -23187,7 +23332,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @param pageSize The number of rules per page. Maximum is 1,000. (optional, default to 1000)
      * @return ListSecurityFindingsAutomationDueDateRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationDueDateRulesOptionalParameters pageSize(Long pageSize) {
@@ -23198,7 +23343,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber The page number to return. (optional, default to 0)
+     * @param pageNumber The page number to return, starting at 0. (optional, default to 0)
      * @return ListSecurityFindingsAutomationDueDateRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationDueDateRulesOptionalParameters pageNumber(
@@ -23270,7 +23415,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all due date rules for the current organization.
+   * Get all due date rules for the current organization. A due date rule sets a remediation due
+   * date on the findings that match its <code>rule</code>: a number of days per severity, counted
+   * from <code>action.due_from</code> (when the finding was first seen, or when a fix became
+   * available). The response lists rules in evaluation order: Datadog checks each finding against
+   * the due date rules in this order and applies the first one that matches. A rule only matches
+   * findings whose severity is listed in its <code>action.due_days_per_severity</code>. To change
+   * the order, use <code>ReorderSecurityFindingsAutomationDueDateRules</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DueDateRulesResponse&gt;
@@ -23393,7 +23544,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @param pageSize The number of rules per page. Maximum is 1,000. (optional, default to 1000)
      * @return ListSecurityFindingsAutomationInboxRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationInboxRulesOptionalParameters pageSize(Long pageSize) {
@@ -23404,7 +23555,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber The page number to return. (optional, default to 0)
+     * @param pageNumber The page number to return, starting at 0. (optional, default to 0)
      * @return ListSecurityFindingsAutomationInboxRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationInboxRulesOptionalParameters pageNumber(Long pageNumber) {
@@ -23475,7 +23626,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all inbox rules for the current organization.
+   * Get all inbox rules for the current organization. An inbox rule adds the findings that match
+   * its <code>rule</code> to the Security Inbox. This list doesn't include the default inbox rules
+   * that Datadog manages. To get those, use <code>ListSecurityFindingsAutomationDefaultInboxRules
+   * </code>. The response lists rules in evaluation order: Datadog checks each finding against the
+   * inbox rules in this order and applies the first one that matches. Datadog checks the default
+   * inbox rules before these rules. To change the order, use <code>
+   * ReorderSecurityFindingsAutomationInboxRules</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;InboxRulesResponse&gt;
@@ -23598,7 +23755,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @param pageSize The number of rules per page. Maximum is 1,000. (optional, default to 1000)
      * @return ListSecurityFindingsAutomationMuteRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationMuteRulesOptionalParameters pageSize(Long pageSize) {
@@ -23609,7 +23766,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber The page number to return. (optional, default to 0)
+     * @param pageNumber The page number to return, starting at 0. (optional, default to 0)
      * @return ListSecurityFindingsAutomationMuteRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationMuteRulesOptionalParameters pageNumber(Long pageNumber) {
@@ -23680,7 +23837,12 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all mute rules for the current organization.
+   * Get all mute rules for the current organization. A mute rule automatically mutes new and
+   * existing findings that match its <code>rule</code> (finding types and query), using the reason
+   * in its <code>action</code>. To mute or unmute specific findings by ID as a one-time action, use
+   * <code>MuteSecurityFindings</code> instead. The response lists rules in evaluation order:
+   * Datadog checks each finding against the mute rules in this order and applies the first one that
+   * matches. To change the order, use <code>ReorderSecurityFindingsAutomationMuteRules</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MuteRulesResponse&gt;
@@ -23803,7 +23965,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @param pageSize The number of rules per page. Maximum is 1,000. (optional, default to 1000)
      * @return ListSecurityFindingsAutomationSeverityModifierRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationSeverityModifierRulesOptionalParameters pageSize(
@@ -23815,7 +23977,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber The page number to return. (optional, default to 0)
+     * @param pageNumber The page number to return, starting at 0. (optional, default to 0)
      * @return ListSecurityFindingsAutomationSeverityModifierRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationSeverityModifierRulesOptionalParameters pageNumber(
@@ -23891,7 +24053,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all severity modifier rules for the current organization.
+   * Get all severity modifier rules for the current organization. A severity modifier rule changes
+   * the severity of the findings that match its <code>rule</code>: it either sets a fixed severity
+   * or shifts it up or down by one rank. Severity modifier rules run before mute, due date, inbox,
+   * and ticket creation rules, so those rules see the modified severity. To override the severity
+   * of specific findings by ID, use <code>UpdateFindingsSeverity</code> instead. The response lists
+   * rules in evaluation order: Datadog checks each finding against the severity modifier rules in
+   * this order and applies the first one that would change the finding's severity. To change the
+   * order, use <code>ReorderSecurityFindingsAutomationSeverityModifierRules</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SeverityModifierRulesResponse&gt;
@@ -24019,7 +24188,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @param pageSize The number of rules per page. Maximum is 1,000. (optional, default to 1000)
      * @return ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters pageSize(
@@ -24031,7 +24200,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber The page number to return. (optional, default to 0)
+     * @param pageNumber The page number to return, starting at 0. (optional, default to 0)
      * @return ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters
      */
     public ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters pageNumber(
@@ -24107,7 +24276,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all ticket creation rules for the current organization.
+   * Get all ticket creation rules for the current organization. A ticket creation rule
+   * automatically creates tickets for new findings that match its <code>rule</code>, in Jira,
+   * Linear, or Datadog Work Management (<code>action.target</code>; formerly Case Management), up
+   * to <code>action.max_tickets_per_day</code>. Each returned rule includes its scope (<code>rule
+   * </code>), its target project, assignee, and ticket fields (<code>action</code>), and <code>
+   * action.auto_disabled_reason</code> when Datadog disabled the rule after a ticketing integration
+   * error. The response lists rules in evaluation order: Datadog checks each finding against the
+   * ticket creation rules in this order and applies the first one that matches. To change the
+   * order, use <code>ReorderSecurityFindingsAutomationTicketCreationRules</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TicketCreationRulesResponse&gt;
@@ -28829,7 +29006,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Reorder the list of due date rules for the current organization.
+   * Set the order in which due date rules are evaluated for the current organization. Datadog
+   * checks each finding against the due date rules in this order and applies only the first rule
+   * that matches. A rule only matches findings whose severity is listed in its <code>
+   * action.due_days_per_severity</code>. The first item in <code>data</code> is evaluated first.
+   * <code>data</code> must list every due date rule exactly once, using the IDs that <code>
+   * ListSecurityFindingsAutomationDueDateRules</code> returns. If a rule is missing, unknown, or
+   * listed twice, the request fails with a <code>422</code> error and the order doesn't change.
+   * Datadog adds rules created later to the end of the evaluation order.
    *
    * @param body (required)
    * @return ApiResponse&lt;DueDateRuleReorderResponse&gt;
@@ -28986,7 +29170,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Reorder the list of inbox rules for the current organization.
+   * Set the order in which inbox rules are evaluated for the current organization. Datadog checks
+   * each finding against the inbox rules in this order and applies only the first rule that
+   * matches. Datadog checks the default inbox rules (<code>
+   * ListSecurityFindingsAutomationDefaultInboxRules</code>) before these rules. The first item in
+   * <code>data</code> is evaluated first. <code>data</code> must list every inbox rule exactly
+   * once, using the IDs that <code>ListSecurityFindingsAutomationInboxRules</code> returns. If a
+   * rule is missing, unknown, or listed twice, the request fails with a <code>422</code> error and
+   * the order doesn't change. Datadog adds rules created later to the end of the evaluation order.
    *
    * @param body (required)
    * @return ApiResponse&lt;InboxRuleReorderResponse&gt;
@@ -29142,7 +29333,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Reorder the list of mute rules for the current organization.
+   * Set the order in which mute rules are evaluated for the current organization. Datadog checks
+   * each finding against the mute rules in this order and applies only the first rule that matches.
+   * The first item in <code>data</code> is evaluated first. <code>data</code> must list every mute
+   * rule exactly once, using the IDs that <code>ListSecurityFindingsAutomationMuteRules</code>
+   * returns. If a rule is missing, unknown, or listed twice, the request fails with a <code>422
+   * </code> error and the order doesn't change. Datadog adds rules created later to the end of the
+   * order.
    *
    * @param body (required)
    * @return ApiResponse&lt;MuteRuleReorderResponse&gt;
@@ -29299,7 +29496,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Reorder the list of severity modifier rules for the current organization.
+   * Set the order in which severity modifier rules are evaluated for the current organization.
+   * Datadog checks each finding against the severity modifier rules in this order and applies only
+   * the first rule that would change the finding's severity. The first item in <code>data</code> is
+   * evaluated first. <code>data</code> must list every severity modifier rule exactly once, using
+   * the IDs that <code>ListSecurityFindingsAutomationSeverityModifierRules</code> returns. If a
+   * rule is missing, unknown, or listed twice, the request fails with a <code>422</code> error and
+   * the order doesn't change. Datadog adds rules created later to the end of the order.
    *
    * @param body (required)
    * @return ApiResponse&lt;SeverityModifierRuleReorderResponse&gt;
@@ -29460,7 +29663,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Reorder the list of ticket creation rules for the current organization.
+   * Set the order in which ticket creation rules are evaluated for the current organization.
+   * Datadog checks each finding against the ticket creation rules in this order and applies only
+   * the first rule that matches. The first item in <code>data</code> is evaluated first. <code>data
+   * </code> must list every ticket creation rule exactly once, using the IDs that <code>
+   * ListSecurityFindingsAutomationTicketCreationRules</code> returns. If a rule is missing,
+   * unknown, or listed twice, the request fails with a <code>422</code> error and the order doesn't
+   * change. Datadog adds rules created later to the end of the order.
    *
    * @param body (required)
    * @return ApiResponse&lt;TicketCreationRuleReorderResponse&gt;
@@ -32483,7 +32692,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @param body (required)
    * @return DueDateRuleResponse
    * @throws ApiException if fails to make API call
@@ -32498,7 +32709,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;DueDateRuleResponse&gt;
    */
@@ -32512,9 +32725,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a due date rule by ID.
+   * Update a due date rule by ID. This request replaces the whole rule. Send every attribute you
+   * want to keep, because the API clears optional fields you omit and saves an omitted <code>
+   * enabled</code> as <code>false</code>. The rule keeps its ID and its position in the evaluation
+   * order.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @param body (required)
    * @return ApiResponse&lt;DueDateRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -32588,7 +32806,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the due date rule. (required)
+   * @param ruleId The ID of the due date rule, as returned by <code>
+   *     ListSecurityFindingsAutomationDueDateRules</code> or <code>
+   *     CreateSecurityFindingsAutomationDueDateRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleResponse&gt;&gt;
    */
@@ -32667,7 +32887,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationInboxRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @param body (required)
    * @return InboxRuleResponse
    * @throws ApiException if fails to make API call
@@ -32682,7 +32904,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationInboxRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;InboxRuleResponse&gt;
    */
@@ -32696,9 +32920,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an inbox rule by ID.
+   * Update an inbox rule by ID. This request replaces the whole rule. Send every attribute you want
+   * to keep, because the API clears optional fields you omit and saves an omitted <code>enabled
+   * </code> as <code>false</code>. The rule keeps its ID and its position in the evaluation order.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @param body (required)
    * @return ApiResponse&lt;InboxRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -32772,7 +33000,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationInboxRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the inbox rule. (required)
+   * @param ruleId The ID of the inbox rule, as returned by <code>
+   *     ListSecurityFindingsAutomationInboxRules</code> or <code>
+   *     CreateSecurityFindingsAutomationInboxRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
    */
@@ -32851,7 +33081,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationMuteRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @param body (required)
    * @return MuteRuleResponse
    * @throws ApiException if fails to make API call
@@ -32866,7 +33098,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationMuteRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;MuteRuleResponse&gt;
    */
@@ -32880,9 +33114,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a mute rule by ID.
+   * Update a mute rule by ID. This request replaces the whole rule. Send every attribute you want
+   * to keep, because the API clears optional fields you omit and saves an omitted <code>enabled
+   * </code> as <code>false</code>. The rule keeps its ID and its position in the evaluation order.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @param body (required)
    * @return ApiResponse&lt;MuteRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -32956,7 +33194,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationMuteRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the mute rule. (required)
+   * @param ruleId The ID of the mute rule, as returned by <code>
+   *     ListSecurityFindingsAutomationMuteRules</code> or <code>
+   *     CreateSecurityFindingsAutomationMuteRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
    */
@@ -33035,7 +33275,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @param body (required)
    * @return SeverityModifierRuleResponse
    * @throws ApiException if fails to make API call
@@ -33050,7 +33292,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;SeverityModifierRuleResponse&gt;
    */
@@ -33065,9 +33309,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a severity modifier rule by ID.
+   * Update a severity modifier rule by ID. This request replaces the whole rule. Send every
+   * attribute you want to keep, because the API clears optional fields you omit and saves an
+   * omitted <code>enabled</code> as <code>false</code>. The rule keeps its ID and its position in
+   * the evaluation order.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @param body (required)
    * @return ApiResponse&lt;SeverityModifierRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -33142,7 +33391,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the severity modifier rule. (required)
+   * @param ruleId The ID of the severity modifier rule, as returned by <code>
+   *     ListSecurityFindingsAutomationSeverityModifierRules</code> or <code>
+   *     CreateSecurityFindingsAutomationSeverityModifierRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SeverityModifierRuleResponse&gt;&gt;
    */
@@ -33225,7 +33476,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @param body (required)
    * @return TicketCreationRuleResponse
    * @throws ApiException if fails to make API call
@@ -33240,7 +33493,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;TicketCreationRuleResponse&gt;
    */
@@ -33255,9 +33510,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a ticket creation rule by ID.
+   * Update a ticket creation rule by ID. This request replaces the whole rule. Send every attribute
+   * you want to keep, because the API clears optional fields you omit and saves an omitted <code>
+   * enabled</code> as <code>false</code>. The rule keeps its ID and its position in the evaluation
+   * order. To re-enable a rule that Datadog disabled after a ticketing integration error, update
+   * it. Updating a rule clears <code>action.auto_disabled_reason</code>.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @param body (required)
    * @return ApiResponse&lt;TicketCreationRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -33332,7 +33593,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param ruleId The ID of the ticket creation rule, as returned by <code>
+   *     ListSecurityFindingsAutomationTicketCreationRules</code> or <code>
+   *     CreateSecurityFindingsAutomationTicketCreationRule</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleResponse&gt;&gt;
    */

@@ -84,7 +84,8 @@ public class DueDateRuleAttributesCreate {
   }
 
   /**
-   * Whether the due date rule is enabled.
+   * Whether the due date rule is enabled. If it is omitted, the API saves it as <code>false</code>
+   * and the rule doesn't apply.
    *
    * @return enabled
    */
