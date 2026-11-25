@@ -117,13 +117,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentGateResponse> createDeploymentGateWithHttpInfo(
       CreateDeploymentGateParams body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -166,16 +159,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentGateResponse>>
       createDeploymentGateWithHttpInfoAsync(CreateDeploymentGateParams body) {
-    // Check if unstable operation is enabled
-    String operationId = "createDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -272,13 +255,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentRuleResponse> createDeploymentRuleWithHttpInfo(
       String gateId, CreateDeploymentRuleParams body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'gateId' is set
@@ -330,16 +306,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentRuleResponse>>
       createDeploymentRuleWithHttpInfoAsync(String gateId, CreateDeploymentRuleParams body) {
-    // Check if unstable operation is enabled
-    String operationId = "createDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'gateId' is set
@@ -441,13 +407,6 @@ public class DeploymentGatesApi {
    *     </table>
    */
   public ApiResponse<Void> deleteDeploymentGateWithHttpInfo(String id) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -491,16 +450,6 @@ public class DeploymentGatesApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteDeploymentGateWithHttpInfoAsync(String id) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -597,13 +546,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<Void> deleteDeploymentRuleWithHttpInfo(String gateId, String id)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'gateId' is set
@@ -656,16 +598,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteDeploymentRuleWithHttpInfoAsync(
       String gateId, String id) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'gateId' is set
@@ -770,13 +702,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentGateResponse> getDeploymentGateWithHttpInfo(String id)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -821,16 +746,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentGateResponse>> getDeploymentGateWithHttpInfoAsync(
       String id) {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -924,13 +839,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentGateRulesResponse> getDeploymentGateRulesWithHttpInfo(String gateId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentGateRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'gateId' is set
@@ -975,17 +883,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentGateRulesResponse>>
       getDeploymentGateRulesWithHttpInfoAsync(String gateId) {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentGateRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGateRulesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'gateId' is set
@@ -1088,13 +985,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentGatesEvaluationResultResponse>
       getDeploymentGatesEvaluationResultWithHttpInfo(UUID id) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentGatesEvaluationResult";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -1140,17 +1030,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentGatesEvaluationResultResponse>>
       getDeploymentGatesEvaluationResultWithHttpInfoAsync(UUID id) {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentGatesEvaluationResult";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResultResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -1253,13 +1132,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentRuleResponse> getDeploymentRuleWithHttpInfo(String gateId, String id)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'gateId' is set
@@ -1312,16 +1184,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentRuleResponse>> getDeploymentRuleWithHttpInfoAsync(
       String gateId, String id) {
-    // Check if unstable operation is enabled
-    String operationId = "getDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'gateId' is set
@@ -1678,13 +1540,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentGateEvaluationsResponse> listDeploymentGateEvaluationsWithHttpInfo(
       ListDeploymentGateEvaluationsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listDeploymentGateEvaluations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
@@ -1753,17 +1608,6 @@ public class DeploymentGatesApi {
   public CompletableFuture<ApiResponse<DeploymentGateEvaluationsResponse>>
       listDeploymentGateEvaluationsWithHttpInfoAsync(
           ListDeploymentGateEvaluationsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listDeploymentGateEvaluations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGateEvaluationsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
@@ -1986,13 +1830,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentGatesListResponse> listDeploymentGatesWithHttpInfo(
       ListDeploymentGatesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listDeploymentGates";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String filterService = parameters.filterService;
     String filterEnv = parameters.filterEnv;
@@ -2044,17 +1881,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentGatesListResponse>>
       listDeploymentGatesWithHttpInfoAsync(ListDeploymentGatesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listDeploymentGates";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGatesListResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String filterService = parameters.filterService;
     String filterEnv = parameters.filterEnv;
@@ -2480,13 +2306,6 @@ public class DeploymentGatesApi {
   public ApiResponse<DeploymentGateRuleEvaluationsResponse>
       listDeploymentRuleEvaluationsWithHttpInfo(
           ListDeploymentRuleEvaluationsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listDeploymentRuleEvaluations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
@@ -2567,17 +2386,6 @@ public class DeploymentGatesApi {
   public CompletableFuture<ApiResponse<DeploymentGateRuleEvaluationsResponse>>
       listDeploymentRuleEvaluationsWithHttpInfoAsync(
           ListDeploymentRuleEvaluationsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listDeploymentRuleEvaluations";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGateRuleEvaluationsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
@@ -2715,13 +2523,6 @@ public class DeploymentGatesApi {
   public ApiResponse<DeploymentGatesEvaluationResponse>
       triggerDeploymentGatesEvaluationWithHttpInfo(DeploymentGatesEvaluationRequest body)
           throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "triggerDeploymentGatesEvaluation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -2765,17 +2566,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentGatesEvaluationResponse>>
       triggerDeploymentGatesEvaluationWithHttpInfoAsync(DeploymentGatesEvaluationRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "triggerDeploymentGatesEvaluation";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -2877,13 +2667,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentGateResponse> updateDeploymentGateWithHttpInfo(
       String id, UpdateDeploymentGateParams body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'id' is set
@@ -2935,16 +2718,6 @@ public class DeploymentGatesApi {
    */
   public CompletableFuture<ApiResponse<DeploymentGateResponse>>
       updateDeploymentGateWithHttpInfoAsync(String id, UpdateDeploymentGateParams body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateDeploymentGate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentGateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'id' is set
@@ -3056,13 +2829,6 @@ public class DeploymentGatesApi {
    */
   public ApiResponse<DeploymentRuleResponse> updateDeploymentRuleWithHttpInfo(
       String gateId, String id, UpdateDeploymentRuleParams body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'gateId' is set
@@ -3123,16 +2889,6 @@ public class DeploymentGatesApi {
   public CompletableFuture<ApiResponse<DeploymentRuleResponse>>
       updateDeploymentRuleWithHttpInfoAsync(
           String gateId, String id, UpdateDeploymentRuleParams body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateDeploymentRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeploymentRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'gateId' is set
