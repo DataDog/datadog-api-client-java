@@ -63,7 +63,9 @@ public class Selectors {
 
   /**
    * The query is composed of one or several key:value pairs, which can be used to filter security
-   * issues on tags and attributes.
+   * issues on tags and attributes. It is at most 6,000 characters. Finding-based rules can't filter
+   * on attributes in the <code>@workflow</code> or <code>@_dd</code> namespaces, on <code>@status
+   * </code>, or on <code>@compliance.evaluation</code>.
    *
    * @return query
    */
@@ -93,7 +95,16 @@ public class Selectors {
   }
 
   /**
-   * Security rule types used as filters in security rules.
+   * Security rule types used as filters in security rules. Signal-based notification rules accept
+   * <code>application_security</code>, <code>log_detection</code>, <code>workload_security</code>,
+   * and <code>signal_correlation</code>. Finding-based notification rules accept <code>
+   * application_code_vulnerability</code>, <code>application_library_vulnerability</code>, <code>
+   * attack_path</code>, <code>container_image_vulnerability</code>, <code>identity_risk</code>,
+   * <code>misconfiguration</code>, <code>api_security</code>, <code>host_vulnerability</code>,
+   * <code>iac_misconfiguration</code>, <code>sast_vulnerability</code>, <code>secret_vulnerability
+   * </code>, <code>workload_activity</code>, <code>sensitive_data</code>, and <code>
+   * serverless_function_code_vulnerability</code>. Rule types that don't match the rule's <code>
+   * trigger_source</code> are rejected.
    *
    * @return ruleTypes
    */
@@ -123,7 +134,9 @@ public class Selectors {
   }
 
   /**
-   * The security rules severities to consider.
+   * The security rules severities to consider. Allowed values are <code>critical</code>, <code>high
+   * </code>, <code>medium</code>, <code>low</code>, and <code>info</code>; <code>unknown</code> is
+   * rejected.
    *
    * @return severities
    */
@@ -147,7 +160,7 @@ public class Selectors {
   /**
    * The type of security issues on which the rule applies. Notification rules based on security
    * signals need to use the trigger source "security_signals", while notification rules based on
-   * security vulnerabilities need to use the trigger source "security_findings".
+   * security findings need to use the trigger source "security_findings".
    *
    * @return triggerSource
    */
