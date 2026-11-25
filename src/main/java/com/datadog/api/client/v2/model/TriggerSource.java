@@ -21,7 +21,7 @@ import java.util.Set;
 /**
  * The type of security issues on which the rule applies. Notification rules based on security
  * signals need to use the trigger source "security_signals", while notification rules based on
- * security vulnerabilities need to use the trigger source "security_findings".
+ * security findings need to use the trigger source "security_findings".
  */
 @JsonSerialize(using = TriggerSource.TriggerSourceSerializer.class)
 public class TriggerSource extends ModelEnum<String> {

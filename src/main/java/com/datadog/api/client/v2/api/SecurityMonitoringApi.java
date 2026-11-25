@@ -6676,7 +6676,23 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new notification rule for security signals and return the created rule.
+   * Create a new notification rule for security signals and return the created rule. Set <code>
+   * selectors.trigger_source</code> to <code>security_signals</code>. The signal routes only return
+   * rules with that trigger source, so a rule with <code>security_findings</code> is read through
+   * <code>GetVulnerabilityNotificationRules</code> instead. To notify on security findings, use
+   * <code>CreateVulnerabilityNotificationRule</code>. <code>selectors.rule_types</code> accepts the
+   * signal rule types <code>application_security</code>, <code>log_detection</code>, <code>
+   * workload_security</code>, and <code>signal_correlation</code>. Give at least one; finding rule
+   * types are rejected. <code>selectors.severities</code> accepts <code>critical</code>, <code>high
+   * </code>, <code>medium</code>, <code>low</code>, and <code>info</code>; <code>unknown</code> is
+   * rejected. <code>selectors.query</code> is at most 6,000 characters. Each entry in <code>targets
+   * </code> is a handle that starts with <code>@</code>, such as an email address (<code>
+   * @john.doe@email.com</code>) or an integration handle (<code>@slack-&lt;VALUES&gt;</code>); see
+   * <code>targets</code>. <code>time_aggregation</code> is only available for finding-based rules:
+   * omit it or set it to <code>0</code>. Trial organizations can't use email address targets: the
+   * request returns 400. Rule names must be unique in the organization (case-insensitive); a
+   * duplicate name returns 409. An organization can have at most 1,000 signal-based rules; past
+   * that, the request returns 429.
    *
    * @param body The body of the create notification rule request is composed of the rule type and
    *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
@@ -7119,7 +7135,30 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new notification rule for security vulnerabilities and return the created rule.
+   * Create a new notification rule for security findings and return the created rule. Set <code>
+   * selectors.trigger_source</code> to <code>security_findings</code>. The finding routes only
+   * return rules with that trigger source, so a rule with <code>security_signals</code> is read
+   * through <code>GetSignalNotificationRules</code> instead. To notify on security signals, use
+   * <code>CreateSignalNotificationRule</code>. <code>selectors.rule_types</code> accepts the
+   * finding rule types <code>application_code_vulnerability</code>, <code>
+   * application_library_vulnerability</code>, <code>attack_path</code>, <code>
+   * container_image_vulnerability</code>, <code>identity_risk</code>, <code>misconfiguration</code>
+   * , <code>api_security</code>, <code>host_vulnerability</code>, <code>iac_misconfiguration</code>
+   * , <code>sast_vulnerability</code>, <code>secret_vulnerability</code>, <code>workload_activity
+   * </code>, <code>sensitive_data</code>, and <code>serverless_function_code_vulnerability</code>.
+   * Give at least one; signal rule types are rejected. <code>selectors.severities</code> accepts
+   * <code>critical</code>, <code>high</code>, <code>medium</code>, <code>low</code>, and <code>info
+   * </code>; <code>unknown</code> is rejected. <code>selectors.query</code> is at most 6,000
+   * characters, and can't filter on attributes in the <code>@workflow</code> or <code>@_dd</code>
+   * namespaces, on <code>@status</code>, or on <code>@compliance.evaluation</code>. Each entry in
+   * <code>targets</code> is a handle that starts with <code>@</code>, such as an email address (
+   * <code>@john.doe@email.com</code>) or an integration handle (<code>@slack-&lt;VALUES&gt;</code>
+   * ); see <code>targets</code>. <code>time_aggregation</code> is a rolling window in seconds, from
+   * <code>1800</code> (30 minutes) to <code>2592000</code> (30 days); omit it or set it to <code>0
+   * </code> for no aggregation. Trial organizations can't use email address targets: the request
+   * returns 400. Rule names must be unique in the organization (case-insensitive); a duplicate name
+   * returns 409. An organization can have at most 1,000 finding-based rules; past that, the request
+   * returns 429.
    *
    * @param body The body of the create notification rule request is composed of the rule type and
    *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
@@ -10114,7 +10153,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSignalNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteSignalNotificationRule(String id) throws ApiException {
@@ -10126,7 +10166,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSignalNotificationRuleWithHttpInfoAsync}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSignalNotificationRuleAsync(String id) {
@@ -10138,9 +10179,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a notification rule for security signals.
+   * Delete a notification rule for security signals. Get the rule <code>id</code> from <code>
+   * GetSignalNotificationRules</code>. This route doesn't check the rule's <code>trigger_source
+   * </code>, so make sure the <code>id</code> belongs to a signal rule. To stop notifications
+   * without deleting the rule, set <code>enabled</code> to <code>false</code> with <code>
+   * PatchSignalNotificationRule</code> instead.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -10193,7 +10239,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteSignalNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteSignalNotificationRuleWithHttpInfoAsync(
@@ -10248,7 +10295,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteVulnerabilityNotificationRule(String id) throws ApiException {
@@ -10260,7 +10308,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfoAsync}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteVulnerabilityNotificationRuleAsync(String id) {
@@ -10272,9 +10321,14 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a notification rule for security vulnerabilities.
+   * Delete a notification rule for security findings. Get the rule <code>id</code> from <code>
+   * GetVulnerabilityNotificationRules</code>. This route doesn't check the rule's <code>
+   * trigger_source</code>, so make sure the <code>id</code> belongs to a finding rule. To stop
+   * notifications without deleting the rule, set <code>enabled</code> to <code>false</code> with
+   * <code>PatchVulnerabilityNotificationRule</code> instead.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -10329,7 +10383,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteVulnerabilityNotificationRuleWithHttpInfoAsync(
@@ -18206,7 +18261,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @return NotificationRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -18219,7 +18275,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRuleWithHttpInfoAsync}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @return CompletableFuture&lt;NotificationRuleResponse&gt;
    */
   public CompletableFuture<NotificationRuleResponse> getSignalNotificationRuleAsync(String id) {
@@ -18231,9 +18288,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the details of a notification rule for security signals.
+   * Get the details of a notification rule for security signals. Get the rule <code>id</code> from
+   * <code>GetSignalNotificationRules</code>. Returns 404 when the rule's <code>trigger_source
+   * </code> is <code>security_findings</code>; read that rule with <code>
+   * GetVulnerabilityNotificationRule</code> instead.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @return ApiResponse&lt;NotificationRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -18288,7 +18349,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<NotificationRuleResponse>>
@@ -18365,7 +18427,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Returns the list of notification rules for security signals.
+   * Returns the list of notification rules for security signals. A signal-based notification rule
+   * sends a notification to its <code>targets</code> when a security signal matches its selectors
+   * (rule types, severities, and query), so you don't have to set up notifications on each
+   * detection rule. Use the signal routes for rules whose <code>trigger_source</code> is <code>
+   * security_signals</code>. For rules on security findings, such as vulnerabilities and
+   * misconfigurations (<code>trigger_source</code> <code>security_findings</code>), use <code>
+   * GetVulnerabilityNotificationRules</code>. This route only returns rules whose <code>
+   * trigger_source</code> is <code>security_signals</code>. The response isn't paginated: it
+   * contains every such rule in the organization, and the route takes no paging parameters.
    *
    * @return ApiResponse&lt;NotificationRulesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -20098,7 +20168,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @return NotificationRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -20111,7 +20182,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfoAsync}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @return CompletableFuture&lt;NotificationRuleResponse&gt;
    */
   public CompletableFuture<NotificationRuleResponse> getVulnerabilityNotificationRuleAsync(
@@ -20124,9 +20196,13 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the details of a notification rule for security vulnerabilities.
+   * Get the details of a notification rule for security findings. Get the rule <code>id</code> from
+   * <code>GetVulnerabilityNotificationRules</code>. Returns 404 when the rule's <code>
+   * trigger_source</code> is <code>security_signals</code>; read that rule with <code>
+   * GetSignalNotificationRule</code> instead.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @return ApiResponse&lt;NotificationRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -20181,7 +20257,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<NotificationRuleResponse>>
@@ -20259,7 +20336,16 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Returns the list of notification rules for security vulnerabilities.
+   * Returns the list of notification rules for security findings. A finding-based notification rule
+   * sends a notification to its <code>targets</code> when a security finding, such as a
+   * vulnerability or a misconfiguration, matches its selectors (rule types, severities, and query).
+   * It can group notifications over a <code>time_aggregation</code> window. Use the finding routes
+   * (under <code>/api/v2/security/vulnerabilities/</code>) for rules whose <code>trigger_source
+   * </code> is <code>security_findings</code>. For rules on security signals (<code>trigger_source
+   * </code> <code>security_signals</code>), use <code>GetSignalNotificationRules</code>. This route
+   * only returns rules whose <code>trigger_source</code> is <code>security_findings</code>. The
+   * response isn't paginated: it contains every such rule in the organization, and the route takes
+   * no paging parameters.
    *
    * @return ApiResponse&lt;NotificationRulesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -28446,7 +28532,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #patchSignalNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @param body (required)
    * @return NotificationRuleResponse
    * @throws ApiException if fails to make API call
@@ -28461,7 +28548,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #patchSignalNotificationRuleWithHttpInfoAsync}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;NotificationRuleResponse&gt;
    */
@@ -28475,10 +28563,35 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Partially update the notification rule. All fields are optional; if a field is not provided, it
-   * is not updated.
+   * Partially update the notification rule. All fields except <code>version</code> are optional; if
+   * a field is not provided, it is not updated. Give at least one field to change. Get the rule
+   * <code>id</code> from <code>GetSignalNotificationRules</code>, then read the rule with <code>
+   * GetSignalNotificationRule</code> and send its current <code>version</code>. The <code>version
+   * </code> is incremented each time the rule is modified. A <code>version</code> that isn't the
+   * current one returns 409: fetch the rule again and retry. A missing or <code>0</code> <code>
+   * version</code> is rejected. If you send <code>selectors</code>, it must include <code>
+   * trigger_source</code>, and every entry in <code>selectors.rule_types</code> must match that
+   * trigger source (give at least one). For <code>security_findings</code>, the rule types are
+   * <code>application_code_vulnerability</code>, <code>application_library_vulnerability</code>,
+   * <code>attack_path</code>, <code>container_image_vulnerability</code>, <code>identity_risk
+   * </code>, <code>misconfiguration</code>, <code>api_security</code>, <code>host_vulnerability
+   * </code>, <code>iac_misconfiguration</code>, <code>sast_vulnerability</code>, <code>
+   * secret_vulnerability</code>, <code>workload_activity</code>, <code>sensitive_data</code>, and
+   * <code>serverless_function_code_vulnerability</code>. For <code>security_signals</code>, they
+   * are <code>application_security</code>, <code>log_detection</code>, <code>workload_security
+   * </code>, and <code>signal_correlation</code>. Changing <code>trigger_source</code> moves the
+   * rule to the other family's routes, and the change counts toward that family's limit of 1,000
+   * rules. <code>selectors.severities</code> accepts <code>critical</code>, <code>high</code>,
+   * <code>medium</code>, <code>low</code>, and <code>info</code>; <code>unknown</code> is rejected.
+   * <code>selectors.query</code> is at most 6,000 characters. Finding-based rules can't filter on
+   * attributes in the <code>@workflow</code> or <code>@_dd</code> namespaces, on <code>@status
+   * </code>, or on <code>@compliance.evaluation</code>. Each entry in <code>targets</code> is a
+   * handle that starts with <code>@</code>, such as an email address (<code>@john.doe@email.com
+   * </code>) or an integration handle (<code>@slack-&lt;VALUES&gt;</code>); see <code>targets
+   * </code>. Trial organizations can't use email address targets: the request returns 400.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @param body (required)
    * @return ApiResponse&lt;NotificationRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -28541,7 +28654,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #patchSignalNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetSignalNotificationRules</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
    */
@@ -28607,7 +28721,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @param body (required)
    * @return NotificationRuleResponse
    * @throws ApiException if fails to make API call
@@ -28622,7 +28737,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfoAsync}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;NotificationRuleResponse&gt;
    */
@@ -28636,10 +28752,35 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Partially update the notification rule. All fields are optional; if a field is not provided, it
-   * is not updated.
+   * Partially update the notification rule. All fields except <code>version</code> are optional; if
+   * a field is not provided, it is not updated. Give at least one field to change. Get the rule
+   * <code>id</code> from <code>GetVulnerabilityNotificationRules</code>, then read the rule with
+   * <code>GetVulnerabilityNotificationRule</code> and send its current <code>version</code>. The
+   * <code>version</code> is incremented each time the rule is modified. A <code>version</code> that
+   * isn't the current one returns 409: fetch the rule again and retry. A missing or <code>0</code>
+   * <code>version</code> is rejected. If you send <code>selectors</code>, it must include <code>
+   * trigger_source</code>, and every entry in <code>selectors.rule_types</code> must match that
+   * trigger source (give at least one). For <code>security_findings</code>, the rule types are
+   * <code>application_code_vulnerability</code>, <code>application_library_vulnerability</code>,
+   * <code>attack_path</code>, <code>container_image_vulnerability</code>, <code>identity_risk
+   * </code>, <code>misconfiguration</code>, <code>api_security</code>, <code>host_vulnerability
+   * </code>, <code>iac_misconfiguration</code>, <code>sast_vulnerability</code>, <code>
+   * secret_vulnerability</code>, <code>workload_activity</code>, <code>sensitive_data</code>, and
+   * <code>serverless_function_code_vulnerability</code>. For <code>security_signals</code>, they
+   * are <code>application_security</code>, <code>log_detection</code>, <code>workload_security
+   * </code>, and <code>signal_correlation</code>. Changing <code>trigger_source</code> moves the
+   * rule to the other family's routes, and the change counts toward that family's limit of 1,000
+   * rules. <code>selectors.severities</code> accepts <code>critical</code>, <code>high</code>,
+   * <code>medium</code>, <code>low</code>, and <code>info</code>; <code>unknown</code> is rejected.
+   * <code>selectors.query</code> is at most 6,000 characters. Finding-based rules can't filter on
+   * attributes in the <code>@workflow</code> or <code>@_dd</code> namespaces, on <code>@status
+   * </code>, or on <code>@compliance.evaluation</code>. Each entry in <code>targets</code> is a
+   * handle that starts with <code>@</code>, such as an email address (<code>@john.doe@email.com
+   * </code>) or an integration handle (<code>@slack-&lt;VALUES&gt;</code>); see <code>targets
+   * </code>. Trial organizations can't use email address targets: the request returns 400.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @param body (required)
    * @return ApiResponse&lt;NotificationRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -28704,7 +28845,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfo}.
    *
-   * @param id ID of the notification rule. (required)
+   * @param id ID of the notification rule, as returned in <code>data[].id</code> by <code>
+   *     GetVulnerabilityNotificationRules</code>. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
    */

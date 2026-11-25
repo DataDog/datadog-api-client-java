@@ -207,7 +207,8 @@ public class NotificationRuleAttributes {
   }
 
   /**
-   * Name of the notification rule.
+   * Name of the notification rule. At most 500 characters, and unique in the organization
+   * (case-insensitive).
    *
    * @return name
    */
@@ -261,6 +262,16 @@ public class NotificationRuleAttributes {
    * List of recipients to notify when a notification rule is triggered. Many different target types
    * are supported, such as email addresses, Slack channels, and PagerDuty services. The appropriate
    * integrations need to be properly configured to send notifications to the specified targets.
+   * Each target is a handle that starts with <code>@</code>. Use <code>@&lt;EMAIL&gt;</code> for an
+   * email address (for example, <code>@john.doe@email.com</code>), and <code>
+   * @&lt;INTEGRATION_NAME&gt;-&lt;VALUES&gt;</code> for an integration, such as <code>
+   * @slack-&lt;VALUES&gt;</code>, <code>@pagerduty-&lt;VALUES&gt;</code>, <code>
+   * @jira-&lt;VALUES&gt;</code>, <code>@teams-&lt;VALUES&gt;</code>, <code>
+   * @servicenow-&lt;VALUES&gt;</code>, or <code>@webhook-&lt;WEBHOOK_NAME&gt;</code>. Handles that
+   * include parentheses are not supported. A rule can have at most 20 targets, each at most 500
+   * characters long. Finding-based rules don't accept <code>case</code>, <code>incident</code>,
+   * <code>jira</code>, or <code>linear</code> targets; use an automatic ticket creation rule for
+   * cases, Jira, and Linear.
    *
    * @return targets
    */
@@ -283,8 +294,9 @@ public class NotificationRuleAttributes {
    * Time aggregation period (in seconds) is used to aggregate the results of the notification rule
    * evaluation. Results are aggregated over a selected time frame using a rolling window, which
    * updates with each new evaluation. Notifications are only sent for new issues discovered during
-   * the window. Time aggregation is only available for vulnerability-based notification rules. When
-   * omitted or set to 0, no aggregation is done.
+   * the window. Time aggregation is only available for finding-based notification rules. When
+   * omitted or set to 0, no aggregation is done. Otherwise, it must be between 1800 (30 minutes)
+   * and 2592000 (30 days).
    *
    * @return timeAggregation
    */
@@ -305,7 +317,9 @@ public class NotificationRuleAttributes {
   }
 
   /**
-   * Version of the notification rule. It is updated when the rule is modified.
+   * Version of the notification rule. It is updated when the rule is modified. When patching a
+   * rule, send the current <code>version</code> returned by the get or list operation; an older
+   * <code>version</code> returns 409.
    *
    * @return version
    */
