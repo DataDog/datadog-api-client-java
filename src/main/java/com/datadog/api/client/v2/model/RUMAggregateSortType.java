@@ -20,7 +20,8 @@ import java.util.Set;
 
 /**
  * The type of sorting algorithm. <code>alphabetical</code> sorts buckets by the facet value. <code>
- * measure</code> sorts them by a computed aggregation.
+ * measure</code> sorts them by a computed aggregation, and is required when the sort sets <code>
+ * aggregation</code> or <code>metric</code>.
  */
 @JsonSerialize(using = RUMAggregateSortType.RUMAggregateSortTypeSerializer.class)
 public class RUMAggregateSortType extends ModelEnum<String> {
