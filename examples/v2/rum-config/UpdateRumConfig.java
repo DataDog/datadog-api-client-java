@@ -20,7 +20,7 @@ public class Example {
         new RumConfigUpdateRequest()
             .data(
                 new RumConfigUpdateData()
-                    .attributes(new RumConfigUpdateAttributes().enforcedApplicationTags(true))
+                    .attributes(new RumConfigUpdateAttributes().enforcedApplicationTags(false))
                     .type(RumConfigType.RUM_CONFIG));
 
     try {

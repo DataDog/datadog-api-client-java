@@ -1,5 +1,4 @@
 // Query aggregated long tasks returns "Successful response" response
-
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumInsightsApi;
@@ -10,6 +9,7 @@ import com.datadog.api.client.v2.model.AggregatedLongTasksRequestType;
 import com.datadog.api.client.v2.model.AggregatedLongTasksResponse;
 import com.datadog.api.client.v2.model.AggregatedWaterfallPerformanceCriteria;
 import com.datadog.api.client.v2.model.AggregatedWaterfallPerformanceCriteriaMetric;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 public class Example {
@@ -34,9 +34,9 @@ public class Example {
                                             .LARGEST_CONTENTFUL_PAINT)
                                     .min(2.5))
                             .filter("@session.type:user")
-                            .from(1762437564L)
+                            .from(OffsetDateTime.now().plusHours(-1).toInstant().getEpochSecond())
                             .sampleSize(20)
-                            .to(1762523964L)
+                            .to(OffsetDateTime.now().toInstant().getEpochSecond())
                             .viewName("/account/login(/:type)"))
                     .type(AggregatedLongTasksRequestType.AGGREGATED_LONG_TASKS));
 

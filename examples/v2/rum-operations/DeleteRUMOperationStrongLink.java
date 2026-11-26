@@ -10,8 +10,16 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumOperationsApi apiInstance = new RumOperationsApi(defaultClient);
 
+    // there is a valid "rum_operation_strong_link" in the system
+    String RUM_OPERATION_STRONG_LINK_DATA_ATTRIBUTES_FEATURE_ID =
+        System.getenv("RUM_OPERATION_STRONG_LINK_DATA_ATTRIBUTES_FEATURE_ID");
+    String RUM_OPERATION_STRONG_LINK_DATA_ATTRIBUTES_OPERATION_ID =
+        System.getenv("RUM_OPERATION_STRONG_LINK_DATA_ATTRIBUTES_OPERATION_ID");
+
     try {
-      apiInstance.deleteRUMOperationStrongLink("rum_operation_id", "feature_id");
+      apiInstance.deleteRUMOperationStrongLink(
+          RUM_OPERATION_STRONG_LINK_DATA_ATTRIBUTES_OPERATION_ID,
+          RUM_OPERATION_STRONG_LINK_DATA_ATTRIBUTES_FEATURE_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumOperationsApi#deleteRUMOperationStrongLink");
       System.err.println("Status code: " + e.getCode());
