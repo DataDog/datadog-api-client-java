@@ -330,8 +330,28 @@ public class DowntimeResponseAttributes {
     this.notifyEndTypes = notifyEndTypes;
   }
 
+  public DowntimeResponseAttributes runAs(List<DowntimeRunAsItem> runAs) {
+    this.runAs = runAs;
+    if (runAs != null) {
+      for (DowntimeRunAsItem item : runAs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public DowntimeResponseAttributes addRunAsItem(DowntimeRunAsItem runAsItem) {
+    if (this.runAs == null) {
+      this.runAs = new ArrayList<>();
+    }
+    this.runAs.add(runAsItem);
+    this.unparsed |= runAsItem.unparsed;
+    return this;
+  }
+
   /**
-   * The principals (users, roles, or teams) allowed to act on behalf of the downtime.
+   * The user the downtime runs as. The downtime only silences monitors this user can mute. On
+   * update, omitting <code>run_as</code> resets it to the user making the update.
    *
    * <p><strong>Note</strong>: This feature is currently in Preview and may not be available for all
    * organizations.
@@ -343,6 +363,15 @@ public class DowntimeResponseAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DowntimeRunAsItem> getRunAs() {
     return runAs;
+  }
+
+  public void setRunAs(List<DowntimeRunAsItem> runAs) {
+    this.runAs = runAs;
+    if (runAs != null) {
+      for (DowntimeRunAsItem item : runAs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DowntimeResponseAttributes schedule(DowntimeScheduleResponse schedule) {
