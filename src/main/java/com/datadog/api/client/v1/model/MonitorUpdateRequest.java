@@ -205,9 +205,6 @@ public class MonitorUpdateRequest {
    * <p><code>draft</code>: The monitor appears as Draft and does not send notifications. <code>
    * published</code>: The monitor is active and evaluates conditions and notify as configured.
    *
-   * <p>This field is in preview. The draft value is only available to customers with the feature
-   * enabled.
-   *
    * @return draftStatus
    */
   @jakarta.annotation.Nullable
