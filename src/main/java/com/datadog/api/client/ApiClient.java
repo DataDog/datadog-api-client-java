@@ -1586,6 +1586,11 @@ public class ApiClient {
           put("v2.getOpenAICodexIntegrationAccount", false);
           put("v2.listOpenAICodexIntegrationAccounts", false);
           put("v2.updateOpenAICodexIntegrationAccount", false);
+          put("v2.createOpenAIModelInferenceIntegrationAccount", false);
+          put("v2.deleteOpenAIModelInferenceIntegrationAccount", false);
+          put("v2.getOpenAIModelInferenceIntegrationAccount", false);
+          put("v2.listOpenAIModelInferenceIntegrationAccounts", false);
+          put("v2.updateOpenAIModelInferenceIntegrationAccount", false);
           put("v2.createSnowflakeIntegrationAccount", false);
           put("v2.deleteSnowflakeIntegrationAccount", false);
           put("v2.getSnowflakeIntegrationAccount", false);
