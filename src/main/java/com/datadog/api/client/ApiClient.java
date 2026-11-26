@@ -1634,6 +1634,7 @@ public class ApiClient {
           put("v2.createTagIndexingRuleExemption", false);
           put("v2.deleteTagIndexingRuleExemption", false);
           put("v2.getTagIndexingRuleExemption", false);
+          put("v2.listMetricMetadata", false);
           put("v2.listTagIndexingRuleExemptions", false);
           put("v2.updateTagIndexingRuleExemption", false);
           put("v2.addModelLabProjectOwner", false);
