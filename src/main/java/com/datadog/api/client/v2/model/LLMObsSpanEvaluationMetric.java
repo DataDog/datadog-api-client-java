@@ -22,6 +22,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   LLMObsSpanEvaluationMetric.JSON_PROPERTY_ASSESSMENT,
   LLMObsSpanEvaluationMetric.JSON_PROPERTY_EVAL_METRIC_TYPE,
+  LLMObsSpanEvaluationMetric.JSON_PROPERTY_HIGHER_IS_BETTER,
   LLMObsSpanEvaluationMetric.JSON_PROPERTY_REASONING,
   LLMObsSpanEvaluationMetric.JSON_PROPERTY_STATUS,
   LLMObsSpanEvaluationMetric.JSON_PROPERTY_TAGS,
@@ -36,6 +37,9 @@ public class LLMObsSpanEvaluationMetric {
 
   public static final String JSON_PROPERTY_EVAL_METRIC_TYPE = "eval_metric_type";
   private String evalMetricType;
+
+  public static final String JSON_PROPERTY_HIGHER_IS_BETTER = "higher_is_better";
+  private Boolean higherIsBetter;
 
   public static final String JSON_PROPERTY_REASONING = "reasoning";
   private String reasoning;
@@ -89,6 +93,27 @@ public class LLMObsSpanEvaluationMetric {
 
   public void setEvalMetricType(String evalMetricType) {
     this.evalMetricType = evalMetricType;
+  }
+
+  public LLMObsSpanEvaluationMetric higherIsBetter(Boolean higherIsBetter) {
+    this.higherIsBetter = higherIsBetter;
+    return this;
+  }
+
+  /**
+   * Whether a higher numeric score is better. Omitted when no direction was specified.
+   *
+   * @return higherIsBetter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HIGHER_IS_BETTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHigherIsBetter() {
+    return higherIsBetter;
+  }
+
+  public void setHigherIsBetter(Boolean higherIsBetter) {
+    this.higherIsBetter = higherIsBetter;
   }
 
   public LLMObsSpanEvaluationMetric reasoning(String reasoning) {
@@ -241,6 +266,7 @@ public class LLMObsSpanEvaluationMetric {
     LLMObsSpanEvaluationMetric llmObsSpanEvaluationMetric = (LLMObsSpanEvaluationMetric) o;
     return Objects.equals(this.assessment, llmObsSpanEvaluationMetric.assessment)
         && Objects.equals(this.evalMetricType, llmObsSpanEvaluationMetric.evalMetricType)
+        && Objects.equals(this.higherIsBetter, llmObsSpanEvaluationMetric.higherIsBetter)
         && Objects.equals(this.reasoning, llmObsSpanEvaluationMetric.reasoning)
         && Objects.equals(this.status, llmObsSpanEvaluationMetric.status)
         && Objects.equals(this.tags, llmObsSpanEvaluationMetric.tags)
@@ -252,7 +278,14 @@ public class LLMObsSpanEvaluationMetric {
   @Override
   public int hashCode() {
     return Objects.hash(
-        assessment, evalMetricType, reasoning, status, tags, value, additionalProperties);
+        assessment,
+        evalMetricType,
+        higherIsBetter,
+        reasoning,
+        status,
+        tags,
+        value,
+        additionalProperties);
   }
 
   @Override
@@ -261,6 +294,7 @@ public class LLMObsSpanEvaluationMetric {
     sb.append("class LLMObsSpanEvaluationMetric {\n");
     sb.append("    assessment: ").append(toIndentedString(assessment)).append("\n");
     sb.append("    evalMetricType: ").append(toIndentedString(evalMetricType)).append("\n");
+    sb.append("    higherIsBetter: ").append(toIndentedString(higherIsBetter)).append("\n");
     sb.append("    reasoning: ").append(toIndentedString(reasoning)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

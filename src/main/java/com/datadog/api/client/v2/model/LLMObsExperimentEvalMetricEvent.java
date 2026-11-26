@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LLMObsExperimentEvalMetricEvent.JSON_PROPERTY_BOOLEAN_VALUE,
   LLMObsExperimentEvalMetricEvent.JSON_PROPERTY_CATEGORICAL_VALUE,
   LLMObsExperimentEvalMetricEvent.JSON_PROPERTY_EVAL_SOURCE_TYPE,
+  LLMObsExperimentEvalMetricEvent.JSON_PROPERTY_HIGHER_IS_BETTER,
   LLMObsExperimentEvalMetricEvent.JSON_PROPERTY_ID,
   LLMObsExperimentEvalMetricEvent.JSON_PROPERTY_JSON_VALUE,
   LLMObsExperimentEvalMetricEvent.JSON_PROPERTY_LABEL,
@@ -53,6 +54,9 @@ public class LLMObsExperimentEvalMetricEvent {
 
   public static final String JSON_PROPERTY_EVAL_SOURCE_TYPE = "eval_source_type";
   private String evalSourceType;
+
+  public static final String JSON_PROPERTY_HIGHER_IS_BETTER = "higher_is_better";
+  private Boolean higherIsBetter;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -198,6 +202,27 @@ public class LLMObsExperimentEvalMetricEvent {
 
   public void setEvalSourceType(String evalSourceType) {
     this.evalSourceType = evalSourceType;
+  }
+
+  public LLMObsExperimentEvalMetricEvent higherIsBetter(Boolean higherIsBetter) {
+    this.higherIsBetter = higherIsBetter;
+    return this;
+  }
+
+  /**
+   * Whether a higher numeric score is better. Omitted when no direction was specified.
+   *
+   * @return higherIsBetter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HIGHER_IS_BETTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHigherIsBetter() {
+    return higherIsBetter;
+  }
+
+  public void setHigherIsBetter(Boolean higherIsBetter) {
+    this.higherIsBetter = higherIsBetter;
   }
 
   public LLMObsExperimentEvalMetricEvent id(String id) {
@@ -590,6 +615,7 @@ public class LLMObsExperimentEvalMetricEvent {
         && Objects.equals(this.booleanValue, llmObsExperimentEvalMetricEvent.booleanValue)
         && Objects.equals(this.categoricalValue, llmObsExperimentEvalMetricEvent.categoricalValue)
         && Objects.equals(this.evalSourceType, llmObsExperimentEvalMetricEvent.evalSourceType)
+        && Objects.equals(this.higherIsBetter, llmObsExperimentEvalMetricEvent.higherIsBetter)
         && Objects.equals(this.id, llmObsExperimentEvalMetricEvent.id)
         && Objects.equals(this.jsonValue, llmObsExperimentEvalMetricEvent.jsonValue)
         && Objects.equals(this.label, llmObsExperimentEvalMetricEvent.label)
@@ -613,6 +639,7 @@ public class LLMObsExperimentEvalMetricEvent {
         booleanValue,
         categoricalValue,
         evalSourceType,
+        higherIsBetter,
         id,
         jsonValue,
         label,
@@ -636,6 +663,7 @@ public class LLMObsExperimentEvalMetricEvent {
     sb.append("    booleanValue: ").append(toIndentedString(booleanValue)).append("\n");
     sb.append("    categoricalValue: ").append(toIndentedString(categoricalValue)).append("\n");
     sb.append("    evalSourceType: ").append(toIndentedString(evalSourceType)).append("\n");
+    sb.append("    higherIsBetter: ").append(toIndentedString(higherIsBetter)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    jsonValue: ").append(toIndentedString(jsonValue)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
