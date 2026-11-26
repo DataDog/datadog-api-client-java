@@ -63,7 +63,7 @@ public class QueryEventFilteredUsersRequestDataAttributesEventQuery {
   }
 
   /**
-   * The time window defining the start and end of the event query period as Unix timestamps.
+   * The time window of the event query, as Unix timestamps in milliseconds.
    *
    * @return timeFrame
    */

@@ -36,8 +36,10 @@ public class Example {
                                 new ProductAnalyticsSankeyDefinition()
                                     .entriesPerStep(10L)
                                     .numberOfSteps(3L)
-                                    .source("@view.name")
-                                    .target("@view.name"))
+                                    .source("""
+@type:view @view.name:"/logs"
+""")
+                                    .target(""))
                             .search(
                                 new ProductAnalyticsSankeySearch()
                                     .audienceFilters(

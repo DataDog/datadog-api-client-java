@@ -120,7 +120,14 @@ public class QueryEventFilteredUsersRequestDataAttributes {
   }
 
   /**
-   * Filter expression using user attribute conditions to narrow results.
+   * Filter expression on user profile attributes, such as <code>first_country_code:US</code>. It
+   * uses the same attribute names as <code>select_columns</code>. Filter timestamp attributes such
+   * as <code>first_seen</code> or <code>last_seen</code> with Unix timestamps in milliseconds, for
+   * example <code>first_seen:&gt;=1793750400000</code> or <code>
+   * first_seen:[1793750400000 TO 1794355200000]</code>, or with offsets in milliseconds relative to
+   * now, for example <code>first_seen:[-604800000 TO 0]</code> for the last 7 days. A range needs
+   * an upper bound. Date strings such as <code>2026-10-26T00:00:00Z</code> are not supported,
+   * because their colons break the query syntax.
    *
    * @return query
    */
@@ -150,7 +157,12 @@ public class QueryEventFilteredUsersRequestDataAttributes {
   }
 
   /**
-   * List of user attribute column names to include in the response.
+   * User profile attribute names to include in the response, such as <code>user_id</code>, <code>
+   * user_email</code>, <code>user_name</code>, <code>first_seen</code>, <code>last_seen</code>, or
+   * <code>first_country_code</code>. These are profile attributes, not event facets or computed
+   * metrics. An unknown name returns a 400 error. Use the get mapping endpoint with entity <code>
+   * users</code> to list the attributes available in your organization. Omit it to return every
+   * attribute.
    *
    * @return selectColumns
    */

@@ -74,7 +74,9 @@ public class ProductAnalyticsRetentionIndexTarget {
   }
 
   /**
-   * Zero-based index of the targeted cohort or return period. minimum: 0
+   * Zero-based index of the targeted cohort or return period. It must be lower than the number of
+   * cohorts in the query window, which is the number of cohort intervals that start between <code>
+   * from</code> and <code>to</code>. minimum: 0
    *
    * @return value
    */

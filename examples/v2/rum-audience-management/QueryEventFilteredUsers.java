@@ -32,23 +32,20 @@ public class Example {
                                             + " @application.name:ecommerce-platform")
                                     .timeFrame(
                                         new QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame()
-                                            .end(1761309676L)
-                                            .start(1760100076L)))
+                                            .end(1761309676000L)
+                                            .start(1760100076000L)))
                             .includeRowCount(true)
                             .limit(25L)
-                            .query(
-                                "user_org_id:5001 AND first_country_code:US AND"
-                                    + " first_browser_name:Chrome")
+                            .query("first_country_code:US AND first_browser_name:Chrome")
                             .selectColumns(
                                 Arrays.asList(
                                     "user_id",
                                     "user_email",
+                                    "user_name",
+                                    "first_seen",
+                                    "last_seen",
                                     "first_country_code",
-                                    "first_browser_name",
-                                    "events_count",
-                                    "session_count",
-                                    "error_count",
-                                    "avg_loading_time")))
+                                    "first_browser_name")))
                     .id("query_event_filtered_users_request")
                     .type(
                         QueryEventFilteredUsersRequestDataType.QUERY_EVENT_FILTERED_USERS_REQUEST));

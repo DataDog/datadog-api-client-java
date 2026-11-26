@@ -1314,7 +1314,10 @@ public class RumAudienceManagementApi {
   }
 
   /**
-   * Query users filtered by both user properties and event platform data
+   * Query users filtered by both user properties and event platform data. <code>event_query.query
+   * </code> selects users who have matching events in <code>event_query.time_frame</code>, which is
+   * in milliseconds. <code>query</code> and <code>select_columns</code> use user profile attribute
+   * names, not event facets.
    *
    * @param body (required)
    * @return ApiResponse&lt;QueryResponse&gt;

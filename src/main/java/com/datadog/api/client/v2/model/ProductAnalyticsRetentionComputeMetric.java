@@ -18,7 +18,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The retention metric to compute, either an absolute count or a rate. */
+/**
+ * The retention metric to compute. Use <code>__dd.retention</code> for the number of retained
+ * entities, or <code>__dd.retention_rate</code> for the share of the cohort that was retained. No
+ * other value is accepted.
+ */
 @JsonSerialize(
     using =
         ProductAnalyticsRetentionComputeMetric.ProductAnalyticsRetentionComputeMetricSerializer
