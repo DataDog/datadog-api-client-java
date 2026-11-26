@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The published models.dev price. Present only when it is the effective price. */
+/** The automatically synced published price. Present only when it is the effective price. */
 @JsonPropertyOrder({
   AiGatewayModelAutomaticPricing.JSON_PROPERTY_LAST_VALIDATED_AT,
   AiGatewayModelAutomaticPricing.JSON_PROPERTY_MAPPING,

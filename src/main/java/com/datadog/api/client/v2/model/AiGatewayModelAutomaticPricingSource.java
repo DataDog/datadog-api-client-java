@@ -21,7 +21,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   AiGatewayModelAutomaticPricingSource.JSON_PROPERTY_MATCH_METHOD,
   AiGatewayModelAutomaticPricingSource.JSON_PROPERTY_MODEL_ID,
-  AiGatewayModelAutomaticPricingSource.JSON_PROPERTY_NAME,
   AiGatewayModelAutomaticPricingSource.JSON_PROPERTY_PROVIDER_ID,
   AiGatewayModelAutomaticPricingSource.JSON_PROPERTY_REVISION
 })
@@ -35,9 +34,6 @@ public class AiGatewayModelAutomaticPricingSource {
   public static final String JSON_PROPERTY_MODEL_ID = "model_id";
   private String modelId;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
   public static final String JSON_PROPERTY_PROVIDER_ID = "provider_id";
   private String providerId;
 
@@ -50,12 +46,10 @@ public class AiGatewayModelAutomaticPricingSource {
   public AiGatewayModelAutomaticPricingSource(
       @JsonProperty(required = true, value = JSON_PROPERTY_MATCH_METHOD) String matchMethod,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODEL_ID) String modelId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_PROVIDER_ID) String providerId,
       @JsonProperty(required = true, value = JSON_PROPERTY_REVISION) String revision) {
     this.matchMethod = matchMethod;
     this.modelId = modelId;
-    this.name = name;
     this.providerId = providerId;
     this.revision = revision;
   }
@@ -98,26 +92,6 @@ public class AiGatewayModelAutomaticPricingSource {
 
   public void setModelId(String modelId) {
     this.modelId = modelId;
-  }
-
-  public AiGatewayModelAutomaticPricingSource name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Pricing source name.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public AiGatewayModelAutomaticPricingSource providerId(String providerId) {
@@ -219,7 +193,6 @@ public class AiGatewayModelAutomaticPricingSource {
         (AiGatewayModelAutomaticPricingSource) o;
     return Objects.equals(this.matchMethod, aiGatewayModelAutomaticPricingSource.matchMethod)
         && Objects.equals(this.modelId, aiGatewayModelAutomaticPricingSource.modelId)
-        && Objects.equals(this.name, aiGatewayModelAutomaticPricingSource.name)
         && Objects.equals(this.providerId, aiGatewayModelAutomaticPricingSource.providerId)
         && Objects.equals(this.revision, aiGatewayModelAutomaticPricingSource.revision)
         && Objects.equals(
@@ -228,7 +201,7 @@ public class AiGatewayModelAutomaticPricingSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchMethod, modelId, name, providerId, revision, additionalProperties);
+    return Objects.hash(matchMethod, modelId, providerId, revision, additionalProperties);
   }
 
   @Override
@@ -237,7 +210,6 @@ public class AiGatewayModelAutomaticPricingSource {
     sb.append("class AiGatewayModelAutomaticPricingSource {\n");
     sb.append("    matchMethod: ").append(toIndentedString(matchMethod)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    additionalProperties: ")
