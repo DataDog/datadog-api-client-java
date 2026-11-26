@@ -14,7 +14,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+ * The caller lacks edit permission on one or more feature flags that reference this saved filter,
+ * or on one or more of their environments.
  */
 @JsonPropertyOrder({SavedFilterPermissionDeniedResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
@@ -41,7 +42,8 @@ public class SavedFilterPermissionDeniedResponse {
   }
 
   /**
-   * The caller lacks edit permission on one or more feature flags that reference this saved filter.
+   * The caller lacks edit permission on one or more feature flags that reference this saved filter,
+   * or on one or more of their environments.
    *
    * @return data
    */
