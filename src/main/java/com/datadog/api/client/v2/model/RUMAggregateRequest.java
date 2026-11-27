@@ -68,7 +68,9 @@ public class RUMAggregateRequest {
   }
 
   /**
-   * The list of metrics or timeseries to compute for the retrieved buckets.
+   * The list of metrics or timeseries to compute for the retrieved buckets. All rules must have the
+   * same <code>type</code>; mixing <code>total</code> and <code>timeseries</code> rules is
+   * rejected.
    *
    * @return compute
    */

@@ -122,7 +122,8 @@ public class RUMAggregateSort {
 
   /**
    * The type of sorting algorithm. <code>alphabetical</code> sorts buckets by the facet value.
-   * <code>measure</code> sorts them by a computed aggregation.
+   * <code>measure</code> sorts them by a computed aggregation, and is required when the sort sets
+   * <code>aggregation</code> or <code>metric</code>.
    *
    * @return type
    */
