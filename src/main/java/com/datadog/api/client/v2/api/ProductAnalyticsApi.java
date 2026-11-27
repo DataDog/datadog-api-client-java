@@ -257,7 +257,11 @@ public class ProductAnalyticsApi {
   /**
    * Return the individual sessions that reached, or dropped off at, a given step of the journey.
    * Each row contains the identity join key, the event timestamp, and the columns requested in
-   * <code>entity_columns</code>.
+   * <code>entity_columns</code>. This endpoint only lists sessions: omit <code>
+   * query.search.join_keys</code> or set its <code>primary</code> to <code>@session.id</code>. Any
+   * other primary join key, such as <code>@usr.id</code>, returns a 400 error. To get the users
+   * behind the sessions, add <code>@usr.id</code> or <code>@usr.email</code> to <code>
+   * entity_columns</code>.
    *
    * @param body (required)
    * @return ApiResponse&lt;ProductAnalyticsJourneyListResponse&gt;
@@ -1049,7 +1053,10 @@ public class ProductAnalyticsApi {
 
   /**
    * List the individual users or accounts counted in one cell of the retention grid. Set <code>
-   * computation_scope</code> to the cohort and return period you want to examine.
+   * computation_scope</code> to the cohort and return period you want to examine. Indexes are
+   * zero-based, and the cohort index plus the return period index must be lower than the number of
+   * cohorts between <code>from</code> and <code>to</code>. Make the window long enough to contain
+   * the return period you ask for.
    *
    * @param body The retention list query. (required)
    * @return ApiResponse&lt;ProductAnalyticsRetentionListResponse&gt;
@@ -1526,8 +1533,9 @@ public class ProductAnalyticsApi {
   }
 
   /**
-   * Compute a Sankey diagram of how sessions flow between the values of two facets, showing where
-   * users continue and where they drop off at each step.
+   * Compute a Sankey diagram of how sessions flow from or to one view, showing where users continue
+   * and where they drop off at each step. Set either <code>definition.source</code> or <code>
+   * definition.target</code>, and send the other one as an empty string.
    *
    * @param body The Sankey diagram query. (required)
    * @return ApiResponse&lt;ProductAnalyticsSankeyResponse&gt;

@@ -155,7 +155,7 @@ public class ProductAnalyticsJourneyListQuery {
 
   /**
    * Attribute columns to return for each row, in addition to the identity join key and <code>
-   * timestamp</code>.
+   * timestamp</code>. For example, <code>@usr.id</code> returns the user of each session.
    *
    * @return entityColumns
    */

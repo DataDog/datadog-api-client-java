@@ -107,7 +107,10 @@ public class ProductAnalyticsRetentionListQuery {
 
   /**
    * Narrows a retention query to a single cell, at the intersection of one cohort and one return
-   * period.
+   * period. Both indexes are zero-based. The cohort index plus the return period index must be
+   * lower than the number of cohorts in the query window. For example, return period <code>1</code>
+   * of cohort <code>0</code> needs a window with at least two cohort intervals, such as two weeks
+   * for weekly cohorts. Otherwise the request fails with <code>invalid index</code>.
    *
    * @return computationScope
    */

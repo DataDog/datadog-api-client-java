@@ -52,8 +52,7 @@ public class ProductAnalyticsJourneyFunnelResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_END_TO_END_ELAPSED_TIME)
           ProductAnalyticsElapsedTime endToEndElapsedTime,
       @JsonProperty(required = true, value = JSON_PROPERTY_FUNNEL_STEPS)
-          List<ProductAnalyticsJourneyFunnelStep> funnelSteps,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INITIAL_COUNT) Long initialCount) {
+          List<ProductAnalyticsJourneyFunnelStep> funnelSteps) {
     this.endToEndConversionRate = endToEndConversionRate;
     this.endToEndElapsedTime = endToEndElapsedTime;
     this.unparsed |= endToEndElapsedTime.unparsed;
@@ -61,7 +60,6 @@ public class ProductAnalyticsJourneyFunnelResponseAttributes {
     for (ProductAnalyticsJourneyFunnelStep item : funnelSteps) {
       this.unparsed |= item.unparsed;
     }
-    this.initialCount = initialCount;
   }
 
   public ProductAnalyticsJourneyFunnelResponseAttributes endToEndConversionRate(
@@ -152,12 +150,14 @@ public class ProductAnalyticsJourneyFunnelResponseAttributes {
   }
 
   /**
-   * Number of entities that entered the funnel.
+   * Number of entities that entered the funnel. The service does not return it today; use the
+   * <code>value</code> of the first entry in <code>funnel_steps</code> instead.
    *
    * @return initialCount
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INITIAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInitialCount() {
     return initialCount;
   }

@@ -18,8 +18,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The shape of the Sankey diagram, expressed as the facets to flow between and how many steps to
- * show.
+ * The shape of the Sankey diagram: the step it is anchored on and how many steps to show. Set
+ * exactly one of <code>source</code> or <code>target</code> to a step, and send the other one as an
+ * empty string. Sending both returns <code>Invalid Sankey Mode</code>. Sending both empty starts
+ * the diagram from any view. Each column of the diagram lists view names.
  */
 @JsonPropertyOrder({
   ProductAnalyticsSankeyDefinition.JSON_PROPERTY_ENTRIES_PER_STEP,
@@ -104,7 +106,10 @@ public class ProductAnalyticsSankeyDefinition {
   }
 
   /**
-   * Facet forming the first column of the diagram.
+   * The step the diagram starts from. The diagram shows where sessions go after it. It is a value,
+   * not a facet name: use a view name such as <code>/logs</code>, or a query matching one view such
+   * as <code>@type:view @view.name:"/logs"</code>. Do not send <code>@view.name</code>. Send an
+   * empty string when <code>target</code> is set.
    *
    * @return source
    */
@@ -124,7 +129,8 @@ public class ProductAnalyticsSankeyDefinition {
   }
 
   /**
-   * Facet forming the last column of the diagram.
+   * The step the diagram ends at. The diagram shows the paths sessions take to reach it. It takes
+   * the same values as <code>source</code>. Send an empty string when <code>source</code> is set.
    *
    * @return target
    */

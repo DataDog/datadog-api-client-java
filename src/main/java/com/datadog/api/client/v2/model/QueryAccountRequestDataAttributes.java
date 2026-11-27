@@ -72,7 +72,13 @@ public class QueryAccountRequestDataAttributes {
   }
 
   /**
-   * Filter expression using account attribute conditions to narrow results.
+   * Filter expression using account attribute conditions to narrow results. Filter timestamp
+   * attributes such as <code>first_seen</code> with Unix timestamps in milliseconds, for example
+   * <code>first_seen:&gt;=1793750400000</code> or <code>first_seen:[1793750400000 TO 1794355200000]
+   * </code>, or with offsets in milliseconds relative to now, for example <code>
+   * first_seen:[-604800000 TO 0]</code> for the last 7 days. A range needs an upper bound. Date
+   * strings such as <code>2026-10-26T00:00:00Z</code> are not supported, because their colons break
+   * the query syntax.
    *
    * @return query
    */

@@ -35,7 +35,7 @@ public class ProductAnalyticsJourneyFunnelStep {
   private ProductAnalyticsElapsedTime elapsedTimeToNextStep;
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  private List<ProductAnalyticsJourneyFunnelStepGroup> groups = new ArrayList<>();
+  private List<ProductAnalyticsJourneyFunnelStepGroup> groups = null;
 
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
@@ -52,17 +52,11 @@ public class ProductAnalyticsJourneyFunnelStep {
   public ProductAnalyticsJourneyFunnelStep(
       @JsonProperty(required = true, value = JSON_PROPERTY_ELAPSED_TIME_TO_NEXT_STEP)
           ProductAnalyticsElapsedTime elapsedTimeToNextStep,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GROUPS)
-          List<ProductAnalyticsJourneyFunnelStepGroup> groups,
       @JsonProperty(required = true, value = JSON_PROPERTY_LABEL) String label,
       @JsonProperty(required = true, value = JSON_PROPERTY_UNIT) String unit,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) Double value) {
     this.elapsedTimeToNextStep = elapsedTimeToNextStep;
     this.unparsed |= elapsedTimeToNextStep.unparsed;
-    this.groups = groups;
-    for (ProductAnalyticsJourneyFunnelStepGroup item : groups) {
-      this.unparsed |= item.unparsed;
-    }
     this.label = label;
     this.unit = unit;
     this.value = value;
@@ -96,26 +90,33 @@ public class ProductAnalyticsJourneyFunnelStep {
   public ProductAnalyticsJourneyFunnelStep groups(
       List<ProductAnalyticsJourneyFunnelStepGroup> groups) {
     this.groups = groups;
-    for (ProductAnalyticsJourneyFunnelStepGroup item : groups) {
-      this.unparsed |= item.unparsed;
+    if (groups != null) {
+      for (ProductAnalyticsJourneyFunnelStepGroup item : groups) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
 
   public ProductAnalyticsJourneyFunnelStep addGroupsItem(
       ProductAnalyticsJourneyFunnelStepGroup groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<>();
+    }
     this.groups.add(groupsItem);
     this.unparsed |= groupsItem.unparsed;
     return this;
   }
 
   /**
-   * Breakdown of this step by the requested group-by facets.
+   * Breakdown of this step by the requested group-by facets. Omitted when the query has no
+   * group-by.
    *
    * @return groups
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ProductAnalyticsJourneyFunnelStepGroup> getGroups() {
     return groups;
   }
@@ -155,7 +156,8 @@ public class ProductAnalyticsJourneyFunnelStep {
   }
 
   /**
-   * Unit of the elapsed time values.
+   * The entity counted in <code>value</code>, such as <code>session</code> or <code>user</code>,
+   * set by the join key.
    *
    * @return unit
    */
