@@ -661,7 +661,7 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * Get Agent Observability Scanning Group.
+   * Get Target Scanning Group.
    *
    * <p>See {@link #getScanningGroupWithHttpInfo}.
    *
@@ -675,7 +675,7 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * Get Agent Observability Scanning Group.
+   * Get Target Scanning Group.
    *
    * <p>See {@link #getScanningGroupWithHttpInfoAsync}.
    *
@@ -692,8 +692,8 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * Get an Agent Observability scanning group, with its rules included. Scanning groups of logs,
-   * RUM, events, and APM are reported as not found.
+   * Get an Agent Observability or AI Guard scanning group, with its rules included. Scanning groups
+   * of logs, RUM, events, and APM are reported as not found.
    *
    * @param groupId The ID of a group of rules. (required)
    * @return ApiResponse&lt;SensitiveDataScannerTargetGroupResponse&gt;
@@ -746,7 +746,7 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * Get Agent Observability Scanning Group.
+   * Get Target Scanning Group.
    *
    * <p>See {@link #getScanningGroupWithHttpInfo}.
    *
@@ -1031,7 +1031,7 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * List Agent Observability Scanning Groups.
+   * List Target Scanning Groups.
    *
    * <p>See {@link #listTargetScanningGroupsWithHttpInfo}.
    *
@@ -1045,7 +1045,7 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * List Agent Observability Scanning Groups.
+   * List Target Scanning Groups.
    *
    * <p>See {@link #listTargetScanningGroupsWithHttpInfoAsync}.
    *
@@ -1062,9 +1062,9 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * List the Agent Observability scanning groups, with their rules included. The list always
-   * includes the default Agent Observability scanning group. Scanning groups of logs, RUM, events,
-   * and APM are listed by the List Scanning Groups endpoint.
+   * List the scanning groups of a target, such as Agent Observability or AI Guard, with their rules
+   * included. The list always includes the default scanning group of the target. Scanning groups of
+   * logs, RUM, events, and APM are listed by the List Scanning Groups endpoint.
    *
    * @param filterTarget Target whose scanning groups are listed. (required)
    * @return ApiResponse&lt;SensitiveDataScannerTargetGroupListResponse&gt;
@@ -1119,7 +1119,7 @@ public class SensitiveDataScannerApi {
   }
 
   /**
-   * List Agent Observability Scanning Groups.
+   * List Target Scanning Groups.
    *
    * <p>See {@link #listTargetScanningGroupsWithHttpInfo}.
    *
