@@ -11,8 +11,11 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumOperationsApi apiInstance = new RumOperationsApi(defaultClient);
 
+    // there is a valid "rum_operation" in the system
+    String RUM_OPERATION_DATA_ID = System.getenv("RUM_OPERATION_DATA_ID");
+
     try {
-      RUMOperationResponse result = apiInstance.getRUMOperation("rum_operation_id");
+      RUMOperationResponse result = apiInstance.getRUMOperation(RUM_OPERATION_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumOperationsApi#getRUMOperation");

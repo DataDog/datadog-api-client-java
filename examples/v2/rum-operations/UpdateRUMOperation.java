@@ -3,10 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumOperationsApi;
-import com.datadog.api.client.v2.model.RUMOperationJourneyCompositeRule;
-import com.datadog.api.client.v2.model.RUMOperationJourneyCompositeRuleKind;
 import com.datadog.api.client.v2.model.RUMOperationJourneyNode;
-import com.datadog.api.client.v2.model.RUMOperationJourneyPredicate;
 import com.datadog.api.client.v2.model.RUMOperationJourneyRum;
 import com.datadog.api.client.v2.model.RUMOperationJourneyStep;
 import com.datadog.api.client.v2.model.RUMOperationJourneyStepType;
@@ -15,8 +12,8 @@ import com.datadog.api.client.v2.model.RUMOperationResponse;
 import com.datadog.api.client.v2.model.RUMOperationType;
 import com.datadog.api.client.v2.model.RUMOperationUpdateRequest;
 import com.datadog.api.client.v2.model.RUMOperationUpdateRequestData;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,46 +21,42 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumOperationsApi apiInstance = new RumOperationsApi(defaultClient);
 
+    // there is a valid "rum_operation" in the system
+    String RUM_OPERATION_DATA_ATTRIBUTES_NAME = System.getenv("RUM_OPERATION_DATA_ATTRIBUTES_NAME");
+    String RUM_OPERATION_DATA_ID = System.getenv("RUM_OPERATION_DATA_ID");
+
     RUMOperationUpdateRequest body =
         new RUMOperationUpdateRequest()
             .data(
                 new RUMOperationUpdateRequestData()
+                    .id(RUM_OPERATION_DATA_ID)
+                    .type(RUMOperationType.OPERATIONS)
                     .attributes(
                         new RUMOperationRequestAttributes()
-                            .applicationId(UUID.fromString("abc12345-1234-5678-abcd-ef1234567890"))
-                            .category(null)
-                            .description(null)
-                            .displayName("Checkout completed")
+                            .name(RUM_OPERATION_DATA_ATTRIBUTES_NAME)
+                            .displayName("BDD operation updated")
+                            .tags(Collections.singletonList("team:rum-backend"))
                             .journeyRum(
                                 new RUMOperationJourneyRum()
                                     .rumSteps(
-                                        Collections.singletonList(
+                                        Arrays.asList(
                                             new RUMOperationJourneyStep()
-                                                .composite(
-                                                    new RUMOperationJourneyCompositeRule()
-                                                        .kind(
-                                                            RUMOperationJourneyCompositeRuleKind
-                                                                .ALL_OF)
-                                                        .maxWindowMs(30000L)
-                                                        .predicates(
-                                                            Collections.singletonList(
-                                                                new RUMOperationJourneyPredicate()
-                                                                    .query(
-                                                                        "@type:action"
-                                                                            + " @action.type:click"))))
+                                                .type(RUMOperationJourneyStepType.START)
                                                 .nodes(
                                                     Collections.singletonList(
                                                         new RUMOperationJourneyNode()
                                                             .query(
-                                                                "@type:action @action.type:click")))
-                                                .type(RUMOperationJourneyStepType.START))))
-                            .name("checkout_completed")
-                            .tags(Collections.singletonList("team:checkout")))
-                    .id("abc12345-1234-5678-abcd-ef1234567890")
-                    .type(RUMOperationType.OPERATIONS));
+                                                                "@type:action"
+                                                                    + " @action.type:click"))),
+                                            new RUMOperationJourneyStep()
+                                                .type(RUMOperationJourneyStepType.STOP)
+                                                .nodes(
+                                                    Collections.singletonList(
+                                                        new RUMOperationJourneyNode()
+                                                            .query("@type:view"))))))));
 
     try {
-      RUMOperationResponse result = apiInstance.updateRUMOperation("rum_operation_id", body);
+      RUMOperationResponse result = apiInstance.updateRUMOperation(RUM_OPERATION_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumOperationsApi#updateRUMOperation");

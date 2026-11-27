@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.RUMOperationStrongLinkCreateRequestData;
 import com.datadog.api.client.v2.model.RUMOperationStrongLinkResponse;
 import com.datadog.api.client.v2.model.RUMOperationStrongLinkStatus;
 import com.datadog.api.client.v2.model.RUMOperationStrongLinkType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -16,17 +17,20 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumOperationsApi apiInstance = new RumOperationsApi(defaultClient);
 
+    // there is a valid "rum_operation" in the system
+    String RUM_OPERATION_DATA_ID = System.getenv("RUM_OPERATION_DATA_ID");
+
     RUMOperationStrongLinkCreateRequest body =
         new RUMOperationStrongLinkCreateRequest()
             .data(
                 new RUMOperationStrongLinkCreateRequestData()
+                    .type(RUMOperationStrongLinkType.STRONG_LINKS)
                     .attributes(
                         new RUMOperationStrongLinkCreateRequestAttributes()
-                            .description(null)
-                            .featureId("journey-123")
-                            .operationId("abc12345-1234-5678-abcd-ef1234567890")
-                            .status(RUMOperationStrongLinkStatus.CONFIRMED))
-                    .type(RUMOperationStrongLinkType.STRONG_LINKS));
+                            .operationId(RUM_OPERATION_DATA_ID)
+                            .featureId("bdd-examplerumoperation")
+                            .status(RUMOperationStrongLinkStatus.DRAFT)
+                            .tags(Collections.singletonList("team:rum-backend"))));
 
     try {
       RUMOperationStrongLinkResponse result = apiInstance.createRUMOperationStrongLink(body);
