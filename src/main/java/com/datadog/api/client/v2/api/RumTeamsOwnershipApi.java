@@ -100,13 +100,6 @@ public class RumTeamsOwnershipApi {
    */
   public ApiResponse<TeamsOwnershipMappingResponse> createTeamsOwnershipMappingWithHttpInfo(
       TeamsOwnershipMappingCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createTeamsOwnershipMapping";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -149,17 +142,6 @@ public class RumTeamsOwnershipApi {
    */
   public CompletableFuture<ApiResponse<TeamsOwnershipMappingResponse>>
       createTeamsOwnershipMappingWithHttpInfoAsync(TeamsOwnershipMappingCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createTeamsOwnershipMapping";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamsOwnershipMappingResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -261,13 +243,6 @@ public class RumTeamsOwnershipApi {
   public ApiResponse<TeamsOwnershipMappingBatchResponse>
       createTeamsOwnershipMappingsBatchWithHttpInfo(TeamsOwnershipMappingBatchRequest body)
           throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createTeamsOwnershipMappingsBatch";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -311,17 +286,6 @@ public class RumTeamsOwnershipApi {
    */
   public CompletableFuture<ApiResponse<TeamsOwnershipMappingBatchResponse>>
       createTeamsOwnershipMappingsBatchWithHttpInfoAsync(TeamsOwnershipMappingBatchRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createTeamsOwnershipMappingsBatch";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamsOwnershipMappingBatchResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -413,13 +377,6 @@ public class RumTeamsOwnershipApi {
    *     </table>
    */
   public ApiResponse<Void> deleteTeamsOwnershipMappingWithHttpInfo(String id) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTeamsOwnershipMapping";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -464,16 +421,6 @@ public class RumTeamsOwnershipApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteTeamsOwnershipMappingWithHttpInfoAsync(
       String id) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTeamsOwnershipMapping";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -565,13 +512,6 @@ public class RumTeamsOwnershipApi {
    */
   public ApiResponse<TeamsOwnershipMappingResponse> getTeamsOwnershipMappingWithHttpInfo(String id)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getTeamsOwnershipMapping";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -616,17 +556,6 @@ public class RumTeamsOwnershipApi {
    */
   public CompletableFuture<ApiResponse<TeamsOwnershipMappingResponse>>
       getTeamsOwnershipMappingWithHttpInfoAsync(String id) {
-    // Check if unstable operation is enabled
-    String operationId = "getTeamsOwnershipMapping";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamsOwnershipMappingResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -808,13 +737,6 @@ public class RumTeamsOwnershipApi {
    */
   public ApiResponse<TeamsOwnershipMappingsResponse> listTeamsOwnershipMappingsWithHttpInfo(
       ListTeamsOwnershipMappingsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listTeamsOwnershipMappings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     List<String> filterViewName = parameters.filterViewName;
     List<String> filterTeamHandle = parameters.filterTeamHandle;
@@ -866,17 +788,6 @@ public class RumTeamsOwnershipApi {
   public CompletableFuture<ApiResponse<TeamsOwnershipMappingsResponse>>
       listTeamsOwnershipMappingsWithHttpInfoAsync(
           ListTeamsOwnershipMappingsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listTeamsOwnershipMappings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamsOwnershipMappingsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     List<String> filterViewName = parameters.filterViewName;
     List<String> filterTeamHandle = parameters.filterTeamHandle;
@@ -1060,13 +971,6 @@ public class RumTeamsOwnershipApi {
    */
   public ApiResponse<TeamsOwnershipRulesResponse> listTeamsOwnershipRulesWithHttpInfo(
       ListTeamsOwnershipRulesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listTeamsOwnershipRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     List<String> filterViewName = parameters.filterViewName;
     List<String> filterTeamHandle = parameters.filterTeamHandle;
@@ -1118,17 +1022,6 @@ public class RumTeamsOwnershipApi {
   public CompletableFuture<ApiResponse<TeamsOwnershipRulesResponse>>
       listTeamsOwnershipRulesWithHttpInfoAsync(
           ListTeamsOwnershipRulesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listTeamsOwnershipRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamsOwnershipRulesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     List<String> filterViewName = parameters.filterViewName;
     List<String> filterTeamHandle = parameters.filterTeamHandle;
