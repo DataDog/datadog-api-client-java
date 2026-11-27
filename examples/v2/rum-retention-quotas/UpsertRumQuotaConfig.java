@@ -20,6 +20,9 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionQuotasApi apiInstance = new RumRetentionQuotasApi(defaultClient);
 
+    // there is a valid "rum_application" in the system
+    String RUM_APPLICATION_DATA_ID = System.getenv("RUM_APPLICATION_DATA_ID");
+
     RumRetentionQuotaConfigUpdateRequest body =
         new RumRetentionQuotaConfigUpdateRequest()
             .data(
@@ -34,13 +37,13 @@ public class Example {
                                     .sessionLimit(1000000L)
                                     .windowType(RumRetentionQuotaWindowType.DAILY))
                             .mode(RumRetentionQuotaMode.CUSTOM))
-                    .id("cd73a516-a481-4af5-8352-9b577465c77b")
+                    .id(RUM_APPLICATION_DATA_ID)
                     .type(RumRetentionQuotaConfigType.RUM_QUOTA_CONFIG));
 
     try {
       RumRetentionQuotaConfigResponse result =
           apiInstance.upsertRumQuotaConfig(
-              RumRetentionQuotaScopeType.APPLICATION, "cd73a516-a481-4af5-8352-9b577465c77b", body);
+              RumRetentionQuotaScopeType.APPLICATION, RUM_APPLICATION_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRetentionQuotasApi#upsertRumQuotaConfig");
