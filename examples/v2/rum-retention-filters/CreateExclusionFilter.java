@@ -20,16 +20,17 @@ public class Example {
         new RumExclusionFilterCreateRequest()
             .data(
                 new RumExclusionFilterCreateData()
+                    .type(RumExclusionFilterType.EXCLUSION_FILTERS)
                     .attributes(
                         new RumExclusionFilterCreateAttributes()
+                            .name("Example-Rum-Retention-Filter")
                             .enabled(true)
                             .eventType(RumExclusionFilterEventType.ERROR)
-                            .name("Exclude noisy browser extension errors")
-                            .query("@error.message:*extension*"))
-                    .type(RumExclusionFilterType.EXCLUSION_FILTERS));
+                            .query("@error.message:*extension*")));
 
     try {
-      RumExclusionFilterResponse result = apiInstance.createExclusionFilter("app_id", body);
+      RumExclusionFilterResponse result =
+          apiInstance.createExclusionFilter("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRetentionFiltersApi#createExclusionFilter");

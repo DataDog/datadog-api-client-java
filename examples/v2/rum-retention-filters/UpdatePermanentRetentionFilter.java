@@ -17,23 +17,26 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
+    // there is a valid "rum_application" in the system
+    String RUM_APPLICATION_DATA_ID = System.getenv("RUM_APPLICATION_DATA_ID");
+
     RumPermanentRetentionFilterUpdateRequest body =
         new RumPermanentRetentionFilterUpdateRequest()
             .data(
                 new RumPermanentRetentionFilterUpdateData()
+                    .id(RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS)
+                    .type(RumPermanentRetentionFilterType.PERMANENT_RETENTION_FILTERS)
                     .attributes(
                         new RumPermanentRetentionFilterUpdateAttributes()
                             .crossProductSampling(
                                 new RumCrossProductSamplingUpdate()
                                     .traceEnabled(true)
-                                    .traceSampleRate(25.0)))
-                    .id(RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS)
-                    .type(RumPermanentRetentionFilterType.PERMANENT_RETENTION_FILTERS));
+                                    .traceSampleRate(25.0))));
 
     try {
       RumPermanentRetentionFilterResponse result =
           apiInstance.updatePermanentRetentionFilter(
-              "app_id", RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS, body);
+              RUM_APPLICATION_DATA_ID, RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

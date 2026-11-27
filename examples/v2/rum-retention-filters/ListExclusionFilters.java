@@ -11,8 +11,12 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
+    // there is a valid "rum_application" in the system
+    String RUM_APPLICATION_DATA_ID = System.getenv("RUM_APPLICATION_DATA_ID");
+
     try {
-      RumExclusionFiltersResponse result = apiInstance.listExclusionFilters("app_id");
+      RumExclusionFiltersResponse result =
+          apiInstance.listExclusionFilters(RUM_APPLICATION_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRetentionFiltersApi#listExclusionFilters");
