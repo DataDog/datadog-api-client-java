@@ -865,13 +865,6 @@ public class RumApi {
   public ApiResponse<SourcemapsResponse> deleteSourcemapsWithHttpInfo(
       SourcemapMapKind mapkind, Boolean dryRun, DeleteSourcemapsOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'mapkind' is set
@@ -979,16 +972,6 @@ public class RumApi {
    */
   public CompletableFuture<ApiResponse<SourcemapsResponse>> deleteSourcemapsWithHttpInfoAsync(
       SourcemapMapKind mapkind, Boolean dryRun, DeleteSourcemapsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SourcemapsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'mapkind' is set
@@ -1574,13 +1557,6 @@ public class RumApi {
    */
   public ApiResponse<ServiceRepositoryInfoResponse> getServiceRepositoryInfoWithHttpInfo(
       ServiceRepositoryInfoRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getServiceRepositoryInfo";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1623,17 +1599,6 @@ public class RumApi {
    */
   public CompletableFuture<ApiResponse<ServiceRepositoryInfoResponse>>
       getServiceRepositoryInfoWithHttpInfoAsync(ServiceRepositoryInfoRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "getServiceRepositoryInfo";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceRepositoryInfoResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1841,13 +1806,6 @@ public class RumApi {
    */
   public ApiResponse<SourcemapFileResponse> getSourcemapsWithHttpInfo(
       GetSourcemapsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     UUID debugId = parameters.debugId;
     String filename = parameters.filename;
@@ -1894,16 +1852,6 @@ public class RumApi {
    */
   public CompletableFuture<ApiResponse<SourcemapFileResponse>> getSourcemapsWithHttpInfoAsync(
       GetSourcemapsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SourcemapFileResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     UUID debugId = parameters.debugId;
     String filename = parameters.filename;
@@ -2760,13 +2708,6 @@ public class RumApi {
    */
   public ApiResponse<ListSourcemapsResponse> listSourcemapsWithHttpInfo(
       ListSourcemapsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     SourcemapSearchBy searchBy = parameters.searchBy;
     SourcemapMapKind mapkind = parameters.mapkind;
@@ -2864,16 +2805,6 @@ public class RumApi {
    */
   public CompletableFuture<ApiResponse<ListSourcemapsResponse>> listSourcemapsWithHttpInfoAsync(
       ListSourcemapsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListSourcemapsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     SourcemapSearchBy searchBy = parameters.searchBy;
     SourcemapMapKind mapkind = parameters.mapkind;
@@ -3342,13 +3273,6 @@ public class RumApi {
   public ApiResponse<SourcemapsResponse> restoreSourcemapsWithHttpInfo(
       SourcemapMapKind mapkind, Boolean dryRun, RestoreSourcemapsOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "restoreSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'mapkind' is set
@@ -3456,16 +3380,6 @@ public class RumApi {
    */
   public CompletableFuture<ApiResponse<SourcemapsResponse>> restoreSourcemapsWithHttpInfoAsync(
       SourcemapMapKind mapkind, Boolean dryRun, RestoreSourcemapsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "restoreSourcemaps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SourcemapsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'mapkind' is set
