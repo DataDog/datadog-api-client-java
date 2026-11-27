@@ -12,10 +12,13 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionFiltersApi apiInstance = new RumRetentionFiltersApi(defaultClient);
 
+    // there is a valid "rum_application" in the system
+    String RUM_APPLICATION_DATA_ID = System.getenv("RUM_APPLICATION_DATA_ID");
+
     try {
       RumPermanentRetentionFilterResponse result =
           apiInstance.getPermanentRetentionFilter(
-              "app_id", RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS);
+              RUM_APPLICATION_DATA_ID, RumPermanentRetentionFilterID.SYNTHETICS_SESSIONS);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
