@@ -8,12 +8,14 @@ import com.datadog.api.client.v2.model.RumArchiveConfigType;
 import com.datadog.api.client.v2.model.RumArchiveConfigUpsertAttributes;
 import com.datadog.api.client.v2.model.RumArchiveConfigUpsertData;
 import com.datadog.api.client.v2.model.RumArchiveConfigUpsertRequest;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumManagedArchivesApi apiInstance = new RumManagedArchivesApi(defaultClient);
+
+    // there is a valid "rum_application" in the system
+    String RUM_APPLICATION_DATA_ID = System.getenv("RUM_APPLICATION_DATA_ID");
 
     RumArchiveConfigUpsertRequest body =
         new RumArchiveConfigUpsertRequest()
@@ -21,13 +23,12 @@ public class Example {
                 new RumArchiveConfigUpsertData()
                     .attributes(
                         new RumArchiveConfigUpsertAttributes().enabled(true).retentionDays(90))
-                    .id("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690")
+                    .id(RUM_APPLICATION_DATA_ID)
                     .type(RumArchiveConfigType.RUM_ARCHIVE_CONFIG));
 
     try {
       RumArchiveConfigResponse result =
-          apiInstance.updateRUMArchiveConfig(
-              UUID.fromString("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690"), body);
+          apiInstance.updateRUMArchiveConfig(RUM_APPLICATION_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumManagedArchivesApi#updateRUMArchiveConfig");

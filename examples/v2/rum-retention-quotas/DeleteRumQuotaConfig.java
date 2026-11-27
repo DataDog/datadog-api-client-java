@@ -11,9 +11,12 @@ public class Example {
     defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
     RumRetentionQuotasApi apiInstance = new RumRetentionQuotasApi(defaultClient);
 
+    // there is a valid "rum_application" in the system
+    String RUM_APPLICATION_DATA_ID = System.getenv("RUM_APPLICATION_DATA_ID");
+
     try {
       apiInstance.deleteRumQuotaConfig(
-          RumRetentionQuotaScopeType.APPLICATION, "cd73a516-a481-4af5-8352-9b577465c77b");
+          RumRetentionQuotaScopeType.APPLICATION, RUM_APPLICATION_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumRetentionQuotasApi#deleteRumQuotaConfig");
       System.err.println("Status code: " + e.getCode());

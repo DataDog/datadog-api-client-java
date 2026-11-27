@@ -3,15 +3,17 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumManagedArchivesApi;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumManagedArchivesApi apiInstance = new RumManagedArchivesApi(defaultClient);
 
+    // there is a valid "rum_application" in the system
+    String RUM_APPLICATION_DATA_ID = System.getenv("RUM_APPLICATION_DATA_ID");
+
     try {
-      apiInstance.deleteRUMArchiveConfig(UUID.fromString("a33671aa-24fd-4dcd-ba4b-5bbdbafe7690"));
+      apiInstance.deleteRUMArchiveConfig(RUM_APPLICATION_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumManagedArchivesApi#deleteRUMArchiveConfig");
       System.err.println("Status code: " + e.getCode());
