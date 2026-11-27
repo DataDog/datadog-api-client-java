@@ -3,11 +3,14 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.RUMOperationCreateRequest;
 import com.datadog.api.client.v2.model.RUMOperationResponse;
+import com.datadog.api.client.v2.model.RUMOperationResponseData;
 import com.datadog.api.client.v2.model.RUMOperationStrongLinkCreateRequest;
 import com.datadog.api.client.v2.model.RUMOperationStrongLinkResponse;
+import com.datadog.api.client.v2.model.RUMOperationStrongLinkResponseData;
 import com.datadog.api.client.v2.model.RUMOperationStrongLinkUpdateRequest;
 import com.datadog.api.client.v2.model.RUMOperationStrongLinksListResponse;
 import com.datadog.api.client.v2.model.RUMOperationUpdateRequest;
@@ -16,6 +19,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -1051,6 +1055,60 @@ public class RumOperationsApi {
   }
 
   /**
+   * Search RUM operations.
+   *
+   * <p>See {@link #listRUMOperationsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;RUMOperationResponseData&gt;
+   */
+  public PaginationIterable<RUMOperationResponseData> listRUMOperationsWithPagination() {
+    ListRUMOperationsOptionalParameters parameters = new ListRUMOperationsOptionalParameters();
+    return listRUMOperationsWithPagination(parameters);
+  }
+
+  /**
+   * Search RUM operations.
+   *
+   * <p>See {@link #listRUMOperationsWithHttpInfo}.
+   *
+   * @return RUMOperationsListResponse
+   */
+  public PaginationIterable<RUMOperationResponseData> listRUMOperationsWithPagination(
+      ListRUMOperationsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 50l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listRUMOperations",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
    * Search RUM operations for your organization. Supports filtering by query, creator, team,
    * journey, and application.
    *
@@ -1280,6 +1338,63 @@ public class RumOperationsApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * List RUM operation links.
+   *
+   * <p>See {@link #listRUMOperationStrongLinksWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;RUMOperationStrongLinkResponseData&gt;
+   */
+  public PaginationIterable<RUMOperationStrongLinkResponseData>
+      listRUMOperationStrongLinksWithPagination() {
+    ListRUMOperationStrongLinksOptionalParameters parameters =
+        new ListRUMOperationStrongLinksOptionalParameters();
+    return listRUMOperationStrongLinksWithPagination(parameters);
+  }
+
+  /**
+   * List RUM operation links.
+   *
+   * <p>See {@link #listRUMOperationStrongLinksWithHttpInfo}.
+   *
+   * @return RUMOperationStrongLinksListResponse
+   */
+  public PaginationIterable<RUMOperationStrongLinkResponseData>
+      listRUMOperationStrongLinksWithPagination(
+          ListRUMOperationStrongLinksOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 50l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listRUMOperationStrongLinks",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
   }
 
   /**

@@ -1,0 +1,27 @@
+// Search RUM operations returns "OK" response with pagination
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
+import com.datadog.api.client.v2.api.RumOperationsApi;
+import com.datadog.api.client.v2.model.RUMOperationResponseData;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setAccessToken(System.getenv("DD_BEARER_TOKEN"));
+    RumOperationsApi apiInstance = new RumOperationsApi(defaultClient);
+
+    try {
+      PaginationIterable<RUMOperationResponseData> iterable =
+          apiInstance.listRUMOperationsWithPagination();
+
+      for (RUMOperationResponseData item : iterable) {
+        System.out.println(item);
+      }
+    } catch (RuntimeException e) {
+      System.err.println("Exception when calling RumOperationsApi#listRUMOperationsWithPagination");
+      System.err.println("Reason: " + e.getMessage());
+      e.printStackTrace();
+    }
+  }
+}

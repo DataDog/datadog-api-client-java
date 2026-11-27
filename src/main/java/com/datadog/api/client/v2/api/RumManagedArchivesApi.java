@@ -3,7 +3,9 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.RumArchiveConfig;
 import com.datadog.api.client.v2.model.RumArchiveConfigListResponse;
 import com.datadog.api.client.v2.model.RumArchiveConfigResponse;
 import com.datadog.api.client.v2.model.RumArchiveConfigUpsertRequest;
@@ -11,6 +13,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -404,6 +407,62 @@ public class RumManagedArchivesApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * List archive configurations.
+   *
+   * <p>See {@link #listRUMArchiveConfigsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;RumArchiveConfig&gt;
+   */
+  public PaginationIterable<RumArchiveConfig> listRUMArchiveConfigsWithPagination() {
+    ListRUMArchiveConfigsOptionalParameters parameters =
+        new ListRUMArchiveConfigsOptionalParameters();
+    return listRUMArchiveConfigsWithPagination(parameters);
+  }
+
+  /**
+   * List archive configurations.
+   *
+   * <p>See {@link #listRUMArchiveConfigsWithHttpInfo}.
+   *
+   * @return RumArchiveConfigListResponse
+   */
+  public PaginationIterable<RumArchiveConfig> listRUMArchiveConfigsWithPagination(
+      ListRUMArchiveConfigsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0);
+    Integer limit;
+
+    if (parameters.pageSize == null) {
+      limit = 20;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listRUMArchiveConfigs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
   }
 
   /**
