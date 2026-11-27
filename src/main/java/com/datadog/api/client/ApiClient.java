@@ -1722,11 +1722,6 @@ public class ApiClient {
           put("v2.updateRumSdkConfig", false);
           put("v2.createReportSchedule", false);
           put("v2.patchReportSchedule", false);
-          put("v2.deleteSourcemaps", false);
-          put("v2.getServiceRepositoryInfo", false);
-          put("v2.getSourcemaps", false);
-          put("v2.listSourcemaps", false);
-          put("v2.restoreSourcemaps", false);
           put("v2.createRumConfig", false);
           put("v2.getRumConfig", false);
           put("v2.updateRumConfig", false);
