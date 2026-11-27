@@ -44,7 +44,7 @@ public class SensitiveDataScannerGroupTarget {
 
   /**
    * Type of target whose scanning groups are served by the target-scoped group routes. <code>
-   * llm_observability</code> is Agent Observability.
+   * llm_observability</code> is Agent Observability, <code>ai_guard</code> is AI Guard.
    *
    * @return type
    */

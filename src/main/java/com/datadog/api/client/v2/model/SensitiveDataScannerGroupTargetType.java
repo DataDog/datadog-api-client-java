@@ -20,17 +20,19 @@ import java.util.Set;
 
 /**
  * Type of target whose scanning groups are served by the target-scoped group routes. <code>
- * llm_observability</code> is Agent Observability.
+ * llm_observability</code> is Agent Observability, <code>ai_guard</code> is AI Guard.
  */
 @JsonSerialize(
     using = SensitiveDataScannerGroupTargetType.SensitiveDataScannerGroupTargetTypeSerializer.class)
 public class SensitiveDataScannerGroupTargetType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("llm_observability"));
+      new HashSet<String>(Arrays.asList("llm_observability", "ai_guard"));
 
   public static final SensitiveDataScannerGroupTargetType LLM_OBSERVABILITY =
       new SensitiveDataScannerGroupTargetType("llm_observability");
+  public static final SensitiveDataScannerGroupTargetType AI_GUARD =
+      new SensitiveDataScannerGroupTargetType("ai_guard");
 
   SensitiveDataScannerGroupTargetType(String value) {
     super(value, allowedValues);

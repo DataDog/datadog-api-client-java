@@ -1,4 +1,4 @@
-// Get Agent Observability Scanning Group returns "OK" response
+// Get Target Scanning Group returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
