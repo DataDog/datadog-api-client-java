@@ -236,7 +236,6 @@ public class RumTeamsOwnershipApi {
    *       <tr><td> 400 </td><td> Bad Request. One or more operations failed validation, so none of the operations were applied. Errors are returned in the JSON:API atomic operations error format rather than the standard error response. </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found. One or more mappings requested for removal do not exist. </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict. One or more mappings requested for creation already exist. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */

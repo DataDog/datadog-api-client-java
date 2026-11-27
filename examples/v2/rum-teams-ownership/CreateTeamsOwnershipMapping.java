@@ -9,7 +9,6 @@ import com.datadog.api.client.v2.model.TeamsOwnershipMappingCreateRequest;
 import com.datadog.api.client.v2.model.TeamsOwnershipMappingResponse;
 import com.datadog.api.client.v2.model.TeamsOwnershipMappingType;
 import com.datadog.api.client.v2.model.TeamsOwnershipMatchType;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,14 +20,13 @@ public class Example {
         new TeamsOwnershipMappingCreateRequest()
             .data(
                 new TeamsOwnershipMappingCreateData()
+                    .type(TeamsOwnershipMappingType.TEAMS_OWNERSHIP_MAPPINGS)
                     .attributes(
                         new TeamsOwnershipMappingCreateDataAttributes()
-                            .applicationId(UUID.fromString("11111111-2222-3333-4444-555555555555"))
-                            .matchType(TeamsOwnershipMatchType.EXACT)
-                            .service("web-checkout")
                             .teamHandle("team-rum")
-                            .viewName("/checkout"))
-                    .type(TeamsOwnershipMappingType.TEAMS_OWNERSHIP_MAPPINGS));
+                            .viewName("/checkout-examplerumteamsownership")
+                            .service("web-checkout-examplerumteamsownership")
+                            .matchType(TeamsOwnershipMatchType.EXACT)));
 
     try {
       TeamsOwnershipMappingResponse result = apiInstance.createTeamsOwnershipMapping(body);
