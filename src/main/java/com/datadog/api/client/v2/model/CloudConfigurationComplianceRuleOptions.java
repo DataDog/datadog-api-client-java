@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,6 +24,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_COMPLEX_RULE,
+  CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_COMPLIANCE_FRAMEWORKS,
   CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_REGO_RULE,
   CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_RESOURCE_TYPE
 })
@@ -31,6 +34,9 @@ public class CloudConfigurationComplianceRuleOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPLEX_RULE = "complexRule";
   private Boolean complexRule;
+
+  public static final String JSON_PROPERTY_COMPLIANCE_FRAMEWORKS = "complianceFrameworks";
+  private List<CloudConfigurationComplianceFramework> complianceFrameworks = null;
 
   public static final String JSON_PROPERTY_REGO_RULE = "regoRule";
   private CloudConfigurationRegoRule regoRule;
@@ -58,6 +64,49 @@ public class CloudConfigurationComplianceRuleOptions {
 
   public void setComplexRule(Boolean complexRule) {
     this.complexRule = complexRule;
+  }
+
+  public CloudConfigurationComplianceRuleOptions complianceFrameworks(
+      List<CloudConfigurationComplianceFramework> complianceFrameworks) {
+    this.complianceFrameworks = complianceFrameworks;
+    if (complianceFrameworks != null) {
+      for (CloudConfigurationComplianceFramework item : complianceFrameworks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public CloudConfigurationComplianceRuleOptions addComplianceFrameworksItem(
+      CloudConfigurationComplianceFramework complianceFrameworksItem) {
+    if (this.complianceFrameworks == null) {
+      this.complianceFrameworks = new ArrayList<>();
+    }
+    this.complianceFrameworks.add(complianceFrameworksItem);
+    this.unparsed |= complianceFrameworksItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Compliance framework requirements the rule maps to.
+   *
+   * @return complianceFrameworks
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_FRAMEWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CloudConfigurationComplianceFramework> getComplianceFrameworks() {
+    return complianceFrameworks;
+  }
+
+  public void setComplianceFrameworks(
+      List<CloudConfigurationComplianceFramework> complianceFrameworks) {
+    this.complianceFrameworks = complianceFrameworks;
+    if (complianceFrameworks != null) {
+      for (CloudConfigurationComplianceFramework item : complianceFrameworks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CloudConfigurationComplianceRuleOptions regoRule(CloudConfigurationRegoRule regoRule) {
@@ -165,6 +214,8 @@ public class CloudConfigurationComplianceRuleOptions {
     CloudConfigurationComplianceRuleOptions cloudConfigurationComplianceRuleOptions =
         (CloudConfigurationComplianceRuleOptions) o;
     return Objects.equals(this.complexRule, cloudConfigurationComplianceRuleOptions.complexRule)
+        && Objects.equals(
+            this.complianceFrameworks, cloudConfigurationComplianceRuleOptions.complianceFrameworks)
         && Objects.equals(this.regoRule, cloudConfigurationComplianceRuleOptions.regoRule)
         && Objects.equals(this.resourceType, cloudConfigurationComplianceRuleOptions.resourceType)
         && Objects.equals(
@@ -174,7 +225,8 @@ public class CloudConfigurationComplianceRuleOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(complexRule, regoRule, resourceType, additionalProperties);
+    return Objects.hash(
+        complexRule, complianceFrameworks, regoRule, resourceType, additionalProperties);
   }
 
   @Override
@@ -182,6 +234,9 @@ public class CloudConfigurationComplianceRuleOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudConfigurationComplianceRuleOptions {\n");
     sb.append("    complexRule: ").append(toIndentedString(complexRule)).append("\n");
+    sb.append("    complianceFrameworks: ")
+        .append(toIndentedString(complianceFrameworks))
+        .append("\n");
     sb.append("    regoRule: ").append(toIndentedString(regoRule)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    additionalProperties: ")
