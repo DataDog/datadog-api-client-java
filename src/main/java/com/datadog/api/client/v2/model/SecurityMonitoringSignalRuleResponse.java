@@ -26,6 +26,7 @@ import java.util.Objects;
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CUSTOM_MESSAGE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CUSTOM_NAME,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_DEFAULT_TAGS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_DEPRECATION_DATE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_FILTERS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
@@ -40,6 +41,7 @@ import java.util.Objects;
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_TAGS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_TYPE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_UPDATED_AT,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -63,6 +65,9 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public static final String JSON_PROPERTY_CUSTOM_NAME = "customName";
   private String customName;
+
+  public static final String JSON_PROPERTY_DEFAULT_TAGS = "defaultTags";
+  private List<String> defaultTags = null;
 
   public static final String JSON_PROPERTY_DEPRECATION_DATE = "deprecationDate";
   private Long deprecationDate;
@@ -105,6 +110,9 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public static final String JSON_PROPERTY_UPDATE_AUTHOR_ID = "updateAuthorId";
   private Long updateAuthorId;
+
+  public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
+  private Long updatedAt;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
@@ -253,6 +261,35 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setCustomName(String customName) {
     this.customName = customName;
+  }
+
+  public SecurityMonitoringSignalRuleResponse defaultTags(List<String> defaultTags) {
+    this.defaultTags = defaultTags;
+    return this;
+  }
+
+  public SecurityMonitoringSignalRuleResponse addDefaultTagsItem(String defaultTagsItem) {
+    if (this.defaultTags == null) {
+      this.defaultTags = new ArrayList<>();
+    }
+    this.defaultTags.add(defaultTagsItem);
+    return this;
+  }
+
+  /**
+   * Default Tags for default rules (included in tags)
+   *
+   * @return defaultTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDefaultTags() {
+    return defaultTags;
+  }
+
+  public void setDefaultTags(List<String> defaultTags) {
+    this.defaultTags = defaultTags;
   }
 
   public SecurityMonitoringSignalRuleResponse deprecationDate(Long deprecationDate) {
@@ -606,6 +643,27 @@ public class SecurityMonitoringSignalRuleResponse {
     this.updateAuthorId = updateAuthorId;
   }
 
+  public SecurityMonitoringSignalRuleResponse updatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * The date the rule was last updated, in milliseconds.
+   *
+   * @return updatedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
   public SecurityMonitoringSignalRuleResponse version(Long version) {
     this.version = version;
     return this;
@@ -692,6 +750,7 @@ public class SecurityMonitoringSignalRuleResponse {
             this.creationAuthorId, securityMonitoringSignalRuleResponse.creationAuthorId)
         && Objects.equals(this.customMessage, securityMonitoringSignalRuleResponse.customMessage)
         && Objects.equals(this.customName, securityMonitoringSignalRuleResponse.customName)
+        && Objects.equals(this.defaultTags, securityMonitoringSignalRuleResponse.defaultTags)
         && Objects.equals(
             this.deprecationDate, securityMonitoringSignalRuleResponse.deprecationDate)
         && Objects.equals(this.filters, securityMonitoringSignalRuleResponse.filters)
@@ -708,6 +767,7 @@ public class SecurityMonitoringSignalRuleResponse {
         && Objects.equals(this.tags, securityMonitoringSignalRuleResponse.tags)
         && Objects.equals(this.type, securityMonitoringSignalRuleResponse.type)
         && Objects.equals(this.updateAuthorId, securityMonitoringSignalRuleResponse.updateAuthorId)
+        && Objects.equals(this.updatedAt, securityMonitoringSignalRuleResponse.updatedAt)
         && Objects.equals(this.version, securityMonitoringSignalRuleResponse.version)
         && Objects.equals(
             this.additionalProperties, securityMonitoringSignalRuleResponse.additionalProperties);
@@ -722,6 +782,7 @@ public class SecurityMonitoringSignalRuleResponse {
         creationAuthorId,
         customMessage,
         customName,
+        defaultTags,
         deprecationDate,
         filters,
         hasExtendedTitle,
@@ -736,6 +797,7 @@ public class SecurityMonitoringSignalRuleResponse {
         tags,
         type,
         updateAuthorId,
+        updatedAt,
         version,
         additionalProperties);
   }
@@ -750,6 +812,7 @@ public class SecurityMonitoringSignalRuleResponse {
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
     sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
     sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
+    sb.append("    defaultTags: ").append(toIndentedString(defaultTags)).append("\n");
     sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
@@ -764,6 +827,7 @@ public class SecurityMonitoringSignalRuleResponse {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
